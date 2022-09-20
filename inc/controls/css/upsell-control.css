@@ -1,0 +1,35 @@
+.ae-upsell-section h3 {
+	position: relative;
+    margin: 0;
+}
+
+.ae-upsell-section a {
+    display: block;
+    padding: 10px 10px 11px 14px;
+    line-height: 1.55;
+    background-color: #67707e;
+    color: #fff;
+    text-decoration: none;
+}
+
+.ae-upsell-section a:hover {
+	background-color: #707a89;
+}
+
+.ae-upsell-section h3 a:after {
+    content: '\f345';
+    color: #fff;
+    position: absolute;
+    top: calc(50% - 10px);
+    right: 10px;
+    z-index: 1;
+    float: right;
+    font: normal 20px/1 dashicons;
+    speak: never;
+    display: block;
+    padding: 0;
+    text-indent: 0;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
