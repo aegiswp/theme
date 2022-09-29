@@ -1,0 +1,19 @@
+.aeon-metabox-content > div {
+	padding: 12px;
+}
+
+#aeon-metabox-container .aeon-metabox-section-title {
+	display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+#aeon-metabox-container select {
+	width: 100%;
+    box-sizing: border-box;
+}
+
+#aeon-metabox-container .aeon_disable_elements label {
+    display: block;
+    margin-bottom: 3px;
+}
