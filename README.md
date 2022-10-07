@@ -131,3 +131,12 @@ Where the documentation mentions running `wp`, run `npm run env:cli` instead. Fo
 ```
 npm run env:cli help
 ```
+
+#### How to run the tests
+
+These commands run the PHP and end-to-end test suites, respectively:
+
+```
+npm run test:php
+npm run test:e2e
+```
