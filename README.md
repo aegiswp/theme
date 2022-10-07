@@ -250,3 +250,8 @@ Fortunately, Séance has a [public roadmap](https://trello.com/c/QEw6yBCP/18-int
 The thumbnail on this README.md file:
 
 ["AEON"](https://www.midjourney.com/) generated on Midjourney by Atmostfear Entertaiment, CCO
+
+
+## Suggestions?
+
+If you would wish to propose any improvements to this repository, please feel free to open an [issue](https://github.com/atmostfear-entertainment/aeon/issues) or [pull request](https://github.com/atmostfear-entertainment/aeon/pulls).
