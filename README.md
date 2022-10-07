@@ -105,3 +105,14 @@ npm run env:install
 ```
 
 Your WordPress site will accessible at http://localhost:8889. You can see or change configurations in the `.env` file located at the root of the project directory.
+
+
+#### To watch for changes
+
+If you are making changes to Aeon core files, you should start the file watcher in order to build or copy the files as necessary:
+
+```
+npm run dev
+```
+
+To stop the file watcher, please press `ctrl+c`.
