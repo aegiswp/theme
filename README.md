@@ -9,7 +9,7 @@ Welcome to the Aeon development repository.
 
 - [Introduction](#introduction)
 - [Description](#description)
-- [Getting Started with Séance](#getting-started-with-seance)
+- [Getting Started with Aeon](#getting-started-with-aeon)
 - [Requirements](#requirements)
 - [Deploying WordPress Locally](#deploying-wordpress-locally)
 - [Development Environment Commands](#development-environment-commands)
