@@ -55,8 +55,10 @@ Just in case you find the method to install WordPress locally too overwhelming, 
 - PHP 7.4+
 - License: [GPLv2](https://www.gnu.org/licenses/gpl-2.0.html) or later.
 
+
 > **Warning**
 > Please note that the documentation below is based partially on the upcoming Aeon's [Full Site Editing](https://developer.wordpress.org/block-editor/getting-started/full-site-editing/) features.
+
 
 Some Aeon features and/or [pull requests](https://github.com/atmostfear-entertainment/aeon/pulls) may require the [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/) trunk and will be described or tagged accordingly.
 
