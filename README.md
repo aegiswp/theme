@@ -116,3 +116,18 @@ npm run dev
 ```
 
 To stop the file watcher, please press `ctrl+c`.
+
+
+#### To run a [WP-CLI](https://make.wordpress.org/cli/handbook/) command
+
+```
+npm run env:cli <command>
+```
+
+WP-CLI has a plenty of [useful commands](https://developer.wordpress.org/cli/commands/) you can use to work on your Aeon site.
+
+Where the documentation mentions running `wp`, run `npm run env:cli` instead. For example:
+
+```
+npm run env:cli help
+```
