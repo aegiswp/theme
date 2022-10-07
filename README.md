@@ -238,3 +238,15 @@ Here are some resources that may be helpful to context for learning more about d
 ## Demos
 
 Unfortunately, at the moment, we do not have any demos setup yet. Even so, we will be toiling on quite a few uniquely crafted demos without following what typically is offered within the ecosystem.
+
+
+## Roadmap
+
+Fortunately, Séance has a [public roadmap](https://trello.com/c/QEw6yBCP/18-introducting-seance) that can be accessed to observe both its development and progress.
+
+
+## Credits
+
+The thumbnail on this README.md file:
+
+["AEON"](https://www.midjourney.com/) generated on Midjourney by Atmostfear Entertaiment, CCO
