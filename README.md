@@ -140,3 +140,13 @@ These commands run the PHP and end-to-end test suites, respectively:
 npm run test:php
 npm run test:e2e
 ```
+
+#### How to restart the development environment
+
+You may want to restart the environment if you have made changes to the configuration in the `docker-compose.yml` or `.env` files.
+
+You can restart the environment with:
+
+```
+npm run env:restart
+```
