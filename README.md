@@ -221,3 +221,15 @@ If you wish to experiment with custom code, we will encourage you to install and
 | --- | --- |
 | [Aeon Child Theme](https://github.com/atmostfear-entertainment/aeon-child) | Official Aeon Child Theme |
 | [Aeon Code Snippets](https://github.com/atmostfear-entertainment/aeon-snippets) | Official Aeon Code Snippets |
+
+
+## Resources
+
+Here are some resources that may be helpful to context for learning more about developing block-based themes:
+
+- [Create a Block Theme (tutorial)](https://developer.wordpress.org/block-editor/how-to-guides/themes/create-block-theme/)
+- [Full site editing development in the Gutenberg Repository](https://github.com/WordPress/gutenberg/labels/%5BFeature%5D%20Full%20Site%20Editing)
+- [Block-based Theme Documentation](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/)
+- [Global Styles and theme.json Documentation](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/)
+- [Global Styles development in the Gutenberg Repository](https://github.com/WordPress/gutenberg/issues?q=is%3Aissue+is%3Aopen+label%3A%22Global+Styles%22)
+- [theme.json Documentation](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/)
