@@ -209,3 +209,15 @@ Aeon aims to load fewer assets as much as possible. With a very performant appro
 We strongly advise refraining from building any custom-built PHP or JavaScript-based workarounds for functionality that either Aeon or the [Block Editor](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/) might provide. Aeon is the first of its kind, hybrid, minimalistic, lightweight, performant and aimed at individuals with color vision deficiency. So please, let us keep its code as simple as possible.
 
 According to those last two points, Aeon has no unnecessary build process.
+
+If you have [contributed](CONTRIBUTORS.md) to Aeon, due credit will be given. we will be updating [CONTRIBUTORS.md](CONTRIBUTORS.md) periodically with the names of contributors; however, feel free to open a [pull request](https://github.com/atmostfear-entertainment/aeon/pulls) or [issue](https://github.com/atmostfear-entertainment/aeon/issues) if we somehow omitted someone.
+
+
+## Experimenting
+
+If you wish to experiment with custom code, we will encourage you to install and use the Aeon Child for further custom customisation, or further extend it with code snippets.
+
+| Repository | Description |
+| --- | --- |
+| [Aeon Child Theme](https://github.com/atmostfear-entertainment/aeon-child) | Official Aeon Child Theme |
+| [Aeon Code Snippets](https://github.com/atmostfear-entertainment/aeon-snippets) | Official Aeon Code Snippets |
