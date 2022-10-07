@@ -29,9 +29,13 @@ Welcome to the Aeon development repository.
 - [Credits](#credits)
 - [Suggestions?](#suggestions)
 
+
 ## Introduction
+
+
 ## Description
 
+Aeon is a hybrid theme that provides a reliable, performant foundation by seamlessly combining React and Vanilla JS with Flexbox Grid as part of its core. 
 
 ### Getting Started with Aeon
 
