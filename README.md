@@ -242,14 +242,14 @@ Unfortunately, at the moment, we do not have any demos setup yet. Even so, we wi
 
 ## Roadmap
 
-Fortunately, Séance has a [public roadmap](https://trello.com/c/QEw6yBCP/18-introducting-seance) that can be accessed to observe both its development and progress.
+Fortunately, Séance has a [public roadmap](https://trello.com/b/x75Zqk7W/roadmap) that can be accessed to observe both its development and progress.
 
 
 ## Credits
 
 The thumbnail on this README.md file:
 
-["AEON"](https://www.midjourney.com/) generated on Midjourney by Atmostfear Entertaiment, CCO
+["AEON"](https://www.midjourney.com/) generated on Midjourney by Atmostfear Entertaiment SAS, CCO
 
 
 ## Suggestions?
