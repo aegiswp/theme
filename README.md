@@ -233,3 +233,8 @@ Here are some resources that may be helpful to context for learning more about d
 - [Global Styles and theme.json Documentation](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/)
 - [Global Styles development in the Gutenberg Repository](https://github.com/WordPress/gutenberg/issues?q=is%3Aissue+is%3Aopen+label%3A%22Global+Styles%22)
 - [theme.json Documentation](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/)
+
+
+## Demos
+
+Unfortunately, at the moment, we do not have any demos setup yet. Even so, we will be toiling on quite a few uniquely crafted demos without following what typically is offered within the ecosystem.
