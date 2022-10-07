@@ -64,3 +64,19 @@ The following test commands are then available:
 - `composer run lint` checks PHP for syntax errors
 - `composer run standards:check` checks PHP for standards errors according to [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/)
 - `composer run standards:fix` attempts to automatically fix errors
+
+### Deploying WordPress Locally
+
+Just in case you prefer to install WordPress from the ground up:
+
+You will need a basic understanding of how to use the command line on your computer. This will allow you to set up the local development environment, start it and stop it when necessary, and run the tests.
+
+You will need Node and npm installed on your computer. Node is a JavaScript runtime used for developer tooling, and npm is the package manager included with Node. If you have a package manager installed for your operating system, setup can be as straightforward as:
+
+* macOS: `brew install node`
+* Windows: `choco install nodejs`
+* Ubuntu: `apt install nodejs npm`
+
+If you are not using a package manager, please check the [Node.js download page](https://nodejs.org/en/download/) for installers and binaries.
+
+You will also need [Docker](https://www.docker.com/products/docker-desktop) installed and running on your computer. Docker is the virtualization software that powers the local development environment. Docker can be installed just like any other regular application.
