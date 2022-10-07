@@ -200,3 +200,8 @@ Before contributing, please read the contributors' [Code of Conduct](https://git
 If after reading you still wish to contribute with code, the list of [open issues](https://github.com/atmostfear-entertainment/aeon/issues) is a superb place to start scrutinising for tasks. However, [pull requests](https://github.com/atmostfear-entertainment/aeon/pulls) are preferred when linked to an existing issue.
 
 Be advised that contributing is not just for developers. We welcome anyone willing to contribute with code, [testing](#getting-started), triage, discussion, designing while building patterns and templates, making Aeon more accessible, etcetera. So please, feel free to look through [open issues](https://github.com/atmostfear-entertainment/aeon/issues), and join wherever you feel most comfortable.
+
+
+## Development
+  
+- Aeon aims to load fewer assets as much as possible. With a very performant approach, it relies on the [Block Editor](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/) and [Global Styles](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/) provide you with the grand part of the visuals, and will progressively move toward a more Full Site Editing experience.
