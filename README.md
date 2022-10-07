@@ -251,7 +251,7 @@ Unfortunately, at the moment, we do not have any demos setup yet. Even so, we wi
 
 ## Roadmap
 
-Fortunately, Séance has a [public roadmap](https://trello.com/b/x75Zqk7W/roadmap) that can be accessed to observe both its development and progress.
+Fortunately, Aeon has a [public roadmap](https://trello.com/b/x75Zqk7W/roadmap) that can be accessed to observe both its development and progress.
 
 
 ## Credits
