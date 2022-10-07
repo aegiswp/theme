@@ -4,6 +4,7 @@ Welcome to the Aeon development repository.
 
 ![Aeon](https://repository-images.githubusercontent.com/537639296/331524d2-317c-4f3c-ad1d-71525b7f9050)
 
+
 ##### Table of Contents
 
 - [Introduction](#introduction)
@@ -31,6 +32,7 @@ Welcome to the Aeon development repository.
 ## Introduction
 ## Description
 
+
 ### Getting Started with Aeon
 
 To get started with Aeon development:
@@ -40,6 +42,7 @@ To get started with Aeon development:
 3. Unzip, and upload this repository into your `/wp-content/themes/` directory.
 
 Just in case you find the method to install WordPress locally too overwhelming, then we would recommend experimenting with [wp-env](https://developer.wordpress.org/block-editor/getting-started/devenv/), [Local](https://localwp.com/) or [DevKinsta](https://kinsta.com/devkinsta/).
+
 
 #### Requirements
 
@@ -65,6 +68,7 @@ The following test commands are then available:
 - `composer run standards:check` checks PHP for standards errors according to [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/)
 - `composer run standards:fix` attempts to automatically fix errors
 
+
 ### Deploying WordPress Locally
 
 Just in case you prefer to install WordPress from the ground up:
@@ -80,3 +84,24 @@ You will need Node and npm installed on your computer. Node is a JavaScript runt
 If you are not using a package manager, please check the [Node.js download page](https://nodejs.org/en/download/) for installers and binaries.
 
 You will also need [Docker](https://www.docker.com/products/docker-desktop) installed and running on your computer. Docker is the virtualization software that powers the local development environment. Docker can be installed just like any other regular application.
+
+
+### Development Environment Commands
+
+Ensure [Docker](https://www.docker.com/products/docker-desktop) is running before using these commands.
+
+
+#### How to start the development environment for the first time
+
+Start by cloning the current repository using `git clone https://github.com/WordPress/wordpress-develop.git`.
+
+Then in your terminal move to the repository folder `cd wordpress-develop` and run the following commands:
+
+```
+npm install
+npm run build:dev
+npm run env:start
+npm run env:install
+```
+
+Your WordPress site will accessible at http://localhost:8889. You can see or change configurations in the `.env` file located at the root of the project directory.
