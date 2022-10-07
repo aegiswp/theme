@@ -161,3 +161,12 @@ You can stop the environment when you are not using it to preserve your computer
 ```
 npm run env:stop
 ```
+
+
+#### To start the development environment again
+
+Starting the environment again is a single command:
+
+```
+npm run env:start
+```
