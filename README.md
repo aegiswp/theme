@@ -132,6 +132,7 @@ Where the documentation mentions running `wp`, run `npm run env:cli` instead. Fo
 npm run env:cli help
 ```
 
+
 #### How to run the tests
 
 These commands run the PHP and end-to-end test suites, respectively:
@@ -141,6 +142,7 @@ npm run test:php
 npm run test:e2e
 ```
 
+
 #### How to restart the development environment
 
 You may want to restart the environment if you have made changes to the configuration in the `docker-compose.yml` or `.env` files.
@@ -149,4 +151,13 @@ You can restart the environment with:
 
 ```
 npm run env:restart
+```
+
+
+#### How to stop the development environment
+
+You can stop the environment when you are not using it to preserve your computer's power and resources:
+
+```
+npm run env:stop
 ```
