@@ -190,4 +190,13 @@ To generate a new password (recommended):
 1. Go to the Dashboard.
 2. Click the Users menu on the left.
 3. Click the Edit link below the admin user.
-4. Scroll down and click 'Generate password'. Either use this password (recommended) or change it, then click 'Update User'. If you use the generated password be sure to save it somewhere (password manager, etc).
+4. Scroll down and click 'Generate password'. Either use this password (recommended) or change it, then click 'Update User'. If you use the generated password be sure to save it somewhere (password manager, etcetera).
+
+
+## Contributing
+
+Before contributing, please read the contributors' [Code of Conduct](https://github.com/atmostfear-entertainment/aeon/blob/main/CODE_OF_CONDUCT.md) and [Contributing](https://github.com/atmostfear-entertainment/aeon/blob/main/CONTRIBUTING.md) for information about how to open bug reports, contribute patches, test changes, write documentation, or get involved in any way you can.
+
+If after reading you still wish to contribute with code, the list of [open issues](https://github.com/atmostfear-entertainment/aeon/issues) is a superb place to start scrutinising for tasks. However, [pull requests](https://github.com/atmostfear-entertainment/aeon/pulls) are preferred when linked to an existing issue.
+
+Be advised that contributing is not just for developers. We welcome anyone willing to contribute with code, [testing](#getting-started), triage, discussion, designing while building patterns and templates, making Aeon more accessible, etcetera. So please, feel free to look through [open issues](https://github.com/atmostfear-entertainment/aeon/issues), and join wherever you feel most comfortable.
