@@ -28,3 +28,13 @@ Welcome to the Aeon development repository.
 - [Credits](#credits)
 - [Suggestions?](#suggestions)
 
+## Introduction
+## Description
+
+### Getting Started with Aeon
+
+To get started with Aeon development:
+
+1. Set up a [WordPress](#deploying-wordpress-locally) instance.
+2. Download [Aeon]().
+3. Unzip, and upload this repository into your `/wp-content/themes/` directory.
