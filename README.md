@@ -59,7 +59,7 @@ Just in case you find the method to install WordPress locally too overwhelming, 
 
 #### Requirements
 
-- [Aeon](https://github.com/atmostfear-entertainment/aeon/tree/1.0.0-pre-alpha.1)
+- [Aeon](https://github.com/atmostfear-entertainment/aeon/releases/tag/alpha)
 - [WordPress 6.0+](https://wordpress.org/download/)
 - PHP 7.4+
 - License: [GPLv2](https://www.gnu.org/licenses/gpl-2.0.html) or later.
