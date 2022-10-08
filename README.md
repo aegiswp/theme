@@ -51,7 +51,7 @@ Built to be compatible with well-coded plugins and all major page builders, incl
 To get started with Aeon development:
 
 1. Set up a [WordPress](#deploying-wordpress-locally) instance.
-2. Download [Aeon]().
+2. Download [Aeon](https://github.com/atmostfear-entertainment/aeon/releases/tag/alpha).
 3. Unzip, and upload this repository into your `/wp-content/themes/` directory.
 
 Just in case you find the method to install WordPress locally too overwhelming, then we would recommend experimenting with [wp-env](https://developer.wordpress.org/block-editor/getting-started/devenv/), [Local](https://localwp.com/) or [DevKinsta](https://kinsta.com/devkinsta/).
