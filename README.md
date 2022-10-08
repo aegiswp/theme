@@ -41,6 +41,8 @@ Aeon is a hybrid theme that combines performance with a robust, lightweight Reac
 
 The best coding standards empower it, making it an ideal theme for building scalable sites, from personal blogs to professional portfolios and mid- to large-business websites.
 
+Multisite compatible and WooCommerce, SEO, and LMS ready, it has been carefully crafted to uphold performance, accessibility, and usability in mind.
+
 
 ### Getting Started with Aeon
 
