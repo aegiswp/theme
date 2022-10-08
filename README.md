@@ -43,6 +43,8 @@ The best coding standards empower it, making it an ideal theme for building scal
 
 Multisite compatible and WooCommerce, SEO, and LMS ready, it has been carefully crafted to uphold performance, accessibility, and usability in mind.
 
+Built to be compatible with well-coded plugins and all major page builders, including Elementor, Beaver Builder, Visual Composer, and Brizy, and most importantly, made to last an eternity.
+
 
 ### Getting Started with Aeon
 
