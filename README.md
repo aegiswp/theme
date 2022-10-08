@@ -37,6 +37,7 @@ Aeon is a hybrid theme that provides a reliable, performant foundation by seamle
 
 ## Description
 
+Aeon is a hybrid theme that combines performance with a robust, lightweight React and Vanilla JS foundation. On the other hand, Flexbox turns it into a fully responsive, flexible, and easy-to-extend theme that pursues to deliver quality over quantity.
 
 
 ### Getting Started with Aeon
