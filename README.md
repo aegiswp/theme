@@ -19,6 +19,7 @@ Welcome to the Aeon development repository.
 - [How to run the tests](#how-to-run-the-tests)
 - [To restart the development environment](#how-to-restart-the-development-environment)
 - [How to stop the development environment](#how-to-stop-the-development-environment)
+- [How to start the development environment again](#how-to-start-the-development-environment-again)
 - [Credentials](#credentials)
 - [Contributing](#contributing)
 - [Development](#development)
@@ -181,7 +182,7 @@ npm run env:stop
 ```
 
 
-#### To start the development environment again
+#### How to start the development environment again
 
 Starting the environment again is a single command:
 
@@ -255,12 +256,12 @@ Here are some resources that may be helpful to context for learning more about d
 
 ## Demos
 
-Unfortunately, at the moment, we do not have any demos setup yet. Even so, we will be toiling on quite a few uniquely crafted demos without following what typically is offered within the ecosystem.
+Unfortunately, at the moment, we do not have any demos yet. Even so, we will be toiling on quite a few uniquely crafted demos without following what typically is offered within the ecosystem.
 
 
 ## Roadmap
 
-Fortunately, Aeon has a [public roadmap](https://trello.com/b/x75Zqk7W/roadmap) that can be accessed to observe both its development and progress.
+Fortunately, Aeon has a [public roadmap](https://trello.com/b/x75Zqk7W/aeon-theme-roadmap) that can be accessed to observe both its development and progress.
 
 
 ## Credits
