@@ -7,4 +7,3 @@
 | [@seamuskean](https://github.com/SeamusKean) | [@seamus](https://profiles.wordpress.org/seamus/) |
 | [@fusiuneer](https://github.com/fusiuneer) | [@crowvision](https://profiles.wordpress.org/crowvision/) |
 | [@mpmoreno](https://github.com/mpmoreno) | [@mdpmoreno](https://profiles.wordpress.org/mdpmoreno/) |
-| [@Ssalazare](https://github.com/ssalazare) | [@salazar23](https://profiles.wordpress.org/salazar23/) |
