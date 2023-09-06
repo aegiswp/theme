@@ -1,26 +1,18 @@
 /*
-Theme Name: Aeon
-Theme URI: https://www.atmostfear-entertainment.com
+Theme Name: Aegis
+Theme URI: https://github.com/atmostfear-entertainment/aegis/
 Author: Atmostfear Entertainment
-Author URI: https://www.atmostfear-entertainment.com
-Description: Aeon is a hybrid theme that provides a reliable, performant foundation by seamlessly combining React and Vanilla JS with Flexbox Grid as part of its core. 
-Version: 1.0.0
-Requires at least: 5.2
-Tested up to: 6.0
+Author URI: https://www.atmostfear-entertainment.com/
+Description: Aegis is a fast and lightweight WordPress theme that is optimized for speed. It comes with an added animation library that adds a touch of elegance to your website without slowing it down.The theme also includes multiple custom built block editor blocks, giving you greater flexibility and control over your website design. Aegis is built on the new WordPress full site editing system, making it easy to customize and edit your website in real-time.This theme is perfect for those who want a fast and modern website without sacrificing design and functionality.
+Requires at least: 5.9
+Tested up to: 6.3
 Requires PHP: 5.6
+Version: 1.0.0-alpha.1
 License: GNU General Public License v2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: aeonwp
-Tags: blog, custom-background, custom-colors, custom-header, custom-menu, e-commerce, featured-images, news, post-formats, flexible-header, footer-widgets, full-width-template, left-sidebar, one-column, right-sidebar, rtl-language-support, editor-style, wide-blocks, sticky-post, theme-options, threaded-comments, translation-ready, two-columns
-AMP: true
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: aegis
+Tags:  accessibility-ready, blog, block-editor-patterns, block-editor-styles, block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, one-column, portfolio, rtl-language-support, sticky-post, style-variations, template-editing, threaded-comments, translation-ready, two-columns, wide-blocks
 
-Aeon, Copyright 2022 Atmostfear Entertainment SAS.
-Aeon is distributed under the terms of the GNU GPL
-
-All files, unless otherwise stated, are released under the GNU General Public
-License version 2.0 (https://www.gnu.org/licenses/gpl-2.0.html)
-
-Aeon is based on Underscores https://underscores.me/, (C) 2012-2022 Automattic, Inc.
-
-Actual CSS can be found in /assets/css/ folder.
+Aegis, (C) 2022-2003 Atmostfear Entertainment SAS
+Aegis is distributed under the terms of the GNU GPL.
 */
