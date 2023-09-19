@@ -2,7 +2,7 @@
 
 Welcome to the Aeon Theme development repository.
 
-![Aeon](https://repository-images.githubusercontent.com/537639296/331524d2-317c-4f3c-ad1d-71525b7f9050)
+![Aegis](https://github.com/atmostfear-entertainment/_aegis/assets/34287288/729bd496-53cb-4ac1-b370-105c43bc8cb4)
 
 
 ##### Table of Contents
