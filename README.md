@@ -1,6 +1,6 @@
-# Aeon
+# Aegis
 
-Welcome to the Aeon Theme development repository.
+Welcome to the Aegis Theme development repository.
 
 ![Aegis](https://github.com/atmostfear-entertainment/_aegis/assets/34287288/729bd496-53cb-4ac1-b370-105c43bc8cb4)
 
@@ -9,7 +9,7 @@ Welcome to the Aeon Theme development repository.
 
 - [Introduction](#introduction)
 - [Description](#description)
-- [Getting Started with Aeon](#getting-started-with-aeon)
+- [Getting Started with Aegis](#getting-started-with-aegis)
 - [Requirements](#requirements)
 - [Deploying WordPress Locally](#deploying-wordpress-locally)
 - [Development Environment Commands](#development-environment-commands)
@@ -33,12 +33,12 @@ Welcome to the Aeon Theme development repository.
 
 ## Introduction
 
-Aeon is a hybrid theme that provides a reliable, performant foundation by seamlessly combining React and Vanilla JS with Flexbox Grid as part of its core. 
+Aegis is a hybrid theme that provides a reliable, performant foundation by seamlessly combining React and Vanilla JS with Flexbox Grid as part of its core. 
 
 
 ## Description
 
-Aeon is a hybrid theme that combines performance with a robust, lightweight React and Vanilla JS foundation. On the other hand, Flexbox turns it into a fully responsive, flexible, and easy-to-extend theme that pursues to deliver quality over quantity.
+Aegis is a hybrid theme that combines performance with a robust, lightweight React and Vanilla JS foundation. On the other hand, Flexbox turns it into a fully responsive, flexible, and easy-to-extend theme that pursues to deliver quality over quantity.
 
 The best coding standards empower it, making it an ideal theme for building scalable sites, from personal blogs to professional portfolios and mid- to large-business websites.
 
@@ -47,12 +47,12 @@ Multisite compatible and WooCommerce, SEO, and LMS ready, it has been carefully 
 Built to be compatible with well-coded plugins and all major page builders, including Elementor, Beaver Builder, Visual Composer, and Brizy, and most importantly, made to last an eternity.
 
 
-### Getting Started with Aeon
+### Getting Started with Aegis
 
-To get started with Aeon development:
+To get started with Aegis development:
 
 1. Set up a [WordPress](#deploying-wordpress-locally) instance.
-2. Download [Aeon](https://github.com/atmostfear-entertainment/aeon/releases/tag/alpha).
+2. Download [Aegis](https://github.com/atmostfear-entertainment/aegis/releases/tag/alpha).
 3. Unzip, and upload this repository into your `/wp-content/themes/` directory.
 
 Just in case you find the method to install WordPress locally too overwhelming, then we would recommend experimenting with [wp-env](https://developer.wordpress.org/block-editor/getting-started/devenv/), [Local](https://localwp.com/) or [DevKinsta](https://kinsta.com/devkinsta/).
@@ -60,17 +60,17 @@ Just in case you find the method to install WordPress locally too overwhelming, 
 
 #### Requirements
 
-- [Aeon](https://github.com/atmostfear-entertainment/aeon/releases/tag/alpha)
+- [Aegis](https://github.com/atmostfear-entertainment/aegis/releases/tag/alpha)
 - [WordPress 6.0+](https://wordpress.org/download/)
 - PHP 7.4+
 - License: [GPLv2](https://www.gnu.org/licenses/gpl-2.0.html) or later.
 
 
 > **Warning**
-> Please note that the documentation below is based partially on the upcoming Aeon's [Full Site Editing](https://developer.wordpress.org/block-editor/getting-started/full-site-editing/) features.
+> Please note that the documentation below is based partially on the upcoming Aegis's [Full Site Editing](https://developer.wordpress.org/block-editor/getting-started/full-site-editing/) features.
 
 
-Some Aeon features and/or [pull requests](https://github.com/atmostfear-entertainment/aeon/pulls) may require the [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/) trunk and will be described or tagged accordingly.
+Some Aegis features and/or [pull requests](https://github.com/atmostfear-entertainment/aegis/pulls) may require the [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/) trunk and will be described or tagged accordingly.
 
 To optionally run tests locally, it will also be required:
 
@@ -128,7 +128,7 @@ Your WordPress site will accessible at http://localhost:8889. You can see or cha
 
 #### To watch for changes
 
-If you are making changes to Aeon core files, you should start the file watcher in order to build or copy the files as necessary:
+If you are making changes to Aegis core files, you should start the file watcher in order to build or copy the files as necessary:
 
 ```
 npm run dev
@@ -143,7 +143,7 @@ To stop the file watcher, please press `ctrl+c`.
 npm run env:cli <command>
 ```
 
-WP-CLI has a plenty of [useful commands](https://developer.wordpress.org/cli/commands/) you can use to work on your Aeon site.
+WP-CLI has a plenty of [useful commands](https://developer.wordpress.org/cli/commands/) you can use to work on your Aegis site.
 
 Where the documentation mentions running `wp`, run `npm run env:cli` instead. For example:
 
@@ -214,32 +214,32 @@ To generate a new password (recommended):
 
 ## Contributing
 
-Before contributing, please read the contributors' [Code of Conduct](https://github.com/atmostfear-entertainment/aeon/blob/main/CODE_OF_CONDUCT.md) and [Contributing](https://github.com/atmostfear-entertainment/aeon/blob/main/CONTRIBUTING.md) for information about how to open bug reports, contribute patches, test changes, write documentation, or get involved in any way you can.
+Before contributing, please read the contributors' [Code of Conduct](https://github.com/atmostfear-entertainment/aegis/blob/main/CODE_OF_CONDUCT.md) and [Contributing](https://github.com/atmostfear-entertainment/aegis/blob/main/CONTRIBUTING.md) for information about how to open bug reports, contribute patches, test changes, write documentation, or get involved in any way you can.
 
-If after reading you still wish to contribute with code, the list of [open issues](https://github.com/atmostfear-entertainment/aeon/issues) is a superb place to start scrutinising for tasks. However, [pull requests](https://github.com/atmostfear-entertainment/aeon/pulls) are preferred when linked to an existing issue.
+If after reading you still wish to contribute with code, the list of [open issues](https://github.com/atmostfear-entertainment/aegis/issues) is a superb place to start scrutinising for tasks. However, [pull requests](https://github.com/atmostfear-entertainment/aegis/pulls) are preferred when linked to an existing issue.
 
-Be advised that contributing is not just for developers. We welcome anyone willing to contribute with code, [testing](#getting-started), triage, discussion, designing while building patterns and templates, making Aeon more accessible, etcetera. So please, feel free to look through [open issues](https://github.com/atmostfear-entertainment/aeon/issues), and join wherever you feel most comfortable.
+Be advised that contributing is not just for developers. We welcome anyone willing to contribute with code, [testing](#getting-started), triage, discussion, designing while building patterns and templates, making Aegis more accessible, etcetera. So please, feel free to look through [open issues](https://github.com/atmostfear-entertainment/aegis/issues), and join wherever you feel most comfortable.
 
 
 ## Development
   
-Aeon aims to load fewer assets as much as possible. With a very performant approach, it relies on the [Block Editor](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/) and [Global Styles](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/) to provide you with the grand part of the visuals, and will progressively move toward a more Full Site Editing experience.
+Aegis aims to load fewer assets as much as possible. With a very performant approach, it relies on the [Block Editor](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/) and [Global Styles](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/) to provide you with the grand part of the visuals, and will progressively move toward a more Full Site Editing experience.
 
-We strongly advise refraining from building any custom-built PHP or JavaScript-based workarounds for functionality that either Aeon or the [Block Editor](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/) might provide. Aeon is the first of its kind, hybrid, minimalistic, lightweight, performant and aimed at individuals with color vision deficiency. So please, let us keep its code as simple as possible.
+We strongly advise refraining from building any custom-built PHP or JavaScript-based workarounds for functionality that either Aegis or the [Block Editor](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/) might provide. Aegis is the first of its kind, hybrid, minimalistic, lightweight, performant and aimed at individuals with color vision deficiency. So please, let us keep its code as simple as possible.
 
-According to those last two points, Aeon has no unnecessary build process.
+According to those last two points, Aegis has no unnecessary build process.
 
-If you have [contributed](CONTRIBUTORS.md) to Aeon, due credit will be given. we will be updating [CONTRIBUTORS.md](CONTRIBUTORS.md) periodically with the names of contributors; however, feel free to open a [pull request](https://github.com/atmostfear-entertainment/aeon/pulls) or [issue](https://github.com/atmostfear-entertainment/aeon/issues) if we somehow omitted someone.
+If you have [contributed](CONTRIBUTORS.md) to Aegis, due credit will be given. we will be updating [CONTRIBUTORS.md](CONTRIBUTORS.md) periodically with the names of contributors; however, feel free to open a [pull request](https://github.com/atmostfear-entertainment/aegis/pulls) or [issue](https://github.com/atmostfear-entertainment/aegis/issues) if we somehow omitted someone.
 
 
 ## Experimenting
 
-If you wish to experiment with custom code, we will encourage you to install and use the Aeon Child for further custom customisation, or further extend it with code snippets.
+If you wish to experiment with custom code, we will encourage you to install and use the Aegis Child for further custom customisation, or further extend it with code snippets.
 
 | Repository | Description |
 | --- | --- |
-| [Aeon Child Theme](https://github.com/atmostfear-entertainment/aeon-child) | Official Aeon Child Theme |
-| [Aeon Code Snippets](https://github.com/atmostfear-entertainment/aeon-snippets) | Official Aeon Code Snippets |
+| [Aegis Child Theme](https://github.com/atmostfear-entertainment/aegis-child) | Official Aegis Child Theme |
+| [Aegis Code Snippets](https://github.com/atmostfear-entertainment/aegis-snippets) | Official Aegis Code Snippets |
 
 
 ## Resources
@@ -261,7 +261,7 @@ Unfortunately, at the moment, we do not have any demos yet. Even so, we will be 
 
 ## Roadmap
 
-Fortunately, Aeon has a [public roadmap](https://trello.com/b/x75Zqk7W/aeon-theme-roadmap) that can be accessed to observe both its development and progress.
+Fortunately, Aegis has a [public roadmap](https://trello.com/b/x75Zqk7W/aegis-theme-roadmap) that can be accessed to observe both its development and progress.
 
 
 ## Credits
@@ -273,4 +273,4 @@ The thumbnail on this README.md file:
 
 ## Suggestions?
 
-If you would wish to propose any improvements to this repository, please feel free to open an [issue](https://github.com/atmostfear-entertainment/aeon/issues) or [pull request](https://github.com/atmostfear-entertainment/aeon/pulls).
+If you would wish to propose any improvements to this repository, please feel free to open an [issue](https://github.com/atmostfear-entertainment/aegis/issues) or [pull request](https://github.com/atmostfear-entertainment/aegis/pulls).
