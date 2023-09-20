@@ -1,15 +1,15 @@
-=== Aeon ===
+=== Aegis ===
 Contributors: atmostfearentertainment, alexdeborba
 Requires at least: 5.9
-Tested up to: 6.0.2
+Tested up to: 6.0.3
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.0-alpha.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Aeon is a hybrid theme that provides a reliable, performant foundation by seamlessly combining React and Vanilla JS with Flexbox Grid as part of its core. 
+Aegis is a sleek and refined WordPress theme, perfectly crafted for those seeking a harmonious blend of style and functionality. It boasts rapid load times, ensuring your audience remains engaged from the outset. Graceful animation features add a layer of sophistication, while its plethora of patterns, templates, and custom-built block editor blocks offer limitless design possibilities. With an intuitive header and footer builder, you have complete control over your site's navigation and layout. Tailored for academic publishing, Aegis also shines as a premier WooCommerce theme for e-commerce ventures.
 
 == Changelog ==
 
@@ -20,8 +20,8 @@ https://github.com/atmostfear-entertainment/aeon/blob/main/CHANGELOG.md#100---20
 
 == Copyright ==
 
-Aeon WordPress Theme, 2022 Atmostfear Entertainment SAS.
-Aeon is distributed under the terms of the GNU GPL.
+Aegis WordPress Theme, 2022 - 2023 Atmostfear Entertainment SAS.
+Aegis is distributed under the terms of the GNU GPL.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
