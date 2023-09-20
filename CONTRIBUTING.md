@@ -1,6 +1,6 @@
 # Contributing
 
-We genuinely appreciate the fact that you are considering contributing to Aegis, be it for the [Block Editor](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/), [Gutenberg Block Patterns](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/), [Global Styles](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/), [Code](https://github.com/alexdeborba/seance), or Beta Testing. Your contribution is always more than welcome.
+We genuinely appreciate the fact that you are considering contributing to Aegis, be it for the [Block Editor](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/), [Gutenberg Block Patterns](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/), [Global Styles](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/), [Code](https://github.com/atmostfear-entertainment/aegis), or Beta Testing. Your contribution is always more than welcome.
 
 Nonetheless, we do have some requirements, which are:
 
