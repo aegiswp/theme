@@ -1,4 +1,4 @@
-# Copyright (C) 2022-2023 Atmostfear Entertainment
+# Copyright (c) 2022-2023 Atmostfear Entertainment
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-09-05T15:54:57+00:00\n"
-"PO-Revision-Date: 2023-09-06 15:58:01+00:00\n"
+"POT-Creation-Date: 2022-09-20T15:54:57+00:00\n"
+"PO-Revision-Date: 2023-09-06 06:27:33+00:00\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: aegis\n"
 
@@ -19,11 +19,11 @@ msgid "Aegis"
 msgstr ""
 
 #. Theme URI of the theme
-msgid "https://github.com/atmostfear-entertainment/aegis/"
+msgid "https://github.com/atmostfear-entertainment/aegis"
 msgstr ""
 
 #. Description of the theme
-msgid "Aegis is a state-of-the-art WordPress Full Site Editing (FSE) theme, combining speed, adaptability, and personalization. It features an elegant animation library and custom-built block patterns, bypassing the need for additional plugins or complex coding. Its responsive design comprises numerous patterns, templates, and style variations. Aegis simplifies the creation of professional layouts with its extensive block patterns, serving as your all-in-one solution for a modern, distinctive, and visually appealing website."
+msgid "Aegis is a sleek and refined WordPress theme, perfectly crafted for those seeking a harmonious blend of style and functionality. It boasts rapid load times, ensuring your audience remains engaged from the outset. Graceful animation features add a layer of sophistication, while its plethora of patterns, templates, and custom-built block editor blocks offer limitless design possibilities. With an intuitive header and footer builder, you have complete control over your site's navigation and layout. Tailored for academic publishing, Aegis also shines as a premier WooCommerce theme for e-commerce ventures."
 msgstr ""
 
 #. Author of the theme
@@ -34,95 +34,179 @@ msgstr ""
 msgid "https://www.atmostfear-entertainment.com/"
 msgstr ""
 
-#: patterns/quote-citation-text.php:25
-#: patterns/quote-citation-text.php:30
-msgid "We Rise"
+#: inc/block-styles.php:26
+#: inc/block-styles.php:35
+#: inc/block-styles.php:44 
+#: inc/block-styles.php:80
+#: inc/block-styles.php:89
+#: inc/block-styles.php:310
+msgid "Shadow"
 msgstr ""
 
-#: patterns/quote-citation-text.php:25
-#: patterns/quote-citation-text.php:31
-msgid "We Soar"
+#: inc/block-styles.php:53
+msgid "Shape One"
 msgstr ""
 
-#: patterns/quote-citation-text.php:25
-#: patterns/quote-citation-text.php:32
-msgid "We Elevate"
+#: inc/block-styles.php:62
+msgid "Shape Two"
 msgstr ""
 
-#: patterns/quote-citation-text.php:28
-msgid "For Aegis"
+#: inc/block-styles.php:71
+msgid "Shape Three"
 msgstr ""
 
-#: patterns/quote-citation-text.php:35
-msgid "To Conquer And Illuminate!"
+#: inc/block-styles.php:220
+msgid "3d Button Dark"
 msgstr ""
 
-#: patterns/quote-citation-text.php:40
-msgid "Quote by Aeonis"
+#: inc/block-styles.php:213
+msgid "3d Button Light"
 msgstr ""
 
-#: patterns/testimonials-media-text-columns.php:25
-msgid "Voices & Verdicts"
+#: inc/block-styles.php:265
+msgid "Underline Hover"
 msgstr ""
 
-#: patterns/testimonials-media-text-columns.php:27
-#: patterns/testimonials-media-text-columns.php:32
-msgid "Invaded"
+#: inc/block-styles.php:125
+#: inc/block-styles.php:134
+#: inc/block-styles.php:143 
+#: inc/block-styles.php:152
+#: inc/block-styles.php:283
+msgid "Border"
 msgstr ""
 
-#: patterns/testimonials-media-text-columns.php:27
-#: patterns/testimonials-media-text-columns.php:33
-msgid "Assimilated"
+#: inc/block-styles.php:274
+msgid "Border & Shadow"
 msgstr ""
 
-#: patterns/testimonials-media-text-columns.php:27
-#: patterns/testimonials-media-text-columns.php:34
-msgid "Colonized"
+#: inc/block-styles.php:345
+msgid "Border Top Radius"
 msgstr ""
 
-#: patterns/testimonials-media-text-columns.php:30
-msgid "Perspectives from"
+#: inc/block-styles.php:248
+msgid "Button Effect One"
 msgstr ""
 
-#: patterns/testimonials-media-text-columns.php:36
-msgid "Worlds"
+#: inc/block-styles.php:256
+msgid "Button Effect Two"
 msgstr ""
 
-#: patterns/testimonials-media-text-columns.php:47
-msgid "<strong>“Our planet was on the brink of ecological collapse</strong>, but Aegian technology revolutionized our sustainability efforts. Now, we have cleaner energy, better healthcare, and a restored natural ecosystem. The Aegians have become our allies in survival.<strong>”</strong>"
+#: inc/block-styles.php:234
+msgid "Button Line Dark"
 msgstr ""
 
-#: patterns/testimonials-media-text-columns.php:54
-#: patterns/testimonials-media-text-columns.php:61
-msgid "Yurenthia"
+#: inc/block-styles.php:227
+msgid "Button Line Light"
 msgstr ""
 
-#: patterns/testimonials-media-text-columns.php:64
-msgid "from Planet Yuralis"
+#: inc/block-styles.php:241
+msgid "Button Shadow"
 msgstr ""
 
-#: patterns/testimonials-media-text-columns.php:83
-#: patterns/testimonials-media-text-columns.php:90
-msgid "Zorlox"
+#: inc/block-styles.php:98 inc/block-styles.php:319
+msgid "Effect 1"
 msgstr ""
 
-#: patterns/testimonials-media-text-columns.php:93
-msgid "from Planet Xarnox"
+#: inc/block-styles.php:107 inc/block-styles.php:328
+msgid "Effect 2"
 msgstr ""
 
-#: patterns/testimonials-media-text-columns.php:100
-msgid "<strong>“We were a fractured society</strong>, constantly clashing over dwindling resources. Aegian intervention unified us and introduced cutting-edge technology. We are now a society in harmony, making efficient use of our own resources. They have guided us into a new era of peace.<strong>”</strong>"
+#: inc/block-styles.php:116
+msgid "Effect 3"
 msgstr ""
 
-#: patterns/testimonials-media-text-columns.php:115
-#: patterns/testimonials-media-text-columns.php:122
-msgid "Zalthar"
+#: inc/block-styles.php:292
+#: inc/block-styles.php:301
+msgid "Link No Border"
 msgstr ""
 
-#: patterns/testimonials-media-text-columns.php:125
-msgid "from Planet Zorion"
+#: inc/block-styles.php:206
+msgid "Outline Shadow"
 msgstr ""
 
-#: patterns/testimonials-media-text-columns.php:132
-msgid "<strong>“Living on asteroids made us very vulnerable to dire cosmic threats.</strong> Aegian intervention fortified habitats and advanced security. We also joined their trade network, truly improving our economy and quality of life. They have become our cosmic shields.<strong>”</strong>"
-msgstr """
+#: inc/block-styles.php:336
+msgid "Mega Menu"
+msgstr ""
+
+#: inc/block-patterns.php:25
+msgid "Pages"
+msgstr ""
+
+#: inc/block-patterns.php:22
+msgid "Pricing Table"
+msgstr ""
+
+#: inc/block-styles.php:354
+#: inc/block-styles.php:363
+msgid "Scroll"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Header"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header 2"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header 3 - Sticky"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header 4 - Sticky"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header 5"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header 6 - Sticky"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header 7"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header 8"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header 9"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer 2"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer 3"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer 4"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer 5"
+msgstr ""
