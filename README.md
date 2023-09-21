@@ -9,6 +9,7 @@ Welcome to the Aegis Theme development repository.
 
 - [Introduction](#introduction)
 - [Description](#description)
+- [Presets](#presets)
 - [Getting Started with Aegis](#getting-started-with-aegis)
 - [Requirements](#requirements)
 - [Deploying WordPress Locally](#deploying-wordpress-locally)
@@ -43,6 +44,16 @@ Aegis epitomizes a perfect balance between performance and aesthetics. Utilizing
 Upholding the highest coding standards, Aegis is the ultimate choice for creating scalable websites, from intimate personal blogs to professional portfolios and expansive business sites.
 
 Designed for expansive compatibility, Aegis effortlessly supports multisite configurations and is primed for WooCommerce, search engine optimization, and learning management system functionalities. Every detail of this theme has been meticulously designed, emphasizing performance, accessibility, and user experience. Built to endure, Aegis is a theme destined to remain relevant and efficient through the ages.
+
+
+## Presets
+
+### Layout presets
+
+| `theme.json` preset | `theme.json` value |
+|---------------|---------|
+| `contentSize` | `720px` |
+| `wideSize`    | `1620px` |
 
 
 ### Getting Started with Aegis
