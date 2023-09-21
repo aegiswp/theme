@@ -10,8 +10,8 @@ Welcome to the Aegis Theme development repository.
 - [Introduction](#introduction)
 - [Description](#description)
 - [Presets](#presets)
-- [Layout Presets](#layout-presets)
-- [Spacing Presets](#spacing-presets)
+  - [Layout Presets](#layout-presets)
+  - [Spacing Presets](#spacing-presets)
 - [Development](#development)
 - [Getting Started with Aegis](#getting-started-with-aegis)
 - [Requirements](#requirements)
@@ -76,6 +76,15 @@ For the construction of patterns pertaining to the default theme, kindly consult
 
 When crafting block patterns for WordPress, it is imperative to judiciously select the appropriate category for each pattern. WordPress offers a predefined set of categories, each designed to serve a distinct purpose. We would recommend adhering to these default categories. Multiple categories may be applied by separating them with commas. A list of the relevant slugs is [available for your reference](https://github.com/WordPress/gutenberg/blob/c20350c1d246163201375f090b0b7b4ab49b1dad/packages/block-editor/src/components/inserter/block-patterns-tab.js#L35).
 
+- **Hiding patterns from the inserter**
+
+To regulate the visibility of your block pattern within the WordPress inserter, one can include a specific line of code during the pattern's registration process. This practice is generally employed for utility patterns that are not intended for direct user access via the inserter or the pattern library.
+
+Such utility patterns are often created for specialized purposes, like translation, as exemplified by the 404 pattern.
+
+The requisite line of code to accomplish this is provided below:
+
+` * Inserter: no`
 
 ## Development
 
