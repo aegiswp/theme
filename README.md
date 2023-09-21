@@ -14,7 +14,7 @@ Welcome to the Aegis Theme development repository.
   - [Spacing Presets](#spacing-presets)
 - [Development](#development)
 - [Getting Started with Aegis](#getting-started-with-aegis)
-- [Requirements](#requirements)
+  - [Requirements](#requirements)
 - [Deploying WordPress Locally](#deploying-wordpress-locally)
 - [Development Environment Commands](#development-environment-commands)
 - [How to start the development environment for the first time](#how-to-start-the-development-environment-for-the-first-time)
@@ -85,6 +85,22 @@ Such utility patterns are often created for specialized purposes, like translati
 The requisite line of code to accomplish this is provided below:
 
 ` * Inserter: no`
+
+For the purpose of maintaining consistency and clarity, we would recommend prefixing the filenames of hidden block patterns with `hidden-` when naming the pattern files. This convention will facilitate easier identification and management of such patterns.
+
+- **Different translation functions and when to use them**
+
+In software development, especially in the context of internationalization, various translation functions serve distinct purposes. Understanding when to use each one is crucial for effective localization. Here is an overview of different types of translation functions and their recommended use-cases:
+
+`esc_html_x()`: Utilize this function when translation and HTML safety are required for text display. It is particularly beneficial for multilingual websites, as it offers both translation support and HTML security.
+
+`esc_html__()`: Utilize the `esc_html__()` function for the translation and secure rendering of text embedded in HTML, especially when context-specific translations are not necessary. This function serves as a simpler alternative to `esc_html_x()`.
+
+`esc_attr__()` and `esc_attr_x()`: Employ the `esc_attr__()` and `esc_attr_x()` functions for the secure translation and rendering of text intended for HTML attributes, including elements like image source URLs or link targets. These functions contribute to security by sanitizing user inputs, making them safe for attribute usage.
+
+`esc_html_e`: The `esc_html_e` function operates similarly to `esc_html__()`, with the added convenience of directly outputting the string, thereby eliminating the need for an explicit echo statement.
+
+When dealing with simple HTML tags within translatable strings, employing `echo wp_kses_post( __( 'Lorem ipsum <em>Hello</em> dolor sit amet.', 'textdomain' ) );` is advisable. This approach not only makes the syntax more transparent for translators but also affords them the flexibility to remove the markup should it prove incompatible with their respective languages.
 
 ## Development
 
