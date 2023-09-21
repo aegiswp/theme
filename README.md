@@ -78,6 +78,37 @@ Creating pages featured in the Aegis theme is a streamlined process. Simply inse
 
 For optimal compatibility with the full-page patterns, select the `No Page Title` template via the editor sidebar. This template effectively removes the default page title from your design. Nevertheless, it is imperative to incorporate an H1 tag within your design to comply with SEO best practices, thereby enabling search engines to accurately identify the primary subject of your page and enhance its ranking.
 
+### Global Styles
+
+Global styles constitute a robust feature that enables the comprehensive customization of your website's appearance through the Site Editor. This feature offers a centralized hub where you can modify various styling elements such as typography, fonts, and colors for buttons and links, as well as layout defaults.
+
+Under the hood, the Global styles functionality is driven by a configuration file named `theme.json`, situated at the root of the theme's directory. This file allows the theme to establish default styles on both a site-wide and block-specific basis. These default styles are then applied universally across your website and can be further customized by users via the Global styles interface.
+
+By leveraging the `theme.json` file, you can achieve a uniform aesthetic across your website while also providing avenues for customization to meet particular needs or branding objectives. The ultimate outcome is a website that not only exudes a professional design but is also amenable to customization by you or your clients to suit specific requirements.
+
+### Template Parts
+
+Template parts in WordPress serve as reusable sections of your website that can be applied across multiple pages or templates. They operate similarly to reusable blocks but function at the template level, making them ideal for elements like headers, footers, or sidebars—components that usually remain constant across most or all pages on your site.
+
+For instance, to maintain a uniform header across all pages, you could create a header template part. Any modifications made to this template part will be automatically reflected on all pages where it is implemented, thereby enhancing the efficiency of site-wide updates.
+
+This methodology not only expedites the design process but also reinforces consistency throughout your website. Instead of laboriously updating identical elements across individual pages, a single modification to the template part will propagate the changes universally.
+
+Within the framework of Full Site Editing (FSE), these template parts can be created and edited directly via the WordPress site editor, offering a cohesive and simplified approach to site construction.
+
+### Export Your Site
+
+Here is a comprehensive, step-by-step guide on how to export your custom theme:
+
+1. Navigate to `Appearance → Editor` to open the WordPress site editor.
+2. Upon entering the site editor, locate the `Options` menu, typically symbolized by three vertical dots, often referred to as the "kebab" menu, situated in the upper right-hand corner of the interface.
+3. Click on the `Options` menu, and under the `Tools` section, you'll find the `Export` option.
+4. Select `Export`, at which point WordPress will begin compiling all the modifications and customizations you've made through the site editor. This includes custom blocks, global styles, patterns, templates, and template parts.
+5. WordPress will package these custom elements into a `.zip` file, effectively creating your new custom theme.
+6. This `.zip` file will then automatically download to your computer.
+
+This functionality essentially transforms the site editor into a theme builder. After downloading the `.zip` file, you can upload and install it on any other WordPress website, much like you would with a conventional theme. This feature serves as a convenient mechanism for migrating your custom designs from a local development environment to a live production site, or for sharing your design work with others.
+
 ## Presets
 
 ### Layout Presets
@@ -141,7 +172,7 @@ It is imperative to include alternative text (alt text) for your images to enhan
 
 ```
 <!-- wp:image {"id":125,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="http://wp-stable.test/wp-content/themes/twentytwentyfour/assets/images/project.webp" alt="" class="wp-image-125"/></figure>
+<figure class="wp-block-image size-large"><img src="https://aegis.local/wp-content/themes/aegis/assets/images/project.webp" alt="" class="wp-image-125"/></figure>
 <!-- /wp:image -->
 ```
 
@@ -149,9 +180,35 @@ For example, turns into:
 
 ```
 <!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/project.webp" alt="<?php echo esc_attr_x( 'Picture of a building', 'Alt text for project picture', 'twentytwentyfour' ); ?>"/></figure>
+<figure class="wp-block-image size-large"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/project.webp" alt="<?php echo esc_attr_x( 'Picture of a Project', 'Alt text for project picture', 'aegis' ); ?>"/></figure>
 <!-- /wp:image -->
 ```
+
+- **Use of Post Types, Block Types and Template Types**
+
+We employ Block Types when a pattern incorporates custom markup tailored for a specific block or one of the default template parts, such as the footer or header. Utilizing Block Types will prompt the pattern as a suggestion when a user inserts the corresponding block or template part. This is particularly useful for specialized blocks like query and post-content, as well as for template parts like the footer.
+
+Template Types are used when we wish to offer our pattern as a suggestion for a specific template. In such instances, we provide the template slug, which could be identifiers like `404`, `home`, or `single`, among others.
+
+Post Types serve to limit the types of posts for which a pattern can be used. This is most commonly employed for full-page patterns, allowing you to specify the kind of posts that can utilize the particular pattern.
+
+- **Spacing, Colors and Font Sizes**
+
+Utilizing presets for elements like spacing, font sizes, and colors in WordPress block patterns is favored over using hardcoded values, and this preference is underpinned by three primary considerations:
+
+*Consistency*: Presets contribute to a harmonious design throughout the theme, thereby fostering a unified visual aesthetic.
+
+*Scalability*: Employing presets simplifies the process of making global design adjustments, thereby conserving both time and development effort.
+
+*Accessibility*: The use of presets aids in complying with accessibility guidelines, thereby rendering your patterns more usable and legible for a diverse audience.
+
+- **Additional Tips**
+
+It is essential to maintain a clean and adaptable codebase when working with WordPress themes and blocks. Just as it is prudent to remove IDs from image blocks for versatility and broader applicability, it is similarly important to remove the `queryId` attribute from query blocks. This practice enhances the flexibility of your query blocks, making them more reusable and portable.
+
+Additionally, if any of your template parts possess a `theme` attribute, this should be eliminated as well. Removing the `theme` attribute ensures that the template parts can be easily transferred and reused across different themes without being tightly bound to a specific one.
+
+By adhering to these guidelines, you further standardize your blocks and template parts, thereby making them more universally applicable and easier to manage.
 
 ## Development
 
