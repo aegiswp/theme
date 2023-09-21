@@ -10,6 +10,8 @@ Welcome to the Aegis Theme development repository.
 - [Introduction](#introduction)
 - [Description](#description)
 - [Presets](#presets)
+- [Layout Presets](#layout-presets)
+- [Spacing Presets](#spacing-presets)
 - [Development](#development)
 - [Getting Started with Aegis](#getting-started-with-aegis)
 - [Requirements](#requirements)
@@ -49,14 +51,14 @@ Designed for expansive compatibility, Aegis effortlessly supports multisite conf
 
 ## Presets
 
-### Layout presets
+### Layout Presets
 
 | `theme.json` preset | `theme.json` value |
 |---------------|---------|
 | `contentSize` | `720px` |
 | `wideSize`    | `1620px` |
 
-### Spacing presets
+### Spacing Presets
 
 | Figma Token | CSS Variable | `theme.json` value | `theme.json` slug |
 |-------------|--------------|--------------------|-------------------|
@@ -64,6 +66,12 @@ Designed for expansive compatibility, Aegis effortlessly supports multisite conf
 | `Spacing/40` | `--wp--preset--spacing--40` | `min(4rem, 8vw)` | `40` |
 | `Spacing/50` | `--wp--preset--spacing--50` | `min(6.5rem, 13vw)` | `50` |
 | `Spacing/60` | `--wp--preset--spacing--60` | `min(10.5rem, 24vw)` | `60` |
+
+
+### Pattern Creation Guidelines
+
+For the construction of patterns pertaining to the default theme, kindly consult the guidelines delineated in the [block-patterns handbook](https://developer.wordpress.org/block-editor/reference-guides/block-api/block-patterns/).
+
 
 ## Development
 
