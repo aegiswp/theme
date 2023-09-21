@@ -66,6 +66,18 @@ The WordPress site editor heralds a transformative phase in the art of website c
 
 To refine your website through the site editor, simply navigate to `Appearance → Editor`. This interface grants you the ability to create and modify templates, develop menus, tailor your site's styles, choose your color palette, fine-tune typography, adjust block styles, and much more. Essentially, this platform serves as your digital canvas, allowing you to design, build, and perfect your website prior to its official launch.
 
+### Patterns
+
+Patterns are carefully designed page components that provide a quick method for constructing a specific section of a page or even an entire page layout. Instead of building a page from scratch, WordPress users can now leverage these handy patterns for efficient website design directly within the WordPress Site Editor.
+
+To make use of Aegis's patterns, simply access them via the block inserter while working on posts, pages, or within the site editor itself. These patterns function as flexible design elements that significantly streamline the website construction process.
+
+#### Creating page designs with patterns
+
+Creating pages featured in the Aegis theme is a streamlined process. Simply insert Aegis's full-page patterns onto any page you desire to design.
+
+For optimal compatibility with the full-page patterns, select the `No Page Title` template via the editor sidebar. This template effectively removes the default page title from your design. Nevertheless, it is imperative to incorporate an H1 tag within your design to comply with SEO best practices, thereby enabling search engines to accurately identify the primary subject of your page and enhance its ranking.
+
 ## Presets
 
 ### Layout Presets
@@ -123,7 +135,23 @@ These functions serve to bolster both security measures and localization initiat
 
 - **Patterns with images**
 
+To generate dynamic image links within your block patterns, it is advisable to employ the `get_template_directory_uri()` function. This function fetches the URL of the active theme's directory, thereby ensuring that the image links remain relative to the theme. This is crucial for maintaining link integrity, particularly if the website's directory structure undergoes changes or if a child theme is in use. Such a practice is integral for ensuring the long-term stability and portability of your patterns.
 
+It is imperative to include alternative text (alt text) for your images to enhance accessibility. Additionally, removing the IDs from these images is crucial for ensuring their versatility across different implementations.
+
+```
+<!-- wp:image {"id":125,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="http://wp-stable.test/wp-content/themes/twentytwentyfour/assets/images/project.webp" alt="" class="wp-image-125"/></figure>
+<!-- /wp:image -->
+```
+
+For example, turns into:
+
+```
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/project.webp" alt="<?php echo esc_attr_x( 'Picture of a building', 'Alt text for project picture', 'twentytwentyfour' ); ?>"/></figure>
+<!-- /wp:image -->
+```
 
 ## Development
 
