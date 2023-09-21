@@ -10,6 +10,7 @@ Welcome to the Aegis Theme development repository.
 - [Introduction](#introduction)
 - [Description](#description)
 - [Presets](#presets)
+- [Development](#development)
 - [Getting Started with Aegis](#getting-started-with-aegis)
 - [Requirements](#requirements)
 - [Deploying WordPress Locally](#deploying-wordpress-locally)
@@ -55,6 +56,16 @@ Designed for expansive compatibility, Aegis effortlessly supports multisite conf
 | `contentSize` | `720px` |
 | `wideSize`    | `1620px` |
 
+### Spacing presets
+
+| Figma Token | CSS Variable | `theme.json` value | `theme.json` slug |
+|-------------|--------------|--------------------|-------------------|
+| `Spacing/30` | `--wp--preset--spacing--30` | `min(2.5rem, 5vw)` | `30` |
+| `Spacing/40` | `--wp--preset--spacing--40` | `min(4rem, 8vw)` | `40` |
+| `Spacing/50` | `--wp--preset--spacing--50` | `min(6.5rem, 13vw)` | `50` |
+| `Spacing/60` | `--wp--preset--spacing--60` | `min(10.5rem, 24vw)` | `60` |
+
+## Development
 
 ### Getting Started with Aegis
 
