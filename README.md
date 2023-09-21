@@ -9,6 +9,12 @@ Welcome to the Aegis Theme development repository.
 
 - [Introduction](#introduction)
 - [Description](#description)
+- [Working with Block Themes](#working-with-block-themes)
+  - [Site Editor](#site-editor)
+  - [Patterns](#patterns)
+  - [Global Styles](#global-styles)
+  - [Template Parts](#template-parts)
+  - [Export Your Site](#export-your-site)
 - [Presets](#presets)
   - [Layout Presets](#layout-presets)
   - [Spacing Presets](#spacing-presets)
@@ -48,6 +54,17 @@ Upholding the highest coding standards, Aegis is the ultimate choice for creatin
 
 Designed for expansive compatibility, Aegis effortlessly supports multisite configurations and is primed for WooCommerce, search engine optimization, and learning management system functionalities. Every detail of this theme has been meticulously designed, emphasizing performance, accessibility, and user experience. Built to endure, Aegis is a theme destined to remain relevant and efficient through the ages.
 
+## Working with Block Themes
+
+When you activate Aegis, it operates in a manner similar to traditional WordPress themes, allowing you to seamlessly create posts and pages as you are accustomed to. However, Aegis distinguishes itself as a block theme, offering enhanced features such as the site editor, patterns, global styles, and much more.
+
+In essence, a block theme like Aegis is a WordPress theme constructed entirely of blocks. This means that in addition to editing the content of posts and pages, you have the capability to use the block editor for modifying every other component of your website, including headers, footers, and various templates. It serves as a comprehensive editor for your website's entire design and layout.
+
+### Site Editor
+
+The WordPress site editor heralds a transformative phase in the art of website creation with WordPress. Utilizing the capabilities of blocks, patterns, and a wide array of drag-and-drop design tools, the site editor enables you to construct pages directly within WordPress, obviating the need for a separate page builder.
+
+To refine your website through the site editor, simply navigate to `Appearance → Editor`. This interface grants you the ability to create and modify templates, develop menus, tailor your site's styles, choose your color palette, fine-tune typography, adjust block styles, and much more. Essentially, this platform serves as your digital canvas, allowing you to design, build, and perfect your website prior to its official launch.
 
 ## Presets
 
@@ -101,6 +118,12 @@ In software development, especially in the context of internationalization, vari
 `esc_html_e`: The `esc_html_e` function operates similarly to `esc_html__()`, with the added convenience of directly outputting the string, thereby eliminating the need for an explicit echo statement.
 
 When dealing with simple HTML tags within translatable strings, employing `echo wp_kses_post( __( 'Lorem ipsum <em>Hello</em> dolor sit amet.', 'textdomain' ) );` is advisable. This approach not only makes the syntax more transparent for translators but also affords them the flexibility to remove the markup should it prove incompatible with their respective languages.
+
+These functions serve to bolster both security measures and localization initiatives within WordPress block patterns. They ensure that the text is not only secure for display but also readily translatable, thereby accommodating a global audience.
+
+- **Patterns with images**
+
+
 
 ## Development
 
