@@ -1,7 +1,6 @@
 <?php
-<?php
 /**
- * WooCommerce 3 Block Pattern
+ * WooCommerce 4 Block Pattern
  */
 return array(
     'title'          => __( 'WooCommerce 4', 'aegis' ),
