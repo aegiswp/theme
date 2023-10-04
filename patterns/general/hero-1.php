@@ -7,7 +7,7 @@ return array(
     'categories'     => array( 'aegis-hero' ),
     'blockTypes'     => array( 'core/page' ),
     'description'    => __( 'Hero block pattern', 'aegis' ),
-    'keywords'       => array( 'faq', 'page' ),
+    'keywords'       => array( 'hero', 'featured' ),
     'viewportWidth'  => 1440,
     'postTypes'      => array( '' ),
     'inserter'       => true,
