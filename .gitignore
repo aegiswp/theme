@@ -1,0 +1,2 @@
+# ignore everything in the ".dev" directory:
+patterns/header/.dev/*
