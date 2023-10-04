@@ -3,7 +3,7 @@
  * WooCommerce 1 Block Pattern
  */
 return array(
-    'title'          => __( 'Shop 1', 'aegis' ),
+    'title'          => __( 'WooCommerce 1', 'aegis' ),
     'categories'     => array( 'aegis-woocommerce' ),
     'blockTypes'     => array( 'core/block' ),
     'description'    => __( 'A shopping block pattern', 'aegis' ),
