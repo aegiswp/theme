@@ -1,3 +1,4 @@
 # ignore everything in the ".dev" directory:
-patterns/header/.dev/*
 patterns/footer/.dev/*
+patterns/header/.dev/*
+patterns/woocommerce/.dev/*
