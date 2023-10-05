@@ -5,11 +5,11 @@
 return array(
     'title'          => __( 'Team 2', 'aegis' ),
     'categories'     => array( 'aegis-team' ),
-    'blockTypes'     => array( 'core/template-part/footer' ),
+    'blockTypes'     => array( '' ),
     'description'    => __( 'A default team block pattern', 'aegis' ),
     'keywords'       => array( 'team', 'navigation', 'portfolio' ),
     'viewportWidth'  => 1440,
-    'postTypes'      => array( 'wp_template' ),
+    'postTypes'      => array( '' ),
     'inserter'       => true,
     'scope'          => 'all',
     'mode'           => 'auto',
