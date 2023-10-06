@@ -22,16 +22,22 @@ Welcome to the Aegis Theme development repository.
 - [Getting Started with Aegis](#getting-started-with-aegis)
   - [Requirements](#requirements)
 - [Deploying WordPress Locally](#deploying-wordpress-locally)
-- [Development Environment Commands](#development-environment-commands)
-- [How to start the development environment for the first time](#how-to-start-the-development-environment-for-the-first-time)
-- [How to watch for changes](#how-to-watch-for-changes)
-- [How to run a WP-CLI command](#how-to-run-a-wp-cli-command)
-- [How to run the tests](#how-to-run-the-tests)
-- [To restart the development environment](#how-to-restart-the-development-environment)
-- [How to stop the development environment](#how-to-stop-the-development-environment)
-- [How to start the development environment again](#how-to-start-the-development-environment-again)
-- [Credentials](#credentials)
+  - [Development Environment Commands](#development-environment-commands)
+  - [How to start the development environment for the first time](#how-to-start-the-development-environment-for-the-first-time)
+  - [How to watch for changes](#how-to-watch-for-changes)
+  - [How to run a WP-CLI command](#how-to-run-a-wp-cli-command)
+  - [How to run the tests](#how-to-run-the-tests)
+  - [To restart the development environment](#how-to-restart-the-development-environment)
+  - [How to stop the development environment](#how-to-stop-the-development-environment)
+  - [How to start the development environment again](#how-to-start-the-development-environment-again)
+  - [Credentials](#credentials)
 - [Contributing](#contributing)
+  - [Communication and Collaboration](#communication-and-collaboration)
+  - [Code Quality](#code-quality)
+  - [Testing and Validation](#testing-and-validation)
+  - [Version Control](#version-control)
+  - [Pull Requests and Reviews](#pull-requests-and-reviews)
+  - [Final Checks](#final-checks)
 - [Development](#development)
 - [Experimenting](#experimenting)
 - [Resources](#resources)
@@ -210,6 +216,38 @@ Additionally, if any of your template parts possess a `theme` attribute, this sh
 
 By adhering to these guidelines, you further standardize your blocks and template parts, thereby making them more universally applicable and easier to manage.
 
+```
+<!-- wp:query {"queryId":18,"query":{"perPage":8,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true}} -->
+```
+
+Turns into:
+
+```
+<!-- wp:query {"query":{"perPage":8,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true}} -->
+```
+
+And:
+
+```
+<!-- wp:template-part {"slug":"header","theme":"aegis","area":"header"} /-->
+```
+
+Turns into:
+
+```
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+```
+
+Here are some best practices that can optimize your workflow and enhance our theme's functionality:
+
+1. **Centralizing Common Properties**: If you find yourself repeatedly assigning the same properties to a particular block type—such as applying a border radius to image blocks—consider consolidating these recurring settings in the `theme.json` file. This promotes a more efficient, DRY (Don't Repeat Yourself) approach to theme development.
+
+2. **Prefixing Full-Page Patterns**: For clarity and ease of identification, prefix all full-page patterns with `page-`. This nomenclature makes it easier to distinguish these patterns from others and streamlines the pattern selection process.
+
+3. **Pattern Order in the Inserter**: The order in which patterns appear in the inserter is determined alphabetically by the name of the file. If you wish to influence this order, consider renaming the files accordingly. 
+
+By adhering to these practices, you can make your development process more streamlined, your codebase more maintainable, and your user experience more intuitive.
+
 ## Development
 
 ### Getting Started with Aegis
@@ -378,6 +416,50 @@ To generate a new password (recommended):
 
 
 ## Contributing
+
+Contributing to the Aegis theme or any other open-source project can be a rewarding experience, both for personal growth and for the community at large. Here are some advices for contributors to ensure a smooth and effective contribution process:
+
+### Communication and Collaboration
+
+**Read the Documentation**: Always start by reading the project's documentation and guidelines. Understanding the project's structure and coding standards is crucial for effective contribution.
+
+**Join Community Channels**: Most projects have a [community chat or forum](https://www.facebook.com/groups/aegiswp). Join these channels to ask questions, share ideas, and stay updated.
+
+**Start Small**: If you are new to the project, begin with "good first issue" or "beginner-friendly" tags. These are usually easier to tackle and a good place to start.
+
+### Code Quality
+
+**Follow Coding Standards**: Adhere to the coding standards and guidelines provided by the project. This ensures consistency and readability.
+
+**Write Clean Code**: Keep your code as clean and as simple as possible. Simplicity often leads to fewer bugs and easier maintenance.
+
+**Comment Wisely**: Comment your code to explain why you did something, not what you did. Good code mostly speaks for itself.
+
+### Testing and Validation
+
+**Test Thoroughly**: Before submitting a pull request, test your changes rigorously to ensure they do not introduce new bugs.
+
+**Cross-Browser Compatibility**: Make sure to test the features in various browsers to ensure compatibility.
+
+### Version Control
+
+**Use Descriptive Commit Messages**: Your commit messages should be descriptive enough to let other contributors understand the changes you have made.
+
+**Keep Commits Focused**: Each commit should represent a single logical change. Avoid mixing multiple changes into a single commit.
+
+### Pull Requests and Reviews
+
+**Pull Requests Descriptions**: When submitting a pull request, include a comprehensive description explaining the need for the changes, how you have implemented them, and any additional context.
+
+**Be Open to Feedback**: Once you submit a Pull Request, maintainers or other community members may suggest changes. Be open to feedback and willing to make revisions.
+
+### Final Checks
+
+**Check for Upstream Changes**: Before making a pull request, make sure you have updated your fork with the latest changes from the main repository to minimize merge conflicts.
+
+**Documentation**: If your changes include new features or significant modifications, update the relevant documentation.
+
+By adhering to these tips and best practices, you will be making a valuable contribution to the project and fostering a healthy, collaborative community.
 
 Before contributing, please read the contributors' [Code of Conduct](https://github.com/atmostfear-entertainment/aegis/blob/main/CODE_OF_CONDUCT.md) and [Contributing](https://github.com/atmostfear-entertainment/aegis/blob/main/CONTRIBUTING.md) for information about how to open bug reports, contribute patches, test changes, write documentation, or get involved in any way you can.
 
