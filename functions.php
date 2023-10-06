@@ -8,7 +8,7 @@
  * @author  Atmostfear Entertainment
  * @license GNU General Public License v2 or later
  * @link    https://github.com/atmostfear-entertainment/aegis
- * @since   1.0.0
+ * @since   Aegis 1.0.0
  */
 
 /**
