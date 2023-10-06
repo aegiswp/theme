@@ -3,7 +3,7 @@ Theme Name: Aegis
 Theme URI: https://github.com/atmostfear-entertainment/aegis
 Author: Atmostfear Entertainment
 Author URI: https://www.atmostfear-entertainment.com/
-Description: Aegis is a fast and lightweight WordPress theme that is optimized for speed. It comes with an added animation library that adds a touch of elegance to your website without slowing it down.The theme also includes multiple custom built block editor blocks, giving you greater flexibility and control over your website design. Aegis is built on the new WordPress full site editing system, making it easy to customize and edit your website in real-time.This theme is perfect for those who want a fast and modern website without sacrificing design and functionality.
+Description: Aegis is a fast and lightweight WordPress theme that is optimized for speed. It comes with an added animation features that adds a touch of elegance to your website without slowing it down.The theme also includes multiple custom built block editor blocks, giving you greater flexibility and control over your website design. Aegis is built on the new WordPress full site editing system, making it easy to customize and edit your website in real-time.This theme is perfect for those who want a fast and modern website without sacrificing design and functionality.
 Requires at least: 5.9
 Tested up to: 6.3
 Requires PHP: 5.6
@@ -11,9 +11,9 @@ Version: 1.0.0-alpha.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: aegis
-Tags:  accessibility-ready, blog, block-editor-patterns, block-editor-styles, block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, one-column, portfolio, rtl-language-support, sticky-post, style-variations, template-editing, threaded-comments, translation-ready, two-columns, wide-blocks, woocommerce
+Tags: accessibility-ready, blog, block-editor-patterns, block-editor-styles, block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, one-column, portfolio, rtl-language-support, sticky-post, style-variations, template-editing, threaded-comments, translation-ready, two-columns, wide-blocks, woocommerce
 
-Aegis, (C) 2022-2003 Atmostfear Entertainment SAS
+Aegis, (c) 2022-2003 Atmostfear Entertainment SAS
 Aegis is distributed under the terms of the GNU GPL.
 */
 
@@ -115,7 +115,7 @@ figure {
 }
 
 /* ------------------------------------------- */
-/* Navigation
+/* Navigation Block 
 /* ------------------------------------------- */
 .wp-block-navigation .wp-block-navigation-item__content {
     padding: .5em;
@@ -126,17 +126,17 @@ figure {
 }
 
 .wp-block-navigation:not(.has-background) .wp-block-navigation__submenu-container {
-    border: 1px solid transparent
+    border: 1px solid transparent;
 }
 
 .wp-block-navigation .has-child>.wp-block-navigation__submenu-container {
     transition: opacity .25s ease, transform .5s all;
-    transform: translateY(15px)
+    transform: translateY(15px);
 }
 
 .wp-block-navigation__container>.wp-block-navigation-item>a {
     line-height: 2.5;
-    position: relative
+    position: relative;
 }
 
 .wp-block-navigation__container>.wp-block-navigation-item:not(.has-child)>a:after {
@@ -147,19 +147,19 @@ figure {
     height: 2px;
     width: 0;
     transition: width .5s;
-    background-color: currentColor
+    background-color: currentColor;
 }
 
 .wp-block-navigation__container>.wp-block-navigation-item:not(.has-child)>a:hover:after {
-    width: 100%
+    width: 100%;
 }
 
 .wp-block-navigation :where(.wp-block-navigation__submenu-container)>.wp-block-navigation-item:first-child>.wp-block-navigation-item__content {
-    margin-top: .5em
+    margin-top: .5em;
 }
 
 .wp-block-navigation :where(.wp-block-navigation__submenu-container)>.wp-block-navigation-item:last-child>.wp-block-navigation-item__content {
-    margin-bottom: .5em
+    margin-bottom: .5em;
 }
 
 .wp-block-navigation-item.current-menu-item>a {
@@ -176,13 +176,13 @@ figure {
 
 .wp-block-navigation__responsive-container-close {
     transition: transform .3s ease-in-out;
-    opacity: .8
+    opacity: .8;
 }
 
 .wp-block-navigation__responsive-container-close:focus,
 .wp-block-navigation__responsive-container-close:hover {
     transform: rotate(90deg);
-    opacity: 1
+    opacity: 1;
 }
 
 .wp-block-navigation-item__content img {
@@ -194,13 +194,11 @@ figure {
     .wp-block-navigation__container {
         justify-content: start;
     }
-
     .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation-item,
     .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__container,
     .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-page-list {
         align-items: flex-start;
     }
-
     .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
         align-items: flex-start;
     }
@@ -217,11 +215,9 @@ figure {
     .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
         display: none;
     }
-
     .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) .wp-block-navigation__responsive-container-close {
         display: block;
     }
-
     .wp-block-navigation__responsive-container-open:not(.always-shown) {
         display: flex;
     }
@@ -232,63 +228,54 @@ figure {
         top: 50px;
         right: 20px;
     }
-
     .wp-block-navigation__responsive-container {
         opacity: 0;
         visibility: hidden;
         transition: opacity 0s, visibility 0s;
-        display: flex
+        display: flex;
     }
-
     .wp-block-navigation__responsive-container.is-menu-open {
         opacity: 1;
         visibility: visible;
-        transition: opacity .3s ease-in-out, visibility .3s ease-in-out
+        transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
     }
-
     .wp-block-navigation__responsive-container .wp-block-navigation__responsive-container-content .wp-block-navigation__container {
         transition: transform .4s all, opacity .4s all;
         transform: translateY(-35px);
         opacity: 0;
         transition-delay: .2s;
         font-size: 20px;
-        width: 100%
+        width: 100%;
     }
-
     .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__container {
         transform: translateY(0);
         opacity: 1;
         gap: 20px;
         padding: 40px;
     }
-
     .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .has-child .wp-block-navigation__submenu-container {
         font-size: .9em;
         gap: 15px;
         padding: 0 30px 24px 30px;
-        position: relative
+        position: relative;
     }
-
     .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container:before {
         content: "↑";
         position: absolute;
         left: 0;
-        top: 10px
+        top: 10px;
     }
-
     .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation-item__content {
         color: currentColor;
     }
 }
 
 @media (min-width:962px) {
-
     .wp-block-navigation .has-child:hover>.wp-block-navigation__submenu-container,
     .wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria-expanded=true]+.wp-block-navigation__submenu-container {
         box-shadow: 0 20px 40px -5px rgb(15 16 18 / 18%);
-        transform: translateY(0)
+        transform: translateY(0);
     }
-
     .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
         display: block;
         width: 100%;
@@ -296,42 +283,33 @@ figure {
         z-index: auto;
         background-color: inherit;
     }
-
     .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) .wp-block-navigation__responsive-container-close {
         display: none;
     }
-
     .wp-block-navigation__responsive-container-open:not(.always-shown) {
         display: none;
     }
-
     .wp-block-navigation .has-child :where(.wp-block-navigation__submenu-container) .wp-block-navigation__submenu-icon {
-        margin-right: .7em
+        margin-right: .7em;
     }
-
     [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container {
-        flex-direction: row
+        flex-direction: row;
     }
-
     [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li {
         max-width: 250px;
         display: block;
-        min-width: 200px
+        min-width: 200px;
     }
-
     [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li button {
-        display: none
+        display: none;
     }
-
     [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>a {
         font-weight: var(--wp--custom--font-weight--bold, 700);
-        margin: 5px 0 0 0 !important
+        margin: 5px 0 0 0 !important;
     }
-
     [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>a:hover {
-        transform: translateX(0) !important
+        transform: translateX(0) !important;
     }
-
     [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>ul {
         position: static;
         visibility: visible;
@@ -341,7 +319,7 @@ figure {
         height: auto;
         display: block;
         box-shadow: none !important;
-        transform: translateY(0) !important
+        transform: translateY(0) !important;
     }
 }
 
@@ -619,6 +597,7 @@ figure {
  * Necessary until the following issue is resolved in Gutenberg:
  * https://github.com/WordPress/gutenberg/issues/27075
  */
+
 .wp-block-search__button,
 .wp-block-file .wp-block-file__button,
 .wp-block-button__link {
@@ -1357,7 +1336,6 @@ textarea {
 }
 
 @media only screen and (min-width: 961px) {
-
     /* Sticky Header Effect */
     .header {
         -webkit-transition: background-color .4s ease, transform 0.4s ease;
@@ -1469,6 +1447,7 @@ textarea {
 /* ------------------------------------------- */
 /* WooCommcerce Blocks
 /* ------------------------------------------- */
+
 .wc-block-grid__product-add-to-cart.wp-block-button .wp-block-button__link {
     color: var(--wp--preset--color--foreground);
     border-radius: 100px;
@@ -1531,6 +1510,7 @@ button.wp-block-button__link.wc-block-filter-submit-button.wc-block-components-f
 /* ------------------------------------------- */
 /* 	WooCommerce
 /* ------------------------------------------- */
+
 .woocommerce #respond input#submit.alt,
 .woocommerce a.button.alt,
 .woocommerce input.button.alt,
@@ -2729,7 +2709,6 @@ a.wc-block-components-product-rating__link {
 }
 
 @media only screen and (max-width: 600px) {
-
     .woocommerce ul.products.columns-3 li.product,
     .woocommerce ul.products.columns-4 li.product {
         flex: 1 0 100%;
@@ -2740,7 +2719,6 @@ a.wc-block-components-product-rating__link {
 }
 
 @media screen and (min-width: 960px) {
-
     body.woocommerce-cart .is-layout-constrained .woocommerce,
     body.woocommerce-checkout .is-layout-constrained .woocommerce,
     body.woocommerce-account .is-layout-constrained .woocommerce {
@@ -2954,7 +2932,6 @@ a.wc-block-components-product-rating__link {
 }
 
 @media only screen and (max-width: 600px) {
-
     .wc-block-grid.has-4-columns .wc-block-grid__product,
     .wc-block-grid.has-3-columns .wc-block-grid__product,
     .wc-block-grid.has-2-columns .wc-block-grid__product {
@@ -2966,7 +2943,6 @@ a.wc-block-components-product-rating__link {
 }
 
 @media only screen and (max-width: 768px) {
-
     .woocommerce-page .woocommerce-cart-form #coupon_code,
     .woocommerce-page table.cart td.actions .coupon .button {
         width: 100%;
