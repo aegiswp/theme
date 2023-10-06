@@ -1,15 +1,18 @@
 <?php
 /**
  * Blog Layout 4 Block Pattern
+ *
+ * This pattern provides a two-column layout with a profile section on the left
+ * and blog archives on the right, showcasing featured images, post metadata, and social links.
  */
 return array(
     'title'          => __( 'Blog Layout 4', 'aegis' ),
     'categories'     => array( 'aegis-query' ),
-    'blockTypes'     => array( '' ),
-    'description'    => __( 'A default blog archive block pattern', 'aegis' ),
-    'keywords'       => array( 'blog', 'query', 'featured', 'posts' ),
+    'blockTypes'     => array( 'post', 'page' ),
+    'description'    => __( 'A two-column layout showcasing a profile section on the left with social links and an event promotion, and blog archives with featured images and post metadata on the right.', 'aegis' ),
+    'keywords'       => array( 'two-columns', 'profile', 'social links', 'promotion', 'blog', 'query', 'pagination', 'date', 'title', 'excerpt', 'featured image', 'layout' ),
     'viewportWidth'  => 1440,
-    'postTypes'      => array( '' ),
+    'postTypes'      => array( 'post', 'page' ),
     'inserter'       => true,
     'scope'          => 'all',
     'mode'           => 'auto',
