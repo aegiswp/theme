@@ -6,7 +6,7 @@ return array(
     'title'          => __( 'Blog Layout 1', 'aegis' ),
     'categories'     => array( 'aegis-query' ),
     'blockTypes'     => array( '' ),
-    'description'    => __( 'A default shop page block pattern', 'aegis' ),
+    'description'    => __( 'A default blog archive block pattern', 'aegis' ),
     'keywords'       => array( 'blog', 'query', 'featured', 'posts' ),
     'viewportWidth'  => 1440,
     'postTypes'      => array( '' ),
