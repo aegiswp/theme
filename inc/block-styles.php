@@ -13,7 +13,7 @@ if ( function_exists( 'register_block_style' ) ) {
 	/**
 	 * Register block styles.
 	 *
-	 * @since Aegis 1.0.0
+	 * @since 1.0.0
 	 *
 	 * @return void
 	 */
