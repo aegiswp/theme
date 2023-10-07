@@ -22,7 +22,7 @@ return array(
 		<!-- wp:column {"style":{"spacing":{"padding":{"top":"30px","right":"30px","bottom":"30px","left":"30px"}}},"backgroundColor":"secondary","className":"product-card is-style-aegis-hover-shadow"} -->
 		<div class="wp-block-column product-card is-style-aegis-hover-shadow has-secondary-background-color has-background" style="padding-top:30px;padding-right:30px;padding-bottom:30px;padding-left:30px">
 			<!-- wp:image {"align":"center","className":"size-large is-style-aegis-effect-2-image"} -->
-			<figure class="wp-block-image aligncenter size-large is-style-aegis-effect-2-image"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_425x265_black.jpg" alt="' . esc_attr__( 'Neo-Goth Jacket', 'aegis' ) . '" /></figure>
+			<figure class="wp-block-image aligncenter size-large is-style-aegis-effect-2-image"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_425x265_black.jpg" alt="' . esc_attr__( 'Rocker Jacket', 'aegis' ) . '" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
@@ -38,11 +38,11 @@ return array(
 			<!-- /wp:group -->
 
 			<!-- wp:heading {"className":"has-large-font-size"} -->
-			<h2 class="wp-block-heading has-large-font-size"><strong>' . esc_html__( 'Neo-Goth Jacket', 'aegis' ) . '</strong></h2>
+			<h2 class="wp-block-heading has-large-font-size"><strong>' . esc_html__( 'Rocker Jacket', 'aegis' ) . '</strong></h2>
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph -->
-			<p>' . esc_html__( 'Superior leather Neo-Goth jacket fuses ancient Gothic design with modern tailoring. A stylish, functional emblem of the times.', 'aegis' ) . '</p>
+			<p>' . esc_html__( 'Superior leather Rocker jacket fuses ancient Gothic design with modern tailoring. A stylish, functional emblem of the times.', 'aegis' ) . '</p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:buttons -->
