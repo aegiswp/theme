@@ -59,7 +59,7 @@ return array(
 					<!-- wp:column {"width":"90%"} -->
 					<div class="wp-block-column" style="flex-basis:90%">
 						<!-- wp:heading {"level":3,"fontSize":"medium"} -->
-						<h3 class="wp-block-heading has-medium-font-size">' . esc_html__( 'Return Assurance', 'aegis' ) . '</h3>
+						<h3 class="wp-block-heading has-medium-font-size">' . esc_html__( 'Returns Guarantee', 'aegis' ) . '</h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"small"} -->
@@ -87,7 +87,7 @@ return array(
 					<!-- wp:column {"width":"90%"} -->
 					<div class="wp-block-column" style="flex-basis:90%">
 						<!-- wp:heading {"level":3,"fontSize":"medium"} -->
-						<h3 class="wp-block-heading has-medium-font-size">Online Assistance</h3>
+						<h3 class="wp-block-heading has-medium-font-size">' . esc_html__( 'Online Assistance', 'aegis' ) . '</h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"small"} -->
@@ -119,7 +119,7 @@ return array(
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"small"} -->
-						<p class="has-small-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0">' . esc_html__( '[State diverse card acceptance.]' , 'aegis' ) . '</p>
+						<p class="has-small-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0">' . esc_html__( '[State diverse payment methods.]' , 'aegis' ) . '</p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
@@ -153,23 +153,23 @@ return array(
 					<!-- wp:column {"style":{"spacing":{"blockGap":"10px","padding":{"top":"var:preset|spacing|30"}}}} -->
 					<div class="wp-block-column" style="padding-top:var(--wp--preset--spacing--30)">
 						<!-- wp:heading {"level":4,"style":{"spacing":{"margin":{"bottom":"20px"}}},"fontSize":"large"} -->
-						<h4 class="wp-block-heading has-large-font-size" style="margin-bottom:20px">' . esc_html__( 'Information' , 'aegis' ) . '</h4>
+						<h4 class="wp-block-heading has-large-font-size" style="margin-bottom:20px">' . esc_html__( '[Heading]' , 'aegis' ). '</h4>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"12px"}}},"fontSize":"small"} -->
-						<p class="has-small-font-size" style="margin-top:12px"><a href="#">' . esc_html__( 'About', 'aegis' ) . '</a></p>
+						<p class="has-small-font-size" style="margin-top:12px"><a href="#">' . esc_html__( '[Menu Item]', 'aegis' ) . '</a></p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"small"} -->
-						<p class="has-small-font-size" style="margin-top:10px"><a href="#">' . esc_html__( 'News', 'aegis' ) . '</a></p>
+						<p class="has-small-font-size" style="margin-top:10px"><a href="#">' . esc_html__( '[Menu Item]', 'aegis' ) . '</a></p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"small"} -->
-						<p class="has-small-font-size" style="margin-top:10px"><a href="#">' . esc_html__( 'Careers', 'aegis' ) . '</a></p>
+						<p class="has-small-font-size" style="margin-top:10px"><a href="#">' . esc_html__( '[Menu Item]', 'aegis' ) . '</a></p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"small"} -->
-						<p class="has-small-font-size" style="margin-top:10px"><a href="#">' . esc_html__( 'Contact', 'aegis' ) . '</a></p>
+						<p class="has-small-font-size" style="margin-top:10px"><a href="#">' . esc_html__( '[Menu Item]', 'aegis' ) . '</a></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
@@ -177,24 +177,24 @@ return array(
 					<!-- wp:column {"width":"25%","style":{"spacing":{"padding":{"right":"0px","top":"var:preset|spacing|30"},"blockGap":"10px"}}} -->
 					<div class="wp-block-column" style="padding-top:var(--wp--preset--spacing--30);padding-right:0px;flex-basis:25%">
 						<!-- wp:heading {"level":4,"style":{"spacing":{"margin":{"bottom":"20px"}}}} -->
-						<h4 class="wp-block-heading" style="margin-bottom:20px">' . esc_html__( 'Service', 'aegis' ) . '</h4>
+						<h4 class="wp-block-heading" style="margin-bottom:20px">' . esc_html__( '[Heading]', 'aegis' ) . '</h4>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"right":"0","bottom":"0","left":"0","top":"20px"}}},"fontSize":"small"} -->
-						<p class="has-small-font-size" style="margin-top:20px;margin-right:0;margin-bottom:0;margin-left:0"><a href="#">' . esc_html__( 'Tracking', 'aegis' ) . '</a></p>
+						<p class="has-small-font-size" style="margin-top:20px;margin-right:0;margin-bottom:0;margin-left:0"><a href="#">' . esc_html__( '[Menu Item]', 'aegis' ) . '</a></p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"right":"0","bottom":"0","left":"0","top":"10px"}}},"fontSize":"small"} -->
-						<p class="has-small-font-size" style="margin-top:10px;margin-right:0;margin-bottom:0;margin-left:0"><a	href="#">' . esc_html__( 'Delivery', 'aegis' ) . '</a></p>
+						<p class="has-small-font-size" style="margin-top:10px;margin-right:0;margin-bottom:0;margin-left:0"><a	href="#">' . esc_html__( '[Menu Item]', 'aegis' ) . '</a></p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"right":"0","bottom":"0","left":"0","top":"10px"}}},"fontSize":"small"} -->
-						<p class="has-small-font-size" style="margin-top:10px;margin-right:0;margin-bottom:0;margin-left:0"><a href="#">' . esc_html__( 'Returns', 'aegis' ) . '</a>
+						<p class="has-small-font-size" style="margin-top:10px;margin-right:0;margin-bottom:0;margin-left:0"><a href="#">' . esc_html__( '[Menu Item]', 'aegis' ) . '</a>
 						</p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"right":"0","bottom":"0","left":"0","top":"10px"}}},"fontSize":"small"} -->
-						<p class="has-small-font-size" style="margin-top:10px;margin-right:0;margin-bottom:0;margin-left:0"><a href="#">' . esc_html__( 'Policies', 'aegis' ) . '</a></p>
+						<p class="has-small-font-size" style="margin-top:10px;margin-right:0;margin-bottom:0;margin-left:0"><a href="#">' . esc_html__( '[Menu Item]', 'aegis' ) . '</a></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
@@ -234,13 +234,7 @@ return array(
 					<!-- wp:column {"verticalAlignment":"center","width":"60%"} -->
 					<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:60%">
 						<!-- wp:paragraph {"fontSize":"tiny"} -->
-						<p class="has-tiny-font-size">' . esc_html__( '©', 'aegis' ) . ' ' . esc_html__( '[Year]', 'aegis' ) . ' <a rel="noreferrer noopener"
-								href="https://github.com/atmostfear-entertainment/aegis" data-type="link"
-								data-id="https://github.com/atmostfear-entertainment/aegis" target="_blank">' . esc_html__( 'Aegis',
-								'aegis' ) . '</a> ' . esc_html__( 'by', 'aegis' ) . ' <a rel="noreferrer noopener"
-								href="https://www.atmostfear-entertainment.com" data-type="link"
-								data-id="https://www.atmostfear-entertainment.com" target="_blank">' . esc_html__( 'Atmostfear
-								Entertainment', 'aegis' ) . '</a></p>
+						<p class="has-tiny-font-size">' . esc_html__( '©', 'aegis' ) . ' ' . esc_html__( '[Year]', 'aegis' ) . ' ' . esc_html__( '[Company]', 'aegis' ) . '</p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
@@ -248,8 +242,7 @@ return array(
 					<!-- wp:column {"verticalAlignment":"center"} -->
 					<div class="wp-block-column is-vertically-aligned-center">
 						<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#000000","openInNewTab":true,"size":"has-small-icon-size","style":{"spacing":{"blockGap":"20px","margin":{"top":"30px","bottom":"24px"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"right"}} -->
-						<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only"
-							style="margin-top:30px;margin-bottom:24px">
+						<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:30px;margin-bottom:24px">
 							<!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
 
 							<!-- wp:social-link {"url":"https://linkedin.com/","service":"linkedin","rel":"LinkedIn"} /-->
