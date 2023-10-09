@@ -1,245 +1,274 @@
 <?php
 /**
- * Title: Footer 1
- * Slug: aegis/footer-1
- * Categories: footer
- * Description: A default footer block pattern
- * Keywords: footer, navigation, branding, contact, social media, information, services, company, address, email, phone, links, icons, layout, columns
- * Viewport Width: 1500
- * Block Types: core/template-part/footer
- * Post Types: wp_template
- * Inserter: true
- * 
- * @package aegis
- * @since 1.0.0
+ * Default Footer Block Pattern
  */
-?>
+return array(
+	'title'	      => __( 'Default footer', 'aegis' ),
+	'description' => __( 'Default footer block pattern', 'aegis' ),
+	'categories'  => array( 'aegis-footer' ),
+	'blockTypes' => array( 'core/template-part/footer' ),
+	'content' => '
+<!-- wp:group {"tagName":"footer","align":"full","layout":{"type":"constrained"}} -->
+<footer class="wp-block-group alignfull">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","right":"30px","left":"30px"}},"border":{"top":{"color":"var:preset|color|septenary","width":"1px"},"right":{},"bottom":{"color":"var:preset|color|septenary","width":"1px"},"left":{}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull"
+		style="border-top-color:var(--wp--preset--color--septenary);border-top-width:1px;border-bottom-color:var(--wp--preset--color--septenary);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--30);padding-right:30px;padding-bottom:var(--wp--preset--spacing--30);padding-left:30px">
+		<!-- wp:columns {"align":"wide"} -->
+		<div class="wp-block-columns alignwide">
+			<!-- wp:column -->
+			<div class="wp-block-column">
+				<!-- wp:columns -->
+				<div class="wp-block-columns">
+					<!-- wp:column {"verticalAlignment":"center","width":"10%"} -->
+					<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:10%">
+						<!-- wp:image {"width":35,"sizeSlug":"full","linkDestination":"none"} -->
+						<figure class="wp-block-image size-full is-resized"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/icons/delivery.svg" alt="' . esc_attr__( 'Describe the icon context.', 'aegis' ) . '" style="width:35px" width="35" /></figure>
+						<!-- /wp:image -->
+					</div>
+					<!-- /wp:column -->
 
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","right":"30px","left":"30px"}},"border":{"top":{"color":"var:preset|color|septenary","width":"1px"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull" style="border-top-color:var(--wp--preset--color--septenary);border-top-width:1px;padding-top:var(--wp--preset--spacing--30);padding-right:30px;padding-bottom:var(--wp--preset--spacing--30);padding-left:30px">
-	<!-- wp:columns {"align":"wide"} -->
-	<div class="wp-block-columns alignwide">
-		<!-- wp:column -->
-		<div class="wp-block-column">
-			<!-- wp:columns -->
-			<div class="wp-block-columns">
-				<!-- wp:column {"verticalAlignment":"center","width":"10%"} -->
-				<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:10%"><!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
-					<figure class="wp-block-image size-full"><img src="'<?php echo esc_url(get_template_directory_uri()) ?>'/assets/images/icon-placeholder-1.jpg" alt="<?php echo esc_attr__('Icon', 'aegis') ?>" /></figure>
-					<!-- /wp:image -->
+					<!-- wp:column {"width":"90%"} -->
+					<div class="wp-block-column" style="flex-basis:90%">
+						<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+						<h3 class="wp-block-heading has-medium-font-size">' . esc_html__( 'Shipping Included', 'aegis' ) . '</h3>
+						<!-- /wp:heading -->
+
+						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"small"} -->
+						<p class="has-small-font-size"
+							style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0">' . esc_html__( '[State offer based on order value.]', 'aegis' ) . '</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:column -->
 				</div>
-				<!-- /wp:column -->
-				<!-- wp:column {"width":"90%"} -->
-				<div class="wp-block-column" style="flex-basis:90%">
-					<!-- wp:heading {"level":3,"fontSize":"medium"} -->
-					<h3 class="has-medium-font-size"><?php echo esc_html__('Free Shipping', 'aegis') ?></h3>
-					<!-- /wp:heading -->
-					<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"small"} -->
-					<p class="has-small-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php echo esc_html__('Free Shipping for orders over $100.', 'aegis') ?></p>
-					<!-- /wp:paragraph -->
-				</div>
-				<!-- /wp:column -->
-			</div>
-			<!-- /wp:columns -->
-		</div>
-		<!-- /wp:column -->
-		<!-- wp:column -->
-		<div class="wp-block-column">
-			<!-- wp:columns -->
-			<div class="wp-block-columns">
-				<!-- wp:column {"verticalAlignment":"center","width":"10%"} -->
-				<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:10%">
-					<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
-					<figure class="wp-block-image size-full"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/images/icon-placeholder-2.jpg" alt="<?php echo esc_attr__('Icon', 'aegis') ?>" /></figure>
-					<!-- /wp:image -->
-				</div>
-				<!-- /wp:column -->
-				<!-- wp:column {"width":"90%"} -->
-				<div class="wp-block-column" style="flex-basis:90%">
-					<!-- wp:heading {"level":3,"fontSize":"medium"} -->
-					<h3 class="has-medium-font-size"><?php echo esc_html__('Returns Guarantee', 'aegis') ?></h3>
-					<!-- /wp:heading -->
-					<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"small"} -->
-					<p class="has-small-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php echo esc_html__('Within 30 days for an exchange.', 'aegis') ?></p>
-					<!-- /wp:paragraph -->
-				</div>
-				<!-- /wp:column -->
-			</div>
-			<!-- /wp:columns -->
-		</div>
-		<!-- /wp:column -->
-		<!-- wp:column -->
-		<div class="wp-block-column">
-			<!-- wp:columns -->
-			<div class="wp-block-columns">
-				<!-- wp:column {"verticalAlignment":"center","width":"10%"} -->
-				<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:10%">
-					<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
-					<figure class="wp-block-image size-full"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/images/icon-placeholder-3.jpg" alt="<?php echo esc_attr__('Icon', 'aegis') ?>" /></figure>
-					<!-- /wp:image -->
-				</div>
-				<!-- /wp:column -->
-				<!-- wp:column {"width":"90%"} -->
-				<div class="wp-block-column" style="flex-basis:90%">
-					<!-- wp:heading {"level":3,"fontSize":"medium"} -->
-					<h3 class="has-medium-font-size"><?php echo esc_html__('Online Support', 'aegis') ?></h3>
-					<!-- /wp:heading -->
-					<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"small"} -->
-					<p class="has-small-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php echo esc_html__('24 hours a day, 7 days a week.', 'aegis') ?></p>
-					<!-- /wp:paragraph -->
-				</div>
-				<!-- /wp:column -->
-			</div>
-			<!-- /wp:columns -->
-		</div>
-		<!-- /wp:column -->
-		<!-- wp:column -->
-		<div class="wp-block-column">
-			<!-- wp:columns -->
-			<div class="wp-block-columns">
-				<!-- wp:column {"verticalAlignment":"center","width":"10%"} -->
-				<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:10%">
-					<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
-					<figure class="wp-block-image size-full"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/images/icon-4.jpg" alt="<?php echo esc_attr__('Icon', 'aegis') ?>" /></figure>
-					<!-- /wp:image -->
-				</div>
-				<!-- /wp:column -->
-				<!-- wp:column {"width":"90%"} -->
-				<div class="wp-block-column" style="flex-basis:90%">
-					<!-- wp:heading {"level":3,"fontSize":"medium"} -->
-					<h3 class="has-medium-font-size"><?php echo esc_html__('Secure Transactions', 'aegis') ?></h3>
-					<!-- /wp:heading -->
-					<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"small"} -->
-					<p class="has-small-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php echo esc_html__('Pay with Multiple Credit Cards.', 'aegis') ?></p>
-					<!-- /wp:paragraph -->
-				</div>
-				<!-- /wp:column -->
-			</div>
-			<!-- /wp:columns -->
-		</div>
-		<!-- /wp:column -->
-	</div>
-	<!-- /wp:columns -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"align":"full","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull">
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"0","right":"30px","left":"30px"}}},"backgroundColor":"secondary","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull has-secondary-background-color has-background" style="padding-top:var(--wp--preset--spacing--50);padding-right:30px;padding-bottom:0;padding-left:30px">
-		<!-- wp:columns {"align":"wide","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"},"margin":{"top":"0","bottom":"0"}}}} -->
-		<div class="wp-block-columns alignwide" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
-			<!-- wp:column -->
-			<div class="wp-block-column">
-				<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}},"layout":{"type":"constrained"}} -->
-				<div class="wp-block-group" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
-					<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"20px"}}},"fontSize":"medium"} -->
-					<h3 class="has-medium-font-size" style="margin-top:20px"><?php echo esc_html__('Company', 'aegis') ?></h3>
-					<!-- /wp:heading -->
-					<!-- wp:paragraph {"style":{"spacing":{"margin":{"bottom":"0"}}},"fontSize":"small"} -->
-					<p class="has-small-font-size" style="margin-bottom:0"><?php echo esc_html__('Find a location nearest you.&nbsp;', 'aegis') ?></p>
-					<!-- /wp:paragraph -->
-					<!-- wp:paragraph {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30","top":"0"}}},"fontSize":"small"} -->
-					<p class="has-small-font-size" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30)"><a href="#"><?php echo esc_html__('Find Our Stores', 'aegis') ?></a></p>
-					<!-- /wp:paragraph -->
-					<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0px"}}},"fontSize":"small"} -->
-					<p class="has-small-font-size" style="margin-top:0px"><a href="#"><?php echo esc_html__('+57 (0)311 8968 3325', 'aegis') ?></a></p>
-					<!-- /wp:paragraph -->
-					<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0px"}}},"fontSize":"small"} -->
-					<p class="has-small-font-size" style="margin-top:0px"><a href="#"><?php echo esc_html__('contact@domain.com', 'aegis') ?></a></p>
-					<!-- /wp:paragraph -->
-				</div>
-				<!-- /wp:group -->
+				<!-- /wp:columns -->
 			</div>
 			<!-- /wp:column -->
+
 			<!-- wp:column -->
 			<div class="wp-block-column">
-				<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"0","right":"0","left":"0","top":"0"}}},"className":"is-style-default","layout":{"type":"constrained"}} -->
-				<div class="wp-block-group is-style-default" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
-					<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"20px"}}},"fontSize":"medium"} -->
-					<h3 class="has-medium-font-size" style="margin-top:20px"><?php echo esc_html__('Information', 'aegis') ?></h3>
-					<!-- /wp:heading -->
-					<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"12px"}}},"fontSize":"small"} -->
-					<p class="has-small-font-size" style="margin-top:12px"><a href="#"><?php echo esc_html__('Shop', 'aegis') ?></a></p>
-					<!-- /wp:paragraph -->
-					<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"small"} -->
-					<p class="has-small-font-size" style="margin-top:10px"><a href="#"><?php echo esc_html__('My Account', 'aegis') ?></a></p>
-					<!-- /wp:paragraph -->
-					<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"small"} -->
-					<p class="has-small-font-size" style="margin-top:10px"><a href="#"><?php echo esc_html__('Cart', 'aegis') ?></a></p>
-					<!-- /wp:paragraph -->
-					<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"small"} -->
-					<p class="has-small-font-size" style="margin-top:10px"><a href="#"><?php echo esc_html__('Checkout', 'aegis') ?></a></p>
-					<!-- /wp:paragraph -->
+				<!-- wp:columns -->
+				<div class="wp-block-columns">
+					<!-- wp:column {"verticalAlignment":"center","width":"10%"} -->
+					<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:10%">
+						<!-- wp:image {"width":35,"sizeSlug":"full","linkDestination":"none"} -->
+						<figure class="wp-block-image size-full is-resized"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/icons/returns.svg" alt="' . esc_attr__( 'Describe the icon context.', 'aegis' ) . '" style="width:35px" width="35" /></figure>
+						<!-- /wp:image -->
+					</div>
+					<!-- /wp:column -->
+
+					<!-- wp:column {"width":"90%"} -->
+					<div class="wp-block-column" style="flex-basis:90%">
+						<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+						<h3 class="wp-block-heading has-medium-font-size">' . esc_html__( 'Return Assurance', 'aegis' ) . '</h3>
+						<!-- /wp:heading -->
+
+						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"small"} -->
+						<p class="has-small-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0">' . esc_html__( '[State time frame for returns.]', 'aegis' ) . '</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:column -->
 				</div>
-				<!-- /wp:group -->
+				<!-- /wp:columns -->
 			</div>
 			<!-- /wp:column -->
+
 			<!-- wp:column -->
 			<div class="wp-block-column">
-				<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"0","right":"0","left":"0","top":"0"}}},"className":"is-style-default","layout":{"type":"constrained"}} -->
-				<div class="wp-block-group is-style-default" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
-					<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"20px"}}},"fontSize":"medium"} -->
-					<h3 class="has-medium-font-size" style="margin-top:20px"><?php echo esc_html__('Services', 'aegis') ?></h3>
-					<!-- /wp:heading -->
-					<!-- wp:paragraph {"style":{"spacing":{"margin":{"right":"0","bottom":"0","left":"0","top":"20px"}}},"fontSize":"small"} -->
-					<p class="has-small-font-size" style="margin-top:20px;margin-right:0;margin-bottom:0;margin-left:0"><a href="#"><?php echo esc_html__('About Us', 'aegis') ?></a></p>
-					<!-- /wp:paragraph -->
-					<!-- wp:paragraph {"style":{"spacing":{"margin":{"right":"0","bottom":"0","left":"0","top":"10px"}}},"fontSize":"small"} -->
-					<p class="has-small-font-size" style="margin-top:10px;margin-right:0;margin-bottom:0;margin-left:0"><a href="#"><?php echo esc_html__('Careers', 'aegis') ?></a></p>
-					<!-- /wp:paragraph -->
-					<!-- wp:paragraph {"style":{"spacing":{"margin":{"right":"0","bottom":"0","left":"0","top":"10px"}}},"fontSize":"small"} -->
-					<p class="has-small-font-size" style="margin-top:10px;margin-right:0;margin-bottom:0;margin-left:0"><a href="#"><?php echo esc_html__('Delivery Info', 'aegis') ?></a></p>
-					<!-- /wp:paragraph -->
-					<!-- wp:paragraph {"style":{"spacing":{"margin":{"right":"0","bottom":"0","left":"0","top":"10px"}}},"fontSize":"small"} -->
-					<p class="has-small-font-size" style="margin-top:10px;margin-right:0;margin-bottom:0;margin-left:0"><a href="#"><?php echo esc_html__('Privacy Policy', 'aegis') ?></a></p>
-					<!-- /wp:paragraph -->
+				<!-- wp:columns -->
+				<div class="wp-block-columns">
+					<!-- wp:column {"verticalAlignment":"center","width":"10%"} -->
+					<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:10%">
+						<!-- wp:image {"width":35,"sizeSlug":"full","linkDestination":"none"} -->
+						<figure class="wp-block-image size-full is-resized"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/icons/support.svg" alt="' . esc_attr__( 'Describe the icon context.', 'aegis' ) . '" style="width:35px" width="35" /></figure>
+						<!-- /wp:image -->
+					</div>
+					<!-- /wp:column -->
+
+					<!-- wp:column {"width":"90%"} -->
+					<div class="wp-block-column" style="flex-basis:90%">
+						<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+						<h3 class="wp-block-heading has-medium-font-size">Online Assistance</h3>
+						<!-- /wp:heading -->
+
+						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"small"} -->
+						<p class="has-small-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0">' . esc_html__( '[State service or operation hours.]', 'aegis' ) . '</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:column -->
 				</div>
-				<!-- /wp:group -->
+				<!-- /wp:columns -->
 			</div>
 			<!-- /wp:column -->
+
 			<!-- wp:column -->
 			<div class="wp-block-column">
-				<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"0","right":"0","left":"0","top":"0"}}},"className":"is-style-default","layout":{"type":"constrained"}} -->
-				<div class="wp-block-group is-style-default" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
-					<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"20px"}}},"fontSize":"medium"} -->
-					<h3 class="has-medium-font-size" style="margin-top:20px"><?php echo esc_html__('Social Media', 'aegis') ?></h3>
-					<!-- /wp:heading -->
-					<!-- wp:social-links {"iconColor":"black","iconColorValue":"#000000","showLabels":true,"size":"has-small-icon-size","style":{"spacing":{"blockGap":{"top":"10px","left":"10px"},"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left"}} -->
-					<ul class="wp-block-social-links has-small-icon-size has-visible-labels has-icon-color is-style-logos-only" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
-						<!-- wp:social-link {"url":"facebook.com","service":"facebook","label":"Facebook"} /-->
-						<!-- wp:social-link {"url":"linkedin.com","service":"linkedin",,"label":"LinkedIn"} /-->
-						<!-- wp:social-link {"url":"instagram.com","service":"instagram","label":"Instagram"} /-->
-					</ul>
-					<!-- /wp:social-links -->
+				<!-- wp:columns -->
+				<div class="wp-block-columns">
+					<!-- wp:column {"verticalAlignment":"center","width":"10%"} -->
+					<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:10%">
+						<!-- wp:image {"width":35,"sizeSlug":"full","linkDestination":"none"} -->
+						<figure class="wp-block-image size-full is-resized"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/icons/payment.svg" alt="' . esc_attr__( 'Describe the icon context.', 'aegis' ) . '" style="width:35px" width="35" /></figure>
+						<!-- /wp:image -->
+					</div>
+					<!-- /wp:column -->
+
+					<!-- wp:column {"width":"90%"} -->
+					<div class="wp-block-column" style="flex-basis:90%">
+						<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+						<h3 class="wp-block-heading has-medium-font-size">' . esc_html__( 'Secure Checkout', 'aegis' ) . '</h3>
+						<!-- /wp:heading -->
+
+						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"small"} -->
+						<p class="has-small-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0">' . esc_html__( '[State diverse card acceptance.]' , 'aegis' ) . '</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:column -->
 				</div>
-				<!-- /wp:group -->
+				<!-- /wp:columns -->
 			</div>
 			<!-- /wp:column -->
 		</div>
 		<!-- /wp:columns -->
 	</div>
 	<!-- /wp:group -->
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"secondary","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull has-secondary-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">
-		<!-- wp:separator {"align":"full","backgroundColor":"septenary"} -->
-		<hr class="wp-block-separator alignfull has-text-color has-septenary-color has-alpha-channel-opacity has-septenary-background-color has-background" />
-		<!-- /wp:separator -->
-		<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"right":"30px","left":"30px"}}},"layout":{"type":"constrained"}} -->
-		<div class="wp-block-group alignfull" style="padding-right:30px;padding-left:30px">
-			<!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
-			<div class="wp-block-group alignwide">
-				<!-- wp:image {"width":300,"sizeSlug":"large","linkDestination":"none"} -->
-				<figure class="wp-block-image size-large is-resized"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/images/cards.png" alt="<?php echo esc_attr__('Cards', 'aegis') ?>" width="300" /></figure>
-				<!-- /wp:image -->
-				<!-- wp:site-title {"fontSize":"medium"} /-->
-				<!-- wp:paragraph {"fontSize":"tiny"} -->
-				<p class="has-tiny-font-size"><?php echo esc_attr__('© 2023', 'aegis') ?> <a href="<?php echo esc_html__('https://github.com/atmostfear-entertainment/aegis/', 'aegis') ?>"><?php echo esc_attr__('Aegis', 'aegis') ?></a> <?php echo esc_attr__('by Atmostfear Entertainment', 'aegis') ?></p>
-				<!-- /wp:paragraph -->
+
+	<!-- wp:group {"align":"full","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull">
+		<!-- wp:group {"align":"full","layout":{"type":"constrained"}} -->
+		<div class="wp-block-group alignfull">
+			<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","right":"30px","left":"30px"},"blockGap":"0px"},"border":{"width":"0px","style":"none"},"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}}},"textColor":"foreground","gradient":"vertical-background-to-secondary","className":"footer is-style-default","layout":{"type":"default"}} -->
+			<div class="wp-block-group alignwide footer is-style-default has-foreground-color has-vertical-background-to-secondary-gradient-background has-text-color has-background has-link-color" style="border-style:none;border-width:0px;padding-top:var(--wp--preset--spacing--40);padding-right:30px;padding-bottom:var(--wp--preset--spacing--40);padding-left:30px">
+				<!-- wp:columns {"align":"wide","style":{"spacing":{"margin":{"bottom":"40px"},"blockGap":"10px"}}} -->
+				<div class="wp-block-columns alignwide" style="margin-bottom:40px">
+					<!-- wp:column {"width":"25%","style":{"spacing":{"blockGap":"0px","padding":{"top":"var:preset|spacing|30"}}}} -->
+					<div class="wp-block-column" style="padding-top:var(--wp--preset--spacing--30);flex-basis:25%">
+						<!-- wp:site-title {"isLink":false,"style":{"spacing":{"margin":{"top":"0px","bottom":"30px"}},"typography":{"lineHeight":"1","textTransform":"none"}},"textColor":"intrace-primary"} /-->
+
+						<!-- wp:paragraph {"textColor":"intrace-body-text","fontSize":"small"} -->
+						<p class="has-intrace-body-text-color has-text-color has-small-font-size">' . esc_html__( 'Company Info (95 chars): [Briefly describe the mission, vision, or unique selling proposition.]' , 'aegis' ) . '</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:column -->
+
+					<!-- wp:column {"style":{"spacing":{"blockGap":"10px","padding":{"top":"var:preset|spacing|30"}}}} -->
+					<div class="wp-block-column" style="padding-top:var(--wp--preset--spacing--30)">
+						<!-- wp:heading {"level":4,"style":{"spacing":{"margin":{"bottom":"20px"}}},"fontSize":"large"} -->
+						<h4 class="wp-block-heading has-large-font-size" style="margin-bottom:20px">' . esc_html__( 'Information' , 'aegis' ) . '</h4>
+						<!-- /wp:heading -->
+
+						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"12px"}}},"fontSize":"small"} -->
+						<p class="has-small-font-size" style="margin-top:12px"><a href="#">' . esc_html__( 'About', 'aegis' ) . '</a></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"small"} -->
+						<p class="has-small-font-size" style="margin-top:10px"><a href="#">' . esc_html__( 'News', 'aegis' ) . '</a></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"small"} -->
+						<p class="has-small-font-size" style="margin-top:10px"><a href="#">' . esc_html__( 'Careers', 'aegis' ) . '</a></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"small"} -->
+						<p class="has-small-font-size" style="margin-top:10px"><a href="#">' . esc_html__( 'Contact', 'aegis' ) . '</a></p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:column -->
+
+					<!-- wp:column {"width":"25%","style":{"spacing":{"padding":{"right":"0px","top":"var:preset|spacing|30"},"blockGap":"10px"}}} -->
+					<div class="wp-block-column" style="padding-top:var(--wp--preset--spacing--30);padding-right:0px;flex-basis:25%">
+						<!-- wp:heading {"level":4,"style":{"spacing":{"margin":{"bottom":"20px"}}}} -->
+						<h4 class="wp-block-heading" style="margin-bottom:20px">' . esc_html__( 'Service', 'aegis' ) . '</h4>
+						<!-- /wp:heading -->
+
+						<!-- wp:paragraph {"style":{"spacing":{"margin":{"right":"0","bottom":"0","left":"0","top":"20px"}}},"fontSize":"small"} -->
+						<p class="has-small-font-size" style="margin-top:20px;margin-right:0;margin-bottom:0;margin-left:0"><a href="#">' . esc_html__( 'Tracking', 'aegis' ) . '</a></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:paragraph {"style":{"spacing":{"margin":{"right":"0","bottom":"0","left":"0","top":"10px"}}},"fontSize":"small"} -->
+						<p class="has-small-font-size" style="margin-top:10px;margin-right:0;margin-bottom:0;margin-left:0"><a	href="#">' . esc_html__( 'Delivery', 'aegis' ) . '</a></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:paragraph {"style":{"spacing":{"margin":{"right":"0","bottom":"0","left":"0","top":"10px"}}},"fontSize":"small"} -->
+						<p class="has-small-font-size" style="margin-top:10px;margin-right:0;margin-bottom:0;margin-left:0"><a href="#">' . esc_html__( 'Returns', 'aegis' ) . '</a>
+						</p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:paragraph {"style":{"spacing":{"margin":{"right":"0","bottom":"0","left":"0","top":"10px"}}},"fontSize":"small"} -->
+						<p class="has-small-font-size" style="margin-top:10px;margin-right:0;margin-bottom:0;margin-left:0"><a href="#">' . esc_html__( 'Policies', 'aegis' ) . '</a></p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:column -->
+
+					<!-- wp:column {"verticalAlignment":"top","width":"30%","style":{"spacing":{"padding":{"left":"0","top":"var:preset|spacing|30","right":"0"},"blockGap":"0"}}} -->
+					<div class="wp-block-column is-vertically-aligned-top" style="padding-top:var(--wp--preset--spacing--30);padding-right:0;padding-left:0;flex-basis:30%">
+						<!-- wp:heading {"level":4,"style":{"spacing":{"margin":{"bottom":"20px"}}}} -->
+						<h4 class="wp-block-heading" style="margin-bottom:20px">' . esc_html__( 'Title (21 chars): [Section focus.]', 'aegis' ) . '</h4>
+						<!-- /wp:heading -->
+
+						<!-- wp:paragraph {"fontSize":"small"} -->
+						<p class="has-small-font-size">' . esc_html__( 'Shop Highlight (124 chars): [Promote new arrivals, featured collections, or seasonal favorites.]', 'aegis' ) . ' </p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30"}}},"layout":{"type":"constrained"}} -->
+						<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--30)">
+							<!-- wp:buttons {"style":{"spacing":{"blockGap":"0"}}} -->
+							<div class="wp-block-buttons">
+								<!-- wp:button {"className":"is-style-aegis-button-shadow"} -->
+								<div class="wp-block-button is-style-aegis-button-shadow"><a class="wp-block-button__link wp-element-button">' . esc_html__( 'Call to Action', 'aegis' ) . '</a></div>
+								<!-- /wp:button -->
+							</div>
+							<!-- /wp:buttons -->
+						</div>
+						<!-- /wp:group -->
+					</div>
+					<!-- /wp:column -->
+				</div>
+				<!-- /wp:columns -->
+
+				<!-- wp:separator {"backgroundColor":"secondary","className":"is-style-wide"} -->
+				<hr class="wp-block-separator has-text-color has-secondary-color has-alpha-channel-opacity has-secondary-background-color has-background is-style-wide" />
+				<!-- /wp:separator -->
+
+				<!-- wp:columns {"style":{"spacing":{"blockGap":"0px","margin":{"top":"0","bottom":"0"}}}} -->
+				<div class="wp-block-columns" style="margin-top:0;margin-bottom:0">
+					<!-- wp:column {"verticalAlignment":"center","width":"60%"} -->
+					<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:60%">
+						<!-- wp:paragraph {"fontSize":"tiny"} -->
+						<p class="has-tiny-font-size">' . esc_html__( '©', 'aegis' ) . ' ' . esc_html__( '[Year]', 'aegis' ) . ' <a rel="noreferrer noopener"
+								href="https://github.com/atmostfear-entertainment/aegis" data-type="link"
+								data-id="https://github.com/atmostfear-entertainment/aegis" target="_blank">' . esc_html__( 'Aegis',
+								'aegis' ) . '</a> ' . esc_html__( 'by', 'aegis' ) . ' <a rel="noreferrer noopener"
+								href="https://www.atmostfear-entertainment.com" data-type="link"
+								data-id="https://www.atmostfear-entertainment.com" target="_blank">' . esc_html__( 'Atmostfear
+								Entertainment', 'aegis' ) . '</a></p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:column -->
+
+					<!-- wp:column {"verticalAlignment":"center"} -->
+					<div class="wp-block-column is-vertically-aligned-center">
+						<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#000000","openInNewTab":true,"size":"has-small-icon-size","style":{"spacing":{"blockGap":"20px","margin":{"top":"30px","bottom":"24px"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"right"}} -->
+						<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only"
+							style="margin-top:30px;margin-bottom:24px">
+							<!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
+
+							<!-- wp:social-link {"url":"https://linkedin.com/","service":"linkedin","rel":"LinkedIn"} /-->
+
+							<!-- wp:social-link {"url":"https://tiktok.com/","service":"tiktok","rel":"TikTok"} /-->
+
+							<!-- wp:social-link {"url":"https://instagram.com/","service":"instagram","rel":"Instagram"} /-->
+						</ul>
+						<!-- /wp:social-links -->
+					</div>
+					<!-- /wp:column -->
+				</div>
+				<!-- /wp:columns -->
 			</div>
 			<!-- /wp:group -->
 		</div>
 		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
-</div>
-<!-- /wp:group -->
+</footer>
+<!-- /wp:group -->',
+);
