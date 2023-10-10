@@ -4,7 +4,7 @@
  */
 return array(
 	'title'	      => __( 'About 1', 'aegis' ),
-	'description' => __( 'About us block pattern', 'aegis' ),
+	'description' => __( 'About Us block pattern', 'aegis' ),
 	'categories'  => array( 'aegis-about' ),
 	'content' => '
 	<!-- wp:group {"align":"wide","gradient":"diagonal-secondary-to-background","layout":{"type":"constrained"}} -->
