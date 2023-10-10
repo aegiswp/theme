@@ -566,31 +566,6 @@
       "area": "header"
     },
     {
-      "name": "header-5",
-      "title": "Header 5",
-      "area": "header"
-    },
-    {
-      "name": "header-6",
-      "title": "Header 6 - Sticky",
-      "area": "header"
-    },
-    {
-      "name": "header-7",
-      "title": "Header 7",
-      "area": "header"
-    },
-    {
-      "name": "header-8",
-      "title": "Header 8",
-      "area": "header"
-    },
-    {
-      "name": "header-9",
-      "title": "Header 9",
-      "area": "header"
-    },
-    {
       "name": "footer",
       "title": "Footer",
       "area": "footer"
@@ -608,11 +583,6 @@
     {
       "name": "footer-4",
       "title": "Footer 4",
-      "area": "footer"
-    },
-    {
-      "name": "footer-5",
-      "title": "Footer 5",
       "area": "footer"
     }
   ]
