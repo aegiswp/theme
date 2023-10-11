@@ -60,7 +60,6 @@ function aegis_register_block_patterns() {
 		'general/about-1',
 		'general/about-2',
 		'general/team-1',
-		'general/team-2',
 		'general/testimonials-1',
 		'general/testimonials-2',
 		'general/pricing-1',
