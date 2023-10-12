@@ -3,7 +3,7 @@
  * Default Header Block Pattern
  */
 return array(
-	'title'	  => __( 'Header 1 - Default', 'aegis' ),
+	'title'	  => __( 'Header 1- Default', 'aegis' ),
 	'categories' => array( 'aegis-header' ),
 	'blockTypes' => array( 'core/template-part/header' ),
 	'content'	=> '
@@ -59,7 +59,7 @@ return array(
 			<div class="wp-block-columns alignwide is-not-stacked-on-mobile" style="padding-right:0px;padding-left:0px">
 				<!-- wp:column {"verticalAlignment":"center","width":"30%"} -->
 				<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:30%">
-					<!-- wp:site-logo {"width":45,"shouldSyncIcon":true} /-->
+					<!-- wp:site-title {"level":0,"textAlign":"left","style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"extra-large"} /-->
 				</div>
 				<!-- /wp:column -->
 
