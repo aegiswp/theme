@@ -266,7 +266,7 @@ if ( function_exists( 'register_block_style' ) ) {
 			)
 		);
 		
-		// Button: Border and Shadow.
+		// Button: Border & Shadow.
 		register_block_style(
 			'core/post-excerpt',
 			array(
