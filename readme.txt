@@ -16,8 +16,6 @@ Aegis is a sleek and refined WordPress theme, perfectly crafted for those seekin
 = 1.0.0 =
 * Initial commit
 
-https://github.com/atmostfear-entertainment/aeon/blob/main/CHANGELOG.md#100---2022-10-07
-
 == Copyright ==
 
 Aegis WordPress Theme, 2022 - 2023 Atmostfear Entertainment SAS.
