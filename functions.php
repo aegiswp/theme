@@ -8,13 +8,13 @@
  * @author  Atmostfear Entertainment
  * @license GNU General Public License v2 or later
  * @link    https://github.com/atmostfear-entertainment/aegis
- * @since   Aegis 1.0.0
+ * @since   1.0.0
  */
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
- * @since Aegis 1.0.0
+ * @since 1.0.0
  *
  * @return void
  */
@@ -43,7 +43,7 @@ function aegis_is_woocommerce_activated()
 /**
  * Enqueue styles.
  *
- * @since Aegis 1.0.0
+ * @since 1.0.0
  *
  * @return void
  */
@@ -71,14 +71,14 @@ function aegis_prevent_remote_patterns()
 }
 add_filter('should_load_remote_block_patterns', 'aegis_prevent_remote_patterns');
 
-// Add block pattern.
-require get_template_directory() . '/inc/block-patterns.php';
+    // Add block pattern.
+    require get_template_directory() . '/inc/block-patterns.php';
 
-// Block styles.
-require get_template_directory() . '/inc/block-styles.php';
+    // Block styles.
+    require get_template_directory() . '/inc/block-styles.php';
 
-// Remove support for WordPress default block patterns.
-remove_theme_support('core-block-patterns');
+    // Remove support for WordPress default block patterns.
+    remove_theme_support('core-block-patterns');
 
 /**
  * Include Woocommerce support.
