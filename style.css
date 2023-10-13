@@ -5,8 +5,8 @@ Author: Atmostfear Entertainment
 Author URI: https://www.atmostfear-entertainment.com/
 Description: Aegis is a fast and lightweight WordPress theme that is optimized for speed. It comes with an added animation features that adds a touch of elegance to your website without slowing it down.The theme also includes multiple custom built block editor blocks, giving you greater flexibility and control over your website design. Aegis is built on the new WordPress full site editing system, making it easy to customize and edit your website in real-time.This theme is perfect for those who want a fast and modern website without sacrificing design and functionality.
 Requires at least: 5.9
-Tested up to: 6.3
-Requires PHP: 5.6
+Tested up to: 6.3.2
+Requires PHP: 7.4
 Version: 1.0.0-alpha.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -115,7 +115,7 @@ figure {
 }
 
 /* ------------------------------------------- */
-/* Navigation Block 
+/* Navigation Block
 /* ------------------------------------------- */
 .wp-block-navigation .wp-block-navigation-item__content {
     padding: .5em;
@@ -194,11 +194,13 @@ figure {
     .wp-block-navigation__container {
         justify-content: start;
     }
+
     .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation-item,
     .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__container,
     .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-page-list {
         align-items: flex-start;
     }
+
     .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
         align-items: flex-start;
     }
@@ -215,9 +217,11 @@ figure {
     .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
         display: none;
     }
+
     .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) .wp-block-navigation__responsive-container-close {
         display: block;
     }
+
     .wp-block-navigation__responsive-container-open:not(.always-shown) {
         display: flex;
     }
@@ -228,17 +232,20 @@ figure {
         top: 50px;
         right: 20px;
     }
+
     .wp-block-navigation__responsive-container {
         opacity: 0;
         visibility: hidden;
         transition: opacity 0s, visibility 0s;
         display: flex;
     }
+
     .wp-block-navigation__responsive-container.is-menu-open {
         opacity: 1;
         visibility: visible;
         transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
     }
+
     .wp-block-navigation__responsive-container .wp-block-navigation__responsive-container-content .wp-block-navigation__container {
         transition: transform .4s all, opacity .4s all;
         transform: translateY(-35px);
@@ -247,35 +254,41 @@ figure {
         font-size: 20px;
         width: 100%;
     }
+
     .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__container {
         transform: translateY(0);
         opacity: 1;
         gap: 20px;
         padding: 40px;
     }
+
     .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .has-child .wp-block-navigation__submenu-container {
         font-size: .9em;
         gap: 15px;
         padding: 0 30px 24px 30px;
         position: relative;
     }
+
     .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container:before {
         content: "↑";
         position: absolute;
         left: 0;
         top: 10px;
     }
+
     .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation-item__content {
         color: currentColor;
     }
 }
 
 @media (min-width:962px) {
+
     .wp-block-navigation .has-child:hover>.wp-block-navigation__submenu-container,
     .wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria-expanded=true]+.wp-block-navigation__submenu-container {
         box-shadow: 0 20px 40px -5px rgb(15 16 18 / 18%);
         transform: translateY(0);
     }
+
     .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
         display: block;
         width: 100%;
@@ -283,33 +296,42 @@ figure {
         z-index: auto;
         background-color: inherit;
     }
+
     .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) .wp-block-navigation__responsive-container-close {
         display: none;
     }
+
     .wp-block-navigation__responsive-container-open:not(.always-shown) {
         display: none;
     }
+
     .wp-block-navigation .has-child :where(.wp-block-navigation__submenu-container) .wp-block-navigation__submenu-icon {
         margin-right: .7em;
     }
+
     [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container {
         flex-direction: row;
     }
+
     [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li {
         max-width: 250px;
         display: block;
         min-width: 200px;
     }
+
     [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li button {
         display: none;
     }
+
     [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>a {
         font-weight: var(--wp--custom--font-weight--bold, 700);
         margin: 5px 0 0 0 !important;
     }
+
     [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>a:hover {
         transform: translateX(0) !important;
     }
+
     [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>ul {
         position: static;
         visibility: visible;
@@ -326,6 +348,7 @@ figure {
 /*
  * Search and File Block button styles.
  */
+
 .wp-block-search__button,
 .wp-block-file .wp-block-file__button {
     background-color: var(--wp--preset--color--foreground);
@@ -597,7 +620,6 @@ figure {
  * Necessary until the following issue is resolved in Gutenberg:
  * https://github.com/WordPress/gutenberg/issues/27075
  */
-
 .wp-block-search__button,
 .wp-block-file .wp-block-file__button,
 .wp-block-button__link {
@@ -1031,7 +1053,7 @@ p.banner-text-margin {
 }
 
 /* ------------------------------------------- */
-/* Contact Form Inputs, and Form Textarea
+/* Contact Form Inputs, and Textarea
 /* ------------------------------------------- */
 input[type=submit] {
     background: var(--wp--preset--color--primary);
@@ -1336,6 +1358,7 @@ textarea {
 }
 
 @media only screen and (min-width: 961px) {
+
     /* Sticky Header Effect */
     .header {
         -webkit-transition: background-color .4s ease, transform 0.4s ease;
@@ -1447,7 +1470,6 @@ textarea {
 /* ------------------------------------------- */
 /* WooCommcerce Blocks
 /* ------------------------------------------- */
-
 .wc-block-grid__product-add-to-cart.wp-block-button .wp-block-button__link {
     color: var(--wp--preset--color--foreground);
     border-radius: 100px;
@@ -1510,7 +1532,6 @@ button.wp-block-button__link.wc-block-filter-submit-button.wc-block-components-f
 /* ------------------------------------------- */
 /* 	WooCommerce
 /* ------------------------------------------- */
-
 .woocommerce #respond input#submit.alt,
 .woocommerce a.button.alt,
 .woocommerce input.button.alt,
@@ -2240,7 +2261,7 @@ input#submit,
 .woocommerce #review_form #respond textarea,
 .woocommerce div.product form.cart .variations select,
 .woocommerce .form-row button {
-    font-family: var(--wp--preset--font-family--outfit);
+    font-family: var(--wp--preset--font-family--lexend);
 }
 
 .woocommerce div.product .woocommerce-tabs .panel h2 {
@@ -2709,6 +2730,7 @@ a.wc-block-components-product-rating__link {
 }
 
 @media only screen and (max-width: 600px) {
+
     .woocommerce ul.products.columns-3 li.product,
     .woocommerce ul.products.columns-4 li.product {
         flex: 1 0 100%;
@@ -2719,6 +2741,7 @@ a.wc-block-components-product-rating__link {
 }
 
 @media screen and (min-width: 960px) {
+
     body.woocommerce-cart .is-layout-constrained .woocommerce,
     body.woocommerce-checkout .is-layout-constrained .woocommerce,
     body.woocommerce-account .is-layout-constrained .woocommerce {
@@ -2932,6 +2955,7 @@ a.wc-block-components-product-rating__link {
 }
 
 @media only screen and (max-width: 600px) {
+
     .wc-block-grid.has-4-columns .wc-block-grid__product,
     .wc-block-grid.has-3-columns .wc-block-grid__product,
     .wc-block-grid.has-2-columns .wc-block-grid__product {
@@ -2943,6 +2967,7 @@ a.wc-block-components-product-rating__link {
 }
 
 @media only screen and (max-width: 768px) {
+
     .woocommerce-page .woocommerce-cart-form #coupon_code,
     .woocommerce-page table.cart td.actions .coupon .button {
         width: 100%;
