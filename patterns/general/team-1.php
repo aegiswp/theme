@@ -15,12 +15,11 @@ return array(
 				<!-- wp:group {"style":{"spacing":{"padding":{"top":"10%","right":"10%","bottom":"10%","left":"10%"}}},"className":"is-style-aegis-border"} -->
 				<div class="wp-block-group is-style-aegis-border" style="padding-top:10%;padding-right:10%;padding-bottom:10%;padding-left:10%">
 					<!-- wp:image {"align":"center","width":160,"sizeSlug":"full","linkDestination":"none","style":{"border":{"width":"0px","style":"none","radius":"100px"},"color":{"duotone":"unset"}},"className":"is-style-rounded "} -->
-					<figure class="wp-block-image aligncenter size-full is-resized has-custom-border is-style-rounded"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_260x260_black.jpg" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-style:none;border-width:0px;border-radius:100px;width:160px" width="160" /></figure>
+					<figure class="wp-block-image aligncenter size-full is-resized has-custom-border is-style-rounded"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_260x260_darkcolor.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-style:none;border-width:0px;border-radius:100px;width:160px" width="160" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:paragraph {"align":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"300","textTransform":"uppercase","letterSpacing":"1px"}},"className":"tagline","fontSize":"tiny"} -->
-					<p class="has-text-align-center tagline has-tiny-font-size"
-						style="font-style:normal;font-weight:300;letter-spacing:1px;text-transform:uppercase">' . esc_html__( '[Job Position]' , 'aegis' ). '</p>
+					<p class="has-text-align-center tagline has-tiny-font-size" style="font-style:normal;font-weight:300;letter-spacing:1px;text-transform:uppercase">' . esc_html__( '[Job Position]' , 'aegis' ). '</p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:heading {"textAlign":"center","fontSize":"extra-large"} -->
@@ -35,7 +34,7 @@ return array(
 					<hr class="wp-block-separator has-text-color has-septenary-color has-alpha-channel-opacity has-septenary-background-color has-background is-style-default" />
 					<!-- /wp:separator -->
 
-					<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#000000","openInNewTab":true,"size":"has-small-icon-size","style":{"spacing":{"margin":{"top":"30px","bottom":"0px"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"center"}} -->
+					<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","openInNewTab":true,"size":"has-small-icon-size","style":{"spacing":{"margin":{"top":"30px","bottom":"0px"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"center"}} -->
 					<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:30px;margin-bottom:0px">
 						<!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
 
@@ -56,7 +55,7 @@ return array(
 				<!-- wp:group {"style":{"spacing":{"padding":{"top":"10%","right":"10%","bottom":"10%","left":"10%"}}},"className":"is-style-aegis-border"} -->
 				<div class="wp-block-group is-style-aegis-border" style="padding-top:10%;padding-right:10%;padding-bottom:10%;padding-left:10%">
 					<!-- wp:image {"align":"center","width":160,"sizeSlug":"full","linkDestination":"none","style":{"border":{"width":"0px","style":"none","radius":"100px"},"color":{"duotone":"unset"}},"className":"is-style-rounded "} -->
-					<figure class="wp-block-image aligncenter size-full is-resized has-custom-border is-style-rounded"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_260x260_black.jpg" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-style:none;border-width:0px;border-radius:100px;width:160px" width="160" /></figure>
+					<figure class="wp-block-image aligncenter size-full is-resized has-custom-border is-style-rounded"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_260x260_darkcolor.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-style:none;border-width:0px;border-radius:100px;width:160px" width="160" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:paragraph {"align":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"300","textTransform":"uppercase","letterSpacing":"1px"}},"className":"tagline","fontSize":"tiny"} -->
@@ -75,7 +74,7 @@ return array(
 					<hr class="wp-block-separator has-text-color has-septenary-color has-alpha-channel-opacity has-septenary-background-color has-background is-style-default" />
 					<!-- /wp:separator -->
 
-					<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#000000","openInNewTab":true,"size":"has-small-icon-size","style":{"spacing":{"margin":{"top":"30px","bottom":"0px"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"center"}} -->
+					<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","openInNewTab":true,"size":"has-small-icon-size","style":{"spacing":{"margin":{"top":"30px","bottom":"0px"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"center"}} -->
 					<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:30px;margin-bottom:0px">
 						<!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
 
@@ -96,7 +95,7 @@ return array(
 				<!-- wp:group {"style":{"spacing":{"padding":{"top":"10%","right":"10%","bottom":"10%","left":"10%"}}},"className":"is-style-aegis-border"} -->
 				<div class="wp-block-group is-style-aegis-border" style="padding-top:10%;padding-right:10%;padding-bottom:10%;padding-left:10%">
 					<!-- wp:image {"align":"center","width":160,"sizeSlug":"full","linkDestination":"none","style":{"border":{"width":"0px","style":"none","radius":"100px"},"color":{"duotone":"unset"}},"className":"is-style-rounded "} -->
-					<figure class="wp-block-image aligncenter size-full is-resized has-custom-border is-style-rounded"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_260x260_black.jpg" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-style:none;border-width:0px;border-radius:100px;width:160px" width="160" /></figure>
+					<figure class="wp-block-image aligncenter size-full is-resized has-custom-border is-style-rounded"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_260x260_darkcolor.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-style:none;border-width:0px;border-radius:100px;width:160px" width="160" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:paragraph {"align":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"300","textTransform":"uppercase","letterSpacing":"1px"}},"className":"tagline","fontSize":"tiny"} -->
@@ -112,11 +111,10 @@ return array(
 					<!-- /wp:paragraph -->
 
 					<!-- wp:separator {"backgroundColor":"septenary","className":"is-style-default"} -->
-					<hr
-						class="wp-block-separator has-text-color has-septenary-color has-alpha-channel-opacity has-septenary-background-color has-background is-style-default" />
+					<hr class="wp-block-separator has-text-color has-septenary-color has-alpha-channel-opacity has-septenary-background-color has-background is-style-default" />
 					<!-- /wp:separator -->
 
-					<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#000000","openInNewTab":true,"size":"has-small-icon-size","style":{"spacing":{"margin":{"top":"30px","bottom":"0px"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"center"}} -->
+					<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","openInNewTab":true,"size":"has-small-icon-size","style":{"spacing":{"margin":{"top":"30px","bottom":"0px"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"center"}} -->
 					<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:30px;margin-bottom:0px">
 						<!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
 
