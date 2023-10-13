@@ -5,7 +5,7 @@
 return array(
 	'title'	  => __( 'eCommerce 1', 'aegis' ),
 	'description' => __( 'A simple block pattern for displaying a product grid.', 'aegis' ),
-    'categories' => array( 'aegis-commerce' ),
+    'categories' => array( 'aegis-ecommerce' ),
 	'content'	=> '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","right":"30px","bottom":"var:preset|spacing|40","left":"30px"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--40);padding-right:30px;padding-bottom:var(--wp--preset--spacing--40);padding-left:30px">
 	<!-- wp:columns {"align":"wide"} -->
