@@ -18,8 +18,7 @@ return array(
 				<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"3rem"}}}} -->
 				<div class="wp-block-group" style="padding-bottom:3rem">
 					<!-- wp:group {"style":{"spacing":{"padding":{"top":"30px","right":"20px","bottom":"15px","left":"20px"}}},"backgroundColor":"secondary","className":"negative-margin is-style-default","layout":{"type":"flex","justifyContent":"space-between"}} -->
-					<div class="wp-block-group negative-margin is-style-default has-secondary-background-color has-background"
-						style="padding-top:30px;padding-right:20px;padding-bottom:15px;padding-left:20px">
+					<div class="wp-block-group negative-margin is-style-default has-secondary-background-color has-background" style="padding-top:30px;padding-right:20px;padding-bottom:15px;padding-left:20px">
 						<!-- wp:post-date {"format":"F j, Y","style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"tiny"} /-->
 
 						<!-- wp:post-terms {"term":"category","textAlign":"right","fontSize":"tiny"} /-->
