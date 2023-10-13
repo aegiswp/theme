@@ -21,7 +21,7 @@ function aegis_register_block_patterns() {
 		'aegis-faq'				=> array( 'label' => __( 'FAQ', 'aegis' ) ),
 		'aegis-pricing'			=> array( 'label' => __( 'Pricing', 'aegis' ) ),
 		'aegis-contact'			=> array( 'label' => __( 'Contact', 'aegis' ) ),
-		'aegis-commerce'		=> array( 'label' => __( 'eCommerce', 'aegis' ) ),
+		'aegis-ecommerce'		=> array( 'label' => __( 'eCommerce', 'aegis' ) ),
 		'aegis-pages'			=> array( 'label' => __( 'Pages', 'aegis' ) ),
 		'aegis-query'			=> array( 'label' => __( 'Blog', 'aegis' ) ),
 	);
