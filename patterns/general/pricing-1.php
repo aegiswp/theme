@@ -12,8 +12,7 @@ return array(
 	    <!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
 	    <div class="wp-block-group alignwide" style="margin-top:0;margin-bottom:0">
 	        <!-- wp:heading {"textAlign":"center","level":3,"align":"wide","style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"huge"} -->
-	        <h3 class="wp-block-heading alignwide has-text-align-center has-huge-font-size"
-	            style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0">' . esc_html__( '[Heading]' , 'aegis' ). '</h3>
+	        <h3 class="wp-block-heading alignwide has-text-align-center has-huge-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0">' . esc_html__( '[Heading]' , 'aegis' ). '</h3>
 	        <!-- /wp:heading -->
 
 	        <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"small"} -->
@@ -29,8 +28,7 @@ return array(
 	            <!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"30px"}}}} -->
 	            <div class="wp-block-columns">
 	                <!-- wp:column {"style":{"spacing":{"blockGap":"0","padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30","top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}},"border":{"width":"1px"}},"borderColor":"foreground","className":"is-style-default"} -->
-	                <div class="wp-block-column is-style-default has-border-color has-foreground-border-color"
-	                    style="border-width:1px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+	                <div class="wp-block-column is-style-default has-border-color has-foreground-border-color" style="border-width:1px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 	                    <!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
 	                    <div class="wp-block-group" style="padding-top:0;padding-bottom:0">
 	                        <!-- wp:paragraph {"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"textColor":"contrast","fontSize":"extra-large"} -->
@@ -46,8 +44,7 @@ return array(
 	                    <!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0"},"blockGap":"0"},"dimensions":{"minHeight":""}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left"}} -->
 	                    <div class="wp-block-group" style="padding-top:0;padding-bottom:0">
 	                        <!-- wp:paragraph {"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"textColor":"contrast","fontSize":"gigantic"} -->
-	                        <p class="has-contrast-color has-text-color has-gigantic-font-size"
-	                            style="font-style:normal;font-weight:600">' . esc_html__( '$00.00' , 'aegis' ). '</p>
+	                        <p class="has-contrast-color has-text-color has-gigantic-font-size" style="font-style:normal;font-weight:600">' . esc_html__( '$00.00' , 'aegis' ). '</p>
 	                        <!-- /wp:paragraph -->
 
 	                        <!-- wp:paragraph {"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"tiny"} -->
@@ -63,8 +60,7 @@ return array(
 	                    <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}}} -->
 	                    <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30)">
 	                        <!-- wp:button {"backgroundColor":"background","width":100,"className":"is-style-aegis-button-shadow-outline"} -->
-	                        <div
-	                            class="wp-block-button has-custom-width wp-block-button__width-100 is-style-aegis-button-shadow-outline">
+	                        <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-aegis-button-shadow-outline">
 	                            <a class="wp-block-button__link has-background-background-color has-background wp-element-button" href="#">' . esc_html__( 'Call to Action' , 'aegis' ). '</a></div>
 	                        <!-- /wp:button -->
 	                    </div>
@@ -93,8 +89,7 @@ return array(
 	                    <!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
 	                    <div class="wp-block-group" style="padding-top:0;padding-bottom:0">
 	                        <!-- wp:paragraph {"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"textColor":"contrast","fontSize":"extra-large"} -->
-	                        <p class="has-contrast-color has-text-color has-extra-large-font-size"
-	                            style="font-style:normal;font-weight:600">' . esc_html__( '[Plan]' , 'aegis' ). '</p>
+	                        <p class="has-contrast-color has-text-color has-extra-large-font-size" style="font-style:normal;font-weight:600">' . esc_html__( '[Plan]' , 'aegis' ). '</p>
 	                        <!-- /wp:paragraph -->
 
 	                        <!-- wp:paragraph -->
@@ -122,8 +117,7 @@ return array(
 	                    <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}}} -->
 	                    <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30)">
 	                        <!-- wp:button {"backgroundColor":"foreground","textColor":"background","width":100,"className":"is-style-aegis-button-shadow-outline"} -->
-	                        <div
-	                            class="wp-block-button has-custom-width wp-block-button__width-100 is-style-aegis-button-shadow-outline">
+	                        <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-aegis-button-shadow-outline">
 	                            <a class="wp-block-button__link has-background-color has-foreground-background-color has-text-color has-background wp-element-button" href="#">' . esc_html__( 'Call to Action' , 'aegis' ). '</a></div>
 	                        <!-- /wp:button -->
 	                    </div>
