@@ -6,10 +6,10 @@ return array(
 	'title'	  => __( 'Hero 2', 'aegis' ),
 	'categories' => array( 'aegis-hero' ),
 	'content'	=> '
-	<!-- wp:cover {"url":"' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_1800x1200_black.jpg","dimRatio":60,"overlayColor":"foreground","focalPoint":{"x":0.5,"y":0.5},"minHeight":700,"align":"wide","className":"is-style-default"} -->
+	<!-- wp:cover {"url":"' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_1800x1200_darkcolor.webp","dimRatio":60,"overlayColor":"foreground","focalPoint":{"x":0.5,"y":0.5},"minHeight":700,"align":"wide","className":"is-style-default"} -->
 	<div class="wp-block-cover alignwide is-style-default" style="min-height:700px">
 	<span aria-hidden="true" class="wp-block-cover__background has-foreground-background-color has-background-dim-60 has-background-dim"></span>
-	<img class="wp-block-cover__image-background" alt="Background Image" src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_1800x1200_black.jpg" style="object-position:50% 50%" data-object-fit="cover" data-object-position="50% 50%" />
+	<img class="wp-block-cover__image-background" alt="Background Image" src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_1800x1200_darkcolor.webp" style="object-position:50% 50%" data-object-fit="cover" data-object-position="50% 50%" />
 		<div class="wp-block-cover__inner-container">
 			<!-- wp:group {"layout":{"type":"constrained"}} -->
 			<div class="wp-block-group">
