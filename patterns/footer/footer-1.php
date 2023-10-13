@@ -11,8 +11,7 @@ return array(
 <!-- wp:group {"tagName":"footer","align":"full","layout":{"type":"constrained"}} -->
 <footer class="wp-block-group alignfull">
 	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","right":"30px","left":"30px"}},"border":{"top":{"color":"var:preset|color|septenary","width":"1px"},"right":{},"bottom":{"color":"var:preset|color|septenary","width":"1px"},"left":{}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull"
-		style="border-top-color:var(--wp--preset--color--septenary);border-top-width:1px;border-bottom-color:var(--wp--preset--color--septenary);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--30);padding-right:30px;padding-bottom:var(--wp--preset--spacing--30);padding-left:30px">
+	<div class="wp-block-group alignfull" style="border-top-color:var(--wp--preset--color--septenary);border-top-width:1px;border-bottom-color:var(--wp--preset--color--septenary);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--30);padding-right:30px;padding-bottom:var(--wp--preset--spacing--30);padding-left:30px">
 		<!-- wp:columns {"align":"wide"} -->
 		<div class="wp-block-columns alignwide">
 			<!-- wp:column -->
@@ -34,8 +33,7 @@ return array(
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"small"} -->
-						<p class="has-small-font-size"
-							style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0">' . esc_html__( '[State offer based on order value.]', 'aegis' ) . '</p>
+						<p class="has-small-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0">' . esc_html__( '[State offer based on order value.]', 'aegis' ) . '</p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
@@ -241,7 +239,7 @@ return array(
 
 					<!-- wp:column {"verticalAlignment":"center"} -->
 					<div class="wp-block-column is-vertically-aligned-center">
-						<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#000000","openInNewTab":true,"size":"has-small-icon-size","style":{"spacing":{"blockGap":"20px","margin":{"top":"30px","bottom":"24px"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"right"}} -->
+						<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","openInNewTab":true,"size":"has-small-icon-size","style":{"spacing":{"blockGap":"20px","margin":{"top":"30px","bottom":"24px"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"right"}} -->
 						<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:30px;margin-bottom:24px">
 							<!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
 
