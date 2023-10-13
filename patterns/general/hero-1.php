@@ -6,10 +6,10 @@ return array(
 	'title'	  => __( 'Hero 1', 'aegis' ),
 	'categories' => array( 'aegis-hero' ),
 	'content'	=> '
-<!-- wp:cover {"url":"' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_1800x1200_black.jpg","dimRatio":60,"overlayColor":"foreground","focalPoint":{"x":0.5,"y":0.5},"minHeight":800,"contentPosition":"center center","align":"full","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}},"textColor":"background","className":"is-style-default hero-header additional"} -->
+<!-- wp:cover {"url":"' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_1800x1200_darkcolor.webp","dimRatio":60,"overlayColor":"foreground","focalPoint":{"x":0.5,"y":0.5},"minHeight":800,"contentPosition":"center center","align":"full","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}},"textColor":"background","className":"is-style-default hero-header additional"} -->
 <div class="wp-block-cover alignfull is-style-default hero-header additional has-background-color has-text-color" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;min-height:800px">
 <span aria-hidden="true" class="wp-block-cover__background has-foreground-background-color has-background-dim-60 has-background-dim"></span>
-<img class="wp-block-cover__image-background" alt="" src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_1800x1200_black.jpg" style="object-position:50% 50%" data-object-fit="cover" data-object-position="50% 50%" />
+<img class="wp-block-cover__image-background" alt="" src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_1800x1200_darkcolor.webp" style="object-position:50% 50%" data-object-fit="cover" data-object-position="50% 50%" />
 	<div class="wp-block-cover__inner-container">
 		<!-- wp:group {"style":{"spacing":{"padding":{"top":"170px","right":"30px","left":"30px"}}},"layout":{"type":"constrained"}} -->
 		<div class="wp-block-group" style="padding-top:170px;padding-right:30px;padding-left:30px">
