@@ -14,8 +14,7 @@ return array(
 		<!-- wp:column {"verticalAlignment":"center","width":"40%"} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:40%">
 			<!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"className":"tagline","fontSize":"tiny"} -->
-			<p class="has-text-align-left tagline has-tiny-font-size"
-				style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">' . esc_html__( 'About Us' , 'aegis' ). '</p>
+			<p class="has-text-align-left tagline has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">' . esc_html__( 'About Us' , 'aegis' ). '</p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:heading {"style":{"spacing":{"margin":{"top":"0"}}}} -->
