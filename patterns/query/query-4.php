@@ -1,9 +1,9 @@
 <?php
 /**
- * Blog Layout 4 Block Pattern
+ * Blog 4 Block Pattern
  */
 return array(
-	'title'	  => __( 'Blog Layout 4', 'aegis' ),
+	'title'	  => __( 'Blog 4', 'aegis' ),
 	'categories' => array( 'aegis-query' ),
 	'content'	=> '
 	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"30px","left":"30px"}}},"className":"blog-sidebar","layout":{"inherit":false}} -->
@@ -15,12 +15,11 @@ return array(
 				<!-- wp:column {"width":"33.33%"} -->
 				<div class="wp-block-column" style="flex-basis:33.33%">
 					<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"0px","right":"0px","bottom":"0rem","left":"0px"}}},"layout":{"inherit":true,"type":"constrained"}} -->
-					<div class="wp-block-group alignwide"
-						style="padding-top:0px;padding-right:0px;padding-bottom:0rem;padding-left:0px">
+					<div class="wp-block-group alignwide" style="padding-top:0px;padding-right:0px;padding-bottom:0rem;padding-left:0px">
 						<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"40px","top":"40px","right":"40px","left":"40px"}}},"backgroundColor":"secondary","className":"is-style-aegis-border"} -->
 						<div class="wp-block-group is-style-aegis-border has-secondary-background-color has-background" style="padding-top:40px;padding-right:40px;padding-bottom:40px;padding-left:40px">
 							<!-- wp:image {"align":"center","width":120,"sizeSlug":"large","linkDestination":"none","style":{"color":{"duotone":"unset"}},"className":"is-style-rounded"} -->
-							<figure class="wp-block-image aligncenter size-large is-resized is-style-rounded"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_460x370_dark.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" width="120" /></figure>
+							<figure class="wp-block-image aligncenter size-large is-resized is-style-rounded"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_200x200_darkcolor.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" width="120" /></figure>
 							<!-- /wp:image -->
 
 							<!-- wp:heading {"textAlign":"center","level":3,"style":{"spacing":{"margin":{"right":"0","bottom":"0","left":"0","top":"10px"}}}} -->
@@ -28,8 +27,7 @@ return array(
 							<!-- /wp:heading -->
 
 							<!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase"},"spacing":{"margin":{"right":"0","bottom":"0","left":"0","top":"5px"}}},"fontSize":"tiny"} -->
-							<p class="has-text-align-center has-tiny-font-size" id="blogger"
-								style="margin-top:5px;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase">' . esc_html__( '[Position]', 'aegis' ) . '</p>
+							<p class="has-text-align-center has-tiny-font-size" id="blogger" style="margin-top:5px;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase">' . esc_html__( '[Position]', 'aegis' ) . '</p>
 							<!-- /wp:paragraph -->
 
 							<!-- wp:paragraph {"align":"center","fontSize":"small"} -->
@@ -42,7 +40,7 @@ return array(
 
 					<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"0rem","right":"0rem","bottom":"0rem","left":"0rem"}}},"className":"is-style-default aegis-team-additional","layout":{"inherit":false,"contentSize":"1200px","type":"constrained"}} -->
 					<div class="wp-block-group alignwide is-style-default aegis-team-additional" style="padding-top:0rem;padding-right:0rem;padding-bottom:0rem;padding-left:0rem">
-						<!-- wp:social-links {"iconColor":"background","iconColorValue":"#ffffff","iconBackgroundColor":"foreground","iconBackgroundColorValue":"#211F1D","className":"is-style-default","layout":{"type":"flex","justifyContent":"center"}} -->
+						<!-- wp:social-links {"iconColor":"background","iconColorValue":"#f6f5f2","iconBackgroundColor":"foreground","iconBackgroundColorValue":"#211F1D","className":"is-style-default","layout":{"type":"flex","justifyContent":"center"}} -->
 						<ul class="wp-block-social-links has-icon-color has-icon-background-color is-style-default">
 						   <!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
 
@@ -59,7 +57,7 @@ return array(
 					<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"40px","top":"0px"}}},"className":"is-style-aegis-border"} -->
 					<div class="wp-block-group is-style-aegis-border" style="padding-top:0px;padding-bottom:40px">
 						<!-- wp:image {"align":"center","id":76,"sizeSlug":"large","linkDestination":"none","style":{"color":{"duotone":"unset"}},"className":"is-style-default"} -->
-						<figure class="wp-block-image aligncenter size-large is-style-default"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_460x370_dark.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" /></figure>
+						<figure class="wp-block-image aligncenter size-large is-style-default"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_460x370_darkcolor.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" /></figure>
 						<!-- /wp:image -->
 
 						<!-- wp:heading {"textAlign":"center","level":4} -->
