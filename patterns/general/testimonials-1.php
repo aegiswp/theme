@@ -25,8 +25,7 @@ return array(
 				<!-- /wp:group -->
 
 				<!-- wp:group {"style":{"spacing":{"padding":{"top":"5%","right":"5%","bottom":"5%","left":"5%"}}},"gradient":"diagonal-background-to-secondary-triangle","className":"negative-margin"} -->
-				<div class="wp-block-group negative-margin has-diagonal-background-to-secondary-triangle-gradient-background has-background"
-					style="padding-top:5%;padding-right:5%;padding-bottom:5%;padding-left:5%">
+				<div class="wp-block-group negative-margin has-diagonal-background-to-secondary-triangle-gradient-background has-background" style="padding-top:5%;padding-right:5%;padding-bottom:5%;padding-left:5%">
 					<!-- wp:group {"layout":{"type":"flex","allowOrientation":false,"justifyContent":"right"}} -->
 					<div class="wp-block-group">
 						<!-- wp:paragraph {"fontSize":"small"} -->
@@ -35,7 +34,7 @@ return array(
 
 						<!-- wp:image {"width":100,"sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"100px"}},"className":"is-style-aegis-shadow-image"} -->
 						<figure class="wp-block-image size-full is-resized has-custom-border is-style-aegis-shadow-image">
-							<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_260x260_black.jpg" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-radius:100px;width:100px" width="100" />
+							<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_260x260_darkcolor.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-radius:100px;width:100px" width="100" />
 						</figure>
 						<!-- /wp:image -->
 					</div>
@@ -69,7 +68,7 @@ return array(
 
 						<!-- wp:image {"width":100,"sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"100px"}},"className":"is-style-aegis-shadow-image"} -->
 						<figure class="wp-block-image size-full is-resized has-custom-border is-style-aegis-shadow-image">
-							<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_260x260_black.jpg" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-radius:100px;width:100px" width="100" />
+							<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_260x260_darkcolor.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-radius:100px;width:100px" width="100" />
 						</figure>
 						<!-- /wp:image -->
 					</div>
@@ -103,7 +102,7 @@ return array(
 
 						<!-- wp:image {"width":100,"sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"100px"}},"className":"is-style-aegis-shadow-image"} -->
 						<figure class="wp-block-image size-full is-resized has-custom-border is-style-aegis-shadow-image">
-							<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_260x260_black.jpg" alt="image" style="border-radius:100px;width:100px" width="100" />
+							<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_260x260_darkcolor.webp" alt="image" style="border-radius:100px;width:100px" width="100" />
 						</figure>
 						<!-- /wp:image -->
 					</div>
