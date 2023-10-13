@@ -23,7 +23,7 @@ return array(
 			<div class="wp-block-columns alignwide">
 				<!-- wp:column {"verticalAlignment":"center"} -->
 				<div class="wp-block-column is-vertically-aligned-center">
-					<!-- wp:social-links {"iconColor":"black","iconColorValue":"#000000","size":"has-small-icon-size","className":"is-style-logos-only socials","layout":{"type":"flex","justifyContent":"left"}} -->
+					<!-- wp:social-links {"iconColor":"black","iconColorValue":"#1c1c1e","size":"has-small-icon-size","className":"is-style-logos-only socials","layout":{"type":"flex","justifyContent":"left"}} -->
 					<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only socials">
 						<!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
 
