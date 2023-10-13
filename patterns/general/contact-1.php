@@ -54,8 +54,7 @@ return array(
 						<!-- wp:column -->
 						<div class="wp-block-column">
 							<!-- wp:heading {"textAlign":"left","level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"large"} -->
-							<h3 class="wp-block-heading has-text-align-left has-large-font-size" id="email"
-								style="font-style:normal;font-weight:600">' . esc_html__( 'Email:' , 'aegis' ). '</h3>
+							<h3 class="wp-block-heading has-text-align-left has-large-font-size" id="email" style="font-style:normal;font-weight:600">' . esc_html__( 'Email:' , 'aegis' ). '</h3>
 							<!-- /wp:heading -->
 
 							<!-- wp:paragraph {"align":"left"} -->
