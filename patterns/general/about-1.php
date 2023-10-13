@@ -4,7 +4,7 @@
  */
 return array(
 	'title'	      => __( 'About 1', 'aegis' ),
-	'description' => __( 'About Us block pattern', 'aegis' ),
+	'description' => __( 'About Us Block Pattern', 'aegis' ),
 	'categories'  => array( 'aegis-about' ),
 	'content' => '
 	<!-- wp:group {"align":"wide","gradient":"diagonal-secondary-to-background","layout":{"type":"constrained"}} -->
@@ -17,7 +17,7 @@ return array(
 				<!-- wp:group {"style":{"border":{"radius":{"topLeft":"500px","bottomLeft":"500px"}}},"gradient":"horizontal-primary-to-background","className":"aegis-left-top"} -->
 				<div class="wp-block-group aegis-left-top has-horizontal-primary-to-background-gradient-background has-background" style="border-top-left-radius:500px;border-bottom-left-radius:500px">
 					<!-- wp:image {"sizeSlug":"large","linkDestination":"none","className":"size-full aegis-right is-style-aegis-shadow-image"} -->
-					<figure class="wp-block-image size-large size-full aegis-right is-style-aegis-shadow-image"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_1700x1350_black.jpg" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" /></figure>
+					<figure class="wp-block-image size-large size-full aegis-right is-style-aegis-shadow-image"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_1700x1350_darkcolor.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" /></figure>
 					<!-- /wp:image -->
 				</div>
 				<!-- /wp:group -->
