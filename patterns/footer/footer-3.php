@@ -142,7 +142,7 @@ return array(
 				<p class="has-intrace-body-text-color has-text-color has-small-font-size">' . esc_html__( 'Company Info (95 chars): [Briefly describe the mission, vision, or unique selling proposition.]' , 'aegis' ) . '</p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#000000","size":"has-small-icon-size","style":{"spacing":{"blockGap":"20px","margin":{"top":"30px","bottom":"24px"}}},"className":"is-style-logos-only"} -->
+				<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","size":"has-small-icon-size","style":{"spacing":{"blockGap":"20px","margin":{"top":"30px","bottom":"24px"}}},"className":"is-style-logos-only"} -->
 				<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:30px;margin-bottom:24px">
 					<!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
 
@@ -216,21 +216,21 @@ return array(
 				<figure class="wp-block-gallery has-nested-images columns-default is-cropped">
 					<!-- wp:image {"id":270,"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-2-image"} -->
 					<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img
-							src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_150x150_black.jpg" alt="' .
+							src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_150x150_darkcolor.webp" alt="' .
 							esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '"
 							class="wp-image-270" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:image {"id":271,"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-2-image"} -->
 					<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img
-							src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_150x150_black.jpg" alt="' .
+							src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_150x150_darkcolor.webp" alt="' .
 							esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '"
 							class="wp-image-271" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:image {"id":271,"sizeSlug":"large","linkDestination":"none","className":"is-style-aegis-effect-2-image"} -->
 					<figure class="wp-block-image size-large is-style-aegis-effect-2-image"><img
-							src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_150x150_black.jpg" alt="' .
+							src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_150x150_darkcolor.webp" alt="' .
 							esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '"
 							class="wp-image-271" /></figure>
 					<!-- /wp:image -->
