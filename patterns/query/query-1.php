@@ -1,9 +1,9 @@
 <?php
 /**
- * Blog Layout 1 Block Pattern
+ * Blog 1 Block Pattern
  */
 return array(
-	'title'	  => __( 'Blog Layout 1', 'aegis' ),
+	'title'	  => __( 'Blog 1', 'aegis' ),
 	'categories' => array( 'aegis-query' ),
 	'content'	=> '
 	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"right":"5%","left":"5%"}}},"layout":{"inherit":true,"type":"constrained"}} -->
