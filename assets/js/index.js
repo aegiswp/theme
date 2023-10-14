@@ -1,41 +1,33 @@
-// Add a sticky header
-window.addEventListener('scroll', function () {
-	const stickyHeader = document.querySelector('.header');
-	const scrollTop = window.pageYOffset;
+'use strict';
 
-	if (scrollTop >= 100) {
-		stickyHeader.classList.add('sticky-header');
-	} else {
-		stickyHeader.classList.remove('sticky-header');
-	}
+window.addEventListener('scroll', function() {
+    var sticky = document.querySelector('.header');
+    var scroll = window.scrollY;
+    if (scroll >= 100) sticky.classList.add('sticky-header');
+    else sticky.classList.remove('sticky-header');
 });
 
-// Show/hide the scroll-to-top button
-const scrollToTopButton = document.querySelector('.scroll-to-top');
-const offset = 100;
-const speed = 500;
-const duration = 900;
-
-window.addEventListener('scroll', function () {
-	if (window.pageYOffset < offset) {
-		scrollToTopButton.fadeOut(duration);
-	} else {
-		scrollToTopButton.fadeIn(duration);
-	}
+var offset = 100;
+var speed = 500;
+var duration = 900;
+window.addEventListener('scroll', function() {
+    if (window.scrollY < offset) {
+        document.querySelector('.scroll-to-top').style.display = 'none';
+    } else {
+        document.querySelector('.scroll-to-top').style.display = 'block';
+    }
 });
 
-// Scroll to top on click
-scrollToTopButton.addEventListener('click', function () {
-	window.scrollTo(0, 0);
+document.querySelector('.scroll-to-top').addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return false;
 });
 
-// Toggle hidden content
-const triggers = document.querySelectorAll('.trigger');
-const contents = document.querySelectorAll('.content');
-
-triggers.forEach(trigger => {
-	trigger.addEventListener('click', function () {
-		const content = trigger.nextElementSibling;
-		content.classList.toggle('hidden');
-	});
+var triggers = document.querySelectorAll('.trigger');
+triggers.forEach(function(trigger) {
+    trigger.style.cursor = 'pointer';
+    trigger.nextElementSibling.style.display = 'none';
+    trigger.addEventListener('click', function() {
+        this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';
+    });
 });
