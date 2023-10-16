@@ -341,7 +341,7 @@
                 {
                     "slug": "small",
                     "name": "Small",
-                    "size": "1.125rem",
+                    "size": "1.02rem",
                     "fluid": false
                 },
                 {
@@ -452,7 +452,7 @@
                 },
                 "typography": {
                     "fontSize": "var(--wp--preset--font-size--small)",
-                    "fontWeight": "700"
+                    "fontWeight": "500"
                 },
                 "spacing": {
                     "padding": {
