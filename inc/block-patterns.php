@@ -58,6 +58,7 @@ function aegis_register_block_patterns() {
 	'footer/footer-4',
 	'general/hero-1',
 	'general/hero-2',
+	'general/hero-3',
 	'general/about-1',
 	'general/about-2',
 	'general/team-1',
