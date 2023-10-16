@@ -2,7 +2,7 @@
 
 Welcome to the Aegis Theme development repository.
 
-![Aegis](https://github.com/atmostfear-entertainment/aegis/assets/34287288/4dda59b7-2231-4b48-9231-156a4f0ae5ce)
+![Aegis](https://github.com/atmostfear-entertainment/aegis/assets/34287288/efac838a-af27-4781-bca2-277156026770)
 
 ##### Table of Contents
 
