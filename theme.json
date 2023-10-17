@@ -85,6 +85,11 @@
                 }
             ],
             "gradients": [{
+                    "slug": "vertical-secondary-to-background",
+                    "gradient": "linear-gradient(90deg,var(--wp--preset--color--secondary) 55%, var(--wp--preset--color--background) 55%)",
+                    "name": "Vertical secondary to background"
+                },
+                {
                     "slug": "vertical-background-to-secondary",
                     "gradient": "linear-gradient(90deg,var(--wp--preset--color--background) 55%,var(--wp--preset--color--secondary) 55%)",
                     "name": "Vertical background to secondary"
