@@ -718,7 +718,7 @@ p.banner-text-margin {
 }
 
 .what-we-do .tagline,
-.volunteers .tagline {
+.team .tagline {
     margin-bottom: -15px;
 }
 
@@ -745,13 +745,14 @@ p.banner-text-margin {
     margin: 0;
 }
 
-/* Volunteers */
-.volunteers .volunteers-box {
+/* Team */
+.team .team-box {
     position: relative;
     margin: -100px 30px 0 30px;
 }
 
-.volunteers .volunteers-box-1 {
+.team .has-team-group,
+.team .team-box-1 {
     margin-top: 0;
 }
 
@@ -1446,7 +1447,7 @@ textarea {
         transform: translateY(0);
     }
 
-    .volunteers .volunteers-image {
+    .team .team-image {
         margin-top: -100px;
     }
 
