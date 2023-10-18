@@ -15,7 +15,7 @@ return array(
 				<!-- wp:group {"style":{"spacing":{"padding":{"top":"10%","right":"10%","bottom":"10%","left":"10%"}}},"className":"is-style-aegis-border"} -->
 				<div class="wp-block-group is-style-aegis-border" style="padding-top:10%;padding-right:10%;padding-bottom:10%;padding-left:10%">
 					<!-- wp:image {"align":"center","width":160,"sizeSlug":"full","linkDestination":"none","style":{"border":{"width":"0px","style":"none","radius":"100px"},"color":{"duotone":"unset"}},"className":"is-style-rounded "} -->
-					<figure class="wp-block-image aligncenter size-full is-resized has-custom-border is-style-rounded"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_260x260_darkcolor.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-style:none;border-width:0px;border-radius:100px;width:160px" width="160" /></figure>
+					<figure class="wp-block-image aligncenter size-full is-resized has-custom-border is-style-rounded"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/thumb_260x260_dark.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-style:none;border-width:0px;border-radius:100px;width:160px" width="160" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:paragraph {"align":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"300","textTransform":"uppercase","letterSpacing":"1px"}},"className":"tagline","fontSize":"tiny"} -->
@@ -40,8 +40,6 @@ return array(
 
 						<!-- wp:social-link {"url":"https://linkedin.com/","service":"linkedin","rel":"LinkedIn"} /-->
 
-						<!-- wp:social-link {"url":"https://tiktok.com/","service":"tiktok","rel":"TikTok"} /-->
-
 						<!-- wp:social-link {"url":"https://instagram.com/","service":"instagram","rel":"Instagram"} /-->
 					</ul>
 					<!-- /wp:social-links -->
@@ -55,7 +53,7 @@ return array(
 				<!-- wp:group {"style":{"spacing":{"padding":{"top":"10%","right":"10%","bottom":"10%","left":"10%"}}},"className":"is-style-aegis-border"} -->
 				<div class="wp-block-group is-style-aegis-border" style="padding-top:10%;padding-right:10%;padding-bottom:10%;padding-left:10%">
 					<!-- wp:image {"align":"center","width":160,"sizeSlug":"full","linkDestination":"none","style":{"border":{"width":"0px","style":"none","radius":"100px"},"color":{"duotone":"unset"}},"className":"is-style-rounded "} -->
-					<figure class="wp-block-image aligncenter size-full is-resized has-custom-border is-style-rounded"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_260x260_darkcolor.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-style:none;border-width:0px;border-radius:100px;width:160px" width="160" /></figure>
+					<figure class="wp-block-image aligncenter size-full is-resized has-custom-border is-style-rounded"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/thumb_260x260_dark.webp"	alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-style:none;border-width:0px;border-radius:100px;width:160px" width="160" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:paragraph {"align":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"300","textTransform":"uppercase","letterSpacing":"1px"}},"className":"tagline","fontSize":"tiny"} -->
@@ -80,8 +78,6 @@ return array(
 
 						<!-- wp:social-link {"url":"https://linkedin.com/","service":"linkedin","rel":"LinkedIn"} /-->
 
-						<!-- wp:social-link {"url":"https://tiktok.com/","service":"tiktok","rel":"TikTok"} /-->
-
 						<!-- wp:social-link {"url":"https://instagram.com/","service":"instagram","rel":"Instagram"} /-->
 					</ul>
 					<!-- /wp:social-links -->
@@ -95,7 +91,7 @@ return array(
 				<!-- wp:group {"style":{"spacing":{"padding":{"top":"10%","right":"10%","bottom":"10%","left":"10%"}}},"className":"is-style-aegis-border"} -->
 				<div class="wp-block-group is-style-aegis-border" style="padding-top:10%;padding-right:10%;padding-bottom:10%;padding-left:10%">
 					<!-- wp:image {"align":"center","width":160,"sizeSlug":"full","linkDestination":"none","style":{"border":{"width":"0px","style":"none","radius":"100px"},"color":{"duotone":"unset"}},"className":"is-style-rounded "} -->
-					<figure class="wp-block-image aligncenter size-full is-resized has-custom-border is-style-rounded"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_260x260_darkcolor.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-style:none;border-width:0px;border-radius:100px;width:160px" width="160" /></figure>
+					<figure class="wp-block-image aligncenter size-full is-resized has-custom-border is-style-rounded"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/thumb_260x260_dark.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-style:none;border-width:0px;border-radius:100px;width:160px" width="160" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:paragraph {"align":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"300","textTransform":"uppercase","letterSpacing":"1px"}},"className":"tagline","fontSize":"tiny"} -->
@@ -119,8 +115,6 @@ return array(
 						<!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
 
 						<!-- wp:social-link {"url":"https://linkedin.com/","service":"linkedin","rel":"LinkedIn"} /-->
-
-						<!-- wp:social-link {"url":"https://tiktok.com/","service":"tiktok","rel":"TikTok"} /-->
 
 						<!-- wp:social-link {"url":"https://instagram.com/","service":"instagram","rel":"Instagram"} /-->
 					</ul>
