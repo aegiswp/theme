@@ -2,15 +2,15 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Aegis 1.0.0-alpha.1\n"
+"Project-Id-Version: Aegis 1.0.0-alpha.2\n"
 "Report-Msgid-Bugs-To: https://github.com/atmostfear-entertainment/aegis/issues\n"
-"Last-Translator: Atmostfear Entertainment <lab@atmostfear-entertainment.com>\n"
-"Language-Team: none\n"
+"Last-Translator: Atmostfear Entertainment <mail@atmostfear-entertainment.com>\n"
+"Language-Team: Atmostfear Entertainment\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-09-20T15:54:57+00:00\n"
-"PO-Revision-Date: 2023-09-06 06:27:+00:00\n"
+"POT-Creation-Date: 2023-10-16T15:03:06+00:00\n"
+"PO-Revision-Date: 2023-10-16T15:03:06+00:00\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: aegis\n"
 
@@ -32,6 +32,95 @@ msgstr ""
 
 #. Author URI of the theme
 msgid "https://www.atmostfear-entertainment.com/"
+msgstr ""
+
+#: hero-1.php:5
+msgid "Hero 1"
+msgstr ""
+
+#: hero-1.php:11
+msgctxt "Description of the default image"
+msgid "Default background image for the hero"
+msgstr ""
+
+#: hero-1.php:19
+msgid "Main"
+msgstr ""
+
+#: hero-1.php:20
+msgid "Heading"
+msgstr ""
+
+#: hero-1.php:23
+msgctxt "Placeholder content for the about section"
+msgid "About Content (333 chars): [Provide a detailed overview of a specific topic, product, or service.]"
+msgstr ""
+
+#: hero-1.php:30
+msgid "Call to Action"
+msgstr ""
+
+#: hero-2.php:5
+msgid "Hero 2"
+msgstr ""
+
+#: hero-2.php:11
+msgctxt "Description of the default image"
+msgid "Default background image for the hero section"
+msgstr ""
+
+#: hero-2.php:20
+msgctxt "Placeholder for content title"
+msgid "Content Title (11 chars)"
+msgstr ""
+
+#: hero-2.php:23
+msgid "Main Headline"
+msgstr ""
+
+#: hero-2.php:26
+msgctxt "Placeholder for content highlight"
+msgid "Content Highlight (146 chars): [Promote an offer, summarize an article, or share a news update.]"
+msgstr ""
+
+#: hero-2.php:33
+msgid "Call to Action"
+msgstr ""
+
+#: hero-3.php:5
+msgid "Hero 3"
+msgstr ""
+
+#: hero-3.php:23
+msgid "Main"
+msgstr ""
+
+#: hero-3.php:24
+msgid "Heading"
+msgstr ""
+
+#: hero-3.php:27
+msgctxt "Placeholder for product description"
+msgid "Product Description (88 chars): [Detail key aspects or selling points of a product.]"
+msgstr ""
+
+#: hero-3.php:34
+msgid "Call to Action"
+msgstr ""
+
+#: hero-3.php:41
+msgctxt "Description of the first default product image"
+msgid "Default product image one for the section"
+msgstr ""
+
+#: hero-3.php:44
+msgctxt "Description of the second default product image"
+msgid "Default product image two for the section"
+msgstr ""
+
+#: hero-3.php:47
+msgctxt "Description of the third default product image"
+msgid "Default product image three for the section"
 msgstr ""
 
 #: inc/block-styles.php:26
@@ -163,31 +252,6 @@ msgstr ""
 
 #: theme.json
 msgctxt "Template part name"
-msgid "Header 5"
-msgstr ""
-
-#: theme.json
-msgctxt "Template part name"
-msgid "Header 6 - Sticky"
-msgstr ""
-
-#: theme.json
-msgctxt "Template part name"
-msgid "Header 7"
-msgstr ""
-
-#: theme.json
-msgctxt "Template part name"
-msgid "Header 8"
-msgstr ""
-
-#: theme.json
-msgctxt "Template part name"
-msgid "Header 9"
-msgstr ""
-
-#: theme.json
-msgctxt "Template part name"
 msgid "Footer"
 msgstr ""
 
@@ -204,9 +268,4 @@ msgstr ""
 #: theme.json
 msgctxt "Template part name"
 msgid "Footer 4"
-msgstr ""
-
-#: theme.json
-msgctxt "Template part name"
-msgid "Footer 5"
 msgstr ""

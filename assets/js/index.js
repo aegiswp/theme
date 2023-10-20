@@ -1,41 +1,32 @@
-// Add a sticky header
-window.addEventListener('scroll', function () {
-	const stickyHeader = document.querySelector('.header');
-	const scrollTop = window.pageYOffset;
-
-	if (scrollTop >= 100) {
-		stickyHeader.classList.add('sticky-header');
-	} else {
-		stickyHeader.classList.remove('sticky-header');
-	}
-});
-
-// Show/hide the scroll-to-top button
-const scrollToTopButton = document.querySelector('.scroll-to-top');
-const offset = 100;
-const speed = 500;
-const duration = 900;
-
-window.addEventListener('scroll', function () {
-	if (window.pageYOffset < offset) {
-		scrollToTopButton.fadeOut(duration);
-	} else {
-		scrollToTopButton.fadeIn(duration);
-	}
-});
-
-// Scroll to top on click
-scrollToTopButton.addEventListener('click', function () {
-	window.scrollTo(0, 0);
-});
-
-// Toggle hidden content
-const triggers = document.querySelectorAll('.trigger');
-const contents = document.querySelectorAll('.content');
-
-triggers.forEach(trigger => {
-	trigger.addEventListener('click', function () {
-		const content = trigger.nextElementSibling;
-		content.classList.toggle('hidden');
+( function( $ ) {
+	
+	'use strict';
+	$(window).scroll(function(){
+		var sticky = $('.header'),
+		scroll = $(window).scrollTop();
+		if (scroll >= 100) sticky.addClass('sticky-header');
+		else sticky.removeClass('sticky-header');
 	});
-});
+
+	var offset = 100;
+	var speed = 500;
+	var duration = 900;
+	$(window).scroll(function(){
+		if ($(this).scrollTop() < offset) {
+			$('.scroll-to-top') .fadeOut(duration);
+		} else {
+			$('.scroll-to-top') .fadeIn(duration);
+		}
+		});
+	$('.scroll-to-top').on('click', function(){
+		$('html, body').animate({scrollTop:0}, speed);
+		return false;
+	});
+
+	$(".trigger").css("cursor", "pointer");
+	$(".content").hide();
+	$(".trigger").click(function(){
+		 $(this).next(".content").slideToggle("fast");
+  });
+	
+} )( jQuery );
