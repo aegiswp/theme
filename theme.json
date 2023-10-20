@@ -85,6 +85,11 @@
                 }
             ],
             "gradients": [{
+                    "slug": "vertical-secondary-to-background",
+                    "gradient": "linear-gradient(90deg,var(--wp--preset--color--secondary) 55%, var(--wp--preset--color--background) 55%)",
+                    "name": "Vertical secondary to background"
+                },
+                {
                     "slug": "vertical-background-to-secondary",
                     "gradient": "linear-gradient(90deg,var(--wp--preset--color--background) 55%,var(--wp--preset--color--secondary) 55%)",
                     "name": "Vertical background to secondary"
@@ -341,7 +346,7 @@
                 {
                     "slug": "small",
                     "name": "Small",
-                    "size": "1.125rem",
+                    "size": "1.02rem",
                     "fluid": false
                 },
                 {
@@ -443,6 +448,27 @@
     },
     "styles": {
         "blocks": {
+            "core/code": {
+                "border": {
+                    "radius": "0"
+                },
+                "color": {
+                    "background": "var(--wp--preset--color--foreground)",
+                    "text": "var(--wp--preset--color--background)"
+                },
+                "typography": {
+                    "fontSize": "var(--wp--preset--font-size--small)",
+                    "fontWeight": "500"
+                },
+                "spacing": {
+                    "padding": {
+                        "bottom": "25px",
+                        "left": "25px",
+                        "right": "25px",
+                        "top": "25px"
+                    }
+                }
+            },
             "core/button": {
                 "border": {
                     "radius": "0"
@@ -452,7 +478,7 @@
                 },
                 "typography": {
                     "fontSize": "var(--wp--preset--font-size--small)",
-                    "fontWeight": "700"
+                    "fontWeight": "500"
                 },
                 "spacing": {
                     "padding": {

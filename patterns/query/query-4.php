@@ -90,7 +90,7 @@ return array(
 					<div class="wp-block-group alignfull additional-column-padding-left" style="padding-right:0;padding-left:var(--wp--preset--spacing--30)">
 						<!-- wp:group {"className":"is-style-default","layout":{"inherit":true,"type":"constrained"}} -->
 						<div class="wp-block-group is-style-default">
-							<!-- wp:query {"queryId":9,"query":{"perPage":"3","pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"displayLayout":{"type":"list"},"align":"wide","layout":{"inherit":false}} -->
+							<!-- wp:query {"query":{"perPage":"3","pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"displayLayout":{"type":"list"},"align":"wide","layout":{"inherit":false}} -->
 							<div class="wp-block-query alignwide">
 								<!-- wp:post-template -->
 								<!-- wp:post-featured-image {"isLink":true,"style":{"color":{"duotone":"unset"}}} /-->
