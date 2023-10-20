@@ -468,6 +468,27 @@
                     }
                 }
             },
+            "core/code": {
+                "border": {
+                    "radius": "0"
+                },
+                "color": {
+                    "background": "var(--wp--preset--color--foreground)",
+                    "text": "var(--wp--preset--color--background)"
+                },
+                "typography": {
+                    "fontSize": "var(--wp--preset--font-size--small)",
+                    "fontWeight": "500"
+                },
+                "spacing": {
+                    "padding": {
+                        "bottom": "25px",
+                        "left": "25px",
+                        "right": "25px",
+                        "top": "25px"
+                    }
+                }
+            },
             "core/paragraph": {
                 "typography": {
                     "lineHeight": "var(--wp--custom--typography--line-height--body)"
