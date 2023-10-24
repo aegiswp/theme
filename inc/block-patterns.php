@@ -76,6 +76,7 @@ function aegis_register_block_patterns() {
 	'query/query-2',
 	'query/query-3',
 	'query/query-4',
+	'query/query-5',
 	'hidden/hidden-404',
 	);
 
