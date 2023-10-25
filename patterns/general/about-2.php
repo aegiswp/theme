@@ -1,10 +1,10 @@
 <?php
 /**
- * About 2 Block Pattern
+ * 02. About Us Block Pattern
  */
 return array(
-	'title'	      => __( 'About 2', 'aegis' ),
-	'description' => __( 'About Us block pattern', 'aegis' ),
+	'title'	      => __( '02. About Us', 'aegis' ),
+	'description' => __( 'About Us Block Pattern', 'aegis' ),
 	'categories'  => array( 'aegis-about' ),
 	'content' => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"30px","left":"30px"}}},"layout":{"type":"constrained"}} -->
