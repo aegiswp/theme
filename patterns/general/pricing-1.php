@@ -1,10 +1,10 @@
 <?php
 /**
- * Pricing 1 Block Pattern
+ * 01. Pricing Block Pattern
  */
 return array(
-	'title'	      => __( 'Pricing 1', 'aegis' ),
-	'description' => __( 'Pricing Table block pattern', 'aegis' ),
+	'title'	      => __( '01. Pricing ', 'aegis' ),
+	'description' => __( 'Pricing Table Block Pattern', 'aegis' ),
 	'categories'  => array( 'aegis-pricing' ),
 	'content' => '
 	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"30px","left":"30px"}}},"layout":{"type":"constrained"}} -->
