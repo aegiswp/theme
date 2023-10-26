@@ -1,10 +1,11 @@
 <?php
 /**
- * Testimonials 1 Block Pattern
+ * 01. Testimonials Block Pattern
  */
 return array(
-	'title'	  => __( 'Testimonials 1', 'aegis' ),
+	'title'	  => __( '01. Testimonials', 'aegis' ),
 	'categories' => array( 'aegis-testimonials' ),
+	'description' => __( 'Testimonials Block Pattern', 'aegis' ),
 	'content'	=> '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"right":"30px","left":"30px","top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"className":"testimonials","layout":{"contentSize":"","type":"constrained"}} -->
 <div class="wp-block-group alignfull testimonials" style="padding-top:var(--wp--preset--spacing--50);padding-right:30px;padding-bottom:var(--wp--preset--spacing--50);padding-left:30px">
@@ -32,9 +33,9 @@ return array(
 					<p class="has-small-font-size">' . esc_html__( 'Customer Name' , 'aegis' ). '</p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:image {"width":"100px","height":"undefinedpx","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"100px"}},"className":"is-style-aegis-shadow-image"} -->
+					<!-- wp:image {"width":"100px","height":"100px","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"100px"}},"className":"is-style-aegis-shadow-image"} -->
 					<figure class="wp-block-image size-full is-resized has-custom-border is-style-aegis-shadow-image">
-						<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/thumb_260x260_dark.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-radius:100px;width:100px;height:undefinedpx" /></figure>
+						<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/thumb_120x120_dark.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-radius:100px;width:100px;height:100px" /></figure>
 					<!-- /wp:image -->
 				</div>
 				<!-- /wp:group -->
@@ -65,9 +66,9 @@ return array(
 					<p class="has-small-font-size">' . esc_html__( 'Customer Name' , 'aegis' ). '</p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:image {"width":"100px","height":"undefinedpx","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"100px"}},"className":"is-style-aegis-shadow-image"} -->
+					<!-- wp:image {"width":"100px","height":"100px","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"100px"}},"className":"is-style-aegis-shadow-image"} -->
 					<figure class="wp-block-image size-full is-resized has-custom-border is-style-aegis-shadow-image">
-						<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/thumb_260x260_dark.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-radius:100px;width:100px;height:undefinedpx" /></figure>
+						<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/thumb_120x120_dark.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-radius:100px;width:100px;height:100px" /></figure>
 					<!-- /wp:image -->
 				</div>
 				<!-- /wp:group -->
@@ -98,9 +99,9 @@ return array(
 					<p class="has-small-font-size">' . esc_html__( 'Customer Name' , 'aegis' ). '</p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:image {"width":"100px","height":"undefinedpx","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"100px"}},"className":"is-style-aegis-shadow-image"} -->
+					<!-- wp:image {"width":"100px","height":"100px","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"100px"}},"className":"is-style-aegis-shadow-image"} -->
 					<figure class="wp-block-image size-full is-resized has-custom-border is-style-aegis-shadow-image">
-						<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/thumb_260x260_dark.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-radius:100px;width:100px;height:undefinedpx" /></figure>
+						<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/thumb_120x120_dark.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" style="border-radius:100px;width:100px;height:100px" /></figure>
 					<!-- /wp:image -->
 				</div>
 				<!-- /wp:group -->
