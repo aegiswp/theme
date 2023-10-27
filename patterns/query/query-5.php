@@ -94,8 +94,8 @@ return array(
 
 								<!-- wp:group {"style":{"spacing":{"padding":{"top":"15px","bottom":"0"}}}} -->
 								<div class="wp-block-group" style="padding-top:15px;padding-bottom:0">
-									<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"},"blockGap":"0"}},"className":"has-negative-margin","layout":{"type":"flex","justifyContent":"right"}} -->
-									<div class="wp-block-group has-negative-margin" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
+									<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"},"blockGap":"0"}},"className":"date-negative-margin","layout":{"type":"flex","justifyContent":"right"}} -->
+									<div class="wp-block-group date-negative-margin" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
 										<!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"10px","bottom":"10px","left":"10px","right":"5px"}}},"backgroundColor":"background","textColor":"foreground","fontSize":"tiny"} -->
 										<p class="has-foreground-color has-background-background-color has-text-color has-background has-tiny-font-size" style="padding-top:10px;padding-right:5px;padding-bottom:10px;padding-left:10px">' . esc_html__( 'Published:', 'aegis' ). '</p>
 										<!-- /wp:paragraph -->
