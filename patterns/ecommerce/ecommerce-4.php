@@ -1,10 +1,10 @@
 <?php
 /**
- * eCommerce 4 Block Pattern
+ * 04. eCommerce Block Pattern
  */
 return array(
-	'title'	  => __( 'eCommerce 4', 'aegis' ),
-	'description' => __( 'A promotional call to action block pattern', 'aegis' ),
+	'title'	  => __( '04. eCommerce', 'aegis' ),
+	'description' => __( 'eCommerce Block Pattern', 'aegis' ),
 	'categories' => array( 'aegis-ecommerce' ),
 	'content' => '
 	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"20px","right":"20px","bottom":"20px","left":"20px"}}}} -->
@@ -19,13 +19,13 @@ return array(
 					<p class="has-text-align-center">' . esc_html__( 'Grab Your', 'aegis' ) .' <strong>' . esc_html__( '[Discount]%', 'aegis' ) . '</strong> ' . esc_html__( 'Off! Shop [Product/Collection] Now During Our [Event Name] Sale.', 'aegis' ) . '</p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:heading {"textAlign":"center","style":{"typography":{"letterSpacing":"10px","textTransform":"uppercase"},"spacing":{"margin":{"top":"0"}}},"className":"fade aegis-negative-margin-top"} -->
-					<h2 class="wp-block-heading has-text-align-center fade aegis-negative-margin-top" style="margin-top:0;letter-spacing:10px;text-transform:uppercase"><strong>' . esc_html__( 'Sale', 'aegis' ) . '</strong></h2>
+					<!-- wp:heading {"textAlign":"center","style":{"typography":{"letterSpacing":"10px","textTransform":"uppercase"},"spacing":{"margin":{"top":"0"}}},"className":"fade aegis-negative-margin-top","fontSize":"gigantic"} -->
+					<h2 class="wp-block-heading has-text-align-center fade aegis-negative-margin-top has-gigantic-font-size"
+						style="margin-top:0;letter-spacing:10px;text-transform:uppercase">' . esc_html__( 'Sale', 'aegis' ) . '</h2>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"0"}}},"className":"aegis-negative-margin-top","fontSize":"small"} -->
-					<p class="has-text-align-center aegis-negative-margin-top has-small-font-size" style="margin-top:0">
-						<em>' . esc_html__( 'Urgency CTA (38 characters): [Convey limited time offer and prompt action.]', 'aegis' ) . '</em></p>
+					<p class="has-text-align-center aegis-negative-margin-top has-small-font-size" style="margin-top:0"><em>' . esc_html__( 'Urgency CTA (38 characters): [Convey limited time offer and prompt action.]', 'aegis' ) . '</em></p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:column -->
@@ -37,7 +37,7 @@ return array(
 				<!-- wp:column -->
 				<div class="wp-block-column">
 					<!-- wp:image {"align":"center",sizeSlug":"full","linkDestination":"none","className":"is-style-rounded"} -->
-					<figure class="wp-block-image aligncenter size-full is-resized is-style-rounded"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_200x200_darkcolor.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" /></figure>
+					<figure class="wp-block-image aligncenter size-full is-resized is-style-rounded"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/thumb_200x200_dark.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:heading {"textAlign":"center","level":3} -->
