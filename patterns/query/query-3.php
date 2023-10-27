@@ -1,9 +1,10 @@
 <?php
 /**
- * Blog Archive 3 Block Pattern
+ * 03. Blog Archive Block Pattern
  */
 return array(
-	'title'	  => __( 'Blog Archive 3', 'aegis' ),
+	'title'	  => __( '03. Blog Archive', 'aegis' ),
+	'description' => __( 'Blog Archive Block Pattern', 'aegis' ),
 	'categories' => array( 'aegis-query' ),
 	'content' => '
 	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"className":"blog-sidebar","layout":{"type":"default"}} -->
@@ -27,7 +28,7 @@ return array(
 							<!-- /wp:paragraph -->
 
 							<!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase"},"spacing":{"margin":{"right":"0","bottom":"0","left":"0","top":"5px"}}},"fontSize":"tiny"} -->
-							<p class="has-text-align-center has-tiny-font-size" style="margin-top:5px;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase"> ' . esc_html__( '[Position]', 'aegis' ) . '</p>
+							<p class="has-text-align-center has-tiny-font-size" style="margin-top:5px;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase">' . esc_html__( '[Position]', 'aegis' ) . '</p>
 							<!-- /wp:paragraph -->
 
 							<!-- wp:paragraph {"align":"center","fontSize":"small"} -->
@@ -56,22 +57,22 @@ return array(
 						<figure class="wp-block-image size-full"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/thumb_480x380_dark.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" /></figure>
 						<!-- /wp:image -->
 
-                        <!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"var:preset|spacing|40","bottom":"0","left":"var:preset|spacing|40"}}}} -->
-                        <div class="wp-block-group" style="padding-top:0;padding-right:var(--wp--preset--spacing--40);padding-bottom:0;padding-left:var(--wp--preset--spacing--40)">
-                        	<!-- wp:heading {"textAlign":"center","level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"fontSize":"large"} -->
-                        	<h3 class="wp-block-heading has-text-align-center has-large-font-size" style="font-style:normal;font-weight:700">'. esc_html__( '[Product Name]', 'aegis' ) . '</h3>
-                        	<!-- /wp:heading -->
+						<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"var:preset|spacing|40","bottom":"0","left":"var:preset|spacing|40"}}}} -->
+						<div class="wp-block-group" style="padding-top:0;padding-right:var(--wp--preset--spacing--40);padding-bottom:0;padding-left:var(--wp--preset--spacing--40)">
+							<!-- wp:heading {"textAlign":"center","level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"fontSize":"large"} -->
+							<h3 class="wp-block-heading has-text-align-center has-large-font-size" style="font-style:normal;font-weight:700">'. esc_html__( '[Product Name]', 'aegis' ) . '</h3>
+							<!-- /wp:heading -->
 
-                        	<!-- wp:paragraph {"align":"center","fontSize":"small"} -->
-                        	<p class="has-text-align-center has-small-font-size">' . esc_html__( 'Product Description (88 chars): [Detail key aspects or selling points of a product.]', 'aegis' ) . '</p>
-                        	<!-- /wp:paragraph -->
-                        </div>
-                        <!-- /wp:group -->
+							<!-- wp:paragraph {"align":"center","fontSize":"small"} -->
+							<p class="has-text-align-center has-small-font-size">' . esc_html__( 'Product Description (88 chars): [Detail key aspects or selling points of a product.]', 'aegis' ) . '</p>
+							<!-- /wp:paragraph -->
+						</div>
+						<!-- /wp:group -->
 
 						<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 						<div class="wp-block-buttons">
 							<!-- wp:button {"className":"is-style-fill"} -->
-							<div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button">' . esc_html__( 'Call to Action', 'aegis' ). '</a></div>
+							<div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button">'. esc_html__( 'Call to Action', 'aegis' ). '</a></div>
 							<!-- /wp:button -->
 						</div>
 						<!-- /wp:buttons -->
@@ -86,7 +87,8 @@ return array(
 					<div class="wp-block-group alignfull" style="padding-right:0">
 						<!-- wp:group {"style":{"spacing":{"padding":{"right":"0","left":"0"}}},"className":"is-style-default","layout":{"type":"default"}} -->
 						<div class="wp-block-group is-style-default" style="padding-right:0;padding-left:0">
-							<!-- wp:query {query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"inherit":false}} -->
+
+						<!-- wp:query {"query":{"perPage":"3","pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":null,"parents":[]}} -->
 							<div class="wp-block-query">
 								<!-- wp:post-template {"layout":{"type":"default"}} -->
 								<!-- wp:post-featured-image {"isLink":true,"style":{"color":{"duotone":"unset"}},"className":"is-style-default"} /-->
