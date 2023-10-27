@@ -20,7 +20,7 @@
  */
 function aegis_support()
 {
-    // Remove core block patterns.
+    // Remove WordPress Block Patterns.
     remove_theme_support('core-block-patterns');
 
     // Enqueue editor styles.
@@ -76,9 +76,6 @@ add_filter('should_load_remote_block_patterns', 'aegis_prevent_remote_patterns')
 
     // Block styles.
     require get_template_directory() . '/inc/block-styles.php';
-
-    // Remove support for WordPress default block patterns.
-    remove_theme_support('core-block-patterns');
 
 /**
  * Include Woocommerce support.
