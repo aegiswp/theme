@@ -1,9 +1,10 @@
 <?php
 /**
- * Blog Archive 5 Block Pattern
+ * 05. Blog Archive Block Pattern
  */
 return array(
-	'title'	  => __( 'Blog Archive 5', 'aegis' ),
+	'title'	  => __( '05. Blog Archive', 'aegis' ),
+	'description' => __( 'Blog Archive Block Pattern', 'aegis' ),
 	'categories' => array( 'aegis-query' ),
 	'content' => '
 	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"className":"blog-sidebar","layout":{"type":"default"}} -->
@@ -85,8 +86,8 @@ return array(
 					<!-- wp:group {"align":"full","style":{"spacing":{"blockGap":"0","padding":{"right":"0"}}}} -->
 					<div class="wp-block-group alignfull" style="padding-right:0">
 						<!-- wp:group {"style":{"spacing":{"padding":{"right":"0","left":"0"}}},"className":"is-style-default","layout":{"type":"default"}} -->
-						<div class="wp-block-group is-style-default" style="padding-right:0;padding-left:0">
-							<!-- wp:query {query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"inherit":false}} -->
+						<div class="wp-block-group is-style-default" style="padding-right:0;padding-left:0">						
+							<!-- wp:query {"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"inherit":false}} -->
 							<div class="wp-block-query">
 								<!-- wp:post-template {"layout":{"type":"default"}} -->
 								<!-- wp:post-featured-image {"isLink":true,"style":{"color":{"duotone":"unset"}},"className":"is-style-default"} /-->
