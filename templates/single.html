@@ -26,8 +26,7 @@
     <!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"var:preset|spacing|50"}}},"layout":{"inherit":true,"type":"constrained"}} -->
     <div class="wp-block-group" style="padding-top:0;padding-bottom:var(--wp--preset--spacing--50)">
         <!-- wp:group {"style":{"elements":{"link":{"color":{"text":"#797979"}}}},"layout":{"type":"flex"}} -->
-        <div class="wp-block-group has-link-color">
-            <!-- wp:post-terms {"term":"category","fontSize":"small"} /-->
+        <div class="wp-block-group has-link-color"><!-- wp:post-terms {"term":"category","fontSize":"small"} /-->
 
             <!-- wp:post-terms {"term":"post_tag","fontSize":"small"} /-->
         </div>
@@ -37,15 +36,11 @@
         <div class="wp-block-group is-style-aegis-border"
             style="margin-top:var(--wp--preset--spacing--40);margin-bottom:var(--wp--preset--spacing--40);padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
             <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-            <div class="wp-block-group">
-                <!-- wp:avatar {"size":80,"style":{"border":{"radius":"100px"}}} /-->
+            <div class="wp-block-group"><!-- wp:avatar {"size":80,"style":{"border":{"radius":"100px"}}} /-->
 
-                <!-- wp:paragraph {"textColor":"tertiary","fontSize":"medium"} -->
-                <p class="has-tertiary-color has-text-color has-medium-font-size">Published by <!-- wp:post-author /-->
-                </p>
-                <!-- /wp:paragraph -->
+                <!-- wp:post-author-name {"style":{"spacing":{"margin":{"right":"0"},"padding":{"right":"0","left":"0","top":"0","bottom":"0"}}},"fontSize":"small"} /-->
 
-                <!-- wp:post-author-name {"style":{"spacing":{"padding":{"right":"0","left":"0"}}}} /-->
+                <!-- wp:post-author-biography {"fontSize":"small"} /-->
             </div>
             <!-- /wp:group -->
         </div>
