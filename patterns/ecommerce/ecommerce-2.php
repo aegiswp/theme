@@ -1,10 +1,10 @@
 <?php
 /**
- * eCommerce 2 Block Pattern
+ * 02. eCommerce Block Pattern
  */
 return array(
-	'title'	  => __( 'eCommerce 2', 'aegis' ),
-	'description' => __( 'A simple block pattern for displaying a product grid.', 'aegis' ),
+	'title'	  => __( '02. eCommerce', 'aegis' ),
+	'description' => __( 'eCommerce Block Pattern', 'aegis' ),
     'categories' => array( 'aegis-ecommerce' ),
 	'content'	=> '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"30px","left":"30px"}}},"backgroundColor":"secondary","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull has-secondary-background-color has-background" style="padding-top:var(--wp--preset--spacing--50);padding-right:30px;padding-bottom:var(--wp--preset--spacing--50);padding-left:30px">
@@ -13,7 +13,7 @@ return array(
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-2-image is-style-aegis-effect-2-image"} -->
-			<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_480x715_darkcolor.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" /></figure>
+			<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/thumb_480x715_dark.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"backgroundColor":"background","className":"aegis-negative-margin-top is-style-aegis-hover-shadow"} -->
@@ -41,8 +41,7 @@ return array(
 				<!-- wp:buttons -->
 				<div class="wp-block-buttons">
 					<!-- wp:button {"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"className":"is-style-aegis-button-shadow is-style-aegis-button-shadow","fontSize":"small"} -->
-					<div class="wp-block-button has-custom-font-size is-style-aegis-button-shadow has-small-font-size" style="font-style:normal;font-weight:600"><a
-							class="wp-block-button__link wp-element-button">' . esc_html__( 'Call to Action', 'aegis' ) . '</a></div>
+					<div class="wp-block-button has-custom-font-size is-style-aegis-button-shadow has-small-font-size" style="font-style:normal;font-weight:600"><a class="wp-block-button__link wp-element-button">' . esc_html__( 'Call to Action', 'aegis' ) . '</a></div>
 					<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
@@ -54,7 +53,7 @@ return array(
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-2-image is-style-aegis-effect-2-image"} -->
-			<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_480x715_darkcolor.webp" alt="Describe the main elements of the image and its context." /></figure>
+			<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/thumb_480x715_dark.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"backgroundColor":"background","className":"aegis-negative-margin-top is-style-aegis-hover-shadow"} -->
@@ -97,7 +96,7 @@ return array(
 		<div class="wp-block-column">
 			<!-- wp:image {sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-2-image is-style-aegis-effect-2-image"} -->
 			<figure class="wp-block-image size-full is-style-aegis-effect-2-image">
-			<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/placeholder_480x715_darkcolor.webp" alt="' .	esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" /></figure>
+			<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/thumb_480x715_dark.webp" alt="' .	esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"backgroundColor":"background","className":"aegis-negative-margin-top is-style-aegis-hover-shadow"} -->
