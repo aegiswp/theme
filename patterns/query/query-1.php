@@ -1,11 +1,12 @@
 <?php
 /**
- * Blog 1 Block Pattern
+ * 01. Block Archive Block Pattern
  */
 return array(
-	'title'	  => __( 'Blog 1', 'aegis' ),
+	'title'	  => __( '01. Blog Archive', 'aegis' ),
+	'description' => __( 'Blog Archive Block Pattern', 'aegis' ),
 	'categories' => array( 'aegis-query' ),
-	'content'	=> '
+	'content' => '
 	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"right":"5%","left":"5%"}}},"layout":{"inherit":true,"type":"constrained"}} -->
 	<div class="wp-block-group alignfull" style="padding-right:5%;padding-left:5%">
 		<!-- wp:group {"layout":{"inherit":false}} -->
