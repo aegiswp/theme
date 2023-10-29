@@ -640,6 +640,11 @@
             "area": "header"
         },
         {
+            "name": "header-6",
+            "title": "06. Header (Sticky)",
+            "area": "header"
+        },
+        {
             "name": "footer",
             "title": "Footer Default",
             "area": "footer"
