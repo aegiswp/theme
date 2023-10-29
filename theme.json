@@ -616,22 +616,27 @@
     },
     "templateParts": [{
             "name": "header",
-            "title": "Header 1 - Default",
+            "title": "01. Header",
             "area": "header"
         },
         {
             "name": "header-2",
-            "title": "Header 2",
+            "title": "02. Header",
             "area": "header"
         },
         {
             "name": "header-3",
-            "title": "Header 3 - Sticky",
+            "title": "03. Header (Sticky)",
             "area": "header"
         },
         {
             "name": "header-4",
-            "title": "Header 4 - Sticky",
+            "title": "04. Header (Sticky)",
+            "area": "header"
+        },
+        {
+            "name": "header-5",
+            "title": "05. Header",
             "area": "header"
         },
         {
