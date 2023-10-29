@@ -52,6 +52,7 @@ function aegis_register_block_patterns() {
 	'header/header-2',
 	'header/header-3',
 	'header/header-4',
+	'header/header-5',
 	'footer/footer-1',
 	'footer/footer-2',
 	'footer/footer-3',
