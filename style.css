@@ -5,9 +5,9 @@ Author: Atmostfear Entertainment
 Author URI: https://www.atmostfear-entertainment.com/
 Description: Aegis is a fast and lightweight WordPress theme that is optimized for speed. It comes with an added animation features that adds a touch of elegance to your website without slowing it down.The theme also includes multiple custom built block editor blocks, giving you greater flexibility and control over your website design. Aegis is built on the new WordPress full site editing system, making it easy to customize and edit your website in real-time.This theme is perfect for those who want a fast and modern website without sacrificing design and functionality.
 Requires at least: 5.9
-Tested up to: 6.3.2
+Tested up to: 6.4
 Requires PHP: 7.4
-Version: 1.0.0-alpha.2
+Version: 1.0.0-alpha.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: aegis
@@ -649,7 +649,7 @@ figure {
 	left: 0;
 	width: 100%;
 	max-width: 100%;
-	padding: 0 0 15px 0 !important;
+	padding: 0 0 0 0 !important;
 	position: fixed;
 	z-index: 99999;
 	top: 0;
@@ -756,10 +756,12 @@ p.banner-text-margin {
 	margin-top: 0;
 }
 
+/* Donations */
 .donations-4 .wp-block-column {
 	position: relative;
 }
 
+/* Quotes */
 .quote-mark {
 	margin-bottom: -70px !important;
 	left: 5% !important;
@@ -829,25 +831,22 @@ p.banner-text-margin {
 	margin-bottom: -1.5rem !important;
 }
 
-/* Temporary fix until it moves to theme.json */
+/* Temporary fixes until it moves to theme.json */
 
 /* Target the core/gallery block */
 .wp-block-gallery {
-    /* Add your custom styles here */
     margin-bottom: 0.75em;
     margin-top: 1.25em;
 }
 
 /* Target the core/image block */
 .wp-block-image {
-    /* Add your custom styles here */
     margin-bottom: 0.75em;
     margin-top: 1.25em;
 }
 
 /* Target the image caption in the core/image block */
 .wp-block-image figcaption {
-    /* Add your custom styles here */
     background-color: var(--wp--preset--color--senary);
     color: var(--wp--preset--color--foreground);
     margin-top: 0%;
@@ -856,7 +855,6 @@ p.banner-text-margin {
 
 /* Target the core/footnotes block */
 .wp-block-footnotes {
-    /* Add your custom styles here */
     font-size: var(--wp--preset--font-size--small);
 }
 
@@ -890,7 +888,7 @@ p.banner-text-margin {
 	animation: my-animation 15s linear infinite;
 }
 
-/* for Firefox */
+/* Firefox Support */
 @-moz-keyframes my-animation {
 	from {
 		-moz-transform: translateX(100%);
@@ -901,7 +899,7 @@ p.banner-text-margin {
 	}
 }
 
-/* for Chrome */
+/* Chrome Support */
 @-webkit-keyframes my-animation {
 	from {
 		-webkit-transform: translateX(100%);
@@ -1085,7 +1083,7 @@ p.banner-text-margin {
 }
 
 /* ------------------------------------------- */
-/* Contact Form Inputs, and Textarea
+/* Form Inputs, and Textarea
 /* ------------------------------------------- */
 input[type=submit] {
 	background: var(--wp--preset--color--primary);
@@ -1165,7 +1163,7 @@ textarea {
 
 @media only screen and (max-width: 961px) {
 
-	/* Header 1 - Default */
+	/* 01. Header */
 	.header-1 .banner-info,
 	.header-2 .banner-info {
 		justify-content: flex-end;
@@ -1312,8 +1310,6 @@ textarea {
 		margin-bottom: -30px !important;
 	}
 
-	
-
 	.mobile-padding-paragraph {
 		padding-right: 0 !important;
 	}
@@ -1373,7 +1369,7 @@ textarea {
 		padding-left: 0 !important;
 	}
 
-	/* Footer */
+	/* 01. Footer */
 	.footer-1 .has-global-padding.wp-block-group.alignfull {
 		padding: 0;
 	}
@@ -2905,11 +2901,11 @@ a.wc-block-components-product-rating__link {
 		width: auto;
 	}
 
-	.basti-banner {
+	.--banner {
 		padding: 5px;
 	}
 
-	.basti-banner p.has-text-align-center {
+	.--banner p.has-text-align-center {
 		font-size: 14px;
 	}
 
