@@ -661,17 +661,17 @@
         },
         {
             "name": "footer-2",
-            "title": "Footer 2",
+            "title": "02. Footer",
             "area": "footer"
         },
         {
             "name": "footer-3",
-            "title": "Footer 3",
+            "title": "03. Footer",
             "area": "footer"
         },
         {
             "name": "footer-4",
-            "title": "Footer 4",
+            "title": "04. Footer",
             "area": "footer"
         }
     ]
