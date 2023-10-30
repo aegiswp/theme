@@ -76,7 +76,7 @@ return array(
 			<div class="wp-block-columns alignwide is-not-stacked-on-mobile" style="padding-right:0;padding-left:0">
 				<!-- wp:column {"verticalAlignment":"center","width":""} -->
 				<div class="wp-block-column is-vertically-aligned-center">
-					<!-- wp:navigation {"ref":4,"icon":"menu","overlayBackgroundColor":"background","className":"is-style-default","layout":{"type":"flex","setCascadingProperties":"true","justifyContent":"center","orientation":"horizontal","flexWrap":"wrap"},"fontSize":"tiny"} /-->
+					<!-- wp:navigation {"icon":"menu","overlayBackgroundColor":"background","className":"is-style-default","layout":{"type":"flex","setCascadingProperties":"true","justifyContent":"center","orientation":"horizontal","flexWrap":"wrap"},"fontSize":"tiny"} /-->
 				</div>
 				<!-- /wp:column -->
 			</div>
