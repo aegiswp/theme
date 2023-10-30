@@ -34,15 +34,15 @@ return array(
 				<div class="wp-block-column is-vertically-aligned-center">
 					<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","openInNewTab":true,"size":"has-small-icon-size","className":"is-style-logos-only"} -->
 					<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
-						<!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
+						<!-- wp:social-link {"url":"#","service":"facebook","label":"Facebook"} /-->
 
-						<!-- wp:social-link {"url":"https://linkedin.com/","service":"linkedin","label":"LinkedIn"} /-->
+						<!-- wp:social-link {"url":"#","service":"linkedin","label":"LinkedIn"} /-->
 
-						<!-- wp:social-link {"url":"https://instagram.com/","service":"instagram","label":"Instagram"} /-->
+						<!-- wp:social-link {"url":"#","service":"instagram","label":"Instagram"} /-->
 
-						<!-- wp:social-link {"url":"htps://wordpress.org/","service":"wordpress","label":"WordPress"} /-->
+						<!-- wp:social-link {"url":"#","service":"wordpress","label":"WordPress"} /-->
 
-						<!-- wp:social-link {"url":"https://github.com/","service":"github","label":"GitHub"} /-->
+						<!-- wp:social-link {"url":"#","service":"github","label":"GitHub"} /-->
 					</ul>
 					<!-- /wp:social-links -->
 				</div>
@@ -60,7 +60,7 @@ return array(
 					<div class="wp-block-group alignwide banner-info">
 						<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search products…","width":350,"widthUnit":"px","buttonText":"Search","buttonPosition":"no-button","query":{"post_type":"product"},"style":{"border":{"width":"1px"}},"borderColor":"foreground","className":"hide-mobile"} /-->
 
-						<!-- wp:woocommerce/mini-cart {"hasHiddenPrice":true,"style":{"typography":{"fontSize":"13px"}}} /-->
+						<!-- wp:woocommerce/mini-cart {"hasHiddenPrice":true,"style":{"typography":{"fontSize":"12px"}}} /-->
 					</div>
 					<!-- /wp:group -->
 				</div>
