@@ -1,10 +1,10 @@
 <?php
 /**
- * 03. Header Block Pattern
+ * 03. Header Sticky Block Pattern
  */
 return array(
-	'title'	  => __( '03. Header (Fixed)', 'aegis' ),
-	'description' => __( 'Header (Fixed)', 'aegis' ),
+	'title'	  => __( '03. Header (Sticky)', 'aegis' ),
+	'description' => __( 'Header (Sticky)', 'aegis' ),
 	'categories' => array( 'aegis-header' ),
 	'blockTypes' => array( 'core/template-part/header' ),
 	'content' => '
@@ -26,15 +26,15 @@ return array(
 				<div class="wp-block-column is-vertically-aligned-center">
 					<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","openInNewTab":true,"size":"has-small-icon-size","className":"is-style-logos-only socials","layout":{"type":"flex","justifyContent":"left"}} -->
 					<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only socials">
-						<!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
+						<!-- wp:social-link {"url":"#","service":"facebook","label":"Facebook"} /-->
 
-						<!-- wp:social-link {"url":"https://linkedin.com/","service":"linkedin","label":"LinkedIn"} /-->
+						<!-- wp:social-link {"url":"#","service":"linkedin","label":"LinkedIn"} /-->
 
-						<!-- wp:social-link {"url":"https://instagram.com/","service":"instagram","label":"Instagram"} /-->
+						<!-- wp:social-link {"url":"#","service":"instagram","label":"Instagram"} /-->
 
-						<!-- wp:social-link {"url":"htps://wordpress.org/","service":"wordpress","label":"WordPress"} /-->
+						<!-- wp:social-link {"url":"#","service":"wordpress","label":"WordPress"} /-->
 
-						<!-- wp:social-link {"url":"https://github.com/","service":"github","label":"GitHub"} /-->
+						<!-- wp:social-link {"url":"#","service":"github","label":"GitHub"} /-->
 					</ul>
 					<!-- /wp:social-links -->
 				</div>
@@ -46,7 +46,7 @@ return array(
 					<div class="wp-block-group alignwide banner-info">
 						<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search products…","width":350,"widthUnit":"px","buttonText":"Search","buttonPosition":"no-button","query":{"post_type":"product"},"style":{"border":{"width":"1px","color":"#1c1c1e"}},"className":"hide-mobile"} /-->
 
-						<!-- wp:woocommerce/mini-cart {"hasHiddenPrice":true,"style":{"typography":{"fontSize":"13px"}}} /-->
+						<!-- wp:woocommerce/mini-cart {"hasHiddenPrice":true,"style":{"typography":{"fontSize":"12px"}}} /-->
 					</div>
 					<!-- /wp:group -->
 				</div>
