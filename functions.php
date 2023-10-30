@@ -1,6 +1,6 @@
 <?php
 /**
- * This file adds functions to the Aegis WordPress theme.
+ * This file adds actions, filters, and functions to the Aegis theme.
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -18,7 +18,7 @@
  *
  * @return void
  */
-function aegis_support()
+function aegis_support() 
 {
     // Remove WordPress Block Patterns.
     remove_theme_support('core-block-patterns');
