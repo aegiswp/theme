@@ -645,6 +645,11 @@
             "area": "header"
         },
         {
+            "name": "header-7",
+            "title": "07. Header",
+            "area": "header"
+        },
+        {
             "name": "footer",
             "title": "Footer Default",
             "area": "footer"
