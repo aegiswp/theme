@@ -70,7 +70,7 @@ return array(
 				<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:75%">
 					<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"right"}} -->
 					<div class="wp-block-group">
-						<!-- wp:navigation {"ref":4,"overlayBackgroundColor":"background","className":"is-style-default","layout":{"type":"flex","setCascadingProperties":"true","justifyContent":"right","orientation":"horizontal","flexWrap":"wrap"},"fontSize":"tiny"} /-->
+						<!-- wp:navigation {"icon":"menu","overlayBackgroundColor":"background","className":"is-style-default","layout":{"type":"flex","setCascadingProperties":"true","justifyContent":"right","orientation":"horizontal","flexWrap":"wrap"},"fontSize":"tiny"} /-->
 					</div>
 					<!-- /wp:group -->
 				</div>
