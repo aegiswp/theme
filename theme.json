@@ -650,6 +650,11 @@
             "area": "header"
         },
         {
+            "name": "header-8",
+            "title": "08. Header",
+            "area": "header"
+        },
+        {
             "name": "footer",
             "title": "Footer Default",
             "area": "footer"
