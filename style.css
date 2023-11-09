@@ -3,9 +3,9 @@ Theme Name: Aegis
 Theme URI: https://github.com/atmostfear-entertainment/aegis
 Author: Atmostfear Entertainment
 Author URI: https://www.atmostfear-entertainment.com/
-Description: Aegis is a fast and lightweight WordPress theme that is optimized for speed. It comes with an added animation features that adds a touch of elegance to your website without slowing it down.The theme also includes multiple custom built block editor blocks, giving you greater flexibility and control over your website design. Aegis is built on the new WordPress full site editing system, making it easy to customize and edit your website in real-time.This theme is perfect for those who want a fast and modern website without sacrificing design and functionality.
-Requires at least: 5.9
-Tested up to: 6.3.2
+Description: Aegis is a sleek theme that promises agility and a lightweight design. It features elegant animations that add a sophisticated touch without hindering performance. The theme comes with a diverse array of block patterns, including full-page layouts, to ensure precise design control. Its latest full site editing capability facilitates real-time customization. With a solid foundation for ecommerce, it is well-suited for blogging, media outlets, and academic publishing.
+Requires at least: 6.4
+Tested up to: 6.4.1
 Requires PHP: 7.4
 Version: 1.0.0-alpha.3
 License: GNU General Public License v2 or later
@@ -282,7 +282,6 @@ figure {
 }
 
 @media (min-width:962px) {
-
 	.wp-block-navigation .has-child:hover>.wp-block-navigation__submenu-container,
 	.wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria-expanded=true]+.wp-block-navigation__submenu-container {
 		box-shadow: 0 20px 40px -5px rgb(15 16 18 / 18%);
@@ -712,7 +711,15 @@ p.banner-text-margin {
 	z-index: 12;
 }
 
-/* What We Do */
+.testimonials .rating {
+	margin: 0 0 -10px 0 !important;
+}
+
+.testimonials blockquote.wp-block-quote.is-style-default {
+	margin: 0;
+}
+
+/* About */
 .what-we-do .wp-block-column {
 	position: relative;
 }
@@ -735,14 +742,6 @@ p.banner-text-margin {
 
 .aegis-rating {
 	margin: -5px 0 -20px 0 !important;
-}
-
-.testimonials .rating {
-	margin: 0 0 -10px 0 !important;
-}
-
-.testimonials blockquote.wp-block-quote.is-style-default {
-	margin: 0;
 }
 
 /* Team */
@@ -888,6 +887,7 @@ p.banner-text-margin {
 	animation: my-animation 15s linear infinite;
 }
 
+
 /* Firefox Support */
 @-moz-keyframes my-animation {
 	from {
@@ -924,7 +924,7 @@ p.banner-text-margin {
 	}
 }
 
-/* Product Card */
+/* WooCommerce Product Card */
 .product-card {
 	overflow: hidden;
 }
@@ -1038,7 +1038,7 @@ p.banner-text-margin {
 	}
 }
 
-/* Image Hover Effect */
+/* Image Effect */
 .image-effect {
 	position: relative;
 	cursor: crosshair;
@@ -1066,7 +1066,7 @@ p.banner-text-margin {
 	transition: 0.8s ease-in;
 }
 
-/* Hover */
+/* Image Hover Effect */
 .image-effect .wp-block-column:hover .wp-block-group {
 	transform: scale(0.9);
 	opacity: 1;
@@ -1163,7 +1163,7 @@ textarea {
 
 @media only screen and (max-width: 961px) {
 
-	/* 01. Header */
+	/* Headers */
 	.header-1 .banner-info,
 	.header-2 .banner-info {
 		justify-content: flex-end;
@@ -1496,68 +1496,6 @@ textarea {
 		height: 320px;
 		max-height: 320px;
 	}
-}
-
-/* ------------------------------------------- */
-/* WooCommcerce Blocks
-/* ------------------------------------------- */
-.wc-block-grid__product-add-to-cart.wp-block-button .wp-block-button__link {
-	color: var(--wp--preset--color--foreground);
-	border-radius: 100px;
-	border: 1px solid;
-	background: none;
-	margin-right: 10px;
-	padding: 12px 25px;
-	-webkit-transition: all .3s;
-	-o-transition: all .3s;
-	transition: all .3s;
-	box-shadow: none;
-}
-
-.wc-block-grid__product-add-to-cart.wp-block-button .wp-block-button__link {
-	padding: 5px 25px;
-	font-weight: 700;
-}
-
-.wc-block-grid__product-add-to-cart.wp-block-button .wp-block-button__link:hover {
-	padding: 5px 30px;
-}
-
-.wc-block-components-review-list-item__rating>.wc-block-components-review-list-item__rating__stars span:before {
-	color: var(--wp--preset--color--foreground);
-}
-
-.wc-block-grid__products .wc-block-grid__product-image img {
-	box-shadow: 0 3px 10px 0 rgb(15 16 18 / 4%), 0 12px 30px 0 rgb(15 16 18 / 4%);
-	transition: box-shadow 0.5s;
-}
-
-ul.wc-block-review-list.wc-block-components-review-list {
-	margin: 0;
-	padding: 0;
-}
-
-.wc-block-components-review-list-item__rating>.wc-block-components-review-list-item__rating__stars,
-.wc-block-components-product-rating__stars {
-	font-size: 14px;
-	letter-spacing: 2px;
-	margin: 0;
-	width: 6.3em;
-}
-
-.wc-block-components-sort-select {
-	margin-top: -30px;
-}
-
-button.wp-block-button__link.wc-block-filter-submit-button.wc-block-components-filter-submit-button.wc-block-price-filter__button.wc-block-components-price-slider__button {
-	border-radius: 0;
-	background: var(--wp--preset--color--foreground);
-	font-weight: 700;
-	padding: 7px 25px;
-}
-
-.wc-block-components-product-rating.wc-block-grid__product-rating {
-	bottom: 40px;
 }
 
 /* ------------------------------------------- */
@@ -3010,4 +2948,66 @@ a.wc-block-components-product-rating__link {
 	.wc-block-mini-cart__footer {
 		padding-bottom: 64px;
 	}
+}
+
+/* ------------------------------------------- */
+/* WooCommcerce Blocks
+/* ------------------------------------------- */
+.wc-block-grid__product-add-to-cart.wp-block-button .wp-block-button__link {
+	color: var(--wp--preset--color--foreground);
+	border-radius: 100px;
+	border: 1px solid;
+	background: none;
+	margin-right: 10px;
+	padding: 12px 25px;
+	-webkit-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+	box-shadow: none;
+}
+
+.wc-block-grid__product-add-to-cart.wp-block-button .wp-block-button__link {
+	padding: 5px 25px;
+	font-weight: 700;
+}
+
+.wc-block-grid__product-add-to-cart.wp-block-button .wp-block-button__link:hover {
+	padding: 5px 30px;
+}
+
+.wc-block-components-review-list-item__rating>.wc-block-components-review-list-item__rating__stars span:before {
+	color: var(--wp--preset--color--foreground);
+}
+
+.wc-block-grid__products .wc-block-grid__product-image img {
+	box-shadow: 0 3px 10px 0 rgb(15 16 18 / 4%), 0 12px 30px 0 rgb(15 16 18 / 4%);
+	transition: box-shadow 0.5s;
+}
+
+ul.wc-block-review-list.wc-block-components-review-list {
+	margin: 0;
+	padding: 0;
+}
+
+.wc-block-components-review-list-item__rating>.wc-block-components-review-list-item__rating__stars,
+.wc-block-components-product-rating__stars {
+	font-size: 14px;
+	letter-spacing: 2px;
+	margin: 0;
+	width: 6.3em;
+}
+
+.wc-block-components-sort-select {
+	margin-top: -30px;
+}
+
+button.wp-block-button__link.wc-block-filter-submit-button.wc-block-components-filter-submit-button.wc-block-price-filter__button.wc-block-components-price-slider__button {
+	border-radius: 0;
+	background: var(--wp--preset--color--foreground);
+	font-weight: 700;
+	padding: 7px 25px;
+}
+
+.wc-block-components-product-rating.wc-block-grid__product-rating {
+	bottom: 40px;
 }
