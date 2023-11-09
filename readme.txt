@@ -1,7 +1,7 @@
 === Aegis ===
 Contributors: atmostfearentertainment, alexdeborba
 Requires at least: 5.9
-Tested up to: 6.3.2
+Tested up to: 6.4.1
 Requires PHP: 7.4
 Stable tag: 1.0.0-alpha.3
 License: GPLv2 or later
@@ -9,7 +9,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Aegis is a sleek and refined WordPress theme, perfectly crafted for those seeking a harmonious blend of style and functionality. It boasts rapid load times, ensuring your audience remains engaged from the outset. Graceful animation features add a layer of sophistication, while its plethora of patterns, templates, and custom-built block editor blocks offer limitless design possibilities. With an intuitive header and footer builder, you have complete control over your site's navigation and layout. Tailored for academic publishing, Aegis also shines as a premier WooCommerce theme for e-commerce ventures.
+Aegis is a sleek theme that promises agility and a lightweight design. It features elegant animations that add a sophisticated touch without hindering performance. The theme comes with a diverse array of block patterns, including full-page layouts, to ensure precise design control. Its latest full site editing capability facilitates real-time customization. With a solid foundation for ecommerce, it is well-suited for blogging, media outlets, and academic publishing.
 
 == Changelog ==
 
