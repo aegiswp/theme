@@ -7,8 +7,8 @@ return array(
 	'description' => __( 'Blog Archive Block Pattern', 'aegis' ),
 	'categories' => array( 'aegis-query' ),
 	'content' => '
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"right":"5%","left":"5%"}}},"layout":{"inherit":true,"type":"constrained"}} -->
-	<div class="wp-block-group alignfull" style="padding-right:5%;padding-left:5%">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"layout":{"type":"default"}} -->
+	<div class="wp-block-group alignfull" style="padding-right:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 		<!-- wp:group {"layout":{"inherit":false}} -->
 		<div class="wp-block-group">
 			<!-- wp:query {"query":{"perPage":"3","pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"displayLayout":{"type":"list"},"align":"wide","layout":{"inherit":false}} -->
