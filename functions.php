@@ -62,15 +62,6 @@ function aegis_styles()
 }
 add_action('wp_enqueue_scripts', 'aegis_styles');
 
-/**
- * Prevent loading patterns from the WordPress.org pattern directory.
- */
-function aegis_prevent_remote_patterns()
-{
-    return false;
-}
-add_filter('should_load_remote_block_patterns', 'aegis_prevent_remote_patterns');
-
     // Add block pattern.
     require get_template_directory() . '/inc/block-patterns.php';
 
