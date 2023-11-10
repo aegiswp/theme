@@ -1,6 +1,6 @@
 <?php
 /**
- * This file adds functions to the Aegis WordPress theme.
+ * This file adds actions, filters, and functions to the Aegis theme.
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -18,7 +18,7 @@
  *
  * @return void
  */
-function aegis_support()
+function aegis_support() 
 {
     // Remove WordPress Block Patterns.
     remove_theme_support('core-block-patterns');
@@ -61,15 +61,6 @@ function aegis_styles()
     wp_enqueue_script('aegis-animations-script', get_template_directory_uri() . '/assets/js/animations.js', array('jquery'), wp_get_theme()->get('Version'), true);
 }
 add_action('wp_enqueue_scripts', 'aegis_styles');
-
-/**
- * Prevent loading patterns from the WordPress.org pattern directory.
- */
-function aegis_prevent_remote_patterns()
-{
-    return false;
-}
-add_filter('should_load_remote_block_patterns', 'aegis_prevent_remote_patterns');
 
     // Add block pattern.
     require get_template_directory() . '/inc/block-patterns.php';

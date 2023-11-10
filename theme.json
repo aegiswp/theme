@@ -28,11 +28,7 @@
     "settings": {
         "appearanceTools": true,
         "color": {
-            "duotone": [{
-                    "colors": ["#0ed765", "#69a5e6"],
-                    "slug": "quaternary-and-quinary",
-                    "name": "Quaternary and Quinary"
-                },
+            "duotone": [
                 {
                     "colors": ["#1c1c1e", "#e4e4e6"],
                     "slug": "foreground-and-primary",
@@ -82,12 +78,18 @@
                     "colors": ["#e4e4e6", "#929086"],
                     "slug": "primary-and-tertiary",
                     "name": "Primary and tertiary"
+                },
+                {
+                    "colors": ["#0ed765", "#69a5e6"],
+                    "slug": "quaternary-and-quinary",
+                    "name": "Quaternary and Quinary"
                 }
             ],
-            "gradients": [{
-                    "slug": "vertical-secondary-to-background",
-                    "gradient": "linear-gradient(90deg,var(--wp--preset--color--secondary) 55%, var(--wp--preset--color--background) 55%)",
-                    "name": "Vertical secondary to background"
+            "gradients": [
+                {
+                    "slug": "vertical-background-to-foreground",
+                    "gradient": "linear-gradient(90deg,var(--wp--preset--color--background) 59%,var(--wp--preset--color--foreground) 59%)",
+                    "name": "Vertical background to foreground"
                 },
                 {
                     "slug": "vertical-background-to-secondary",
@@ -95,9 +97,9 @@
                     "name": "Vertical background to secondary"
                 },
                 {
-                    "slug": "vertical-background-to-foreground",
-                    "gradient": "linear-gradient(90deg,var(--wp--preset--color--background) 59%,var(--wp--preset--color--foreground) 59%)",
-                    "name": "Vertical background to foreground"
+                    "slug": "vertical-secondary-to-background",
+                    "gradient": "linear-gradient(90deg,var(--wp--preset--color--secondary) 55%, var(--wp--preset--color--background) 55%)",
+                    "name": "Vertical secondary to background"
                 },
                 {
                     "slug": "horizontal-background-to-primary",
@@ -105,25 +107,30 @@
                     "name": "Horizontal background to primary"
                 },
                 {
-                    "slug": "horizontal-foreground-to-background",
-                    "gradient": "linear-gradient(180deg,var(--wp--preset--color--foreground) 51%,var(--wp--preset--color--background) 51%)",
-                    "name": "Horizontal foreground to background"
-                },
-                {
                     "slug": "horizontal-background-to-tertiary",
                     "gradient": "linear-gradient(180deg,var(--wp--preset--color--background) 28%,var(--wp--preset--color--tertiary) 28%)",
                     "name": "Horizontal background to tertiary"
                 },
                 {
-                    "slug": "diagonal-secondary-to-background",
-                    "gradient": "linear-gradient(to bottom right,var(--wp--preset--color--secondary) 50%,var(--wp--preset--color--background) 50%)",
-                    "name": "Diagonal secondary to background"
+                    "slug": "horizontal-foreground-to-background",
+                    "gradient": "linear-gradient(180deg,var(--wp--preset--color--foreground) 51%,var(--wp--preset--color--background) 51%)",
+                    "name": "Horizontal foreground to background"
+                },
+                {
+                    "slug": "diagonal-background-to-foreground",
+                    "gradient": "linear-gradient(106deg,var(--wp--preset--color--background) 46%,var(--wp--preset--color--foreground) 46%)",
+                    "name": "Diagonal background to foreground"
                 },
                 {
                     "slug": "diagonal-background-to-secondary",
                     "gradient": "linear-gradient(to bottom right,var(--wp--preset--color--background) 50%,var(--wp--preset--color--secondary) 50%)",
                     "name": "Diagonal background to secondary"
                 },
+                {
+                    "slug": "diagonal-secondary-to-background",
+                    "gradient": "linear-gradient(to bottom right,var(--wp--preset--color--secondary) 50%,var(--wp--preset--color--background) 50%)",
+                    "name": "Diagonal secondary to background"
+                },               
                 {
                     "slug": "diagonal-secondary-to-foreground",
                     "gradient": "linear-gradient(135deg,transparent 74%,var(--wp--preset--color--foreground) 74%)",
@@ -135,9 +142,9 @@
                     "name": "Diagonal quinary to background"
                 },
                 {
-                    "slug": "diagonal-background-to-foreground",
-                    "gradient": "linear-gradient(106deg,var(--wp--preset--color--background) 46%,var(--wp--preset--color--foreground) 46%)",
-                    "name": "Diagonal background to foreground"
+                    "slug": "diagonal-background-to-primary-triangle",
+                    "gradient": "linear-gradient(43deg,var(--wp--preset--color--background) 94%,var(--wp--preset--color--primary) 94%)",
+                    "name": "Diagonal background to primary triangle"
                 },
                 {
                     "slug": "diagonal-background-to-secondary-triangle",
@@ -145,25 +152,21 @@
                     "name": "Diagonal background to secondary triangle"
                 },
                 {
-                    "slug": "diagonal-background-to-primary-triangle",
-                    "gradient": "linear-gradient(43deg,var(--wp--preset--color--background) 94%,var(--wp--preset--color--primary) 94%)",
-                    "name": "Diagonal background to primary triangle"
-                },
-                {
                     "slug": "diagonal-foreground-to-primary-triangle",
                     "gradient": "linear-gradient(135deg,rgba(0,0,0,0.39) 89%,var(--wp--preset--color--primary) 89%)",
                     "name": "Diagonal foreground to primary triangle"
                 }
             ],
-            "palette": [{
-                    "slug": "foreground",
-                    "color": "#1c1c1e",
-                    "name": "Foreground"
-                },
+            "palette": [
                 {
                     "slug": "background",
                     "color": "#f6f5f2",
                     "name": "Background"
+                },
+                {
+                    "slug": "foreground",
+                    "color": "#1c1c1e",
+                    "name": "Foreground"
                 },
                 {
                     "slug": "primary",
@@ -264,14 +267,7 @@
                     "name": "6"
                 }
             ],
-            "units": [
-                "%",
-                "px",
-                "em",
-                "rem",
-                "vh",
-                "vw"
-            ]
+            "units": ["%", "px", "em", "rem", "vh", "vw"]
         },
         "typography": {
             "dropCap": false,
@@ -616,22 +612,42 @@
     },
     "templateParts": [{
             "name": "header",
-            "title": "Header 1 - Default",
+            "title": "01. Header",
             "area": "header"
         },
         {
             "name": "header-2",
-            "title": "Header 2",
+            "title": "02. Header",
             "area": "header"
         },
         {
             "name": "header-3",
-            "title": "Header 3 - Sticky",
+            "title": "03. Header 3 (Sticky)",
             "area": "header"
         },
         {
             "name": "header-4",
-            "title": "Header 4 - Sticky",
+            "title": "04. Header 4 (Sticky)",
+            "area": "header"
+        },
+        {
+            "name": "header-5",
+            "title": "05. Header",
+            "area": "header"
+        },
+        {
+            "name": "header-6",
+            "title": "06. Header (Sticky)",
+            "area": "header"
+        },
+        {
+            "name": "header-7",
+            "title": "07. Header",
+            "area": "header"
+        },
+        {
+            "name": "header-8",
+            "title": "08. Header",
             "area": "header"
         },
         {
@@ -641,17 +657,17 @@
         },
         {
             "name": "footer-2",
-            "title": "Footer 2",
+            "title": "02. Footer",
             "area": "footer"
         },
         {
             "name": "footer-3",
-            "title": "Footer 3",
+            "title": "03. Footer",
             "area": "footer"
         },
         {
             "name": "footer-4",
-            "title": "Footer 4",
+            "title": "04. Footer",
             "area": "footer"
         }
     ]

@@ -37,13 +37,13 @@ return array(
 
 							<!-- wp:social-links {"iconColor":"background","iconColorValue":"#f6f5f2","iconBackgroundColor":"foreground","iconBackgroundColorValue":"#211F1D","openInNewTab":true,"className":"is-style-default","layout":{"type":"flex","justifyContent":"center"}} -->
 							<ul class="wp-block-social-links has-icon-color has-icon-background-color is-style-default">
-								<!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
+							<!-- wp:social-link {"url":"#","service":"facebook","label":"Facebook"} /-->
 
-								<!-- wp:social-link {"url":"https://linkedin.com/","service":"linkedin","rel":"LinkedIn"} /-->
-
-								<!-- wp:social-link {"url":"https://instagram.com/","service":"instagram","rel":"Instagram"} /-->
-
-								<!-- wp:social-link {"url":"https://wordpress.org/","service":"wordpress","rel":"WordPress"} /-->
+							<!-- wp:social-link {"url":"#","service":"linkedin","label":"LinkedIn"} /-->
+	
+							<!-- wp:social-link {"url":"#","service":"instagram","label":"Instagram"} /-->
+	
+							<!-- wp:social-link {"url":"#","service":"wordpress","label":"WordPress"} /-->
 							</ul>
 							<!-- /wp:social-links -->
 						</div>

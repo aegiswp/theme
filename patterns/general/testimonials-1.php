@@ -4,8 +4,8 @@
  */
 return array(
 	'title'	  => __( '01. Testimonials', 'aegis' ),
-	'categories' => array( 'aegis-testimonials' ),
 	'description' => __( 'Testimonials Block Pattern', 'aegis' ),
+	'categories' => array( 'aegis-testimonials' ),
 	'content'	=> '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"right":"30px","left":"30px","top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"className":"testimonials","layout":{"contentSize":"","type":"constrained"}} -->
 <div class="wp-block-group alignfull testimonials" style="padding-top:var(--wp--preset--spacing--50);padding-right:30px;padding-bottom:var(--wp--preset--spacing--50);padding-left:30px">

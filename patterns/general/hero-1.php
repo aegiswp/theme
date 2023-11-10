@@ -1,9 +1,9 @@
 <?php
 /**
- * Hero 1 Block Pattern
+ * 01. Hero Block Pattern
  */
 return array(
-	'title'	  => __( 'Hero 1', 'aegis' ),
+	'title'	  => __( '01. Hero', 'aegis' ),
 	'categories' => array( 'aegis-hero' ),
 	'content' => '
 	<!-- wp:cover {"url":"' . esc_url( get_template_directory_uri() ) . '/assets/images/thumb_1800x1200_dark.webp","dimRatio":60,"overlayColor":"foreground","focalPoint":{"x":0.5,"y":0.5},"minHeight":800,"contentPosition":"center center","align":"full","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}},"textColor":"background","className":"is-style-default hero-header additional"} -->
@@ -26,7 +26,8 @@ return array(
 				<div class="wp-block-buttons">
 					<!-- wp:button {"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"className":"is-style-aegis-button-shadow","fontSize":"small"} -->
 					<div class="wp-block-button has-custom-font-size is-style-aegis-button-shadow has-small-font-size" style="font-style:normal;font-weight:600">
-						<a class="wp-block-button__link wp-element-button" href="#">' . esc_html__( 'Call to Action' , 'aegis' ). '</a></div>
+						<a class="wp-block-button__link wp-element-button" href="#">' . esc_html__( 'Call to Action' , 'aegis' ). '</a>
+						</div>
 					<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->

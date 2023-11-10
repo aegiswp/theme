@@ -1,9 +1,9 @@
 <?php
 /**
- * Hero 2 Block Pattern
+ * 02. Hero Block Pattern
  */
 return array(
-	'title'	  => __( 'Hero 2', 'aegis' ),
+	'title'	  => __( '02. Hero', 'aegis' ),
 	'categories' => array( 'aegis-hero' ),
 	'content'	=> '
 <!-- wp:cover {"url":"' . esc_url( get_template_directory_uri() ) . '/assets/images/thumb_1800x1200_dark.webp","dimRatio":60,"overlayColor":"foreground","focalPoint":{"x":0.5,"y":0.5},"minHeight":700,"align":"wide","className":"is-style-default"} -->
