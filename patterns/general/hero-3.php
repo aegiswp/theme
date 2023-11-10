@@ -1,9 +1,9 @@
 <?php
 /**
- * Hero 3 block pattern
+ * 03. Hero Block Pattern
  */
 return array(
-	'title'	  => __( 'Hero 3', 'aegis' ),
+	'title'	  => __( '03. Hero', 'aegis' ),
 	'categories' => array( 'aegis-hero' ),
 	'content' => '
 	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60","right":"60px","left":"60px"}}},"gradient":"vertical-background-to-foreground","className":"is-style-default","layout":{"type":"constrained"}} -->
