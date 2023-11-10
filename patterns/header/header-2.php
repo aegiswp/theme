@@ -41,8 +41,6 @@ return array(
 						<!-- wp:social-link {"url":"#","service":"instagram","label":"Instagram"} /-->
 
 						<!-- wp:social-link {"url":"#","service":"wordpress","label":"WordPress"} /-->
-
-						<!-- wp:social-link {"url":"#","service":"github","label":"GitHub"} /-->
 					</ul>
 					<!-- /wp:social-links -->
 				</div>
