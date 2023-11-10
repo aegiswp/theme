@@ -1,6 +1,6 @@
 <?php
 /**
- * 02. Team block pattern
+ * 02. Team Block Pattern
  */
 return array(
 	'title'	  => __( '02. Team', 'aegis' ),
