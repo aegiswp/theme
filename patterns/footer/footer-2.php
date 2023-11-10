@@ -1,10 +1,10 @@
 <?php
 /**
- * Footer 2 Block Pattern
+ * 02. Footer Block Pattern
  */
 return array(
-	'title'	      => __( 'Footer 2', 'aegis' ),
-	'description' => __( 'Footer block pattern', 'aegis' ),
+	'title'	      => __( '02. Footer', 'aegis' ),
+	'description' => __( 'Footer Block Pattern', 'aegis' ),
 	'categories'  => array( 'aegis-footer' ),
 	'blockTypes' => array( 'core/template-part/footer' ),
 	'content' => '
@@ -275,13 +275,13 @@ return array(
 
 				<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","openInNewTab":true,"size":"has-small-icon-size","style":{"spacing":{"blockGap":"20px","margin":{"top":"30px","bottom":"24px"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"right"}} -->
 				<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:30px;margin-bottom:24px">
-					<!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
+				<!-- wp:social-link {"url":"#","service":"facebook","label":"Facebook"} /-->
 
-					<!-- wp:social-link {"url":"https://linkedin.com/","service":"linkedin","rel":"LinkedIn"} /-->
+				<!-- wp:social-link {"url":"#","service":"linkedin","label":"LinkedIn"} /-->
 
-					<!-- wp:social-link {"url":"https://tiktok.com/","service":"tiktok","rel":"TikTok"} /-->
+				<!-- wp:social-link {"url":"#","service":"instagram","label":"Instagram"} /-->
 
-					<!-- wp:social-link {"url":"https://instagram.com/","service":"instagram","rel":"Instagram"} /-->
+				<!-- wp:social-link {"url":"#","service":"wordpress","label":"WordPress"} /-->
 				</ul>
 				<!-- /wp:social-links -->
 			</div>
