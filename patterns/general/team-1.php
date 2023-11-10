@@ -37,15 +37,13 @@ return array(
 
 					<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","openInNewTab":true,"size":"has-small-icon-size","style":{"spacing":{"margin":{"top":"30px","bottom":"0px"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"center"}} -->
 					<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:30px;margin-bottom:0px">
-						<!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
+						<!-- wp:social-link {"url":"#","service":"facebook","label":"Facebook"} /-->
 
-						<!-- wp:social-link {"url":"https://linkedin.com/","service":"linkedin","rel":"LinkedIn"} /-->
+						<!-- wp:social-link {"url":"#","service":"linkedin","rel":"LinkedIn"} /-->
 
-						<!-- wp:social-link {"url":"https://instagram.com/","service":"instagram","rel":"Instagram"} /-->
+						<!-- wp:social-link {"url":"#","service":"instagram","rel":"Instagram"} /-->
 
-						<!-- wp:social-link {"url":"https://github.com/","service":"github","rel":"GitHub"} /-->
-
-						<!-- wp:social-link {"url":"https://wordpress.org/","service":"wordpress","rel":"WordPress"} /-->
+						<!-- wp:social-link {"url":"#","service":"wordpress","rel":"WordPress"} /-->
 					</ul>
 					<!-- /wp:social-links -->
 				</div>
@@ -80,15 +78,13 @@ return array(
 
 					<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","openInNewTab":true,"size":"has-small-icon-size","style":{"spacing":{"margin":{"top":"30px","bottom":"0px"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"center"}} -->
 					<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:30px;margin-bottom:0px">
-						<!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
+						<!-- wp:social-link {"url":"#","service":"facebook","label":"Facebook"} /-->
 
-						<!-- wp:social-link {"url":"https://linkedin.com/","service":"linkedin","rel":"LinkedIn"} /-->
+						<!-- wp:social-link {"url":"#","service":"linkedin","rel":"LinkedIn"} /-->
 
-						<!-- wp:social-link {"url":"https://instagram.com/","service":"instagram","rel":"Instagram"} /-->
+						<!-- wp:social-link {"url":"#","service":"instagram","rel":"Instagram"} /-->
 
-						<!-- wp:social-link {"url":"https://github.com/","service":"github","rel":"GitHub"} /-->
-
-						<!-- wp:social-link {"url":"https://wordpress.org/","service":"wordpress","rel":"WordPress"} /-->
+						<!-- wp:social-link {"url":"#","service":"wordpress","rel":"WordPress"} /-->
 					</ul>
 					<!-- /wp:social-links -->
 				</div>
@@ -123,15 +119,13 @@ return array(
 					<!-- wp:social-links {"iconColor":"background","iconColorValue":"#f6f5f2","openInNewTab":true,"size":"has-small-icon-size","style":{"spacing":{"margin":{"top":"30px","bottom":"0px"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"center"}} -->
 					<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only"
 						style="margin-top:30px;margin-bottom:0px">
-						<!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
+						<!-- wp:social-link {"url":"#","service":"facebook","label":"Facebook"} /-->
 
-						<!-- wp:social-link {"url":"https://linkedin.com/","service":"linkedin","rel":"LinkedIn"} /-->
+						<!-- wp:social-link {"url":"#","service":"linkedin","rel":"LinkedIn"} /-->
 
-						<!-- wp:social-link {"url":"https://instagram.com/","service":"instagram","rel":"Instagram"} /-->
+						<!-- wp:social-link {"url":"#","service":"instagram","rel":"Instagram"} /-->
 
-						<!-- wp:social-link {"url":"https://github.com/","service":"github","rel":"GitHub"} /-->
-
-						<!-- wp:social-link {"url":"https://wordpress.org/","service":"wordpress","rel":"WordPress"} /-->
+						<!-- wp:social-link {"url":"#","service":"wordpress","rel":"WordPress"} /-->
 					</ul>
 					<!-- /wp:social-links -->
 				</div>
