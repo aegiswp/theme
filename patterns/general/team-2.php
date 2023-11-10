@@ -1,9 +1,10 @@
 <?php
 /**
- * Team 2 block pattern
+ * 02. Team block pattern
  */
 return array(
-	'title'	  => __( 'Team/Volunteers 2', 'aegis' ),
+	'title'	  => __( '02. Team', 'aegis' ),
+	'description' => __( 'Team Block Pattern', 'aegis' ),
 	'categories' => array( 'aegis-team' ),
 	'content'	=> '
 	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"right":"30px","left":"30px","top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"className":"team","layout":{"contentSize":"","type":"constrained"}} -->
@@ -36,13 +37,13 @@ return array(
 
 					<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","iconBackgroundColor":"background","iconBackgroundColorValue":"#f6f5f2","openInNewTab":true,"size":"has-small-icon-size","style":{"spacing":{"blockGap":{"top":"10px","left":"10px"}}},"className":"is-style-pill-shape","layout":{"type":"flex","justifyContent":"left"}} -->
 					<ul class="wp-block-social-links has-small-icon-size has-icon-color has-icon-background-color is-style-pill-shape">
-						<!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
+						<!-- wp:social-link {"url":"#","service":"facebook","label":"Facebook"} /-->
 
-						<!-- wp:social-link {"url":"https://linkedin.com/","service":"linkedin","label":"LinkedIn"} /-->
+						<!-- wp:social-link {"url":"#","service":"linkedin","label":"LinkedIn"} /-->
 
-						<!-- wp:social-link {"url":"https://instagram.com/","service":"instagram","label":"Instagram"} /-->
+						<!-- wp:social-link {"url":"#","service":"instagram","label":"Instagram"} /-->
 
-						<!-- wp:social-link {"url":"https://wordpress.org/","service":"wordpress","label":"WordPress"} /-->
+						<!-- wp:social-link {"url":"#","service":"wordpress","label":"WordPress"} /-->
 					</ul>
 					<!-- /wp:social-links -->
 				</div>
@@ -76,13 +77,13 @@ return array(
 
 					<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","iconBackgroundColor":"secondary","iconBackgroundColorValue":"#f0eee9","openInNewTab":true,"size":"has-small-icon-size","style":{"spacing":{"blockGap":{"top":"10px","left":"10px"}}},"className":"is-style-default","layout":{"type":"flex","justifyContent":"left"}} -->
 					<ul class="wp-block-social-links has-small-icon-size has-icon-color has-icon-background-color is-style-default">
-						<!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
+						<!-- wp:social-link {"url":"#","service":"facebook","label":"Facebook"} /-->
 
-						<!-- wp:social-link {"url":"https://linkedin.com/","service":"linkedin","label":"LinkedIn"} /-->
+						<!-- wp:social-link {"url":"#","service":"linkedin","label":"LinkedIn"} /-->
 
-						<!-- wp:social-link {"url":"https://instagram.com/","service":"instagram","label":"Instagram"} /-->
+						<!-- wp:social-link {"url":"#","service":"instagram","label":"Instagram"} /-->
 
-						<!-- wp:social-link {"url":"https://wordpress.org/","service":"wordpress","label":"WordPress"} /-->
+						<!-- wp:social-link {"url":"#","service":"wordpress","label":"WordPress"} /-->
 					</ul>
 					<!-- /wp:social-links -->
 				</div>
@@ -116,13 +117,13 @@ return array(
 
 					<!-- wp:social-links {"iconBackgroundColor":"foreground","iconBackgroundColorValue":"#1c1c1e","openInNewTab":true,"size":"has-small-icon-size","style":{"spacing":{"blockGap":{"top":"10px","left":"10px"}}},"className":"is-style-default","layout":{"type":"flex","justifyContent":"left"}} -->
 					<ul class="wp-block-social-links has-small-icon-size has-icon-background-color is-style-default">
-						<!-- wp:social-link {"url":"https://facebook.com/","service":"facebook","label":"Facebook"} /-->
+						<!-- wp:social-link {"url":"#","service":"facebook","label":"Facebook"} /-->
 
-						<!-- wp:social-link {"url":"https://linkedin.com/","service":"linkedin","label":"LinkedIn"} /-->
+						<!-- wp:social-link {"url":"#","service":"linkedin","label":"LinkedIn"} /-->
 
-						<!-- wp:social-link {"url":"https://instagram.com/","service":"instagram","label":"Instagram"} /-->
+						<!-- wp:social-link {"url":"#","service":"instagram","label":"Instagram"} /-->
 
-						<!-- wp:social-link {"url":"https://wordpress.org/","service":"wordpress","label":"WordPress"} /-->
+						<!-- wp:social-link {"url":"#","service":"wordpress","label":"WordPress"} /-->
 					</ul>
 					<!-- /wp:social-links -->
 				</div>
