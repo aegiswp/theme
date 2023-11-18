@@ -34,7 +34,8 @@ return array(
 		
 		<!-- wp:social-link {"url":"#","service":"wordpress","label":"WordPress"} /-->
 		</ul>
-		<!-- /wp:social-links --></div>
+		<!-- /wp:social-links -->
+		</div>
 		<!-- /wp:column -->
 		
 		<!-- wp:column {"verticalAlignment":"center"} -->
