@@ -34,14 +34,15 @@ return array(
 		
 		<!-- wp:social-link {"url":"#","service":"wordpress","label":"WordPress"} /-->
 		</ul>
-		<!-- /wp:social-links --></div>
+		<!-- /wp:social-links -->
+		</div>
 		<!-- /wp:column -->
 		
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
 		<!-- wp:group {"align":"wide","className":"banner-info","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"right"}} -->
-		<div class="wp-block-group alignwide banner-info"><
-		!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search products…","width":350,"widthUnit":"px","buttonText":"Search","buttonPosition":"no-button","query":{"post_type":"product"},"style":{"border":{"width":"1px","color":"#1c1c1e"}},"className":"hide-mobile"} /-->
+		<div class="wp-block-group alignwide banner-info">
+		<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search products…","width":350,"widthUnit":"px","buttonText":"Search","buttonPosition":"no-button","query":{"post_type":"product"},"style":{"border":{"width":"1px","color":"#1c1c1e"}},"className":"hide-mobile"} /-->
 		
 		<!-- wp:woocommerce/mini-cart {"hasHiddenPrice":true,"style":{"typography":{"fontSize":"12px"}}} /-->
 		</div>
