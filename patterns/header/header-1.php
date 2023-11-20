@@ -24,8 +24,8 @@ return array(
             <div class="wp-block-columns alignwide are-vertically-aligned-center">
                 <!-- wp:column {"verticalAlignment":"center"} -->
                 <div class="wp-block-column is-vertically-aligned-center">
-                    <!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","openInNewTab":true,"size":"has-small-icon-size","className":"is-style-logos-only socials","layout":{"type":"flex","justifyContent":"left"}} -->
-                    <ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only socials">
+                    <!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","openInNewTab":true,"size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left"}} -->
+                    <ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
                         <!-- wp:social-link {"url":"#","service":"facebook","label":"Facebook"} /-->
                         <!-- wp:social-link {"url":"#","service":"linkedin","label":"LinkedIn"} /-->
                         <!-- wp:social-link {"url":"#","service":"instagram","label":"Instagram"} /-->
