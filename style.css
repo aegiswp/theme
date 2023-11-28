@@ -640,6 +640,23 @@ figure {
 /* Block Patterns
 /* ------------------------------------------- */
 /* Header */
+
+
+.header.sticky-header {
+	background: var(--wp--preset--color--background);
+	margin-left: auto;
+	margin-right: auto;
+	right: 0;
+	left: 0;
+	width: 100%;
+	max-width: 100%;
+	padding: 0 0 0 0 !important;
+	position: fixed;
+	z-index: 99999;
+	top: 0;
+}
+
+
 .header.sticky-header {
 	background: var(--wp--preset--color--background);
 	margin-left: auto;
