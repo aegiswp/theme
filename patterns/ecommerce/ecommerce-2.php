@@ -4,44 +4,45 @@
  */
 return array(
 	'title'	  => __( '02. eCommerce', 'aegis' ),
-	'description' => __( 'eCommerce Block Pattern', 'aegis' ),
+	'description' => __( 'eCommerce', 'aegis' ),
     'categories' => array( 'aegis-ecommerce' ),
-	'content'	=> '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"30px","left":"30px"}}},"backgroundColor":"secondary","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-secondary-background-color has-background" style="padding-top:var(--wp--preset--spacing--50);padding-right:30px;padding-bottom:var(--wp--preset--spacing--50);padding-left:30px">
+	'content'	=> '
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"secondary","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull has-secondary-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
 	<!-- wp:columns {"align":"wide"} -->
 	<div class="wp-block-columns alignwide">
-		<!-- wp:column -->
-		<div class="wp-block-column">
+		<!-- wp:column {"backgroundColor":"background"} -->
+		<div class="wp-block-column has-background-background-color has-background">
 			<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-2-image is-style-aegis-effect-2-image"} -->
-			<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/thumb_480x715_dark.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" /></figure>
+			<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_480x715_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 			<!-- /wp:image -->
 
-			<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"backgroundColor":"background","className":"aegis-negative-margin-top is-style-aegis-hover-shadow"} -->
-			<div class="wp-block-group aegis-negative-margin-top is-style-aegis-hover-shadow has-background-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
-				<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
-				<div class="wp-block-group">
-					<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"2px"}},"textColor":"foreground","fontSize":"tiny"} -->
-					<p class="has-foreground-color has-text-color has-tiny-font-size" style="letter-spacing:2px">' . esc_html__( '★★★★★', 'aegis' ) . '</p>
+			<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"textColor":"foreground","className":"is-style-default"} -->
+			<div class="wp-block-group is-style-default has-foreground-color has-text-color" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+				<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+				<div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0">
+					<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"2px"}},"fontSize":"tiny"} -->
+					<p class="has-tiny-font-size" style="letter-spacing:2px">' . esc_html__('★★★★★', 'aegis') . '</p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:paragraph -->
-					<p><strong>' . esc_html__( '$00.00', 'aegis' ) . '</strong></p>
+					<p><strong>' . esc_html__('$00.00', 'aegis') . '</strong></p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
 
 				<!-- wp:heading {"fontSize":"large"} -->
-				<h2 class="wp-block-heading has-large-font-size">' . esc_html__( 'Product Name', 'aegis' ) . '</h2>
+				<h3 class="wp-block-heading has-large-font-size">' . esc_html__('Product Name', 'aegis') . '</h3>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph -->
-				<p>' . esc_html__( 'A range of 50-150 characters is common for grid view descriptions. This is just enough to give a brief overview of the product without overwhelming the viewer.', 'aegis' ) . '</p>
+				<p>' . esc_html__('A range of 50-150 characters is common for grid view descriptions. This is just enough to give a brief overview of the product without overwhelming the viewer.', 'aegis') . '</p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:buttons -->
+				<!-- wp:buttons {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 				<div class="wp-block-buttons">
-					<!-- wp:button {"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"className":"is-style-aegis-button-shadow is-style-aegis-button-shadow","fontSize":"small"} -->
-					<div class="wp-block-button has-custom-font-size is-style-aegis-button-shadow has-small-font-size" style="font-style:normal;font-weight:600"><a class="wp-block-button__link wp-element-button">' . esc_html__( 'Call to Action', 'aegis' ) . '</a></div>
+					<!-- wp:button {"backgroundColor":"background","textColor":"foreground","style":{"typography":{"fontStyle":"normal","fontWeight":"600"},"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}}},"className":"is-style-aegis-button-shadow-outline","fontSize":"small"} -->
+					<div class="wp-block-button has-custom-font-size is-style-aegis-button-shadow-outline has-small-font-size" style="font-style:normal;font-weight:600"><a class="wp-block-button__link has-foreground-color has-background-background-color has-text-color has-background has-link-color wp-element-button">' . esc_html__('Call to Action', 'aegis') . '</a></div>
 					<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
@@ -50,40 +51,38 @@ return array(
 		</div>
 		<!-- /wp:column -->
 
-		<!-- wp:column -->
-		<div class="wp-block-column">
+		<!-- wp:column {"backgroundColor":"senary"} -->
+		<div class="wp-block-column has-senary-background-color has-background">
 			<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-2-image is-style-aegis-effect-2-image"} -->
-			<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/thumb_480x715_dark.webp" alt="' . esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" /></figure>
+			<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_480x715_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 			<!-- /wp:image -->
 
-			<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"backgroundColor":"background","className":"aegis-negative-margin-top is-style-aegis-hover-shadow"} -->
-			<div class="wp-block-group aegis-negative-margin-top is-style-aegis-hover-shadow has-background-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
-				<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
-				<div class="wp-block-group">
-					<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"2px"}},"textColor":"foreground","fontSize":"tiny"} -->
-					<p class="has-foreground-color has-text-color has-tiny-font-size" style="letter-spacing:2px">' . esc_html__( '★★★★★', 'aegis' ) . '</p>
+			<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"textColor":"foreground","className":"is-style-default"} -->
+			<div class="wp-block-group is-style-default has-foreground-color has-text-color" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+				<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+				<div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0">
+					<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"2px"}},"fontSize":"tiny"} -->
+					<p class="has-tiny-font-size" style="letter-spacing:2px">' . esc_html__('★★★★★', 'aegis') . '</p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:paragraph -->
-					<p><strong>' . esc_html__( '$00.00', 'aegis' ) . '</strong></p>
+					<p><strong>' . esc_html__('$00.00', 'aegis') . '</strong></p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
 
 				<!-- wp:heading {"fontSize":"large"} -->
-				<h2 class="wp-block-heading has-large-font-size">' . esc_html__( 'Product Name', 'aegis' ) . '</h2>
+				<h3 class="wp-block-heading has-large-font-size">' . esc_html__('Product Name', 'aegis') . '</h3>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph -->
-				<p>' . esc_html__( 'A range of 50-150 characters is common for grid view descriptions. This is just enough to give a brief overview of the product without overwhelming the viewer.', 'aegis' ) . '</p>
+				<p>' . esc_html__('A range of 50-150 characters is common for grid view descriptions. This is just enough to give a brief overview of the product without overwhelming the viewer.', 'aegis') . '</p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:buttons -->
+				<!-- wp:buttons {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 				<div class="wp-block-buttons">
-					<!-- wp:button {"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"className":"is-style-aegis-button-shadow is-style-aegis-button-shadow","fontSize":"small"} -->
-					<div class="wp-block-button has-custom-font-size is-style-aegis-button-shadow has-small-font-size" style="font-style:normal;font-weight:600">
-					<a class="wp-block-button__link wp-element-button">' . esc_html__( 'Call to Action', 'aegis' ) . '</a>
-					</div>
+					<!-- wp:button {"backgroundColor":"senary","textColor":"foreground","style":{"typography":{"fontStyle":"normal","fontWeight":"600"},"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}}},"className":"is-style-aegis-button-shadow-outline","fontSize":"small"} -->
+					<div class="wp-block-button has-custom-font-size is-style-aegis-button-shadow-outline has-small-font-size" style="font-style:normal;font-weight:600"><a class="wp-block-button__link has-foreground-color has-senary-background-color has-text-color has-background has-link-color wp-element-button">' . esc_html__('Call to Action', 'aegis') . '</a></div>
 					<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
@@ -92,39 +91,39 @@ return array(
 		</div>
 		<!-- /wp:column -->
 
-		<!-- wp:column -->
-		<div class="wp-block-column">
-			<!-- wp:image {sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-2-image is-style-aegis-effect-2-image"} -->
-			<figure class="wp-block-image size-full is-style-aegis-effect-2-image">
-			<img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/thumb_480x715_dark.webp" alt="' .	esc_attr__( 'Describe the main elements of the image and its context.', 'aegis' ) . '" /></figure>
+		<!-- wp:column {"backgroundColor":"foreground"} -->
+		<div class="wp-block-column has-foreground-background-color has-background">
+			<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-2-image is-style-aegis-effect-2-image"} -->
+			<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_480x715_dark.webp" alt="' .	esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 			<!-- /wp:image -->
 
-			<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"backgroundColor":"background","className":"aegis-negative-margin-top is-style-aegis-hover-shadow"} -->
-			<div class="wp-block-group aegis-negative-margin-top is-style-aegis-hover-shadow has-background-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
-				<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
-				<div class="wp-block-group">
-					<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"2px"}},"textColor":"foreground","fontSize":"tiny"} -->
-					<p class="has-foreground-color has-text-color has-tiny-font-size" style="letter-spacing:2px">' . esc_html__( '★★★★★', 'aegis' ) . '</p>
+			<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}},"elements":{"link":{"color":{"text":"var:preset|color|background"}}}},"textColor":"background","className":"is-style-default"} -->
+			<div class="wp-block-group is-style-default has-background-color has-text-color has-link-color"
+				style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+				<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+				<div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0">
+					<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"2px"}},"fontSize":"tiny"} -->
+					<p class="has-tiny-font-size" style="letter-spacing:2px">' . esc_html__('★★★★★', 'aegis') . '</p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:paragraph -->
-					<p><strong>' . esc_html__( '$00.00', 'aegis' ) . '</strong></p>
+					<p><strong>' . esc_html__('$00.00', 'aegis') . '</strong></p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
 
 				<!-- wp:heading {"fontSize":"large"} -->
-				<h2 class="wp-block-heading has-large-font-size">' . esc_html__( 'Product Name', 'aegis' ) . '</h2>
+				<h3 class="wp-block-heading has-large-font-size">' . esc_html__('Product Name', 'aegis') . '</h3>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph -->
-				<p>' . esc_html__( 'A range of 50-150 characters is common for grid view descriptions. This is just enough to give a brief overview of the product without overwhelming the viewer.', 'aegis' ) . '</p>
+				<p>' . esc_html__('A range of 50-150 characters is common for grid view descriptions. This is just enough to give a brief overview of the product without overwhelming the viewer.', 'aegis') . '</p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:buttons -->
+				<!-- wp:buttons {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 				<div class="wp-block-buttons">
-					<!-- wp:button {"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"className":"is-style-aegis-button-shadow is-style-aegis-button-shadow","fontSize":"small"} -->
-					<div class="wp-block-button has-custom-font-size is-style-aegis-button-shadow has-small-font-size" style="font-style:normal;font-weight:600"><a class="wp-block-button__link wp-element-button">' . esc_html__( 'Call to Action', 'aegis' ) . '</a></div>
+					<!-- wp:button {"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"className":"is-style-aegis-button-shadow-outline","fontSize":"small"} -->
+					<div class="wp-block-button has-custom-font-size is-style-aegis-button-shadow-outline has-small-font-size" style="font-style:normal;font-weight:600"><a class="wp-block-button__link wp-element-button">' . esc_html__('Call to Action', 'aegis') . '</a></div>
 					<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
