@@ -87,7 +87,7 @@ return array(
 				<div class="wp-block-group alignfull" style="padding-right:0">
 					<!-- wp:group {"style":{"spacing":{"padding":{"right":"0","left":"0"}}},"className":"is-style-default","layout":{"type":"default"}} -->
 					<div class="wp-block-group is-style-default" style="padding-right:0;padding-left:0">
-						<!-- wp:query {"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[]},"enhancedPagination":true} -->
+						<!-- wp:query {"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[]},"enhancedPagination":true} -->
 						<div class="wp-block-query">
 							<!-- wp:post-template {"layout":{"type":"default"}} -->
 							<!-- wp:post-featured-image {"isLink":true,"style":{"color":{"duotone":"unset"},"spacing":{"margin":{"top":"0","bottom":"0"}}},"className":"is-style-default"} /-->
