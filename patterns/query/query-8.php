@@ -6,10 +6,9 @@ return array(
 	'title'	  => __( '08. Blog Posts Grid', 'aegis' ),
 	'description' => __( 'Blog Posts Grid', 'aegis' ),
 	'categories' => array( 'aegis-query' ),
-	'content' => '
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"left":"0","top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"0"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
+	'content' => '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"left":"0","top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"0"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:0;padding-bottom:var(--wp--preset--spacing--50);padding-left:0">
-    <!-- wp:query {"queryId":9,"query":{"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","sticky":"exclude","perPage":"3","inherit":false},"enhancedPagination":true,"align":"wide","layout":{"type":"constrained"}} -->
+    <!-- wp:query {"query":{"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","sticky":"exclude","perPage":"3","inherit":false},"enhancedPagination":true,"align":"wide","layout":{"type":"constrained"}} -->
     <div class="wp-block-query alignwide">
         <!-- wp:post-template {"align":"wide","layout":{"type":"grid","columnCount":3}} -->
         <!-- wp:post-featured-image {"isLink":true,"width":"","height":"","className":"is-style-aegis-post-featured-image-effect-2"} /-->
