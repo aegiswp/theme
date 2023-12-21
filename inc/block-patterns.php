@@ -57,6 +57,7 @@ function aegis_register_block_patterns() {
 	'header/header-7',
 	'header/header-8',
 	'header/header-9',
+	'header/header-10',
 	'footer/footer-1',
 	'footer/footer-2',
 	'footer/footer-3',
@@ -64,6 +65,7 @@ function aegis_register_block_patterns() {
 	'general/hero-1',
 	'general/hero-2',
 	'general/hero-3',
+	'general/hero-4',
 	'general/about-1',
 	'general/about-2',
 	'general/about-3',
@@ -82,6 +84,9 @@ function aegis_register_block_patterns() {
 	'query/query-3',
 	'query/query-4',
 	'query/query-5',
+	'query/query-6',
+	'query/query-7',
+	'query/query-8',
 	'hidden/hidden-404',
 	);
 
