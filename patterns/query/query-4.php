@@ -20,7 +20,7 @@ return array(
 					<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"var:preset|spacing|40","top":"var:preset|spacing|40","right":"var:preset|spacing|40","left":"var:preset|spacing|40"}}},"backgroundColor":"secondary","className":"is-style-aegis-border"} -->
 					<div class="wp-block-group is-style-aegis-border has-secondary-background-color has-background" style="padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
 						<!-- wp:image {"align":"center","sizeSlug":"large","linkDestination":"none","style":{"color":{"duotone":"unset"}},"className":"is-resized is-style-rounded"} -->
-						<figure class="wp-block-image aligncenter size-large is-resized is-style-rounded"></figure>
+						<figure class="wp-block-image aligncenter size-large is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_120x120_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 						<!-- /wp:image -->
 
 						<!-- wp:paragraph {"align":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"fontSize":"large"} -->

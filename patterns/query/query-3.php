@@ -28,8 +28,7 @@ return array(
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase"},"spacing":{"margin":{"right":"0","bottom":"0","left":"0","top":"5px"}}},"fontSize":"tiny"} -->
-						<p class="has-text-align-center has-tiny-font-size"
-							style="margin-top:5px;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase">' . esc_html__('[Position]', 'aegis') . '</p>
+						<p class="has-text-align-center has-tiny-font-size" style="margin-top:5px;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase">' . esc_html__('[Position]', 'aegis') . '</p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"align":"center","fontSize":"small"} -->
@@ -53,10 +52,9 @@ return array(
 				<!-- /wp:group -->
 
 				<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"var:preset|spacing|40"}}},"backgroundColor":"septenary","className":"is-style-aegis-border"} -->
-				<div class="wp-block-group is-style-aegis-border has-septenary-background-color has-background"
-					style="padding-bottom:var(--wp--preset--spacing--40)">
+				<div class="wp-block-group is-style-aegis-border has-septenary-background-color has-background" style="padding-bottom:var(--wp--preset--spacing--40)">
 					<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none"} -->
-					<figure class="wp-block-image aligncenter size-full"></figure>
+					<figure class="wp-block-image aligncenter size-full"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_480x380_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"var:preset|spacing|40","bottom":"0","left":"var:preset|spacing|40"}}}} -->
