@@ -56,7 +56,7 @@ return array(
 			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"className":"is-style-aegis-border"} -->
 			<div class="wp-block-group is-style-aegis-border" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 				<!-- wp:image {"align":"center","width":"160px","height":"160px","sizeSlug":"full","linkDestination":"none","style":{"color":{"duotone":"unset"}},"className":"is-style-rounded"} -->
-				<figure class="wp-block-image aligncenter size-full is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_160x160_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="border-style:none;border-width:0px;border-radius:100px;width:160px;height:160px" /></figure>
+				<figure class="wp-block-image aligncenter size-full is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_160x160_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="width:160px;height:160px" /></figure>
 				<!-- /wp:image -->
 
 				<!-- wp:heading {"textAlign":"center","fontSize":"extra-large"} -->
@@ -96,7 +96,7 @@ return array(
 			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"className":"is-style-aegis-border"} -->
 			<div class="wp-block-group is-style-aegis-border" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 				<!-- wp:image {"align":"center","width":"160px","height":"160px","sizeSlug":"full","linkDestination":"none","style":{"color":{"duotone":"unset"}},"className":"is-style-rounded "} -->
-				<figure class="wp-block-image aligncenter size-full is-resized is-style-rounded">' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_160x160_light.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="border-style:none;border-width:0px;border-radius:100px;width:160px;height:160px" /></figure>
+				<figure class="wp-block-image aligncenter size-full is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_160x160_light.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="width:160px;height:160px" /></figure>
 				<!-- /wp:image -->
 
 				<!-- wp:heading {"textAlign":"center","fontSize":"extra-large"} -->
