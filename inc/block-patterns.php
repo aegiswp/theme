@@ -74,6 +74,7 @@ function aegis_register_block_patterns() {
 	'general/testimonials-1',
 	'general/testimonials-2',
 	'general/faq-1',
+	'general/faq-2',
 	'general/contact-1',
 	'ecommerce/ecommerce-1',
 	'ecommerce/ecommerce-2',
