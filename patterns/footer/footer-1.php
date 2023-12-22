@@ -20,9 +20,10 @@ return array(
 				<div class="wp-block-columns">
 					<!-- wp:column {"verticalAlignment":"center","width":"10%"} -->
 					<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:10%">
-						<!-- wp:image {"width":"35px","height":"undefinedpx","sizeSlug":"full","linkDestination":"none"} -->
-						<figure class="wp-block-image size-full is-resized"><img src="' . esc_url(get_template_directory_uri()) . '/assets/icons/delivery.svg" alt="' . esc_attr__('Describe the icon context.', 'aegis') . '" style="width:35px" width="35" /></figure>
-					<!-- /wp:image -->
+						<!-- wp:image {"width":"35px","sizeSlug":"full","linkDestination":"none"} -->
+						<figure class="wp-block-image size-full is-resized"><img src="' . esc_url(get_template_directory_uri()) . '/assets/icons/delivery.svg" alt="' . esc_attr__('Describe the icon context.', 'aegis') . '" style="width:35px" />
+						</figure>
+						<!-- /wp:image -->
 					</div>
 					<!-- /wp:column -->
 
@@ -48,8 +49,8 @@ return array(
 				<div class="wp-block-columns">
 					<!-- wp:column {"verticalAlignment":"center","width":"10%"} -->
 					<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:10%">
-						<!-- wp:image {"width":"35px","height":"undefinedpx","sizeSlug":"full","linkDestination":"none"} -->
-						<figure class="wp-block-image size-full is-resized"><img src="' . esc_url(get_template_directory_uri()) . '/assets/icons/returns.svg" alt="' . esc_attr__('Describe the icon context.', 'aegis') . '" style="width:35px" width="35" /></figure>
+						<!-- wp:image {"width":"35px","sizeSlug":"full","linkDestination":"none"} -->
+						<figure class="wp-block-image size-full is-resized"><img src="' . esc_url(get_template_directory_uri()) . '/assets/icons/returns.svg" alt="' . esc_attr__('Describe the icon context.', 'aegis') . '" style="width:35px" /></figure>
 						<!-- /wp:image -->
 					</div>
 					<!-- /wp:column -->
@@ -76,8 +77,8 @@ return array(
 				<div class="wp-block-columns">
 					<!-- wp:column {"verticalAlignment":"center","width":"10%"} -->
 					<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:10%">
-						<!-- wp:image {"width":"35px","height":"undefinedpx","sizeSlug":"full","linkDestination":"none"} -->
-						<figure class="wp-block-image size-full is-resized"><img src="' . esc_url(get_template_directory_uri()) . '/assets/icons/support.svg" alt="' . esc_attr__('Describe the icon context.', 'aegis') . '" style="width:35px" width="35" /></figure>
+						<!-- wp:image {"width":"35px","sizeSlug":"full","linkDestination":"none"} -->
+						<figure class="wp-block-image size-full is-resized"><img src="' . esc_url(get_template_directory_uri()) . '/assets/icons/support.svg" alt="' . esc_attr__('Describe the icon context.', 'aegis') . '" style="width:35px" /></figure>
 						<!-- /wp:image -->
 					</div>
 					<!-- /wp:column -->
@@ -85,7 +86,7 @@ return array(
 					<!-- wp:column {"width":""} -->
 					<div class="wp-block-column">
 						<!-- wp:heading {"level":3,"fontSize":"medium"} -->
-						<h3 class="wp-block-heading has-medium-font-size">' . esc_html__('Online Assistance', 'aegis') .'</h3>
+						<h3 class="wp-block-heading has-medium-font-size">' . esc_html__('Online Assistance', 'aegis') . '</h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"tiny"} -->
@@ -104,8 +105,8 @@ return array(
 				<div class="wp-block-columns">
 					<!-- wp:column {"verticalAlignment":"center","width":"10%"} -->
 					<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:10%">
-						<!-- wp:image {"width":"35px","height":"undefinedpx","sizeSlug":"full","linkDestination":"none"} -->
-						<figure class="wp-block-image size-full is-resized"><img src="' . esc_url(get_template_directory_uri()) . '/assets/icons/payment.svg" alt="' . esc_attr__('Describe the icon context.', 'aegis') . '" style="width:35px" width="35" /></figure>
+						<!-- wp:image {"width":"35px","sizeSlug":"full","linkDestination":"none"} -->
+						<figure class="wp-block-image size-full is-resized"><img src="' . esc_url(get_template_directory_uri()) . '/assets/icons/payment.svg" alt="' . esc_attr__('Describe the icon context.', 'aegis') . '" style="width:35px" /></figure>
 						<!-- /wp:image -->
 					</div>
 					<!-- /wp:column -->
@@ -223,7 +224,7 @@ return array(
 				<!-- /wp:columns -->
 
 				<!-- wp:separator {"backgroundColor":"secondary","className":"is-style-default"} -->
-				<hr class="wp-block-separator has-text-color has-secondary-color has-alpha-channel-opacity has-secondary-background-color has-background is-style-default" />
+				<hr	class="wp-block-separator has-text-color has-secondary-color has-alpha-channel-opacity has-secondary-background-color has-background is-style-default" />
 				<!-- /wp:separator -->
 
 				<!-- wp:columns {"verticalAlignment":"center","isStackedOnMobile":false,"style":{"spacing":{"blockGap":{"top":"0"},"margin":{"top":"0","bottom":"0"}}}} -->
@@ -253,7 +254,7 @@ return array(
 						<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"right","flexWrap":"nowrap"}} -->
 						<div class="wp-block-buttons">
 							<!-- wp:button {"backgroundColor":"foreground","textColor":"background","style":{"elements":{"link":{"color":{"text":"var:preset|color|background"}}}},"className":"scroll-to-top float-right is-style-outline"} -->
-							<div class="wp-block-button scroll-to-top float-right is-style-outline"><a class="wp-block-button__link has-background-color has-foreground-background-color has-text-color has-background has-link-color wp-element-button">'. esc_html__('↑', 'aegis') . '</a></div>
+							<div class="wp-block-button scroll-to-top float-right is-style-outline"><a class="wp-block-button__link has-background-color has-foreground-background-color has-text-color has-background has-link-color wp-element-button">' . esc_html__('↑', 'aegis') . '</a></div>
 							<!-- /wp:button -->
 						</div>
 						<!-- /wp:buttons -->
