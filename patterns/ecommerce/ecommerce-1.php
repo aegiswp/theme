@@ -29,9 +29,9 @@ return array(
 			</div>
 			<!-- /wp:group -->
 
-			<!-- wp:heading {"fontSize":"large"} -->
-			<h3 class="wp-block-heading has-large-font-size">' . esc_html__('Product Name', 'aegis') . '</h3>
-			<!-- /wp:heading -->
+			<!-- wp:heading {"level":3,"className":"has-large-font-size"} -->
+            <h3 class="wp-block-heading has-large-font-size">' . esc_html__('Product Name', 'aegis') . '</h3>
+            <!-- /wp:heading -->
 
 			<!-- wp:paragraph -->
 			<p>' . esc_html__('A range of 50-150 characters is common for grid view descriptions. This is just enough to give a brief overview of the product without overwhelming the viewer.', 'aegis') . '</p>
@@ -50,7 +50,7 @@ return array(
 		<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"backgroundColor":"senary","className":"is-style-default"} -->
 		<div class="wp-block-column is-style-default has-senary-background-color has-background" style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 			<!-- wp:image {"align":"center","className":"size-large is-style-default"} -->
-			<figure class="wp-block-image aligncenter size-large is-style-default"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_420x625_light.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+			<figure class="wp-block-image aligncenter size-large is-style-default"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_420x625_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
@@ -65,9 +65,9 @@ return array(
 			</div>
 			<!-- /wp:group -->
 
-			<!-- wp:heading {"fontSize":"large"} -->
-			<h3 class="wp-block-heading has-large-font-size">' . esc_html__('Product Name', 'aegis') . '</h3>
-			<!-- /wp:heading -->
+			<!-- wp:heading {"level":3,"className":"has-large-font-size"} -->
+            <h3 class="wp-block-heading has-large-font-size">' . esc_html__('Product Name', 'aegis') . '</h3>
+            <!-- /wp:heading -->
 
 			<!-- wp:paragraph -->
 			<p>' . esc_html__('A range of 50-150 characters is common for grid view descriptions. This is just enough to give a brief overview of the product without overwhelming the viewer.', 'aegis') . '</p>
@@ -87,7 +87,7 @@ return array(
 		<div class="wp-block-column is-style-default has-background-color has-foreground-background-color has-text-color has-background has-link-color"
 			style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 			<!-- wp:image {"align":"center","id":2060,"sizeSlug":"full","linkDestination":"none","className":"size-large is-style-default"} -->
-			<figure class="wp-block-image aligncenter size-full size-large is-style-default"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_420x625_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+			<figure class="wp-block-image aligncenter size-full size-large is-style-default"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_420x625_light.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
@@ -102,9 +102,9 @@ return array(
 			</div>
 			<!-- /wp:group -->
 
-			<!-- wp:heading {"fontSize":"large"} -->
-			<h3 class="wp-block-heading has-large-font-size">' . esc_html__('Product Name', 'aegis') . '</h3>
-			<!-- /wp:heading -->
+			<!-- wp:heading {"level":3,"className":"has-large-font-size"} -->
+            <h3 class="wp-block-heading has-large-font-size">' . esc_html__('Product Name', 'aegis') . '</h3>
+            <!-- /wp:heading -->
 
 			<!-- wp:paragraph -->
 			<p>' . esc_html__('A range of 50-150 characters is common for grid view descriptions. This is just enough to give a brief overview of the product without overwhelming the viewer.', 'aegis') . '</p>
