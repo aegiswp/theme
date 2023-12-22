@@ -5,15 +5,15 @@ Author: Atmostfear Entertainment
 Author URI: https://www.atmostfear-entertainment.com/
 Description: Aegis is a sleek theme that promises agility and a lightweight design. It features elegant animations that add a sophisticated touch without hindering performance. The theme comes with a diverse array of block patterns, including full-page layouts, to ensure precise design control. Its latest full site editing capability facilitates real-time customization. With a solid foundation for ecommerce, it is well-suited for blogging, media outlets, and academic publishing.
 Requires at least: 5.9
-Tested up to: 6.4.1
+Tested up to: 6.4.2
 Requires PHP: 7.4
-Version: 1.0.0-alpha.3
+Version: 1.0.0-beta.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: aegis
 Tags: accessibility-ready, blog, block-editor-patterns, block-editor-styles, block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, one-column, portfolio, rtl-language-support, sticky-post, style-variations, template-editing, threaded-comments, translation-ready, two-columns, wide-blocks, woocommerce
 
-Aegis, (c) 2022-2003 Atmostfear Entertainment SAS
+Aegis, (c) 2022-2023 Atmostfear Entertainment SAS
 Aegis is distributed under the terms of the GNU GPL.
 */
 
@@ -23,14 +23,18 @@ Aegis is distributed under the terms of the GNU GPL.
  * https://github.com/WordPress/gutenberg/issues/35934
  */
 
+/* General body styles */
 body {
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
-	-webkit-animation: fadein 0.7s;
-	-moz-animation: fadein 0.7s;
-	-ms-animation: fadein 0.7s;
-	-o-animation: fadein 0.7s;
-	animation: fadein 0.7s;
+  /* Improve font rendering on macOS */
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  /* Apply fade-in animation with cross-browser support */
+  -webkit-animation: fadein 0.7s;
+  -moz-animation: fadein 0.7s;
+  -ms-animation: fadein 0.7s;
+  -o-animation: fadein 0.7s;
+  animation: fadein 0.7s;
 }
 
 /*
@@ -39,51 +43,112 @@ body {
  * https://github.com/WordPress/gutenberg/issues/27075
  */
 
+/* Styling for links with a gradient underline effect */
 a {
-	background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
-	background-size: 0;
-	background-repeat: no-repeat;
-	background-position: bottom left;
-	padding-bottom: 3px;
-	text-decoration: none;
-	transition: all .4s ease, text-decoration 0s ease;
+  /* Create a linear gradient for the underline effect */
+  background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
+
+  /* Set background size to 0 to hide the gradient */
+  background-size: 0;
+
+  /* Prevent background image repetition */
+  background-repeat: no-repeat;
+
+  /* Position the background at the bottom left corner */
+  background-position: bottom left;
+
+  /* Add padding at the bottom to create space for the underline effect */
+  padding-bottom: 3px;
+
+  /* Remove default text decoration for links */
+  text-decoration: none;
+
+  /* Apply transitions for a smooth animation effect */
+  transition: all 0.4s ease, text-decoration 0s ease;
 }
 
+/* Hover effect for links - underline expands on hover */
+a:hover {
+  /* Increase the background size to reveal the gradient on hover */
+  background-size: 100%;
+}
+
+/* Apply the same gradient underline effect on hover and focus */
 a:hover,
 a:focus {
-	background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
-	background-size: 100%;
+  /* Increase the background size to reveal the gradient on hover or focus */
+  background-size: 100%;
 }
 
+/* Remove text decoration on active state */
 a:active {
-	text-decoration: none;
+  text-decoration: none;
 }
 
+/*
+ * Pages
+ */
+
+/* Apply the gradient underline effect to links within paragraphs */
 .page-content p a,
+/* Apply the gradient underline effect to links within list items */
 .page-content ul li a {
-	background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
-	background-size: 100%;
-	background-repeat: no-repeat;
-	background-position: bottom left;
-	padding-bottom: 3px;
-	text-decoration: none;
-	transition: all .4s ease, text-decoration 0s ease;
+  /* Create a linear gradient for the underline effect */
+  background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
+
+  /* Set background size to 100% to show the gradient */
+  background-size: 100%;
+
+  /* Prevent background image repetition */
+  background-repeat: no-repeat;
+
+  /* Position the background at the bottom left corner */
+  background-position: bottom left;
+
+  /* Add padding at the bottom to create space for the underline effect */
+  padding-bottom: 3px;
+
+  /* Remove default text decoration for links */
+  text-decoration: none;
+
+  /* Apply transitions for a smooth animation effect */
+  transition: all 0.4s ease, text-decoration 0s ease;
 }
 
+/* Hover state styles for links within paragraphs and list items in the page content */
+
+/* Shrink the background size to 0 on hover for links within paragraphs */
 .page-content p a:hover,
+/* Shrink the background size to 0 on hover for links within list items */
 .page-content ul li a:hover {
-	background-size: 0;
+  /* Set background size to 0 to hide the gradient on hover */
+  background-size: 0;
 }
 
+/* Apply the gradient underline effect to links within specific list items */
 .page-content ul li.wp-block-navigation-item a {
-	background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
-	background-size: 0;
-	background-repeat: no-repeat;
-	background-position: bottom left;
-	padding-bottom: 3px;
-	text-decoration: none;
-	transition: all .4s ease, text-decoration 0s ease;
+  /* Create a linear gradient for the underline effect */
+  background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
+
+  /* Set initial background size to 0 to hide the gradient */
+  background-size: 0;
+
+  /* Prevent background image repetition */
+  background-repeat: no-repeat;
+
+  /* Position the background at the bottom left corner */
+  background-position: bottom left;
+
+  /* Add padding at the bottom to create space for the underline effect */
+  padding-bottom: 3px;
+
+  /* Remove default text decoration for links */
+  text-decoration: none;
+
+  /* Apply transitions for a smooth animation effect */
+  transition: all 0.4s ease, text-decoration 0s ease;
 }
+
 
 .page-content ul li.wp-block-navigation-item a:hover {
 	background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
@@ -185,9 +250,7 @@ figure {
 	opacity: 1;
 }
 
-.wp-block-navigation-item__content img {
-	height: fit-content;
-}
+
 
 /* Media Queries for Navigation */
 @media only screen and (max-width: 482px) {
@@ -345,7 +408,7 @@ figure {
 }
 
 /*
- * Search and File Block button styles.
+ * Search and Button Block button styles.
  */
 
 .wp-block-search__button,
@@ -654,7 +717,7 @@ figure {
 	top: 0;
 }
 
-.sticky-header .aegis-banner {
+.sticky-header .hide-on-scroll {
 	display: none;
 }
 
@@ -670,7 +733,8 @@ p.banner-text-margin {
 	align-items: initial;
 }
 
-.hero-header .wp-block-cover__inner-container {
+/* Header Hero */
+.header-hero .wp-block-cover__inner-container {
 	position: relative;
 	z-index: 2;
 }
@@ -681,7 +745,7 @@ p.banner-text-margin {
 	z-index: 1;
 }
 
-.hero-header .logo-menu {
+.header-hero .logo-menu {
 	margin-top: 0;
 }
 
@@ -720,21 +784,21 @@ p.banner-text-margin {
 }
 
 /* About */
-.what-we-do .wp-block-column {
+.about .wp-block-column {
 	position: relative;
 }
 
-.what-we-do .tagline,
+.about .tagline,
 .team .tagline {
-	margin-bottom: -15px;
+	margin-bottom: -10px;
 }
 
-.what-we-do .number,
-.what-we-do .icon {
+.about .number,
+.about .icon {
 	display: inline-block;
 }
 
-.what-we-do .icon {
+.about .icon {
 	position: absolute;
 	top: -20px;
 	left: -40px;
@@ -753,11 +817,6 @@ p.banner-text-margin {
 .team .has-team-group,
 .team .team-box-1 {
 	margin-top: 0;
-}
-
-/* Donations */
-.donations-4 .wp-block-column {
-	position: relative;
 }
 
 /* Quotes */
@@ -865,7 +924,7 @@ p.banner-text-margin {
 }
 
 .scroll-to-top:hover {
-	opacity: 60%;
+	opacity: 70%;
 }
 
 .float-right {
@@ -925,6 +984,7 @@ p.banner-text-margin {
 }
 
 /* WooCommerce Product Card */
+
 .product-card {
 	overflow: hidden;
 }
@@ -1139,7 +1199,7 @@ textarea {
 		width: 10px;
 	}
 
-	.aegis-banner .wp-block-social-links {
+	.hide-on-scroll .wp-block-social-links {
 		font-size: 18px;
 	}
 
@@ -1164,48 +1224,34 @@ textarea {
 @media only screen and (max-width: 961px) {
 
 	/* Headers */
-	.header-1 .banner-info,
-	.header-2 .banner-info {
-		justify-content: flex-end;
-	}
-
-	.header-2 .banner-info {
-		margin-top: 6px;
-	}
-
-	.header-1 p.has-text-align-center.has-tiny-font-size,
-	.header-2 p.has-text-align-center.has-tiny-font-size {
-		font-size: 14px !important;
-	}
-
-	.header-1 .socials-cart .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column:not(:only-child),
-	.header-2 .socials-cart .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column:not(:only-child) {
+	header .has-flex-columns .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column:not(:only-child) {
 		flex-basis: 0 !important;
 		flex-grow: 1 !important;
 	}
 
-	.header-1 .wc-block-mini-cart,
-	.header-2 .wc-block-mini-cart {
+	header .has-search-and-icon {
+		justify-content: flex-end;
+	}
+    
+	header p.has-text-align-center.has-tiny-font-size {
+		font-size: 14px !important;
+	}
+
+    header .wc-block-mini-cart {
 		font-size: 10px !important;
 	}
 
-	.header-1 .wc-block-mini-cart__button,
-	.header-2 .wc-block-mini-cart__button {
+	header .wc-block-mini-cart__button {
 		padding: 0;
 	}
 
-	.header-1 .wp-block-social-links.has-small-icon-size,
-	.header-2 .wp-block-social-links.has-small-icon-size {
+	header .wp-block-social-links.has-small-icon-size {
 		gap: 0.2rem;
 		font-size: 14px;
 	}
 
-	.header-8 .wp-block-social-links.has-small-icon-size {
-		gap: 0.4rem;
-	}
-
 	/* Sticky Header Hide Banner on Mobile */
-	.sticky-header.remove-sticky-mobile .aegis-banner {
+	.sticky-header.remove-sticky-mobile .hide-on-scroll {
 		display: block;
 	}
 
@@ -1294,10 +1340,10 @@ textarea {
 		border: none;
 		padding: 0;
 	}
-
-	.hero-header.additional {
+/* used to be additional */
+	.header-hero.additional {
 		min-height: 550px !important;
-	}
+	}/*remove*/
 
 	.wp-block-image.wave img {
 		height: 100px;
@@ -1315,16 +1361,18 @@ textarea {
 	}
 
 	/* About Patterns */
-	.what-we-do .icon {
+	.about .icon {
 		top: -20px;
 		left: -10px;
 	}
 
-	.what-we-do.gradient {
+	.about.gradient {
 		background: none !important;
 	}
 
-	.what-we-do .wp-block-column {
+
+	.about .wp-block-column,
+	.faq .wp-block-column {
 		padding-right: 0 !important;
 	}
 
@@ -1375,7 +1423,7 @@ textarea {
 	}
 
 	/* Hide on Mobile Class */
-	.hide-mobile {
+	.hide-on-mobile {
 		display: none !important;
 	}
 }
@@ -1404,7 +1452,8 @@ textarea {
 		transition-duration: 0.5s;
 	}
 
-	.header.header-2.sticky-header {
+	.header.header-2.sticky-header,
+	.header.header-4.sticky-header {
 		top: 63px;
 	}
 
@@ -3010,4 +3059,57 @@ button.wp-block-button__link.wc-block-filter-submit-button.wc-block-components-f
 
 .wc-block-components-product-rating.wc-block-grid__product-rating {
 	bottom: 40px;
+}
+
+
+
+
+/* Cross-browser fade-in animation */
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Mozilla Firefox fade-in animation */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* WebKit fade-in animation */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Microsoft Edge fade-in animation */
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Opera fade-in animation */
+@-o-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
