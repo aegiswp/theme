@@ -31,9 +31,9 @@ return array(
 				</div>
 				<!-- /wp:group -->
 
-				<!-- wp:heading {"fontSize":"large"} -->
-				<h3 class="wp-block-heading has-large-font-size">' . esc_html__('Product Name', 'aegis') . '</h3>
-				<!-- /wp:heading -->
+			    <!-- wp:heading {"level":3,"className":"has-large-font-size"} -->
+                <h3 class="wp-block-heading has-large-font-size">' . esc_html__('Product Name', 'aegis') . '</h3>
+                <!-- /wp:heading -->
 
 				<!-- wp:paragraph -->
 				<p>' . esc_html__('A range of 50-150 characters is common for grid view descriptions. This is just enough to give a brief overview of the product without overwhelming the viewer.', 'aegis') . '</p>
@@ -71,9 +71,9 @@ return array(
 				</div>
 				<!-- /wp:group -->
 
-				<!-- wp:heading {"fontSize":"large"} -->
-				<h3 class="wp-block-heading has-large-font-size">' . esc_html__('Product Name', 'aegis') . '</h3>
-				<!-- /wp:heading -->
+			    <!-- wp:heading {"level":3,"className":"has-large-font-size"} -->
+                <h3 class="wp-block-heading has-large-font-size">' . esc_html__('Product Name', 'aegis') . '</h3>
+                <!-- /wp:heading -->
 
 				<!-- wp:paragraph -->
 				<p>' . esc_html__('A range of 50-150 characters is common for grid view descriptions. This is just enough to give a brief overview of the product without overwhelming the viewer.', 'aegis') . '</p>
@@ -112,9 +112,9 @@ return array(
 				</div>
 				<!-- /wp:group -->
 
-				<!-- wp:heading {"fontSize":"large"} -->
-				<h3 class="wp-block-heading has-large-font-size">' . esc_html__('Product Name', 'aegis') . '</h3>
-				<!-- /wp:heading -->
+			    <!-- wp:heading {"level":3,"className":"has-large-font-size"} -->
+                <h3 class="wp-block-heading has-large-font-size">' . esc_html__('Product Name', 'aegis') . '</h3>
+                <!-- /wp:heading -->
 
 				<!-- wp:paragraph -->
 				<p>' . esc_html__('A range of 50-150 characters is common for grid view descriptions. This is just enough to give a brief overview of the product without overwhelming the viewer.', 'aegis') . '</p>
