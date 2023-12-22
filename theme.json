@@ -142,14 +142,19 @@
                     "name": "Diagonal quinary to background"
                 },
                 {
-                    "slug": "diagonal-background-to-primary-triangle",
-                    "gradient": "linear-gradient(43deg,var(--wp--preset--color--background) 94%,var(--wp--preset--color--primary) 94%)",
-                    "name": "Diagonal background to primary triangle"
+                    "slug": "diagonal-background-to-foreground-triangle",
+                    "gradient": "linear-gradient(41deg,var(--wp--preset--color--background) 96%,var(--wp--preset--color--foreground) 97%)",
+                    "name": "Diagonal background to foreground triangle"
                 },
                 {
                     "slug": "diagonal-background-to-secondary-triangle",
                     "gradient": "linear-gradient(41deg,var(--wp--preset--color--background) 96%,var(--wp--preset--color--secondary) 97%)",
                     "name": "Diagonal background to secondary triangle"
+                },
+                {
+                    "slug": "diagonal-background-to-senary-triangle",
+                    "gradient": "linear-gradient(41deg,var(--wp--preset--color--background) 96%,var(--wp--preset--color--senary) 97%)",
+                    "name": "Diagonal background to senary triangle"
                 },
                 {
                     "slug": "diagonal-foreground-to-primary-triangle",
@@ -648,6 +653,16 @@
         {
             "name": "header-8",
             "title": "08. Header",
+            "area": "header"
+        },
+        {
+            "name": "header-9",
+            "title": "09. Header",
+            "area": "header"
+        },
+        {
+            "name": "header-10",
+            "title": "10. Header",
             "area": "header"
         },
         {
