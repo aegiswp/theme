@@ -65,7 +65,6 @@ function aegis_register_block_patterns() {
 	'general/hero-1',
 	'general/hero-2',
 	'general/hero-3',
-	'general/hero-4',
 	'general/about-1',
 	'general/about-2',
 	'general/about-3',
