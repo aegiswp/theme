@@ -26,41 +26,13 @@ return array(
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"fontSize":"large"} -->
-					<p class="has-large-font-size">+</p>
+					<p class="has-large-font-size">' . esc_html__('+', 'aegis') . '</p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
 
 				<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"backgroundColor":"secondary","className":"content","layout":{"type":"constrained"}} -->
-				<div class="wp-block-group content has-secondary-background-color has-background"
-					style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
-					<!-- wp:paragraph {"fontSize":"small"} -->
-					<p class="has-small-font-size">' . esc_html__('FAQ Answer Format (150 chars): [Provide a clear response to a common user query.]', 'aegis') . '</p>
-					<!-- /wp:paragraph -->
-				</div>
-				<!-- /wp:group -->
-			</div>
-			<!-- /wp:group -->
-
-			<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"0px","right":"0px","left":"0px"}}},"className":"faq","layout":{"type":"default"}} -->
-			<div class="wp-block-group alignfull faq"
-				style="padding-top:var(--wp--preset--spacing--30);padding-right:0px;padding-bottom:0px;padding-left:0px">
-				<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"var:preset|spacing|30","left":"0"}},"border":{"bottom":{"color":"var:preset|color|foreground","width":"1px"},"top":[],"right":[],"left":[]}},"className":"trigger is-style-default","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
-				<div class="wp-block-group trigger is-style-default"
-					style="border-bottom-color:var(--wp--preset--color--foreground);border-bottom-width:1px;padding-top:0;padding-right:0;padding-bottom:var(--wp--preset--spacing--30);padding-left:0">
-					<!-- wp:heading {"level":4,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"medium"} -->
-					<h4 class="wp-block-heading has-medium-font-size" style="font-style:normal;font-weight:400"><strong>' . esc_html__('02.', 'aegis') . '</strong> ' . esc_html__('FAQ Question Format (57 chars): [Frame a frequently asked question about a feature or service.]', 'aegis') . '</h4>
-					<!-- /wp:heading -->
-
-					<!-- wp:paragraph {"fontSize":"large"} -->
-					<p class="has-large-font-size">+</p>
-					<!-- /wp:paragraph -->
-				</div>
-				<!-- /wp:group -->
-
-				<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"backgroundColor":"secondary","className":"content","layout":{"type":"constrained"}} -->
-				<div class="wp-block-group content has-secondary-background-color has-background"
-					style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+				<div class="wp-block-group content has-secondary-background-color has-background" style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 					<!-- wp:paragraph {"fontSize":"small"} -->
 					<p class="has-small-font-size">' . esc_html__('FAQ Answer Format (150 chars): [Provide a clear response to a common user query.]', 'aegis') . '</p>
 					<!-- /wp:paragraph -->
@@ -75,18 +47,41 @@ return array(
 				<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"var:preset|spacing|30","left":"0"}},"border":{"bottom":{"color":"var:preset|color|foreground","width":"1px"},"top":[],"right":[],"left":[]}},"className":"trigger is-style-default","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 				<div class="wp-block-group trigger is-style-default" style="border-bottom-color:var(--wp--preset--color--foreground);border-bottom-width:1px;padding-top:0;padding-right:0;padding-bottom:var(--wp--preset--spacing--30);padding-left:0">
 					<!-- wp:heading {"level":4,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"medium"} -->
-					<h4 class="wp-block-heading has-medium-font-size" style="font-style:normal;font-weight:400">' . esc_html__('03.', 'aegis') . '</strong> ' . esc_html__('FAQ Question Format (57 chars): [Frame a frequently asked question about a feature or service.]', 'aegis') . '</h4>
+					<h4 class="wp-block-heading has-medium-font-size" style="font-style:normal;font-weight:400"><strong>' . esc_html__('02.', 'aegis') . '</strong> ' . esc_html__('FAQ Question Format (57 chars): [Frame a frequently asked question about a feature or service.]', 'aegis') . '</h4>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"fontSize":"large"} -->
-					<p class="has-large-font-size">+</p>
+					<p class="has-large-font-size">' . esc_html__('+', 'aegis') . '</p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
 
 				<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"backgroundColor":"secondary","className":"content","layout":{"type":"constrained"}} -->
-				<div class="wp-block-group content has-secondary-background-color has-background"
-					style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+				<div class="wp-block-group content has-secondary-background-color has-background" style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+					<!-- wp:paragraph {"fontSize":"small"} -->
+					<p class="has-small-font-size">' . esc_html__('FAQ Answer Format (150 chars): [Provide a clear response to a common user query.]', 'aegis') . '</p>
+					<!-- /wp:paragraph -->
+				</div>
+				<!-- /wp:group -->
+			</div>
+			<!-- /wp:group -->
+
+			<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"0px","right":"0px","left":"0px"}}},"className":"faq","layout":{"type":"default"}} -->
+			<div class="wp-block-group alignfull faq" style="padding-top:var(--wp--preset--spacing--30);padding-right:0px;padding-bottom:0px;padding-left:0px">
+				<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"var:preset|spacing|30","left":"0"}},"border":{"bottom":{"color":"var:preset|color|foreground","width":"1px"},"top":[],"right":[],"left":[]}},"className":"trigger is-style-default","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+				<div class="wp-block-group trigger is-style-default" style="border-bottom-color:var(--wp--preset--color--foreground);border-bottom-width:1px;padding-top:0;padding-right:0;padding-bottom:var(--wp--preset--spacing--30);padding-left:0">
+					<!-- wp:heading {"level":4,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"medium"} -->
+					<h4 class="wp-block-heading has-medium-font-size" style="font-style:normal;font-weight:400"><strong>' . esc_html__('03.', 'aegis') . '</strong> ' . esc_html__('FAQ Question Format (57 chars): [Frame a frequently asked question about a feature or service.]', 'aegis') . '</h4>
+					<!-- /wp:heading -->
+
+					<!-- wp:paragraph {"fontSize":"large"} -->
+					<p class="has-large-font-size">' . esc_html__('+', 'aegis') . '</p>
+					<!-- /wp:paragraph -->
+				</div>
+				<!-- /wp:group -->
+
+				<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"backgroundColor":"secondary","className":"content","layout":{"type":"constrained"}} -->
+				<div class="wp-block-group content has-secondary-background-color has-background" style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 					<!-- wp:paragraph {"fontSize":"small"} -->
 					<p class="has-small-font-size">' . esc_html__('FAQ Answer Format (150 chars): [Provide a clear response to a common user query.]', 'aegis') . '</p>
 					<!-- /wp:paragraph -->
