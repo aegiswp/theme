@@ -17,13 +17,14 @@ function aegis_register_block_patterns() {
 		'aegis-hero'			=> array( 'label' => __( 'Hero', 'aegis' ) ),
 		'aegis-about'			=> array( 'label' => __( 'About', 'aegis' ) ),
 		'aegis-team'			=> array( 'label' => __( 'Team', 'aegis' ) ),
-		'aegis-testimonials'	=> array( 'label' => __( 'Testimonials', 'aegis' ) ),
-		'aegis-faq'				=> array( 'label' => __( 'FAQ', 'aegis' ) ),
+		'aegis-testimonials'	        => array( 'label' => __( 'Testimonials', 'aegis' ) ),
+		'aegis-faq'			=> array( 'label' => __( 'FAQ', 'aegis' ) ),
 		'aegis-pricing'			=> array( 'label' => __( 'Pricing', 'aegis' ) ),
 		'aegis-contact'			=> array( 'label' => __( 'Contact', 'aegis' ) ),
 		'aegis-ecommerce'		=> array( 'label' => __( 'eCommerce', 'aegis' ) ),
 		'aegis-pages'			=> array( 'label' => __( 'Pages', 'aegis' ) ),
 		'aegis-query'			=> array( 'label' => __( 'Blog', 'aegis' ) ),
+		'aegis-video'			=> array( 'label' => __( 'Video', 'aegis' ) ),
 	);
 
 	/**
@@ -88,6 +89,7 @@ function aegis_register_block_patterns() {
 	'query/query-6',
 	'query/query-7',
 	'query/query-8',
+	'video/video-1',
 	'hidden/hidden-404',
 	);
 
