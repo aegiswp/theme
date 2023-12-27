@@ -91,6 +91,7 @@ function aegis_register_block_patterns() {
 	'query/query-8',
 	'video/video-1',
 	'video/video-2',
+	'video/video-3',
 	'hidden/hidden-404',
 	);
 
