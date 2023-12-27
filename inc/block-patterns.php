@@ -83,6 +83,7 @@ function aegis_register_block_patterns() {
 	'ecommerce/ecommerce-3',
 	'ecommerce/ecommerce-4',
 	'event/event-1',
+	'event/event-2',
 	'query/query-1',
 	'query/query-2',
 	'query/query-3',
