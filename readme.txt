@@ -1,11 +1,11 @@
 === Aegis ===
 Contributors: atmostfearentertainment, alexdeborba
-Requires at least: 5.9
+Requires at least: 6.4
 Tested up to: 6.4.2
 Requires PHP: 7.4
-Stable tag: 1.0.0-beta.1
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Stable tag: 1.0.0-beta.2
+License: GNU General Public License v3.0
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
 
@@ -18,15 +18,29 @@ Aegis is a sleek theme that promises agility and a lightweight design. It featur
 
 == Copyright ==
 
-Aegis WordPress Theme, 2022 - 2023 Atmostfear Entertainment SAS.
+Aegis WordPress Theme, 2022 - 2024 Atmostfear Entertainment SAS.
 Aegis is distributed under the terms of the GNU GPL.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
+the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
+
+This theme bundles the following third-party resources:
+
+Lexend Font
+Copyright 2018-2024 Thomas Jockin (https://thomasjockin.com/)
+License: SIL Open Font License, 1.1, https://opensource.org/licenses/OFL-1.1
+Source: https://github.com/googlefonts/lexend
+
+Used in theme block patterns:
+
+Abstract Digital Animation Video by Rostislav Uzunov
+License: Public Domain
+Source: https://www.pexels.com/video/abstract-digital-animation-7670836/
+Included as a short video clip.
