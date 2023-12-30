@@ -69,6 +69,7 @@ function aegis_register_block_patterns() {
 	'hero/hero-5',
 	'hero/hero-6',
 	'hero/hero-7',
+	'hero/hero-8',
 	'footer/footer-1',
 	'footer/footer-2',
 	'footer/footer-3',
