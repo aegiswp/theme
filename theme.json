@@ -530,6 +530,12 @@
                     }
                 }
             },
+            "core/video": {
+                "color": {
+                    "backgroundColor": "var(--wp--preset--color--foreground)",
+                    "textColor": "var(--wp--preset--color--background)"
+                }
+            },
             "core/query-pagination": {
                 "elements": {
                     "link": {
