@@ -3,10 +3,7 @@
     "customTemplates": [{
             "name": "blank",
             "title": "Blank",
-            "postTypes": [
-                "page",
-                "post"
-            ]
+            "postTypes": ["page", "post"]
         },
         {
             "name": "single-product",
@@ -89,6 +86,11 @@
                 {
                     "slug": "vertical-background-to-foreground",
                     "gradient": "linear-gradient(90deg,var(--wp--preset--color--background) 59%,var(--wp--preset--color--foreground) 59%)",
+                    "name": "Vertical background to foreground"
+                },
+                {
+                    "slug": "vertical-foreground-to-background",
+                    "gradient": "linear-gradient(90deg,var(--wp--preset--color--foreground) 59%,var(--wp--preset--color--background) 59%)",
                     "name": "Vertical background to foreground"
                 },
                 {
@@ -175,7 +177,7 @@
                 },
                 {
                     "slug": "primary",
-                    "color": "#e4e4e6",
+                    "color": "#5a5a60",
                     "name": "Primary"
                 },
                 {
@@ -224,7 +226,8 @@
             "spacing": {
                 "small": "max(1.25rem, 5vw)",
                 "medium": "clamp(2rem, 8vw, calc(4 * var(--wp--style--block-gap)))",
-                "large": "clamp(4rem, 10vw, 8rem)"
+                "large": "clamp(4rem, 10vw, 8rem)",
+                "outer": "var(--wp--custom--spacing--small, 1.25rem)"
             },
             "typography": {
                 "line-height": {
@@ -347,7 +350,7 @@
                 {
                     "slug": "small",
                     "name": "Small",
-                    "size": "1.02rem",
+                    "size": "1.1rem",
                     "fluid": false
                 },
                 {
@@ -449,6 +452,26 @@
     },
     "styles": {
         "blocks": {
+            "core/button": {
+                "border": {
+                    "radius": "0"
+                },
+                "color": {
+                    "background": "var(--wp--preset--color--foreground)"
+                },
+                "typography": {
+                    "fontSize": "var(--wp--preset--font-size--small)",
+                    "fontWeight": "500"
+                },
+                "spacing": {
+                    "padding": {
+                        "bottom": "7px",
+                        "left": "25px",
+                        "right": "25px",
+                        "top": "8px"
+                    }
+                }
+            },
             "core/code": {
                 "border": {
                     "radius": "0"
@@ -467,26 +490,6 @@
                         "left": "25px",
                         "right": "25px",
                         "top": "25px"
-                    }
-                }
-            },
-            "core/button": {
-                "border": {
-                    "radius": "0"
-                },
-                "color": {
-                    "background": "var(--wp--preset--color--foreground)"
-                },
-                "typography": {
-                    "fontSize": "var(--wp--preset--font-size--small)",
-                    "fontWeight": "500"
-                },
-                "spacing": {
-                    "padding": {
-                        "bottom": "7px",
-                        "left": "25px",
-                        "right": "25px",
-                        "top": "7px"
                     }
                 }
             },
@@ -511,6 +514,12 @@
                 "border": {
                     "width": "0 0 0 1px"
                 }
+            },
+            "core/social-links": {
+				"css": ".is-style-outline .wp-block-social-link {background-color: transparent;border: 1px solid currentColor;}",
+				"spacing": {
+					"blockGap": "20px"
+                        }
             },
             "core/comments-pagination": {
                 "elements": {
