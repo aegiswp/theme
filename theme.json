@@ -452,6 +452,12 @@
     },
     "styles": {
         "blocks": {
+            "core/audio": {
+                "color": {
+                    "backgroundColor": "var(--wp--preset--color--background)",
+                    "textColor": "var(--wp--preset--color--foreground)"
+                }
+            },
             "core/button": {
                 "border": {
                     "radius": "0"
