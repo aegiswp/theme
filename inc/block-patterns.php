@@ -68,6 +68,7 @@ function aegis_register_block_patterns() {
 	'hero/hero-4',
 	'hero/hero-5',
 	'hero/hero-6',
+	'hero/hero-7',
 	'footer/footer-1',
 	'footer/footer-2',
 	'footer/footer-3',
@@ -83,6 +84,7 @@ function aegis_register_block_patterns() {
 	'gallery/gallery-1',
 	'gallery/gallery-2',
 	'gallery/gallery-3',
+	'gallery/gallery-4'
 	'review/review-1',
 	'general/faq-1',
 	'general/faq-2',
