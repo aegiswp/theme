@@ -99,6 +99,11 @@
                     "name": "Vertical background to secondary"
                 },
                 {
+                    "slug": "vertical-small-background-to-secondary",
+                    "gradient": "linear-gradient(90deg,var(--wp--preset--color--background) 28%,var(--wp--preset--color--secondary) 28%)",
+                    "name": "Vertical small background to secondary"
+                },
+                {
                     "slug": "vertical-secondary-to-background",
                     "gradient": "linear-gradient(90deg,var(--wp--preset--color--secondary) 55%, var(--wp--preset--color--background) 55%)",
                     "name": "Vertical secondary to background"
@@ -454,8 +459,8 @@
         "blocks": {
             "core/audio": {
                 "color": {
-                    "backgroundColor": "var(--wp--preset--color--background)",
-                    "textColor": "var(--wp--preset--color--foreground)"
+                    "background": "var(--wp--preset--color--background)",
+                    "text": "var(--wp--preset--color--foreground)"
                 }
             },
             "core/button": {
@@ -525,7 +530,13 @@
 				"css": ".is-style-outline .wp-block-social-link {background-color: transparent;border: 1px solid currentColor;}",
 				"spacing": {
 					"blockGap": "20px"
-                        }
+                }
+            },
+            "core/video": {
+                "color": {
+                    "background": "var(--wp--preset--color--foreground)",
+                    "text": "var(--wp--preset--color--background)"
+                }
             },
             "core/comments-pagination": {
                 "elements": {
@@ -534,12 +545,6 @@
                             "textDecoration": "none"
                         }
                     }
-                }
-            },
-            "core/video": {
-                "color": {
-                    "backgroundColor": "var(--wp--preset--color--foreground)",
-                    "textColor": "var(--wp--preset--color--background)"
                 }
             },
             "core/query-pagination": {
