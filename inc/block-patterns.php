@@ -103,6 +103,7 @@ function aegis_register_block_patterns() {
 	'ecommerce/ecommerce-4',
 	'pricing/pricing-1',
 	'review/review-1',
+	'audio/audio-1',
 	'video/video-1',
 	'video/video-2',
 	'video/video-3',
