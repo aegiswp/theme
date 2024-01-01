@@ -93,6 +93,7 @@ function aegis_register_block_patterns() {
 	'gallery/gallery-2',
 	'gallery/gallery-3',
 	'gallery/gallery-4',
+	'gallery/gallery-5',
 	'testimonial/testimonial-1',
 	'testimonial/testimonial-2',
 	'ecommerce/ecommerce-1',
