@@ -24,6 +24,7 @@ function aegis_register_block_patterns() {
 		'aegis-ecommerce'       => array('label' => __('eCommerce', 'aegis')),
 		'aegis-pricing'         => array('label' => __('Pricing', 'aegis')),
 		'aegis-review'          => array('label' => __('Review', 'aegis')),
+		'aegis-audio'           => array('label' => __('Audio', 'aegis')),
 		'aegis-video'           => array('label' => __('Video', 'aegis')),
 		'aegis-faq'             => array('label' => __('FAQ', 'aegis')),
 		'aegis-contact'         => array('label' => __('Contact', 'aegis')),
