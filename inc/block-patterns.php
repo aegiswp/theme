@@ -73,6 +73,7 @@ function aegis_register_block_patterns() {
 	'about/about-2',
 	'about/about-3',
 	'about/about-4',
+	'about/about-5',
 	'query/query-1',
 	'query/query-2',
 	'query/query-3',
