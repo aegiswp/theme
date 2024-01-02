@@ -3,8 +3,8 @@
  * 03. Video Gallery Block Pattern
  */
 return array(
-    'title'      => __('03. Video Gallery', 'aegis'),
-    'description' => __('Mixed Video and Image Gallery with Heading, and Text', 'aegis'),
+    'title'      => __('03. Media Gallery', 'aegis'),
+    'description' => __('Mixed video and image gallery with tagline, headings, and paragraphs', 'aegis'),
     'categories' => array('aegis-gallery'),
     'content' => '
 <!-- wp:group {"tagName":"section","align":"wide","style":{"spacing":{"blockGap":"0","margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"gradient":"vertical-secondary-to-background","className":"gallery","layout":{"type":"default"},"metadata":{"name":"' . esc_html__('Gallery Section', 'aegis') . '"}} -->
@@ -34,7 +34,7 @@ return array(
                 <!-- wp:column {"verticalAlignment":"center","backgroundColor":"foreground","textColor":"background","className":"is-style-default"} -->
                 <div class="wp-block-column is-vertically-aligned-center is-style-default has-background-color has-foreground-background-color has-text-color has-background">
                     <!-- wp:video {"className":"wp-has-aspect-ratio"} -->
-                    <figure class="wp-block-video wp-has-aspect-ratio"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_725x410_dark.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/aegis.mp4" playsinline></video></figure>
+                    <figure class="wp-block-video wp-has-aspect-ratio"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_dark.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video></figure>
                     <!-- /wp:video -->
 
                     <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"layout":{"type":"constrained"}} -->
@@ -53,8 +53,8 @@ return array(
 
                 <!-- wp:column {"backgroundColor":"senary","className":"is-style-default"} -->
                 <div class="wp-block-column is-style-default has-senary-background-color has-background">
-                    <!-- wp:image {"lightbox":{"enabled":true},"scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-default"} -->
-                    <figure class="wp-block-image size-full is-style-default"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_400x400_light.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="object-fit:cover" /></figure>
+                    <!-- wp:image {"lightbox":{"enabled":true},"width":"375px","aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-default"} -->
+                    <figure class="wp-block-image size-full is-resized is-style-default"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_light.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="aspect-ratio:1;object-fit:cover;width:375px"/></figure>
                     <!-- /wp:image -->
                 </div>
                 <!-- /wp:column -->
@@ -66,7 +66,7 @@ return array(
                 <!-- wp:column {"verticalAlignment":"center","backgroundColor":"senary","className":"is-style-default"} -->
                 <div class="wp-block-column is-vertically-aligned-center is-style-default has-senary-background-color has-background">
                     <!-- wp:video {"className":"wp-has-aspect-ratio"} -->
-                    <figure class="wp-block-video wp-has-aspect-ratio"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_725x410_dark.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/aegis.mp4" playsinline></video></figure>
+                    <figure class="wp-block-video wp-has-aspect-ratio"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_dark.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video></figure>
                     <!-- /wp:video -->
 
                     <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"layout":{"type":"constrained"}} -->
@@ -85,8 +85,8 @@ return array(
 
                 <!-- wp:column {"backgroundColor":"foreground","className":"is-style-default"} -->
                 <div class="wp-block-column is-style-default has-foreground-background-color has-background">
-                    <!-- wp:image {"lightbox":{"enabled":true},"id":3040,"scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-                    <figure class="wp-block-image size-full"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_400x400_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="object-fit:cover" /></figure>
+                    <!-- wp:image {"lightbox":{"enabled":true},"width":"375px","aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
+                    <figure class="wp-block-image size-full is-resized"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="aspect-ratio:1;object-fit:cover;width:375px"/></figure>
                     <!-- /wp:image -->
                 </div>
                 <!-- /wp:column -->
