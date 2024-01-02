@@ -35,10 +35,9 @@ return array(
 
 			<!-- wp:column -->
 			<div class="wp-block-column">
-				<!-- wp:image {"className":"aligncenter size-full is-resized is-style-rounded"} -->
-				<figure class="wp-block-image aligncenter size-full is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" />
-				</figure>
-				<!-- /wp:image -->
+				<!-- wp:image {"width":"200px","aspectRatio":"1","scale":"cover","className":"aligncenter size-full is-resized is-style-rounded"} -->
+                <figure class="wp-block-image is-resized aligncenter size-full is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="aspect-ratio:1;object-fit:cover;width:200px"/></figure>
+                <!-- /wp:image -->
 
 				<!-- wp:heading {"textAlign":"center","level":3} -->
 				<h3 class="wp-block-heading has-text-align-center"><strong>' . esc_html__('New [Item/Collection]', 'aegis') . '</strong></h3>
