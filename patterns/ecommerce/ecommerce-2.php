@@ -4,7 +4,7 @@
  */
 return array(
 	'title'	  => __( '02. eCommerce', 'aegis' ),
-	'description' => __( 'eCommerce', 'aegis' ),
+	'description' => __('eCommerce with columns, images, rating, pricing, headings, paragraphs, and buttons', 'aegis' ),
     'categories' => array( 'aegis-ecommerce' ),
 	'content'	=> '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"secondary","layout":{"type":"constrained"}} -->
@@ -14,7 +14,7 @@ return array(
 		<!-- wp:column {"backgroundColor":"background"} -->
 		<div class="wp-block-column has-background-background-color has-background">
 			<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-2-image is-style-aegis-effect-2-image"} -->
-			<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_480x715_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+			<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"textColor":"foreground","className":"is-style-default"} -->
@@ -54,7 +54,7 @@ return array(
 		<!-- wp:column {"backgroundColor":"senary"} -->
 		<div class="wp-block-column has-senary-background-color has-background">
 			<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-2-image is-style-aegis-effect-2-image"} -->
-			<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_480x715_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+			<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"textColor":"foreground","className":"is-style-default"} -->
@@ -94,7 +94,7 @@ return array(
 		<!-- wp:column {"backgroundColor":"foreground"} -->
 		<div class="wp-block-column has-foreground-background-color has-background">
 			<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-2-image is-style-aegis-effect-2-image"} -->
-			<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_480x715_dark.webp" alt="' .	esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+			<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' .	esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}},"elements":{"link":{"color":{"text":"var:preset|color|background"}}}},"textColor":"background","className":"is-style-default"} -->
