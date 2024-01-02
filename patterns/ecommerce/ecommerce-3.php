@@ -4,7 +4,7 @@
  */
 return array(
 	'title'	  => __( '03. eCommerce', 'aegis' ),
-	'description' => __( 'eCommerce', 'aegis' ),
+	'description' => __( 'eCommerce with tagline, heading, paragraph, rating and images', 'aegis' ),
 	'categories' => array( 'aegis-ecommerce' ),
 	'content' => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30","top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
@@ -53,9 +53,9 @@ return array(
 
 				<!-- wp:group {"layout":{"type":"flex","allowOrientation":false,"justifyContent":"left","flexWrap":"wrap"}} -->
 				<div class="wp-block-group">
-					<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-resized is-style-rounded"} -->
-					<figure class="wp-block-image size-full is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_80x80_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
-					<!-- /wp:image -->
+					<!-- wp:image {"width":"80px","aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-resized is-style-rounded"} -->
+                    <figure class="wp-block-image size-full is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="aspect-ratio:1;object-fit:cover;width:80px"/></figure>
+                    <!-- /wp:image -->
 
 					<!-- wp:paragraph {"fontSize":"tiny"} -->
 					<p class="has-tiny-font-size">' . esc_html__('Customer Name', 'aegis') . '</p>
@@ -97,9 +97,9 @@ return array(
 
 				<!-- wp:group {"layout":{"type":"flex","allowOrientation":false,"justifyContent":"left","flexWrap":"wrap"}} -->
 				<div class="wp-block-group">
-					<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-resized is-style-rounded"} -->
-					<figure class="wp-block-image size-full is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_80x80_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
-					<!-- /wp:image -->
+					<!-- wp:image {"width":"80px","aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-resized is-style-rounded"} -->
+                    <figure class="wp-block-image size-full is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="aspect-ratio:1;object-fit:cover;width:80px"/></figure>
+                    <!-- /wp:image -->
 
 					<!-- wp:paragraph {"fontSize":"tiny"} -->
 					<p class="has-tiny-font-size">' . esc_html__('Customer Name', 'aegis') . '</p>
@@ -141,9 +141,9 @@ return array(
 
 				<!-- wp:group {"layout":{"type":"flex","allowOrientation":false,"justifyContent":"left","flexWrap":"wrap"}} -->
 				<div class="wp-block-group">
-					<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-resized is-style-rounded"} -->
-					<figure class="wp-block-image size-full is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_80x80_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
-					<!-- /wp:image -->
+					<!-- wp:image {"width":"80px","aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-resized is-style-rounded"} -->
+                    <figure class="wp-block-image size-full is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="aspect-ratio:1;object-fit:cover;width:80px"/></figure>
+                    <!-- /wp:image -->
 
 					<!-- wp:paragraph {"fontSize":"tiny"} -->
 					<p class="has-tiny-font-size">' . esc_html__('Customer Name', 'aegis') . '</p>
