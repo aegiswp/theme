@@ -4,7 +4,7 @@
  */
 return array(
     'title'      => __('02. Event', 'aegis'),
-    'description' => __('Event Schedule with Image, Heading, Date, Text, Buttons, and Socials', 'aegis'),
+    'description' => __('Event Schedule with image, heading, date, paragraph, buttons, and social icons', 'aegis'),
     'categories' => array('aegis-event'),
     'content' => '
 <!-- wp:group {"tagName":"section","align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|40","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"gradient":"diagonal-secondary-to-background","className":"event","layout":{"type":"default"},"metadata":{"name":"' . esc_html__('Event Section', 'aegis') . '"}} -->
@@ -16,7 +16,7 @@ return array(
             <!-- wp:group {"gradient":"horizontal-primary-to-background"} -->
             <div class="wp-block-group has-horizontal-primary-to-background-gradient-background has-background">
                 <!-- wp:image {"lightbox":{"enabled":false},"scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-3-image"} -->
-                <figure class="wp-block-image size-full is-style-aegis-effect-3-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_455x665_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="object-fit:cover" /></figure>
+                <figure class="wp-block-image size-full is-style-aegis-effect-3-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="object-fit:cover" /></figure>
                 <!-- /wp:image -->
             </div>
             <!-- /wp:group -->
