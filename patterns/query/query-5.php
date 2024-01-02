@@ -4,7 +4,7 @@
  */
 return array(
 	'title'	  => __( '05. Blog Archive', 'aegis' ),
-	'description' => __( 'Blog Archive', 'aegis' ),
+	'description' => __('Blog Archive with Left Sidebar', 'aegis' ),
 	'categories' => array( 'aegis-query' ),
 	'content' => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"className":"blog-sidebar","layout":{"type":"default"}} -->
@@ -19,9 +19,9 @@ return array(
 				<div class="wp-block-group alignwide">
 					<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"var:preset|spacing|40","top":"var:preset|spacing|40","right":"var:preset|spacing|40","left":"var:preset|spacing|40"}}},"backgroundColor":"secondary","className":"is-style-aegis-border"} -->
 					<div class="wp-block-group is-style-aegis-border has-secondary-background-color has-background" style="padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
-						<!-- wp:image {"align":"center","sizeSlug":"large","linkDestination":"none","style":{"color":{"duotone":"unset"}},"className":"is-resized is-style-rounded"} -->
-						<figure class="wp-block-image aligncenter size-large is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_120x120_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
-						<!-- /wp:image -->
+						<!-- wp:image {"align":"center","width":"120px","aspectRatio":"1","scale":"cover","sizeSlug":"large","linkDestination":"none","style":{"color":{"duotone":"unset"}},"className":"is-resized is-style-rounded"} -->
+                        <figure class="wp-block-image aligncenter size-large is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="aspect-ratio:1;object-fit:cover;width:120px"/></figure>
+                        <!-- /wp:image -->
 
 						<!-- wp:paragraph {"align":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"fontSize":"large"} -->
 						<p class="has-text-align-center has-large-font-size" style="font-style:normal;font-weight:700">' . esc_html__('[Author Name]', 'aegis') . '</p>
@@ -54,7 +54,7 @@ return array(
 				<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"var:preset|spacing|40"}}},"backgroundColor":"septenary","className":"is-style-aegis-border"} -->
 				<div class="wp-block-group is-style-aegis-border has-septenary-background-color has-background" style="padding-bottom:var(--wp--preset--spacing--40)">
 					<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none"} -->
-					<figure class="wp-block-image aligncenter size-full"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_480x380_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+					<figure class="wp-block-image aligncenter size-full"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"var:preset|spacing|40","bottom":"0","left":"var:preset|spacing|40"}}}} -->
