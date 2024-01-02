@@ -4,7 +4,7 @@
  */
 return array(
     'title'      => __('03. Video', 'aegis'),
-    'description' => __('Video Media Player with Heading, Text, Socials, and Button', 'aegis'),
+    'description' => __('Video with Tagline, Heading, Paragraph, Socials, and Button', 'aegis'),
     'categories' => array('aegis-video'),
     'content' => '
 <!-- wp:group {"tagName":"section","align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"gradient":"vertical-secondary-to-background","className":"video","layout":{"type":"default"},"metadata":{"name":"Video Section"}} -->
@@ -17,7 +17,7 @@ return array(
             <div class="wp-block-group is-style-aegis-shadow has-horizontal-primary-to-background-gradient-background has-background">
                 <!-- wp:video -->
                 <figure class="wp-block-video">
-                <video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_725x410_dark.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/aegis.mp4" playsinline></video>
+                <video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_dark.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video>
                 </figure>
                 <!-- /wp:video -->
             </div>
