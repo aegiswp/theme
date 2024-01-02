@@ -4,7 +4,7 @@
  */
 return array(
 	'title'	  => __( '01. Team', 'aegis' ),
-	'description' => __( 'Team', 'aegis' ),
+	'description' => __( 'Team columns with image, heading, paragraph, and social icons', 'aegis' ),
 	'categories' => array( 'aegis-team' ),
 	'content'	=> '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30","top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"margin":{"top":"0","bottom":"0"}}},"gradient":"diagonal-secondary-to-background","className":"team","layout":{"type":"default"}} -->
@@ -16,7 +16,7 @@ return array(
 			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"className":"is-style-aegis-border"} -->
 			<div class="wp-block-group is-style-aegis-border" style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 				<!-- wp:image {"align":"center","width":"160px","height":"160px","sizeSlug":"full","linkDestination":"none","style":{"color":{"duotone":"unset"}},"className":"is-style-rounded"} -->
-				<figure class="wp-block-image aligncenter size-full is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_160x160_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="width:160px;height:160px" /></figure>
+				<figure class="wp-block-image aligncenter size-full is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="width:160px;height:160px" /></figure>
 				<!-- /wp:image -->
 
 				<!-- wp:heading {"textAlign":"center","fontSize":"extra-large"} -->
@@ -56,7 +56,7 @@ return array(
 			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"className":"is-style-aegis-border"} -->
 			<div class="wp-block-group is-style-aegis-border" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 				<!-- wp:image {"align":"center","width":"160px","height":"160px","sizeSlug":"full","linkDestination":"none","style":{"color":{"duotone":"unset"}},"className":"is-style-rounded"} -->
-				<figure class="wp-block-image aligncenter size-full is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_160x160_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="width:160px;height:160px" /></figure>
+				<figure class="wp-block-image aligncenter size-full is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="width:160px;height:160px" /></figure>
 				<!-- /wp:image -->
 
 				<!-- wp:heading {"textAlign":"center","fontSize":"extra-large"} -->
@@ -96,7 +96,7 @@ return array(
 			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"className":"is-style-aegis-border"} -->
 			<div class="wp-block-group is-style-aegis-border" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 				<!-- wp:image {"align":"center","width":"160px","height":"160px","sizeSlug":"full","linkDestination":"none","style":{"color":{"duotone":"unset"}},"className":"is-style-rounded "} -->
-				<figure class="wp-block-image aligncenter size-full is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_160x160_light.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="width:160px;height:160px" /></figure>
+				<figure class="wp-block-image aligncenter size-full is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_light.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="width:160px;height:160px" /></figure>
 				<!-- /wp:image -->
 
 				<!-- wp:heading {"textAlign":"center","fontSize":"extra-large"} -->
