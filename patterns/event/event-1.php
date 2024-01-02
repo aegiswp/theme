@@ -4,7 +4,7 @@
  */
 return array(
     'title'      => __('01. Event', 'aegis'),
-    'description' => __('Event Schedule with Video, Heading, Date, Text, Button, and Socials', 'aegis'),
+    'description' => __('Event Schedule with video, heading, date, paragraph, button, and social icons', 'aegis'),
     'categories' => array('aegis-event'),
     'content' => '
 <!-- wp:group {"tagName":"section","align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"gradient":"diagonal-secondary-to-background","layout":{"type":"default"},"metadata":{"name":"Event Section"}} -->
@@ -29,7 +29,7 @@ return array(
             <div class="wp-block-group is-style-aegis-shadow has-horizontal-primary-to-background-gradient-background has-background">
                 <!-- wp:video -->
                 <figure class="wp-block-video">
-                <video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_725x410_dark.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/aegis.mp4" playsinline></video>
+                <video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_dark.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video>
                 </figure>
                 <!-- /wp:video -->
             </div>
