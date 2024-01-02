@@ -4,7 +4,7 @@
  */
 return array(
 	'title'	      => __( '02. About Us', 'aegis' ),
-	'description' => __( 'About Us', 'aegis' ),
+	'description' => __( 'About Us with tagline, heading, paragraph, button and grid images', 'aegis' ),
 	'categories'  => array( 'aegis-about' ),
 	'content' => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"className":"about","layout":{"type":"default"}} -->
@@ -42,7 +42,7 @@ return array(
 				<!-- wp:column -->
 				<div class="wp-block-column">
 					<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-2-image"} -->
-					<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_420x600_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+					<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 					<!-- /wp:image -->
 				</div>
 				<!-- /wp:column -->
@@ -50,7 +50,7 @@ return array(
 				<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50"}}}} -->
 				<div class="wp-block-column" style="padding-top:var(--wp--preset--spacing--50)">
 					<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-2-image"} -->
-					<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_420x600_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+					<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 					<!-- /wp:image -->
 				</div>
 				<!-- /wp:column -->
