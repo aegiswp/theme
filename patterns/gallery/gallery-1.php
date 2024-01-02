@@ -4,8 +4,8 @@
  */
 return array(
     'title'      => __('01. Video Gallery', 'aegis'),
-    'description' => __('Video Media Player Gallery Grid with Heading, and Text', 'aegis'),
-    'categories' => array('aegis-video'),
+    'description' => __('Gallery with tagline, headings, paragraphs, and videos', 'aegis'),
+    'categories' => array('aegis-gallery'),
     'content' => '
 <!-- wp:group {"tagName":"section","align":"wide","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"backgroundColor":"foreground","textColor":"background","className":"gallery","layout":{"type":"default"},"metadata":{"name":"' . esc_html__('Gallery Section', 'aegis') . '"}} -->
 <section class="wp-block-group alignwide gallery has-background-color has-foreground-background-color has-text-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
@@ -30,7 +30,7 @@ return array(
         <!-- wp:column {"width":"50%"} -->
         <div class="wp-block-column" style="flex-basis:50%">
             <!-- wp:video {"className":"wp-has-aspect-ratio"} -->
-            <figure class="wp-block-video wp-has-aspect-ratio"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_725x410_light.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/aegis.mp4" playsinline></video>/figure>
+            <figure class="wp-block-video wp-has-aspect-ratio"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_light.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video></figure>
             <!-- /wp:video -->
 
             <!-- wp:heading {"level":4,"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"0"}},"typography":{"fontStyle":"normal","fontWeight":"300"}},"fontSize":"large"} -->
@@ -46,7 +46,7 @@ return array(
         <!-- wp:column {"width":"50%"} -->
         <div class="wp-block-column" style="flex-basis:50%">
             <!-- wp:video {"className":"wp-has-aspect-ratio"} -->
-            <figure class="wp-block-video wp-has-aspect-ratio"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_725x410_light.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/aegis.mp4" playsinline></video></figure>
+            <figure class="wp-block-video wp-has-aspect-ratio"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_light.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video></figure>
             <!-- /wp:video -->
 
             <!-- wp:heading {"level":4,"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"0"}},"typography":{"fontStyle":"normal","fontWeight":"300"}},"fontSize":"large"} -->
@@ -66,7 +66,7 @@ return array(
         <!-- wp:column {"width":"50%"} -->
         <div class="wp-block-column" style="flex-basis:50%">
             <!-- wp:video {"className":"wp-has-aspect-ratio"} -->
-            <figure class="wp-block-video wp-has-aspect-ratio"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_725x410_light.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/aegis.mp4" playsinline></video></figure>
+            <figure class="wp-block-video wp-has-aspect-ratio"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_light.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video></figure>
             <!-- /wp:video -->
 
             <!-- wp:heading {"level":4,"style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}},"typography":{"fontStyle":"normal","fontWeight":"300"}},"fontSize":"large"} -->
@@ -82,7 +82,7 @@ return array(
         <!-- wp:column {"width":"50%"} -->
         <div class="wp-block-column" style="flex-basis:50%">
             <!-- wp:video {"className":"wp-has-aspect-ratio"} -->
-            <figure class="wp-block-video wp-has-aspect-ratio"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_725x410_light.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/aegis.mp4" playsinline></video></figure>
+            <figure class="wp-block-video wp-has-aspect-ratio"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_light.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video></figure>
             <!-- /wp:video -->
 
             <!-- wp:heading {"level":4,"style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}},"typography":{"fontStyle":"normal","fontWeight":"300"}},"fontSize":"large"} -->
