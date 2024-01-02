@@ -4,7 +4,7 @@
  */
 return array(
     'title'      => __('01. Video', 'aegis'),
-    'description' => __('Video Media Player with Gradient Background', 'aegis'),
+    'description' => __('Big video with gradient background', 'aegis'),
     'categories' => array('aegis-video'),
     'content' => '
 <!-- wp:group {"tagName":"section","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"gradient":"horizontal-foreground-to-background","className":"video","layout":{"type":"default"},"metadata":{"name":"' . esc_html__('Video Section', 'aegis') . '"}} -->
@@ -24,7 +24,7 @@ return array(
     <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30","top":"0","bottom":"0"},"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"className":"is-style-aegis-shadow","layout":{"type":"constrained"}} -->
     <div class="wp-block-group alignfull is-style-aegis-shadow" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30);padding-top:0;padding-right:var(--wp--preset--spacing--30);padding-bottom:0;padding-left:var(--wp--preset--spacing--30)">
         <!-- wp:video {"align":"full"} -->
-        <figure class="wp-block-video alignfull"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1410x800_dark.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/aegis.mp4" playsinline></video></figure>
+        <figure class="wp-block-video alignfull"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_dark.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video></figure>
         <!-- /wp:video -->
     </div>
     <!-- /wp:group -->
