@@ -101,7 +101,6 @@ function aegis_register_block_patterns() {
 	'ecommerce/ecommerce-1',
 	'ecommerce/ecommerce-2',
 	'ecommerce/ecommerce-3',
-	'ecommerce/ecommerce-4',
 	'marketing/marketing-1',
 	'pricing/pricing-1',
 	'review/review-1',
