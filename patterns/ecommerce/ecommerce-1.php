@@ -4,7 +4,7 @@
  */
 return array(
 	'title'	  => __( '01. eCommerce', 'aegis' ),
-	'description' => __( 'eCommerce', 'aegis' ),
+	'description' => __( 'eCommerce with columns, images, rating, pricing, headings, paragraphs, and buttons', 'aegis' ),
     'categories' => array( 'aegis-ecommerce' ),
 	'content' => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","right":"var:preset|spacing|30","bottom":"var:preset|spacing|40","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
@@ -14,7 +14,7 @@ return array(
 		<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"backgroundColor":"secondary","className":"is-style-default"} -->
 		<div class="wp-block-column is-style-default has-secondary-background-color has-background" style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 			<!-- wp:image {"align":"center","className":"size-large is-style-default"} -->
-			<figure class="wp-block-image aligncenter size-large is-style-default"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_420x625_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+			<figure class="wp-block-image aligncenter size-large is-style-default"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
@@ -50,7 +50,7 @@ return array(
 		<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"backgroundColor":"senary","className":"is-style-default"} -->
 		<div class="wp-block-column is-style-default has-senary-background-color has-background" style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 			<!-- wp:image {"align":"center","className":"size-large is-style-default"} -->
-			<figure class="wp-block-image aligncenter size-large is-style-default"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_420x625_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+			<figure class="wp-block-image aligncenter size-large is-style-default"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
@@ -87,7 +87,7 @@ return array(
 		<div class="wp-block-column is-style-default has-background-color has-foreground-background-color has-text-color has-background has-link-color"
 			style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 			<!-- wp:image {"align":"center","id":2060,"sizeSlug":"full","linkDestination":"none","className":"size-large is-style-default"} -->
-			<figure class="wp-block-image aligncenter size-full size-large is-style-default"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_420x625_light.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+			<figure class="wp-block-image aligncenter size-full size-large is-style-default"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_light.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
