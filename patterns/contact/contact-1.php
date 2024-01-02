@@ -4,7 +4,7 @@
  */
 return array(
 	'title'	      => __( '01. Contact Us', 'aegis' ),
-	'description' => __( 'Contact Us', 'aegis' ),
+	'description' => __( 'Contact Us with heading, paragraph, and form placeholder', 'aegis' ),
 	'categories'  => array( 'aegis-contact' ),
 	'content' => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"gradient":"diagonal-secondary-to-foreground","layout":{"type":"default"}} -->
