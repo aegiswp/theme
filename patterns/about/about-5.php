@@ -4,7 +4,7 @@
  */
 return array(
     'title'      => __('05. About Us', 'aegis'),
-    'description' => __('About Us with Tagline, Heading, Text, Image, and Button', 'aegis'),
+    'description' => __('About Us with tagline, heading, paragraph, image, and button', 'aegis'),
     'categories' => array('aegis-about'),
     'content' => '
 <!-- wp:group {"tagName":"section","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"gradient":"vertical-background-to-foreground","layout":{"type":"default"},"metadata":{"name":"' . esc_html__('About Section', 'aegis') . '"}} -->
@@ -14,7 +14,7 @@ return array(
         <!-- wp:column {"width":"33.33%"} -->
         <div class="wp-block-column" style="flex-basis:33.33%">
             <!-- wp:image {"sizeSlug":"full","linkDestination":"none","style":{"color":[],"border":{"radius":{"topLeft":null,"topRight":null,"bottomRight":null}}}} -->
-            <figure class="wp-block-image size-full"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_500x700_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+            <figure class="wp-block-image size-full"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
             <!-- /wp:image -->
         </div>
         <!-- /wp:column -->
