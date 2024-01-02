@@ -4,18 +4,17 @@
  */
 return array(
     'title'      => __('04. Video', 'aegis'),
-    'description' => __('Video Media Player with Heading, and Text', 'aegis'),
+    'description' => __('Large video with Heading, and Paragraph', 'aegis'),
     'categories' => array('aegis-video'),
     'content' => '
 <!-- wp:group {"tagName":"section","align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"foreground","textColor":"background","layout":{"type":"default"},"metadata":{"name":"' . esc_html__('Video Section', 'aegis') . '"}} -->
-<section class="wp-block-group alignwide has-background-color has-foreground-background-color has-text-color has-background"
-    style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
+<section class="wp-block-group alignwide has-background-color has-foreground-background-color has-text-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
     <!-- wp:columns {"align":"wide"} -->
     <div class="wp-block-columns alignwide">
         <!-- wp:column {"width":""} -->
         <div class="wp-block-column">
-            <!-- wp:video {"id":2433} -->
-            <video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_725x410_dark.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/aegis.mp4" playsinline></video>
+            <!-- wp:video -->
+            <video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_light.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video>
             <!-- /wp:video -->
 
             <!-- wp:columns -->
