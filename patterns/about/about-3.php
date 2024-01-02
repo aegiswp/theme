@@ -4,7 +4,7 @@
  */
 return array(
 	'title'	  => __( '03. About Us', 'aegis' ),
-	'description' => __( 'About Us', 'aegis' ),
+	'description' => __( 'About Us with tagline, headings, paragraphs, images, and button', 'aegis' ),
 	'categories' => array( 'aegis-about' ),
 	'content' => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"var:preset|spacing|30","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30"}}},"gradient":"vertical-secondary-to-background","className":"about","layout":{"type":"default"}} -->
@@ -42,7 +42,7 @@ return array(
 				<!-- wp:column -->
 				<div class="wp-block-column">
 					<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-3-image"} -->
-					<figure class="wp-block-image size-full is-style-aegis-effect-3-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_400x330_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+					<figure class="wp-block-image size-full is-style-aegis-effect-3-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:heading {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"300"}},"fontSize":"large"} -->
@@ -58,7 +58,7 @@ return array(
 				<!-- wp:column -->
 				<div class="wp-block-column">
 					<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-3-image"} -->
-					<figure class="wp-block-image size-full is-style-aegis-effect-3-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_400x330_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+					<figure class="wp-block-image size-full is-style-aegis-effect-3-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:heading {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"300"}},"fontSize":"large"} -->
@@ -78,7 +78,7 @@ return array(
 				<!-- wp:column -->
 				<div class="wp-block-column">
 					<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-3-image"} -->
-					<figure class="wp-block-image size-full is-style-aegis-effect-3-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_400x330_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+					<figure class="wp-block-image size-full is-style-aegis-effect-3-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:heading {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"300"}},"fontSize":"large"} -->
@@ -94,7 +94,7 @@ return array(
 				<!-- wp:column -->
 				<div class="wp-block-column">
 					<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-3-image"} -->
-					<figure class="wp-block-image size-full is-style-aegis-effect-3-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_400x330_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+					<figure class="wp-block-image size-full is-style-aegis-effect-3-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:heading {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"300"}},"fontSize":"large"} -->
