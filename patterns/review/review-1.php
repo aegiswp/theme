@@ -4,7 +4,7 @@
  */
 return array(
     'title'      => __('01. Review', 'aegis'),
-    'description' => __('Book Review with Image Gallery', 'aegis'),
+    'description' => __('Book Review with tagline, heading, rating, paragraph, featured image and gallery', 'aegis'),
     'categories' => array('aegis-review'),
     'content' => '
 <!-- wp:group {"tagName":"section","align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"className":"review","layout":{"type":"default"},"metadata":{"name":"Review Section"}} -->
@@ -16,7 +16,7 @@ return array(
             <!-- wp:group {"gradient":"horizontal-primary-to-background","layout":{"type":"default"}} -->
             <div class="wp-block-group has-horizontal-primary-to-background-gradient-background has-background">
                 <!-- wp:image {"lightbox":{"enabled":true},"scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-shadow-image"} -->
-                <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_455x665_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="object-fit:cover" /></figure>
+                <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="object-fit:cover" /></figure>
                 <!-- /wp:image -->
             </div>
             <!-- /wp:group -->
@@ -62,27 +62,27 @@ return array(
                 <!-- wp:gallery {"columns":6,"linkTo":"none","sizeSlug":"full","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|30","left":"var:preset|spacing|30"}}}} -->
                 <figure class="wp-block-gallery has-nested-images columns-6 is-cropped">
                     <!-- wp:image {"lightbox":{"enabled":true},"id":2717,"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-shadow-image"} -->
-                    <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_455x665_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+                    <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
                     <!-- /wp:image -->
 
                     <!-- wp:image {"lightbox":{"enabled":true},"id":2717,"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-shadow-image"} -->
-                    <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_455x665_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+                    <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
                     <!-- /wp:image -->
 
                     <!-- wp:image {"lightbox":{"enabled":true},"id":2717,"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-shadow-image"} -->
-                    <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_455x665_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+                    <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
                     <!-- /wp:image -->
 
                     <!-- wp:image {"lightbox":{"enabled":true},"id":2717,"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-shadow-image"} -->
-                    <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_455x665_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+                    <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
                     <!-- /wp:image -->
 
                     <!-- wp:image {"lightbox":{"enabled":true},"id":2717,"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-shadow-image"} -->
-                    <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_455x665_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+                    <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
                     <!-- /wp:image -->
 
                     <!-- wp:image {"lightbox":{"enabled":true},"id":2717,"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-shadow-image"} -->
-                    <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_455x665_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+                    <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
                     <!-- /wp:image -->
                 </figure>
                 <!-- /wp:gallery -->
