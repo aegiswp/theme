@@ -137,7 +137,7 @@
                     "slug": "diagonal-secondary-to-background",
                     "gradient": "linear-gradient(to bottom right,var(--wp--preset--color--secondary) 50%,var(--wp--preset--color--background) 50%)",
                     "name": "Diagonal secondary to background"
-                },               
+                },
                 {
                     "slug": "diagonal-secondary-to-foreground",
                     "gradient": "linear-gradient(135deg,transparent 74%,var(--wp--preset--color--foreground) 74%)",
@@ -162,6 +162,11 @@
                     "slug": "diagonal-background-to-senary-triangle",
                     "gradient": "linear-gradient(41deg,var(--wp--preset--color--background) 96%,var(--wp--preset--color--senary) 97%)",
                     "name": "Diagonal background to senary triangle"
+                },
+                {
+                    "slug": "diagonal-foreground-to-transparent-triangle",
+                    "gradient": "linear-gradient(135deg,var(--wp--preset--color--foreground) 89%,transparent 89%)",
+                    "name": "Diagonal foreground to transparent triangle"
                 },
                 {
                     "slug": "diagonal-foreground-to-primary-triangle",
@@ -459,8 +464,8 @@
         "blocks": {
             "core/audio": {
                 "color": {
-                    "background": "var(--wp--preset--color--background)",
-                    "text": "var(--wp--preset--color--foreground)"
+                    "background": "inherit",
+                    "text": "var(--wp--preset--color--background)"
                 }
             },
             "core/button": {
