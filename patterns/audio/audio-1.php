@@ -4,7 +4,7 @@
  */
 return array(
     'title'      => __('01. Audio', 'aegis'),
-    'description' => __('Audio', 'aegis'),
+    'description' => __('Audio with tagline, heading, paragraph, social icons, button and image', 'aegis'),
     'categories' => array('aegis-audio'),
     'content' => '
 <!-- wp:group {"align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"gradient":"vertical-foreground-to-background","layout":{"type":"default"},"metadata":{"name":"' . esc_html__('Audio Section', 'aegis') . '"}} -->
@@ -42,7 +42,7 @@ return array(
             <!-- /wp:paragraph -->
 
             <!-- wp:audio {"id":3241,"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}}} -->
-            <figure class="wp-block-audio" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30)"><audio controls src="' . esc_url(get_template_directory_uri()) . '/assets/audios/aegis.mp3"></audio></figure>
+            <figure class="wp-block-audio" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30)"><audio controls src="' . esc_url(get_template_directory_uri()) . '/assets/audios/sample.mp3"></audio></figure>
             <!-- /wp:audio -->
 
             <!-- wp:columns -->
@@ -53,9 +53,11 @@ return array(
                     <ul class="wp-block-social-links has-icon-color has-icon-background-color">
                         <!-- wp:social-link {"url":"#","service":"spotify","label":"Spotify"} /-->
 
+                        <!-- wp:social-link {"url":"#","service":"youtube","label":"YouTube"} /-->
+
                         <!-- wp:social-link {"url":"#","service":"soundcloud","label":"SoundCloud"} /-->
 
-                        <!-- wp:social-link {"url":"#","service":"youtube","label":"YouTube"} /-->
+                        <!-- wp:social-link {"url":"#","service":"feed","label":"RSS Feed"} /-->
                     </ul>
                     <!-- /wp:social-links -->
                 </div>
