@@ -6,7 +6,7 @@ return array(
     'title'      => __('06. About', 'aegis'),
     'description' => __('Block Pattern with Image on the left, and Tagline, Heading, Paragraphs, and Button on the right abstract background', 'aegis'),
     'categories' => array('aegis-about'),
-    'content' => '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"gradient":"vertical-foreground-to-background","layout":{"type":"default"},"metadata":{"name":"' . esc_html__('04. About Pattern', 'aegis') . '"}} -->
+    'content' => '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"gradient":"vertical-foreground-to-background","layout":{"type":"default"},"metadata":{"name":"' . esc_html__('06. About Pattern', 'aegis') . '"}} -->
 <div class="wp-block-group alignfull has-vertical-foreground-to-background-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--30)"><!-- wp:columns {"align":"full","style":{"spacing":{"margin":{"bottom":"0"}}},"gradient":"horizontal-foreground-to-background"} -->
     <div class="wp-block-columns alignfull has-horizontal-foreground-to-background-gradient-background has-background" style="margin-bottom:0">
     <!-- wp:column {"width":"33.33%"} -->
