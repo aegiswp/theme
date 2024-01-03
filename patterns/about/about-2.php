@@ -1,12 +1,12 @@
 <?php
 /**
- * 02. About Us Block Pattern
+ * 02. About Block Pattern
  */
 return array(
-	'title'	      => __( '02. About Us', 'aegis' ),
-	'description' => __( 'About Us with Tagline, Heading, Paragraph, Button and two Columns Media', 'aegis' ),
+	'title'	      => __( '02. About', 'aegis' ),
+	'description' => __( 'Block Pattern with Tagline, Heading, Paragraph, Button and two Columns Media', 'aegis' ),
 	'categories'  => array( 'aegis-about' ),
-	'content' => '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"layout":{"type":"constrained"}} -->
+	'content' => '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"layout":{"type":"constrained"},"metadata":{"name":"02. About Pattern"}} -->
 <div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
 	<!-- wp:columns {"align":"wide"} -->
 	<div class="wp-block-columns alignwide">
