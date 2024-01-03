@@ -1,12 +1,12 @@
 <?php
 /**
- * 01. About Us Block Pattern
+ * 01. About Block Pattern
  */
 return array(
-	'title'	      => __( '01. About Us', 'aegis' ),
-	'description' => __( 'About Us Pattern with Tagline, Heading, Paragraph, Media, and Button', 'aegis' ),
+	'title'	      => __( '01. About', 'aegis' ),
+	'description' => __( 'Block Pattern with Tagline, Heading, Paragraph, Media, and Button', 'aegis' ),
 	'categories'  => array( 'aegis-about' ),
-	'content' => '<!-- wp:group {"align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"0","right":"0"}}},"gradient":"diagonal-secondary-to-background","layout":{"type":"constrained"}} -->
+	'content' => '<!-- wp:group {"align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"0","right":"0"}}},"gradient":"diagonal-secondary-to-background","layout":{"type":"constrained"},"metadata":{"name":"01. About Pattern"}} -->
 <div class="wp-block-group alignfull has-diagonal-secondary-to-background-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:0;padding-bottom:var(--wp--preset--spacing--30);padding-left:0">
 	<!-- wp:columns {"align":"wide","style":{"spacing":{"padding":{"bottom":"0","top":"0"}}}} -->
 	<div class="wp-block-columns alignwide" style="padding-top:0;padding-bottom:0">
