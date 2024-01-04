@@ -4,7 +4,7 @@
  */
 return array(
 	'title'	      => __( '01. Contact', 'aegis' ),
-	'description' => __( 'Contact with Heading, Paragraph, and Form Placeholder', 'aegis' ),
+	'description' => __( 'Block Pattern with Heading, Paragraph, and Form Placeholder', 'aegis' ),
 	'categories'  => array( 'aegis-contact' ),
 	'content' => '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"gradient":"diagonal-secondary-to-foreground","layout":{"type":"default"},"metadata":{"name":"' . esc_html__('01. Contact Pattern', 'aegis') . '"}} -->
 <div class="wp-block-group alignfull has-diagonal-secondary-to-foreground-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
