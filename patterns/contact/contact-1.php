@@ -1,18 +1,17 @@
 <?php
 /**
- * 01. Contact Us Block Pattern
+ * 01. Contact Block Pattern
  */
 return array(
-	'title'	      => __( '01. Contact Us', 'aegis' ),
-	'description' => __( 'Contact Us with heading, paragraph, and form placeholder', 'aegis' ),
+	'title'	      => __( '01. Contact', 'aegis' ),
+	'description' => __( 'Contact with Heading, Paragraph, and Form Placeholder', 'aegis' ),
 	'categories'  => array( 'aegis-contact' ),
-	'content' => '
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"gradient":"diagonal-secondary-to-foreground","layout":{"type":"default"}} -->
+	'content' => '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"gradient":"diagonal-secondary-to-foreground","layout":{"type":"default"},"metadata":{"name":"' . esc_html__('01. Contact Pattern', 'aegis') . '"}} -->
 <div class="wp-block-group alignfull has-diagonal-secondary-to-foreground-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
-	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}}} -->
-	<div class="wp-block-group alignwide" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
-		<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"7%","right":"7%"}}},"backgroundColor":"secondary","className":"left-bottom"} -->
-		<div class="wp-block-group left-bottom has-secondary-background-color has-background" style="padding-top:var(--wp--preset--spacing--50);padding-right:7%;padding-bottom:var(--wp--preset--spacing--50);padding-left:7%">
+	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}},"className":"left-bottom"} -->
+	<div class="wp-block-group alignwide left-bottom" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
+		<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"7%","right":"7%"}}},"backgroundColor":"secondary"} -->
+		<div class="wp-block-group has-secondary-background-color has-background" style="padding-top:var(--wp--preset--spacing--50);padding-right:7%;padding-bottom:var(--wp--preset--spacing--50);padding-left:7%">
 			<!-- wp:columns {"align":"wide"} -->
 			<div class="wp-block-columns alignwide">
 				<!-- wp:column {"width":"80%"} -->
@@ -22,27 +21,27 @@ return array(
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph -->
-					<p>' . esc_html__('Contact Paragraph (232 chars): [Craft a friendly invitation for users to seek help or clarification.]', 'aegis') . '</p>
+					<p>' . esc_html__('[Paragraph (232 characters): Craft a friendly invitation for users to seek help or provide clarification.]', 'aegis') . '</p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:columns -->
 					<div class="wp-block-columns">
 						<!-- wp:column -->
 						<div class="wp-block-column">
-							<!-- wp:heading {"textAlign":"left","level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"large"} -->
-							<h3 class="wp-block-heading has-text-align-left has-large-font-size" style="font-style:normal;font-weight:600">' . esc_html__('Address:', 'aegis') . '</h3>
+							<!-- wp:heading {"textAlign":"left","level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"medium"} -->
+							<h3 class="wp-block-heading has-text-align-left has-medium-font-size" style="font-style:normal;font-weight:600">' . esc_html__('Address:', 'aegis') . '</h3>
 							<!-- /wp:heading -->
 
 							<!-- wp:paragraph {"align":"left"} -->
-							<p class="has-text-align-left">' . esc_html__('[Guide to nearby shops]', 'aegis') . '</p>
+							<p class="has-text-align-left">' . esc_html__('[Guide to nearby locations]', 'aegis') . '</p>
 							<!-- /wp:paragraph -->
 						</div>
 						<!-- /wp:column -->
 
 						<!-- wp:column -->
 						<div class="wp-block-column">
-							<!-- wp:heading {"textAlign":"left","level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"large"} -->
-							<h3 class="wp-block-heading has-text-align-left has-large-font-size" style="font-style:normal;font-weight:600">' . esc_html__('Telephone:', 'aegis') . '</h3>
+							<!-- wp:heading {"textAlign":"left","level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"medium"} -->
+							<h3 class="wp-block-heading has-text-align-left has-medium-font-size" style="font-style:normal;font-weight:600">' . esc_html__('Telephone:', 'aegis') . '</h3>
 							<!-- /wp:heading -->
 
 							<!-- wp:paragraph {"align":"left"} -->
@@ -53,8 +52,8 @@ return array(
 
 						<!-- wp:column -->
 						<div class="wp-block-column">
-							<!-- wp:heading {"textAlign":"left","level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"large"} -->
-							<h3 class="wp-block-heading has-text-align-left has-large-font-size" style="font-style:normal;font-weight:600">' . esc_html__('Email:', 'aegis') . '</h3>
+							<!-- wp:heading {"textAlign":"left","level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"medium"} -->
+							<h3 class="wp-block-heading has-text-align-left has-medium-font-size" style="font-style:normal;font-weight:600">' . esc_html__('Email:', 'aegis') . '</h3>
 							<!-- /wp:heading -->
 
 							<!-- wp:paragraph {"align":"left"} -->
