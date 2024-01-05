@@ -74,3 +74,12 @@ add_action('wp_enqueue_scripts', 'aegis_styles');
 if (class_exists('Woocommerce')) {
     require get_template_directory() . '/inc/woocommerce/functions.php';
 }
+
+/*
+ * Enqueue Dashicons for use with block styles.
+ */
+function aegis_enqueue_block_dashicons()
+{
+    wp_enqueue_style('dashicons');
+}
+add_action('enqueue_block_assets', 'aegis_enqueue_block_dashicons');
