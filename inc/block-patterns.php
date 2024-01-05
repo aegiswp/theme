@@ -12,11 +12,11 @@
  */
 function aegis_register_block_patterns() {
 	$block_pattern_categories = array(
+		'aegis-event'           => array('label' => __('Event', 'aegis')),
 		'aegis-header'          => array('label' => __('Header', 'aegis')),
 		'aegis-hero'            => array('label' => __('Hero', 'aegis')),
 		'aegis-about'           => array('label' => __('About', 'aegis')),
 		'aegis-query'           => array('label' => __('Blog', 'aegis')),
-		'aegis-event'           => array('label' => __('Event', 'aegis')),
 		'aegis-featured'        => array('label' => __('Featured', 'aegis')),
 		'aegis-team'            => array('label' => __('Team', 'aegis')),
 		'aegis-gallery'         => array('label' => __('Gallery', 'aegis')),
@@ -54,6 +54,8 @@ function aegis_register_block_patterns() {
 	}
 
 	$block_patterns = array(
+	'event-1',
+	'event-2',
 	'header/header-1',
 	'header/header-2',
 	'header/header-3',
@@ -87,8 +89,6 @@ function aegis_register_block_patterns() {
 	'query/query-7',
 	'query/query-8',
 	'query/query-9',
-	'event-1',
-	'event/event-2',
 	'featured/featured-1',
 	'team/team-1',
 	'team/team-2',
