@@ -14,6 +14,7 @@ function aegis_register_block_patterns() {
 	$block_pattern_categories = array(
 		'aegis-about'           => array('label' => __('About', 'aegis')),
 		'aegis-audio'           => array('label' => __('Audio', 'aegis')),
+		'aegis-contact'         => array('label' => __('Contact', 'aegis')),
 		'aegis-event'           => array('label' => __('Event', 'aegis')),
 		'aegis-header'          => array('label' => __('Header', 'aegis')),
 		'aegis-hero'            => array('label' => __('Hero', 'aegis')),
@@ -28,7 +29,6 @@ function aegis_register_block_patterns() {
 		'aegis-review'          => array('label' => __('Review', 'aegis')),
 		'aegis-video'           => array('label' => __('Video', 'aegis')),
 		'aegis-faq'             => array('label' => __('FAQ', 'aegis')),
-		'aegis-contact'         => array('label' => __('Contact', 'aegis')),
 		'aegis-footer'          => array('label' => __('Footer', 'aegis')),
 	);
 
@@ -63,6 +63,7 @@ function aegis_register_block_patterns() {
 	'audio-1',
 	'event-1',
 	'event-2',
+	'contact-1',
 	'header/header-1',
 	'header/header-2',
 	'header/header-3',
@@ -112,7 +113,6 @@ function aegis_register_block_patterns() {
 	'video/video-4',
 	'faq/faq-1',
 	'faq/faq-2',
-	'contact/contact-1',
 	'footer/footer-1',
 	'footer/footer-2',
 	'footer/footer-3',
