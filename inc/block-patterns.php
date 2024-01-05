@@ -23,7 +23,7 @@ function aegis_register_block_patterns() {
 		'aegis-featured'        => array('label' => __('Featured', 'aegis')),
 		'aegis-team'            => array('label' => __('Team', 'aegis')),
 		'aegis-gallery'         => array('label' => __('Gallery', 'aegis')),
-		'aegis-testimonial'     => array('label' => __('Testimonials', 'aegis')),
+		'aegis-testimonials'    => array('label' => __('Testimonials', 'aegis')),
 		'aegis-marketing'       => array('label' => __('Marketing', 'aegis')),
 		'aegis-pricing'         => array('label' => __('Pricing', 'aegis')),
 		'aegis-review'          => array('label' => __('Review', 'aegis')),
