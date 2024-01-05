@@ -87,7 +87,7 @@ function aegis_register_block_patterns() {
 	'query/query-7',
 	'query/query-8',
 	'query/query-9',
-	'event/event-1',
+	'event-1',
 	'event/event-2',
 	'featured/featured-1',
 	'team/team-1',
