@@ -38,9 +38,24 @@ Copyright 2018-2024 Thomas Jockin (https://thomasjockin.com/)
 License: SIL Open Font License, 1.1, https://opensource.org/licenses/OFL-1.1
 Source: https://github.com/googlefonts/lexend
 
-Used in theme block patterns:
+Audio used in theme block patterns:
+
+
+Video used in theme block patterns:
 
 Abstract Digital Animation Video by Rostislav Uzunov
 License: Public Domain
 Source: https://www.pexels.com/video/abstract-digital-animation-7670836/
 Included as a short video clip.
+
+
+Images used in theme block patterns:
+
+Illustrations used are created by Atmostfear Entertaiment and released under Creative Commons (CC0) License.
+
+/assets/images/thumb_800x800_dark.webp
+/assets/images/thumb_800x800_light.webp
+/assets/images/thumb_1200x1920_dark.webp
+/assets/images/thumb_1200x1920_light.webp
+/assets/images/thumb_1920x1200_dark.webp
+/assets/images/thumb_1920x1200_light.webp
