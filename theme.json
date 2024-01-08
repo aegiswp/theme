@@ -825,71 +825,71 @@
         "background": "var(--wp--preset--color--background)",
         "text": "var(--wp--preset--color--foreground)"
     },
-        "elements": {
-            "caption": {
-                "color": {
-                    "text": "var(--wp--preset--color--background)"
-                },
-                "spacing": {
-                    "margin": {
-                        "bottom": "0"
-                    }
-                },
-                "typography": {
-                    "fontSize": "var(--wp--preset--font-size--small)"
-                }
-            },
-            "heading": {
-                "spacing": {
-                    "margin": {
-                        "bottom": ".75em",
-                        "top": "1.25em"
-                    }
-                },
-                "typography": {
-                    "fontWeight": "700",
-                    "lineHeight": "var(--wp--custom--typography--line-height--headings)"
-                }
-            },
-            "h1": {
-                "typography": {
-                    "fontSize": "var(--wp--preset--font-size--heading-1)"
-                }
-            },
-            "h2": {
-                "typography": {
-                    "fontSize": "var(--wp--preset--font-size--heading-2)"
-                }
-            },
-            "h3": {
-                "typography": {
-                    "fontSize": "var(--wp--preset--font-size--heading-3)"
-                }
-            },
-            "h4": {
-                "typography": {
-                    "fontSize": "var(--wp--preset--font-size--heading-4)"
-                }
-            },
-            "h5": {
-                "typography": {
-                    "fontSize": "var(--wp--preset--font-size--heading-5)"
-                }
-            },
-            "h6": {
-                "typography": {
-                    "fontSize": "var(--wp--preset--font-size--heading-6)"
-                }
-            },
-            "link": {
-                "color": {
-                    "text": "var(--wp--preset--color--foreground)"
-                },
-                "typography": {
-                    "textDecoration": "none"
-                }
+    "elements": {
+        "caption": {
+        "color": {
+        "text": "var(--wp--preset--color--background)"
+        },
+            "spacing": {
+                "margin": {
+                "bottom": "0"
             }
         },
+        "typography": {
+            "fontSize": "var(--wp--preset--font-size--small)"
+        }
+    },
+    "heading": {
+        "spacing": {
+            "margin": {
+                "bottom": ".75em",
+                "top": "1.25em"
+            }
+        },
+        "typography": {
+            "fontWeight": "700",
+                "lineHeight": "var(--wp--custom--typography--line-height--headings)"
+            }
+        },
+    "h1": {
+        "typography": {
+                "fontSize": "var(--wp--preset--font-size--heading-1)"
+            }
+        },
+    "h2": {
+        "typography": {
+                "fontSize": "var(--wp--preset--font-size--heading-2)"
+            }
+        },
+    "h3": {
+        "typography": {
+                "fontSize": "var(--wp--preset--font-size--heading-3)"
+            }
+        },
+    "h4": {
+        "typography": {
+                "fontSize": "var(--wp--preset--font-size--heading-4)"
+            }
+        },
+    "h5": {
+        "typography": {
+                "fontSize": "var(--wp--preset--font-size--heading-5)"
+            }
+        },
+    "h6": {
+        "typography": {
+                "fontSize": "var(--wp--preset--font-size--heading-6)"
+            }
+        },
+    "link": {
+        "color": {
+                "text": "var(--wp--preset--color--foreground)"
+            },
+            "typography": {
+                "textDecoration": "none"
+            }
+        }
+    },
         "spacing": {
             "blockGap": "1.5rem",
             "padding": {
@@ -905,7 +905,8 @@
             "fontSize": "var(--wp--preset--font-size--medium)"
         }
     },
-    "templateParts": [{
+    "templateParts": [
+        {
             "name": "header",
             "title": "01. Header",
             "area": "header"
@@ -975,5 +976,12 @@
             "title": "04. Footer",
             "area": "footer"
         }
-    ]
+    ],
+    "customTemplates": [
+		{
+			"name": "page-no-title",
+			"title": "Page No Title",
+            "postTypes": ["page"]
+		}
+	]
 }
