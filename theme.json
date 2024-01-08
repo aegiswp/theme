@@ -512,14 +512,16 @@
             },
             "typography": {
                 "fontSize": "var(--wp--preset--font-size--small)",
-                "fontWeight": "500"
+				"fontStyle": "normal",
+				"fontWeight": "400",
+				"lineHeight": "1.6"
             },
             "spacing": {
                 "padding": {
-                    "bottom": "25px",
-                    "left": "25px",
-                    "right": "25px",
-                    "top": "25px"
+						"bottom": "calc(var(--wp--preset--spacing--30) + 0.75rem)",
+						"left": "calc(var(--wp--preset--spacing--30) + 0.75rem)",
+						"right": "calc(var(--wp--preset--spacing--30) + 0.75rem)",
+						"top": "calc(var(--wp--preset--spacing--30) + 0.75rem)"
                 }
             }
         },
