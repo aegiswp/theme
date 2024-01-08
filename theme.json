@@ -472,6 +472,11 @@
                 "text": "var(--wp--preset--color--background)"
             }
         },
+            "core/avatar": {
+				"border": {
+					"radius": "90px"
+			}
+		},
         "core/button": {
             "border": {
                 "radius": "0"
