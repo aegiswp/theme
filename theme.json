@@ -28,63 +28,63 @@
             "defaultDuotone": false,
 			"defaultPalette": false,
 			"defaultGradients": false,
-            "duotone": [
-                {
-                    "colors": ["#1c1c1e", "#e4e4e6"],
-                    "slug": "foreground-and-primary",
-                    "name": "Foreground and primary"
-                },
-                {
-                    "colors": ["#1c1c1e", "#f8f5ef"],
-                    "slug": "foreground-and-secondary",
-                    "name": "Foreground and secondary"
-                },
-                {
-                    "colors": ["#1c1c1e", "#929086"],
-                    "slug": "foreground-and-tertiary",
-                    "name": "Foreground and tertiary"
-                },
-                {
-                    "colors": ["#1c1c1e", "#0ed765"],
-                    "slug": "foreground-and-quaternary",
-                    "name": "Foreground and quaternary"
-                },
-                {
-                    "colors": ["#1c1c1e", "#69a5e6"],
-                    "slug": "foreground-and-quinary",
-                    "name": "Foreground and quinary"
-                },
-                {
-                    "colors": ["#1c1c1e", "#e7e4dc"],
-                    "slug": "foreground-and-senary",
-                    "name": "Foreground and senary"
-                },
-                {
-                    "colors": ["#1c1c1e", "#eeeeee"],
-                    "slug": "foreground-and-septenary",
-                    "name": "Foreground and septenary"
-                },
-                {
-                    "colors": ["#e4e4e6", "#f6f5f2"],
-                    "slug": "primary-and-background",
-                    "name": "Primary and background"
-                },
-                {
-                    "colors": ["#e4e4e6", "#f8f5ef"],
-                    "slug": "primary-and-secondary",
-                    "name": "Primary and secondary"
-                },
-                {
-                    "colors": ["#e4e4e6", "#929086"],
-                    "slug": "primary-and-tertiary",
-                    "name": "Primary and tertiary"
-                },
-                {
-                    "colors": ["#0ed765", "#69a5e6"],
-                    "slug": "quaternary-and-quinary",
-                    "name": "Quaternary and Quinary"
-                }
-            ],
+    "duotone": [
+        {
+            "colors": ["#1c1c1e", "#e4e4e6"],
+            "slug": "foreground-and-primary",
+            "name": "Foreground and primary"
+        },
+        {
+            "colors": ["#e4e4e6", "#f6f5f2"],
+            "slug": "primary-and-background",
+            "name": "Primary and background"
+        },
+        {
+            "colors": ["#e4e4e6", "#f8f5ef"],
+            "slug": "primary-and-secondary",
+            "name": "Primary and secondary"
+        },
+        {
+            "colors": ["#1c1c1e", "#f8f5ef"],
+            "slug": "foreground-and-secondary",
+            "name": "Foreground and secondary"
+        },
+        {
+            "colors": ["#e4e4e6", "#929086"],
+            "slug": "primary-and-tertiary",
+            "name": "Primary and tertiary"
+        },
+        {
+            "colors": ["#1c1c1e", "#929086"],
+            "slug": "foreground-and-tertiary",
+            "name": "Foreground and tertiary"
+        },
+        {
+            "colors": ["#1c1c1e", "#0ed765"],
+            "slug": "foreground-and-quaternary",
+            "name": "Foreground and quaternary"
+        },
+        {
+            "colors": ["#1c1c1e", "#69a5e6"],
+            "slug": "foreground-and-quinary",
+            "name": "Foreground and quinary"
+        },
+        {
+            "colors": ["#1c1c1e", "#e7e4dc"],
+            "slug": "foreground-and-senary",
+            "name": "Foreground and senary"
+        },
+        {
+            "colors": ["#1c1c1e", "#eeeeee"],
+            "slug": "foreground-and-septenary",
+            "name": "Foreground and septenary"
+        },
+        {
+            "colors": ["#0ed765", "#69a5e6"],
+            "slug": "quaternary-and-quinary",
+            "name": "Quaternary and Quinary"
+        }
+    ],
             "gradients": [
                 {
                     "slug": "vertical-background-to-foreground",
