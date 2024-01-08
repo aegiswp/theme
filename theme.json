@@ -474,7 +474,12 @@
         },
             "core/avatar": {
 				"border": {
-					"radius": "90px"
+					"radius": "50%"
+			}
+		},
+        	"core/buttons": {
+				"spacing": {
+					"blockGap": "0.7rem"
 			}
 		},
         "core/button": {
