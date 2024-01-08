@@ -67,7 +67,7 @@ function aegis_register_block_patterns() {
 	'ecommerce-1',
 	'ecommerce-2',
 	'faq-1',
-	'faq/faq-2',
+	'faq-2',
 	'header/header-1',
 	'header/header-2',
 	'header/header-3',
