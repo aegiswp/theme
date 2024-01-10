@@ -112,10 +112,10 @@ function aegis_register_block_patterns() {
 	'video/video-2',
 	'video/video-3',
 	'video/video-4',
-	'footer/footer-1',
-	'footer/footer-2',
-	'footer/footer-3',
-	'footer/footer-4',
+		'footer/footer-1',
+		'footer/footer-2',
+		'footer/footer-3',
+		'footer/footer-4',
 	'hidden/hidden-404',
 	);
 
