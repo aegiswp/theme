@@ -5,8 +5,8 @@
 return array(
     'title'      => __('01. Featured', 'aegis'),
     'description' => __('Featured Grid with Media, Headings, Paragraphs and Buttons', 'aegis'),
-    'categories' => array('aegis-featured'),
-    'content' => '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"foreground","textColor":"background","layout":{"type":"default"},"metadata":{"name":"' . esc_html__('01. Featurd Pattern', 'aegis') . '"}} -->
+    'categories' => array('aegis-feature'),
+    'content' => '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"foreground","textColor":"background","layout":{"type":"default"},"metadata":{"name":"' . esc_html__('01. Featured Pattern', 'aegis') . '"}} -->
 <div class="wp-block-group alignfull has-background-color has-foreground-background-color has-text-color has-background" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
     <!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":{"top":"0px","left":"0px"},"margin":{"top":"0px","bottom":"0px"}}}} -->
     <div class="wp-block-columns are-vertically-aligned-center" style="margin-top:0px;margin-bottom:0px">
