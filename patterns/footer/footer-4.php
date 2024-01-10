@@ -7,15 +7,14 @@ return array(
 	'description' => __( 'Footer', 'aegis' ),
 	'categories'  => array( 'aegis-footer' ),
 	'blockTypes' => array( 'core/template-part/footer' ),
-	'content' => '
-<!-- wp:group {"tagName":"footer","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"blockGap":"0","margin":{"top":"0","bottom":"0"}}},"backgroundColor":"secondary","layout":{"type":"default"}} -->
-<footer class="wp-block-group alignfull has-secondary-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--30)">
-	<!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
-	<div class="wp-block-group alignwide">
-		<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"var:preset|spacing|40"}}},"layout":{"type":"default"}} -->
-		<div class="wp-block-group" style="padding-bottom:var(--wp--preset--spacing--40)">
+	'content' => '<!-- wp:group {"tagName":"footer","metadata":{"name":"' . esc_html__('04. Footer Pattern', 'aegis') . '"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"blockGap":"0","margin":{"top":"0","bottom":"0"}}},"backgroundColor":"secondary","layout":{"type":"default"}} -->
+    <footer class="wp-block-group alignfull has-secondary-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--30)">
+	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"default"}} -->
+	<div class="wp-block-group alignwide" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
+		<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"var:preset|spacing|50","top":"var:preset|spacing|50"}}},"layout":{"type":"default"}} -->
+		<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
 			<!-- wp:heading {"textAlign":"center","level":4,"style":{"typography":{"fontStyle":"normal","fontWeight":"300"}},"fontSize":"gigantic"} -->
-			<h4 class="wp-block-heading has-text-align-center has-gigantic-font-size" style="font-style:normal;font-weight:300">' . esc_html__('[80 characters: Guide users to seek more information or assistance.]', 'aegis') . '</h4>
+			<h4 class="wp-block-heading has-text-align-center has-gigantic-font-size" style="font-style:normal;font-weight:300">' . esc_html__('[Heading (80 characters): Guide users to seek more information or assistance.]', 'aegis') . '</h4>
 			<!-- /wp:heading -->
 
 			<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
@@ -48,30 +47,23 @@ return array(
 		<hr class="wp-block-separator has-text-color has-senary-color has-alpha-channel-opacity has-senary-background-color has-background is-style-wide" />
 		<!-- /wp:separator -->
 
-		<!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":"0px","margin":{"top":"0px"},"padding":{"top":"var:preset|spacing|30"}}}} -->
-		<div class="wp-block-columns are-vertically-aligned-center" style="margin-top:0px;padding-top:var(--wp--preset--spacing--30)">
-			<!-- wp:column {"verticalAlignment":"center","width":"","fontSize":"small"} -->
-			<div class="wp-block-column is-vertically-aligned-center has-small-font-size">
-				<!-- wp:paragraph {"fontSize":"tiny"} -->
-				<p class="has-tiny-font-size">' . esc_html__('©', 'aegis') . ' ' . esc_html__('[Year]', 'aegis') . ' ' . esc_html__('[Company]', 'aegis') . '</p>
-				<!-- /wp:paragraph -->
-			</div>
-			<!-- /wp:column -->
+		<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"0","right":"0"}}},"layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"stretch","justifyContent":"space-between"}} -->
+		<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--30);padding-right:0;padding-bottom:var(--wp--preset--spacing--30);padding-left:0">
+			<!-- wp:paragraph {"fontSize":"tiny"} -->
+			<p class="has-tiny-font-size">' . esc_html__('© [Year] [Company]', 'aegis') . '</p>
+			<!-- /wp:paragraph -->
 
-			<!-- wp:column {"verticalAlignment":"center","width":""} -->
-			<div class="wp-block-column is-vertically-aligned-center">
-				<!-- wp:paragraph {"align":"right","fontSize":"tiny"} -->
-				<p class="has-text-align-right has-tiny-font-size"><a href="#">' . esc_html__('[Menu Item]', 'aegis') . '</a> · <a href="#">' . esc_html__('[Menu Item]', 'aegis') . '</a> · <a href="#">' . esc_html__('[Menu Item]', 'aegis') . '</a></p>
-				<!-- /wp:paragraph -->
-			</div>
-			<!-- /wp:column -->
+			<!-- wp:paragraph {"align":"right","fontSize":"tiny"} -->
+			<p class="has-text-align-right has-tiny-font-size"><a href="#">' . esc_html__('[Menu Item]', 'aegis') . '</a> · <a href="#">' . esc_html__('[Menu Item]', 'aegis') . '</a> · <a href="#">' . esc_html__('[Menu Item]', 'aegis') . '</a></p>
+			<!-- /wp:paragraph -->
 		</div>
-		<!-- /wp:columns -->
+		<!-- /wp:group -->
 
 		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"right","flexWrap":"nowrap"}} -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"backgroundColor":"foreground","textColor":"background","style":{"elements":{"link":{"color":{"text":"var:preset|color|background"}}}},"className":"scroll-to-top float-right is-style-outline"} -->
-			<div class="wp-block-button scroll-to-top float-right is-style-outline"><a class="wp-block-button__link has-background-color has-foreground-background-color has-text-color has-background has-link-color wp-element-button">' . esc_html__('↑', 'aegis') . '</a></div>
+			<div class="wp-block-button scroll-to-top float-right is-style-outline"><a class="wp-block-button__link has-background-color has-foreground-background-color has-text-color has-background has-link-color wp-element-button"><span class="dashicons dashicons-arrow-up-alt"></span></a>
+			</div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
