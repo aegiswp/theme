@@ -60,7 +60,7 @@ function aegis_register_block_patterns() {
 	'about/about-4',
 	'about/about-5',
 	'about/about-6',
-	'audio-1',
+	'audio/audio-1',
 	'event-1',
 	'event-2',
 	'contact-1',
