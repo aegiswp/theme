@@ -54,12 +54,12 @@ function aegis_register_block_patterns() {
 	}
 
 	$block_patterns = array(
-	'about-1',
-	'about-2',
-	'about-3',
-	'about-4',
-	'about-5',
-	'about-6',
+	'about/about-1',
+	'about/about-2',
+	'about/about-3',
+	'about/about-4',
+	'about/about-5',
+	'about/about-6',
 	'audio-1',
 	'event-1',
 	'event-2',
