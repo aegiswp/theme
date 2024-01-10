@@ -38,7 +38,7 @@ return array(
 				<!-- wp:group {"layout":{"type":"flex","allowOrientation":false,"justifyContent":"left"}} -->
 				<div class="wp-block-group">
 					<!-- wp:image {"width":"100px","height":"100px","scale":"cover","className":"is-style-rounded"} -->
-					<figure class="wp-block-image is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_120x120_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="object-fit:cover;width:100px;height:100px" /></figure>
+					<figure class="wp-block-image is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="object-fit:cover;width:100px;height:100px" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:paragraph {"fontSize":"small"} -->
@@ -78,7 +78,7 @@ return array(
 				<!-- wp:group {"layout":{"type":"flex","allowOrientation":false,"justifyContent":"left"}} -->
 				<div class="wp-block-group">
 					<!-- wp:image {"width":"100px","height":"100px","scale":"cover","className":"is-style-rounded"} -->
-					<figure class="wp-block-image is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_120x120_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="object-fit:cover;width:100px;height:100px" /></figure>
+					<figure class="wp-block-image is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="object-fit:cover;width:100px;height:100px" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:paragraph {"fontSize":"small"} -->
@@ -118,7 +118,7 @@ return array(
 				<!-- wp:group {"layout":{"type":"flex","allowOrientation":false,"justifyContent":"left"}} -->
 				<div class="wp-block-group">
 					<!-- wp:image {"width":"100px","height":"100px","scale":"cover","className":"is-style-rounded"} -->
-					<figure class="wp-block-image is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_120x120_light.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="object-fit:cover;width:100px;height:100px" /></figure>
+					<figure class="wp-block-image is-resized is-style-rounded"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_light.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="object-fit:cover;width:100px;height:100px" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:paragraph {"fontSize":"small"} -->

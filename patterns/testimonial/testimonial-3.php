@@ -5,7 +5,7 @@
 return array(
 	'title'	  => __( '03. Testimonials', 'aegis' ),
 	'description' => __( 'Block Pattern with Tagline, Headings, Paragraphs, Ratings and Images', 'aegis' ),
-	'categories' => array( 'aegis-testimonials' ),
+	'categories' => array( 'aegis-testimonial' ),
 	'content' => '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30","top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"margin":{"top":"0","bottom":"0"}}},"className":"is-style-default","layout":{"type":"constrained"},"metadata":{"name":"' . esc_html__('03. Testimonials Pattern', 'aegis') . '"}} -->
 <div class="wp-block-group alignfull is-style-default" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
 	<!-- wp:columns {"align":"wide"} -->

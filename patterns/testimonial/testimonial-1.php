@@ -34,7 +34,7 @@ return array(
 					<!-- /wp:paragraph -->
 
 					<!-- wp:image {"width":"100px","height":"100px","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"100px"}},"className":"is-style-aegis-shadow-image"} -->
-					<figure class="wp-block-image size-full is-resized has-custom-border is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_120x120_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="border-radius:100px;width:100px;height:100px" /></figure>
+					<figure class="wp-block-image size-full is-resized has-custom-border is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="border-radius:100px;width:100px;height:100px" /></figure>
 					<!-- /wp:image -->
 				</div>
 				<!-- /wp:group -->
@@ -66,7 +66,7 @@ return array(
 					<!-- /wp:paragraph -->
 
 					<!-- wp:image {"width":"100px","height":"100px","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"100px"}},"className":"is-style-aegis-shadow-image"} -->
-					<figure class="wp-block-image size-full is-resized has-custom-border is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_120x120_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="border-radius:100px;width:100px;height:100px" /></figure>
+					<figure class="wp-block-image size-full is-resized has-custom-border is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="border-radius:100px;width:100px;height:100px" /></figure>
 					<!-- /wp:image -->
 				</div>
 				<!-- /wp:group -->
@@ -98,7 +98,7 @@ return array(
 					<!-- /wp:paragraph -->
 
 					<!-- wp:image {"width":"100px","height":"100px","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"100px"}},"className":"is-style-aegis-shadow-image"} -->
-					<figure class="wp-block-image size-full is-resized has-custom-border is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_120x120_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="border-radius:100px;width:100px;height:100px" /></figure>
+					<figure class="wp-block-image size-full is-resized has-custom-border is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="border-radius:100px;width:100px;height:100px" /></figure>
 					<!-- /wp:image -->
 				</div>
 				<!-- /wp:group -->
