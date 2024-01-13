@@ -94,7 +94,7 @@
         {
             "slug": "vertical-foreground-to-background",
             "gradient": "linear-gradient(90deg,var(--wp--preset--color--foreground) 59%,var(--wp--preset--color--background) 59%)",
-            "name": "Vertical background to foreground"
+            "name": "Vertical foreground to background"
         },
         {
             "slug": "vertical-background-to-secondary",
