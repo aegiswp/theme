@@ -6,14 +6,14 @@ return array(
     'title'      => __('03. Media Gallery', 'aegis'),
     'description' => __('Mixed Video and Image Gallery with Tagline, Headings, and Paragraphs', 'aegis'),
     'categories' => array('aegis-gallery'),
-    'content' => '<!-- wp:group {"metadata":{"name":"' . esc_html__('02. Gallery Pattern', 'aegis') . '"},"align":"wide","style":{"spacing":{"blockGap":"0","margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"gradient":"vertical-secondary-to-background","layout":{"type":"default"}} -->
+    'content' => '<!-- wp:group {"metadata":{"name":"' . esc_html__('03. Gallery Pattern', 'aegis') . '"},"align":"wide","style":{"spacing":{"blockGap":"0","margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"gradient":"vertical-secondary-to-background","layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide has-vertical-secondary-to-background-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
     <!-- wp:columns {"verticalAlignment":"top","align":"wide","style":{"spacing":{"blockGap":{"top":"0"},"padding":{"top":"0","bottom":"0"}}}} -->
     <div class="wp-block-columns alignwide are-vertically-aligned-top" style="padding-top:0;padding-bottom:0">
         <!-- wp:column {"verticalAlignment":"top","width":"40%","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|30"}}}} -->
         <div class="wp-block-column is-vertically-aligned-top" style="padding-bottom:var(--wp--preset--spacing--30);flex-basis:40%">
-            <!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"className":"tagline","fontSize":"tiny"} -->
-            <p class="has-text-align-left tagline has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">[Tagline]</p>
+            <!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"className":"has-tagline","fontSize":"tiny"} -->
+            <p class="has-text-align-left has-tagline has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">[Tagline]</p>
             <!-- /wp:paragraph -->
 
             <!-- wp:heading {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"600"},"spacing":{"margin":{"top":"5px","bottom":"10px"}}},"fontSize":"gigantic"} -->
