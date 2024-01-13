@@ -87,6 +87,7 @@ function aegis_register_block_patterns() {
 	'gallery/gallery-3',
 	'gallery/gallery-4',
 	'gallery/gallery-5',
+	'gallery/gallery-6',
 	'header/header-1',
 	'header/header-2',
 	'header/header-3',
