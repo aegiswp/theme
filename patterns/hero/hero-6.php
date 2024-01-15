@@ -6,7 +6,7 @@ return array(
     'title'      => __('06. Hero', 'aegis'),
 	'description' => __('Full-screen hero with gradient background, left aligned heading, paragraph, call-to-action button, and right aligned video', 'aegis'),
     'categories' => array('aegis-hero'),
-    'content' => '<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"gradient":"vertical-background-to-foreground","className":"has-no-gradient-on-mobile","layout":{"type":"default"},"metadata":{"name":"' . esc_html__('05. Hero Pattern', 'aegis') . '"}} -->
+    'content' => '<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"gradient":"vertical-background-to-foreground","className":"has-no-gradient-on-mobile","layout":{"type":"default"},"metadata":{"name":"' . esc_html__('06. Hero Pattern', 'aegis') . '"}} -->
     <div class="wp-block-group alignwide has-no-gradient-on-mobile has-vertical-background-to-foreground-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
 	<!-- wp:columns {"align":"wide"} -->
 	<div class="wp-block-columns alignwide">
