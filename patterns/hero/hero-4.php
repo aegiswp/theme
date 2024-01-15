@@ -6,12 +6,12 @@ return array(
     'title'      => __('04. Hero', 'aegis'),
     'description' => __('Full-screen hero with cover background video, dark overlay, and light centered heading, paragraph, and a call-to-action button', 'aegis'),
     'categories' => array('aegis-hero'),
-    'content' => '<!-- wp:group {"align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"default"},"metadata":{"name":"04. Hero Pattern"}} -->
+    'content' => '<!-- wp:group {"align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"default"},"metadata":{"name":"' . esc_html__('04. Hero Pattern', 'aegis') . '"}} -->
     <div class="wp-block-group alignfull" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
-    <!-- wp:cover {"url":"' . esc_url(get_template_directory_uri()) . '/assets/video/aegis.mp4","dimRatio":70,"overlayColor":"foreground","backgroundType":"video","minHeight":100,"minHeightUnit":"vh","contentPosition":"center center","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50"},"margin":{"top":"0","bottom":"0"}},"color":[]}} -->
+    <!-- wp:cover {"url":"' . esc_url(get_template_directory_uri()) . '/assets/video/sample.mp4","dimRatio":70,"overlayColor":"foreground","backgroundType":"video","minHeight":100,"minHeightUnit":"vh","contentPosition":"center center","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50"},"margin":{"top":"0","bottom":"0"}},"color":[]}} -->
     <div class="wp-block-cover alignfull" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50);min-height:100vh">
         <span aria-hidden="true" class="wp-block-cover__background has-foreground-background-color has-background-dim-70 has-background-dim"></span>
-        <video class="wp-block-cover__video-background intrinsic-ignore" autoplay muted loop playsinline src="' . esc_url(get_template_directory_uri()) . '/assets/video//aegis.mp4" data-object-fit="cover"></video>
+        <video class="wp-block-cover__video-background intrinsic-ignore" autoplay muted loop playsinline src="' . esc_url(get_template_directory_uri()) . '/assets/video/sample.mp4" data-object-fit="cover"></video>
         <div class="wp-block-cover__inner-container">
             <!-- wp:group {"style":{"spacing":{"padding":{"right":"0","left":"0"}}},"layout":{"type":"constrained"}} -->
             <div class="wp-block-group" style="padding-right:0;padding-left:0">
