@@ -195,8 +195,8 @@ return array(
 					</div>
 					<!-- /wp:column -->
 
-					<!-- wp:column {"verticalAlignment":"top","width":"40%","style":{"spacing":{"padding":{"left":"var:preset|spacing|30","top":"0","right":"0","bottom":"var:preset|spacing|30"},"blockGap":"0"}},"className":"hide-on-mobile"} -->
-					<div class="wp-block-column is-vertically-aligned-top hide-on-mobile" style="padding-top:0;padding-right:0;padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30);flex-basis:40%">
+					<!-- wp:column {"verticalAlignment":"top","width":"40%","style":{"spacing":{"padding":{"left":"var:preset|spacing|30","top":"0","right":"0","bottom":"var:preset|spacing|30"},"blockGap":"0"}},"className":"is-hidden-on-mobile"} -->
+					<div class="wp-block-column is-vertically-aligned-top is-hidden-on-mobile" style="padding-top:0;padding-right:0;padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30);flex-basis:40%">
 						<!-- wp:heading {"level":4,"style":{"spacing":{"margin":{"bottom":"20px"}}}} -->
 						<h4 class="wp-block-heading" style="margin-bottom:20px">' . esc_html__('[Title (21 characters): Section focus.]', 'aegis') . '</h4>
 						<!-- /wp:heading -->
@@ -237,7 +237,7 @@ return array(
 
 					<!-- wp:column {"verticalAlignment":"center","width":"40%"} -->
 					<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:40%">
-						<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","openInNewTab":true,"size":"has-small-icon-size","style":{"spacing":{"blockGap":"20px","margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"right"}} -->
+						<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","openInNewTab":false,"size":"has-small-icon-size","style":{"spacing":{"blockGap":"20px","margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"right"}} -->
 						<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only"
 							style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30)">
 							<!-- wp:social-link {"url":"#","service":"facebook","label":"Facebook"} /-->
