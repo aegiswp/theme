@@ -253,9 +253,9 @@ return array(
 				<p class="has-tiny-font-size">' . esc_html__('© [Year] [Company]', 'aegis') . '</p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:site-title {"className":"hide-on-mobile","fontSize":"medium"} /-->
+				<!-- wp:site-title {"className":"is-hidden-on-mobile","fontSize":"medium"} /-->
 
-				<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","openInNewTab":true,"size":"has-small-icon-size","style":{"spacing":{"blockGap":"20px","margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"right"}} -->
+				<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","openInNewTab":false,"size":"has-small-icon-size","style":{"spacing":{"blockGap":"20px","margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"right"}} -->
 				<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30)">
 					<!-- wp:social-link {"url":"#","service":"facebook","label":"Facebook"} /-->
 
