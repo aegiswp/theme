@@ -28,8 +28,8 @@ return array(
 
         <!-- wp:column {"verticalAlignment":"center","width":"50%","style":{"spacing":{"padding":{"left":"var:preset|spacing|40","right":"var:preset|spacing|40","top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}}} -->
         <div class="wp-block-column is-vertically-aligned-center" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40);flex-basis:50%">
-            <!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"textColor":"background","className":"tagline","fontSize":"tiny"} -->
-            <p class="has-text-align-left tagline has-background-color has-text-color has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">' . esc_attr__('[Tagline]', 'aegis') . '</p>
+            <!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"textColor":"background","className":"is-tagline","fontSize":"tiny"} -->
+            <p class="has-text-align-left is-tagline has-background-color has-text-color has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">' . esc_attr__('[Tagline]', 'aegis') . '</p>
             <!-- /wp:paragraph -->
 
             <!-- wp:heading {"textAlign":"left","level":3,"style":{"spacing":{"margin":{"top":"0px","right":"0px","bottom":"var:preset|spacing|30","left":"0px"}}},"textColor":"background","fontSize":"huge"} -->
@@ -48,7 +48,7 @@ return array(
             <div class="wp-block-columns">
                 <!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
                 <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
-                    <!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","iconBackgroundColor":"background","iconBackgroundColorValue":"#f6f5f2","openInNewTab":true,"layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
+                    <!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","iconBackgroundColor":"background","iconBackgroundColorValue":"#f6f5f2","openInNewTab":false,"layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
                     <ul class="wp-block-social-links has-icon-color has-icon-background-color">
                         <!-- wp:social-link {"url":"#","service":"spotify","label":"Spotify"} /-->
 
