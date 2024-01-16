@@ -14,8 +14,8 @@ return array(
         <div class="wp-block-columns" style="margin-top:0;margin-bottom:0">
             <!-- wp:column {"verticalAlignment":"center","width":"33.33%"} -->
             <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:33.33%">
-                <!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"className":"tagline","fontSize":"tiny"} -->
-                <p class="has-text-align-left tagline has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">' . esc_html__('[Tagline]', 'aegis') . '</p>
+                <!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"className":"is-tagline","fontSize":"tiny"} -->
+                <p class="has-text-align-left is-tagline has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">' . esc_html__('[Tagline]', 'aegis') . '</p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}}} -->
@@ -26,8 +26,8 @@ return array(
                 <p style="margin-bottom:var(--wp--preset--spacing--30)">' . esc_html__('[Paragraph (45 characters): Express core values or motivations.]', 'aegis') . '</p>
                 <!-- /wp:paragraph -->
 
-                <!-- wp:image {"aspectRatio":"3/4","scale":"cover","className":"size-full is-style-aegis-effect-1-image hide-on-mobile"} -->
-                <figure class="wp-block-image size-full is-style-aegis-effect-1-image hide-on-mobile"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="aspect-ratio:3/4;object-fit:cover" /></figure>
+                <!-- wp:image {"aspectRatio":"3/4","scale":"cover","className":"size-full is-style-aegis-effect-1-image is-hidden-on-mobile"} -->
+                <figure class="wp-block-image size-full is-style-aegis-effect-1-image is-hidden-on-mobile"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="aspect-ratio:3/4;object-fit:cover" /></figure>
                 <!-- /wp:image -->
             </div>
             <!-- /wp:column -->
