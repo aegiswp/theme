@@ -6,7 +6,7 @@ return array(
     'title'      => __('06. Gallery', 'aegis'),
     'description' => __('Grid Gallery with Heading, Paragraph, and buttons', 'aegis'),
     'categories' => array('aegis-gallery'),
-    'content' => '<!-- wp:group {"metadata":{"name":"06. Gallery Pattern"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"gradient":"diagonal-secondary-to-background","layout":{"type":"default"}} -->
+    'content' => '<!-- wp:group {"metadata":{"name":"' . esc_html__('06. Gallery Pattern', 'aegis') . '"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"gradient":"diagonal-secondary-to-background","layout":{"type":"default"}} -->
     <div class="wp-block-group alignfull has-diagonal-secondary-to-background-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
     <!-- wp:columns {"verticalAlignment":"center","align":"wide","style":{"spacing":{"blockGap":"40px","padding":{"top":"0","bottom":"0","left":"0","right":"0"}}}} -->
     <div class="wp-block-columns alignwide are-vertically-aligned-center" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
