@@ -1,6 +1,6 @@
 <?php
 /**
- * 01. Video Gallery Block Pattern
+ * 01. Media Gallery Block Pattern
  */
 return array(
     'title'      => __('01. Video Gallery', 'aegis'),
@@ -10,8 +10,8 @@ return array(
     <div class="wp-block-group alignwide has-background-color has-foreground-background-color has-text-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
     <!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"},"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"default"}} -->
     <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--30);padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
-        <!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"className":"tagline","fontSize":"tiny"} -->
-        <p class="has-text-align-left tagline has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">' . esc_html__('[Tagline]', 'aegis') . '</p>
+        <!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"className":"is-tagline","fontSize":"tiny"} -->
+        <p class="has-text-align-left is-tagline has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">' . esc_html__('[Tagline]', 'aegis') . '</p>
         <!-- /wp:paragraph -->
 
         <!-- wp:heading {"level":4,"style":{"typography":{"fontStyle":"normal","fontWeight":"300"},"spacing":{"margin":{"top":"5px","bottom":"10px"}}},"fontSize":"gigantic"} -->
@@ -29,8 +29,8 @@ return array(
         style="margin-top:var(--wp--preset--spacing--40);margin-bottom:0;padding-top:0;padding-bottom:0">
         <!-- wp:column {"width":"50%"} -->
         <div class="wp-block-column" style="flex-basis:50%">
-            <!-- wp:video {"className":"wp-has-aspect-ratio"} -->
-            <figure class="wp-block-video wp-has-aspect-ratio"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_light.webp" preload="auto" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video></figure>
+            <!-- wp:video -->
+            <figure class="wp-block-video"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_light.webp" preload="auto" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video></figure>
             <!-- /wp:video -->
 
             <!-- wp:heading {"level":4,"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"0"}},"typography":{"fontStyle":"normal","fontWeight":"300"}},"fontSize":"large"} -->
@@ -45,8 +45,8 @@ return array(
 
         <!-- wp:column {"width":"50%"} -->
         <div class="wp-block-column" style="flex-basis:50%">
-            <!-- wp:video {"className":"wp-has-aspect-ratio"} -->
-           <figure class="wp-block-video wp-has-aspect-ratio"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_light.webp" preload="auto" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video></figure>
+            <!-- wp:video -->
+           <figure class="wp-block-video"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_light.webp" preload="auto" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video></figure>
             <!-- /wp:video -->
 
             <!-- wp:heading {"level":4,"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"0"}},"typography":{"fontStyle":"normal","fontWeight":"300"}},"fontSize":"large"} -->
@@ -65,8 +65,8 @@ return array(
     <div class="wp-block-columns alignwide" style="margin-top:var(--wp--preset--spacing--40);margin-bottom:0;padding-top:0;padding-bottom:0">
         <!-- wp:column {"width":"50%"} -->
         <div class="wp-block-column" style="flex-basis:50%">
-            <!-- wp:video {"className":"wp-has-aspect-ratio"} -->
-            <figure class="wp-block-video wp-has-aspect-ratio"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_light.webp" preload="auto" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video></figure>
+            <!-- wp:video -->
+            <figure class="wp-block-video"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_light.webp" preload="auto" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video></figure>
             <!-- /wp:video -->
 
             <!-- wp:heading {"level":4,"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"0"}},"typography":{"fontStyle":"normal","fontWeight":"300"}},"fontSize":"large"} -->
@@ -81,8 +81,8 @@ return array(
 
         <!-- wp:column {"width":"50%"} -->
         <div class="wp-block-column" style="flex-basis:50%">
-            <!-- wp:video {"className":"wp-has-aspect-ratio"} -->
-            <figure class="wp-block-video wp-has-aspect-ratio"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_light.webp" preload="auto" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video></figure>
+            <!-- wp:video -->
+            <figure class="wp-block-video"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_light.webp" preload="auto" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video></figure>
             <!-- /wp:video -->
 
             <!-- wp:heading {"level":4,"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"0"}},"typography":{"fontStyle":"normal","fontWeight":"300"}},"fontSize":"large"} -->
