@@ -26,7 +26,7 @@ return array(
                     <h1 class="wp-block-heading has-text-align-center" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:6rem;font-style:normal;font-weight:600;text-transform:uppercase">' . esc_html__('[Podcast]', 'aegis') . '</h1>
                     <!-- /wp:heading -->
 
-                    <!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","iconBackgroundColor":"background","iconBackgroundColorValue":"#f6f5f2","openInNewTab":true,"showLabels":true,"layout":{"type":"flex","justifyContent":"center","orientation":"horizontal"}} -->
+                    <!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","iconBackgroundColor":"background","iconBackgroundColorValue":"#f6f5f2","openInNewTab":false,"showLabels":true,"layout":{"type":"flex","justifyContent":"center","orientation":"horizontal"}} -->
                     <ul class="wp-block-social-links has-visible-labels has-icon-color has-icon-background-color">
                         <!-- wp:social-link {"url":"#","service":"spotify","label":"Spotify"} /-->
 
