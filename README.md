@@ -91,6 +91,9 @@ Under the hood, the Global styles functionality is driven by a configuration fil
 
 By leveraging the `theme.json` file, you can achieve a uniform aesthetic across your website while also providing avenues for customization to meet particular needs or branding objectives. The ultimate outcome is a website that not only exudes a professional design but is also amenable to customization by you or your clients to suit specific requirements.
 
+| Base Color | Code Reference |
+| [#FDFDFC](https://via.placeholder.com/15/#FDFDFC/000000?text=+) | `#f03c15` |
+
 ### Template Parts
 
 Template parts in WordPress serve as reusable sections of your website that can be applied across multiple pages or templates. They operate similarly to reusable blocks but function at the template level, making them ideal for elements like headers, footers, or sidebars—components that usually remain constant across most or all pages on your site.
