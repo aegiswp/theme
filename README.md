@@ -95,7 +95,8 @@ By leveraging the `theme.json` file, you can achieve a uniform aesthetic across 
 
 | Figma Token | CSS Variable | Color | Name | Slug | Visual |
 | --------------- | --------------- | --------------- | --------------------- | --------------------- | --------------------- |
-| N/A | N/A | `#fdfdfc` | Background | N/A | ![jpg](https://github.com/atmostfear-entertainment/aegis/assets/34287288/bc2498ad-5d2a-47a0-bd48-892178779314) |
+| N/A | --wp--preset--color--background | `#fdfdfc` | Background | background | ![jpg](https://github.com/atmostfear-entertainment/aegis/assets/34287288/bc2498ad-5d2a-47a0-bd48-892178779314) |
+| N/A | --wp--preset--color--foreground | `#000401` | Foreground | foreground | ![jpg](https://github.com/atmostfear-entertainment/aegis/assets/34287288/cc4f2cf5-96c0-40ee-92c5-5e0b6010c97e) |
 
 
 ### Template Parts
