@@ -91,8 +91,12 @@ Under the hood, the Global styles functionality is driven by a configuration fil
 
 By leveraging the `theme.json` file, you can achieve a uniform aesthetic across your website while also providing avenues for customization to meet particular needs or branding objectives. The ultimate outcome is a website that not only exudes a professional design but is also amenable to customization by you or your clients to suit specific requirements.
 
-<table><tr><td><img src="https://placehold.co/00/FDFDFC/FDFDFC/webp" width="50" height="50" alt="Background"/></td><td><b>Background</b></td><td>
-</table>
+# Token Cheat-sheet
+
+| Figma Token | CSS Variable | Color | Name | Slug | Visual |
+| --------------- | --------------- | --------------- | --------------------- | --------------------- | --------------------- |
+| N/A | N/A | `#fdfdfc` | Background | N/A | ![jpg](https://github.com/atmostfear-entertainment/aegis/assets/34287288/bc2498ad-5d2a-47a0-bd48-892178779314) |
+
 
 ### Template Parts
 
