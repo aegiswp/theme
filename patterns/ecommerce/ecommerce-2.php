@@ -7,7 +7,7 @@ return array(
 	'description' => __('Block Pattern with Columns, Images, Rating, Pricing, Headings, Paragraphs, and Buttons', 'aegis' ),
     'categories' => array( 'aegis-ecommerce' ),
 	'content'	=> '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"secondary","layout":{"type":"constrained"},"metadata":{"name":"' . esc_html__('02. eCommerce Pattern', 'aegis') . '"}} -->
-<div class="wp-block-group alignfull has-secondary-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
+    <div class="wp-block-group alignfull has-secondary-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
 	<!-- wp:columns {"align":"wide"} -->
 	<div class="wp-block-columns alignwide">
 		<!-- wp:column {"backgroundColor":"background"} -->
@@ -21,7 +21,13 @@ return array(
 				<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
 				<div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
 					<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"2px"}},"fontSize":"tiny"} -->
-					<p class="has-tiny-font-size" style="letter-spacing:2px">' . esc_html__('★★★★★', 'aegis') . '</p>
+					<p class="has-tiny-font-size" style="letter-spacing:2px">
+                    <span class="dashicons dashicons-star-filled"></span>
+                    <span class="dashicons dashicons-star-filled"></span>
+                    <span class="dashicons dashicons-star-filled"></span>
+                    <span class="dashicons dashicons-star-half"></span>
+                    <span class="dashicons dashicons-star-empty"></span>					
+					</p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:paragraph -->
@@ -61,7 +67,13 @@ return array(
 				<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
 				<div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
 					<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"2px"}},"fontSize":"tiny"} -->
-					<p class="has-tiny-font-size" style="letter-spacing:2px">' . esc_html__('★★★★★', 'aegis') . '</p>
+					<p class="has-tiny-font-size" style="letter-spacing:2px">
+                    <span class="dashicons dashicons-star-filled"></span>
+                    <span class="dashicons dashicons-star-filled"></span>
+                    <span class="dashicons dashicons-star-filled"></span>
+                    <span class="dashicons dashicons-star-half"></span>
+                    <span class="dashicons dashicons-star-empty"></span>					
+					</p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:paragraph -->
@@ -101,7 +113,13 @@ return array(
 				<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
 				<div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
 					<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"2px"}},"fontSize":"tiny"} -->
-					<p class="has-tiny-font-size" style="letter-spacing:2px">' . esc_html__('★★★★★', 'aegis') . '</p>
+					<p class="has-tiny-font-size" style="letter-spacing:2px">
+                    <span class="dashicons dashicons-star-filled"></span>
+                    <span class="dashicons dashicons-star-filled"></span>
+                    <span class="dashicons dashicons-star-filled"></span>
+                    <span class="dashicons dashicons-star-half"></span>
+                    <span class="dashicons dashicons-star-empty"></span>					
+					</p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:paragraph -->
