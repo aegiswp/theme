@@ -7,7 +7,7 @@ return array(
 	'description' => __( 'Block Pattern with Heading, Paragraph, and Form Placeholder', 'aegis' ),
 	'categories'  => array( 'aegis-contact' ),
 	'content' => '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"gradient":"diagonal-secondary-to-foreground","layout":{"type":"default"},"metadata":{"name":"' . esc_html__('01. Contact Pattern', 'aegis') . '"}} -->
-<div class="wp-block-group alignfull has-diagonal-secondary-to-foreground-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
+    <div class="wp-block-group alignfull has-diagonal-secondary-to-foreground-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
 	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}},"className":"left-bottom"} -->
 	<div class="wp-block-group alignwide left-bottom" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
 		<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"7%","right":"7%"}}},"backgroundColor":"secondary"} -->
