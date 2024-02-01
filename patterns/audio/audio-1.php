@@ -7,7 +7,7 @@ return array(
     'description' => __('Block Pattern with Image, Tagline, Heading, Paragraph, Social Icons, Button and Audio Player', 'aegis'),
     'categories' => array('aegis-audio'),
     'content' => '<!-- wp:group {"align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"gradient":"vertical-foreground-to-background","layout":{"type":"default"},"metadata":{"name":"' . esc_html__('01. Audio Pattern', 'aegis') . '"}} -->
-<div class="wp-block-group alignfull has-vertical-foreground-to-background-gradient-background has-background" style="margin-top:0;margin-bottom:0">
+    <div class="wp-block-group alignfull has-vertical-foreground-to-background-gradient-background has-background" style="margin-top:0;margin-bottom:0">
     <!-- wp:columns {"style":{"spacing":{"blockGap":{"top":"0px","left":"0px"},"padding":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}},"backgroundColor":"foreground"} -->
     <div class="wp-block-columns has-foreground-background-color has-background" style="padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px">
         <!-- wp:column {"width":"50%"} -->
@@ -51,11 +51,8 @@ return array(
                     <!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","iconBackgroundColor":"background","iconBackgroundColorValue":"#f6f5f2","openInNewTab":false,"layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
                     <ul class="wp-block-social-links has-icon-color has-icon-background-color">
                         <!-- wp:social-link {"url":"#","service":"spotify","label":"Spotify"} /-->
-
                         <!-- wp:social-link {"url":"#","service":"youtube","label":"YouTube"} /-->
-
                         <!-- wp:social-link {"url":"#","service":"soundcloud","label":"SoundCloud"} /-->
-
                         <!-- wp:social-link {"url":"#","service":"feed","label":"RSS Feed"} /-->
                     </ul>
                     <!-- /wp:social-links -->
