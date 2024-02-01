@@ -7,7 +7,7 @@ return array(
     'description' => __('Block Pattern with Video, Heading, Date, Paragraph, Button, and Social Icons', 'aegis'),
     'categories' => array('aegis-event'),
     'content' => '<!-- wp:group {"align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"gradient":"diagonal-secondary-to-background","layout":{"type":"constrained"},"metadata":{"name":"' . esc_html__('01. Event Pattern', 'aegis') . '"}} -->
-<div class="wp-block-group alignfull has-diagonal-secondary-to-background-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+    <div class="wp-block-group alignfull has-diagonal-secondary-to-background-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
     <!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|40"},"padding":{"bottom":"0","top":"0"}}},"layout":{"type":"constrained"}} -->
     <div class="wp-block-group alignwide" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--40);padding-top:0;padding-bottom:0">
         <!-- wp:heading {"textAlign":"center","level":3,"align":"wide","style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"huge"} -->
@@ -77,11 +77,8 @@ return array(
         <!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","openInNewTab":false,"size":"has-small-icon-size","style":{"spacing":{"blockGap":"20px","margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"center"}} -->
         <ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30)">
             <!-- wp:social-link {"url":"#","service":"facebook","label":"Facebook"} /-->
-
             <!-- wp:social-link {"url":"#","service":"meetup","label":"Meetup"} /-->
-
             <!-- wp:social-link {"url":"#","service":"patreon","label":"Patreon"} /-->
-
             <!-- wp:social-link {"url":"#","service":"google","label":"Google"} /-->
         </ul>
         <!-- /wp:social-links -->
