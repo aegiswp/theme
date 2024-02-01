@@ -13,7 +13,7 @@ return array(
         <!-- wp:column {"verticalAlignment":"top","width":"33.33%","style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"className":"is-style-default"} -->
         <div class="wp-block-column is-vertically-aligned-top is-style-default" style="padding-top:0;padding-bottom:0;flex-basis:33.33%">
             <!-- wp:image {"lightbox":{"enabled":true},"aspectRatio":"3/4","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-shadow-image"} -->
-            <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark-1.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" style="aspect-ratio:3/4;object-fit:cover" /></figure>
+            <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" style="aspect-ratio:3/4;object-fit:cover" /></figure>
             <!-- /wp:image -->
         </div>
         <!-- /wp:column -->
