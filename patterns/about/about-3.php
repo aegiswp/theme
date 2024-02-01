@@ -7,7 +7,7 @@ return array(
 	'description' => __( 'Block Pattern with Tagline, Headings, Paragraphs, Medias, and Button', 'aegis' ),
 	'categories' => array( 'aegis-about' ),
 	'content' => '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"var:preset|spacing|30","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"gradient":"vertical-secondary-to-background","layout":{"type":"constrained"},"metadata":{"name":"' . esc_html__('03. About Pattern', 'aegis') . '"}} -->
-<div class="wp-block-group alignfull has-vertical-secondary-to-background-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
+    <div class="wp-block-group alignfull has-vertical-secondary-to-background-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
 	<!-- wp:columns {"align":"wide"} -->
 	<div class="wp-block-columns alignwide">
 		<!-- wp:column {"verticalAlignment":"center","width":"43.33%","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"var:preset|spacing|40"}}}} -->
