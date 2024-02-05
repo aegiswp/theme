@@ -71,6 +71,7 @@ function aegis_register_block_patterns() {
 	'query/query-7',
 	'query/query-8',
 	'query/query-9',
+	'query/query-10',
 	'contact/contact-1',
 	'ecommerce/ecommerce-1',
 	'ecommerce/ecommerce-2',
