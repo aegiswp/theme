@@ -1,9 +1,9 @@
 <?php
 /**
- * 09. Blog Posts Grid Block Pattern
+ * 09. Blog Block Pattern
  */
 return array(
-    'title'      => __('09. Blog Posts Grid', 'aegis'),
+    'title'      => __('09. Blog Pattern', 'aegis'),
     'description' => __('Blog Posts Grid', 'aegis'),
     'categories' => array('aegis-query'),
     'content' => '<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"},"metadata":{"name":"' . esc_html__('09. Blog Pattern', 'aegis') . '"}} -->
