@@ -6,10 +6,12 @@ return array(
     'title'      => __('05. Gallery', 'aegis'),
     'description' => __('Full width Image Gallery', 'aegis'),
     'categories' => array('aegis-gallery'),
-    'content' => '<!-- wp:group {"metadata":{"name":"' . esc_html__('05. Gallery Pattern', 'aegis') . '"},"backgroundColor":"foreground","layout":{"type":"constrained"}} -->
-    <div class="wp-block-group has-foreground-background-color has-background">
+    'content' => '<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"backgroundColor":"foreground","layout":{"type":"constrained"},"metadata":{"name":"' . esc_html__('05. Gallery Pattern', 'aegis') . '"}} -->
+    <div class="wp-block-group has-foreground-background-color has-background"
+    style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
     <!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"blockGap":"0","margin":{"bottom":"var:preset|spacing|30"}},"elements":{"link":{"color":{"text":"var:preset|color|background"}}}},"textColor":"background","layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
-    <div class="wp-block-group has-background-color has-text-color has-link-color" style="margin-bottom:var(--wp--preset--spacing--30);padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
+    <div class="wp-block-group has-background-color has-text-color has-link-color"
+        style="margin-bottom:var(--wp--preset--spacing--30);padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
         <!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"className":"is-tagline","fontSize":"tiny"} -->
         <p class="has-text-align-left is-tagline has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">' . esc_html__('Gallery', 'aegis') . '</p>
         <!-- /wp:paragraph -->
