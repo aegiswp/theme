@@ -6,8 +6,9 @@ return array(
     'title'      => __('03. Gallery', 'aegis'),
     'description' => __('Mixed Video and Image Gallery with Tagline, Headings, and Paragraphs', 'aegis'),
     'categories' => array('aegis-gallery'),
-    'content' => '<!-- wp:group {"metadata":{"name":"' . esc_html__('03. Gallery Pattern', 'aegis') . '"},"gradient":"vertical-secondary-to-background","layout":{"type":"constrained"}} -->
-    <div class="wp-block-group has-vertical-secondary-to-background-gradient-background has-background">
+    'content' => '<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"gradient":"vertical-secondary-to-background","layout":{"type":"constrained"},"metadata":{"name":"' . esc_html__('03. Gallery Pattern', 'aegis') . '"}} -->
+    <div class="wp-block-group has-vertical-secondary-to-background-gradient-background has-background"
+    style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
     <!-- wp:columns {"verticalAlignment":"top","align":"wide","style":{"spacing":{"blockGap":{"top":"0"},"padding":{"top":"0","bottom":"0"}}}} -->
     <div class="wp-block-columns alignwide are-vertically-aligned-top" style="padding-top:0;padding-bottom:0">
         <!-- wp:column {"verticalAlignment":"top","width":"40%","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|30"}}}} -->
@@ -15,11 +16,11 @@ return array(
             <!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"blockGap":"0","margin":{"bottom":"var:preset|spacing|30"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
             <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--30);padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
                 <!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"className":"is-tagline","fontSize":"tiny"} -->
-                <p class="has-text-align-left is-tagline has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">' . esc_html__('Gallery', 'aegis') . '</p>
+                <p class="has-text-align-left is-tagline has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">' . esc_attr__('Gallery', 'aegis') . '</p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:heading {"style":{"typography":{"fontSize":"6rem","textTransform":"uppercase"},"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
-                <h2 class="wp-block-heading" style="margin-top:0;margin-bottom:0;font-size:6rem;text-transform:uppercase">' . esc_html__('Videos', 'aegis') . '</h2>
+                <h2 class="wp-block-heading" style="margin-top:0;margin-bottom:0;font-size:6rem;text-transform:uppercase">Videos</h2>
                 <!-- /wp:heading -->
 
                 <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0"}}}} -->
@@ -66,8 +67,8 @@ return array(
 
             <!-- wp:columns -->
             <div class="wp-block-columns">
-                <!-- wp:column {"verticalAlignment":"center","backgroundColor":"senary","className":"is-style-default"} -->
-                <div class="wp-block-column is-vertically-aligned-center is-style-default has-senary-background-color has-background">
+                <!-- wp:column {"verticalAlignment":"center","backgroundColor":"secondary","className":"is-style-default"} -->
+                <div class="wp-block-column is-vertically-aligned-center is-style-default has-secondary-background-color has-background">
                     <!-- wp:video -->
                     <figure class="wp-block-video"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_dark.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video></figure>
                     <!-- /wp:video -->
