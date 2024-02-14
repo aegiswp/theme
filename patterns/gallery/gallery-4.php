@@ -6,8 +6,8 @@ return array(
     'title'      => __('04. Gallery', 'aegis'),
     'description' => __('Video Gallery with Headings, Pagrapraphs, highlighted Video, and four-column smaller Videos', 'aegis'),
     'categories' => array('aegis-gallery'),
-    'content' => '<!-- wp:group {"metadata":{"name":"' . esc_html__('04. Gallery Pattern', 'aegis') . '"},"gradient":"vertical-secondary-to-background","layout":{"type":"constrained"}} -->
-    <div class="wp-block-group has-vertical-secondary-to-background-gradient-background has-background">
+    'content' => '<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"},"metadata":{"name":"' . esc_html__('04. Gallery Pattern', 'aegis') . '"}} -->
+    <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
     <!-- wp:columns {"align":"wide","style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}}} -->
     <div class="wp-block-columns alignwide" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30)">
         <!-- wp:column {"width":"50%","className":"is-hidden-on-mobile"} -->
@@ -55,7 +55,8 @@ return array(
             <!-- wp:columns -->
             <div class="wp-block-columns">
                 <!-- wp:column {"verticalAlignment":"center","backgroundColor":"foreground","textColor":"background","className":"is-style-default"} -->
-                <div class="wp-block-column is-vertically-aligned-center is-style-default has-background-color has-foreground-background-color has-text-color has-background">
+                <div
+                    class="wp-block-column is-vertically-aligned-center is-style-default has-background-color has-foreground-background-color has-text-color has-background">
                     <!-- wp:video -->
                     <figure class="wp-block-video"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_dark.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video></figure>
                     <!-- /wp:video -->
@@ -67,7 +68,7 @@ return array(
                         <!-- /wp:heading -->
 
                         <!-- wp:paragraph {"fontSize":"small"} -->
-                        <p class="has-small-font-size">' . esc_html__('Description (333 characters): Provide details about the videos, including themes, or special highlights.', 'aegis') . '</p>
+                        <p class="has-small-font-size">' . esc_html__('Description (65 characters): Provide a brief synopsis of the video.', 'aegis') . '</p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
@@ -94,8 +95,9 @@ return array(
                 </div>
                 <!-- /wp:column -->
 
-                <!-- wp:column {"verticalAlignment":"center","backgroundColor":"senary","className":"is-style-default"} -->
-                <div class="wp-block-column is-vertically-aligned-center is-style-default has-senary-background-color has-background">
+                <!-- wp:column {"verticalAlignment":"center","backgroundColor":"tertiary","className":"is-style-default"} -->
+                <div
+                    class="wp-block-column is-vertically-aligned-center is-style-default has-tertiary-background-color has-background">
                     <!-- wp:video -->
                     <figure class="wp-block-video"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_dark.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video></figure>
                     <!-- /wp:video -->
@@ -114,8 +116,8 @@ return array(
                 </div>
                 <!-- /wp:column -->
 
-                <!-- wp:column {"verticalAlignment":"center","backgroundColor":"senary","className":"is-style-default"} -->
-                <div class="wp-block-column is-vertically-aligned-center is-style-default has-senary-background-color has-background">
+                <!-- wp:column {"verticalAlignment":"center","backgroundColor":"tertiary","className":"is-style-default"} -->
+                <div class="wp-block-column is-vertically-aligned-center is-style-default has-tertiary-background-color has-background">
                     <!-- wp:video -->
                     <figure class="wp-block-video"><video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_dark.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video></figure>
                     <!-- /wp:video -->
