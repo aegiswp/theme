@@ -6,16 +6,16 @@ return array(
     'title'      => __('02. Gallery', 'aegis'),
     'description' => __('Video Gallery with Tagline, Headings, Paragraphs, and three Columns', 'aegis'),
     'categories' => array('aegis-gallery'),
-    'content' => '<!-- wp:group {"metadata":{"name":"' . esc_html__('02. Gallery Pattern', 'aegis') . '"},"style":{"elements":{"link":{"color":{"text":"var:preset|color|background"}}}},"backgroundColor":"foreground","textColor":"background","layout":{"type":"default"}} -->
-    <div class="wp-block-group has-background-color has-foreground-background-color has-text-color has-background has-link-color">
-    <!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"blockGap":"0","margin":{"bottom":"var:preset|spacing|30"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
-    <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--30);padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
+    'content' => '<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}},"elements":{"link":{"color":{"text":"var:preset|color|background"}}}},"backgroundColor":"foreground","textColor":"background","layout":{"type":"constrained"},"metadata":{"name":"' . esc_html__('02. Gallery Pattern', 'aegis') . '"}} -->
+    <div class="wp-block-group has-background-color has-foreground-background-color has-text-color has-background has-link-color" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
+    <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"blockGap":"0","margin":{"bottom":"var:preset|spacing|30"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
+    <div class="wp-block-group alignwide" style="margin-bottom:var(--wp--preset--spacing--30);padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
         <!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"className":"is-tagline","fontSize":"tiny"} -->
-        <p class="has-text-align-left is-tagline has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">' . esc_html__('Gallery', 'aegis') . '</p>
+        <p class="has-text-align-left is-tagline has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">' . esc_attr__('Gallery', 'aegis') . '</p>
         <!-- /wp:paragraph -->
 
         <!-- wp:heading {"style":{"spacing":{"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}},"typography":{"fontSize":"6rem","textTransform":"uppercase"}}} -->
-        <h2 class="wp-block-heading" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;font-size:6rem;text-transform:uppercase">' . esc_html__('Videos', 'aegis') . '</h2>
+        <h2 class="wp-block-heading" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;font-size:6rem;text-transform:uppercase">' . esc_attr__('Videos', 'aegis') . '</h2>
         <!-- /wp:heading -->
 
         <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0"}}}} -->
@@ -24,8 +24,8 @@ return array(
     </div>
     <!-- /wp:group -->
 
-    <!-- wp:columns -->
-    <div class="wp-block-columns">
+    <!-- wp:columns {"align":"wide"} -->
+    <div class="wp-block-columns alignwide">
         <!-- wp:column -->
         <div class="wp-block-column">
             <!-- wp:video {"className":"is-style-aegis-shadow"} -->
@@ -88,8 +88,8 @@ return array(
     </div>
     <!-- /wp:columns -->
 
-    <!-- wp:columns -->
-    <div class="wp-block-columns">
+    <!-- wp:columns {"align":"wide"} -->
+    <div class="wp-block-columns alignwide">
         <!-- wp:column -->
         <div class="wp-block-column">
             <!-- wp:video {"className":"is-style-aegis-shadow"} -->
@@ -103,7 +103,8 @@ return array(
                 <!-- /wp:heading -->
 
                 <!-- wp:paragraph -->
-                <p>' . esc_html__('Description (65 characters): Provide a brief synopsis of the video.', 'aegis') . '</p>
+                <p>' . esc_html__('Description (65 characters): Provide a brief synopsis of the video.', 'aegis') . '
+                </p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->
@@ -117,13 +118,15 @@ return array(
             <!-- /wp:video -->
 
             <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"},"blockGap":"0"}},"layout":{"type":"flex","orientation":"vertical"}} -->
-            <div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:0;padding-bottom:var(--wp--preset--spacing--30);padding-left:0">
+            <div class="wp-block-group"
+                style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:0;padding-bottom:var(--wp--preset--spacing--30);padding-left:0">
                 <!-- wp:heading {"level":3} -->
                 <h3 class="wp-block-heading">' . esc_html__('Video Title', 'aegis') . '</h3>
                 <!-- /wp:heading -->
 
                 <!-- wp:paragraph -->
-                <p>' . esc_html__('Description (65 characters): Provide a brief synopsis of the video.', 'aegis') . '</p>
+                <p>' . esc_html__('Description (65 characters): Provide a brief synopsis of the video.', 'aegis') . '
+                </p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->
