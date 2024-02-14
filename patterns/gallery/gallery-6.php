@@ -6,8 +6,8 @@ return array(
     'title'      => __('06. Gallery', 'aegis'),
     'description' => __('Grid Gallery with Tagline, Heading, and Paragraph', 'aegis'),
     'categories' => array('aegis-gallery'),
-    'content' => '<!-- wp:group {"metadata":{"name":"06. Gallery Pattern"},"gradient":"diagonal-secondary-to-background","layout":{"type":"constrained"}} -->
-    <div class="wp-block-group has-diagonal-secondary-to-background-gradient-background has-background">
+    'content' => '<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"gradient":"diagonal-secondary-to-background","layout":{"type":"constrained"},"metadata":{"name":"' . esc_html__('06. Gallery Pattern', 'aegis') . '"}} -->
+    <div class="wp-block-group has-diagonal-secondary-to-background-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
     <!-- wp:columns {"verticalAlignment":"center","align":"wide","style":{"spacing":{"blockGap":"40px","padding":{"top":"0","bottom":"0","left":"0","right":"0"}}}} -->
     <div class="wp-block-columns alignwide are-vertically-aligned-center" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
         <!-- wp:column {"verticalAlignment":"center","width":"40%"} -->
