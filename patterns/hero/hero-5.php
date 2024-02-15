@@ -37,7 +37,7 @@ return array(
                 <!-- wp:column -->
                 <div class="wp-block-column">
                     <!-- wp:image {"aspectRatio":"9/16","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-aegis-effect-3-image"} -->
-                    <figure class="wp-block-image size-large is-style-aegis-effect-3-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_dark.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" style="aspect-ratio:9/16;object-fit:cover" /></figure>
+                    <figure class="wp-block-image size-large is-style-aegis-effect-3-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" style="aspect-ratio:9/16;object-fit:cover" /></figure>
                     <!-- /wp:image -->
                 </div>
                 <!-- /wp:column -->
