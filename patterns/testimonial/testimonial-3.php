@@ -12,8 +12,8 @@ return array(
 	<div class="wp-block-columns alignwide">
 		<!-- wp:column -->
 		<div class="wp-block-column">
-			<!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"className":"tagline","fontSize":"tiny"} -->
-			<p class="has-text-align-left tagline has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">' . esc_html__('[Tagline]', 'aegis') . '</p>
+			<!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"className":"is-tagline","fontSize":"tiny"} -->
+			<p class="has-text-align-left is-tagline has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">' . esc_html__('[Tagline]', 'aegis') . '</p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"0"}}},"fontSize":"huge"} -->
@@ -35,7 +35,7 @@ return array(
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"2px"}},"className":"aegis-rating","fontSize":"tiny"} -->
-						<p class="aegis-rating has-tiny-font-size" style="letter-spacing:2px">' . esc_html__('★★★★★', 'aegis') . '</p>
+						<p class="aegis-rating has-tiny-font-size" style="letter-spacing:2px"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-half"></span><span class="dashicons dashicons-star-empty"></span></p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"0"}}},"fontSize":"small"} -->
@@ -79,7 +79,7 @@ return array(
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"2px"}},"className":"aegis-rating","fontSize":"tiny"} -->
-						<p class="aegis-rating has-tiny-font-size" style="letter-spacing:2px">' . esc_html__('★★★★★', 'aegis') . '</p>
+						<p class="aegis-rating has-tiny-font-size" style="letter-spacing:2px"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-half"></span><span class="dashicons dashicons-star-empty"></span></p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}}},"fontSize":"small"} -->
@@ -123,7 +123,7 @@ return array(
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"2px"}},"className":"aegis-rating","fontSize":"tiny"} -->
-						<p class="aegis-rating has-tiny-font-size" style="letter-spacing:2px">' . esc_html__('★★★★★', 'aegis') . '</p>
+						<p class="aegis-rating has-tiny-font-size" style="letter-spacing:2px"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-half"></span><span class="dashicons dashicons-star-empty"></span></p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}}},"fontSize":"small"} -->
