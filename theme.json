@@ -477,9 +477,6 @@
 				"border": {
 					"radius": "0"
 				},
-				"color": {
-					"background": "var(--wp--preset--color--background)"
-				},
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--small)",
 					"fontWeight": "500"
