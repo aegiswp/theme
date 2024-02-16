@@ -41,7 +41,7 @@ return array(
             <!-- /wp:paragraph -->
 
             <!-- wp:audio {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}}} -->
-            <figure class="wp-block-audio" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30)"><audio controls src="' . esc_url(get_template_directory_uri()) . '/assets/audios/sample.mp4"></audio></figure>
+            <figure class="wp-block-audio" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30)"><audio controls src="' . esc_url(get_template_directory_uri()) . '/assets/audios/sample.mp3"></audio></figure>
             <!-- /wp:audio -->
 
             <!-- wp:columns -->
