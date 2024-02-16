@@ -134,11 +134,17 @@ This functionality essentially transforms the site editor into a theme builder. 
 
 ### Token Cheat-sheet
 
+#### Default
+
 | Figma Token | CSS Variable | Color | Name | Slug | Visual |
 | --------------- | --------------- | --------------- | --------------------- | --------------------- | --------------------- |
 | N/A | --wp--preset--color--background | `#f9f9f9` | Background | background | ![jpg](https://placehold.co/20x20/F9F9F9/F9F9F9/jpg) |
 | N/A | --wp--preset--color--foreground | `#0a0a0a` | Foreground | foreground | ![jpg](https://placehold.co/20x20/0a0a0a/0a0a0a/jpg) |
 | N/A | --wp--preset--color--primary | `#3e3d3d` | Foreground | foreground | ![jpg](https://placehold.co/20x20/3e3d3d/3e3d3d/jpg) |
+| N/A | --wp--preset--color--secondary | `#ebebef` | Foreground | foreground | ![jpg](https://placehold.co/20x20/ebebef/ebebef/jpg) |
+| N/A | --wp--preset--color--tertiary | `#d7dade` | Foreground | foreground | ![jpg](https://placehold.co/20x20/d7dade/d7dade/jpg) |
+| N/A | --wp--preset--color--quaternary | `#ccd0d4` | Foreground | foreground | ![jpg](https://placehold.co/20x20/ccd0d4/ccd0d4/jpg) |
+| N/A | --wp--preset--color--quinary | `#b5bcc2` | Foreground | foreground | ![jpg](https://placehold.co/20x20/b5bcc2/b5bcc2/jpg) |
 
 ### Pattern Creation Guidelines
 
