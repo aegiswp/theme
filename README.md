@@ -134,7 +134,7 @@ This functionality essentially transforms the site editor into a theme builder. 
 
 ### Token Cheat-sheet
 
-#### Default
+#### Default Global Style
 
 | Figma Token | CSS Variable | Color | Name | Slug | Visual |
 | --------------- | --------------- | --------------- | --------------------- | --------------------- | --------------------- |
