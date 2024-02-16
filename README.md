@@ -132,6 +132,15 @@ This functionality essentially transforms the site editor into a theme builder. 
 | `Spacing/50` | `--wp--preset--spacing--50` | `min(6.5rem, 13vw)` | `50` |
 | `Spacing/60` | `--wp--preset--spacing--60` | `min(10.5rem, 24vw)` | `60` |
 
+### Token Cheat-sheet
+
+| Figma Token | CSS Variable | Color | Name | Slug | Visual |
+| --------------- | --------------- | --------------- | --------------------- | --------------------- | --------------------- |
+| N/A | --wp--preset--color--background | `#f9f9f9` | Background | background | ![jpg](https://placehold.co/20x20/F9F9F9/F9F9F9/jpg) |
+| N/A | --wp--preset--color--foreground | `#0a0a0a` | Foreground | foreground | ![jpg](https://placehold.co/20x20/0a0a0a/0a0a0a/jpg) |
+
+
+
 
 ### Pattern Creation Guidelines
 
