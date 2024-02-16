@@ -1,5 +1,5 @@
 === Aegis ===
-Contributors: atmostfearentertainment, alexdeborba
+Contributors: atmostfearentertainment
 Requires at least: 6.4
 Tested up to: 6.4.2
 Requires PHP: 7.4
@@ -40,14 +40,17 @@ Source: https://github.com/googlefonts/lexend
 
 Audio used in theme block patterns:
 
+Our Campion by Anuch
+License: Public Domain
+Source: https://uppbeat.io/track/anuch/our-champion
+Included as short audio clip.
 
 Video used in theme block patterns:
 
-Abstract Digital Animation Video by Rostislav Uzunov
+Animated Abstract Burning Effect Video by Rostislav Uzunov
 License: Public Domain
-Source: https://www.pexels.com/video/abstract-digital-animation-7670836/
+Source: https://www.pexels.com/video/animated-abstract-burning-effect-5091624/
 Included as a short video clip.
-
 
 Images used in theme block patterns:
 
