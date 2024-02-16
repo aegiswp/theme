@@ -1,29 +1,6 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 2,
-	"customTemplates": [
-		{
-			"name": "blank",
-			"title": "Blank",
-			"postTypes": ["page", "post"]
-		},
-		{
-			"name": "single-product",
-			"title": "Single Product"
-		},
-		{
-			"name": "taxonomy-product_tag",
-			"title": "Products by Tag"
-		},
-		{
-			"name": "taxonomy-product_cat",
-			"title": "Products by Category"
-		},
-		{
-			"name": "archive-product",
-			"title": "Product Catalog"
-		}
-	],
 	"settings": {
 		"appearanceTools": true,
 		"color": {
@@ -32,198 +9,208 @@
 			"defaultGradients": false,
 			"duotone": [
 				{
-					"colors": ["#1c1c1e", "#e4e4e6"],
+					"colors": ["#0a0a0a", "#3e3d3d"],
 					"slug": "foreground-and-primary",
 					"name": "Foreground and primary"
 				},
 				{
-					"colors": ["#e4e4e6", "#f6f5f2"],
+					"colors": ["#3e3d3d", "#f9f9f9"],
 					"slug": "primary-and-background",
 					"name": "Primary and background"
 				},
 				{
-					"colors": ["#e4e4e6", "#f8f5ef"],
+					"colors": ["#3e3d3d", "#ebebef"],
 					"slug": "primary-and-secondary",
 					"name": "Primary and secondary"
 				},
 				{
-					"colors": ["#1c1c1e", "#f8f5ef"],
+					"colors": ["#0a0a0a", "#ebebef"],
 					"slug": "foreground-and-secondary",
 					"name": "Foreground and secondary"
 				},
 				{
-					"colors": ["#e4e4e6", "#929086"],
+					"colors": ["#0a0a0a", "#d7dade"],
 					"slug": "primary-and-tertiary",
 					"name": "Primary and tertiary"
 				},
 				{
-					"colors": ["#1c1c1e", "#929086"],
+					"colors": ["#0a0a0a", "#d7dade"],
 					"slug": "foreground-and-tertiary",
 					"name": "Foreground and tertiary"
 				},
 				{
-					"colors": ["#1c1c1e", "#0ed765"],
+					"colors": ["#0a0a0a", "#ccd0d4"],
 					"slug": "foreground-and-quaternary",
 					"name": "Foreground and quaternary"
 				},
 				{
-					"colors": ["#1c1c1e", "#69a5e6"],
+					"colors": ["#0a0a0a", "#b5bcc2"],
 					"slug": "foreground-and-quinary",
 					"name": "Foreground and quinary"
 				},
 				{
-					"colors": ["#1c1c1e", "#e7e4dc"],
+					"colors": ["#0a0a0a", "#f5f4f5"],
 					"slug": "foreground-and-senary",
 					"name": "Foreground and senary"
 				},
 				{
-					"colors": ["#1c1c1e", "#eeeeee"],
+					"colors": ["#0a0a0a", "#eeeeee"],
 					"slug": "foreground-and-septenary",
 					"name": "Foreground and septenary"
 				},
 				{
-					"colors": ["#0ed765", "#69a5e6"],
+					"colors": ["#ccd0d4", "#babcbb"],
 					"slug": "quaternary-and-quinary",
 					"name": "Quaternary and Quinary"
 				}
 			],
 			"gradients": [
 				{
-					"slug": "vertical-background-to-foreground",
 					"gradient": "linear-gradient(90deg,var(--wp--preset--color--background) 59%,var(--wp--preset--color--foreground) 59%)",
+					"slug": "vertical-background-to-foreground",
 					"name": "Vertical background to foreground"
 				},
 				{
-					"slug": "vertical-foreground-to-background",
+					"gradient": "linear-gradient(90deg,var(--wp--preset--color--background) 28%,var(--wp--preset--color--foreground) 28%)",
+					"slug": "vertical-small-background-to-background",
+					"name": "Vertical small background to background"
+				},
+				{
+					"gradient": "linear-gradient(90deg,var(--wp--preset--color--foreground) 28%,var(--wp--preset--color--background) 28%)",
+					"slug": "vertical-small-foreground-to-background",
+					"name": "Vertical small foreground to background"
+				},
+				{
 					"gradient": "linear-gradient(90deg,var(--wp--preset--color--foreground) 59%,var(--wp--preset--color--background) 59%)",
+					"slug": "vertical-foreground-to-background",
 					"name": "Vertical foreground to background"
 				},
 				{
-					"slug": "vertical-background-to-secondary",
 					"gradient": "linear-gradient(90deg,var(--wp--preset--color--background) 55%,var(--wp--preset--color--secondary) 55%)",
+					"slug": "vertical-background-to-secondary",
 					"name": "Vertical background to secondary"
 				},
 				{
-					"slug": "vertical-small-background-to-secondary",
 					"gradient": "linear-gradient(90deg,var(--wp--preset--color--background) 28%,var(--wp--preset--color--secondary) 28%)",
+					"slug": "vertical-small-background-to-secondary",
 					"name": "Vertical small background to secondary"
 				},
 				{
-					"slug": "vertical-secondary-to-background",
 					"gradient": "linear-gradient(90deg,var(--wp--preset--color--secondary) 55%, var(--wp--preset--color--background) 55%)",
+					"slug": "vertical-secondary-to-background",
 					"name": "Vertical secondary to background"
 				},
 				{
-					"slug": "horizontal-background-to-primary",
 					"gradient": "linear-gradient(180deg,var(--wp--preset--color--background) 72%,var(--wp--preset--color--primary) 72%)",
+					"slug": "horizontal-background-to-primary",
 					"name": "Horizontal background to primary"
 				},
 				{
-					"slug": "horizontal-background-to-tertiary",
 					"gradient": "linear-gradient(180deg,var(--wp--preset--color--background) 28%,var(--wp--preset--color--tertiary) 28%)",
+					"slug": "horizontal-background-to-tertiary",
 					"name": "Horizontal background to tertiary"
 				},
 				{
-					"slug": "horizontal-foreground-to-background",
 					"gradient": "linear-gradient(180deg,var(--wp--preset--color--foreground) 51%,var(--wp--preset--color--background) 51%)",
+					"slug": "horizontal-foreground-to-background",
 					"name": "Horizontal foreground to background"
 				},
 				{
-					"slug": "diagonal-background-to-foreground",
 					"gradient": "linear-gradient(106deg,var(--wp--preset--color--background) 46%,var(--wp--preset--color--foreground) 46%)",
+					"slug": "diagonal-background-to-foreground",
 					"name": "Diagonal background to foreground"
 				},
 				{
-					"slug": "diagonal-background-to-secondary",
 					"gradient": "linear-gradient(to bottom right,var(--wp--preset--color--background) 50%,var(--wp--preset--color--secondary) 50%)",
+					"slug": "diagonal-background-to-secondary",
 					"name": "Diagonal background to secondary"
 				},
 				{
-					"slug": "diagonal-secondary-to-background",
 					"gradient": "linear-gradient(to bottom right,var(--wp--preset--color--secondary) 50%,var(--wp--preset--color--background) 50%)",
+					"slug": "diagonal-secondary-to-background",
 					"name": "Diagonal secondary to background"
 				},
 				{
-					"slug": "diagonal-secondary-to-foreground",
 					"gradient": "linear-gradient(135deg,transparent 74%,var(--wp--preset--color--foreground) 74%)",
+					"slug": "diagonal-secondary-to-foreground",
 					"name": "Diagonal secondary to foreground"
 				},
 				{
-					"slug": "diagonal-quinary-to-background",
 					"gradient": "linear-gradient(135deg,var(--wp--preset--color--quinary) 55%,var(--wp--preset--color--background) 55%)",
+					"slug": "diagonal-quinary-to-background",
 					"name": "Diagonal quinary to background"
 				},
 				{
-					"slug": "diagonal-background-to-foreground-triangle",
 					"gradient": "linear-gradient(41deg,var(--wp--preset--color--background) 96%,var(--wp--preset--color--foreground) 97%)",
+					"slug": "diagonal-background-to-foreground-triangle",
 					"name": "Diagonal background to foreground triangle"
 				},
 				{
-					"slug": "diagonal-background-to-secondary-triangle",
 					"gradient": "linear-gradient(41deg,var(--wp--preset--color--background) 96%,var(--wp--preset--color--secondary) 97%)",
+					"slug": "diagonal-background-to-secondary-triangle",
 					"name": "Diagonal background to secondary triangle"
 				},
 				{
-					"slug": "diagonal-background-to-senary-triangle",
 					"gradient": "linear-gradient(41deg,var(--wp--preset--color--background) 96%,var(--wp--preset--color--senary) 97%)",
+					"slug": "diagonal-background-to-senary-triangle",
 					"name": "Diagonal background to senary triangle"
 				},
 				{
-					"slug": "diagonal-foreground-to-transparent-triangle",
 					"gradient": "linear-gradient(135deg,var(--wp--preset--color--foreground) 89%,transparent 89%)",
+					"slug": "diagonal-foreground-to-transparent-triangle",
 					"name": "Diagonal foreground to transparent triangle"
 				},
 				{
-					"slug": "diagonal-foreground-to-primary-triangle",
 					"gradient": "linear-gradient(135deg,rgba(0,0,0,0.39) 89%,var(--wp--preset--color--primary) 89%)",
+					"slug": "diagonal-foreground-to-primary-triangle",
 					"name": "Diagonal foreground to primary triangle"
 				}
 			],
 			"palette": [
 				{
-					"slug": "background",
-					"color": "#f6f5f2",
-					"name": "Background"
+					"color": "#f9f9f9",
+					"name": "Background",
+					"slug": "background"
 				},
 				{
-					"slug": "foreground",
-					"color": "#1c1c1e",
-					"name": "Foreground"
+					"color": "#0a0a0a",
+					"name": "Foreground",
+					"slug": "foreground"
 				},
 				{
-					"slug": "primary",
-					"color": "#5a5a60",
-					"name": "Primary"
+					"color": "#3e3d3d",
+					"name": "Primary",
+					"slug": "primary"
 				},
 				{
-					"slug": "secondary",
-					"color": "#f0eee9",
-					"name": "Secondary"
+					"color": "#ebebef",
+					"name": "Secondary",
+					"slug": "secondary"
 				},
 				{
-					"slug": "tertiary",
-					"color": "#929086",
-					"name": "Tertiary"
+					"color": "#d7dade",
+					"name": "Tertiary",
+					"slug": "tertiary"
 				},
 				{
-					"slug": "quaternary",
-					"color": "#0ed765",
-					"name": "Quaternary"
+					"color": "#ccd0d4",
+					"name": "Quaternary",
+					"slug": "quaternary"
 				},
 				{
-					"slug": "quinary",
-					"color": "#69a5e6",
-					"name": "Quinary"
+					"color": "#b5bcc2",
+					"name": "Quinary",
+					"slug": "quinary"
 				},
 				{
-					"slug": "senary",
-					"color": "#e7e4dc",
-					"name": "Senary"
+					"color": "#f5f4f5",
+					"name": "Senary",
+					"slug": "senary"
 				},
 				{
-					"slug": "septenary",
 					"color": "#eeece6",
-					"name": "Septenary"
+					"name": "Septenary",
+					"slug": "septenary"
 				}
 			]
 		},
@@ -275,101 +262,87 @@
 			],
 			"units": ["%", "px", "em", "rem", "vh", "vw"]
 		},
-        "typography": {
-            "fluid": true,
-            "fontFamilies": [
-                {
-                    "fontFamily": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
-                    "name": "System Font",
-                    "slug": "system"
-                },
-                {
-                    "fontFamily": "\"Lexend\", sans-serif",
-                    "name": "Lexend",
-                    "slug": "lexend",
-                    "fontFace": [
-                        {
-                            "fontFamily": "Lexend",
-                            "fontWeight": "300",
-                            "fontStyle": "light",
-                            "fontStretch": "normal",
-                            "src": [
-                                "file:./assets/fonts/lexend/Lexend-Light.woff2"
-                            ]
-                        },
-                        {
-                            "fontFamily": "Lexend",
-                            "fontWeight": "400",
-                            "fontStyle": "regular",
-                            "fontStretch": "normal",
-                            "src": [
-                                "file:./assets/fonts/lexend/Lexend-Regular.woff2"
-                            ]
-                        },
-                        {
-                            "fontFamily": "Lexend",
-                            "fontWeight": "500",
-                            "fontStyle": "medium",
-                            "fontStretch": "normal",
-                            "src": [
-                                "file:./assets/fonts/lexend/Lexend-Medium.woff2"
-                            ]
-                        },
-                        {
-                            "fontFamily": "Lexend",
-                            "fontWeight": "600",
-                            "fontStyle": "semibold",
-                            "fontStretch": "normal",
-                            "src": [
-                                "file:./assets/fonts/lexend/Lexend-SemiBold.woff2"
-                            ]
-                        },
-                        {
-                            "fontFamily": "Lexend",
-                            "fontWeight": "700",
-                            "fontStyle": "bold",
-                            "fontStretch": "normal",
-                            "src": [
-                                "file:./assets/fonts/lexend/Lexend-Bold.woff2"
-                            ]
-                        },
-                        {
-                            "fontFamily": "Lexend",
-                            "fontWeight": "800",
-                            "fontStyle": "extrabold",
-                            "fontStretch": "normal",
-                            "src": [
-                                "file:./assets/fonts/lexend/Lexend-ExtraBold.woff2"
-                            ]
-                        },
-                        {
-                            "fontFamily": "Lexend",
-                            "fontWeight": "900",
-                            "fontStyle": "black",
-                            "fontStretch": "normal",
-                            "src": [
-                                "file:./assets/fonts/lexend/Lexend-Black.woff2"
-                            ]
-                        }
-                    ]
-                }
-            ],
+		"typography": {
+			"fluid": true,
+			"fontFamilies": [
+				{
+					"fontFamily": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
+					"slug": "system",
+					"name": "System Font"
+				},
+				{
+					"fontFamily": "\"Lexend\", sans-serif",
+					"slug": "lexend",
+					"name": "Lexend",
+					"fontFace": [
+						{
+							"fontFamily": "Lexend",
+							"fontWeight": "300",
+							"fontStyle": "light",
+							"fontStretch": "normal",
+							"src": ["file:./assets/fonts/lexend/Lexend-Light.woff2"]
+						},
+						{
+							"fontFamily": "Lexend",
+							"fontWeight": "400",
+							"fontStyle": "regular",
+							"fontStretch": "normal",
+							"src": ["file:./assets/fonts/lexend/Lexend-Regular.woff2"]
+						},
+						{
+							"fontFamily": "Lexend",
+							"fontWeight": "500",
+							"fontStyle": "medium",
+							"fontStretch": "normal",
+							"src": ["file:./assets/fonts/lexend/Lexend-Medium.woff2"]
+						},
+						{
+							"fontFamily": "Lexend",
+							"fontWeight": "600",
+							"fontStyle": "semibold",
+							"fontStretch": "normal",
+							"src": ["file:./assets/fonts/lexend/Lexend-SemiBold.woff2"]
+						},
+						{
+							"fontFamily": "Lexend",
+							"fontWeight": "700",
+							"fontStyle": "bold",
+							"fontStretch": "normal",
+							"src": ["file:./assets/fonts/lexend/Lexend-Bold.woff2"]
+						},
+						{
+							"fontFamily": "Lexend",
+							"fontWeight": "800",
+							"fontStyle": "extrabold",
+							"fontStretch": "normal",
+							"src": ["file:./assets/fonts/lexend/Lexend-ExtraBold.woff2"]
+						},
+						{
+							"fontFamily": "Lexend",
+							"fontWeight": "900",
+							"fontStyle": "black",
+							"fontStretch": "normal",
+							"src": ["file:./assets/fonts/lexend/Lexend-Black.woff2"]
+						}
+					]
+				}
+			],
 			"fontSizes": [
 				{
-					"name": "Tiny",
-					"slug": "tiny",
+					"fluid": false,
 					"size": "1rem",
-					"fluid": false
+					"slug": "tiny",
+					"name": "Tiny"
 				},
 				{
-					"name": "Small",
-					"slug": "small",
+					"fluid": false,
 					"size": "1.1rem",
-					"fluid": false
+					"slug": "small",
+					"name": "Small"
 				},
 				{
-					"name": "Medium",
 					"slug": "medium",
+					"name": "Medium",
 					"size": "1.25rem",
 					"fluid": {
 						"min": "1.125rem",
@@ -377,8 +350,8 @@
 					}
 				},
 				{
-					"name": "Large",
 					"slug": "large",
+					"name": "Large",
 					"size": "1.5rem",
 					"fluid": {
 						"min": "1.25rem",
@@ -475,7 +448,6 @@
 			"extra-bold": 800,
 			"black": 900
 		},
-
 		"typography": {
 			"line-height": {
 				"body": 1.5,
@@ -506,7 +478,7 @@
 					"radius": "0"
 				},
 				"color": {
-					"background": "var(--wp--preset--color--foreground)"
+					"background": "var(--wp--preset--color--background)"
 				},
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--small)",
@@ -611,8 +583,8 @@
 				},
 				"spacing": {
 					"margin": {
-						"top": "0px",
-						"bottom": "0px"
+						"top": "0",
+						"bottom": "0"
 					}
 				}
 			},
@@ -714,10 +686,29 @@
 			},
 			"core/post-author": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--small)"
+					"fontSize": "var(--wp--preset--font-size--small)",
+					"color": "var(--wp--preset--color--foreground)"
+				},
+				"elements": {
+					"link": {
+						"color": {
+							"text": "var(--wp--preset--color--primary)"
+						},
+						"typography": {
+							"textDecoration": "none"
+						},
+						":hover": {
+							"typography": {
+								"textDecoration": "underline"
+							}
+						}
+					}
 				}
 			},
 			"core/post-author-name": {
+				"typography": {
+					"color": "var(--wp--preset--color--foreground)"
+				},
 				"elements": {
 					"link": {
 						":hover": {
@@ -905,9 +896,9 @@
 			"blockGap": "1.5rem",
 			"padding": {
 				"top": "0",
-				"right": "30px",
+				"right": "var(--wp--preset--spacing--30)",
 				"bottom": "0",
-				"left": "30px"
+				"left": "var(--wp--preset--spacing--30)"
 			}
 		},
 		"typography": {
@@ -918,81 +909,102 @@
 	},
 	"templateParts": [
 		{
+			"area": "header",
 			"name": "header",
-			"title": "01. Header",
-			"area": "header"
+			"title": "01. Header"
 		},
 		{
+			"area": "header",
 			"name": "header-2",
-			"title": "02. Header",
-			"area": "header"
+			"title": "02. Header"
 		},
 		{
+			"area": "header",
 			"name": "header-3",
-			"title": "03. Header 3 (Sticky)",
-			"area": "header"
+			"title": "03. Header 3 (Sticky)"
 		},
 		{
+			"area": "header",
 			"name": "header-4",
-			"title": "04. Header 4 (Sticky)",
-			"area": "header"
+			"title": "04. Header 4 (Sticky)"
 		},
 		{
+			"area": "header",
 			"name": "header-5",
-			"title": "05. Header",
-			"area": "header"
+			"title": "05. Header"
 		},
 		{
+			"area": "header",
 			"name": "header-6",
-			"title": "06. Header (Sticky)",
-			"area": "header"
+			"title": "06. Header (Sticky)"
 		},
 		{
+			"area": "header",
 			"name": "header-7",
-			"title": "07. Header",
-			"area": "header"
+			"title": "07. Header"
 		},
 		{
+			"area": "header",
 			"name": "header-8",
-			"title": "08. Header",
-			"area": "header"
+			"title": "08. Header"
 		},
 		{
+			"area": "header",
 			"name": "header-9",
-			"title": "09. Header",
-			"area": "header"
+			"title": "09. Header"
 		},
 		{
+			"area": "header",
 			"name": "header-10",
-			"title": "10. Header",
-			"area": "header"
+			"title": "10. Header"
 		},
 		{
+			"area": "footer",
 			"name": "footer",
-			"title": "Footer Default",
-			"area": "footer"
+			"title": "Footer Default"
 		},
 		{
+			"area": "footer",
 			"name": "footer-2",
-			"title": "02. Footer",
-			"area": "footer"
+			"title": "02. Footer"
 		},
 		{
+			"area": "footer",
 			"name": "footer-3",
-			"title": "03. Footer",
-			"area": "footer"
+			"title": "03. Footer"
 		},
 		{
+			"area": "footer",
 			"name": "footer-4",
-			"title": "04. Footer",
-			"area": "footer"
+			"title": "04. Footer"
 		}
 	],
 	"customTemplates": [
 		{
+			"name": "blank",
+			"title": "Blank",
+			"postTypes": ["page", "post"]
+		},
+		{
 			"name": "page-no-title",
 			"title": "Page No Title",
-			"postTypes": ["page"]
+			"postTypes": ["page", "post"]
+		},
+		{
+			"name": "single-product",
+			"title": "Single Product"
+		},
+		{
+			"name": "taxonomy-product_tag",
+			"title": "Products by Tag"
+		},
+		{
+			"name": "taxonomy-product_cat",
+			"title": "Products by Category"
+		},
+		{
+			"name": "archive-product",
+			"title": "Product Catalog"
 		}
 	]
 }
