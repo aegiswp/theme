@@ -21,13 +21,7 @@ return array(
 				<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
 				<div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
 					<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"2px"}},"fontSize":"tiny"} -->
-					<p class="has-tiny-font-size" style="letter-spacing:2px">
-                    <span class="dashicons dashicons-star-filled"></span>
-                    <span class="dashicons dashicons-star-filled"></span>
-                    <span class="dashicons dashicons-star-filled"></span>
-                    <span class="dashicons dashicons-star-half"></span>
-                    <span class="dashicons dashicons-star-empty"></span>					
-					</p>
+					<p class="has-tiny-font-size" style="letter-spacing:2px"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-half"></span><span class="dashicons dashicons-star-empty"></span></p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:paragraph -->
@@ -56,8 +50,8 @@ return array(
 		</div>
 		<!-- /wp:column -->
 
-		<!-- wp:column {"backgroundColor":"senary"} -->
-		<div class="wp-block-column has-senary-background-color has-background">
+		<!-- wp:column {"backgroundColor":"tertiary"} -->
+		<div class="wp-block-column has-tertiary-background-color has-background">
 			<!-- wp:image {"aspectRatio":"3/4","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-2-image"} -->
 			<figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_attr__('Describe the main elements of the image and its context.', 'aegis') . '" style="aspect-ratio:3/4;object-fit:cover" /></figure>
 			<!-- /wp:image -->
@@ -67,13 +61,7 @@ return array(
 				<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
 				<div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
 					<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"2px"}},"fontSize":"tiny"} -->
-					<p class="has-tiny-font-size" style="letter-spacing:2px">
-                    <span class="dashicons dashicons-star-filled"></span>
-                    <span class="dashicons dashicons-star-filled"></span>
-                    <span class="dashicons dashicons-star-filled"></span>
-                    <span class="dashicons dashicons-star-half"></span>
-                    <span class="dashicons dashicons-star-empty"></span>					
-					</p>
+					<p class="has-tiny-font-size" style="letter-spacing:2px"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-half"></span><span class="dashicons dashicons-star-empty"></span></p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:paragraph -->
@@ -92,8 +80,8 @@ return array(
 
 				<!-- wp:buttons {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 				<div class="wp-block-buttons">
-					<!-- wp:button {"backgroundColor":"senary","style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"className":"is-style-aegis-button-shadow-outline","fontSize":"small"} -->
-					<div class="wp-block-button has-custom-font-size is-style-aegis-button-shadow-outline has-small-font-size" style="font-style:normal;font-weight:600"><a class="wp-block-button__link has-senary-background-color has-background wp-element-button">' . esc_html__('[Call to Action]', 'aegis') . '</a></div>
+					<!-- wp:button {"backgroundColor":"tertiary","style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"className":"is-style-aegis-button-shadow-outline","fontSize":"small"} -->
+					<div class="wp-block-button has-custom-font-size is-style-aegis-button-shadow-outline has-small-font-size" style="font-style:normal;font-weight:600"><a class="wp-block-button__link has-tertiary-background-color has-background wp-element-button">' . esc_html__('[Call to Action]', 'aegis') . '</a></div>
 					<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
@@ -113,13 +101,7 @@ return array(
 				<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
 				<div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
 					<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"2px"}},"fontSize":"tiny"} -->
-					<p class="has-tiny-font-size" style="letter-spacing:2px">
-                    <span class="dashicons dashicons-star-filled"></span>
-                    <span class="dashicons dashicons-star-filled"></span>
-                    <span class="dashicons dashicons-star-filled"></span>
-                    <span class="dashicons dashicons-star-half"></span>
-                    <span class="dashicons dashicons-star-empty"></span>					
-					</p>
+					<p class="has-tiny-font-size" style="letter-spacing:2px"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-half"></span><span class="dashicons dashicons-star-empty"></span></p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:paragraph -->
