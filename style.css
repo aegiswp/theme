@@ -4,16 +4,16 @@ Theme URI: https://github.com/atmostfear-entertainment/aegis
 Author: Atmostfear Entertainment
 Author URI: https://www.atmostfear-entertainment.com/
 Description: Aegis is a sleek theme that promises agility and a lightweight design. It features elegant animations that add a sophisticated touch without hindering performance. The theme comes with a diverse array of block patterns, including full-page layouts, to ensure precise design control. Its latest full site editing capability facilitates real-time customization. With a solid foundation for ecommerce, it is well-suited for blogging, media outlets, and academic publishing.
-Requires at least: 5.9
-Tested up to: 6.4.2
+Requires at least: 6.4
+Tested up to: 6.4.3
 Requires PHP: 7.4
-Version: 1.0.0-beta.1
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Version: 1.0.0-beta.2
+License: GNU General Public License v3
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: aegis
 Tags: accessibility-ready, blog, block-editor-patterns, block-editor-styles, block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, one-column, portfolio, rtl-language-support, sticky-post, style-variations, template-editing, threaded-comments, translation-ready, two-columns, wide-blocks, woocommerce
 
-Aegis, (c) 2022-2023 Atmostfear Entertainment SAS
+Aegis, (c) 2022-2024 Atmostfear Entertainment SAS.
 Aegis is distributed under the terms of the GNU GPL.
 */
 
@@ -22,19 +22,15 @@ Aegis is distributed under the terms of the GNU GPL.
  * This is a niche setting that will not be available via Global Styles.
  * https://github.com/WordPress/gutenberg/issues/35934
  */
-
-/* General body styles */
 body {
-  /* Improve font rendering on macOS */
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-
-  /* Apply fade-in animation with cross-browser support */
-  -webkit-animation: fadein 0.7s;
-  -moz-animation: fadein 0.7s;
-  -ms-animation: fadein 0.7s;
-  -o-animation: fadein 0.7s;
-  animation: fadein 0.7s;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-animation: fadein 0.7s;
+    -moz-animation: fadein 0.7s;
+    -ms-animation: fadein 0.7s;
+    -o-animation: fadein 0.7s;
+    font-smoothing: antialiased;
+    animation: fadein 0.7s;
 }
 
 /*
@@ -42,145 +38,29 @@ body {
  * Necessary until the following issue is resolved in Gutenberg:
  * https://github.com/WordPress/gutenberg/issues/27075
  */
-
-/* Styling for links with a gradient underline effect */
 a {
-  /* Create a linear gradient for the underline effect */
-  background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
-
-  /* Set background size to 0 to hide the gradient */
-  background-size: 0;
-
-  /* Prevent background image repetition */
-  background-repeat: no-repeat;
-
-  /* Position the background at the bottom left corner */
-  background-position: bottom left;
-
-  /* Add padding at the bottom to create space for the underline effect */
-  padding-bottom: 3px;
-
-  /* Remove default text decoration for links */
-  text-decoration: none;
-
-  /* Apply transitions for a smooth animation effect */
-  transition: all 0.4s ease, text-decoration 0s ease;
+    background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
+    background-size: 0;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    color: var(--wp--preset--color--foreground); /* Temporary fix: Remove on Beta 3 */
+    padding-bottom: 3px;
+    text-decoration: none;
+    transition: all 0.4s ease, text-decoration 0s ease;
 }
 
-/* Hover effect for links - underline expands on hover */
-a:hover {
-  /* Increase the background size to reveal the gradient on hover */
-  background-size: 100%;
-}
-
-/* Apply the same gradient underline effect on hover and focus */
 a:hover,
 a:focus {
-  /* Increase the background size to reveal the gradient on hover or focus */
-  background-size: 100%;
+    background-image: linear-gradient(transparent calc(100% - 2px), currentColor 2px);
+    background-size: 100%;
 }
 
-/* Remove text decoration on active state */
 a:active {
-  text-decoration: none;
-}
-
-/*
- * Pages
- */
-
-/* Apply the gradient underline effect to links within paragraphs */
-.page-content p a,
-/* Apply the gradient underline effect to links within list items */
-.page-content ul li a {
-  /* Create a linear gradient for the underline effect */
-  background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
-
-  /* Set background size to 100% to show the gradient */
-  background-size: 100%;
-
-  /* Prevent background image repetition */
-  background-repeat: no-repeat;
-
-  /* Position the background at the bottom left corner */
-  background-position: bottom left;
-
-  /* Add padding at the bottom to create space for the underline effect */
-  padding-bottom: 3px;
-
-  /* Remove default text decoration for links */
-  text-decoration: none;
-
-  /* Apply transitions for a smooth animation effect */
-  transition: all 0.4s ease, text-decoration 0s ease;
-}
-
-/* Hover state styles for links within paragraphs and list items in the page content */
-
-/* Shrink the background size to 0 on hover for links within paragraphs */
-.page-content p a:hover,
-/* Shrink the background size to 0 on hover for links within list items */
-.page-content ul li a:hover {
-  /* Set background size to 0 to hide the gradient on hover */
-  background-size: 0;
-}
-
-/* Apply the gradient underline effect to links within specific list items */
-.page-content ul li.wp-block-navigation-item a {
-  /* Create a linear gradient for the underline effect */
-  background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
-
-  /* Set initial background size to 0 to hide the gradient */
-  background-size: 0;
-
-  /* Prevent background image repetition */
-  background-repeat: no-repeat;
-
-  /* Position the background at the bottom left corner */
-  background-position: bottom left;
-
-  /* Add padding at the bottom to create space for the underline effect */
-  padding-bottom: 3px;
-
-  /* Remove default text decoration for links */
-  text-decoration: none;
-
-  /* Apply transitions for a smooth animation effect */
-  transition: all 0.4s ease, text-decoration 0s ease;
-}
-
-
-.page-content ul li.wp-block-navigation-item a:hover {
-	background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
-	background-size: 100%;
-}
-
-.page-content .wc-block-grid__products li a,
-.page-content .wc-block-product-categories-list-item a,
-.page-content .woocommerce-MyAccount-navigation a {
-	background-image: none;
-}
-
-.wp-block-post-featured-image a,
-.is-style-aegis-post-title-border a,
-.is-style-aegis-post-date-border a,
-.wp-block-button__link,
-.wp-block-button__link:hover,
-figure a:hover,
-a.custom-logo-link,
-.taxonomy-category a,
-a.wp-block-social-link-anchor,
-.wc-block-grid__products .wc-block-grid__product-image a,
-.wp-block-post-excerpt__more-link {
-	background-image: none !important;
-}
-
-figure {
-	margin-top: 0;
+    text-decoration: none;
 }
 
 /* ------------------------------------------- */
-/* Navigation Block
+/* Navigation Blocks
 /* ------------------------------------------- */
 .wp-block-navigation .wp-block-navigation-item__content {
 	padding: .5em;
@@ -189,9 +69,8 @@ figure {
 	-moz-box-shadow: 0 0 0;
 	box-shadow: 0 0 0;
 }
-
 .wp-block-navigation:not(.has-background) .wp-block-navigation__submenu-container {
-	border: 1px solid transparent;
+    border: 1px solid transparent;
 }
 
 .wp-block-navigation .has-child>.wp-block-navigation__submenu-container {
@@ -250,177 +129,49 @@ figure {
 	opacity: 1;
 }
 
-
-
-/* Media Queries for Navigation */
-@media only screen and (max-width: 482px) {
-	.wp-block-navigation__container {
-		justify-content: start;
-	}
-
-	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation-item,
-	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__container,
-	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-page-list {
-		align-items: flex-start;
-	}
-
-	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
-		align-items: flex-start;
-	}
+.wp-block-navigation-item__content img {
+	height: fit-content;
 }
 
-@media only screen and (max-width: 962px) {
-	.wp-block-navigation.items-justified-right {
-		--navigation-layout-justification-setting: flex-start;
-		--navigation-layout-justify: flex-start;
-	}
-}
-
-@media (min-width:600px) {
-	.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
-		display: none;
-	}
-
-	.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) .wp-block-navigation__responsive-container-close {
-		display: block;
-	}
-
-	.wp-block-navigation__responsive-container-open:not(.always-shown) {
-		display: flex;
-	}
-}
-
-@media (max-width:960px) {
-	.wp-block-navigation__responsive-container-close {
-		top: 50px;
-		right: 20px;
-	}
-
-	.wp-block-navigation__responsive-container {
-		opacity: 0;
-		visibility: hidden;
-		transition: opacity 0s, visibility 0s;
-		display: flex;
-	}
-
-	.wp-block-navigation__responsive-container.is-menu-open {
-		opacity: 1;
-		visibility: visible;
-		transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
-	}
-
-	.wp-block-navigation__responsive-container .wp-block-navigation__responsive-container-content .wp-block-navigation__container {
-		transition: transform .4s all, opacity .4s all;
-		transform: translateY(-35px);
-		opacity: 0;
-		transition-delay: .2s;
-		font-size: 20px;
-		width: 100%;
-	}
-
-	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__container {
-		transform: translateY(0);
-		opacity: 1;
-		gap: 20px;
-		padding: 40px;
-	}
-
-	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .has-child .wp-block-navigation__submenu-container {
-		font-size: .9em;
-		gap: 15px;
-		padding: 0 30px 24px 30px;
-		position: relative;
-	}
-
-	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container:before {
-		content: "↑";
-		position: absolute;
-		left: 0;
-		top: 10px;
-	}
-
-	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation-item__content {
-		color: currentColor;
-	}
-}
-
-@media (min-width:962px) {
-	.wp-block-navigation .has-child:hover>.wp-block-navigation__submenu-container,
-	.wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria-expanded=true]+.wp-block-navigation__submenu-container {
-		box-shadow: 0 20px 40px -5px rgb(15 16 18 / 18%);
-		transform: translateY(0);
-	}
-
-	.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
-		display: block;
-		width: 100%;
-		position: relative;
-		z-index: auto;
-		background-color: inherit;
-	}
-
-	.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) .wp-block-navigation__responsive-container-close {
-		display: none;
-	}
-
-	.wp-block-navigation__responsive-container-open:not(.always-shown) {
-		display: none;
-	}
-
-	.wp-block-navigation .has-child :where(.wp-block-navigation__submenu-container) .wp-block-navigation__submenu-icon {
-		margin-right: .7em;
-	}
-
-	[class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container {
-		flex-direction: row;
-	}
-
-	[class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li {
-		max-width: 250px;
-		display: block;
-		min-width: 200px;
-	}
-
-	[class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li button {
-		display: none;
-	}
-
-	[class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>a {
-		font-weight: var(--wp--custom--font-weight--bold, 700);
-		margin: 5px 0 0 0 !important;
-	}
-
-	[class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>a:hover {
-		transform: translateX(0) !important;
-	}
-
-	[class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>ul {
-		position: static;
-		visibility: visible;
-		opacity: .9;
-		font-size: .9em;
-		width: auto;
-		height: auto;
-		display: block;
-		box-shadow: none !important;
-		transform: translateY(0) !important;
-	}
-}
-
-/*
- * Search and Button Block button styles.
- */
-
+/* ------------------------------------------- */
+/* Search Block
+/* ------------------------------------------- */
+/* Includes Buttons */
 .wp-block-search__button,
 .wp-block-file .wp-block-file__button {
-	background-color: var(--wp--preset--color--foreground);
+    background-color: var(--wp--preset--color--foreground);
 	border: none;
 	color: var(--wp--preset--color--background);
 	font-size: var(--wp--preset--typography--font-size--normal);
 	padding: calc(.667em + 2px) calc(1.333em + 2px);
 }
 
-/* Blog */
+/*
+ * Button hover styles.
+ * Necessary until the following issue is resolved in Gutenberg:
+ * https://github.com/WordPress/gutenberg/issues/27075
+ */
+.wp-block-search__button,
+.wp-block-file .wp-block-file__button,
+.wp-block-button__link {
+	transition: all .3s ease;
+	-webkit-transition: all .3s ease;
+}
+
+.wp-block-file .wp-block-file__button:hover,
+.wp-block-button__link:hover {
+	opacity: 0.96;
+	padding: 7px 28px;
+}
+
+.wp-block-search__button:hover {
+	opacity: 0.96;
+}
+
+/* ------------------------------------------- */
+/* Blog
+/* ------------------------------------------- */
+/* Excerpt */
 .wp-block-post-excerpt__more-link {
 	background: var(--wp--preset--color--foreground);
 	color: var(--wp--preset--color--background);
@@ -437,9 +188,169 @@ figure {
 }
 
 /* ------------------------------------------- */
-/* Blocks Styles
+/* Pages
 /* ------------------------------------------- */
-/* Button Styles */
+.page-content p a,
+.page-content ul li a {
+  background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  padding-bottom: 3px;
+  text-decoration: none;
+  transition: all 0.4s ease,
+  text-decoration 0s ease;
+}
+
+.page-content p a:hover,
+.page-content p a:focus,
+.page-content ul li a:hover,
+.page-content ul li a:focus {
+  background-size: 0;
+}
+
+.page-content ul li.wp-block-navigation-item a {
+  background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
+  background-size: 0;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  padding-bottom: 3px;
+  text-decoration: none;
+  transition: background-size 0.4s ease;
+  text-decoration 0s ease;
+}
+
+.page-content ul li.wp-block-navigation-item a:hover,
+.page-content ul li.wp-block-navigation-item a:focus {
+	background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
+	background-size: 100%;
+}
+
+.page-content .wc-block-grid__products li a,
+.page-content .wc-block-product-categories-list-item a,
+.page-content .woocommerce-MyAccount-navigation a {
+	background-image: none;
+	background-size: auto;
+	background-position: initial;
+	padding-bottom: initial;
+	text-decoration: none;
+	transition: none;
+}
+
+.wp-block-post-featured-image a,
+.is-style-aegis-post-title-border a,
+.is-style-aegis-post-date-border a,
+.wp-block-button__link,
+.wp-block-button__link:hover,
+figure a:hover,
+a.custom-logo-link,
+.taxonomy-category a,
+a.wp-block-social-link-anchor,
+.wc-block-grid__products .wc-block-grid__product-image a,
+.wp-block-post-excerpt__more-link {
+    background-image: none !important;
+}
+
+/* ------------------------------------------- */
+/* Effects
+/* ------------------------------------------- */
+/* Heading Border Effect */
+.is-style-aegis-heading-border-radius {
+	border-top-left-radius: 13px;
+	border-top-right-radius: 13px;
+}
+
+/* Shadow Effect */
+.is-style-aegis-shadow {
+	box-shadow: 0 3px 10px 0 rgb(15 16 18 / 10%), 0 12px 30px 0 rgb(15 16 18 / 10%);
+}
+
+.is-style-aegis-shadow-image img,
+.is-style-aegis-post-featured-image-shadow img {
+	box-shadow: 0 3px 10px 0 rgb(15 16 18 / 10%), 0 12px 30px 0 rgb(15 16 18 / 10%);
+}
+
+.is-style-aegis-hover-shadow,
+.is-style-aegis-hover-shadow-image img {
+	transition: box-shadow 0.5s;
+}
+
+.is-style-aegis-hover-shadow:hover,
+.is-style-aegis-hover-shadow-image img:hover {
+	box-shadow: 0 3px 10px 0 rgb(15 16 18 / 20%), 0 12px 30px 0 rgb(15 16 18 / 20%);
+}
+
+.is-style-aegis-shadow {
+	box-shadow: 0 3px 10px 0 rgb(15 16 18 / 10%), 0 12px 30px 0 rgb(15 16 18 / 10%);
+}
+
+/* Image Effect */
+.is-style-aegis-post-featured-image-effect-1 img,
+.is-style-aegis-effect-1-image img,
+.is-style-aegis-effect-3-image img {
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.is-style-aegis-post-featured-image-effect-1:hover img,
+.is-style-aegis-effect-1-image:hover img {
+	transform: scale(.95);
+}
+
+.is-style-aegis-effect-3-image:hover img {
+	transform: scale(1.05);
+}
+
+.is-style-aegis-post-featured-image-effect-2,
+.is-style-aegis-effect-2-image {
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+
+.is-style-aegis-post-featured-image-effect-2::before,
+.is-style-aegis-effect-2-image::before {
+	position: absolute;
+	top: 0;
+	left: -75%;
+	z-index: 2;
+	display: block;
+	content: '';
+	width: 50%;
+	height: 100%;
+	background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+	background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+	-webkit-transform: skewX(-25deg);
+	transform: skewX(-25deg);
+}
+
+.is-style-aegis-post-featured-image-effect-2:hover::before,
+.is-style-aegis-effect-2-image:hover::before {
+	-webkit-animation: shine 1s;
+	animation: shine 1s;
+}
+
+/* Shape Effect */
+.is-style-aegis-shape-one .wp-block-cover__background,
+.is-style-aegis-shape-one img {
+	border-radius: 500px;
+	border-bottom-right-radius: 20px;
+}
+
+.is-style-aegis-shape-two .wp-block-cover__background,
+.is-style-aegis-shape-two img {
+	border-radius: 500px;
+	border-top-left-radius: 20px;
+}
+
+.is-style-aegis-shape-three .wp-block-cover__background,
+.is-style-aegis-shape-three img {
+	border-radius: 13px;
+}
+
+/* ------------------------------------------- */
+/* Button Styles
+/* ------------------------------------------- */
 .is-style-aegis-button-shadow-outline .wp-block-button__link {
 	background-color: transparent;
 	color: currentColor;
@@ -573,130 +484,15 @@ figure {
 	width: 100%;
 }
 
-/* Image, Groups, and Columns Styles */
-.is-style-aegis-shadow {
-	box-shadow: 0 3px 10px 0 rgb(15 16 18 / 10%), 0 12px 30px 0 rgb(15 16 18 / 10%);
+/* ------------------------------------------- */
+/* Beta 3: Redo and Optimize
+/* ------------------------------------------- */
+figure {
+	margin-top: 0;
 }
-
-.is-style-aegis-shadow-image img,
-.is-style-aegis-post-featured-image-shadow img {
-	box-shadow: 0 3px 10px 0 rgb(15 16 18 / 10%), 0 12px 30px 0 rgb(15 16 18 / 10%);
-}
-
-.is-style-aegis-hover-shadow,
-.is-style-aegis-hover-shadow-image img {
-	transition: box-shadow 0.5s;
-}
-
-.is-style-aegis-hover-shadow:hover,
-.is-style-aegis-hover-shadow-image img:hover {
-	box-shadow: 0 3px 10px 0 rgb(15 16 18 / 20%), 0 12px 30px 0 rgb(15 16 18 / 20%);
-}
-
+/* Border Effect */
 .is-style-aegis-border {
 	border: 2px solid;
-}
-
-.is-style-aegis-post-featured-image-effect-1 img,
-.is-style-aegis-effect-1-image img,
-.is-style-aegis-effect-3-image img {
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
-}
-
-.is-style-aegis-post-featured-image-effect-1:hover img,
-.is-style-aegis-effect-1-image:hover img {
-	transform: scale(.95);
-}
-
-.is-style-aegis-effect-3-image:hover img {
-	transform: scale(1.05);
-}
-
-.is-style-aegis-post-featured-image-effect-2,
-.is-style-aegis-effect-2-image {
-	cursor: pointer;
-	position: relative;
-	overflow: hidden;
-}
-
-.is-style-aegis-post-featured-image-effect-2::before,
-.is-style-aegis-effect-2-image::before {
-	position: absolute;
-	top: 0;
-	left: -75%;
-	z-index: 2;
-	display: block;
-	content: '';
-	width: 50%;
-	height: 100%;
-	background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
-	background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
-	-webkit-transform: skewX(-25deg);
-	transform: skewX(-25deg);
-}
-
-.is-style-aegis-post-featured-image-effect-2:hover::before,
-.is-style-aegis-effect-2-image:hover::before {
-	-webkit-animation: shine 1s;
-	animation: shine 1s;
-}
-
-@-webkit-keyframes shine {
-	100% {
-		left: 125%;
-	}
-}
-
-@keyframes shine {
-	100% {
-		left: 125%;
-	}
-}
-
-.is-style-aegis-shape-one .wp-block-cover__background,
-.is-style-aegis-shape-one img {
-	border-radius: 500px;
-	border-bottom-right-radius: 20px;
-}
-
-.is-style-aegis-shape-two .wp-block-cover__background,
-.is-style-aegis-shape-two img {
-	border-radius: 500px;
-	border-top-left-radius: 20px;
-}
-
-.is-style-aegis-shape-three .wp-block-cover__background,
-.is-style-aegis-shape-three img {
-	border-radius: 13px;
-}
-
-/* Heading Border Style */
-.is-style-aegis-heading-border-radius {
-	border-top-left-radius: 13px;
-	border-top-right-radius: 13px;
-}
-
-/*
- * Button hover styles.
- * Necessary until the following issue is resolved in Gutenberg:
- * https://github.com/WordPress/gutenberg/issues/27075
- */
-.wp-block-search__button,
-.wp-block-file .wp-block-file__button,
-.wp-block-button__link {
-	transition: all .3s ease;
-	-webkit-transition: all .3s ease;
-}
-
-.wp-block-file .wp-block-file__button:hover,
-.wp-block-button__link:hover {
-	opacity: 0.96;
-	padding: 7px 28px;
-}
-
-.wp-block-search__button:hover {
-	opacity: 0.96;
 }
 
 /* ------------------------------------------- */
@@ -775,9 +571,11 @@ p.banner-text-margin {
 	z-index: 12;
 }
 
+/*
 .testimonials .rating {
-	margin: 0 0 -10px 0 !important;
+	margin: 0 0 -5px 0 !important;
 }
+*/
 
 .testimonials blockquote.wp-block-quote.is-style-default {
 	margin: 0;
@@ -788,8 +586,7 @@ p.banner-text-margin {
 	position: relative;
 }
 
-.about .tagline,
-.team .tagline {
+.is-tagline {
 	margin-bottom: -10px;
 }
 
@@ -804,23 +601,14 @@ p.banner-text-margin {
 	left: -40px;
 }
 
+.is-rating,
 .aegis-rating {
 	margin: -5px 0 -20px 0 !important;
 }
 
-/* Team */
-.team .team-box {
-	position: relative;
-	margin: -100px 30px 0 30px;
-}
-
-.team .has-team-group,
-.team .team-box-1 {
-	margin-top: 0;
-}
-
 /* Quotes */
-.quote-mark {
+
+.is-quote-mark {
 	margin-bottom: -70px !important;
 	left: 5% !important;
 	position: relative;
@@ -876,7 +664,7 @@ p.banner-text-margin {
 
 .is-style-aegis-post-excerpt-border-shadow,
 .is-style-aegis-post-excerpt-border {
-	border: 2px solid var(--wp--preset--color--senary);
+	border: 2px solid var(--wp--preset--color--secondary);
 	padding: var(--wp--preset--spacing--40);
 	border-radius: 13px;
 }
@@ -889,14 +677,6 @@ p.banner-text-margin {
 	margin-bottom: -1.5rem !important;
 }
 
-/* Temporary fixes until it moves to theme.json */
-
-/* Target the core/gallery block */
-.wp-block-gallery {
-    margin-bottom: 0.75em;
-    margin-top: 1.25em;
-}
-
 /* Target the core/image block */
 .wp-block-image {
     margin-bottom: 0.75em;
@@ -905,15 +685,10 @@ p.banner-text-margin {
 
 /* Target the image caption in the core/image block */
 .wp-block-image figcaption {
-    background-color: var(--wp--preset--color--senary);
+    background-color: var(--wp--preset--color--secondary);
     color: var(--wp--preset--color--foreground);
     margin-top: 0%;
     padding: calc(.667em + 2px) calc(1.333em + 2px);
-}
-
-/* Target the core/footnotes block */
-.wp-block-footnotes {
-    font-size: var(--wp--preset--font-size--small);
 }
 
 /* Scroll to Top */
@@ -921,6 +696,7 @@ p.banner-text-margin {
 	cursor: pointer;
 	transition: all .3s ease;
 	-webkit-transition: all .3s ease;
+	z-index: 999;
 }
 
 .scroll-to-top:hover {
@@ -937,7 +713,6 @@ p.banner-text-margin {
 }
 
 .is-style-aegis-scroll-text {
-	/* animation properties */
 	-moz-transform: translateX(100%);
 	-webkit-transform: translateX(100%);
 	transform: translateX(100%);
@@ -945,7 +720,6 @@ p.banner-text-margin {
 	-webkit-animation: my-animation 15s linear infinite;
 	animation: my-animation 15s linear infinite;
 }
-
 
 /* Firefox Support */
 @-moz-keyframes my-animation {
@@ -984,7 +758,6 @@ p.banner-text-margin {
 }
 
 /* WooCommerce Product Card */
-
 .product-card {
 	overflow: hidden;
 }
@@ -1340,8 +1113,9 @@ textarea {
 		border: none;
 		padding: 0;
 	}
+
 /* used to be additional */
-	.header-hero.additional {
+	.header-hero.has-min-height {
 		min-height: 550px !important;
 	}/*remove*/
 
@@ -1366,6 +1140,7 @@ textarea {
 		left: -10px;
 	}
 
+	.has-no-gradient-on-mobile,
 	.about.gradient {
 		background: none !important;
 	}
@@ -1390,7 +1165,7 @@ textarea {
 	}
 
 	.events.alternative.pricing .pricing-table {
-		border: 2px solid var(--wp--preset--color--senary);
+		border: 2px solid var(--wp--preset--color--secondary);
 	}
 
 	.events.alternative {
@@ -1423,7 +1198,7 @@ textarea {
 	}
 
 	/* Hide on Mobile Class */
-	.hide-on-mobile {
+	.is-hidden-on-mobile {
 		display: none !important;
 	}
 }
@@ -1524,10 +1299,6 @@ textarea {
 
 	.profile-card:hover .wp-block-group {
 		transform: translateY(0);
-	}
-
-	.team .team-image {
-		margin-top: -100px;
 	}
 
 	/* Hero Sale Pattern */
@@ -1824,7 +1595,7 @@ button.components-button.wc-block-components-button.wc-block-components-checkout
 
 .woocommerce .woocommerce-ordering select {
 	min-width: 13rem;
-	border: 1px solid var(--wp--preset--color--senary);
+	border: 1px solid var(--wp--preset--color--secondary);
 	border-radius: 0;
 	box-sizing: border-box;
 	padding: 0.75rem;
@@ -2178,7 +1949,7 @@ a.components-button.wc-block-components-button.wc-block-cart__submit-button.cont
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation li {
-	border-bottom: 1px solid var(--wp--preset--color--senary);
+	border-bottom: 1px solid var(--wp--preset--color--secondary);
 }
 
 .woocommerce-message,
@@ -2456,7 +2227,7 @@ li.wc-block-product-categories-list-item a {
 
 .wc-filter-element-label-list-count,
 .wc-block-product-categories-list-item-count {
-	background: var(--wp--preset--color--senary);
+	background: var(--wp--preset--color--secondary);
 	border-radius: 0;
 	margin-left: 6px;
 	padding: 1px 7px;
@@ -2471,11 +2242,11 @@ li.wc-block-product-categories-list-item a {
 }
 
 .wc-block-price-filter__controls input {
-	border-color: var(--wp--preset--color--senary) !important;
+	border-color: var(--wp--preset--color--secondary) !important;
 }
 
 .wc-block-components-checkbox .wc-block-components-checkbox__input[type=checkbox] {
-	border: 2px solid var(--wp--preset--color--senary);
+	border: 2px solid var(--wp--preset--color--secondary);
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation ul {
@@ -2603,11 +2374,11 @@ li.wc-block-product-categories-list-item a {
 
 .woocommerce #tab-additional_information table.shop_attributes th {
 	background: transparent;
-	border: 1px solid var(--wp--preset--color--senary);
+	border: 1px solid var(--wp--preset--color--secondary);
 }
 
 .woocommerce #tab-additional_information table.shop_attributes td {
-	border: 1px solid var(--wp--preset--color--senary);
+	border: 1px solid var(--wp--preset--color--secondary);
 	padding-left: 20px;
 }
 
@@ -3061,19 +2832,7 @@ button.wp-block-button__link.wc-block-filter-submit-button.wc-block-components-f
 	bottom: 40px;
 }
 
-
-
-
 /* Cross-browser fade-in animation */
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 /* Mozilla Firefox fade-in animation */
 @-moz-keyframes fadein {
   from {
@@ -3113,3 +2872,173 @@ button.wp-block-button__link.wc-block-filter-submit-button.wc-block-components-f
     opacity: 1;
   }
 }
+
+/* ------------------------------------------- */
+/* Cross-Browser Support
+/* ------------------------------------------- */
+/* Fade-in Animation */
+@keyframes fadein {
+    from {
+		opacity: 0; 
+	}
+    to {
+		opacity: 1;
+	}
+}
+
+/* Shine Animation */
+@-webkit-keyframes shine {
+	100% {
+		left: 125%;
+	}
+}
+
+@keyframes shine {
+	100% {
+		left: 125%;
+	}
+}
+
+/* ------------------------------------------- */
+/* Media Queries
+/* ------------------------------------------- */
+/* Navigation Block */
+@media only screen and (max-width: 962px) {
+	.wp-block-navigation.items-justified-right {
+		--navigation-layout-justification-setting: flex-start;
+		--navigation-layout-justify: flex-start;
+	}
+}
+
+@media (min-width:962px) {
+	.wp-block-navigation .has-child:hover>.wp-block-navigation__submenu-container,
+	.wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria-expanded=true]+.wp-block-navigation__submenu-container {
+		box-shadow: 0 20px 40px -5px rgb(15 16 18 / 18%);
+		transform: translateY(0);
+	}
+
+	.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+		display: block;
+		width: 100%;
+		position: relative;
+		z-index: auto;
+		background-color: inherit;
+	}
+
+	.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) .wp-block-navigation__responsive-container-close {
+		display: none;
+	}
+
+	.wp-block-navigation__responsive-container-open:not(.always-shown) {
+		display: none;
+	}
+
+	.wp-block-navigation .has-child :where(.wp-block-navigation__submenu-container) .wp-block-navigation__submenu-icon {
+		margin-right: .7em;
+	}
+
+	[class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container {
+		flex-direction: row;
+	}
+
+	[class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li {
+		max-width: 250px;
+		display: block;
+		min-width: 200px;
+	}
+
+	[class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li button {
+		display: none;
+	}
+
+	[class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>a {
+		font-weight: var(--wp--custom--font-weight--bold, 700);
+		margin: 5px 0 0 0 !important;
+	}
+
+	[class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>a:hover {
+		transform: translateX(0) !important;
+	}
+
+	[class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>ul {
+		position: static;
+		visibility: visible;
+		opacity: .9;
+		font-size: .9em;
+		width: auto;
+		height: auto;
+		display: block;
+		box-shadow: none !important;
+		transform: translateY(0) !important;
+	}
+}
+
+@media (max-width:960px) {
+	.wp-block-navigation__responsive-container-close {
+		top: 50px;
+		right: 20px;
+	}
+
+	.wp-block-navigation__responsive-container {
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0s, visibility 0s;
+		display: flex;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open {
+		opacity: 1;
+		visibility: visible;
+		transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+	}
+
+	.wp-block-navigation__responsive-container .wp-block-navigation__responsive-container-content .wp-block-navigation__container {
+		transition: transform .4s all, opacity .4s all;
+		transform: translateY(-35px);
+		opacity: 0;
+		transition-delay: .2s;
+		font-size: 20px;
+		width: 100%;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__container {
+		transform: translateY(0);
+		opacity: 1;
+		gap: 20px;
+		padding: 40px;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .has-child .wp-block-navigation__submenu-container {
+		font-size: .9em;
+		gap: 15px;
+		padding: 0 30px 24px 30px;
+		position: relative;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container:before {
+		content: "↑";
+		position: absolute;
+		left: 0;
+		top: 10px;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation-item__content {
+		color: currentColor;
+	}
+}
+
+/*
+@media (min-width:600px) {
+	.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+		display: none;
+	}
+
+	.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) .wp-block-navigation__responsive-container-close {
+		display: block;
+	}
+
+	.wp-block-navigation__responsive-container-open:not(.always-shown) {
+		display: flex;
+	}
+}
+*/
