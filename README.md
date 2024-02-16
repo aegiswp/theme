@@ -267,7 +267,7 @@ By adhering to these practices, you can make your development process more strea
 To get started with Aegis development:
 
 1. Set up a [WordPress](#deploying-wordpress-locally) instance.
-2. Download [Aegis](https://github.com/atmostfear-entertainment/aegis/releases/tag/alpha).
+2. Download [Aegis](https://github.com/atmostfear-entertainment/aegis/releases/).
 3. Unzip, and upload this repository into your `/wp-content/themes/` directory.
 
 Just in case you find the method to install WordPress locally too overwhelming, then we would recommend experimenting with [wp-env](https://developer.wordpress.org/block-editor/getting-started/devenv/), [Local](https://localwp.com/) or [DevKinsta](https://kinsta.com/devkinsta/).
@@ -275,10 +275,10 @@ Just in case you find the method to install WordPress locally too overwhelming, 
 
 #### Requirements
 
-- [Aegis](https://github.com/atmostfear-entertainment/aegis/releases/tag/alpha)
+- [Aegis](https://github.com/atmostfear-entertainment/aegis/releases/)
 - [WordPress 6.0+](https://wordpress.org/download/)
 - PHP 7.4+
-- License: [GPLv2](https://www.gnu.org/licenses/gpl-2.0.html) or later.
+- License: [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) or later.
 
 
 > **Warning**
@@ -527,7 +527,7 @@ Fortunately, Aegis has a [public roadmap](https://trello.com/b/x75Zqk7W/aegis-th
 
 The thumbnail on this README.md file:
 
-["AEON"](https://www.midjourney.com/) generated on Midjourney by Atmostfear Entertaiment SAS, CCO
+Aegis by Atmostfear Entertaiment SAS, CCO
 
 
 ## Suggestions?
