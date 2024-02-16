@@ -138,9 +138,7 @@ This functionality essentially transforms the site editor into a theme builder. 
 | --------------- | --------------- | --------------- | --------------------- | --------------------- | --------------------- |
 | N/A | --wp--preset--color--background | `#f9f9f9` | Background | background | ![jpg](https://placehold.co/20x20/F9F9F9/F9F9F9/jpg) |
 | N/A | --wp--preset--color--foreground | `#0a0a0a` | Foreground | foreground | ![jpg](https://placehold.co/20x20/0a0a0a/0a0a0a/jpg) |
-
-
-
+| N/A | --wp--preset--color--primary | `#3e3d3d` | Foreground | foreground | ![jpg](https://placehold.co/20x20/3e3d3d/3e3d3d/jpg) |
 
 ### Pattern Creation Guidelines
 
