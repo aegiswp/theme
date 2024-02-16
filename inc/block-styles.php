@@ -45,6 +45,15 @@ if ( function_exists( 'register_block_style' ) ) {
 			)
 		);
 
+		// Video: Shadow.
+		register_block_style(
+			'core/video',
+			array(
+				'name'  => 'aegis-shadow',
+				'label' => esc_html__('Shadow', 'aegis'),
+			)
+		);
+
 		// Cover: Shape 1.
 		register_block_style(
 			'core/cover',

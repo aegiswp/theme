@@ -1,0 +1,31 @@
+{
+	"name": "aegis",
+	"private": true,
+	"version": "0.0.1",
+	"description": "Aegis WordPress Block Theme",
+	"author": "Atmostfear Entertainment",
+	"license": "GPL-3.0",
+	"keywords": [
+		"WordPress",
+		"Block",
+		"Theme"
+	],
+	"homepage": "https://github.com/atmostfear-entertainment/aegis#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/atmostfear-entertainment/aegis.git"
+	},
+	"bugs": {
+		"url": "https://github.com/atmostfear-entertainment/aegis/issues"
+	},
+	"devDependencies": {
+		"@wordpress/stylelint-config": "^21.31.0",
+		"stylelint": "^16.1.0"
+	},
+	"scripts": {
+		"lint:css": "stylelint **/*.css -i .gitignore",
+		"lint:css:fix": "stylelint **/*.css -i .gitignore --fix",
+		"lint:php": "./vendor/bin/phpcs",
+		"lint:php:fix": "./bin/phpcbf.sh"
+	}
+}

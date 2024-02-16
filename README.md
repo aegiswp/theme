@@ -140,6 +140,19 @@ This functionality essentially transforms the site editor into a theme builder. 
 | `Spacing/50` | `--wp--preset--spacing--50` | `min(6.5rem, 13vw)` | `50` |
 | `Spacing/60` | `--wp--preset--spacing--60` | `min(10.5rem, 24vw)` | `60` |
 
+### Token Cheat-sheet
+
+#### Default Global Style
+
+| Figma Token | CSS Variable | Color | Name | Slug | Visual |
+| --------------- | --------------- | --------------- | --------------------- | --------------------- | --------------------- |
+| N/A | --wp--preset--color--background | `#f9f9f9` | Background | background | ![jpg](https://placehold.co/20x20/F9F9F9/F9F9F9/jpg) |
+| N/A | --wp--preset--color--foreground | `#0a0a0a` | Foreground | foreground | ![jpg](https://placehold.co/20x20/0a0a0a/0a0a0a/jpg) |
+| N/A | --wp--preset--color--primary | `#3e3d3d` | Primary | primary | ![jpg](https://placehold.co/20x20/3e3d3d/3e3d3d/jpg) |
+| N/A | --wp--preset--color--secondary | `#ebebef` | Secondary | secondary | ![jpg](https://placehold.co/20x20/ebebef/ebebef/jpg) |
+| N/A | --wp--preset--color--tertiary | `#d7dade` | Tertiary | tertiary | ![jpg](https://placehold.co/20x20/d7dade/d7dade/jpg) |
+| N/A | --wp--preset--color--quaternary | `#ccd0d4` | Quaternary | quaternary | ![jpg](https://placehold.co/20x20/ccd0d4/ccd0d4/jpg) |
+| N/A | --wp--preset--color--quinary | `#b5bcc2` | Quinary | quinary | ![jpg](https://placehold.co/20x20/b5bcc2/b5bcc2/jpg) |
 
 ### Pattern Creation Guidelines
 
@@ -262,7 +275,7 @@ By adhering to these practices, you can make your development process more strea
 To get started with Aegis development:
 
 1. Set up a [WordPress](#deploying-wordpress-locally) instance.
-2. Download [Aegis](https://github.com/atmostfear-entertainment/aegis/releases/tag/alpha).
+2. Download [Aegis](https://github.com/atmostfear-entertainment/aegis/releases/).
 3. Unzip, and upload this repository into your `/wp-content/themes/` directory.
 
 Just in case you find the method to install WordPress locally too overwhelming, then we would recommend experimenting with [wp-env](https://developer.wordpress.org/block-editor/getting-started/devenv/), [Local](https://localwp.com/) or [DevKinsta](https://kinsta.com/devkinsta/).
@@ -270,10 +283,10 @@ Just in case you find the method to install WordPress locally too overwhelming, 
 
 #### Requirements
 
-- [Aegis](https://github.com/atmostfear-entertainment/aegis/releases/tag/alpha)
+- [Aegis](https://github.com/atmostfear-entertainment/aegis/releases/)
 - [WordPress 6.0+](https://wordpress.org/download/)
 - PHP 7.4+
-- License: [GPLv2](https://www.gnu.org/licenses/gpl-2.0.html) or later.
+- License: [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) or later.
 
 
 > **Warning**
@@ -522,7 +535,7 @@ Fortunately, Aegis has a [public roadmap](https://trello.com/b/x75Zqk7W/aegis-th
 
 The thumbnail on this README.md file:
 
-["AEON"](https://www.midjourney.com/) generated on Midjourney by Atmostfear Entertaiment SAS, CCO
+Aegis by Atmostfear Entertaiment SAS, CCO
 
 
 ## Suggestions?
