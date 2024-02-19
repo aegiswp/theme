@@ -1,12 +1,12 @@
 <?php
 /**
- * Title: Event Three Column Highlight
- * Slug: aegis/event-three-column-highlight
- * Categories: call-to-action, event, gallery, media
- * Description: A three-column event pattern featuring cover images, events details, and a call-to-action button.
- * Keywords: call to action, cta, event, gallery, columns, cover image
+ * Title: Event Promotion - Three-columns grid layout with images and call to action
+ * Slug: aegis/event-promotion-three-columns-grid-cta
+ * Categories: call-to-action, columns, events, images
+ * Description: This pattern offers a triple-column layout for event promotion, featuring eye-catching images, event details, and CTAs in a clean, organized format.
+ * Keywords: CTA, call to action, event promotion, events, grid layout, images
  * Viewport Width: 1400
- * Block Types: core/group, core/columns, core/column, core/cover, core/paragraph, core/heading, core/button
+ * Block Types: core/button, core/buttons, core/column, core/columns, core/cover, core/group, core/heading, core/paragraph
  * Inserter: true
  * 
  * @package aegis
@@ -36,9 +36,7 @@
                         <!-- /wp:heading -->
 
                         <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0"}}}} -->
-                        <p style="margin-top:0">
-                            <?php echo esc_html_x('Description (up to 120 characters): Enter a brief summary of your events here.', 'Events call to action description', 'aegis'); ?>
-                        </p>
+                        <p style="margin-top:0"><?php echo esc_html_x('Description (up to 120 characters): Enter a brief summary of your events here.', 'Events call to action description', 'aegis'); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
