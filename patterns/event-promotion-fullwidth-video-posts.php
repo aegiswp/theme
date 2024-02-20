@@ -1,12 +1,12 @@
 <?php
 /**
- * Title: Event with featured video, posts, and socials
- * Slug: aegis/event-feature-video-posts-socials
- * Categories: event, featured, media, social, video
- * Description: A full-width event feature pattern with gradient background, centered headings, video showcase, query posts, and centralized social links.
- * Keywords: event, media, video, posts, social links
+ * Title: Event Promotion - Full Width with Video and Posts
+ * Slug: aegis/event-promotion-fullwidth-video-posts
+ * Categories: call-to-action, events, media, video
+ * Description: Introduces a full-width pattern integrating a multimedia approach to event latest posts.
+ * Keywords: call to action, events, full width, media, video
  * Viewport Width: 1400
- * Block Types: core/group, core/heading, core/paragraph, core/video, core/query, core/post-template, core/post-date, core/post-title, core/buttons, core/button, core/social-links, core/social-link
+ * Block Types: core/column, core/columns, core/group, core/paragraph, core/heading, core/video, core/query, core/post-template, core/post-date, core/post-title, core/buttons, core/button, core/social-links
  * Inserter: true
  * 
  * @package aegis
