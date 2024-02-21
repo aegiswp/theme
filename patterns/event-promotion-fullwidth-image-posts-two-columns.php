@@ -1,12 +1,12 @@
 <?php
 /**
- * Title: Event with featured image, posts, and socials
- * Slug: aegis/event-feature-image-posts-socials
- * Categories: event, featured, image, media, social
- * Description: A full-width event featured pattern with gradient background, centered headings, image showcase, query posts, and centralized social links.
- * Keywords: buttons, event, image, posts, social links
+ * Title: Event Promotion - Full-Width Layout with Gradient Background
+ * Slug: aegis/event-promotion-fullwidth-image-posts-two-columns
+ * Categories: call-to-action, events, media
+ * Description: This pattern combines image and textual content in a dynamic schedule format, enriched with social links and dual call-to-action buttons.
+ * Keywords: events, full width, media, dynamic, posts, social links
  * Viewport Width: 1400
- * Block Types: core/group, core/columns, core/column, core/image, core/paragraph, core/heading, core/query, core/post-template, core/post-date, core/post-title, core/buttons, core/button, core/social-links
+ * Block Types: core/column, core/columns, core/group, core/heading, core/image, core/paragraph, core/query, core/social-links, core/button
  * Inserter: true
  * 
  * @package aegis

@@ -1,12 +1,12 @@
 <?php
 /**
- * Title: Event Exhibition Showcase
- * Slug: aegis/event-two-column-showcase
- * Categories: banner, call-to-action, event, gallery, 
- * Description: A two-column event pattern with structured details on the left and image highlights on the right.
- * Keywords: call to action, cta, event, gallery, images
+ * Title: Event Promotion - Vertical Gallery with Interactive Elements
+ * Slug: aegis/event-promotion-grid-three-columns
+ * Categories: call-to-action, events, gallery
+ * Description: Introduces a vertical gallery layout designed for event showcases, blending images with interactive elements.
+ * Keywords: call to action, events, columns, gallery, images
  * Viewport Width: 1400
- * Block Types: core/columns, core/column, core/cover, core/group, core/heading, core/paragraph
+ * Block Types: core/column, core/columns, core/cover, core/group, core/heading, core/paragraph
  * Inserter: true
  * 
  * @package aegis
