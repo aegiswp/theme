@@ -1,10 +1,10 @@
 <?php
 /**
- * Title: Event Promotion - Vertical Gallery with Interactive Elements
- * Slug: aegis/event-promotion-grid-three-columns
- * Categories: call-to-action, events, gallery
+ * Title: 03. Event Pattern
+ * Slug: aegis/03-event-pattern
+ * Categories: call-to-action, event, gallery
  * Description: Introduces a vertical gallery layout designed for event showcases, blending images with interactive elements.
- * Keywords: call to action, events, columns, gallery, images
+ * Keywords: call to action, event, gallery, images
  * Viewport Width: 1400
  * Block Types: core/column, core/columns, core/cover, core/group, core/heading, core/paragraph
  * Inserter: true
@@ -14,8 +14,8 @@
  */
 ?>
 
-<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}},"elements":{"link":{"color":{"text":"var:preset|color|background"},":hover":{"color":{"text":"var:preset|color|secondary"}}}}},"backgroundColor":"foreground","textColor":"background","layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('03. Event Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
-<div class="wp-block-group has-background-color has-foreground-background-color has-text-color has-background has-link-color" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"margin":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|background"},":hover":{"color":{"text":"var:preset|color|secondary"}}}}},"backgroundColor":"foreground","textColor":"background","layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('03. Event Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
+<div class="wp-block-group has-background-color has-foreground-background-color has-text-color has-background has-link-color" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
     <!-- wp:columns {"align":"wide"} -->
     <div class="wp-block-columns alignwide">
         <!-- wp:column {"verticalAlignment":"top","width":"","layout":{"type":"default"}} -->
