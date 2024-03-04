@@ -1,10 +1,10 @@
 <?php
 /**
- * Title: Event Promotion - Full Width with Video and Posts
- * Slug: aegis/event-promotion-fullwidth-video-posts
- * Categories: call-to-action, events, media, video
+ * Title: 01. Event Pattern
+ * Slug: aegis/01-event-pattern
+ * Categories: call-to-action, event, media, video
  * Description: Introduces a full-width pattern integrating a multimedia approach to event latest posts.
- * Keywords: call to action, events, full width, media, video
+ * Keywords: call to action, events, full width, media, posts, query, video
  * Viewport Width: 1400
  * Block Types: core/column, core/columns, core/group, core/paragraph, core/heading, core/video, core/query, core/post-template, core/post-date, core/post-title, core/buttons, core/button, core/social-links
  * Inserter: true
