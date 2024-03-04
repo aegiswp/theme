@@ -1,10 +1,10 @@
 <?php
 /**
- * Title: Event Promotion - Full-Width Layout with Gradient Background
- * Slug: aegis/event-promotion-fullwidth-image-posts-two-columns
- * Categories: call-to-action, events, media
+ * Title: 02. Event Pattern
+ * Slug: aegis/02-event-pattern
+ * Categories: call-to-action, event, media
  * Description: This pattern combines image and textual content in a dynamic schedule format, enriched with social links and dual call-to-action buttons.
- * Keywords: events, full width, media, dynamic, posts, social links
+ * Keywords: call to action, event, full width, media, posts, query, social links
  * Viewport Width: 1400
  * Block Types: core/column, core/columns, core/group, core/heading, core/image, core/paragraph, core/query, core/social-links, core/button
  * Inserter: true
@@ -110,5 +110,7 @@
                 <!-- /wp:column -->
         </div>
         <!-- /wp:columns -->
+    </div>
+    <!-- /wp:group -->
     </div>
     <!-- /wp:group -->
