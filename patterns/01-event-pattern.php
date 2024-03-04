@@ -4,7 +4,7 @@
  * Slug: aegis/01-event-pattern
  * Categories: call-to-action, event, media, video
  * Description: Introduces a full-width pattern integrating a multimedia approach to event latest posts.
- * Keywords: call to action, events, full width, media, posts, query, video
+ * Keywords: call to action, events, full width, media, posts, query, video, social links
  * Viewport Width: 1400
  * Block Types: core/column, core/columns, core/group, core/paragraph, core/heading, core/video, core/query, core/post-template, core/post-date, core/post-title, core/buttons, core/button, core/social-links
  * Inserter: true
