@@ -2,9 +2,9 @@
 /**
  * Title: 04. Event Pattern
  * Slug: aegis/04-event-pattern
- * Categories: call-to-action, columns, events, images
+ * Categories: call-to-action, event, gallery, hero
  * Description: This pattern offers a triple-column layout for event promotion, featuring eye-catching images, event details, and CTAs in a clean, organized format.
- * Keywords: call to action, event, images, media
+ * Keywords: call to action, event, gallery, hero, media
  * Viewport Width: 1400
  * Block Types: core/button, core/buttons, core/column, core/columns, core/cover, core/group, core/heading, core/paragraph
  * Inserter: true
