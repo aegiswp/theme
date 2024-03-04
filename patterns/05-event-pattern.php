@@ -2,9 +2,9 @@
 /**
  * Title: 05. Event Pattern
  * Slug: aegis/05-event-pattern
- * Categories: banner, call-to-action, events, hero
+ * Categories: call-to-action, event, gallery, hero
  * Description: A hero pattern that excels in event promotion, featuring dual cover images on each side for visual depth, complemented by central event information.
- * Keywords: call to action, cover images, event, hero, banner, social links
+ * Keywords: call to action, cover images, event, gallery, hero, social links
  * Viewport Width: 1400
  * Block Types: core/group, core/columns, core/column, core/cover, core/paragraph, core/heading, core/buttons, core/button, core/social-links, core/image
  * Inserter: true
