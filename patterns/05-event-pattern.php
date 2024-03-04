@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: Event Hero - Dual Cover Images with Event Information and Social Links
- * Slug: aegis/event-hero-dual-cover-info-social
+ * Title: 05. Event Pattern
+ * Slug: aegis/05-event-pattern
  * Categories: banner, call-to-action, events, hero
  * Description: A hero pattern that excels in event promotion, featuring dual cover images on each side for visual depth, complemented by central event information.
  * Keywords: call to action, cover images, event, hero, banner, social links
