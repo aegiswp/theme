@@ -1,10 +1,10 @@
 <?php
 /**
- * Title: Event Promotion - Three-columns grid layout with images and call to action
- * Slug: aegis/event-promotion-three-columns-grid-cta
+ * Title: 04. Event Pattern
+ * Slug: aegis/04-event-pattern
  * Categories: call-to-action, columns, events, images
  * Description: This pattern offers a triple-column layout for event promotion, featuring eye-catching images, event details, and CTAs in a clean, organized format.
- * Keywords: CTA, call to action, event promotion, events, grid layout, images
+ * Keywords: call to action, event, images, media
  * Viewport Width: 1400
  * Block Types: core/button, core/buttons, core/column, core/columns, core/cover, core/group, core/heading, core/paragraph
  * Inserter: true
@@ -14,8 +14,8 @@
  */
 ?>
 
-<!-- wp:group {"style":{"spacing":{"padding":{"right":"0","left":"0","top":"0","bottom":"0"}},"dimensions":{"minHeight":"100vh"}},"layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('04. Event Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
-<div class="wp-block-group" style="min-height:100vh;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
+<!-- wp:group {"style":{"spacing":{"padding":{"right":"0","left":"0","top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}},"dimensions":{"minHeight":"100vh"}},"layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('04. Event Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
+<div class="wp-block-group" style="min-height:100vh;margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
     <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"0","left":"0"}}}} -->
     <div class="wp-block-columns alignwide">
         <!-- wp:column {"width":"33.33%"} -->
