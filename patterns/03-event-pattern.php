@@ -2,9 +2,9 @@
 /**
  * Title: 03. Event Pattern
  * Slug: aegis/03-event-pattern
- * Categories: call-to-action, event, gallery
+ * Categories: call-to-action, event, gallery, hero
  * Description: Introduces a vertical gallery layout designed for event showcases, blending images with interactive elements.
- * Keywords: call to action, event, gallery, images
+ * Keywords: call to action, event, gallery, hero, images, media
  * Viewport Width: 1400
  * Block Types: core/column, core/columns, core/cover, core/group, core/heading, core/paragraph
  * Inserter: true
