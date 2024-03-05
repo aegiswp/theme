@@ -4,92 +4,86 @@
 	"settings": {
 		"appearanceTools": true,
 		"color": {
+				"palette": [
+				{
+					"color": "#f9f9f9",
+					"name": "Background",
+					"slug": "background"
+				},
+				{
+					"color": "#0a0a0a",
+					"name": "Foreground",
+					"slug": "foreground"
+				},
+				{
+					"color": "#3e3d3d",
+					"name": "Primary",
+					"slug": "primary"
+				},
+				{
+					"color": "#ebebef",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+				{
+					"color": "#d7dade",
+					"name": "Tertiary",
+					"slug": "tertiary"
+				},
+				{
+					"color": "#ccd0d4",
+					"name": "Quaternary",
+					"slug": "quaternary"
+				},
+				{
+					"color": "#b5bcc2",
+					"name": "Quinary",
+					"slug": "quinary"
+				}
+			],
 			"duotone": [
 				{
-					"colors": [
-						"#0a0a0a",
-						"#3e3d3d"
-					],
+					"colors": ["#0a0a0a","#3e3d3d"],
 					"slug": "foreground-and-primary",
 					"name": "Foreground and primary"
 				},
 				{
-					"colors": [
-						"#3e3d3d",
-						"#f9f9f9"
-					],
+					"colors": ["#3e3d3d","#f9f9f9"],
 					"slug": "primary-and-background",
 					"name": "Primary and background"
 				},
 				{
-					"colors": [
-						"#3e3d3d",
-						"#ebebef"
-					],
+					"colors": ["#3e3d3d","#ebebef"],
 					"slug": "primary-and-secondary",
 					"name": "Primary and secondary"
 				},
 				{
-					"colors": [
-						"#0a0a0a",
-						"#ebebef"
-					],
+					"colors": ["#0a0a0a","#ebebef"],
 					"slug": "foreground-and-secondary",
 					"name": "Foreground and secondary"
 				},
 				{
-					"colors": [
-						"#0a0a0a",
-						"#d7dade"
-					],
+					"colors": ["#0a0a0a","#d7dade"],
 					"slug": "primary-and-tertiary",
 					"name": "Primary and tertiary"
 				},
 				{
-					"colors": [
-						"#0a0a0a",
-						"#d7dade"
-					],
+					"colors": ["#0a0a0a","#d7dade"],
 					"slug": "foreground-and-tertiary",
 					"name": "Foreground and tertiary"
 				},
 				{
-					"colors": [
-						"#0a0a0a",
-						"#ccd0d4"
-					],
+					"colors": ["#0a0a0a","#ccd0d4"],
 					"slug": "foreground-and-quaternary",
 					"name": "Foreground and quaternary"
 				},
 				{
-					"colors": [
-						"#0a0a0a",
-						"#b5bcc2"
-					],
+					"colors": ["#0a0a0a","#b5bcc2"],
 					"slug": "foreground-and-quinary",
 					"name": "Foreground and quinary"
 				},
 				{
-					"colors": [
-						"#0a0a0a",
-						"#f5f4f5"
-					],
-					"slug": "foreground-and-senary",
-					"name": "Foreground and senary"
-				},
-				{
-					"colors": [
-						"#0a0a0a",
-						"#eeeeee"
-					],
-					"slug": "foreground-and-septenary",
-					"name": "Foreground and septenary"
-				},
-				{
-					"colors": [
-						"#ccd0d4",
-						"#babcbb"
-					],
+					"colors": ["#ccd0d4","#b5bcc2"],
 					"slug": "quaternary-and-quinary",
 					"name": "Quaternary and Quinary"
 				}
@@ -181,11 +175,6 @@
 					"name": "Diagonal background to secondary triangle"
 				},
 				{
-					"gradient": "linear-gradient(41deg,var(--wp--preset--color--background) 96%,var(--wp--preset--color--senary) 97%)",
-					"slug": "diagonal-background-to-senary-triangle",
-					"name": "Diagonal background to senary triangle"
-				},
-				{
 					"gradient": "linear-gradient(135deg,var(--wp--preset--color--foreground) 89%,transparent 89%)",
 					"slug": "diagonal-foreground-to-transparent-triangle",
 					"name": "Diagonal foreground to transparent triangle"
@@ -194,53 +183,6 @@
 					"gradient": "linear-gradient(135deg,rgba(0,0,0,0.39) 89%,var(--wp--preset--color--primary) 89%)",
 					"slug": "diagonal-foreground-to-primary-triangle",
 					"name": "Diagonal foreground to primary triangle"
-				}
-			],
-			"palette": [
-				{
-					"color": "#f9f9f9",
-					"name": "Background",
-					"slug": "background"
-				},
-				{
-					"color": "#0a0a0a",
-					"name": "Foreground",
-					"slug": "foreground"
-				},
-				{
-					"color": "#3e3d3d",
-					"name": "Primary",
-					"slug": "primary"
-				},
-				{
-					"color": "#ebebef",
-					"name": "Secondary",
-					"slug": "secondary"
-				},
-				{
-					"color": "#d7dade",
-					"name": "Tertiary",
-					"slug": "tertiary"
-				},
-				{
-					"color": "#ccd0d4",
-					"name": "Quaternary",
-					"slug": "quaternary"
-				},
-				{
-					"color": "#b5bcc2",
-					"name": "Quinary",
-					"slug": "quinary"
-				},
-				{
-					"color": "#f5f4f5",
-					"name": "Senary",
-					"slug": "senary"
-				},
-				{
-					"color": "#eeece6",
-					"name": "Septenary",
-					"slug": "septenary"
 				}
 			]
 		},
@@ -317,7 +259,7 @@
 			]
 		},
 		"typography": {
-			"dropCap": false,
+			"dropCap": true,
 			"fluid": true,
 			"fontFamilies": [
 				{
