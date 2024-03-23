@@ -3,7 +3,7 @@ Contributors: atmostfearentertainment
 Requires at least: 6.4
 Tested up to: 6.4.2
 Requires PHP: 7.4
-Stable tag: 1.0.0-beta.2
+Stable tag: 1.0.0-beta.3
 License: GNU General Public License v3.0
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
