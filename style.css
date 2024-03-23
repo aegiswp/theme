@@ -7,7 +7,7 @@ Description: Aegis is a sleek theme that promises agility and a lightweight desi
 Requires at least: 6.4
 Tested up to: 6.4.3
 Requires PHP: 7.4
-Version: 1.0.0-beta.2
+Version: 1.0.0-beta.3
 License: GNU General Public License v3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: aegis
@@ -19,8 +19,6 @@ Aegis is distributed under the terms of the GNU GPL.
 
 /*
  * Font smoothing.
- * This is a niche setting that will not be available via Global Styles.
- * https://github.com/WordPress/gutenberg/issues/35934
  */
 body {
     -moz-osx-font-smoothing: grayscale;
@@ -69,6 +67,7 @@ a:active {
 	-moz-box-shadow: 0 0 0;
 	box-shadow: 0 0 0;
 }
+
 .wp-block-navigation:not(.has-background) .wp-block-navigation__submenu-container {
     border: 1px solid transparent;
 }
@@ -584,10 +583,6 @@ p.banner-text-margin {
 /* About */
 .about .wp-block-column {
 	position: relative;
-}
-
-.is-tagline {
-	margin-bottom: -10px;
 }
 
 .about .number,
@@ -1197,10 +1192,6 @@ textarea {
 		padding: 0;
 	}
 
-	/* Hide on Mobile Class */
-	.is-hidden-on-mobile {
-		display: none !important;
-	}
 }
 
 @media (max-width: 982px) {
@@ -1912,7 +1903,7 @@ button.components-button.has-icon,
 #add_payment_method table.cart td.actions .coupon .input-text,
 .woocommerce-cart table.cart td.actions .coupon .input-text,
 .woocommerce-checkout table.cart td.actions .coupon .input-text {
-	border: 1px solid var(--wp--preset--color--septenary);
+	border: 1px solid var(--wp--preset--color--quaternary);
 }
 
 .woocommerce .cart_totals table.shop_table {
@@ -1920,7 +1911,7 @@ button.components-button.has-icon,
 }
 
 .woocommerce table.shop_table td {
-	border-top: 1px solid var(--wp--preset--color--septenary);
+	border-top: 1px solid var(--wp--preset--color--quaternary);
 }
 
 .woocommerce th {
@@ -3027,7 +3018,6 @@ button.wp-block-button__link.wc-block-filter-submit-button.wc-block-components-f
 	}
 }
 
-/*
 @media (min-width:600px) {
 	.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
 		display: none;
@@ -3041,4 +3031,17 @@ button.wp-block-button__link.wc-block-filter-submit-button.wc-block-components-f
 		display: flex;
 	}
 }
-*/
+
+
+/* MOVED */
+.is-tagline {
+	margin-bottom: -15px;
+}
+
+@media only screen and (max-width: 961px) {
+
+    /* Hide on Mobile Class */
+    .is-hidden-on-mobile {
+        display: none !important;
+    }
+}
