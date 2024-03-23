@@ -6,6 +6,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## [1.0.0-beta.3] - 2024-04-19
+
+- Beta 3 Release
+
+## [Released]
+
+## [1.0.0-beta.2] - 2024-02-16
+
+- Beta 2 Release
+
+## [1.0.0-beta.1] - 2023-12-23
+
+- Beta 1 Release
+
+## [1.0.0-alpha.3] - 2023-11-10
+
+- Alpha 3 Release
+
+## [1.0.0-alpha.2] - 2023-10-27
+
+- Alpha 2 Release
+
 ## [1.0.0-alpha.1] - 2023-10-13
 
 - Alpha 1 Release
