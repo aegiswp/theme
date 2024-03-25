@@ -3,8 +3,8 @@
  * Title: 03. About Pattern
  * Slug: aegis/about-3
  * Categories: about
- * Description: This third iteration of the About Pattern emphasizes a structured narrative alongside a visually engaging grid of images. The layout starts with a full-width group block, employing a vertical gradient for depth, followed by a wide column arrangement. The left column presents text content, including a tagline, heading, and descriptive paragraph, accented with a call-to-action button. The right column unfolds into a grid of images, each accompanied by a heading and a brief paragraph, highlighting key aspects or offerings of the organization. This pattern is tailored for organizations looking to blend detailed narratives with rich visual storytelling.
- * Keywords: about, text, images, grid, narrative, visual storytelling, gradient, call-to-action
+ * Description: Multicolumn block pattern with tagline, heading, paragraph, and button on the left, and two-column, four media, headings, and paragraphs on the right
+ * Keywords: about, call-to-action, buttons, columns, heading, image, media
  * Viewport Width: 1400
  * Block Types: core/group, core/columns, core/column, core/paragraph, core/heading, core/button, core/image
  * Inserter: true
