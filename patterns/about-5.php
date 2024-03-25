@@ -3,8 +3,8 @@
  * Title: 05. About Pattern
  * Slug: aegis/about-5
  * Categories: about
- * Description: Block Pattern with Image on the left, and Tagline, Heading, Paragraphs, and Button on the right
- * Keywords: about, gradient, visual storytelling, image, text, tagline, heading, description, call to action, contrast
+ * Description: Two-column block pattern with vertical media on the left, and tagline, heading, paragraph, and button on the right
+ * Keywords: about, call-to-action, buttons, columns, heading, image, media
  * Viewport Width: 1400
  * Block Types: core/group, core/columns, core/column, core/image, core/paragraph, core/heading, core/button
  * Inserter: true
@@ -41,8 +41,7 @@
             <!-- /wp:paragraph -->
 
             <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}}} -->
-            <div class="wp-block-buttons"
-                style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30)">
+            <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30)">
                 <!-- wp:button {"className":"is-style-aegis-button-shadow-outline"} -->
                 <div class="wp-block-button is-style-aegis-button-shadow-outline"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a></div>
                 <!-- /wp:button -->
