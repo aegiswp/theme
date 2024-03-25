@@ -3,8 +3,8 @@
  * Title: 02. About Pattern
  * Slug: aegis/about-2
  * Categories: about
- * Description: This pattern offers a sophisticated layout with a columnar arrangement, featuring an image on the left and detailed text content on the right. It’s designed to provide an engaging introduction to an organization, highlighting its mission or values through a visually balanced presentation. The pattern includes a tagline, a heading, a descriptive paragraph, and a call-to-action button, alongside high-quality images. This layout is enhanced with a diagonal gradient background, wide alignment for the media-text blocks, and responsive design elements for optimal viewing across devices.
- * Keywords: about, image, text, columns, tagline, heading, paragraph, button, responsive, diagonal gradient, wide alignment
+ * Description: Multicolumn block pattern with tagline, heading, paragraph, and button on the left, and two-vertical media on the right
+ * Keywords: about, call-to-action, buttons, columns, heading, image, media
  * Viewport Width: 1400
  * Block Types: core/group, core/columns, core/column, core/paragraph, core/heading, core/button, core/image
  * Inserter: true
@@ -14,7 +14,7 @@
  */
 ?>
 
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('01. About Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('02. About Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
 <div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
     <!-- wp:columns {"align":"wide"} -->
     <div class="wp-block-columns alignwide">
@@ -49,7 +49,7 @@
                 <!-- wp:column -->
                 <div class="wp-block-column">
                     <!-- wp:image {"aspectRatio":"3/4","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-2-image"} -->
-                    <figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr__('Placeholder image - Replace with an image, photograph, or artwork.', 'aegis'); ?>" style="aspect-ratio:3/4;object-fit:cover" /></figure>
+                    <figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr__('Placeholder image: Brief description of the image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:3/4;object-fit:cover" /></figure>
                     <!-- /wp:image -->
                 </div>
                 <!-- /wp:column -->
@@ -57,7 +57,7 @@
                 <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50"}}},"className":"is-hidden-on-mobile"} -->
                 <div class="wp-block-column is-hidden-on-mobile" style="padding-top:var(--wp--preset--spacing--50)">
                     <!-- wp:image {"aspectRatio":"3/4","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-2-image"} -->
-                    <figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr__('Placeholder image - Replace with an image, photograph, or artwork.', 'aegis'); ?>" style="aspect-ratio:3/4;object-fit:cover" /></figure>
+                    <figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr__('Placeholder image: Brief description of the image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:3/4;object-fit:cover" /></figure>
                     <!-- /wp:image -->
                 </div>
                 <!-- /wp:column -->
