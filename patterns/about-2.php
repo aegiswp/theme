@@ -4,7 +4,7 @@
  * Slug: aegis/about-2
  * Categories: about
  * Description: Multicolumn block pattern with tagline, heading, paragraph, and button on the left, and two-vertical media on the right
- * Keywords: about, call-to-action, buttons, columns, heading, image, media
+ * Keywords: about, buttons, call-to-action, columns, heading, image, media
  * Viewport Width: 1400
  * Block Types: core/group, core/columns, core/column, core/paragraph, core/heading, core/button, core/image
  * Inserter: true
