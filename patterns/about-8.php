@@ -3,8 +3,8 @@
  * Title: 08. About Pattern
  * Slug: aegis/about-8
  * Categories: about
- * Description: Grid Gallery with Tagline, Heading, both vertical and horizontal Paragraphs
- * Keywords: about, profiles, visual array, team, thematic elements, constrained layout, imagery, textual content
+ * Description: Multicolumn block pattern with tagline, heading, and paragraph on the left, and vertical cover media with paragraphs on the right
+ * Keywords: about, call-to-action, columns, cover, heading, image, media
  * Viewport Width: 1400
  * Block Types: core/group, core/columns, core/column, core/paragraph, core/heading, core/cover
  * Inserter: true
