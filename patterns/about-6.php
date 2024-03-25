@@ -3,8 +3,8 @@
  * Title: 06. About Pattern
  * Slug: aegis/about-6
  * Categories: about
- * Description: Block Pattern with Image on the left, and Tagline, Heading, Paragraphs, and Button on the right abstract background
- * Keywords: about, gradient, border, image, text, tagline, heading, description, call to action
+ * Description: Two-column block pattern with vertical media on the left, and tagline, heading, paragraph, and button on the right
+ * Keywords: about, call-to-action, buttons, columns, heading, image, media
  * Viewport Width: 1400
  * Block Types: core/group, core/columns, core/column, core/image, core/paragraph, core/heading, core/button
  * Inserter: true
