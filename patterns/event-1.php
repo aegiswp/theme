@@ -1,10 +1,10 @@
 <?php
 /**
  * Title: 01. Event Pattern
- * Slug: aegis/01-event-pattern
- * Categories: call-to-action, event, media, video
- * Description: Introduces a full-width pattern integrating a multimedia approach to event latest posts.
- * Keywords: call to action, events, full width, media, posts, query, video, social links
+ * Slug: aegis/event-1
+ * Categories: call-to-action, events, media, video
+ * Description: Two-column block pattern with tagline, headline, and text on top; video player on the left; postings on the right; and social links below
+ * Keywords: call to action, events, media, posts, query, video, social links
  * Viewport Width: 1400
  * Block Types: core/column, core/columns, core/group, core/paragraph, core/heading, core/video, core/query, core/post-template, core/post-date, core/post-title, core/buttons, core/button, core/social-links
  * Inserter: true
@@ -21,15 +21,15 @@
         <!-- wp:group {"style":{"spacing":{"blockGap":"0","padding":{"right":"var:preset|spacing|30"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
         <div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--30)">
             <!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"fontSize":"tiny"} -->
-            <p class="has-text-align-center has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_e('Upcoming Events', 'aegis'); ?></p>
+            <p class="has-text-align-center has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('[Tagline]', 'Replace with a descriptive tagline', 'aegis'); ?></p>
             <!-- /wp:paragraph -->
 
             <!-- wp:heading {"textAlign":"center","level":3,"style":{"spacing":{"margin":{"right":"0px","left":"0px","top":"0px","bottom":"0px"},"padding":{"top":"0","bottom":"0"}},"typography":{"textTransform":"none"}},"fontSize":"gigantic"} -->
-            <h3 class="wp-block-heading has-text-align-center has-gigantic-font-size" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0;padding-bottom:0;text-transform:none"><?php echo esc_html_x('Events Agenda', 'Events call to action title', 'aegis'); ?></h3>
+            <h3 class="wp-block-heading has-text-align-center has-gigantic-font-size" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0;padding-bottom:0;text-transform:none"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive title', 'aegis'); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"0"}}}} -->
-            <p class="has-text-align-center" style="margin-top:0"><?php echo esc_html_x('Description (up to 160 characters): Enter a brief summary of your events here.', 'Events call to action description', 'aegis'); ?></p>
+            <p class="has-text-align-center" style="margin-top:0"><?php echo esc_html_x('[Description (160 characters): Enter a brief overview of a specific event, or events.]', 'Replace with a description of the section', 'aegis'); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:group -->
@@ -61,7 +61,7 @@
 
                     <!-- wp:column {"verticalAlignment":"center","width":""} -->
                     <div class="wp-block-column is-vertically-aligned-center">
-                        <!-- wp:post-title {"level":4,"isLink":true,"style":{"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}}},"className":"is-style-aegis-post-title-border"} /-->
+                        <!-- wp:post-title {"level":4,"isLink":true,"style":{"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|foreground"},":hover":{"color":{"text":"var:preset|color|primary"}}}}},"textColor":"foreground","className":"is-style-aegis-post-title-border"} /-->
                     </div>
                     <!-- /wp:column -->
                 </div>
@@ -75,9 +75,7 @@
                 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
                 <div class="wp-block-buttons">
                     <!-- wp:button {"backgroundColor":"foreground","width":100,"className":"is-style-aegis-3d-button-dark"} -->
-                    <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-aegis-3d-button-dark">
-                        <a class="wp-block-button__link has-foreground-background-color has-background wp-element-button" href="#"><?php echo esc_html_x( 'Call to Action', 'Call to action button text', 'aegis' ); ?></a>
-                    </div>
+                    <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-aegis-3d-button-dark"><a class="wp-block-button__link has-foreground-background-color has-background wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a></div>
                     <!-- /wp:button -->
                 </div>
                 <!-- /wp:buttons -->
@@ -93,11 +91,8 @@
         <!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","size":"has-small-icon-size","style":{"spacing":{"blockGap":"20px","margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"center"}} -->
         <ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30)">
             <!-- wp:social-link {"url":"#","service":"facebook","label":"Facebook"} /-->
-
             <!-- wp:social-link {"url":"#","service":"meetup","label":"Meetup"} /-->
-
             <!-- wp:social-link {"url":"#","service":"patreon","label":"Patreon"} /-->
-
             <!-- wp:social-link {"url":"#","service":"google","label":"Google"} /-->
         </ul>
         <!-- /wp:social-links -->
