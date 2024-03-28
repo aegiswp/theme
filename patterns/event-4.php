@@ -2,7 +2,7 @@
 /**
  * Title: 04. Event Pattern
  * Slug: aegis/event-4
- * Categories: call-to-action, events, gallery, hero
+ * Categories: events
  * Description: Three-column block pattern with tagline, heading, paragraph, and button on the left, middle, and right
  * Keywords: call to action, events gallery, hero, media
  * Viewport Width: 1400
