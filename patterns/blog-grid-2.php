@@ -1,13 +1,21 @@
 <?php
 /**
- * 07. Blog Block Pattern
+ * Title: 02. Blog Grid Pattern
+ * Slug: aegis/blog-grid-2
+ * Categories: blog
+ * Description: Displays a three-column grid of blog postings with featured images, dates, titles, and excerpts
+ * Keywords: blog, featured, grid, posts
+ * Viewport Width: 1400
+ * Block Types: core/group, core/query, core/post-template, core/post-featured-image, core/post-date, core/post-title, core/post-excerpt
+ * Inserter: true
+ * 
+ * @package aegis
+ * @since Aegis 1.0.0
  */
-return array(
-	'title'	  => __( '07. Blog Pattern', 'aegis' ),
-	'description' => __( 'Blog Posts Grid', 'aegis' ),
-	'categories' => array( 'aegis-query' ),
-	'content' => '<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"},"metadata":{"name":"' . esc_html__('07. Blog Pattern', 'aegis') . '"}} -->
-    <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
+?>
+
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('02. Blog Grid Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
     <!-- wp:group {"align":"full"} -->
     <div class="wp-block-group alignfull">
         <!-- wp:query {"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"layout":{"inherit":false}} -->
@@ -42,5 +50,4 @@ return array(
     </div>
     <!-- /wp:group -->
 </div>
-<!-- /wp:group -->',
-);
+<!-- /wp:group -->
