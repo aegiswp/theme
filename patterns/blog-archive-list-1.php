@@ -1,9 +1,9 @@
 <?php
 /**
- * Title: 01. Blog Pattern
- * Slug: aegis/blog-1
+ * Title: 01. Blog Archive List Pattern
+ * Slug: aegis/blog-archive-list-1
  * Categories: blog
- * Description: Display a list of blog posts with featured images, titles, excerpts, and pagination.
+ * Description: Display a list of blog entries with featured images, titles, excerpts, and pagination.
  * Keywords: blog, posts, pagination, featured image, excerpt
  * Viewport Width: 1400
  * Block Types: core/group, core/query, core/post-template, core/post-featured-image, core/post-terms, core/post-date, core/post-title, core/post-excerpt, core/query-pagination, core/query-pagination-previous, core/query-pagination-numbers, core/query-pagination-next
@@ -14,8 +14,14 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('01. Blog Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('01. Blog Archive List Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
+    <!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"stretch","orientation":"vertical"}} -->
+    <div class="wp-block-group alignwide">
+        <!-- wp:query-title {"type":"archive","level":2} /-->
+    </div>
+    <!-- /wp:group -->
+
     <!-- wp:query {"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"parents":[],"taxQuery":null},"align":"wide","layout":{"type":"default"}} -->
     <div class="wp-block-query alignwide">
         <!-- wp:post-template {"align":"wide","layout":{"type":"default"}} -->
@@ -23,9 +29,9 @@
         <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">
             <!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9"} /-->
 
-            <!-- wp:group {"style":{"spacing":{"padding":{"top":"20px","bottom":"20px","left":"20px","right":"20px"},"margin":{"top":"0"}}},"backgroundColor":"secondary","layout":{"type":"flex","justifyContent":"space-between","verticalAlignment":"center"}} -->
-            <div class="wp-block-group has-secondary-background-color has-background" style="margin-top:0;padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px">
-                <!-- wp:post-terms {"term":"category","textAlign":"right","style":{"spacing":{"padding":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|foreground"},":hover":{"color":{"text":"var:preset|color|primary"}}}}},"fontSize":"tiny"} /-->
+            <!-- wp:group {"style":{"spacing":{"padding":{"top":"20px","right":"20px","bottom":"20px","left":"20px"},"margin":{"top":"0px"}}},"backgroundColor":"secondary","className":"has-negative-margin","layout":{"type":"flex","justifyContent":"space-between","verticalAlignment":"center","orientation":"horizontal"}} -->
+            <div class="wp-block-group has-negative-margin has-secondary-background-color has-background" style="margin-top:0px;padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px">
+                <!-- wp:post-terms {"term":"category","textAlign":"right","style":{"spacing":{"padding":{"top":"0","bottom":"0"}},"elements":{"link":{":hover":{"color":{"text":"var:preset|color|primary"}},"color":{"text":"var:preset|color|foreground"}}}},"fontSize":"tiny"} /-->
 
                 <!-- wp:post-date {"style":{"typography":{"fontStyle":"normal","fontWeight":"400"},"spacing":{"padding":{"top":"0","bottom":"0"}},"elements":{"link":{":hover":{"color":{"text":"var:preset|color|primary"}},"color":{"text":"var:preset|color|foreground"}}}},"fontSize":"tiny"} /-->
             </div>
