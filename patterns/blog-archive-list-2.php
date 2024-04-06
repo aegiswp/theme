@@ -1,12 +1,12 @@
 <?php
 /**
- * Title: 02. Blog Pattern
- * Slug: aegis/blog-2
+ * Title: 02. Blog Archive List Pattern
+ * Slug: aegis/blog-archive-list-2
  * Categories: blog
- * Description: Display a list of blog entries with titles, featured images, excerpts, and pagination.
+ * Description: One-column list of blog entries with archive title, post titles, featured images, excerpts, call to action buttons, and pagination
  * Keywords: blog, posts, pagination, featured image, excerpt
  * Viewport Width: 1400
- * Block Types: core/group, core/query, core/post-template, core/post-featured-image, core/post-terms, core/post-date, core/post-title, core/post-excerpt, core/query-pagination, core/query-pagination-previous, core/query-pagination-numbers, core/query-pagination-next
+ * Block Types: core/group, core/query, core/post-template, core/post-featured-image, core/post-title, core/post-excerpt, core/query-pagination, core/query-pagination-previous, core/query-pagination-numbers, core/query-pagination-next
  * Inserter: true
  * 
  * @package aegis
@@ -14,8 +14,14 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('02. Blog Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('02. Blog Archive List Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
+    <!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"stretch","orientation":"vertical"}} -->
+    <div class="wp-block-group alignwide">
+        <!-- wp:query-title {"type":"archive","level":2} /-->
+    </div>
+    <!-- /wp:group -->
+
     <!-- wp:query {"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"parents":[],"taxQuery":null},"align":"wide","layout":{"type":"default"}} -->
     <div class="wp-block-query alignwide">
         <!-- wp:post-template {"align":"wide","layout":{"type":"default"}} -->
