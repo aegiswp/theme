@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: 03. Blog Pattern
- * Slug: aegis/blog-3
+ * Title: 03. Blog Archive Sidebar Pattern
+ * Slug: aegis/blog-archive-sidebar-1
  * Categories: blog
  * Description: Display a list of blog entries with a left sidebar that includes titles, featured images, excerpts, and pagination on the right
  * Keywords: blog, posts, pagination, featured image, excerpt
@@ -14,7 +14,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('03. Blog Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('03. Blog Archive Sidebar Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
     <!-- wp:columns {"align":"wide"} -->
     <div class="wp-block-columns alignwide">
