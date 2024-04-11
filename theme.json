@@ -9,84 +9,84 @@
 			"defaultGradients": false,
 				"palette": [
 				{
-					"color": "#f9f9f9",
+					"color": "#f6f5f2",
 					"name": "Background",
 					"slug": "background"
 				},
 				{
-					"color": "#0a0a0a",
+					"color": "#1c1c1e",
 					"name": "Foreground",
 					"slug": "foreground"
 				},
 				{
-					"color": "#3e3d3d",
+					"color": "#5a5a60",
 					"name": "Primary",
 					"slug": "primary"
 				},
 				{
-					"color": "#ebebef",
+					"color": "#f0eee9",
 					"name": "Secondary",
 					"slug": "secondary"
 				},
 				{
-					"color": "#d7dade",
+					"color": "#e6e2da",
 					"name": "Tertiary",
 					"slug": "tertiary"
 				},
 				{
-					"color": "#ccd0d4",
+					"color": "#dcd6cb",
 					"name": "Quaternary",
 					"slug": "quaternary"
 				},
 				{
-					"color": "#b5bcc2",
+					"color": "#d2cabc",
 					"name": "Quinary",
 					"slug": "quinary"
 				}
 			],
 			"duotone": [
 				{
-					"colors": ["#0a0a0a","#3e3d3d"],
+					"colors": ["#1c1c1e","#5a5a60"],
 					"slug": "foreground-and-primary",
 					"name": "Foreground and primary"
 				},
 				{
-					"colors": ["#3e3d3d","#f9f9f9"],
+					"colors": ["#5a5a60","#f6f5f2"],
 					"slug": "primary-and-background",
 					"name": "Primary and background"
 				},
 				{
-					"colors": ["#3e3d3d","#ebebef"],
+					"colors": ["#5a5a60","#f0eee9"],
 					"slug": "primary-and-secondary",
 					"name": "Primary and secondary"
 				},
 				{
-					"colors": ["#0a0a0a","#ebebef"],
+					"colors": ["#1c1c1e","#f0eee9"],
 					"slug": "foreground-and-secondary",
 					"name": "Foreground and secondary"
 				},
 				{
-					"colors": ["#0a0a0a","#d7dade"],
+					"colors": ["#1c1c1e","#e6e2da"],
 					"slug": "primary-and-tertiary",
 					"name": "Primary and tertiary"
 				},
 				{
-					"colors": ["#0a0a0a","#d7dade"],
+					"colors": ["#1c1c1e","#e6e2da"],
 					"slug": "foreground-and-tertiary",
 					"name": "Foreground and tertiary"
 				},
 				{
-					"colors": ["#0a0a0a","#ccd0d4"],
+					"colors": ["#1c1c1e","#dcd6cb"],
 					"slug": "foreground-and-quaternary",
 					"name": "Foreground and quaternary"
 				},
 				{
-					"colors": ["#0a0a0a","#b5bcc2"],
+					"colors": ["#1c1c1e","#d2cabc"],
 					"slug": "foreground-and-quinary",
 					"name": "Foreground and quinary"
 				},
 				{
-					"colors": ["#ccd0d4","#b5bcc2"],
+					"colors": ["#dcd6cb","#d2cabc"],
 					"slug": "quaternary-and-quinary",
 					"name": "Quaternary and Quinary"
 				}
@@ -984,7 +984,7 @@
 			"area": "header"
 		},
 		{
-			"name": "footer",
+			"name": "footer-1",
 			"title": "Footer Default",
 			"area": "footer"
 		},
