@@ -1,8 +1,8 @@
-# Copyright (c) 2022-2023 Atmostfear Entertainment
-# This file is distributed under the GNU General Public License v2 or later.
+# Copyright (c) 2022-2024 Atmostfear Entertainment
+# This file is distributed under the GNU General Public License v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Aegis 1.0.0-alpha.2\n"
+"Project-Id-Version: Aegis 1.0.0-beta.3\n"
 "Report-Msgid-Bugs-To: https://github.com/atmostfear-entertainment/aegis/issues\n"
 "Last-Translator: Atmostfear Entertainment <mail@atmostfear-entertainment.com>\n"
 "Language-Team: Atmostfear Entertainment\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2023-10-16T15:03:06+00:00\n"
-"PO-Revision-Date: 2023-10-16T15:03:06+00:00\n"
+"PO-Revision-Date: 2024-04-11T16:46-05:00\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: aegis\n"
 
@@ -34,205 +34,147 @@ msgstr ""
 msgid "https://www.atmostfear-entertainment.com/"
 msgstr ""
 
-#: hero-1.php:5
-msgid "Hero 1"
+#. About Patterns
+#: about-1.php:17
+msgid "01. About Pattern"
+msgstr "Name of the pattern"
+
+#: about-2.php:17
+msgid "02. About Pattern"
+msgstr "Name of the pattern"
+
+#: about-3.php:17
+msgid "03. About Pattern"
+msgstr "Name of the pattern"
+
+#: about-4.php:17
+msgid "04. About Pattern"
+msgstr "Name of the pattern"
+
+#: about-5.php:17
+msgid "05. About Pattern"
+msgstr "Name of the pattern"
+
+#: about-6.php:17
+msgid "06. About Pattern"
+msgstr "Name of the pattern"
+
+#: about-7.php:17
+msgid "07. About Pattern"
+msgstr "Name of the pattern"
+
+#: about-8.php:17
+msgid "08. About Pattern"
+msgstr "Name of the pattern"
+
+#: about-1.php:24
+#: about-2.php:24
+#: about-3.php:24
+#: about-4.php:26
+#: about-5.php:32
+#: about-6.php:32
+#: about-7.php:103
+#: about-8.php:26
+msgid "[Tagline]"
+msgstr "Replace with a descriptive section tagline"
+
+#: about-1.php:28
+#: about-2.php:28
+#: about-3.php:28
+#: about-3.php:56
+#: about-3.php:72
+#: about-3.php:92
+#: about-3.php:108
+#: about-4.php:30
+#: about-5.php:36
+#: about-6.php:36
+#: about-7.php:107
+#: about-8.php:30
+msgid "[Heading]"
+msgstr "Replace with a descriptive section title."
+
+#: about-1.php:32
+#: about-2.php:32
+#: about-3.php:32
+#: about-4.php:54
+#: about-5.php:40
+#: about-6.php:40
+#: about-7.php:111
+#: about-8.php:24
+msgid "[Description (333 characters): Detail the core principles, values, or characteristics of the organization, project or subject.]"
+msgstr "Replace with a description of the section."
+
+#: about-1.php:21
+#: about-2.php:52
+#: about-2.php:60
+#: about-3.php:52
+#: about-3.php:68
+#: about-3.php:88
+#: about-3.php:104
+#: about-4.php:38
+#: about-4.php:46
+#: about-5.php:24
+#: about-6.php:24
+#: about-7.php:33
+#: about-7.php:56
+#: about-7.php:79
+#: about-8.php:53
+#: about-8.php:80
+#: about-8.php:107
+msgid "Add a brief description of the placeholder image and its context, non-text content for screen readers."
 msgstr ""
 
-#: hero-1.php:11
-msgctxt "Description of the default image"
-msgid "Default background image for the hero"
-msgstr ""
+#: about-1.php:38
+#: about-2.php:38
+#: about-3.php:38
+#: about-4.php:60
+#: about-5.php:46
+#: about-6.php:46
+msgid "[Call to Action]"
+msgstr "Call to action button text."
 
-#: hero-1.php:19
-msgid "Main"
-msgstr ""
+#: about-3.php:60
+#: about-3.php:76
+#: about-3.php:96
+#: about-3.php:112
+msgid "[Description (100 characters): Highlight key advantages or unique offerings of the organization, project, or subject.]"
+msgstr "Replace with a description of the section."
 
-#: hero-1.php:20
-msgid "Heading"
-msgstr ""
+#: about-4.php:34
+msgid "[Description (45 characters): Express core values or motivations.]"
+msgstr "Replace with a description of the section."
 
-#: hero-1.php:23
-msgctxt "Placeholder content for the about section"
-msgid "About Content (333 chars): [Provide a detailed overview of a specific topic, product, or service.]"
-msgstr ""
+#: about-7.php:24
+#: about-8.php:44
+msgid "[Section]"
+msgstr "Replace with a descriptive section title."
 
-#: hero-1.php:30
-msgid "Call to Action"
-msgstr ""
+#: about-7.php:38
+#: about-7.php:61
+#: about-7.php:84
+#: about-8.php:65
+#: about-8.php:92
+#: about-8.php:119
+msgid "[Name]"
+msgstr "Replace with a staff name."
 
-#: hero-2.php:5
-msgid "Hero 2"
-msgstr ""
-
-#: hero-2.php:11
-msgctxt "Description of the default image"
-msgid "Default background image for the hero section"
-msgstr ""
-
-#: hero-2.php:20
-msgctxt "Placeholder for content title"
-msgid "Content Title (11 chars)"
-msgstr ""
-
-#: hero-2.php:23
-msgid "Main Headline"
-msgstr ""
-
-#: hero-2.php:26
-msgctxt "Placeholder for content highlight"
-msgid "Content Highlight (146 chars): [Promote an offer, summarize an article, or share a news update.]"
-msgstr ""
-
-#: hero-2.php:33
-msgid "Call to Action"
-msgstr ""
-
-#: hero-3.php:5
-msgid "Hero 3"
-msgstr ""
-
-#: hero-3.php:23
-msgid "Main"
-msgstr ""
-
-#: hero-3.php:24
-msgid "Heading"
-msgstr ""
-
-#: hero-3.php:27
-msgctxt "Placeholder for product description"
-msgid "Product Description (88 chars): [Detail key aspects or selling points of a product.]"
-msgstr ""
-
-#: hero-3.php:34
-msgid "Call to Action"
-msgstr ""
-
-#: hero-3.php:41
-msgctxt "Description of the first default product image"
-msgid "Default product image one for the section"
-msgstr ""
-
-#: hero-3.php:44
-msgctxt "Description of the second default product image"
-msgid "Default product image two for the section"
-msgstr ""
-
-#: hero-3.php:47
-msgctxt "Description of the third default product image"
-msgid "Default product image three for the section"
-msgstr ""
-
-#: inc/block-styles.php:26
-#: inc/block-styles.php:35
-#: inc/block-styles.php:44 
-#: inc/block-styles.php:80
-#: inc/block-styles.php:89
-#: inc/block-styles.php:310
-msgid "Shadow"
-msgstr ""
-
-#: inc/block-styles.php:53
-msgid "Shape One"
-msgstr ""
-
-#: inc/block-styles.php:62
-msgid "Shape Two"
-msgstr ""
-
-#: inc/block-styles.php:71
-msgid "Shape Three"
-msgstr ""
-
-#: inc/block-styles.php:220
-msgid "3d Button Dark"
-msgstr ""
-
-#: inc/block-styles.php:213
-msgid "3d Button Light"
-msgstr ""
-
-#: inc/block-styles.php:265
-msgid "Underline Hover"
-msgstr ""
-
-#: inc/block-styles.php:125
-#: inc/block-styles.php:134
-#: inc/block-styles.php:143 
-#: inc/block-styles.php:152
-#: inc/block-styles.php:283
-msgid "Border"
-msgstr ""
-
-#: inc/block-styles.php:274
-msgid "Border & Shadow"
-msgstr ""
-
-#: inc/block-styles.php:345
-msgid "Border Top Radius"
-msgstr ""
-
-#: inc/block-styles.php:248
-msgid "Button Effect One"
-msgstr ""
-
-#: inc/block-styles.php:256
-msgid "Button Effect Two"
-msgstr ""
-
-#: inc/block-styles.php:234
-msgid "Button Line Dark"
-msgstr ""
-
-#: inc/block-styles.php:227
-msgid "Button Line Light"
-msgstr ""
-
-#: inc/block-styles.php:241
-msgid "Button Shadow"
-msgstr ""
-
-#: inc/block-styles.php:98 inc/block-styles.php:319
-msgid "Effect 1"
-msgstr ""
-
-#: inc/block-styles.php:107 inc/block-styles.php:328
-msgid "Effect 2"
-msgstr ""
-
-#: inc/block-styles.php:116
-msgid "Effect 3"
-msgstr ""
-
-#: inc/block-styles.php:292
-#: inc/block-styles.php:301
-msgid "Link No Border"
-msgstr ""
-
-#: inc/block-styles.php:206
-msgid "Outline Shadow"
-msgstr ""
-
-#: inc/block-styles.php:336
-msgid "Mega Menu"
-msgstr ""
-
-#: inc/block-patterns.php:25
-msgid "Pages"
-msgstr ""
-
-#: inc/block-patterns.php:22
-msgid "Pricing Table"
-msgstr ""
-
-#: inc/block-styles.php:354
-#: inc/block-styles.php:363
-msgid "Scroll"
-msgstr ""
+#: about-7.php:42
+#: about-7.php:65
+#: about-7.php:88
+#: about-8.php:69
+#: about-8.php:96
+#: about-8.php:123
+msgid "[Position]"
+msgstr "Replace with a job position."
 
 #: theme.json
 msgctxt "Custom template name"
 msgid "Header"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header 1"
 msgstr ""
 
 #: theme.json
@@ -253,6 +195,11 @@ msgstr ""
 #: theme.json
 msgctxt "Template part name"
 msgid "Footer"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer 1"
 msgstr ""
 
 #: theme.json
