@@ -52,8 +52,8 @@
 					<figure class="wp-block-image size-full is-style-aegis-effect-3-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:4/3;object-fit:cover" /></figure>
 					<!-- /wp:image -->
 
-					<!-- wp:heading {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"large"} -->
-					<h3 class="wp-block-heading has-large-font-size" style="font-style:normal;font-weight:400"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
+					<!-- wp:heading {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"large"} -->
+					<h3 class="wp-block-heading has-large-font-size" style="font-style:normal;font-weight:600"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"fontSize":"small"} -->
@@ -68,8 +68,8 @@
 					<figure class="wp-block-image size-full is-style-aegis-effect-3-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:4/3;object-fit:cover" /></figure>
 					<!-- /wp:image -->
 
-					<!-- wp:heading {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"large"} -->
-					<h3 class="wp-block-heading has-large-font-size" style="font-style:normal;font-weight:400"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
+					<!-- wp:heading {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"large"} -->
+					<h3 class="wp-block-heading has-large-font-size" style="font-style:normal;font-weight:600"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"fontSize":"small"} -->
@@ -88,8 +88,8 @@
 					<figure class="wp-block-image size-full is-style-aegis-effect-3-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:4/3;object-fit:cover" /></figure>
 					<!-- /wp:image -->
 
-					<!-- wp:heading {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"large"} -->
-					<h3 class="wp-block-heading has-large-font-size" style="font-style:normal;font-weight:400"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
+					<!-- wp:heading {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"large"} -->
+					<h3 class="wp-block-heading has-large-font-size" style="font-style:normal;font-weight:600"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"fontSize":"small"} -->
@@ -104,8 +104,8 @@
 					<figure class="wp-block-image size-full is-style-aegis-effect-3-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:4/3;object-fit:cover" /></figure>
 					<!-- /wp:image -->
 
-					<!-- wp:heading {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"large"} -->
-					<h3 class="wp-block-heading has-large-font-size" style="font-style:normal;font-weight:400"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
+					<!-- wp:heading {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"large"} -->
+					<h3 class="wp-block-heading has-large-font-size" style="font-style:normal;font-weight:600"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"fontSize":"small"} -->
