@@ -1,0 +1,93 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"title": "Onyx",
+	"settings": {
+		"color": {
+				"palette": [
+				{
+					"color": "#f9f9f9",
+					"name": "Background",
+					"slug": "background"
+				},
+				{
+					"color": "#0a0a0a",
+					"name": "Foreground",
+					"slug": "foreground"
+				},
+				{
+					"color": "#3e3d3d",
+					"name": "Primary",
+					"slug": "primary"
+				},
+				{
+					"color": "#ebebef",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+				{
+					"color": "#d7dade",
+					"name": "Tertiary",
+					"slug": "tertiary"
+				},
+				{
+					"color": "#ccd0d4",
+					"name": "Quaternary",
+					"slug": "quaternary"
+				},
+				{
+					"color": "#b5bcc2",
+					"name": "Quinary",
+					"slug": "quinary"
+				}
+			],
+			"duotone": [
+				{
+					"colors": ["#0a0a0a","#3e3d3d"],
+					"slug": "foreground-and-primary",
+					"name": "Foreground and primary"
+				},
+				{
+					"colors": ["#3e3d3d","#f9f9f9"],
+					"slug": "primary-and-background",
+					"name": "Primary and background"
+				},
+				{
+					"colors": ["#3e3d3d","#ebebef"],
+					"slug": "primary-and-secondary",
+					"name": "Primary and secondary"
+				},
+				{
+					"colors": ["#0a0a0a","#ebebef"],
+					"slug": "foreground-and-secondary",
+					"name": "Foreground and secondary"
+				},
+				{
+					"colors": ["#0a0a0a","#d7dade"],
+					"slug": "primary-and-tertiary",
+					"name": "Primary and tertiary"
+				},
+				{
+					"colors": ["#0a0a0a","#d7dade"],
+					"slug": "foreground-and-tertiary",
+					"name": "Foreground and tertiary"
+				},
+				{
+					"colors": ["#0a0a0a","#ccd0d4"],
+					"slug": "foreground-and-quaternary",
+					"name": "Foreground and quaternary"
+				},
+				{
+					"colors": ["#0a0a0a","#b5bcc2"],
+					"slug": "foreground-and-quinary",
+					"name": "Foreground and quinary"
+				},
+				{
+					"colors": ["#ccd0d4","#b5bcc2"],
+					"slug": "quaternary-and-quinary",
+					"name": "Quaternary and Quinary"
+				}
+			]
+		}
+	}
+}
