@@ -1,9 +1,9 @@
 <?php
 /**
- * Title: 01. Blog Archive List Pattern
- * Slug: aegis/blog-archive-list-1
+ * Title: 03. Blog Pattern
+ * Slug: aegis/blog-3
  * Categories: blog
- * Description: Display a list of blog entries with featured images, titles, excerpts, and pagination.
+ * Description: One-column list of blog entries with archive title, post featured images, terms, date, title, excerpts, call to action buttons, and pagination
  * Keywords: blog, posts, pagination, featured image, excerpt
  * Viewport Width: 1400
  * Block Types: core/group, core/query, core/post-template, core/post-featured-image, core/post-terms, core/post-date, core/post-title, core/post-excerpt, core/query-pagination, core/query-pagination-previous, core/query-pagination-numbers, core/query-pagination-next
@@ -14,7 +14,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('01. Blog Archive List Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('03. Blog Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
     <!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"stretch","orientation":"vertical"}} -->
     <div class="wp-block-group alignwide">
