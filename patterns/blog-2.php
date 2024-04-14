@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: 02. Blog Archive Grid Pattern
- * Slug: aegis/blog-archive-grid-2
+ * Title: 02. Blog Pattern
+ * Slug: aegis/blog-2
  * Categories: blog
  * Description: Two-column grid of blog entries with archive title, post titles, featured images, excerpts, call to action buttons, and pagination
  * Keywords: blog, posts, pagination, featured image, excerpt
@@ -14,7 +14,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('02. Blog Archive Grid Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('02. Blog Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
     <!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"stretch","orientation":"vertical"}} -->
     <div class="wp-block-group alignwide">
