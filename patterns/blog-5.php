@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: 03. Blog Archive Sidebar Pattern
- * Slug: aegis/blog-archive-sidebar-1
+ * Title: 05. Blog Pattern
+ * Slug: aegis/blog-5
  * Categories: blog
  * Description: Display a list of blog entries with a left sidebar that includes titles, featured images, excerpts, and pagination on the right
  * Keywords: blog, posts, pagination, featured image, excerpt
@@ -14,7 +14,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('03. Blog Archive Sidebar Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('05. Blog Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
     <!-- wp:columns {"align":"wide"} -->
     <div class="wp-block-columns alignwide">
@@ -25,19 +25,19 @@
                 <!-- wp:group {"style":{"spacing":{"padding":{"bottom":"var:preset|spacing|40","top":"var:preset|spacing|40","right":"var:preset|spacing|40","left":"var:preset|spacing|40"}},"border":{"width":"1px"}},"borderColor":"foreground","backgroundColor":"secondary"} -->
                 <div class="wp-block-group has-border-color has-foreground-border-color has-secondary-background-color has-background" style="border-width:1px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
                     <!-- wp:image {"width":"120px","aspectRatio":"1","scale":"cover","sizeSlug":"large","linkDestination":"none","align":"center","style":{"color":{"duotone":"unset"}},"className":"is-resized is-style-rounded"} -->
-                    <figure class="wp-block-image aligncenter size-large is-resized is-style-rounded"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_800x800_dark.webp" alt="<?php echo esc_attr__('Placeholder image: Brief description of the image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:1;object-fit:cover;width:120px" /></figure>
+                    <figure class="wp-block-image aligncenter size-large is-resized is-style-rounded"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_800x800_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:1;object-fit:cover;width:120px" /></figure>
                     <!-- /wp:image -->
 
                     <!-- wp:heading {"textAlign":"center","level":3,"fontSize":"large"} -->
-                    <h3 class="wp-block-heading has-text-align-center has-large-font-size"><?php echo wp_kses_post( _x( '[Author]', 'Replace with the author\'s name', 'aegis' ) ); ?></h3>
+                    <h3 class="wp-block-heading has-text-align-center has-large-font-size"><?php echo esc_html_x('[Author]', 'Replace with an author name.', 'aegis'); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase"},"spacing":{"margin":{"right":"0","bottom":"0","left":"0","top":"5px"}}},"fontSize":"tiny"} -->
-                    <p class="has-text-align-center has-tiny-font-size" style="margin-top:5px;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase"><?php echo wp_kses_post( _x( '[Position]', 'Replace with the author\'s position', 'aegis' ) ); ?></p>
+                    <p class="has-text-align-center has-tiny-font-size" style="margin-top:5px;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase"><?php echo esc_html_x('[Position]', 'Replace with a job position.', 'aegis'); ?></p>
                     <!-- /wp:paragraph -->
 
                     <!-- wp:paragraph {"align":"center","fontSize":"small"} -->
-                    <p class="has-text-align-center has-small-font-size"><?php echo esc_html_x('[Description (160 characters): Introduce the author and set the tone or purpose of the content.]', 'Replace with a description of the author', 'aegis'); ?></p>
+                    <p class="has-text-align-center has-small-font-size"><?php echo esc_html_x('[Description (160 characters): Introduce the author and set the tone or purpose of the content.]', 'Replace with a description of the author.', 'aegis'); ?></p>
                     <!-- /wp:paragraph -->
 
                     <!-- wp:social-links {"iconColor":"secondary","iconColorValue":"#f3f4f5","iconBackgroundColor":"foreground","iconBackgroundColorValue":"#211F1D","className":"is-style-default","layout":{"type":"flex","justifyContent":"center"}} -->
@@ -67,7 +67,7 @@
                 <!-- /wp:group -->
 
                 <!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none","align":"center"} -->
-                <figure class="wp-block-image aligncenter size-full"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_attr__('Placeholder image: Brief description of the image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:1;object-fit:cover" /></figure>
+                <figure class="wp-block-image aligncenter size-full"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:1;object-fit:cover" /></figure>
                 <!-- /wp:image -->
             </div>
             <!-- /wp:group -->
@@ -76,18 +76,17 @@
             <div class="wp-block-group has-border-color has-foreground-border-color has-secondary-background-color has-background"
                 style="border-width:1px;padding-bottom:var(--wp--preset--spacing--40)">
                 <!-- wp:image {"aspectRatio":"16/9","scale":"cover","sizeSlug":"full","linkDestination":"none","align":"center"} -->
-                <figure class="wp-block-image aligncenter size-full"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_attr__('Placeholder image: Brief description of the image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:16/9;object-fit:cover" /></figure>
+                <figure class="wp-block-image aligncenter size-full"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:16/9;object-fit:cover" /></figure>
                 <!-- /wp:image -->
 
                 <!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"var:preset|spacing|40","bottom":"0","left":"var:preset|spacing|40"}}}} -->
-                <div class="wp-block-group"
-                    style="padding-top:0;padding-right:var(--wp--preset--spacing--40);padding-bottom:0;padding-left:var(--wp--preset--spacing--40)">
+                <div class="wp-block-group" style="padding-top:0;padding-right:var(--wp--preset--spacing--40);padding-bottom:0;padding-left:var(--wp--preset--spacing--40)">
                     <!-- wp:heading {"textAlign":"center","level":3,"fontSize":"large"} -->
-                    <h3 class="wp-block-heading has-text-align-center has-large-font-size"><?php echo esc_html_e('[Product Name]', 'aegis'); ?></h3>
+                    <h3 class="wp-block-heading has-text-align-center has-large-font-size"><?php echo esc_html_e('[Product]', 'aegis'); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph {"align":"center","fontSize":"small"} -->
-                    <p class="has-text-align-center has-small-font-size"><?php echo esc_html_x('[Description (50-150 characters): Enter a brief overview of a product.]', 'Call to action section text', 'aegis'); ?></p>
+                    <p class="has-text-align-center has-small-font-size"><?php echo esc_html_x('[Description (50-150 characters): Enter a brief overview of a product.]', 'Replace with a product description.', 'aegis'); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:group -->
@@ -95,7 +94,7 @@
                 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","flexWrap":"nowrap"}} -->
                 <div class="wp-block-buttons">
                     <!-- wp:button {"className":"is-style-fill"} -->
-                    <div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a></div>
+                    <div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a></div>
                     <!-- /wp:button -->
                 </div>
                 <!-- /wp:buttons -->
