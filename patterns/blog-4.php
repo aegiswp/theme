@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: 02. Blog Archive List Pattern
- * Slug: aegis/blog-archive-list-2
+ * Title: 04. Blog Pattern
+ * Slug: aegis/blog-4
  * Categories: blog
  * Description: One-column list of blog entries with archive title, post titles, featured images, excerpts, call to action buttons, and pagination
  * Keywords: blog, posts, pagination, featured image, excerpt
@@ -14,7 +14,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('02. Blog Archive List Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('04. Blog Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
     <!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"stretch","orientation":"vertical"}} -->
     <div class="wp-block-group alignwide">
