@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 02. Blog Pattern
- * Slug: aegis/blog-2
+ * Slug: aegis/blog-02
  * Categories: blog
  * Description: Two-column grid of blog entries with archive title, post titles, featured images, excerpts, call to action buttons, and pagination
  * Keywords: blog, posts, pagination, featured image, excerpt
