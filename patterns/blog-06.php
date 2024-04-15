@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 06. Blog Pattern
- * Slug: aegis/blog-6
+ * Slug: aegis/blog-06
  * Categories: blog
  * Description: Display a list of blog entries with a left sidebar that includes titles, featured images, excerpts with shadow, and pagination on the right
  * Keywords: blog, posts, pagination, featured image, excerpt
@@ -27,7 +27,7 @@
                     <!-- wp:group {"style":{"spacing":{"padding":{"bottom":"var:preset|spacing|40","top":"var:preset|spacing|40","right":"var:preset|spacing|40","left":"var:preset|spacing|40"}},"border":{"width":"1px"}},"borderColor":"foreground","backgroundColor":"secondary"} -->
                     <div class="wp-block-group has-border-color has-foreground-border-color has-secondary-background-color has-background" style="border-width:1px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
                         <!-- wp:image {"width":"120px","aspectRatio":"1","scale":"cover","sizeSlug":"large","linkDestination":"none","align":"center","style":{"color":{"duotone":"unset"}},"className":"is-resized is-style-rounded"} -->
-                        <figure class="wp-block-image aligncenter size-large is-resized is-style-rounded"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_800x800_dark.webp" alt="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_800x800_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:1;object-fit:cover;width:120px" /></figure>
+                        <figure class="wp-block-image aligncenter size-large is-resized is-style-rounded"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_800x800_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:1;object-fit:cover;width:120px" /></figure>
                         <!-- /wp:image -->
 
                         <!-- wp:heading {"textAlign":"center","level":3,"fontSize":"large"} -->
@@ -99,7 +99,9 @@
                     <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","flexWrap":"nowrap"}} -->
                     <div class="wp-block-buttons">
                         <!-- wp:button {"className":"is-style-fill"} -->
-                        <div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a></div>
+                        <div class="wp-block-button is-style-fill">
+                            <a class="wp-block-button__link wp-element-button"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a>
+                        </div>
                         <!-- /wp:button -->
                     </div>
                     <!-- /wp:buttons -->

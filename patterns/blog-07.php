@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 07. Blog Pattern
- * Slug: aegis/blog-7
+ * Slug: aegis/blog-07
  * Categories: blog
  * Description: Display a list of blog entries with a left sidebar that includes titles, featured images, date, excerpts, and pagination on the right
  * Keywords: blog, posts, pagination, featured image, excerpt
