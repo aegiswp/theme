@@ -1,9 +1,9 @@
 <?php
 /**
- * Title: 04. Blog Grid Pattern
- * Slug: aegis/blog-grid-4
+ * Title: 11. Blog Pattern
+ * Slug: aegis/blog-11
  * Categories: blog
- * Description: Displays a three-column grid of blog postings with borders, titles, featurede images, excerpts, and call to action buttons
+ * Description: Displays a three-column grid of blog postings with borders, titles, featured images, excerpts, and call to action buttons
  * Keywords: blog, featured, grid, posts
  * Viewport Width: 1400
  * Block Types: core/group, core/query, core/post-template, core/post-featured-image, core/post-date, core/post-title, core/post-excerpt
@@ -14,7 +14,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('04. Blog Grid Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('11. Blog Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
     <!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
     <div class="wp-block-group alignwide">
