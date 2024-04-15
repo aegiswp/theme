@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 01. Audio Pattern
- * Slug: aegis/audio-1
+ * Slug: aegis/audio-01
  * Categories: audio
  * Description: Block pattern with two-column cover overlay on the left and tagline, headline, paragraph, audio player, social icons and call to action button on the right
  * Keywords: audio, call-to-action, music, podcast, radio
