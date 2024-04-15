@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 09. Blog Pattern
- * Slug: aegis/blog-9
+ * Slug: aegis/blog-09
  * Categories: blog
  * Description: Displays a three-column grid of blog postings with featured images, dates, titles, and excerpts
  * Keywords: blog, featured, grid, posts
