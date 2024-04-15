@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 03. Blog Pattern
- * Slug: aegis/blog-3
+ * Slug: aegis/blog-03
  * Categories: blog
  * Description: One-column list of blog entries with archive title, post featured images, terms, date, title, excerpts, call to action buttons, and pagination
  * Keywords: blog, posts, pagination, featured image, excerpt
