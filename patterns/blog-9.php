@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: 02. Blog Featured Grid Pattern
- * Slug: aegis/blog-featured-grid-2
+ * Title: 09. Blog Pattern
+ * Slug: aegis/blog-9
  * Categories: blog
  * Description: Displays a three-column grid of blog postings with featured images, dates, titles, and excerpts
  * Keywords: blog, featured, grid, posts
@@ -14,20 +14,20 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('02. Blog Featured Grid Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"gradient":"diagonal-foreground-to-transparent-triangle","layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('09. Blog Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"gradient":"diagonal-foreground-to-transparent-triangle","layout":{"type":"constrained"}} -->
 <div class="wp-block-group has-diagonal-foreground-to-transparent-triangle-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
     <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"blockGap":"0","margin":{"bottom":"var:preset|spacing|30"}}},"textColor":"background","layout":{"type":"flex","orientation":"vertical","justifyContent":"center","flexWrap":"wrap","verticalAlignment":"top"}} -->
     <div class="wp-block-group alignwide has-background-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--30);padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
         <!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"fontSize":"tiny"} -->
-        <p class="has-text-align-left has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('[Tagline]', 'Replace with a descriptive tagline', 'aegis'); ?></p>
+        <p class="has-text-align-left has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('[Tagline]', 'Replace with a descriptive section tagline.', 'aegis'); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:heading {"style":{"spacing":{"margin":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}},"typography":{"fontSize":"6rem","textTransform":"uppercase"}}} -->
-        <h2 class="wp-block-heading" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;font-size:6rem;text-transform:uppercase"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive title', 'aegis'); ?></h2>
+        <h2 class="wp-block-heading" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;font-size:6rem;text-transform:uppercase"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h2>
         <!-- /wp:heading -->
 
         <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"0"}}}} -->
-        <p class="has-text-align-center" style="margin-top:0"><?php echo esc_html_x('[Description (333 characters): Detail the purpose of the featured posts.]', 'Replace with a description of the section', 'aegis'); ?></p>
+        <p class="has-text-align-center" style="margin-top:0"><?php echo esc_html_x('[Description (333 characters): Detail the purpose of the featured posts.]', 'Replace with a description of the featured posts.', 'aegis'); ?></p>
         <!-- /wp:paragraph -->
     </div>
     <!-- /wp:group -->
