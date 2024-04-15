@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 07. About Pattern
- * Slug: aegis/about-7
+ * Slug: aegis/about-07
  * Categories: about
  * Description: Block pattern with multicolumn with vertical cover medias and paragraphs on the left, and tagline, heading, paragraph on the right
  * Keywords: about, call-to-action, media
