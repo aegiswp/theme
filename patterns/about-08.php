@@ -3,7 +3,7 @@
  * Title: 08. About Pattern
  * Slug: aegis/about-08
  * Categories: about
- * Description: Block pattern with multicolumn with tagline, heading, and paragraph on the left, and vertical cover medias with paragraphs on the right
+ * Description: Multicolumn with tagline, heading, and paragraph on the left, and vertical cover medias with paragraphs on the right
  * Keywords: about, call-to-action, media
  * Viewport Width: 1400
  * Block Types: core/group, core/columns, core/column, core/paragraph, core/heading, core/cover
