@@ -1,9 +1,9 @@
 <?php
 /**
  * Title: 01. Contact Pattern
- * Slug: aegis/contact-1
+ * Slug: aegis/contact-01
  * Categories: contact
- * Description: Multicolumn block pattern with heading, paragraph, contact information, and form placeholder
+ * Description: Multicolumn with heading, paragraph, contact information, and form placeholder
  * Keywords: address, contact, email, form, information, telephone
  * Viewport Width: 1400
  * Block Types: core/group, core/columns, core/column, core/heading, core/paragraph, core/spacer
