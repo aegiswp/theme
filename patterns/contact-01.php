@@ -25,11 +25,11 @@
                 <!-- wp:column {"width":"80%"} -->
                 <div class="wp-block-column" style="flex-basis:80%">
                     <!-- wp:heading {"level":1,"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|50"}}}} -->
-                    <h1 class="wp-block-heading alignwide" style="margin-bottom:var(--wp--preset--spacing--50)"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive title', 'aegis'); ?></h1>
+                    <h1 class="wp-block-heading alignwide" style="margin-bottom:var(--wp--preset--spacing--50)"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive title.', 'aegis'); ?></h1>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph -->
-                    <p><?php echo esc_html_x('[Description (232 characters): Craft a friendly invitation for users to seek help or provide clarification.]', 'Replace with a description of the section', 'aegis'); ?></p>
+                    <p><?php echo esc_html_x('[Description (333 characters): Craft a friendly invitation for users to seek help or provide clarification.]', 'Replace with a description of the section.', 'aegis'); ?></p>
                     <!-- /wp:paragraph -->
 
                     <!-- wp:columns -->
@@ -61,8 +61,7 @@
                         <!-- wp:column -->
                         <div class="wp-block-column">
                             <!-- wp:heading {"textAlign":"left","level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"medium"} -->
-                            <h3 class="wp-block-heading has-text-align-left has-medium-font-size" style="font-style:normal;font-weight:600"><?php echo esc_html_e('Email:', 'aegis'); ?>
-                            </h3>
+                            <h3 class="wp-block-heading has-text-align-left has-medium-font-size" style="font-style:normal;font-weight:600"><?php echo esc_html_e('Email:', 'aegis'); ?></h3>
                             <!-- /wp:heading -->
 
                             <!-- wp:paragraph {"align":"left","style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground"},":hover":{"color":{"text":"var:preset|color|primary"}}}}},"textColor":"foreground"} -->
@@ -90,7 +89,7 @@
                 <!-- wp:column {"width":"100%"} -->
                 <div class="wp-block-column" style="flex-basis:100%">
                     <!-- wp:paragraph {"align":"center"} -->
-                    <p class="has-text-align-center"><?php echo esc_html_x('[FORM PLACEHOLDER]', 'Replace with a form', 'aegis'); ?></p>
+                    <p class="has-text-align-center"><?php echo esc_html_x('[FORM PLACEHOLDER]', 'Replace with a form.', 'aegis'); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:column -->
