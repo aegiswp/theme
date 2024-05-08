@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 05. Hero Pattern
- * Slug: aegis/hero-5
+ * Slug: aegis/hero-05
  * Categories: hero
  * Description: Dual background hero with heading, paragraph, and call to action button on the left and parallel vertical images on the right
  * Keywords: call to action, gallery, hero

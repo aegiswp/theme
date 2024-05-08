@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 07. Hero Pattern
- * Slug: aegis/hero-7
+ * Slug: aegis/hero-07
  * Categories: hero
  * Description: Full-width cover hero with a centered paragraph, headline, and social links
  * Keywords: audio, hero, podcast, social links

@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 01. Featured Pattern
- * Slug: aegis/featured-1
+ * Slug: aegis/featured-01
  * Categories: featured
  * Description: Two-column layout featuring images, headings, paragraphs, and call-to-action buttons
  * Keywords: featured, images, call to action

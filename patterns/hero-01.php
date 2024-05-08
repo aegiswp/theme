@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 01. Hero Pattern
- * Slug: aegis/hero-1
+ * Slug: aegis/hero-01
  * Categories: hero
  * Description: Full-width cover hero with a centered headline, paragraph, and call to action button
  * Keywords: banner, call to action, hero, promotion

@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 08. Hero Pattern
- * Slug: aegis/hero-8
+ * Slug: aegis/hero-08
  * Categories: hero, podcast, multimedia
  * Description: Full-width dual parallax background hero with heading, paragraph, and social links on the left
  * Keywords: hero, parallax, podcast, social links
