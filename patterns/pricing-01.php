@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 01. Pricing Pattern
- * Slug: aegis/pricing-1
+ * Slug: aegis/pricing-01
  * Categories: pricing
  * Description: Three-column pricing tables with headings, paragraphs, separators and call-to-action buttons
  * Keywords: call to action, pricing, plans
