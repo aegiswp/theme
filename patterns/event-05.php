@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 05. Event Pattern
- * Slug: aegis/event-5
+ * Slug: aegis/event-05
  * Categories: events
  * Description: Two-column block pattern with cover tagline, heading, paragraph, button, and social icons on the left and laurels and paragraphs on the right
  * Keywords: call to action, cover, event, gallery, hero, social links
