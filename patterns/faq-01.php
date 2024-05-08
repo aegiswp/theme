@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 01. FAQ Pattern
- * Slug: aegis/faq-1
+ * Slug: aegis/faq-01
  * Categories: faq
  * Description: A two-column layout with headings and paragraphs on the left and heading, paragraph, and call-to-action button on the right
  * Keywords: faq, questions, answers, support
