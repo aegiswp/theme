@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 04. Hero Pattern
- * Slug: aegis/hero-4
+ * Slug: aegis/hero-04
  * Categories: hero
  * Description: Full-width cover video background hero with a centered headline, paragraph, and call to action button
  * Keywords: call to action, hero, video
