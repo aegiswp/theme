@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 06. Hero Pattern
- * Slug: aegis/hero-6
+ * Slug: aegis/hero-06
  * Categories: hero, multimedia
  * Description: Dual background hero with heading, paragraph, and call to action button on the left and video on the right
  * Keywords: hero, video
