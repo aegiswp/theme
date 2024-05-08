@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 02. Event Pattern
- * Slug: aegis/event-2
+ * Slug: aegis/event-02
  * Categories: call-to-action, events, media, video
  * Description: Two-column block pattern with image poster on the left; tagline, heading, paragraph, postings, and social links on the right
  * Keywords: call to action, events, media, posts, query, video, social links

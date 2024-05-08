@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 04. Event Pattern
- * Slug: aegis/event-4
+ * Slug: aegis/event-04
  * Categories: events
  * Description: Three-column block pattern with tagline, heading, paragraph, and button on the left, middle, and right
  * Keywords: call to action, events gallery, hero, media
