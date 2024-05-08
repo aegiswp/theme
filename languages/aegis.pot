@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2023-10-16T15:03:06+00:00\n"
-"PO-Revision-Date: 2024-05-07T13:16:51.391942\n"
+"PO-Revision-Date: 2024-05-08T21:08:43.164870Z\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: aegis\n"
 
@@ -126,6 +126,7 @@ msgstr "Replace with a descriptive section tagline"
 #: blog-10.php:26
 #: blog-12.php:26
 #: contact-01.php:28
+#: cta-01.php:30
 msgid "[Heading]"
 msgstr "Replace with a descriptive section title."
 
@@ -170,6 +171,13 @@ msgstr "Replace with a description of the section."
 #: blog-07.php:30
 #: blog-07.php:73
 #: blog-07.php:83
+#: cta-01.php:49
+#: ecommerce-01.php:24
+#: ecommerce-01.php:60
+#: ecommerce-01.php:96
+#: ecommerce-02.php:24
+#: ecommerce-02.php:66
+#: ecommerce-02.php:106
 msgid "Add a brief description of the placeholder image and its context, non-text content for screen readers."
 msgstr ""
 
@@ -186,6 +194,13 @@ msgstr ""
 #: blog-05.php:97
 #: blog-06.php:103
 #: blog-07.php:103
+#: cta-01.php:64
+#: ecommerce-01.php:50
+#: ecommerce-01.php:86
+#: ecommerce-01.php:123
+#: ecommerce-02.php:53
+#: ecommerce-02.php:94
+#: ecommerce-02.php:134
 msgid "[Call to Action]"
 msgstr "Call to action button text."
 
@@ -312,11 +327,23 @@ msgstr ""
 #: blog-05.php:85
 #: blog-06.php:90
 #: blog-07.php:90
+#: ecommerce-01.php:40
+#: ecommerce-01.php:76
+#: ecommerce-01.php:112
+#: ecommerce-02.php:42
+#: ecommerce-02.php:84
+#: ecommerce-02.php:124
 msgid "[Product]"
 msgstr ""
 
 #: blog-05.php:89
 #: blog-06.php:94
+#: ecommerce-01.php:44
+#: ecommerce-01.php:80
+#: ecommerce-01.php:116
+#: ecommerce-02.php:46
+#: ecommerce-02.php:88
+#: ecommerce-02.php:128
 msgid "[Description (50-150 characters): Enter a brief overview of a product.]"
 msgstr "Replace with a product description."
 
@@ -363,6 +390,43 @@ msgstr ""
 #: contact-01.php:92
 msgid "[FORM PLACEHOLDER]"
 msgstr "Replace with a form."
+
+#: cta-01.php:17
+msgid "01. CTA Pattern"
+msgstr "Name of the pattern"
+
+#: cta-01.php:26
+msgid "Grab Your <strong>[Discount]%</strong> Off! Shop [Product/Collection] Now During Our [Event Name] Sale."
+msgstr "Replace with a descriptive call-to-action sales promotion."
+
+#: cta-01.php:35
+msgid "[Description (40 characters): Enter a brief limited time offer and prompt action.]"
+msgstr "Call to action product sale."
+
+#: cta-01.php:54
+msgid "[New Item/Collection]"
+msgstr "Call to action product sale."
+
+#: cta-01.php:58
+msgid "[Description (75 characters): Enter a brief overview of a discount, promotion, or overview on specific items or collections.]"
+msgstr "Call to action product sale."
+
+#: ecommerce-01.php:17
+msgid "01. eCommmerce Pattern"
+msgstr "Name of the pattern"
+
+#: ecommerce-02.php:17
+msgid "02. eCommmerce Pattern"
+msgstr "Name of the pattern"
+
+#: ecommerce-01.php:34
+#: ecommerce-01.php:70
+#: ecommerce-01.php:106
+#: ecommerce-02.php:36
+#: ecommerce-02.php:78
+#: ecommerce-02.php:118
+msgid "$00.00"
+msgstr ""
 
 #: theme.json
 msgctxt "Custom template name"
