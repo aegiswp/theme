@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 03. Hero Pattern
- * Slug: aegis/hero-3
+ * Slug: aegis/hero-03
  * Categories: hero
  * Description: Full-width cover hero event awards with left, center, and right laurels, headline, and paragraphs
  * Keywords: announcement, awards, event, hero, promotion
