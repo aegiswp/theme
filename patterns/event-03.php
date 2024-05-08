@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 03. Event Pattern
- * Slug: aegis/event-3
+ * Slug: aegis/event-03
  * Categories: events
  * Description: Multicolumn block pattern with tagline, heading, paragraph on the left and vertical gallery showcase on the right
  * Keywords: events
