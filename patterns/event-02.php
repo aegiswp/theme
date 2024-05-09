@@ -2,8 +2,8 @@
 /**
  * Title: 02. Event Pattern
  * Slug: aegis/event-02
- * Categories: call-to-action, events, media, video
- * Description: Two-column block pattern with image poster on the left; tagline, heading, paragraph, postings, and social links on the right
+ * Categories: events
+ * Description: Two-column with image poster on the left; tagline, heading, paragraph, postings, and social links on the right
  * Keywords: call to action, events, media, posts, query, video, social links
  * Viewport Width: 1400
  * Block Types: core/column, core/columns, core/group, core/heading, core/image, core/paragraph, core/query, core/social-links, core/button
@@ -21,7 +21,7 @@
         <!-- wp:column {"verticalAlignment":"top","width":"33.33%","style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"className":"is-style-default"} -->
         <div class="wp-block-column is-vertically-aligned-top is-style-default" style="padding-top:0;padding-bottom:0;flex-basis:33.33%">
             <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-shadow-image"} -->
-            <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr__('Placeholder image: Brief description of the image and its context, non-text content for screen readers.', 'aegis'); ?>" /></figure>
+            <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" /></figure>
             <!-- /wp:image -->
         </div>
         <!-- /wp:column -->
@@ -33,11 +33,11 @@
                 <!-- wp:group {"style":{"spacing":{"blockGap":"0","padding":{"right":"var:preset|spacing|30"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
                 <div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--30)">
                     <!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"fontSize":"tiny"} -->
-                    <p class="has-text-align-center has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('[Tagline]', 'Replace with a descriptive tagline', 'aegis'); ?></p>
+                    <p class="has-text-align-center has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('[Tagline]', 'Replace with a descriptive section tagline', 'aegis'); ?></p>
                     <!-- /wp:paragraph -->
 
                     <!-- wp:heading {"textAlign":"center","level":3,"style":{"spacing":{"margin":{"right":"0px","left":"0px","top":"0px","bottom":"0px"},"padding":{"top":"0","bottom":"0"}},"typography":{"textTransform":"none"}},"fontSize":"gigantic"} -->
-                    <h3 class="wp-block-heading has-text-align-center has-gigantic-font-size" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0;padding-bottom:0;text-transform:none"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive title', 'aegis'); ?></h3>
+                    <h3 class="wp-block-heading has-text-align-center has-gigantic-font-size" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0;padding-bottom:0;text-transform:none"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"0"}}}} -->
@@ -76,12 +76,12 @@
                 <div class="wp-block-buttons">
                     <!-- wp:button {"backgroundColor":"foreground","width":50,"className":"is-style-aegis-3d-button-dark"} -->
                     <div class="wp-block-button has-custom-width wp-block-button__width-50 is-style-aegis-3d-button-dark">
-                        <a class="wp-block-button__link has-foreground-background-color has-background wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a></div>
+                        <a class="wp-block-button__link has-foreground-background-color has-background wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a></div>
                     <!-- /wp:button -->
 
                     <!-- wp:button {"backgroundColor":"foreground","width":50,"className":"is-style-aegis-3d-button-dark"} -->
                     <div class="wp-block-button has-custom-width wp-block-button__width-50 is-style-aegis-3d-button-dark">
-                        <a class="wp-block-button__link has-foreground-background-color has-background wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a></div>
+                        <a class="wp-block-button__link has-foreground-background-color has-background wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a></div>
                     <!-- /wp:button -->
                 </div>
                 <!-- /wp:buttons -->
