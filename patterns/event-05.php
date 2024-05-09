@@ -3,7 +3,7 @@
  * Title: 05. Event Pattern
  * Slug: aegis/event-05
  * Categories: events
- * Description: Two-column block pattern with cover tagline, heading, paragraph, button, and social icons on the left and laurels and paragraphs on the right
+ * Description: Two-column with cover tagline, heading, paragraph, button, and social icons on the left and laurels and paragraphs on the right
  * Keywords: call to action, cover, event, gallery, hero, social links
  * Viewport Width: 1400
  * Block Types: core/group, core/columns, core/column, core/cover, core/paragraph, core/heading, core/buttons, core/button, core/social-links, core/image
@@ -23,16 +23,16 @@
             <!-- wp:cover {"url":"<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp","dimRatio":60,"minHeight":100,"minHeightUnit":"vh","contentPosition":"center center","style":{"spacing":{"padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"layout":{"type":"default"}} -->
             <div class="wp-block-cover" style="padding-right:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30);min-height:100vh">
                 <span aria-hidden="true" class="wp-block-cover__background has-background-dim-60 has-background-dim"></span>
-                <img class="wp-block-cover__image-background" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_attr__('Placeholder image: Brief description of the image and its context, non-text content for screen readers.', 'aegis'); ?>" data-object-fit="cover" />
+                <img class="wp-block-cover__image-background" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" data-object-fit="cover" />
                 <div class="wp-block-cover__inner-container">
                     <!-- wp:group {"style":{"spacing":{"blockGap":"0","padding":{"left":"0","right":"var:preset|spacing|30"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
                     <div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--30);padding-left:0">
                         <!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"fontSize":"tiny"} -->
-                        <p class="has-text-align-left has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('[Tagline]', 'Replace with a descriptive tagline', 'aegis'); ?></p>
+                        <p class="has-text-align-left has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('[Tagline]', 'Replace with a descriptive section tagline', 'aegis'); ?></p>
                         <!-- /wp:paragraph -->
 
                         <!-- wp:heading {"level":1,"style":{"spacing":{"margin":{"right":"0px","left":"0px","top":"0px","bottom":"0px"},"padding":{"top":"0","bottom":"0","left":"0","right":"0"}},"typography":{"textTransform":"none","fontSize":"5.8rem"}}} -->
-                        <h1 class="wp-block-heading" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;font-size:5.8rem;text-transform:none"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive title', 'aegis'); ?></h1>
+                        <h1 class="wp-block-heading" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;font-size:5.8rem;text-transform:none"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h1>
                         <!-- /wp:heading -->
 
                         <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0"}}}} -->
@@ -44,7 +44,7 @@
                     <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
                     <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50)">
                         <!-- wp:button {"className":"is-style-outline"} -->
-                        <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a>
+                        <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a>
                         </div>
                         <!-- /wp:button -->
                     </div>
@@ -77,7 +77,7 @@
             <!-- wp:cover {"url":"<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp","dimRatio":60,"overlayColor":"foreground","minHeight":100,"minHeightUnit":"vh","contentPosition":"center center","style":{"spacing":{"padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"layout":{"type":"default"}} -->
             <div class="wp-block-cover" style="padding-right:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30);min-height:100vh">
                 <span aria-hidden="true" class="wp-block-cover__background has-foreground-background-color has-background-dim-60 has-background-dim"></span>
-                <img class="wp-block-cover__image-background" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr__('Placeholder image: Brief description of the image and its context, non-text content for screen readers.', 'aegis'); ?>" data-object-fit="cover" />
+                <img class="wp-block-cover__image-background" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" data-object-fit="cover" />
                 <div class="wp-block-cover__inner-container">
                     <!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","allowOrientation":false,"justifyContent":"center","flexWrap":"wrap"}} -->
                     <div class="wp-block-group">
@@ -88,7 +88,7 @@
                         <!-- wp:group {"style":{"spacing":{"padding":{"right":"5px","left":"5px"}}}} -->
                         <div class="wp-block-group" style="padding-right:5px;padding-left:5px">
                             <!-- wp:heading {"textAlign":"left","style":{"typography":{"fontStyle":"normal","fontWeight":"500","textTransform":"uppercase","lineHeight":"1","letterSpacing":"3px"},"spacing":{"margin":{"bottom":"0"}}},"fontSize":"small"} -->
-                            <h2 class="wp-block-heading has-text-align-left has-small-font-size" style="margin-bottom:0;font-style:normal;font-weight:500;letter-spacing:3px;line-height:1;text-transform:uppercase"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive title', 'aegis'); ?></h2>
+                            <h2 class="wp-block-heading has-text-align-left has-small-font-size" style="margin-bottom:0;font-style:normal;font-weight:500;letter-spacing:3px;line-height:1;text-transform:uppercase"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h2>
                             <!-- /wp:heading -->
 
                             <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"0"}},"typography":{"textTransform":"uppercase"}},"fontSize":"small"} -->
