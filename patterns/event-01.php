@@ -2,8 +2,8 @@
 /**
  * Title: 01. Event Pattern
  * Slug: aegis/event-01
- * Categories: call-to-action, events, media, video
- * Description: Two-column block pattern with tagline, headline, and text on top; video player on the left; postings on the right; and social links below
+ * Categories: events
+ * Description: Two-column with tagline, headline, and text on top; video player on the left; postings on the right; and social links below
  * Keywords: call to action, events, media, posts, query, video, social links
  * Viewport Width: 1400
  * Block Types: core/column, core/columns, core/group, core/paragraph, core/heading, core/video, core/query, core/post-template, core/post-date, core/post-title, core/buttons, core/button, core/social-links
@@ -21,11 +21,11 @@
         <!-- wp:group {"style":{"spacing":{"blockGap":"0","padding":{"right":"var:preset|spacing|30"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
         <div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--30)">
             <!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"fontSize":"tiny"} -->
-            <p class="has-text-align-center has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('[Tagline]', 'Replace with a descriptive tagline', 'aegis'); ?></p>
+            <p class="has-text-align-center has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('[Tagline]', 'Replace with a descriptive section tagline', 'aegis'); ?></p>
             <!-- /wp:paragraph -->
 
             <!-- wp:heading {"textAlign":"center","level":3,"style":{"spacing":{"margin":{"right":"0px","left":"0px","top":"0px","bottom":"0px"},"padding":{"top":"0","bottom":"0"}},"typography":{"textTransform":"none"}},"fontSize":"gigantic"} -->
-            <h3 class="wp-block-heading has-text-align-center has-gigantic-font-size" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0;padding-bottom:0;text-transform:none"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive title', 'aegis'); ?></h3>
+            <h3 class="wp-block-heading has-text-align-center has-gigantic-font-size" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0;padding-bottom:0;text-transform:none"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"0"}}}} -->
