@@ -76,9 +76,6 @@ function aegis_styles()
 
 add_action('wp_enqueue_scripts', 'aegis_styles');
 
-    // Add Block Patterns.
-    require get_template_directory() . '/inc/block-patterns.php';
-
     // Add Block Styles.
     require get_template_directory() . '/inc/block-styles.php';
 
