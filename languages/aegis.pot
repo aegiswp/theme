@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2023-10-16T15:03:06+00:00\n"
-"PO-Revision-Date: 2024-05-08T21:08:43.164870Z\n"
+"PO-Revision-Date: 2024-05-10T19:50:20.887494Z\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: aegis\n"
 
@@ -101,6 +101,13 @@ msgstr "Name of the pattern"
 #: blog-09.php:22
 #: blog-10.php:22
 #: blog-12.php:22
+#: event-01.php:24
+#: event-02.php:36
+#: event-03.php:27
+#: event-04.php:31
+#: event-04.php:68
+#: event-04.php:105
+#: event-05.php:31
 msgid "[Tagline]"
 msgstr "Replace with a descriptive section tagline"
 
@@ -127,6 +134,14 @@ msgstr "Replace with a descriptive section tagline"
 #: blog-12.php:26
 #: contact-01.php:28
 #: cta-01.php:30
+#: event-01.php:28
+#: event-02.php:40
+#: event-03.php:31
+#: event-04.php:35
+#: event-04.php:72
+#: event-04.php:109
+#: event-05.php:35
+#: event-05.php:91
 msgid "[Heading]"
 msgstr "Replace with a descriptive section title."
 
@@ -178,6 +193,14 @@ msgstr "Replace with a description of the section."
 #: ecommerce-02.php:24
 #: ecommerce-02.php:66
 #: ecommerce-02.php:106
+#: event-02.php:24
+#: event-03.php:56
+#: event-03.php:83
+#: event-03.php:104
+#: event-04.php:26
+#: event-04.php:63
+#: event-05.php:26
+#: event-05.php:80
 msgid "Add a brief description of the placeholder image and its context, non-text content for screen readers."
 msgstr ""
 
@@ -201,6 +224,15 @@ msgstr ""
 #: ecommerce-02.php:53
 #: ecommerce-02.php:94
 #: ecommerce-02.php:134
+#: event-01.php:78
+#: event-02.php:79
+#: event-02.php:84
+#: event-04.php:47
+#: event-04.php:84
+#: event-04.php:121
+#: event-05.php:47
+#: faq-01.php:149
+#: faq-02.php:85
 msgid "[Call to Action]"
 msgstr "Call to action button text."
 
@@ -233,6 +265,7 @@ msgstr "Replace with a description of the section."
 
 #: about-07.php:24
 #: about-08.php:44
+#: event-03.php:45
 msgid "[Section]"
 msgstr "Replace with a descriptive section title."
 
@@ -428,14 +461,119 @@ msgstr "Name of the pattern"
 msgid "$00.00"
 msgstr ""
 
+#: event-01.php:17
+msgid "01. Event Pattern"
+msgstr "Name of the pattern"
+
+#: event-02.php:17
+msgid "02. Event Pattern"
+msgstr "Name of the pattern"
+
+#: event-03.php:17
+msgid "03. Event Pattern"
+msgstr "Name of the pattern"
+
+#: event-04.php:17
+msgid "04. Event Pattern"
+msgstr "Name of the pattern"
+
+#: event-05.php:17
+msgid "05. Event Pattern"
+msgstr "Name of the pattern"
+
+#: event-01.php:32
+#: event-02.php:44
+#: event-03.php:35
+#: event-04.php:39
+#: event-04.php:76
+msgid "[Description (160 characters): Enter a brief overview of a specific event, or events.]"
+msgstr "Replace with a description of the section"
+
+#: event-03.php:63
+#: event-03.php:89
+#: event-03.php:110
+#: event-05.php:109
+msgid "[Artwork]"
+msgstr "Replace with artwork title"
+
+#: event-03.php:67
+#: event-03.php:93
+#: event-03.php:114
+#: event-05.php:113
+msgid "[Artist]"
+msgstr "Replace with the artist name"
+
+#: event-04.php:99
+msgid "Placeholder image for event promotion - replace with your event poster, artist\'s photograph or artwork."
+msgstr ""
+
+#: event-04.php:113
+#: event-05.php:39
+msgid "[Description (120 characters): Enter a brief overview of a specific event.]"
+msgstr "Replace with a description of the section"
+
+#: event-05.php:56
+msgid "Support:"
+msgstr ""
+
+#: event-05.php:85
+#: event-05.php:101
+#: faq-01.php:132
+msgid "Decorative element."
+msgstr ""
+
+#: event-05.php:95
+msgid "[Date]"
+msgstr "Event call to action date"
+
+#: faq-01.php:17
+msgid "01. FAQ Pattern"
+msgstr "Name of the pattern"
+
+#: faq-02.php:17
+msgid "02. FAQ Pattern"
+msgstr "Name of the pattern"
+
+#: faq-01.php:24
+#: faq-02.php:24
+msgid "[Heading (45 characters): Present a welcoming tone for users queries.]"
+msgstr "Replace with a descriptive section title."
+
+#: faq-01.php:32
+#: faq-01.php:56
+#: faq-01.php:80
+#: faq-01.php:104
+#: faq-02.php:31
+#: faq-02.php:40
+#: faq-02.php:49
+#: faq-02.php:58
+msgid "<strong>#.</strong> [Question (57 characters): Frame a frequently asked question about a feature or service.]"
+msgstr "Replace with a frequently asked question"
+
+#: faq-01.php:44
+#: faq-01.php:68
+#: faq-01.php:92
+#: faq-01.php:116
+#: faq-02.php:33
+#: faq-02.php:42
+#: faq-02.php:51
+#: faq-02.php:60
+msgid "[Answer (150 characters): [Provide a clear response to a common query.]"
+msgstr "Replace with a informative answer"
+
+#: faq-01.php:138
+#: faq-02.php:74
+msgid "[Heading (25 characters): Encourage users to seek more information.]"
+msgstr "Replace with a descriptive section title."
+
+#: faq-01.php:142
+#: faq-02.php:78
+msgid "[Description (50 characters): Reassure timely feedback or support.]"
+msgstr "Call to action section text"
+
 #: theme.json
 msgctxt "Custom template name"
 msgid "Header"
-msgstr ""
-
-#: theme.json
-msgctxt "Template part name"
-msgid "Header 1"
 msgstr ""
 
 #: theme.json
@@ -456,11 +594,6 @@ msgstr ""
 #: theme.json
 msgctxt "Template part name"
 msgid "Footer"
-msgstr ""
-
-#: theme.json
-msgctxt "Template part name"
-msgid "Footer 1"
 msgstr ""
 
 #: theme.json
