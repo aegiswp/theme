@@ -21,14 +21,14 @@
         <!-- wp:column {"verticalAlignment":"center","width":"56.66%"} -->
         <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:56.66%">
             <!-- wp:heading {"level":4,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"extra-large"} -->
-            <h4 class="wp-block-heading has-extra-large-font-size" style="font-style:normal;font-weight:400"><?php echo esc_html_x('[Heading (45 characters): Present a welcoming tone for users queries.]', 'Replace with a descriptive title', 'aegis'); ?></h4>
+            <h4 class="wp-block-heading has-extra-large-font-size" style="font-style:normal;font-weight:400"><?php echo esc_html_x('[Heading (45 characters): Present a welcoming tone for users queries.]', 'Replace with a frequently asked question', 'aegis'); ?></h4>
             <!-- /wp:heading -->
 
             <!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"default"}} -->
             <div class="wp-block-group" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
                 <!-- wp:details {"style":{"border":{"bottom":{"color":"var:preset|color|foreground","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"fontSize":"medium"} -->
                 <details class="wp-block-details has-medium-font-size" style="border-bottom-color:var(--wp--preset--color--foreground);border-bottom-width:1px;margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">
-                    <summary><?php echo wp_kses_post( _x( '<strong>01.</strong> [Question (57 characters): Frame a frequently asked question about a feature or service.]', 'Replace with a call-to-action question', 'aegis' ) ); ?></summary>
+                    <summary><?php echo wp_kses_post( _x( '<strong>#.</strong> [Question (57 characters): Frame a frequently asked question about a feature or service.]', 'Replace with a frequently asked question', 'aegis' ) ); ?></summary>
                     <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"bottom":"0"}}},"backgroundColor":"secondary","fontSize":"small"} -->
                     <p class="has-secondary-background-color has-background has-small-font-size" style="margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x(' [Answer (150 characters): [Provide a clear response to a common query.]', 'Replace with a informative answer', 'aegis'); ?></p>
                     <!-- /wp:paragraph -->
@@ -37,7 +37,7 @@
 
                 <!-- wp:details {"style":{"border":{"bottom":{"color":"var:preset|color|foreground","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"fontSize":"medium"} -->
                 <details class="wp-block-details has-medium-font-size" style="border-bottom-color:var(--wp--preset--color--foreground);border-bottom-width:1px;margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">
-                    <summary><?php echo wp_kses_post( _x( '<strong>02.</strong> [Question (57 characters): Frame a frequently asked question about a feature or service.]', 'Replace with a call-to-action question', 'aegis' ) ); ?></summary>
+                    <summary><?php echo wp_kses_post( _x( '<strong>#.</strong> [Question (57 characters): Frame a frequently asked question about a feature or service.]', 'Replace with a frequently asked question', 'aegis' ) ); ?></summary>
                     <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"bottom":"0"}}},"backgroundColor":"secondary","fontSize":"small"} -->
                     <p class="has-secondary-background-color has-background has-small-font-size" style="margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x(' [Answer (150 characters): [Provide a clear response to a common query.]', 'Replace with a informative answer', 'aegis'); ?></p>
                     <!-- /wp:paragraph -->
@@ -46,7 +46,7 @@
 
                 <!-- wp:details {"style":{"border":{"bottom":{"color":"var:preset|color|foreground","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"fontSize":"medium"} -->
                 <details class="wp-block-details has-medium-font-size" style="border-bottom-color:var(--wp--preset--color--foreground);border-bottom-width:1px;margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">
-                    <summary><?php echo wp_kses_post( _x( '<strong>03.</strong> [Question (57 characters): Frame a frequently asked question about a feature or service.]', 'Replace with a call-to-action question', 'aegis' ) ); ?></summary>
+                    <summary><?php echo wp_kses_post( _x( '<strong>#.</strong> [Question (57 characters): Frame a frequently asked question about a feature or service.]', 'Replace with a frequently asked question', 'aegis' ) ); ?></summary>
                     <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"bottom":"0"}}},"backgroundColor":"secondary","fontSize":"small"} -->
                     <p class="has-secondary-background-color has-background has-small-font-size" style="margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x(' [Answer (150 characters): [Provide a clear response to a common query.]', 'Replace with a informative answer', 'aegis'); ?></p>
                     <!-- /wp:paragraph -->
@@ -55,7 +55,7 @@
 
                 <!-- wp:details {"style":{"border":{"bottom":{"color":"var:preset|color|foreground","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"fontSize":"medium"} -->
                 <details class="wp-block-details has-medium-font-size" style="border-bottom-color:var(--wp--preset--color--foreground);border-bottom-width:1px;margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">
-                    <summary><?php echo wp_kses_post( _x( '<strong>04.</strong> [Question (57 characters): Frame a frequently asked question about a feature or service.]', 'Replace with a call-to-action question', 'aegis' ) ); ?></summary>
+                    <summary><?php echo wp_kses_post( _x( '<strong>#.</strong> [Question (57 characters): Frame a frequently asked question about a feature or service.]', 'Replace with a frequently asked question', 'aegis' ) ); ?></summary>
                     <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"bottom":"0"}}},"backgroundColor":"secondary","fontSize":"small"} -->
                     <p class="has-secondary-background-color has-background has-small-font-size" style="margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x(' [Answer (150 characters): [Provide a clear response to a common query.]', 'Replace with a informative answer', 'aegis'); ?></p>
                     <!-- /wp:paragraph -->
@@ -71,7 +71,7 @@
             <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"var:preset|spacing|40","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40"}}},"backgroundColor":"foreground","textColor":"background","layout":{"type":"default"}} -->
             <div class="wp-block-group has-background-color has-foreground-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
                 <!-- wp:heading {"level":3} -->
-                <h3 class="wp-block-heading"><?php echo esc_html_x('[Heading (25 characters): Encourage users to seek more information.]', 'Replace with a descriptive title', 'aegis'); ?></h3>
+                <h3 class="wp-block-heading"><?php echo esc_html_x('[Heading (25 characters): Encourage users to seek more information.]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
                 <!-- /wp:heading -->
 
                 <!-- wp:paragraph -->
@@ -82,7 +82,7 @@
                 <div class="wp-block-buttons">
                     <!-- wp:button {"backgroundColor":"background","textColor":"foreground","className":"is-style-aegis-button-shadow"} -->
                     <div class="wp-block-button is-style-aegis-button-shadow">
-                        <a class="wp-block-button__link has-foreground-color has-background-background-color has-text-color has-background wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a>
+                        <a class="wp-block-button__link has-foreground-color has-background-background-color has-text-color has-background wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a>
                     </div>
                     <!-- /wp:button -->
                 </div>
