@@ -3,7 +3,7 @@
  * Title: 02. Featured Pattern
  * Slug: aegis/featured-02
  * Categories: featured
- * Description: Two-column layout with grid headings and paragraphs on the left and an image on the right
+ * Description: Two-column with grid headings and paragraphs on the left and an image on the right
  * Keywords: featured, images, call to action
  * Viewport Width: 1400
  * Block Types: core/group, core/columns, core/column, core/paragraph, core/heading, core/image
@@ -35,7 +35,7 @@
                     <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical"}} -->
                     <div class="wp-block-group">
                         <!-- wp:heading {"level":4,"style":{"elements":{"link":{"color":{"text":"var:preset|color|foregound-alt"}}}},"textColor":"foregound-alt"} -->
-                        <h4 class="wp-block-heading has-foregound-alt-color has-text-color has-link-color"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive title', 'aegis'); ?></h4>
+                        <h4 class="wp-block-heading has-foregound-alt-color has-text-color has-link-color"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h4>
                         <!-- /wp:heading -->
 
                         <!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|tertiary-light"}}}},"textColor":"tertiary-light"} -->
@@ -63,7 +63,7 @@
                     <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical"}} -->
                     <div class="wp-block-group">
                         <!-- wp:heading {"level":4,"style":{"elements":{"link":{"color":{"text":"var:preset|color|foregound-alt"}}}},"textColor":"foregound-alt"} -->
-                        <h4 class="wp-block-heading has-foregound-alt-color has-text-color has-link-color"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive title', 'aegis'); ?></h4>
+                        <h4 class="wp-block-heading has-foregound-alt-color has-text-color has-link-color"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h4>
                         <!-- /wp:heading -->
 
                         <!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|tertiary-light"}}}},"textColor":"tertiary-light"} -->
@@ -91,7 +91,7 @@
                     <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical"}} -->
                     <div class="wp-block-group">
                         <!-- wp:heading {"level":4,"style":{"elements":{"link":{"color":{"text":"var:preset|color|foregound-alt"}}}},"textColor":"foregound-alt"} -->
-                        <h4 class="wp-block-heading has-foregound-alt-color has-text-color has-link-color"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive title', 'aegis'); ?></h4>
+                        <h4 class="wp-block-heading has-foregound-alt-color has-text-color has-link-color"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h4>
                         <!-- /wp:heading -->
 
                         <!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|tertiary-light"}}}},"textColor":"tertiary-light"} -->
@@ -109,7 +109,7 @@
         <!-- wp:column {"verticalAlignment":"center"} -->
         <div class="wp-block-column is-vertically-aligned-center">
             <!-- wp:image {"aspectRatio":"3/4","scale":"cover","sizeSlug":"large","linkDestination":"none"} -->
-            <figure class="wp-block-image size-large"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr__('Placeholder image: Brief description of the image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:3/4;object-fit:cover" /></figure>
+            <figure class="wp-block-image size-large"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:3/4;object-fit:cover" /></figure>
             <!-- /wp:image -->
         </div>
         <!-- /wp:column -->
