@@ -1,6 +1,6 @@
 <?php
 /**
- * Block Styles
+ * Core Block Styles
  *
  * @link https://developer.wordpress.org/reference/functions/register_block_style/
  *
@@ -11,217 +11,15 @@
 
 if ( function_exists( 'register_block_style' ) ) {
 	/**
-	 * Register block styles.
+	 * Register core block styles.
 	 *
 	 * @since 1.0.0
 	 *
 	 * @return void
 	 */
 	function aegis_register_block_styles() {
-		// Columns: Shadow.
-		register_block_style(
-			'core/columns',
-			array(
-				'name'  => 'aegis-shadow',
-				'label' => esc_html__( 'Shadow', 'aegis' ),
-			)
-		);
 
-		// Column: Shadow.
-		register_block_style(
-			'core/column',
-			array(
-				'name'  => 'aegis-shadow',
-				'label' => esc_html__( 'Shadow', 'aegis' ),
-			)
-		);
-
-		// Cover: Shadow.
-		register_block_style(
-			'core/cover',
-			array(
-				'name'  => 'aegis-shadow',
-				'label' => esc_html__( 'Shadow', 'aegis' ),
-			)
-		);
-
-		// Video: Shadow.
-		register_block_style(
-			'core/video',
-			array(
-				'name'  => 'aegis-shadow',
-				'label' => esc_html__('Shadow', 'aegis'),
-			)
-		);
-
-		// Cover: Shape 1.
-		register_block_style(
-			'core/cover',
-			array(
-				'name'  => 'aegis-shape-one',
-				'label' => esc_html__( 'Shape One', 'aegis' ),
-			)
-		);
-
-		// Cover: Shape 2.
-		register_block_style(
-			'core/cover',
-			array(
-				'name'  => 'aegis-shape-two',
-				'label' => esc_html__( 'Shape Two', 'aegis' ),
-			)
-		);
-
-		// Cover: Shape 3.
-		register_block_style(
-			'core/cover',
-			array(
-				'name'  => 'aegis-shape-three',
-				'label' => esc_html__( 'Shape Three', 'aegis' ),
-			)
-		);
-
-		// Group: Shadow.
-		register_block_style(
-			'core/group',
-			array(
-				'name'  => 'aegis-shadow',
-				'label' => esc_html__( 'Shadow', 'aegis' ),
-			)
-		);
-
-		// Image: Shadow.
-		register_block_style(
-			'core/image',
-			array(
-				'name'  => 'aegis-shadow-image',
-				'label' => esc_html__( 'Shadow', 'aegis' ),
-			)
-		);
-
-		// Image: Effect 1.
-		register_block_style(
-			'core/image',
-			array(
-				'name'  => 'aegis-effect-1-image',
-				'label' => esc_html__( 'Effect 1', 'aegis' ),
-			)
-		);
-
-		// Image: Effect 2.
-		register_block_style(
-			'core/image',
-			array(
-				'name'  => 'aegis-effect-2-image',
-				'label' => esc_html__( 'Effect 2', 'aegis' ),
-			)
-		);
-
-		// Image: Effect 3.
-		register_block_style(
-			'core/image',
-			array(
-				'name'  => 'aegis-effect-3-image',
-				'label' => esc_html__( 'Effect 3', 'aegis' ),
-			)
-		);
-
-		// Columns: Border.
-		register_block_style(
-			'core/columns',
-			array(
-				'name'  => 'aegis-border',
-				'label' => esc_html__( 'Border', 'aegis' ),
-			)
-		);
-
-		// Cover: Border.
-		register_block_style(
-			'core/cover',
-			array(
-				'name'  => 'aegis-border',
-				'label' => esc_html__( 'Border', 'aegis' ),
-			)
-		);
-
-		// Group: Border.
-		register_block_style(
-			'core/group',
-			array(
-				'name'  => 'aegis-border',
-				'label' => esc_html__( 'Border', 'aegis' ),
-			)
-		);
-
-		// Image: Border.
-		register_block_style(
-			'core/image',
-			array(
-				'name'  => 'aegis-border',
-				'label' => esc_html__( 'Border', 'aegis' ),
-			)
-		);
-
-		// Columns: Hover Shadow.
-		register_block_style(
-			'core/columns',
-			array(
-				'name'  => 'aegis-hover-shadow',
-				'label' => esc_html__( 'Hover Shadow', 'aegis' ),
-			)
-		);
-
-		// Column: Hover Shadow.
-		register_block_style(
-			'core/column',
-			array(
-				'name'  => 'aegis-hover-shadow',
-				'label' => esc_html__( 'Hover Shadow', 'aegis' ),
-			)
-		);
-
-		// Cover: Hover Shadow.
-		register_block_style(
-			'core/cover',
-			array(
-				'name'  => 'aegis-hover-shadow',
-				'label' => esc_html__( 'Hover Shadow', 'aegis' ),
-			)
-		);
-
-		// Group: Hover Shadow.
-		register_block_style(
-			'core/group',
-			array(
-				'name'  => 'aegis-hover-shadow',
-				'label' => esc_html__( 'Hover Shadow', 'aegis' ),
-			)
-		);
-
-		// Image: Hover Shadow.
-		register_block_style(
-			'core/image',
-			array(
-				'name'  => 'aegis-hover-shadow-image',
-				'label' => esc_html__( 'Hover Shadow', 'aegis' ),
-			)
-		);
-
-		// Button: Shadow.
-		register_block_style(
-			'core/button',
-			array(
-				'name'  => 'aegis-button-shadow-outline',
-				'label' => esc_html__( 'Outline Shadow', 'aegis' ),
-			)
-		);
-		register_block_style(
-			'core/button',
-			array(
-				'name'  => 'aegis-3d-button-light',
-				'label' => esc_html__('3d Button Light', 'aegis'),
-			)
-		);
+		// Core Button Block: 3D Dark.
 		register_block_style(
 			'core/button',
 			array(
@@ -229,27 +27,17 @@ if ( function_exists( 'register_block_style' ) ) {
 				'label' => esc_html__('3d Button Dark', 'aegis'),
 			)
 		);
+
+		// Core Button Block: 3D Light.
 		register_block_style(
 			'core/button',
 			array(
-				'name'  => 'aegis-button-line-light',
-				'label' => esc_html__('Button Line Light', 'aegis'),
+				'name'  => 'aegis-3d-button-light',
+				'label' => esc_html__('3d Button Light', 'aegis'),
 			)
 		);
-		register_block_style(
-			'core/button',
-			array(
-				'name'  => 'aegis-button-line-dark',
-				'label' => esc_html__('Button Line Dark', 'aegis'),
-			)
-		);
-		register_block_style(
-			'core/button',
-			array(
-				'name'  => 'aegis-button-shadow',
-				'label' => esc_html__('Button Shadow', 'aegis'),
-			)
-		);
+
+		// Core Button Block: Effect 1.
 		register_block_style(
 			'core/button',
 			array(
@@ -257,7 +45,8 @@ if ( function_exists( 'register_block_style' ) ) {
 				'label' => esc_html__('Button Effect One', 'aegis'),
 			)
 		);
-		
+
+		// Core Button Block: Effect 2.
 		register_block_style(
 			'core/button',
 			array(
@@ -266,25 +55,142 @@ if ( function_exists( 'register_block_style' ) ) {
 			)
 		);
 
-		// Navigation: Hover.
+		// Core Button Block: Line Dark.
 		register_block_style(
-			'core/navigation',
+			'core/button',
 			array(
-				'name'  => 'aegis-navigation-line',
-				'label' => esc_html__( 'Underline Hover', 'aegis' ),
-			)
-		);
-		
-		// Button: Border & Shadow.
-		register_block_style(
-			'core/post-excerpt',
-			array(
-				'name'  => 'aegis-post-excerpt-border-shadow',
-				'label' => esc_html__( 'Border & Shadow', 'aegis' ),
+				'name'  => 'aegis-button-line-dark',
+				'label' => esc_html__('Button Line Dark', 'aegis'),
 			)
 		);
 
-		// Button: Border
+		// Core Button Block: Line Light.
+		register_block_style(
+			'core/button',
+			array(
+				'name'  => 'aegis-button-line-light',
+				'label' => esc_html__('Button Line Light', 'aegis'),
+			)
+		);
+
+		// Core Button Block: Shadow.
+		register_block_style(
+			'core/button',
+			array(
+				'name'  => 'aegis-button-shadow',
+				'label' => esc_html__('Button Shadow', 'aegis'),
+			)
+		);
+
+		// Core Button Block: Outline Shadow.
+		register_block_style(
+			'core/button',
+			array(
+				'name'  => 'aegis-button-shadow-outline',
+				'label' => esc_html__( 'Outline Shadow', 'aegis' ),
+			)
+		);
+
+		// Core Columns Block: Border.
+		register_block_style(
+			'core/columns',
+			array(
+				'name'  => 'aegis-border',
+				'label' => esc_html__( 'Border', 'aegis' ),
+			)
+		);
+
+		// Core Columns Block: Shadow.
+		register_block_style(
+			'core/columns',
+			array(
+				'name'  => 'aegis-shadow',
+				'label' => esc_html__( 'Shadow', 'aegis' ),
+			)
+		);
+
+		// Core Columns Block: Hover Shadow.
+		register_block_style(
+			'core/columns',
+			array(
+				'name'  => 'aegis-hover-shadow',
+				'label' => esc_html__( 'Hover Shadow', 'aegis' ),
+			)
+		);
+
+		// Core Column Block: Shadow.
+		register_block_style(
+			'core/column',
+			array(
+				'name'  => 'aegis-shadow',
+				'label' => esc_html__( 'Shadow', 'aegis' ),
+			)
+		);
+
+		// Core Column Block: Hover Shadow.
+		register_block_style(
+			'core/column',
+			array(
+				'name'  => 'aegis-hover-shadow',
+				'label' => esc_html__( 'Hover Shadow', 'aegis' ),
+			)
+		);
+
+		// Core Cover Block: Border.
+		register_block_style(
+			'core/cover',
+			array(
+				'name'  => 'aegis-border',
+				'label' => esc_html__( 'Border', 'aegis' ),
+			)
+		);
+
+		// Core Cover Block: Shadow.
+		register_block_style(
+			'core/cover',
+			array(
+				'name'  => 'aegis-shadow',
+				'label' => esc_html__( 'Shadow', 'aegis' ),
+			)
+		);
+
+		// Core Cover Block: Hover Shadow.
+		register_block_style(
+			'core/cover',
+			array(
+				'name'  => 'aegis-hover-shadow',
+				'label' => esc_html__( 'Hover Shadow', 'aegis' ),
+			)
+		);
+
+		// Core Cover Block: Shape 1.
+		register_block_style(
+			'core/cover',
+			array(
+				'name'  => 'aegis-shape-one',
+				'label' => esc_html__( 'Shape One', 'aegis' ),
+			)
+		);
+
+		// Core Cover Block: Shape 2.
+		register_block_style(
+			'core/cover',
+			array(
+				'name'  => 'aegis-shape-two',
+				'label' => esc_html__( 'Shape Two', 'aegis' ),
+			)
+		);
+
+		// Core Cover Block: Shape 3.
+		register_block_style(
+			'core/cover',
+			array(
+				'name'  => 'aegis-shape-three',
+				'label' => esc_html__( 'Shape Three', 'aegis' ),
+			)
+		);
+
+		// Core Post Excerpt Block: Button Border.
 		register_block_style(
 			'core/post-excerpt',
 			array(
@@ -293,60 +199,43 @@ if ( function_exists( 'register_block_style' ) ) {
 			)
 		);
 
-		// Post Title: Border
+		// Core Post Excerpt Block: Button Border, and Shadow.
 		register_block_style(
-			'core/post-title',
+			'core/post-excerpt',
 			array(
-				'name'  => 'aegis-post-title-border',
-				'label' => esc_html__( 'Link No Border', 'aegis' ),
+				'name'  => 'aegis-post-excerpt-border-shadow',
+				'label' => esc_html__( 'Border & Shadow', 'aegis' ),
 			)
 		);
 
-		// Post Date: Border
+		// Core Group Block: Border.
 		register_block_style(
-			'core/post-date',
+			'core/group',
 			array(
-				'name'  => 'aegis-post-date-border',
-				'label' => esc_html__( 'Link No Border', 'aegis' ),
+				'name'  => 'aegis-border',
+				'label' => esc_html__( 'Border', 'aegis' ),
 			)
 		);
 
-		// Post Featured Image: Shadow
+		// Core Group Block: Shadow.
 		register_block_style(
-			'core/post-featured-image',
+			'core/group',
 			array(
-				'name'  => 'aegis-post-featured-image-shadow',
+				'name'  => 'aegis-shadow',
 				'label' => esc_html__( 'Shadow', 'aegis' ),
 			)
 		);
 
-		// Post Featured Image: Effect 1
+		// Core Group Block: Hover Shadow.
 		register_block_style(
-			'core/post-featured-image',
+			'core/group',
 			array(
-				'name'  => 'aegis-post-featured-image-effect-1',
-				'label' => esc_html__( 'Effect 1', 'aegis' ),
+				'name'  => 'aegis-hover-shadow',
+				'label' => esc_html__( 'Hover Shadow', 'aegis' ),
 			)
 		);
 
-		// Post Featured Image: Effect 2
-		register_block_style(
-			'core/post-featured-image',
-			array(
-				'name'  => 'aegis-post-featured-image-effect-2',
-				'label' => esc_html__( 'Effect 2', 'aegis' ),
-			)
-		);
-
-		register_block_style(
-			'core/navigation-submenu',
-			array(
-				'name'  => 'mega-menu',
-				'label' => esc_html__('Mega Menu', 'aegis'),
-			)
-		);
-
-		// Heading: Border Top Radius
+		// Core Heading Block: Border Top Radius.
 		register_block_style(
 			'core/heading',
 			array(
@@ -355,7 +244,7 @@ if ( function_exists( 'register_block_style' ) ) {
 			)
 		);
 
-		// Heading: Scrolling Text
+		// Core Heading Block: Scrolling Text.
 		register_block_style(
 			'core/heading',
 			array(
@@ -364,12 +253,138 @@ if ( function_exists( 'register_block_style' ) ) {
 			)
 		);
 
-		// Paragraph: Scrolling Text
+		// Core Image Block: Border.
+		register_block_style(
+			'core/image',
+			array(
+				'name'  => 'aegis-border',
+				'label' => esc_html__( 'Border', 'aegis' ),
+			)
+		);
+
+		// Core Image Block: Effect 1.
+		register_block_style(
+			'core/image',
+			array(
+				'name'  => 'aegis-effect-1-image',
+				'label' => esc_html__( 'Effect 1', 'aegis' ),
+			)
+		);
+
+		// Core Image Block: Effect 2.
+		register_block_style(
+			'core/image',
+			array(
+				'name'  => 'aegis-effect-2-image',
+				'label' => esc_html__( 'Effect 2', 'aegis' ),
+			)
+		);
+
+		// Core Image Block: Effect 3.
+		register_block_style(
+			'core/image',
+			array(
+				'name'  => 'aegis-effect-3-image',
+				'label' => esc_html__( 'Effect 3', 'aegis' ),
+			)
+		);
+
+		// Core Image Block: Shadow.
+		register_block_style(
+			'core/image',
+			array(
+				'name'  => 'aegis-shadow-image',
+				'label' => esc_html__( 'Shadow', 'aegis' ),
+			)
+		);
+
+		// Core Image Block: Hover Shadow.
+		register_block_style(
+			'core/image',
+			array(
+				'name'  => 'aegis-hover-shadow-image',
+				'label' => esc_html__( 'Hover Shadow', 'aegis' ),
+			)
+		);
+
+		// Core Navigation Block: Mega Menus
+		register_block_style(
+			'core/navigation-submenu',
+			array(
+				'name'  => 'mega-menu',
+				'label' => esc_html__('Mega Menu', 'aegis'),
+			)
+		);
+
+		// Core Navigation Block: Underline Hover.
+		register_block_style(
+			'core/navigation',
+			array(
+				'name'  => 'aegis-navigation-line',
+				'label' => esc_html__( 'Underline Hover', 'aegis' ),
+			)
+		);
+
+		// Core Paragraph Block: Scrolling Text.
 		register_block_style(
 			'core/paragraph',
 			array(
 				'name'  => 'aegis-scroll-text',
 				'label' => esc_html__( 'Scroll', 'aegis' ),
+			)
+		);
+
+		// Core Post Title Block: No Border
+		register_block_style(
+			'core/post-title',
+			array(
+				'name'  => 'aegis-post-title-border',
+				'label' => esc_html__( 'Link No Border', 'aegis' ),
+			)
+		);
+
+		// Core Post Date Block: Border
+		register_block_style(
+			'core/post-date',
+			array(
+				'name'  => 'aegis-post-date-border',
+				'label' => esc_html__( 'Link No Border', 'aegis' ),
+			)
+		);
+
+		// Core Post Featured Image Block: Effect 1.
+		register_block_style(
+			'core/post-featured-image',
+			array(
+				'name'  => 'aegis-post-featured-image-effect-1',
+				'label' => esc_html__( 'Effect 1', 'aegis' ),
+			)
+		);
+
+		// Core Post Featured Image Block: Effect 2.
+		register_block_style(
+			'core/post-featured-image',
+			array(
+				'name'  => 'aegis-post-featured-image-effect-2',
+				'label' => esc_html__( 'Effect 2', 'aegis' ),
+			)
+		);
+
+		// Core Post Featured Image Block: Shadow.
+		register_block_style(
+			'core/post-featured-image',
+			array(
+				'name'  => 'aegis-post-featured-image-shadow',
+				'label' => esc_html__( 'Shadow', 'aegis' ),
+			)
+		);
+
+		// Core Video Block: Shadow.
+		register_block_style(
+			'core/video',
+			array(
+				'name'  => 'aegis-shadow',
+				'label' => esc_html__('Shadow', 'aegis'),
 			)
 		);
 	}
