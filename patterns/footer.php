@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 01. Footer Pattern
- * Slug: aegis/footer-01
+ * Slug: aegis/footer
  * Categories: footer
  * Description: Multiple columns including dynamic sections for company information, quick links, and social media.
  * Keywords: footer
