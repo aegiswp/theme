@@ -1,19 +1,25 @@
 <?php
 /**
- * 07. Header Block Pattern
+ * Title: 07. Header Pattern
+ * Slug: aegis/header-07
+ * Categories: header
+ * Description: A modern header layout featuring a striking offer highlight and a sleek navigation interface, complemented by a mini-cart for easy access.
+ * Keywords: header, modern, sticky, e-commerce, navigation, responsive, top header, offer highlight
+ * Viewport Width: 1400
+ * Block Types: core/template-part/header
+ * Inserter: true
+ * 
+ * @package aegis
+ * @since 1.0.0
  */
-return array(
-	'title'	  => __( '07. Header', 'aegis' ),
-	'description' => __( 'Header', 'aegis' ),
-	'categories' => array( 'aegis-header' ),
-	'blockTypes' => array( 'core/template-part/header' ),
-	'content' => '
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}},"backgroundColor":"foreground","textColor":"background","layout":{"inherit":false}} -->
+?>
+
+<!-- wp:group {"metadata":{"categories":["header"],"patternName":"aegis/header-07","name":"<?php echo esc_html_x('07. Header Pattern', 'Name of the pattern', 'aegis'); ?>"},"align":"full","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}},"backgroundColor":"foreground","textColor":"background","layout":{"inherit":false}} -->
 <div class="wp-block-group alignfull has-background-color has-foreground-background-color has-text-color has-background" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
 	<!-- wp:group {"style":{"spacing":{"padding":{"top":"7px","right":"var:preset|spacing|30","left":"var:preset|spacing|30","bottom":"7px"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
 	<div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-top:7px;padding-right:var(--wp--preset--spacing--30);padding-bottom:7px;padding-left:var(--wp--preset--spacing--30)">
 		<!-- wp:paragraph {"align":"center","className":"is-style-default","fontSize":"tiny"} -->
-		<p class="has-text-align-center is-style-default has-tiny-font-size">' . esc_html__('Offer Highlight (52 chars): [Announce a special deal or limited-time opportunity.]', 'aegis') . '</p>
+		<p class="has-text-align-center is-style-default has-tiny-font-size"><?php echo esc_html_e('[Offer Highlight (52 chars): Announce a special deal or limited-time opportunity.]', 'aegis'); ?></p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->
@@ -34,7 +40,7 @@ return array(
 				<div class="wp-block-group">
 					<!-- wp:navigation {"icon":"menu","overlayBackgroundColor":"foreground","overlayTextColor":"background","className":"is-style-default","layout":{"type":"flex","setCascadingProperties":"true","justifyContent":"right","orientation":"horizontal","flexWrap":"wrap"},"fontSize":"tiny"} /-->
 
-					<!-- wp:woocommerce/mini-cart {"miniCartIcon":"bag","addToCartBehaviour":"open_drawer","hasHiddenPrice":true,"style":{"typography":{"fontSize":"12px"}}} /-->
+					<!-- wp:woocommerce/mini-cart {"miniCartIcon":"bag","addToCartBehaviour":"open_drawer","style":{"typography":{"fontSize":"12px"}}} /-->
 				</div>
 				<!-- /wp:group -->
 			</div>
@@ -44,5 +50,4 @@ return array(
 	</div>
 	<!-- /wp:group -->
 </div>
-<!-- /wp:group -->',
-);
+<!-- /wp:group -->
