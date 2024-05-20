@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2023-10-16T15:03:06+00:00\n"
-"PO-Revision-Date: 2024-05-19T19:53:56.076940+00:00\n"
+"PO-Revision-Date: 2024-05-20 22:48:14.526735\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: aegis\n"
 
@@ -249,6 +249,8 @@ msgstr "Replace with a description of the section."
 #: gallery-06.php:64
 #: gallery-06.php:72
 #: gallery-06.php:76
+#: header-09.php:19
+#: header-09.php:22
 msgid "Add a brief description of the placeholder image and its context, non-text content for screen readers."
 msgstr ""
 
@@ -287,6 +289,7 @@ msgstr ""
 #: featured-01.php:146
 #: footer.php:221
 #: footer-04.php:30
+#: header-09.php:113
 msgid "[Call to Action]"
 msgstr "Call to action button text."
 
@@ -859,6 +862,67 @@ msgstr "Replace with a descriptive video title."
 #: gallery-04.php:139
 msgid "[Description (65 characters): Provide a brief synopsis of the video.]"
 msgstr "Replace with a descriptive video summary."
+
+#: header.php:17
+msgid "01. Header Pattern"
+msgstr "Name of the pattern"
+
+#: header-02.php:17
+msgid "02. Header Pattern"
+msgstr "Name of the pattern"
+
+#: header-03.php:17
+msgid "03. Header Pattern (Sticky)"
+msgstr "Name of the pattern"
+
+#: header-04.php:17
+msgid "04. Header Pattern (Sticky)"
+msgstr "Name of the pattern"
+
+#: header-05.php:17
+msgid "05. Header Pattern"
+msgstr "Name of the pattern"
+
+#: header-06.php:17
+msgid "06. Header Pattern (Sticky)"
+msgstr "Name of the pattern"
+
+#: header-07.php:17
+msgid "07. Header Pattern"
+msgstr "Name of the pattern"
+
+#: header-08.php:17
+msgid "08. Header Pattern"
+msgstr "Name of the pattern"
+
+#: header-09.php:17
+msgid "09. Header Pattern"
+msgstr "Name of the pattern"
+
+#: header.php:22
+#: header-02.php:22
+#: header-03.php:22
+#: header-04.php:22
+#: header-05.php:22
+#: header-06.php:22
+#: header-07.php:22
+#: header-08.php:22
+#: header-09.php:31
+#: header-10.php:34
+msgid "[Offer Highlight (52 chars): Announce a special deal or limited-time opportunity.]"
+msgstr ""
+
+#: header-09.php:103
+msgid "<strong>Main</strong> Heading"
+msgstr "Replace with a descriptive section title."
+
+#: header-09.php:107
+msgid "[About Content (333 chars): Provide a detailed overview of a specific topic, product, or service.]"
+msgstr ""
+
+#: header-10.php:17
+msgid "10. Header Pattern"
+msgstr "Name of the pattern"
 
 #: theme.json
 msgctxt "Custom template name"
