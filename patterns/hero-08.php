@@ -2,7 +2,7 @@
 /**
  * Title: 08. Hero Pattern
  * Slug: aegis/hero-08
- * Categories: hero, podcast, multimedia
+ * Categories: hero
  * Description: Full-width dual parallax background hero with heading, paragraph, and social links on the left
  * Keywords: hero, parallax, podcast, social links
  * Viewport Width: 1400
@@ -30,11 +30,11 @@
                         <!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"right":"var:preset|spacing|80"}}},"layout":{"type":"flex","orientation":"horizontal","justifyContent":"left","verticalAlignment":"center","flexWrap":"wrap"}} -->
                         <div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-right:var(--wp--preset--spacing--80)">
                             <!-- wp:heading {"textAlign":"center","level":1,"style":{"typography":{"fontStyle":"normal","fontWeight":"600","textTransform":"uppercase"},"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"left":"0","right":"0","top":"4px","bottom":"15px"}},"color":{"background":"#1c1c1ee6"}},"textColor":"background","className":"is-style-default","fontSize":"gigantic"} -->
-                            <h1 class="wp-block-heading has-text-align-center is-style-default has-background-color has-text-color has-background has-gigantic-font-size" style="background-color:#1c1c1ee6;margin-top:0;margin-bottom:0;padding-top:4px;padding-right:0;padding-bottom:15px;padding-left:0;font-style:normal;font-weight:600;text-transform:uppercase"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive title', 'aegis'); ?></h1>
+                            <h1 class="wp-block-heading has-text-align-center is-style-default has-background-color has-text-color has-background has-gigantic-font-size" style="background-color:#1c1c1ee6;margin-top:0;margin-bottom:0;padding-top:4px;padding-right:0;padding-bottom:15px;padding-left:0;font-style:normal;font-weight:600;text-transform:uppercase"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h1>
                             <!-- /wp:heading -->
 
                             <!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"},"color":{"background":"#1c1c1ee6"},"layout":{"selfStretch":"fit","flexSize":null},"spacing":{"padding":{"right":"5px","left":"5px","top":"5px","bottom":"5px"}}},"textColor":"background","className":"is-tagline","fontSize":"tiny"} -->
-                            <p class="has-text-align-left is-tagline has-background-color has-text-color has-background has-tiny-font-size" style="background-color:#1c1c1ee6;padding-top:5px;padding-right:5px;padding-bottom:5px;padding-left:5px;font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('[Description (60 characters): Provide a brief overview of a specific podcast topic, radio show, interview, or discussion.]', 'Replace with a description of the section', 'aegis'); ?></p>
+                            <p class="has-text-align-left is-tagline has-background-color has-text-color has-background has-tiny-font-size" style="background-color:#1c1c1ee6;padding-top:5px;padding-right:5px;padding-bottom:5px;padding-left:5px;font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('[Description (60 characters): Provide a brief overview of a specific podcast topic, radio show, interview, or discussion.]', 'Replace with a description of the section.', 'aegis'); ?></p>
                             <!-- /wp:paragraph -->
 
                             <!-- wp:social-links {"iconColor":"background","iconColorValue":"#f6f5f2","iconBackgroundColor":"foreground","iconBackgroundColorValue":"#1c1c1e","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
