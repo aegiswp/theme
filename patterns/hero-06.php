@@ -2,7 +2,7 @@
 /**
  * Title: 06. Hero Pattern
  * Slug: aegis/hero-06
- * Categories: hero, multimedia
+ * Categories: hero
  * Description: Dual background hero with heading, paragraph, and call to action button on the left and video on the right
  * Keywords: hero, video
  * Viewport Width: 1400
@@ -21,17 +21,17 @@
         <!-- wp:column {"verticalAlignment":"center","width":""} -->
         <div class="wp-block-column is-vertically-aligned-center">
             <!-- wp:heading {"level":1,"style":{"typography":{"fontStyle":"normal","fontWeight":"300","fontSize":"3.6rem"}}} -->
-            <h1 class="wp-block-heading" style="font-size:3.6rem;font-style:normal;font-weight:300"><?php echo wp_kses_post( _x( '<strong>Main</strong> Heading', 'Replace with a descriptive title', 'aegis' ) ); ?></h1>
+            <h1 class="wp-block-heading" style="font-size:3.6rem;font-style:normal;font-weight:300"><?php echo wp_kses_post( _x( '<strong>Main</strong> Heading', 'Replace with a descriptive section title.', 'aegis' ) ); ?></h1>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph -->
-            <p><?php echo esc_html_x('[Description (335 characters): Enter a brief overview of an offer, article, or overview of a news update.]', 'Call to action section text', 'aegis'); ?></p>
+            <p><?php echo esc_html_x('[Description (155 characters): Enter a brief overview of an offer, article, or overview of a news update.]', 'Replace with a description of the section', 'aegis'); ?></p>
             <!-- /wp:paragraph -->
 
             <!-- wp:buttons {"layout":{"type":"flex","flexWrap":"wrap"}} -->
             <div class="wp-block-buttons">
                 <!-- wp:button {"className":"is-style-aegis-button-shadow"} -->
-                <div class="wp-block-button is-style-aegis-button-shadow"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a></div>
+                <div class="wp-block-button is-style-aegis-button-shadow"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a></div>
                 <!-- /wp:button -->
             </div>
             <!-- /wp:buttons -->
