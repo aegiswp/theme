@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2023-10-16T15:03:06+00:00\n"
-"PO-Revision-Date: 2024-05-20 22:48:14.526735\n"
+"PO-Revision-Date: 2024-05-21 22:27:48.057\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: aegis\n"
 
@@ -80,6 +80,7 @@ msgstr "Replace with a episode number."
 #: audio-02.php:72
 #: audio-02.php:130
 #: audio-02.php:188
+#: hero-08.php:37
 msgid "[Description (60 characters): Provide a brief overview of a specific podcast topic, radio show, interview, or discussion.]"
 msgstr "Replace with a description of the section."
 
@@ -114,6 +115,7 @@ msgstr "Name of the pattern"
 #: gallery-04.php:42
 #: gallery-05.php:23
 #: gallery-06.php:26
+#: hero-02.php:26
 msgid "[Tagline]"
 msgstr "Replace with a descriptive section tagline"
 
@@ -169,6 +171,10 @@ msgstr "Replace with a descriptive section tagline"
 #: gallery-04.php:46
 #: gallery-05.php:27
 #: gallery-06.php:30
+#: hero-02.php:30
+#: hero-03.php:65
+#: hero-07.php:32
+#: hero-08.php:33
 msgid "[Heading]"
 msgstr "Replace with a descriptive section title."
 
@@ -251,6 +257,14 @@ msgstr "Replace with a description of the section."
 #: gallery-06.php:76
 #: header-09.php:19
 #: header-09.php:22
+#: hero-01.php:22
+#: hero-02.php:21
+#: hero-03.php:22
+#: hero-05.php:48
+#: hero-05.php:56
+#: hero-07.php:21
+#: hero-09.php:19
+#: hero-09.php:22
 msgid "Add a brief description of the placeholder image and its context, non-text content for screen readers."
 msgstr ""
 
@@ -290,10 +304,16 @@ msgstr ""
 #: footer.php:221
 #: footer-04.php:30
 #: header-09.php:113
+#: hero-01.php:37
+#: hero-02.php:40
+#: hero-04.php:37
+#: hero-05.php:34
+#: hero-06.php:34
 msgid "[Call to Action]"
 msgstr "Call to action button text."
 
 #: audio-02.php:30
+#: hero-07.php:28
 msgid "[Description (333 characters): Provide a brief overview of featured podcasts, radio show, interviews, or discussions.]"
 msgstr "Replace with a description of the section."
 
@@ -590,6 +610,12 @@ msgstr ""
 #: footer-03.php:58
 #: footer-03.php:86
 #: footer-03.php:114
+#: hero-03.php:31
+#: hero-03.php:47
+#: hero-03.php:59
+#: hero-03.php:75
+#: hero-03.php:87
+#: hero-03.php:103
 msgid "Decorative element."
 msgstr ""
 
@@ -910,9 +936,14 @@ msgstr "Name of the pattern"
 #: header-09.php:31
 #: header-10.php:34
 msgid "[Offer Highlight (52 chars): Announce a special deal or limited-time opportunity.]"
-msgstr ""
+msgstr "Replace with a description of the section."
 
 #: header-09.php:103
+#: hero-01.php:27
+#: hero-04.php:27
+#: hero-05.php:24
+#: hero-06.php:24
+#: hero-09.php:27
 msgid "<strong>Main</strong> Heading"
 msgstr "Replace with a descriptive section title."
 
@@ -922,6 +953,65 @@ msgstr ""
 
 #: header-10.php:17
 msgid "10. Header Pattern"
+msgstr "Name of the pattern"
+
+#: hero-01.php:17
+msgid "01. Hero Pattern"
+msgstr "Name of the pattern"
+
+#: hero-02.php:17
+msgid "02. Hero Pattern"
+msgstr "Name of the pattern"
+
+#: hero-01.php:31
+#: hero-02.php:34
+#: hero-04.php:31
+#: hero-05.php:28
+#: hero-06.php:28
+#: hero-09.php:31
+msgid "[Description (155 characters): Enter a brief overview of an offer, article, or overview of a news update.]"
+msgstr "Replace with a description of the section"
+
+#: hero-03.php:17
+msgid "03. Hero Pattern"
+msgstr "Name of the pattern"
+
+#: hero-03.php:37
+#: hero-03.php:93
+msgid "[Category]"
+msgstr "Replace with a descriptive category"
+
+#: hero-03.php:41
+#: hero-03.php:97
+msgid "[Nominee]"
+msgstr "Replace with a nominee real name"
+
+#: hero-03.php:69
+msgid "[Date]"
+msgstr "Replace with date of the event"
+
+#: hero-04.php:17
+msgid "04. Hero Pattern"
+msgstr "Name of the pattern"
+
+#: hero-05.php:17
+msgid "05. Hero Pattern"
+msgstr "Name of the pattern"
+
+#: hero-06.php:17
+msgid "06. Hero Pattern"
+msgstr "Name of the pattern"
+
+#: hero-07.php:17
+msgid "07. Hero Pattern"
+msgstr "Name of the pattern"
+
+#: hero-08.php:17
+msgid "08. Hero Pattern"
+msgstr "Name of the pattern"
+
+#: hero-09.php:17
+msgid "09. Hero Pattern"
 msgstr "Name of the pattern"
 
 #: theme.json
