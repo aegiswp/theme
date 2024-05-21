@@ -18,7 +18,8 @@
 <div class="wp-block-group alignwide" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
     <!-- wp:cover {"url":"<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp","dimRatio":70,"overlayColor":"foreground","minHeight":100,"minHeightUnit":"vh","align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50"}}}} -->
     <div class="wp-block-cover alignwide" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50);min-height:100vh">
-        <span aria-hidden="true" class="wp-block-cover__background has-foreground-background-color has-background-dim-70 has-background-dim"></span><img class="wp-block-cover__image-background" alt="<?php echo esc_attr__('Placeholder image: Brief description of the image and its context, non-text content for screen readers.', 'aegis'); ?>" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" data-object-fit="cover" />
+        <span aria-hidden="true" class="wp-block-cover__background has-foreground-background-color has-background-dim-70 has-background-dim"></span>
+        <img class="wp-block-cover__image-background" alt="<?php echo esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" data-object-fit="cover" />
         <div class="wp-block-cover__inner-container">
             <!-- wp:columns {"verticalAlignment":"center"} -->
             <div class="wp-block-columns are-vertically-aligned-center">
@@ -27,7 +28,7 @@
                     <!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","allowOrientation":false,"justifyContent":"space-between","flexWrap":"wrap"}} -->
                     <div class="wp-block-group">
                         <!-- wp:image {"width":"40px","sizeSlug":"full","linkDestination":"none"} -->
-                        <figure class="wp-block-image size-full is-resized"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/icons/laurel_left.svg" alt="<?php echo esc_attr__('Decorative image', 'aegis'); ?>" style="width:40px" /></figure>
+                        <figure class="wp-block-image size-full is-resized"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/icons/laurel_left.svg" alt="<?php echo esc_attr__('Decorative element.', 'aegis'); ?>" style="width:40px" /></figure>
                         <!-- /wp:image -->
 
                         <!-- wp:group -->
@@ -43,7 +44,7 @@
                         <!-- /wp:group -->
 
                         <!-- wp:image {"width":"40px","sizeSlug":"full","linkDestination":"none"} -->
-                        <figure class="wp-block-image size-full is-resized"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/icons/laurel_right.svg" alt="<?php echo esc_attr__('Decorative image', 'aegis'); ?>" style="width:40px" /></figure>
+                        <figure class="wp-block-image size-full is-resized"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/icons/laurel_right.svg" alt="<?php echo esc_attr__('Decorative element.', 'aegis'); ?>" style="width:40px" /></figure>
                         <!-- /wp:image -->
                     </div>
                     <!-- /wp:group -->
@@ -55,13 +56,13 @@
                     <!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","allowOrientation":false,"justifyContent":"space-between","flexWrap":"wrap"}} -->
                     <div class="wp-block-group">
                         <!-- wp:image {"width":"40px","sizeSlug":"full","linkDestination":"none"} -->
-                        <figure class="wp-block-image size-full is-resized"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/icons/laurel_left.svg" alt="<?php echo esc_attr__('Decorative image', 'aegis'); ?>" style="width:40px" /></figure>
+                        <figure class="wp-block-image size-full is-resized"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/icons/laurel_left.svg" alt="<?php echo esc_attr__('Decorative element.', 'aegis'); ?>" style="width:40px" /></figure>
                         <!-- /wp:image -->
 
                         <!-- wp:group -->
                         <div class="wp-block-group">
                             <!-- wp:heading {"textAlign":"left","level":1,"style":{"typography":{"fontStyle":"normal","fontWeight":"500","textTransform":"uppercase","lineHeight":"1","letterSpacing":"3px"},"spacing":{"margin":{"bottom":"0"}}},"fontSize":"small"} -->
-                            <h1 class="wp-block-heading has-text-align-left has-small-font-size" style="margin-bottom:0;font-style:normal;font-weight:500;letter-spacing:3px;line-height:1;text-transform:uppercase"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive title', 'aegis'); ?></h1>
+                            <h1 class="wp-block-heading has-text-align-left has-small-font-size" style="margin-bottom:0;font-style:normal;font-weight:500;letter-spacing:3px;line-height:1;text-transform:uppercase"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h1>
                             <!-- /wp:heading -->
 
                             <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"0"}},"typography":{"textTransform":"uppercase"}},"fontSize":"small"} -->
@@ -71,7 +72,7 @@
                         <!-- /wp:group -->
 
                         <!-- wp:image {"width":"40px","sizeSlug":"full","linkDestination":"none"} -->
-                        <figure class="wp-block-image size-full is-resized"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/icons/laurel_right.svg" alt="<?php echo esc_attr__('Decorative image', 'aegis'); ?>" style="width:40px" /></figure>
+                        <figure class="wp-block-image size-full is-resized"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/icons/laurel_right.svg" alt="<?php echo esc_attr__('Decorative element.', 'aegis'); ?>" style="width:40px" /></figure>
                         <!-- /wp:image -->
                     </div>
                     <!-- /wp:group -->
@@ -83,7 +84,7 @@
                     <!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","allowOrientation":false,"justifyContent":"space-between","flexWrap":"nowrap"}} -->
                     <div class="wp-block-group">
                         <!-- wp:image {"width":"40px","sizeSlug":"full","linkDestination":"none"} -->
-                        <figure class="wp-block-image size-full is-resized"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/icons/laurel_left.svg" alt="<?php echo esc_attr__('Decorative image', 'aegis'); ?>" style="width:40px" /></figure>
+                        <figure class="wp-block-image size-full is-resized"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/icons/laurel_left.svg" alt="<?php echo esc_attr__('Decorative element.', 'aegis'); ?>" style="width:40px" /></figure>
                         <!-- /wp:image -->
 
                         <!-- wp:group -->
@@ -99,7 +100,7 @@
                         <!-- /wp:group -->
 
                         <!-- wp:image {"width":"40px","sizeSlug":"full","linkDestination":"none"} -->
-                        <figure class="wp-block-image size-full is-resized"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/icons/laurel_right.svg" alt="<?php echo esc_attr__('Decorative image', 'aegis'); ?>" style="width:40px" /></figure>
+                        <figure class="wp-block-image size-full is-resized"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/icons/laurel_right.svg" alt="<?php echo esc_attr__('Decorative element.', 'aegis'); ?>" style="width:40px" /></figure>
                         <!-- /wp:image -->
                     </div>
                     <!-- /wp:group -->
