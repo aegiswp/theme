@@ -52,7 +52,7 @@ License: Public Domain
 Source: https://www.pexels.com/video/animated-abstract-burning-effect-5091624/
 Included as a short video clip.
 
-Images used in theme block patterns:
+Images and Icons used in theme block patterns:
 
 Illustrations used are created by Atmostfear Entertaiment and released under Creative Commons (CC0) License.
 
@@ -62,3 +62,10 @@ Illustrations used are created by Atmostfear Entertaiment and released under Cre
 /assets/images/thumb_1200x1920_light.webp
 /assets/images/thumb_1920x1200_dark.webp
 /assets/images/thumb_1920x1200_light.webp
+/assets/icons/delivery.svg
+/assets/icons/laurel_left.svg
+/assets/icons/laurel_right.svg
+/assets/icons/payment.svg
+/assets/icons/questions.svg
+/assets/icons/returns.svg
+/assets/icons/support.svg
