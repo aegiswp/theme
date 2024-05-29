@@ -1,6 +1,6 @@
 <?php
 /**
- * There is nothing output here because block themes do not use PHP templates.
+ * There is nothing output here because Block Themes such as Aegis do not use PHP templates.
  *
  * @package aegis
  *
