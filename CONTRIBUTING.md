@@ -1,6 +1,6 @@
 # Contributing
 
-We genuinely appreciate the fact that you are considering contributing to Aegis, be it for the [Block Editor](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/), [Gutenberg Block Patterns](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/), [Global Styles](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/), [Code](https://github.com/atmostfear-entertainment/aegis), or Beta Testing. Your contribution is always more than welcome.
+We genuinely appreciate the fact that you are considering contributing to Aegis, be it for the [Block Editor](https://developer.wordpress.org/themes/getting-started/what-is-a-theme/), [Gutenberg Block Patterns](https://developer.wordpress.org/themes/patterns/), [Global Styles](https://developer.wordpress.org/block-editor/how-to-guides/themes/global-settings-and-styles/), [Code](https://github.com/atmostfear-entertainment/aegis), or Beta Testing. Your contribution is always more than welcome.
 
 Nonetheless, we do have some requirements, which are:
 
@@ -15,6 +15,6 @@ We appreciate any contribution and do not want to impose a ruling that may obstr
 
 However, we wish to ensure a welcoming environment for everyone to get involved. This said all contributors are expected to follow the [Code of Conduct](https://github.com/atmostfear-entertainment/aegis/blob/main/CODE_OF_CONDUCT.md).
 
-Aeon is licensed under the [GPLv3](https://github.com/atmostfear-entertainment/aegis/blob/main/LICENSE) license, and all contributions to the theme will be released under the GPLv2+ license.
+Aeon is licensed under the [GPLv3](https://github.com/atmostfear-entertainment/aegis/blob/main/LICENSE) license, and all contributions to the theme will be released under the GPLv3 license.
 
 You maintain copyright over any contribution made to Aeon, and by submitting a [pull request](https://github.com/atmostfear-entertainment/aegis/pulls), you agree to release that contribution under the [GPLv3](https://github.com/atmostfear-entertainment/aegis/blob/main/LICENSE) license.
