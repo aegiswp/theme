@@ -1,6 +1,6 @@
-/* Core Button: Light Line Shadow Style
+/* Core Button: Light Line Style
 --------------------------------------------- */
-.wp-block-button.is-style-light-line-shadow .wp-block-button__link {
+.wp-block-button.is-style-light-line .wp-block-button__link {
     background: transparent;
 	border: 2px solid var(--wp--preset--color--foreground);
     color: currentColor;
@@ -10,7 +10,7 @@
     box-shadow: 0 -9px var(--wp--preset--color--primary) inset, 0 4px 8px rgba(66, 44, 35, 0.3);
     position: relative;
 }
-.wp-block-button.is-style-light-line-shadow .wp-block-button__link:before {
+.wp-block-button.is-style-light-line .wp-block-button__link:before {
     content: "";
     position: absolute;
     top: 0;
@@ -21,11 +21,11 @@
     transition: all 0.3s ease;
     z-index: -1;
 }
-.wp-block-button.is-style-light-line-shadow .wp-block-button__link:hover {
+.wp-block-button.is-style-light-line .wp-block-button__link:hover {
     box-shadow: 0 -50px 0 0 var(--wp--preset--color--primary) inset, 0 8px 16px rgba(66, 44, 35, 0.4);
     transform: translateY(-2px);
 }
-.wp-block-button.is-style-light-line-shadow .wp-block-button__link:hover:before {
+.wp-block-button.is-style-light-line .wp-block-button__link:hover:before {
     box-shadow: 0 8px 16px rgba(66, 44, 35, 0.4);
     transform: translateY(-2px);
 }
