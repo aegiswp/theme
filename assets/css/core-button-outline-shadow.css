@@ -1,0 +1,15 @@
+/* Core Button: Dense Shadow Style
+--------------------------------------------- */
+.wp-block-button.is-style-outline-shadow .wp-block-button__link {
+	background-color: transparent;
+	color: currentColor;
+	border: 2px solid;
+	box-shadow: 5px 5px 0 currentColor;
+	transition: all .3s linear;
+	-webkit-transition: all .3s linear;
+}
+.wp-block-button.is-style-outline-shadow .wp-block-button__link:hover {
+	background-color: var(--wp--preset--color--foreground);
+	color: var(--wp--preset--color--background);
+	box-shadow: 0 0 0 currentColor;
+}
