@@ -1,12 +1,13 @@
-/* Core Button Block: 3D Dark Shadow */
-.is-style-3d-dark-shadow-button .wp-block-button__link {
+/* Core Button: Dark Shadow Style
+--------------------------------------------- */
+.is-style-dark-shadow .wp-block-button__link {
   background: var(--wp--preset--color--foreground);
   color: var(--wp--preset--color--background);
   box-shadow: 0px 4px 8px rgba(66, 44, 35, 0.3), 0px 10px 20px -5px rgba(45, 35, 66, 0.4), inset 0px -4px 0px rgba(111, 81, 58, 0.5);
   transform: translateY(-2px);
   transition: all 0.3s ease;
 }
-.is-style-3d-dark-shadow-button .wp-block-button__link:hover {
+.is-style-dark-shadow .wp-block-button__link:hover {
   background: var(--wp--preset--color--primary);
   box-shadow: 0px 2px 4px rgba(66, 44, 35, 0.2), 0px 7px 13px -3px rgba(45, 35, 66, 0.3), inset 0px -3px 0px rgba(111, 81, 58, 0.5);
   transform: translateY(0);
