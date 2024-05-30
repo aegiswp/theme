@@ -1,6 +1,6 @@
-/* Core Button: Light Slider Shadow Style
+/* Core Button: Light Slider Style
 --------------------------------------------- */
-.wp-block-button.is-style-light-slider-shadow .wp-block-button__link {
+.wp-block-button.is-style-light-slider .wp-block-button__link {
     outline: none;
     border: 2px solid var(--wp--preset--color--foreground);
     background: var(--wp--preset--color--background);
@@ -10,7 +10,7 @@
     position: relative;
     z-index: 1;
 }
-.wp-block-button.is-style-light-slider-shadow .wp-block-button__link:after {
+.wp-block-button.is-style-light-slider .wp-block-button__link:after {
     position: absolute;
     content: "";
     width: 0;
@@ -21,10 +21,10 @@
     background: var(--wp--preset--color--foreground);
     transition: all 0.3s ease;
 }
-.wp-block-button.is-style-light-slider-shadow .wp-block-button__link:hover {
+.wp-block-button.is-style-light-slider .wp-block-button__link:hover {
     color: var(--wp--preset--color--background);
 }
-.wp-block-button.is-style-light-slider-shadow .wp-block-button__link:hover:after {
+.wp-block-button.is-style-light-slider .wp-block-button__link:hover:after {
     left: 0;
     width: 100%;
 }
