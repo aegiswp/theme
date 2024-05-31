@@ -4,7 +4,6 @@
     background: var(--wp--preset--color--foreground);
     box-shadow: var(--wp--preset--color--foreground) 0 8px 20px -10px, 0 4px 8px rgba(66, 44, 35, 0.3);
     color: var(--wp--preset--color--background);
-    padding: 10px 20px;
     transition: all 0.3s ease;
     position: relative;
 }
@@ -22,7 +21,6 @@
 .wp-block-button.is-style-dense-shadow .wp-block-button__link:hover {
     box-shadow: 0 4px 8px rgba(66, 44, 35, 0.3), 0 8px 16px rgba(66, 44, 35, 0.4);
     transform: translateY(-2px);
-    padding: 10px 20px;
 }
 .wp-block-button.is-style-dense-shadow .wp-block-button__link:hover:before {
     box-shadow: 0 8px 16px rgba(66, 44, 35, 0.4);
