@@ -38,6 +38,11 @@ Copyright 2018-2024 Thomas Jockin (https://thomasjockin.com/)
 License: SIL Open Font License, 1.1, https://opensource.org/licenses/OFL-1.1
 Source: https://github.com/googlefonts/lexend
 
+Outfit Font
+Copyright 2021-2024 Rodrigo Fuenzalida (https://outfit.io/font)
+License: SIL Open Font License, 1.1, https://opensource.org/licenses/OFL-1.1
+Source: https://github.com/googlefonts/outfit
+
 Audio used in theme block patterns:
 
 Our Campion by Anuch
@@ -69,3 +74,4 @@ Illustrations used are created by Atmostfear Entertaiment and released under Cre
 /assets/icons/questions.svg
 /assets/icons/returns.svg
 /assets/icons/support.svg
+/assets/brands/thumb_logo_dark.svg
