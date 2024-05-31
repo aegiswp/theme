@@ -37,24 +37,7 @@ add_filter( 'should_load_remote_block_patterns', '__return_false' );
 
 
 /**
- * Query whether WooCommerce is activated.
- * 
- * @since 1.0.0
- * @return void
- */
-
-function aegis_is_woocommerce_activated()
-{
-    if (class_exists('woocommerce')) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-
-/**
- * Enqueue styles.
+ * Enqueue theme styles.
  *
  * @since 1.0.0
  * @return void
@@ -81,6 +64,131 @@ add_action('wp_enqueue_scripts', 'aegis_styles');
 
     // Add Block Styles.
     require get_template_directory() . '/inc/block-styles.php';
+
+
+/**
+ * Enqueue core block stylesheets.
+ */
+
+if ( ! function_exists( 'aegis_block_stylesheets' ) ) :
+
+	/**
+	 * Enqueue custom core block stylesheets.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	function aegis_block_stylesheets() {
+		/**
+		 * The wp_enqueue_block_style() function allows us to enqueue a stylesheet
+		 * for a specific block. These will only get loaded when the block is rendered
+		 * (both in the editor and on the front end), improving performance
+		 * and reducing the amount of data requested by visitors.
+		 *
+		 * See https://make.wordpress.org/core/2021/12/15/using-multiple-stylesheets-per-block/ for more information.
+		 */
+		wp_enqueue_block_style(
+			'core/button',
+			array(
+				'handle' => 'aegis-core-button-dark-shadow',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-dark-shadow.css' ),
+				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-button-dark-shadow.css' ),
+			)
+		);
+		wp_enqueue_block_style(
+			'core/button',
+			array(
+				'handle' => 'aegis-core-button-light-shadow',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-light-shadow.css' ),
+				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-button-light-shadow.css' ),
+			)
+		);
+		wp_enqueue_block_style(
+			'core/button',
+			array(
+				'handle' => 'aegis-core-button-dark-outline',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-dark-outline.css' ),
+				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-button-dark-outline.css' ),
+			)
+		);
+		wp_enqueue_block_style(
+			'core/button',
+			array(
+				'handle' => 'aegis-core-button-dark-slider',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-dark-slider.css' ),
+				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-button-dark-slider.css' ),
+			)
+		);
+		wp_enqueue_block_style(
+			'core/button',
+			array(
+				'handle' => 'aegis-core-button-light-slider',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-light-slider.css' ),
+				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-button-light-slider.css' ),
+			)
+		);
+		wp_enqueue_block_style(
+			'core/button',
+			array(
+				'handle' => 'aegis-core-button-dark-line',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-dark-line.css' ),
+				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-button-dark-line.css' ),
+			)
+		);
+		wp_enqueue_block_style(
+			'core/button',
+			array(
+				'handle' => 'aegis-core-button-light-line',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-light-line.css' ),
+				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-button-light-line.css' ),
+			)
+		);
+		wp_enqueue_block_style(
+			'core/button',
+			array(
+				'handle' => 'aegis-core-button-dense-shadow',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-dense-shadow.css' ),
+				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-button-dense-shadow.css' ),
+			)
+		);
+		wp_enqueue_block_style(
+			'core/button',
+			array(
+				'handle' => 'aegis-core-image-outline-shadow',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-image-outline-shadow.css' ),
+				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-image-outline-shadow.css' ),
+			)
+		);
+	}
+endif;
+
+add_action( 'init', 'aegis_block_stylesheets' );
+
+
+/**
+ * Query whether WooCommerce is activated.
+ * 
+ * @since 1.0.0
+ * @return void
+ */
+
+function aegis_is_woocommerce_activated()
+{
+    if (class_exists('woocommerce')) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 
 /**
