@@ -1,10 +1,8 @@
 /* Core Button: Dark Line Style
 --------------------------------------------- */
 .wp-block-button.is-style-dark-line .wp-block-button__link {
-    background: var(--wp--preset--color--foreground);
-    color: var(--wp--preset--color--background);
-    border: 2px solid var(--wp--preset--color--background);
-    padding: 10px 20px;
+    background: var(--wp--preset--color--background);
+    color: var(--wp--preset--color--foreground);
     transition: all 0.3s ease;
     display: inline-block;
     box-shadow: 0 -9px var(--wp--preset--color--background) inset, 0 4px 8px rgba(66, 44, 35, 0.3);
@@ -22,10 +20,10 @@
     z-index: -1;
 }
 .wp-block-button.is-style-dark-line .wp-block-button__link:hover {
-    color: var(--wp--preset--color--background)!important;
-    background: var(--wp--preset--color--foreground);
-    border-bottom: 4px solid var(--wp--preset--color--background);
-    box-shadow: 0 -50px 0 0 var(--wp--preset--color--foreground) inset, 0 8px 16px rgba(66, 44, 35, 0.4);
+    color: var(--wp--preset--color--foreground)!important;
+    background: var(--wp--preset--color--background);
+    border-bottom: 4px solid var(--wp--preset--color--foreground);
+    box-shadow: 0 -50px 0 0 var(--wp--preset--color--background) inset, 0 8px 16px rgba(66, 44, 35, 0.4);
     transform: translateY(-2px);
 }
 .wp-block-button.is-style-dark-line .wp-block-button__link:hover:before {
