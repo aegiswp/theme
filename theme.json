@@ -324,6 +324,96 @@
 				}
 			]
 		},
+		"shadow": {
+			"defaultPresets": false,
+			"presets": [
+				{
+					"name": "Foreground small shadow",
+					"slug": "foreground-small-shadow",
+					"shadow": "6px 6px 9px rgba(28, 28, 30, 0.2)"
+				},
+				{
+					"name": "Foreground large shadow",
+					"slug": "foreground-large-shadow",
+					"shadow": "12px 12px 50px rgba(28, 28, 30, 0.4)"
+				},
+				{
+					"name": "Background shadow right bottom",
+					"slug": "background-shadow-right-bottom",
+					"shadow": "7px 7px 0px rgba(246, 245, 242, 1)"
+				},
+				{
+					"name": "Foreground shadow right bottom",
+					"slug": "foreground-shadow-right-bottom",
+					"shadow": "7px 7px 0px rgba(28, 28, 30, 1)"
+				},
+				{
+					"name": "Primary shadow right bottom",
+					"slug": "primary-shadow-right-bottom",
+					"shadow": "7px 7px 0px rgba(37, 37, 40, 1)"
+				},
+				{
+					"name": "Secondary Shadow right bottom",
+					"slug": "secondary-drop-shadow-right-bottom",
+					"shadow": "7px 7px 0px rgba(90, 90, 96, 1)"
+				},
+				{
+					"name": "Tertiary shadow right bottom",
+					"slug": "tertiary-shadow-right-right",
+					"shadow": "7px 7px 0px rgba(240, 238, 233, 1)"
+				},
+				{
+					"name": "Quaternary shadow right bottom",
+					"slug": "quaternary-shadow-right-bottom",
+					"shadow": "7px 7px 0px rgba(230, 226, 218, 1)"
+				},
+				{
+					"name": "Quinary shadow right bottom",
+					"slug": "quinary-shadow-right-bottom",
+					"shadow": "7px 7px 0px rgba(220, 214, 203, 1)"
+				},
+				{
+					"name": "Senary shadow right bottom",
+					"slug": "senary-shadow-right-bottom",
+					"shadow": "7px 7px 0px rgba(210, 202, 188, 1)"
+				},
+				{
+					"name": "Foreground outline right bottom",
+					"slug": "foreground-outlined-right-bottom",
+					"shadow": "7px 7px 0px -3px rgba(246, 245, 242, 1), 7px 7px rgba(28, 28, 30, 1)"
+				},
+				{
+					"name": "Primary outline right bottom",
+					"slug": "primary-outlined-right-bottom",
+					"shadow": "7px 7px 0px -3px rgba(246, 245, 242, 1), 7px 7px rgba(37, 37, 40, 1)"
+				},
+				{
+					"name": "Secondary outline right bottom",
+					"slug": "secondary-outlined-right-bottom",
+					"shadow": "7px 7px 0px -3px rgba(246, 245, 242, 1), 7px 7px rgba(90, 90, 96, 1)"
+				},
+				{
+					"name": "Tertiary outline right bottom",
+					"slug": "tertiary-outlined-right-bottom",
+					"shadow": "7px 7px 0px -3px rgba(246, 245, 242, 1), 7px 7px rgba(240, 238, 233, 1)"
+				},
+				{
+					"name": "Quaternary outline right bottom",
+					"slug": "quaternary-outlined-right-bottom",
+					"shadow": "7px 7px 0px -3px rgba(246, 245, 242, 1), 7px 7px rgba(230, 226, 218, 1)"
+				},
+				{
+					"name": "Quinary outline right bottom",
+					"slug": "quinary-outlined-right-bottom",
+					"shadow": "7px 7px 0px -3px rgba(246, 245, 242, 1), 7px 7px rgba(220, 214, 203, 1)"
+				},
+				{
+					"name": "Senary outline right-bottom",
+					"slug": "senary-outlined-right-bottom",
+					"shadow": "7px 7px 0px -3px rgba(246, 245, 242, 1), 7px 7px rgba(210, 202, 188, 1)"
+				}
+			]
+		},
 		"custom": {
 			"fontWeight": {
 				"light": 300,
@@ -364,7 +454,8 @@
 		},
 		"layout": {
 			"contentSize": "720px",
-			"wideSize": "1620px"
+			"wideSize": "1620px",
+			"sticky": true
 		},
 		"spacing": {
 			"spacingScale": {
@@ -418,80 +509,40 @@
 			"fontFamilies": [
 				{
 					"fontFamily": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
-					"name": "System Font",
-					"slug": "system"
+				    "name": "System Font",
+				    "slug": "system"
 				},
 				{
-					"fontFamily": "\"Lexend\", sans-serif",
-					"name": "Lexend",
-					"slug": "lexend",
-					"fontFace": [
+					"fontFamily": "Lexend, sans-serif",
+				    "name": "lexend",
+				    "slug": "lexend",
+				    "fontFace": [
 						{
-							"fontFamily": "Lexend",
-							"fontWeight": "300",
-							"fontStyle": "light",
-							"fontStretch": "normal",
-							"src": [
-								"file:./assets/fonts/lexend/Lexend-Light.woff2"
-							]
-						},
-						{
-							"fontFamily": "Lexend",
-							"fontWeight": "400",
-							"fontStyle": "regular",
-							"fontStretch": "normal",
-							"src": [
-								"file:./assets/fonts/lexend/Lexend-Regular.woff2"
-							]
-						},
-						{
-							"fontFamily": "Lexend",
-							"fontWeight": "500",
-							"fontStyle": "medium",
-							"fontStretch": "normal",
-							"src": [
-								"file:./assets/fonts/lexend/Lexend-Medium.woff2"
-							]
-						},
-						{
-							"fontFamily": "Lexend",
-							"fontWeight": "600",
-							"fontStyle": "semibold",
-							"fontStretch": "normal",
-							"src": [
-								"file:./assets/fonts/lexend/Lexend-SemiBold.woff2"
-							]
-						},
-						{
-							"fontFamily": "Lexend",
-							"fontWeight": "700",
-							"fontStyle": "bold",
-							"fontStretch": "normal",
-							"src": [
-								"file:./assets/fonts/lexend/Lexend-Bold.woff2"
-							]
-						},
-						{
-							"fontFamily": "Lexend",
-							"fontWeight": "800",
-							"fontStyle": "extrabold",
-							"fontStretch": "normal",
-							"src": [
-								"file:./assets/fonts/lexend/Lexend-ExtraBold.woff2"
-							]
-						},
-						{
-							"fontFamily": "Lexend",
-							"fontWeight": "900",
-							"fontStyle": "black",
-							"fontStretch": "normal",
-							"src": [
-								"file:./assets/fonts/lexend/Lexend-Black.woff2"
-							]
+							"fontDisplay": "block",
+						    "fontFamily": "Lexend",
+						    "fontStretch": "normal",
+						    "fontStyle": "normal",
+						    "fontWeight": "300 900",
+						    "src": [ "file:./assets/fonts/lexend/Lexend-Variable.woff2" ]
 						}
-					]
-				}
-			],
+				    ]
+			    },
+				{
+				    "fontFamily": "\"Outfit\", sans-serif",
+				    "name": "Outfit",
+				    "slug": "outfit",
+				    "fontFace": [
+					    {
+						    "fontDisplay": "block",
+						    "fontFamily": "Outfit",
+						    "fontStretch": "normal",
+						    "fontStyle": "normal",
+						    "fontWeight": "300 900",
+						    "src": [ "file:./assets/fonts/outfit/Outfit-Variable.woff2" ]
+					    }
+				    ]
+			    }
+		    ],
 			"fontSizes": [
 				{
 					"slug": "tiny",
@@ -641,13 +692,14 @@
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--small)",
 					"fontWeight": "500"
+
 				},
 				"spacing": {
 					"padding": {
-						"bottom": "7px",
-						"left": "25px",
-						"right": "25px",
-						"top": "7px"
+						"top": "0.667em",
+						"left": "1.333em",
+						"right": "1.333em",
+						"bottom": "0.667em"
 					}
 				}
 			},
@@ -1139,12 +1191,14 @@
 		{
 			"name": "header-3",
 			"title": "03. Header 3 (Sticky)",
-			"area": "header"
+			"area": "header",
+			"sticky": true
 		},
 		{
 			"name": "header-4",
 			"title": "04. Header 4 (Sticky)",
-			"area": "header"
+			"area": "header",
+			"sticky": true
 		},
 		{
 			"name": "header-5",
@@ -1154,7 +1208,8 @@
 		{
 			"name": "header-6",
 			"title": "06. Header (Sticky)",
-			"area": "header"
+			"area": "header",
+			"sticky": true
 		},
 		{
 			"name": "header-7",
