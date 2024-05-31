@@ -1,0 +1,13 @@
+/* Core Video Block: Dark Shadow Style
+--------------------------------------------- */
+.wp-block-video.is-style-video-dark-shadow {
+  box-shadow: 0 3px 10px 0 rgb(15 16 18 / 10%), 0 12px 30px 0 rgb(15 16 18 / 10%);
+}
+
+.wp-block-video.is-style-video-dark-shadow img {
+  box-shadow: 0 3px 10px 0 rgb(15 16 18 / 10%), 0 12px 30px 0 rgb(15 16 18 / 10%);
+}
+
+.wp-block-video.is-style-video-dark-shadow:hover {
+  box-shadow: 0 3px 10px 0 rgb(15 16 18 / 20%), 0 12px 30px 0 rgb(15 16 18 / 20%);
+}
