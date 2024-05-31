@@ -1,0 +1,21 @@
+/* Core Button Block: 3D Push Style
+--------------------------------------------- */
+.wp-block-button.is-style-3d-push .wp-block-button__link {
+	outline: none;
+	border: 2px solid var(--wp--preset--color--foreground);
+	background: var(--wp--preset--color--foreground);
+	color: var(--wp--preset--color--background);
+	transition: all 0.3s ease;
+	position: relative;
+	box-shadow: 0 4px var(--wp--preset--color--foreground);
+}
+
+.wp-block-button.is-style-3d-push .wp-block-button__link:active {
+	box-shadow: 0 0 var(--wp--preset--color--foreground);
+	top: 4px;
+}
+
+.wp-block-button.is-style-3d-push .wp-block-button__link:hover {
+	color: var(--wp--preset--color--foreground);
+	background: var(--wp--preset--color--background);
+}
