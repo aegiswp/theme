@@ -1,0 +1,15 @@
+/* Core Image Block: Zoom Hover Style
+--------------------------------------------- */
+.wp-block-image.is-style-image-zoom-hover {
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+}
+
+.wp-block-image.is-style-image-zoom-hover img {
+  transition: transform 0.5s ease;
+}
+
+.wp-block-image.is-style-image-zoom-hover:hover img {
+  transform: scale(1.1);
+}
