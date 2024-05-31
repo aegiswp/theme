@@ -3,7 +3,6 @@
 .wp-block-button.is-style-light-shadow .wp-block-button__link {
   background: var(--wp--preset--color--background);
   color: var(--wp--preset--color--foreground);
-  border: 2px solid var(--wp--preset--color--foreground);
   box-shadow: 0px 4px 8px rgba(66, 44, 35, 0.3), 0px 10px 20px -5px rgba(45, 35, 66, 0.4), inset 0px -4px 0px rgba(111, 81, 58, 0.5);
   transform: translateY(-2px);
   transition: all 0.3s ease;
