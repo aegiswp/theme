@@ -8,6 +8,7 @@
     box-shadow: 0 -9px var(--wp--preset--color--foreground) inset, 0 4px 8px rgba(66, 44, 35, 0.3);
     position: relative;
 }
+
 .wp-block-button.is-style-light-line .wp-block-button__link:before {
     content: "";
     position: absolute;
@@ -19,6 +20,7 @@
     transition: all 0.3s ease;
     z-index: -1;
 }
+
 .wp-block-button.is-style-light-line .wp-block-button__link:hover {
     color: var(--wp--preset--color--background)!important;
     background: var(--wp--preset--color--foreground);
@@ -26,6 +28,7 @@
     box-shadow: 0 -50px 0 0 var(--wp--preset--color--foreground) inset, 0 8px 16px rgba(66, 44, 35, 0.4);
     transform: translateY(-2px);
 }
+
 .wp-block-button.is-style-light-line .wp-block-button__link:hover:before {
     box-shadow: 0 8px 16px rgba(66, 44, 35, 0.4);
     transform: translateY(-2px);
