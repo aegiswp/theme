@@ -7,6 +7,7 @@
     transition: all 0.3s ease;
     position: relative;
 }
+
 .wp-block-button.is-style-dense-shadow .wp-block-button__link:before {
     content: "";
     position: absolute;
@@ -18,10 +19,12 @@
     transition: all 0.3s ease;
     z-index: -1;
 }
+
 .wp-block-button.is-style-dense-shadow .wp-block-button__link:hover {
     box-shadow: 0 4px 8px rgba(66, 44, 35, 0.3), 0 8px 16px rgba(66, 44, 35, 0.4);
     transform: translateY(-2px);
 }
+
 .wp-block-button.is-style-dense-shadow .wp-block-button__link:hover:before {
     box-shadow: 0 8px 16px rgba(66, 44, 35, 0.4);
     transform: translateY(-2px);
