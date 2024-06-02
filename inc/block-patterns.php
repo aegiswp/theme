@@ -1,6 +1,6 @@
 <?php
 /**
- * Block Patterns
+ * Block Pattern Categories
  *
  * @link https://developer.wordpress.org/reference/functions/register_block_pattern/
  *
@@ -8,6 +8,7 @@
  * @subpackage Aegis
  * @since 1.0.0
  */
+
 
 /**
  * Register Block Pattern Categories.
@@ -19,7 +20,7 @@ if ( ! function_exists( 'aegis_pattern_categories' ) ) :
 
     function aegis_pattern_categories() {
 
-        // Registers About Pattern Category.
+        // Registers About Pattern Category
         register_block_pattern_category(
             'about',
             array(
@@ -28,7 +29,7 @@ if ( ! function_exists( 'aegis_pattern_categories' ) ) :
             ),
         );
 
-        // Registers Audio Pattern Category.
+        // Registers Audio Pattern Category
         register_block_pattern_category(
             'audio',
             array(
@@ -37,7 +38,7 @@ if ( ! function_exists( 'aegis_pattern_categories' ) ) :
             ),
         );
 
-        // Registers Blog Pattern Category.
+        // Registers Blog Pattern Category
         register_block_pattern_category(
             'blog',
             array(
@@ -46,7 +47,7 @@ if ( ! function_exists( 'aegis_pattern_categories' ) ) :
             ),
         );
 
-        // Registers eCommerce Pattern Category.
+        // Registers eCommerce Pattern Category
         register_block_pattern_category(
             'ecommerce',
             array(
@@ -55,7 +56,7 @@ if ( ! function_exists( 'aegis_pattern_categories' ) ) :
             ),
         );
 
-        // Registers Events Pattern Category.
+        // Registers Events Pattern Category
         register_block_pattern_category(
             'events',
             array(
@@ -64,7 +65,7 @@ if ( ! function_exists( 'aegis_pattern_categories' ) ) :
             ),
         );
 
-        // Registers FAQ Pattern Category.
+        // Registers FAQ Pattern Category
         register_block_pattern_category(
             'faq',
             array(
@@ -73,7 +74,7 @@ if ( ! function_exists( 'aegis_pattern_categories' ) ) :
             ),
         );
 
-        // Registers Hero Pattern Category.
+        // Registers Hero Pattern Category
         register_block_pattern_category(
             'hero',
             array(
@@ -82,7 +83,7 @@ if ( ! function_exists( 'aegis_pattern_categories' ) ) :
             ),
         );
 
-        // Registers Pricing Category.
+        // Registers Pricing Category
         register_block_pattern_category(
             'pricing',
             array(
@@ -91,7 +92,7 @@ if ( ! function_exists( 'aegis_pattern_categories' ) ) :
             ),
         );
 
-        // Registers Video Category.
+        // Registers Video Category
         register_block_pattern_category(
             'video',
             array(
@@ -100,6 +101,7 @@ if ( ! function_exists( 'aegis_pattern_categories' ) ) :
             ),
         );
     }
+
 endif;
 
 add_action( 'init', 'aegis_pattern_categories' );
