@@ -1,14 +1,16 @@
-/* Core Image Block: Reveal on Hover Style
+/* Core Image Block: Reveal Hover Style
 --------------------------------------------- */
-.wp-block-image.is-style-image-reveal-hover {
+.wp-block-image.is-style-reveal-hover {
   overflow: hidden;
   display: inline-block;
   position: relative;
 }
-.wp-block-image.is-style-image-reveal-hover img {
+
+.wp-block-image.is-style-reveal-hover img {
   filter: blur(5px);
   transition: filter 0.5s ease;
 }
-.wp-block-image.is-style-image-reveal-hover:hover img {
+
+.wp-block-image.is-style-reveal-hover:hover img {
   filter: blur(0);
 }
