@@ -1,11 +1,12 @@
 /* Core Image Block: Shine Hover Style
 --------------------------------------------- */
-.wp-block-image.is-style-image-shine-hover {
+.wp-block-image.is-style-shine-hover {
   cursor: pointer;
   position: relative;
   overflow: hidden;
 }
-.wp-block-image.is-style-image-shine-hover::before {
+
+.wp-block-image.is-style-shine-hover::before {
   position: absolute;
   top: 0;
   left: -75%;
@@ -19,7 +20,8 @@
   -webkit-transform: skewX(-25deg);
   transform: skewX(-25deg);
 }
-.wp-block-image.is-style-image-shine-hover:hover::before {
+
+.wp-block-image.is-style-shine-hover:hover::before {
   -webkit-animation: shine 1s;
   animation: shine 1s;
 }
