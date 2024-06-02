@@ -1,9 +1,10 @@
-/* Core Image Block: Ease In Out Style
+/* Core Image Block: Ease Out Style
 --------------------------------------------- */
-.wp-block-image.is-style-image-ease-out {
+.wp-block-image.is-style-ease-out {
 	-webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;
 }
-.wp-block-image.is-style-image-ease-out:hover {
+
+.wp-block-image.is-style-ease-out:hover {
 	transform: scale(.95);
 }
