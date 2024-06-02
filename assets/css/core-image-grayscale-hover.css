@@ -1,14 +1,16 @@
-/* Core Image Block: Duotone Hover Style
+/* Core Image Block: Graysacale Hover Style
 --------------------------------------------- */
-.wp-block-image.is-style-image-grayscale-hover {
+.wp-block-image.is-style-grayscale-hover {
   overflow: hidden;
   display: inline-block;
   position: relative;
 }
-.wp-block-image.is-style-image-grayscale-hover img {
+
+.wp-block-image.is-style-grayscale-hover img {
   filter: grayscale(100%);
   transition: filter 0.5s ease;
 }
-.wp-block-image.is-style-image-grayscale-hover:hover img {
+
+.wp-block-image.is-style-grayscale-hover:hover img {
   filter: grayscale(0%);
 }
