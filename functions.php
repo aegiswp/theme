@@ -87,86 +87,52 @@ if ( ! function_exists( 'aegis_block_stylesheets' ) ) :
 		 *
 		 * See https://make.wordpress.org/core/2021/12/15/using-multiple-stylesheets-per-block/ for more information.
 		 */
+
+		// Core Button Block: 3D Push Style
 		wp_enqueue_block_style(
 			'core/button',
 			array(
-				'handle' => 'aegis-core-button-dark-shadow',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-dark-shadow.css' ),
+				'handle' => 'aegis-core-button-3d-push',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-3d-push.css' ),
 				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-button-dark-shadow.css' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-button-3d-push.css' ),
 			)
 		);
 
+        // Core Button Block: Bubble Pop Style
 		wp_enqueue_block_style(
 			'core/button',
 			array(
-				'handle' => 'aegis-core-button-light-shadow',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-light-shadow.css' ),
+				'handle' => 'aegis-core-button-bubble-pop',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-bubble-pop.css' ),
 				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-button-light-shadow.css' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-button-bubble-pop.css' ),
 			)
 		);
 
+		// Core Button Block: Center Fill Style
 		wp_enqueue_block_style(
 			'core/button',
 			array(
-				'handle' => 'aegis-core-button-dark-outline',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-dark-outline.css' ),
+				'handle' => 'aegis-core-button-center-fill',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-center-fill.css' ),
 				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-button-dark-outline.css' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-button-center-fill.css' ),
 			)
 		);
 
+        // Core Button Block: Color Wipe Style
 		wp_enqueue_block_style(
 			'core/button',
 			array(
-				'handle' => 'aegis-core-button-dark-slider',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-dark-slider.css' ),
+				'handle' => 'aegis-core-button-color-wipe',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-color-wipe.css' ),
 				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-button-dark-slider.css' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-button-color-wipe.css' ),
 			)
 		);
 
-		wp_enqueue_block_style(
-			'core/button',
-			array(
-				'handle' => 'aegis-core-button-light-slider',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-light-slider.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-button-light-slider.css' ),
-			)
-		);
-
-		wp_enqueue_block_style(
-			'core/button',
-			array(
-				'handle' => 'aegis-core-button-dark-line',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-dark-line.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-button-dark-line.css' ),
-			)
-		);
-
-		wp_enqueue_block_style(
-			'core/button',
-			array(
-				'handle' => 'aegis-core-button-light-line',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-light-line.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-button-light-line.css' ),
-			)
-		);
-
-		wp_enqueue_block_style(
-			'core/button',
-			array(
-				'handle' => 'aegis-core-button-outline-shadow',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-outline-shadow.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-button-outline-shadow.css' ),
-			)
-		);
-
+		// Core Button Block: Dense Shadow Style
 		wp_enqueue_block_style(
 			'core/button',
 			array(
@@ -177,66 +143,73 @@ if ( ! function_exists( 'aegis_block_stylesheets' ) ) :
 			)
 		);
 
+		// Core Button Block: Outline Border Style
 		wp_enqueue_block_style(
-			'core/image',
+			'core/button',
 			array(
-				'handle' => 'aegis-core-image-image-ease-out',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-image-ease-out.css' ),
+				'handle' => 'aegis-core-button-outline-border',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-outline-border.css' ),
 				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-image-ease-out.css' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-button-outline-border.css' ),
 			)
 		);
 
+		// Core Button Block: Outline Shadow Style
 		wp_enqueue_block_style(
-			'core/image',
+			'core/button',
 			array(
-				'handle' => 'aegis-core-image-shine-hover',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-image-shine-hover.css' ),
+				'handle' => 'aegis-core-button-outline-shadow',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-outline-shadow.css' ),
 				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-image-shine-hover.css' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-button-outline-shadow.css' ),
 			)
 		);
 
+		// Core Button Block: Soft Fade Style
 		wp_enqueue_block_style(
-			'core/image',
+			'core/button',
 			array(
-				'handle' => 'aegis-core-image-zoom-hover',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-image-zoom-hover.css' ),
+				'handle' => 'aegis-core-button-soft-fade',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-soft-fade.css' ),
 				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-image-zoom-hover.css' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-button-soft-fade.css' ),
 			)
 		);
 
+        // Core Button Block: Split Reveal Style
 		wp_enqueue_block_style(
-			'core/image',
+			'core/button',
 			array(
-				'handle' => 'aegis-core-image-grayscale-hover',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-image-grayscale-hover.css' ),
+				'handle' => 'aegis-core-button-split-reveal',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-split-reveal.css' ),
 				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-image-grayscale-hover.css' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-button-split-reveal.css' ),
 			)
 		);
 
+		// Core Button Block: Underline Border Style
 		wp_enqueue_block_style(
-			'core/image',
+			'core/button',
 			array(
-				'handle' => 'aegis-core-image-reveal-hover',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-image-reveal-hover.css' ),
+				'handle' => 'aegis-core-button-light-line',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-underline-border.css' ),
 				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-image-reveal-hover.css' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-button-underline-border.css' ),
 			)
 		);
 
+		// Core Heading Block: Hide Underline Style
 		wp_enqueue_block_style(
-			'core/image',
+			'core/heading',
 			array(
-				'handle' => 'aegis-core-image-rotate-hover',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-image-rotate-hover.css' ),
+				'handle' => 'aegis-core-heading-hide-underline',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-heading-hide-underline.css' ),
 				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-image-rotate-hover.css' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-heading-hide-underline.css' ),
 			)
 		);
 
+		// Core Image Block: Color Overlay Style
 		wp_enqueue_block_style(
 			'core/image',
 			array(
@@ -247,16 +220,18 @@ if ( ! function_exists( 'aegis_block_stylesheets' ) ) :
 			)
 		);
 
+		// Core Image Block: Ease Out Style
 		wp_enqueue_block_style(
 			'core/image',
 			array(
-				'handle' => 'aegis-core-image-split-reveal',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-image-split-reveal.css' ),
+				'handle' => 'aegis-core-image-ease-out',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-image-ease-out.css' ),
 				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-image-split-reveal.css' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-image-ease-out.css' ),
 			)
 		);
 
+		// Core Image Block: Fade Scale Style
 		wp_enqueue_block_style(
 			'core/image',
 			array(
@@ -267,6 +242,7 @@ if ( ! function_exists( 'aegis_block_stylesheets' ) ) :
 			)
 		);
 
+		// Core Image Block: Flip Hover Style
 		wp_enqueue_block_style(
 			'core/image',
 			array(
@@ -274,6 +250,94 @@ if ( ! function_exists( 'aegis_block_stylesheets' ) ) :
 				'src'    => get_parent_theme_file_uri( 'assets/css/core-image-flip-hover.css' ),
 				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
 				'path'   => get_parent_theme_file_path( 'assets/css/core-image-flip-hover.css' ),
+			)
+		);
+
+		// Core Image Block: Grayscale Hover Style
+		wp_enqueue_block_style(
+			'core/image',
+			array(
+				'handle' => 'aegis-core-image-grayscale-hover',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-image-grayscale-hover.css' ),
+				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-image-grayscale-hover.css' ),
+			)
+		);
+
+		// Core Image Block: Reveal Hover Style
+		wp_enqueue_block_style(
+			'core/image',
+			array(
+				'handle' => 'aegis-core-image-reveal-hover',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-image-reveal-hover.css' ),
+				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-image-reveal-hover.css' ),
+			)
+		);
+
+		// Core Image Block: Rotate Hover Style
+		wp_enqueue_block_style(
+			'core/image',
+			array(
+				'handle' => 'aegis-core-image-rotate-hover',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-image-rotate-hover.css' ),
+				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-image-rotate-hover.css' ),
+			)
+		);
+
+		// Core Image Block: Shine Hover Style
+		wp_enqueue_block_style(
+			'core/image',
+			array(
+				'handle' => 'aegis-core-image-shine-hover',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-image-shine-hover.css' ),
+				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-image-shine-hover.css' ),
+			)
+		);
+
+		// Core Image Block: Split Reveal Style
+		wp_enqueue_block_style(
+			'core/image',
+			array(
+				'handle' => 'aegis-core-image-split-reveal',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-image-split-reveal.css' ),
+				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-image-split-reveal.css' ),
+			)
+		);
+
+		// Core Image Block: Zoom Hover Style
+		wp_enqueue_block_style(
+			'core/image',
+			array(
+				'handle' => 'aegis-core-image-zoom-hover',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-image-zoom-hover.css' ),
+				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-image-zoom-hover.css' ),
+			)
+		);
+
+		// Core Post Title Block: Hide Underline Style
+		wp_enqueue_block_style(
+			'core/post-title',
+			array(
+				'handle' => 'aegis-core-post-title-hide-underline',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-post-title-hide-underline.css' ),
+				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-post-title-hide-underline.css' ),
+			)
+		);
+
+		// Core Video Block: Dark Shadow Style
+		wp_enqueue_block_style(
+			'core/video',
+			array(
+				'handle' => 'aegis-core-video-dark-shadow',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-video-dark-shadow.css' ),
+				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-video-dark-shadow.css' ),
 			)
 		);
 
