@@ -1,6 +1,6 @@
-/* Core Button Block: Center Out Fill Style
+/* Core Button Block: Center Fill Style
 --------------------------------------------- */
-.wp-block-button.is-style-center-out-fill .wp-block-button__link {
+.wp-block-button.is-style-center-fill .wp-block-button__link {
     outline: none;
     border: 2px solid var(--wp--preset--color--foreground);
     background: var(--wp--preset--color--background);
@@ -11,7 +11,7 @@
     transition: color 0.3s ease;
 }
 
-.wp-block-button.is-style-center-out-fill .wp-block-button__link::before {
+.wp-block-button.is-style-center-fill .wp-block-button__link::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -26,11 +26,11 @@
     pointer-events: none;
 }
 
-.wp-block-button.is-style-center-out-fill .wp-block-button__link:hover {
+.wp-block-button.is-style-center-fill .wp-block-button__link:hover {
     color: var(--wp--preset--color--background);
 }
 
-.wp-block-button.is-style-center-out-fill .wp-block-button__link:hover::before {
+.wp-block-button.is-style-center-fill .wp-block-button__link:hover::before {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
 }
