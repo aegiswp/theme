@@ -1,5 +1,5 @@
-/* Core Post Title Block: Post Title Hide Underline Style
+/* Core Post Title Block: Hide Underline Style
 --------------------------------------------- */
-.wp-block-post-title.is-style-post-title-hide-underline a {
+.wp-block-post-title.is-style-hide-underline a {
 	background-image: none !important;
 }
