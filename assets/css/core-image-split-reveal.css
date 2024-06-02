@@ -1,19 +1,19 @@
 /* Core Image Block: Split Reveal Style
 --------------------------------------------- */
-.wp-block-image.is-style-image-split-reveal {
+.wp-block-image.is-style-split-reveal {
   position: relative;
   overflow: hidden;
   display: inline-block;
 }
 
-.wp-block-image.is-style-image-split-reveal img {
+.wp-block-image.is-style-split-reveal img {
   display: block;
   width: 100%;
   transition: transform 0.5s ease;
 }
 
-.wp-block-image.is-style-image-split-reveal::before,
-.wp-block-image.is-style-image-split-reveal::after {
+.wp-block-image.is-style-split-reveal::before,
+.wp-block-image.is-style-split-reveal::after {
   content: '';
   position: absolute;
   top: 0;
@@ -23,20 +23,20 @@
   transition: transform 0.5s ease;
 }
 
-.wp-block-image.is-style-image-split-reveal::before {
+.wp-block-image.is-style-split-reveal::before {
   left: 0;
   transform: translateX(0);
 }
 
-.wp-block-image.is-style-image-split-reveal::after {
+.wp-block-image.is-style-split-reveal::after {
   right: 0;
   transform: translateX(0);
 }
 
-.wp-block-image.is-style-image-split-reveal:hover::before {
+.wp-block-image.is-style-split-reveal:hover::before {
   transform: translateX(-100%);
 }
 
-.wp-block-image.is-style-image-split-reveal:hover::after {
+.wp-block-image.is-style-split-reveal:hover::after {
   transform: translateX(100%);
 }
