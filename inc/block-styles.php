@@ -19,6 +19,78 @@ if ( function_exists( 'register_block_style' ) ) {
 	 */
 	function aegis_register_block_styles() {
 
+		// Core Buttons Block: Show on Desktop
+		register_block_style(
+			'core/buttons',
+			array(
+				'name'  => 'show-on-desktop',
+				'label' => esc_html__('Show on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Buttons Block: Hide on Desktop
+		register_block_style(
+			'core/buttons',
+			array(
+				'name'  => 'hide-on-desktop',
+				'label' => esc_html__('Hide on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Buttons Block: Show on Tablet
+		register_block_style(
+			'core/buttons',
+			array(
+				'name'  => 'show-on-tablet',
+				'label' => esc_html__('Show on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Buttons Block: Hide on Tablet
+		register_block_style(
+			'core/buttons',
+			array(
+				'name'  => 'hide-on-tablet',
+				'label' => esc_html__('Hide on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Buttons Block: Show on Mobile
+		register_block_style(
+			'core/buttons',
+			array(
+				'name'  => 'show-on-mobile',
+				'label' => esc_html__('Show on Mobile', 'aegis'),
+			)
+		);
+
+		// Core Buttons Block: Hide on Mobile
+		register_block_style(
+			'core/buttons',
+			array(
+				'name'  => 'hide-on-mobile',
+				'label' => esc_html__('Hide on Mobile', 'aegis'),
+			)
+		);
+
+		// Core Buttons Block: Show on Mobile Landscape
+		register_block_style(
+			'core/buttons',
+			array(
+				'name'  => 'show-on-mobile-landscape',
+				'label' => esc_html__('Show on Mobile Landscape', 'aegis'),
+			)
+		);
+
+		// Core Buttons Block: Hide on Mobile Landscape
+		register_block_style(
+			'core/buttons',
+			array(
+				'name'  => 'hide-on-mobile-landscape',
+				'label' => esc_html__('Hide on Mobile Landscape', 'aegis'),
+			)
+		);
+
 		// Core Button Block: 3D Push Style
 		register_block_style(
 			'core/button',
@@ -106,6 +178,375 @@ if ( function_exists( 'register_block_style' ) ) {
 			array(
 				'name'  => 'split-reveal',
 				'label' => esc_html__('Split Reveal', 'aegis'),
+			)
+		);
+
+		// Core Button Block: Underline Border Style
+		register_block_style(
+			'core/button',
+			array(
+				'name'  => 'underline-border',
+				'label' => esc_html__('Underline Border', 'aegis'),
+			)
+		);
+
+		// Core Button Block: Show on Desktop
+		register_block_style(
+			'core/button',
+			array(
+				'name'  => 'show-on-desktop',
+				'label' => esc_html__('Show on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Button Block: Hide on Desktop
+		register_block_style(
+			'core/button',
+			array(
+				'name'  => 'hide-on-desktop',
+				'label' => esc_html__('Hide on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Button Block: Show on Tablet
+		register_block_style(
+			'core/button',
+			array(
+				'name'  => 'show-on-tablet',
+				'label' => esc_html__('Show on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Button Block: Hide on Tablet
+		register_block_style(
+			'core/button',
+			array(
+				'name'  => 'hide-on-tablet',
+				'label' => esc_html__('Hide on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Button Block: Show on Mobile
+		register_block_style(
+			'core/button',
+			array(
+				'name'  => 'show-on-mobile',
+				'label' => esc_html__('Show on Mobile', 'aegis'),
+			)
+		);
+
+		// Core Button Block: Hide on Mobile
+		register_block_style(
+			'core/button',
+			array(
+				'name'  => 'hide-on-mobile',
+				'label' => esc_html__('Hide on Mobile', 'aegis'),
+			)
+		);
+
+		// Core Button Block: Show on Mobile Landscape
+		register_block_style(
+			'core/button',
+			array(
+				'name'  => 'show-on-mobile-landscape',
+				'label' => esc_html__('Show on Mobile Landscape', 'aegis'),
+			)
+		);
+
+		// Core Button Block: Hide on Mobile Landscape
+		register_block_style(
+			'core/button',
+			array(
+				'name'  => 'hide-on-mobile-landscape',
+				'label' => esc_html__('Hide on Mobile Landscape', 'aegis'),
+			)
+		);
+
+		// Core Columns Block: Show on Desktop
+		register_block_style(
+			'core/columns',
+			array(
+				'name'  => 'show-on-desktop',
+				'label' => esc_html__('Show on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Columns Block: Hide on Desktop
+		register_block_style(
+			'core/columns',
+			array(
+				'name'  => 'hide-on-desktop',
+				'label' => esc_html__('Hide on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Columns Block: Show on Tablet
+		register_block_style(
+			'core/columns',
+			array(
+				'name'  => 'show-on-tablet',
+				'label' => esc_html__('Show on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Columns Block: Hide on Tablet
+		register_block_style(
+			'core/columns',
+			array(
+				'name'  => 'hide-on-tablet',
+				'label' => esc_html__('Hide on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Columns Block: Show on Mobile
+		register_block_style(
+			'core/columns',
+			array(
+				'name'  => 'show-on-mobile',
+				'label' => esc_html__('Show on Mobile', 'aegis'),
+			)
+		);
+
+		// Core Columns Block: Hide on Mobile
+		register_block_style(
+			'core/columns',
+			array(
+				'name'  => 'hide-on-mobile',
+				'label' => esc_html__('Hide on Mobile', 'aegis'),
+			)
+		);
+
+		// Core Columns Block: Show on Mobile Landscape
+		register_block_style(
+			'core/columns',
+			array(
+				'name'  => 'show-on-mobile-landscape',
+				'label' => esc_html__('Show on Mobile Landscape', 'aegis'),
+			)
+		);
+
+		// Core Columns Block: Hide on Mobile Landscape
+		register_block_style(
+			'core/columns',
+			array(
+				'name'  => 'hide-on-mobile-landscape',
+				'label' => esc_html__('Hide on Mobile Landscape', 'aegis'),
+			)
+		);
+
+		// Core Column Block: Show on Desktop
+		register_block_style(
+			'core/column',
+			array(
+				'name'  => 'show-on-desktop',
+				'label' => esc_html__('Show on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Column Block: Hide on Desktop
+		register_block_style(
+			'core/column',
+			array(
+				'name'  => 'hide-on-desktop',
+				'label' => esc_html__('Hide on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Column Block: Show on Tablet
+		register_block_style(
+			'core/column',
+			array(
+				'name'  => 'show-on-tablet',
+				'label' => esc_html__('Show on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Column Block: Hide on Tablet
+		register_block_style(
+			'core/column',
+			array(
+				'name'  => 'hide-on-tablet',
+				'label' => esc_html__('Hide on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Column Block: Show on Mobile
+		register_block_style(
+			'core/column',
+			array(
+				'name'  => 'show-on-mobile',
+				'label' => esc_html__('Show on Mobile', 'aegis'),
+			)
+		);
+
+		// Core Column Block: Hide on Mobile
+		register_block_style(
+			'core/column',
+			array(
+				'name'  => 'hide-on-mobile',
+				'label' => esc_html__('Hide on Mobile', 'aegis'),
+			)
+		);
+
+		// Core Column Block: Show on Mobile Landscape
+		register_block_style(
+			'core/column',
+			array(
+				'name'  => 'show-on-mobile-landscape',
+				'label' => esc_html__('Show on Mobile Landscape', 'aegis'),
+			)
+		);
+
+		// Core Column Block: Hide on Mobile Landscape
+		register_block_style(
+			'core/column',
+			array(
+				'name'  => 'hide-on-mobile-landscape',
+				'label' => esc_html__('Hide on Mobile Landscape', 'aegis'),
+			)
+		);
+
+		// Core Cover Block: Show on Desktop
+		register_block_style(
+			'core/cover',
+			array(
+				'name'  => 'show-on-desktop',
+				'label' => esc_html__('Show on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Cover Block: Hide on Desktop
+		register_block_style(
+			'core/cover',
+			array(
+				'name'  => 'hide-on-desktop',
+				'label' => esc_html__('Hide on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Cover Block: Show on Tablet
+		register_block_style(
+			'core/cover',
+			array(
+				'name'  => 'show-on-tablet',
+				'label' => esc_html__('Show on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Cover Block: Hide on Tablet
+		register_block_style(
+			'core/cover',
+			array(
+				'name'  => 'hide-on-tablet',
+				'label' => esc_html__('Hide on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Cover Block: Show on Mobile
+		register_block_style(
+			'core/cover',
+			array(
+				'name'  => 'show-on-mobile',
+				'label' => esc_html__('Show on Mobile', 'aegis'),
+			)
+		);
+
+		// Core Cover Block: Hide on Mobile
+		register_block_style(
+			'core/cover',
+			array(
+				'name'  => 'hide-on-mobile',
+				'label' => esc_html__('Hide on Mobile', 'aegis'),
+			)
+		);
+
+		// Core Cover Block: Show on Mobile Landscape
+		register_block_style(
+			'core/cover',
+			array(
+				'name'  => 'show-on-mobile-landscape',
+				'label' => esc_html__('Show on Mobile Landscape', 'aegis'),
+			)
+		);
+
+		// Core Cover Block: Hide on Mobile Landscape
+		register_block_style(
+			'core/cover',
+			array(
+				'name'  => 'hide-on-mobile-landscape',
+				'label' => esc_html__('Hide on Mobile Landscape', 'aegis'),
+			)
+		);
+
+		// Core Group Block: Show on Desktop
+		register_block_style(
+			'core/group',
+			array(
+				'name'  => 'show-on-desktop',
+				'label' => esc_html__('Show on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Group Block: Hide on Desktop
+		register_block_style(
+			'core/group',
+			array(
+				'name'  => 'hide-on-desktop',
+				'label' => esc_html__('Hide on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Group Block: Show on Tablet
+		register_block_style(
+			'core/group',
+			array(
+				'name'  => 'show-on-tablet',
+				'label' => esc_html__('Show on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Group Block: Hide on Tablet
+		register_block_style(
+			'core/group',
+			array(
+				'name'  => 'hide-on-tablet',
+				'label' => esc_html__('Hide on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Group Block: Show on Mobile
+		register_block_style(
+			'core/group',
+			array(
+				'name'  => 'show-on-mobile',
+				'label' => esc_html__('Show on Mobile', 'aegis'),
+			)
+		);
+
+		// Core Group Block: Hide on Mobile
+		register_block_style(
+			'core/group',
+			array(
+				'name'  => 'hide-on-mobile',
+				'label' => esc_html__('Hide on Mobile', 'aegis'),
+			)
+		);
+
+		// Core Group Block: Show on Mobile Landscape
+		register_block_style(
+			'core/group',
+			array(
+				'name'  => 'show-on-mobile-landscape',
+				'label' => esc_html__('Show on Mobile Landscape', 'aegis'),
+			)
+		);
+
+		// Core Group Block: Hide on Mobile Landscape
+		register_block_style(
+			'core/group',
+			array(
+				'name'  => 'hide-on-mobile-landscape',
+				'label' => esc_html__('Hide on Mobile Landscape', 'aegis'),
 			)
 		);
 
@@ -205,6 +646,240 @@ if ( function_exists( 'register_block_style' ) ) {
 			array(
 				'name'  => 'zoom-hover',
 				'label' => esc_html__( 'Zoom Hover', 'aegis' ),
+			)
+		);
+
+		// Core Image Block: Show on Desktop
+		register_block_style(
+			'core/image',
+			array(
+				'name'  => 'show-on-desktop',
+				'label' => esc_html__('Show on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Image Block: Hide on Desktop
+		register_block_style(
+			'core/image',
+			array(
+				'name'  => 'hide-on-desktop',
+				'label' => esc_html__('Hide on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Image Block: Show on Tablet
+		register_block_style(
+			'core/image',
+			array(
+				'name'  => 'show-on-tablet',
+				'label' => esc_html__('Show on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Image Block: Hide on Tablet
+		register_block_style(
+			'core/image',
+			array(
+				'name'  => 'hide-on-tablet',
+				'label' => esc_html__('Hide on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Image Block: Show on Mobile
+		register_block_style(
+			'core/image',
+			array(
+				'name'  => 'show-on-mobile',
+				'label' => esc_html__('Show on Mobile', 'aegis'),
+			)
+		);
+
+		// Core Image Block: Hide on Mobile
+		register_block_style(
+			'core/image',
+			array(
+				'name'  => 'hide-on-mobile',
+				'label' => esc_html__('Hide on Mobile', 'aegis'),
+			)
+		);
+
+		// Core Image Block: Show on Mobile Landscape
+		register_block_style(
+			'core/image',
+			array(
+				'name'  => 'show-on-mobile-landscape',
+				'label' => esc_html__('Show on Mobile Landscape', 'aegis'),
+			)
+		);
+
+		// Core Image Block: Hide on Mobile Landscape
+		register_block_style(
+			'core/image',
+			array(
+				'name'  => 'hide-on-mobile-landscape',
+				'label' => esc_html__('Hide on Mobile Landscape', 'aegis'),
+			)
+		);
+
+		// Core Navigation Block: Mega Menu Style
+		register_block_style(
+			'core/navigation-submenu',
+			array(
+				'name'  => 'mega-menu',
+				'label' => esc_html__('Mega Menu', 'aegis'),
+			)
+		);
+
+		// Core Paragraph Block: Show on Desktop
+		register_block_style(
+			'core/paragraph',
+			array(
+				'name'  => 'show-on-desktop',
+				'label' => esc_html__('Show on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Paragraph Block: Hide on Desktop
+		register_block_style(
+			'core/paragraph',
+			array(
+				'name'  => 'hide-on-desktop',
+				'label' => esc_html__('Hide on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Paragraph Block: Show on Tablet
+		register_block_style(
+			'core/paragraph',
+			array(
+				'name'  => 'show-on-tablet',
+				'label' => esc_html__('Show on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Paragraph Block: Hide on Tablet
+		register_block_style(
+			'core/paragraph',
+			array(
+				'name'  => 'hide-on-tablet',
+				'label' => esc_html__('Hide on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Paragraph Block: Show on Mobile
+		register_block_style(
+			'core/paragraph',
+			array(
+				'name'  => 'show-on-mobile',
+				'label' => esc_html__('Show on Mobile', 'aegis'),
+			)
+		);
+
+		// Core Paragraph Block: Hide on Mobile
+		register_block_style(
+			'core/paragraph',
+			array(
+				'name'  => 'hide-on-mobile',
+				'label' => esc_html__('Hide on Mobile', 'aegis'),
+			)
+		);
+
+		// Core Paragraph Block: Show on Mobile Landscape
+		register_block_style(
+			'core/paragraph',
+			array(
+				'name'  => 'show-on-mobile-landscape',
+				'label' => esc_html__('Show on Mobile Landscape', 'aegis'),
+			)
+		);
+
+		// Core Paragraph Block: Hide on Mobile Landscape
+		register_block_style(
+			'core/paragraph',
+			array(
+				'name'  => 'hide-on-mobile-landscape',
+				'label' => esc_html__('Hide on Mobile Landscape', 'aegis'),
+			)
+		);
+
+		// Core Post Date Block: Hide Underline Style
+		register_block_style(
+			'core/post-date',
+			array(
+				'name'  => 'hide-underline',
+				'label' => esc_html__( 'Hide Underline', 'aegis' ),
+			)
+		);
+
+		// Core Post Date Block: Show on Desktop
+		register_block_style(
+			'core/post-date',
+			array(
+				'name'  => 'show-on-desktop',
+				'label' => esc_html__('Show on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Post Date Block: Hide on Desktop
+		register_block_style(
+			'core/post-date',
+			array(
+				'name'  => 'hide-on-desktop',
+				'label' => esc_html__('Hide on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Post Date Block: Show on Tablet
+		register_block_style(
+			'core/post-date',
+			array(
+				'name'  => 'show-on-tablet',
+				'label' => esc_html__('Show on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Post Date Block: Hide on Tablet
+		register_block_style(
+			'core/post-date',
+			array(
+				'name'  => 'hide-on-tablet',
+				'label' => esc_html__('Hide on Desktop', 'aegis'),
+			)
+		);
+
+		// Core Post Date Block: Show on Mobile
+		register_block_style(
+			'core/post-date',
+			array(
+				'name'  => 'show-on-mobile',
+				'label' => esc_html__('Show on Mobile', 'aegis'),
+			)
+		);
+
+		// Core Post Date Block: Hide on Mobile
+		register_block_style(
+			'core/post-date',
+			array(
+				'name'  => 'hide-on-mobile',
+				'label' => esc_html__('Hide on Mobile', 'aegis'),
+			)
+		);
+
+		// Core Post Date Block: Show on Mobile Landscape
+		register_block_style(
+			'core/post-date',
+			array(
+				'name'  => 'show-on-mobile-landscape',
+				'label' => esc_html__('Show on Mobile Landscape', 'aegis'),
+			)
+		);
+
+		// Core Post Date Block: Hide on Mobile Landscape
+		register_block_style(
+			'core/post-date',
+			array(
+				'name'  => 'hide-on-mobile-landscape',
+				'label' => esc_html__('Hide on Mobile Landscape', 'aegis'),
 			)
 		);
 
