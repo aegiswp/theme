@@ -1,12 +1,12 @@
 <?php
 /**
- * Title: 04. About Pattern
- * Slug: aegis/about-04
+ * Title: About us with full-width gradient background and vertical and horizontal image
+ * Slug: aegis/about-vertical-horizontal-image.php
  * Categories: about
- * Description: Two-column with vertical media, tagline, header, paragraph on the left, and horizontal media, paragrah, and call to action button on the right
- * Keywords: about, call-to-action, media
+ * Description: A block pattern featuring an about section with a gradient background, multiple images, and content including a tagline, heading, description, and call-to-action button.
+ * Keywords: about, images, full-width, call-to-action
  * Viewport Width: 1400
- * Block Types: core/group, core/columns, core/column, core/paragraph, core/heading, core/image, core/button
+ * Block Types: core/group, core/columns, core/column, core/image, core/paragraph, core/heading, core/button, core/buttons
  * Inserter: true
  * 
  * @package aegis
@@ -14,10 +14,10 @@
  */
 ?>
 
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30","top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"margin":{"top":"0","bottom":"0"}}},"gradient":"vertical-background-to-foreground","layout":{"type":"default"},"metadata":{"name":"<?php echo esc_html_x('04. About Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30","top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"margin":{"top":"0","bottom":"0"}}},"gradient":"vertical-background-to-foreground","layout":{"type":"default"},"metadata":{"name":"<?php echo esc_html_x('About Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
 <div class="wp-block-group alignfull has-vertical-background-to-foreground-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
-    <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"0","bottom":"var:preset|spacing|50","left":"0"},"margin":{"top":"0","bottom":"0"}},"border":{"radius":[]}},"gradient":"vertical-small-background-to-secondary","layout":{"type":"default"}} -->
-    <div class="wp-block-group has-vertical-small-background-to-secondary-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:0;padding-bottom:var(--wp--preset--spacing--50);padding-left:0">
+    <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"0","bottom":"var:preset|spacing|50","left":"0"},"margin":{"top":"0","bottom":"0"}},"border":{"radius":[]}},"gradient":"vertical-small-background-to-tertiary","layout":{"type":"default"}} -->
+    <div class="wp-block-group has-vertical-small-background-to-tertiary-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:0;padding-bottom:var(--wp--preset--spacing--50);padding-left:0">
         <!-- wp:columns {"style":{"spacing":{"blockGap":{"top":"0"},"margin":{"top":"0","bottom":"0"}}}} -->
         <div class="wp-block-columns" style="margin-top:0;margin-bottom:0">
             <!-- wp:column {"verticalAlignment":"center","width":"33.33%"} -->
@@ -34,16 +34,16 @@
                 <p style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x('[Description (45 characters): Express core values or motivations.]', 'Replace with a description of the section.', 'aegis'); ?></p>
                 <!-- /wp:paragraph -->
 
-                <!-- wp:image {"aspectRatio":"3/4","scale":"cover","className":"size-full is-style-aegis-effect-1-image is-hidden-on-mobile"} -->
-                <figure class="wp-block-image size-full is-style-aegis-effect-1-image is-hidden-on-mobile"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:3/4;object-fit:cover" /></figure>
+                <!-- wp:image {"aspectRatio":"3/4","scale":"cover","className":"size-full is-style-ease-out is-style-hide-mobile"} -->
+                <figure class="wp-block-image size-full is-style-ease-out is-style-hide-mobile"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:3/4;object-fit:cover" /></figure>
                 <!-- /wp:image -->
             </div>
             <!-- /wp:column -->
 
             <!-- wp:column {"width":"66.66%"} -->
             <div class="wp-block-column" style="flex-basis:66.66%">
-                <!-- wp:image {"aspectRatio":"16/9","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":{"topLeft":null,"bottomLeft":null,"bottomRight":null}}},"className":"is-style-aegis-effect-1-image"} -->
-                <figure class="wp-block-image size-full is-style-aegis-effect-1-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:16/9;object-fit:cover" /></figure>
+                <!-- wp:image {"aspectRatio":"16/9","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":{"topLeft":null,"bottomLeft":null,"bottomRight":null}}},"className":"is-style-ease-out"} -->
+                <figure class="wp-block-image size-full is-style-ease-out"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:16/9;object-fit:cover" /></figure>
                 <!-- /wp:image -->
 
                 <!-- wp:columns {"style":{"spacing":{"blockGap":{"top":"0px","left":"0px"}}}} -->
@@ -56,8 +56,8 @@
 
                         <!-- wp:buttons -->
                         <div class="wp-block-buttons">
-                            <!-- wp:button {"backgroundColor":"secondary","textColor":"foreground","style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}}},"className":"is-style-aegis-button-shadow-outline"} -->
-                            <div class="wp-block-button is-style-aegis-button-shadow-outline"><a class="wp-block-button__link has-foreground-color has-secondary-background-color has-text-color has-background has-link-color wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a></div>
+                            <!-- wp:button {"backgroundColor":"tertiary","textColor":"foreground","style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}}},"className":"is-style-outline-shadow"} -->
+                            <div class="wp-block-button is-style-outline-shadow"><a class="wp-block-button__link has-foreground-color has-tertiary-background-color has-text-color has-background has-link-color wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a></div>
                             <!-- /wp:button -->
                         </div>
                         <!-- /wp:buttons -->
