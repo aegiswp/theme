@@ -1,0 +1,6 @@
+/* Core Blocks: Hide Underline Style
+--------------------------------------------- */
+.wp-block-post-date.is-style-hide-underline a ,
+.wp-block-post-title.is-style-hide-underline a {
+	background-image: none !important;
+}
