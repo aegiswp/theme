@@ -10,49 +10,49 @@
 
 /* Desktop view (1024px and above) */
 @media (min-width: 1024px) {
-    .is-style-show-desktop {
+    .is-style-show-on-desktop {
         display: block;
     }
-    .is-style-hide-desktop {
+    .is-style-hide-on-desktop {
         display: none;
     }
 }
 
 /* Tablet view (768px to 1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
-    .is-style-show-tablet {
+    .is-style-show-on-tablet {
         display: block;
     }
-    .is-style-hide-tablet {
+    .is-style-hide-on-tablet {
         display: none;
     }
 }
 
 /* Mobile view (up to 767px) */
 @media (max-width: 767px) {
-    .is-style-show-mobile {
+    .is-style-show-on-mobile {
         display: block;
     }
-    .is-style-hide-mobile {
+    .is-style-hide-on-mobile {
         display: none;
     }
 }
 
 /* Landscape view for mobile devices (up to 767px) */
 @media (max-width: 767px) and (orientation: landscape) {
-    .is-style-show-mobile-landscape {
+    .is-style-show-on-mobile-landscape {
         display: block;
     }
-    .is-style-hide-mobile-landscape {
+    .is-style-hide-on-mobile-landscape {
         display: none;
     }
 }
 
 /* Default styles (hide all by default) */
-.is-style-show-desktop, .is-style-show-tablet, .is-style-show-mobile, .is-style-show-mobile-landscape {
+.is-style-show-on-desktop, .is-style-show-on-tablet, .is-style-show-on-mobile, .is-style-show-on-mobile-landscape {
     display: none;
 }
 
-.is-style-hide-desktop, .is-style-hide-tablet, .is-style-hide-mobile, .is-style-hide-mobile-landscape {
+.is-style-hide-on-desktop, .is-style-hide-on-tablet, .is-style-hide-on-mobile, .is-style-hide-on-mobile-landscape {
     display: block;
 }
