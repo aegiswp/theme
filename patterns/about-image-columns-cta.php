@@ -1,12 +1,12 @@
 <?php
 /**
- * Title: 02. About Pattern
- * Slug: aegis/about-02
+ * Title: About us with vertical image columns and call-to-action
+ * Slug: aegis/about-image-columns-cta
  * Categories: about
- * Description: Multicolumn with tagline, heading, paragraph, and call to action button on the left, and two vertical media on the right
- * Keywords: about, call-to-action, media
+ * Description: A block pattern featuring an about section with an image column on the right, and content on the left, including a tagline, heading, description, and call-to-action button.
+ * Keywords: about, media, call-to-action, full-width, image, columns
  * Viewport Width: 1400
- * Block Types: core/group, core/columns, core/column, core/paragraph, core/heading, core/button, core/image
+ * Block Types: core/group, core/columns, core/column, core/image, core/paragraph, core/heading, core/button, core/buttons
  * Inserter: true
  * 
  * @package aegis
@@ -14,8 +14,8 @@
  */
 ?>
 
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('02. About Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
-<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"gradient":"vertical-background-to-tertiary","layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('About Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
+<div class="wp-block-group alignfull has-vertical-background-to-tertiary-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
     <!-- wp:columns {"align":"wide"} -->
     <div class="wp-block-columns alignwide">
         <!-- wp:column {"verticalAlignment":"center","width":"40%"} -->
@@ -34,8 +34,8 @@
 
             <!-- wp:buttons -->
             <div class="wp-block-buttons">
-                <!-- wp:button {"className":"is-style-aegis-button-shadow"} -->
-                <div class="wp-block-button is-style-aegis-button-shadow"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a></div>
+                <!-- wp:button {"className":"is-style-dense-shadow"} -->
+                <div class="wp-block-button is-style-dense-shadow"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a></div>
                 <!-- /wp:button -->
             </div>
             <!-- /wp:buttons -->
@@ -48,16 +48,16 @@
             <div class="wp-block-columns">
                 <!-- wp:column -->
                 <div class="wp-block-column">
-                    <!-- wp:image {"aspectRatio":"3/4","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-2-image"} -->
-                    <figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:3/4;object-fit:cover" /></figure>
+                    <!-- wp:image {"aspectRatio":"3/4","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-shine-hover"} -->
+                    <figure class="wp-block-image size-full is-style-shine-hover"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:3/4;object-fit:cover" /></figure>
                     <!-- /wp:image -->
                 </div>
                 <!-- /wp:column -->
 
-                <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50"}}},"className":"is-hidden-on-mobile"} -->
-                <div class="wp-block-column is-hidden-on-mobile" style="padding-top:var(--wp--preset--spacing--50)">
-                    <!-- wp:image {"aspectRatio":"3/4","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-effect-2-image"} -->
-                    <figure class="wp-block-image size-full is-style-aegis-effect-2-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:3/4;object-fit:cover" /></figure>
+                <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50"}}},"className":"is-style-hide-mobile"} -->
+                <div class="wp-block-column is-style-hide-mobile" style="padding-top:var(--wp--preset--spacing--50)">
+                    <!-- wp:image {"aspectRatio":"3/4","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-shine-hover"} -->
+                    <figure class="wp-block-image size-full is-style-shine-hover"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:3/4;object-fit:cover" /></figure>
                     <!-- /wp:image -->
                 </div>
                 <!-- /wp:column -->
