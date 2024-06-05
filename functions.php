@@ -6,23 +6,20 @@
  *
  * @package aegis
  * @author  Atmostfear Entertainment
- * @license GNU General Public License v3 or later
+ * @license GNU General Public License v2 or later
  * @link    https://github.com/atmostfear-entertainment/aegis
  * @since   1.0.0
  */
 
- 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * @since 1.0.0
  * @return void
  */
-
-function aegis_support() 
-{
+function aegis_support() {
     // Disable WooCommerce Block Patterns.
-    remove_theme_support( 'woocommerce-blocks-patterns' );
+    remove_theme_support('woocommerce-blocks-patterns');
 
     // Disable WordPress Block Patterns.
     remove_theme_support('core-block-patterns');
@@ -35,147 +32,54 @@ add_action('after_setup_theme', 'aegis_support');
 // Disable loading of remote Block Patterns.
 add_filter( 'should_load_remote_block_patterns', '__return_false' );
 
-
 /**
  * Enqueue theme styles.
  *
  * @since 1.0.0
  * @return void
  */
-
-function aegis_styles()
-{
+function aegis_styles() {
     wp_enqueue_style('aegis-styles', get_template_directory_uri() . '/style.css', array(), wp_get_theme()->get('Version'));
 
     // Animations CSS.
     wp_enqueue_style('aegis-animations-styles', get_template_directory_uri() . '/assets/css/animations.css', array(), wp_get_theme()->get('Version'));
 
     // Global Script.
-    wp_enqueue_script('aegis-global-script', get_template_directory_uri() . '/assets/js/index.js', array('jquery'), wp_get_theme()->get('Version'), true);
+    wp_enqueue_script('aegis-global-script', get_template_directory_uri() . '/assets/js/index.js', array(), wp_get_theme()->get('Version'), true);
 
     // Animations Script.
-    wp_enqueue_script('aegis-animations-script', get_template_directory_uri() . '/assets/js/animations.js', array('jquery'), wp_get_theme()->get('Version'), true);
+    wp_enqueue_script('aegis-animations-script', get_template_directory_uri() . '/assets/js/animations.js', array(), wp_get_theme()->get('Version'), true);
 }
-
 add_action('wp_enqueue_scripts', 'aegis_styles');
 
-    // Add Block Patterns.
-    require get_template_directory() . '/inc/block-patterns.php';
-
-    // Add Block Styles.
-    require get_template_directory() . '/inc/block-styles.php';
-
+/**
+ * Include Block Patterns.
+ *
+ * @since 1.0.0
+ * @return void
+ */
+require get_template_directory() . '/inc/block-patterns.php';
 
 /**
- * Enqueue core block stylesheets.
+ * Include Block Styles.
+ *
+ * @since 1.0.0
+ * @return void
  */
+require get_template_directory() . '/inc/block-styles.php';
 
-if ( ! function_exists( 'aegis_block_stylesheets' ) ) :
-
-	/**
-	 * Enqueue custom core block stylesheets.
-	 *
-	 * @since 1.0.0
-	 * @return void
-	 */
-	function aegis_block_stylesheets() {
-		/**
-		 * The wp_enqueue_block_style() function allows us to enqueue a stylesheet
-		 * for a specific block. These will only get loaded when the block is rendered
-		 * (both in the editor and on the front end), improving performance
-		 * and reducing the amount of data requested by visitors.
-		 *
-		 * See https://make.wordpress.org/core/2021/12/15/using-multiple-stylesheets-per-block/ for more information.
-		 */
-
-		// Core Buttons Block: Show on Desktop
-		wp_enqueue_block_style(
-			'core/buttons',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-desktop',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Buttons Block: Hide on Desktop
-		wp_enqueue_block_style(
-			'core/buttons',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-desktop',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Buttons Block: Show on Tablet
-		wp_enqueue_block_style(
-			'core/buttons',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-tablet',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Buttons Block: Hide on Tablet
-		wp_enqueue_block_style(
-			'core/buttons',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-tablet',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Buttons Block: Show on Mobile
-		wp_enqueue_block_style(
-			'core/buttons',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-mobile',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Buttons Block: Hide on Mobile
-		wp_enqueue_block_style(
-			'core/buttons',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-mobile',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Buttons Block: Show on Mobile Landscape
-		wp_enqueue_block_style(
-			'core/buttons',
-			array(
-				'handle' => 'aegis-core-blocks-show-0n-mobile-landscape',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Buttons Block: Hide on Mobile Landscape
-		wp_enqueue_block_style(
-			'core/buttons',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-mobile-landscape',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
+/**
+ * Enqueue custom core block stylesheets.
+ *
+ * The wp_enqueue_block_style() function allows us to enqueue a stylesheet
+ * for a specific block. These will only get loaded when the block is rendered
+ * (both in the editor and on the front end), improving performance
+ * and reducing the amount of data requested by visitors.
+ *
+ * @since 1.0.0
+ * @return void
+ */
+function aegis_block_stylesheets() {
 		 // Core Button Block: 3D Push Style
 		wp_enqueue_block_style(
 			'core/button',
@@ -283,446 +187,6 @@ if ( ! function_exists( 'aegis_block_stylesheets' ) ) :
 				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-underline-border.css' ),
 				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
 				'path'   => get_parent_theme_file_path( 'assets/css/core-button-underline-border.css' ),
-			)
-		);
-
-		// Core Button Block: Show on Desktop
-		wp_enqueue_block_style(
-			'core/button',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-desktop',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Button Block: Hide on Desktop
-		wp_enqueue_block_style(
-			'core/button',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-desktop',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Button Block: Show on Tablet
-		wp_enqueue_block_style(
-			'core/button',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-tablet',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Button Block: Hide on Tablet
-		wp_enqueue_block_style(
-			'core/button',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-tablet',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Button Block: Show on Mobile
-		wp_enqueue_block_style(
-			'core/button',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-mobile',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Button Block: Hide on Mobile
-		wp_enqueue_block_style(
-			'core/button',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-mobile',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Button Block: Show on Mobile Landscape
-		wp_enqueue_block_style(
-			'core/button',
-			array(
-				'handle' => 'aegis-core-blocks-show-0n-mobile-landscape',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Button Block: Hide on Mobile Landscape
-		wp_enqueue_block_style(
-			'core/button',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-mobile-landscape',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Columns Block: Show on Desktop
-		wp_enqueue_block_style(
-			'core/columns',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-desktop',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Columns Block: Hide on Desktop
-		wp_enqueue_block_style(
-			'core/columns',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-desktop',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Columns Block: Show on Tablet
-		wp_enqueue_block_style(
-			'core/columns',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-tablet',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Columns Block: Hide on Tablet
-		wp_enqueue_block_style(
-			'core/columns',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-tablet',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Columns Block: Show on Mobile
-		wp_enqueue_block_style(
-			'core/columns',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-mobile',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Columns Block: Hide on Mobile
-		wp_enqueue_block_style(
-			'core/columns',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-mobile',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Columns Block: Show on Mobile Landscape
-		wp_enqueue_block_style(
-			'core/columns',
-			array(
-				'handle' => 'aegis-core-blocks-show-0n-mobile-landscape',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Columns Block: Hide on Mobile Landscape
-		wp_enqueue_block_style(
-			'core/columns',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-mobile-landscape',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Column Block: Show on Desktop
-		wp_enqueue_block_style(
-			'core/column',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-desktop',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Column Block: Hide on Desktop
-		wp_enqueue_block_style(
-			'core/column',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-desktop',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Column Block: Show on Tablet
-		wp_enqueue_block_style(
-			'core/column',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-tablet',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Column Block: Hide on Tablet
-		wp_enqueue_block_style(
-			'core/column',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-tablet',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Column Block: Show on Mobile
-		wp_enqueue_block_style(
-			'core/column',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-mobile',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Column Block: Hide on Mobile
-		wp_enqueue_block_style(
-			'core/column',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-mobile',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Column Block: Show on Mobile Landscape
-		wp_enqueue_block_style(
-			'core/column',
-			array(
-				'handle' => 'aegis-core-blocks-show-0n-mobile-landscape',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Column Block: Hide on Mobile Landscape
-		wp_enqueue_block_style(
-			'core/column',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-mobile-landscape',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Cover Block: Show on Desktop
-		wp_enqueue_block_style(
-			'core/cover',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-desktop',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Cover Block: Hide on Desktop
-		wp_enqueue_block_style(
-			'core/cover',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-desktop',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Cover Block: Show on Tablet
-		wp_enqueue_block_style(
-			'core/cover',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-tablet',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Cover Block: Hide on Tablet
-		wp_enqueue_block_style(
-			'core/cover',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-tablet',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Cover Block: Show on Mobile
-		wp_enqueue_block_style(
-			'core/cover',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-mobile',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Cover Block: Hide on Mobile
-		wp_enqueue_block_style(
-			'core/cover',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-mobile',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Cover Block: Show on Mobile Landscape
-		wp_enqueue_block_style(
-			'core/cover',
-			array(
-				'handle' => 'aegis-core-blocks-show-0n-mobile-landscape',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Cover Block: Hide on Mobile Landscape
-		wp_enqueue_block_style(
-			'core/cover',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-mobile-landscape',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Group Block: Show on Desktop
-		wp_enqueue_block_style(
-			'core/group',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-desktop',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Group Block: Hide on Desktop
-		wp_enqueue_block_style(
-			'core/group',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-desktop',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Group Block: Show on Tablet
-		wp_enqueue_block_style(
-			'core/group',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-tablet',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Group Block: Hide on Tablet
-		wp_enqueue_block_style(
-			'core/group',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-tablet',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Group Block: Show on Mobile
-		wp_enqueue_block_style(
-			'core/group',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-mobile',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Group Block: Hide on Mobile
-		wp_enqueue_block_style(
-			'core/group',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-mobile',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Group Block: Show on Mobile Landscape
-		wp_enqueue_block_style(
-			'core/group',
-			array(
-				'handle' => 'aegis-core-blocks-show-0n-mobile-landscape',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Group Block: Hide on Mobile Landscape
-		wp_enqueue_block_style(
-			'core/group',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-mobile-landscape',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
 			)
 		);
 
@@ -847,94 +311,6 @@ if ( ! function_exists( 'aegis_block_stylesheets' ) ) :
 			)
 		);
 
-		// Core Image Block: Show on Desktop
-		wp_enqueue_block_style(
-			'core/image',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-desktop',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Image Block: Hide on Desktop
-		wp_enqueue_block_style(
-			'core/image',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-desktop',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Image Block: Show on Tablet
-		wp_enqueue_block_style(
-			'core/image',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-tablet',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Image Block: Hide on Tablet
-		wp_enqueue_block_style(
-			'core/image',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-tablet',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Image Block: Show on Mobile
-		wp_enqueue_block_style(
-			'core/image',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-mobile',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Image Block: Hide on Mobile
-		wp_enqueue_block_style(
-			'core/image',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-mobile',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Image Block: Show on Mobile Landscape
-		wp_enqueue_block_style(
-			'core/image',
-			array(
-				'handle' => 'aegis-core-blocks-show-0n-mobile-landscape',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Image Block: Hide on Mobile Landscape
-		wp_enqueue_block_style(
-			'core/image',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-mobile-landscape',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
 		// Core Navigation Block: Navigation Style
 		wp_enqueue_block_style(
 			'core/navigation',
@@ -957,94 +333,6 @@ if ( ! function_exists( 'aegis_block_stylesheets' ) ) :
 			)
 		);
 
-		// Core Paragraph Block: Show on Desktop
-		wp_enqueue_block_style(
-			'core/paragraph',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-desktop',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Paragraph Block: Hide on Desktop
-		wp_enqueue_block_style(
-			'core/paragraph',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-desktop',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Paragraph Block: Show on Tablet
-		wp_enqueue_block_style(
-			'core/paragraph',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-tablet',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Paragraph Block: Hide on Tablet
-		wp_enqueue_block_style(
-			'core/paragraph',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-tablet',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Paragraph Block: Show on Mobile
-		wp_enqueue_block_style(
-			'core/paragraph',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-mobile',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Paragraph Block: Hide on Mobile
-		wp_enqueue_block_style(
-			'core/paragraph',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-mobile',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Paragraph Block: Show on Mobile Landscape
-		wp_enqueue_block_style(
-			'core/paragraph',
-			array(
-				'handle' => 'aegis-core-blocks-show-0n-mobile-landscape',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Paragraph Block: Hide on Mobile Landscape
-		wp_enqueue_block_style(
-			'core/paragraph',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-mobile-landscape',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
 		// Core Post Date Block: Hide Underline Style
 		wp_enqueue_block_style(
 			'core/post-date',
@@ -1053,94 +341,6 @@ if ( ! function_exists( 'aegis_block_stylesheets' ) ) :
 				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-hide-underline.css' ),
 				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
 				'path'   => get_parent_theme_file_path( 'assets/css/core-post-title-hide-underline.css' ),
-			)
-		);
-
-		// Core Post Date Block: Show on Desktop
-		wp_enqueue_block_style(
-			'core/post-date',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-desktop',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Post Date Block: Hide on Desktop
-		wp_enqueue_block_style(
-			'core/post-date',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-desktop',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Post Date Block: Show on Tablet
-		wp_enqueue_block_style(
-			'core/post-date',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-tablet',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Post Date Block: Hide on Tablet
-		wp_enqueue_block_style(
-			'core/post-date',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-tablet',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Post Date Block: Show on Mobile
-		wp_enqueue_block_style(
-			'core/post-date',
-			array(
-				'handle' => 'aegis-core-blocks-show-on-mobile',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Post Date Block: Hide on Mobile
-		wp_enqueue_block_style(
-			'core/post-date',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-mobile',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Post Date Block: Show on Mobile Landscape
-		wp_enqueue_block_style(
-			'core/post-date',
-			array(
-				'handle' => 'aegis-core-blocks-show-0n-mobile-landscape',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
-			)
-		);
-
-		// Core Post-date Block: Hide on Mobile Landscape
-		wp_enqueue_block_style(
-			'core/post-date',
-			array(
-				'handle' => 'aegis-core-blocks-hide-on-mobile-landscape',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-blocks-visibility.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-blocks-visibility.css' ),
 			)
 		);
 
@@ -1165,20 +365,15 @@ if ( ! function_exists( 'aegis_block_stylesheets' ) ) :
 				'path'   => get_parent_theme_file_path( 'assets/css/core-video-dark-shadow.css' ),
 			)
 		);
-
 	}
-endif;
-
-add_action( 'init', 'aegis_block_stylesheets' );
-
+add_action('init', 'aegis_block_stylesheets');
 
 /**
  * Query whether WooCommerce is activated.
- * 
+ *
  * @since 1.0.0
- * @return void
+ * @return bool True if WooCommerce is activated, false otherwise.
  */
-
 function aegis_is_woocommerce_activated()
 {
     if (class_exists('woocommerce')) {
@@ -1188,14 +383,12 @@ function aegis_is_woocommerce_activated()
     }
 }
 
-
 /**
- * Include Woocommerce support.
- * 
+ * Include WooCommerce support.
+ *
  * @since 1.0.0
  * @return void
  */
-
 if (class_exists('Woocommerce')) {
     require get_template_directory() . '/inc/woocommerce/functions.php';
 }
