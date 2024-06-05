@@ -273,7 +273,7 @@
           "name": "Diagonal transparent to background"
         },
         {
-          "gradient": "linear-gradient var(--wp--preset--color--foreground) 74%, 135deg,transparent 74%)",
+          "gradient": "linear-gradient(135deg, var(--wp--preset--color--foreground) 74%, transparent 74%)",
           "slug": "diagonal-foreground-to-transparent-top-left",
           "name": "Diagonal foreground to transparent top left"
         },
@@ -353,13 +353,13 @@
           "shadow": "7px 7px 0px rgba(37, 37, 40, 1)"
         },
         {
-          "name": "Secondary Shadow right bottom",
-          "slug": "secondary-drop-shadow-right-bottom",
+          "name": "Secondary shadow right bottom",
+          "slug": "secondary-shadow-right-bottom",
           "shadow": "7px 7px 0px rgba(90, 90, 96, 1)"
         },
         {
           "name": "Tertiary shadow right bottom",
-          "slug": "tertiary-shadow-right-right",
+          "slug": "tertiary-shadow-right-bottom",
           "shadow": "7px 7px 0px rgba(240, 238, 233, 1)"
         },
         {
@@ -454,8 +454,7 @@
     },
     "layout": {
       "contentSize": "720px",
-      "wideSize": "1620px",
-      "sticky": true
+      "wideSize": "1620px"
     },
     "spacing": {
       "spacingScale": {
@@ -1028,18 +1027,16 @@
       },
       "core/post-author-name": {
         "typography": {
-          "color": "var(--wp--preset--color--foreground)"
+          "color": "var(--wp--preset--color--foreground)",
+          "fontSize": "var(--wp--preset--font-size--small)"
         },
         "elements": {
           "link": {
-            ":hover": {
-              "textDecoration": "underline"
-            },
             "textDecoration": "none"
+          },
+          ":hover": {
+            "textDecoration": "underline"
           }
-        },
-        "typography": {
-          "fontSize": "var(--wp--preset--font-size--small)"
         }
       },
       "core/post-date": {
@@ -1166,15 +1163,15 @@
     },
     {
       "name": "header-3",
-      "title": "03. Header 3 (Sticky)",
+      "title": "03. Header 3",
       "area": "header",
-      "sticky": true
+      "position": "sticky"
     },
     {
       "name": "header-4",
-      "title": "04. Header 4 (Sticky)",
+      "title": "04. Header 4",
       "area": "header",
-      "sticky": true
+      "position": "sticky"
     },
     {
       "name": "header-5",
@@ -1183,9 +1180,9 @@
     },
     {
       "name": "header-6",
-      "title": "06. Header (Sticky)",
+      "title": "06. Header",
       "area": "header",
-      "sticky": true
+      "position": "sticky"
     },
     {
       "name": "header-7",
