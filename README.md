@@ -11,12 +11,17 @@ Welcome to the Aegis Theme development repository.
 - [Working with Block Themes](#working-with-block-themes)
   - [Site Editor](#site-editor)
   - [Patterns](#patterns)
+    - [Creating page designs with patterns](#creating-page-designs-with-patterns)
   - [Global Styles](#global-styles)
   - [Template Parts](#template-parts)
   - [Export Your Site](#export-your-site)
 - [Presets](#presets)
   - [Layout Presets](#layout-presets)
   - [Spacing Presets](#spacing-presets)
+  - [Token Cheat-sheet](#token-cheat-sheet)
+    - [Default Global Style](#default-global-style)
+    - [Onyx Global Style](#onyx-global-style)
+  - [Pattern Creation Guidelines](#pattern-creation-guidelines)
 - [Development](#development)
 - [Getting Started with Aegis](#getting-started-with-aegis)
   - [Requirements](#requirements)
@@ -127,10 +132,16 @@ This functionality essentially transforms the site editor into a theme builder. 
 
 | Figma Token | CSS Variable | `theme.json` value | `theme.json` slug |
 |-------------|--------------|--------------------|-------------------|
-| `Spacing/30` | `--wp--preset--spacing--30` | `min(2.5rem, 5vw)` | `30` |
+| `Spacing/10` | `--wp--preset--spacing--10` | `min(0.625rem, 1vw)` | `10` |
+| `Spacing/20` | `--wp--preset--spacing--20` | `min(1.25rem, 1vw)` | `20` |
+| `Spacing/30` | `--wp--preset--spacing--30` | `min(2rem, 5vw)` | `30` |
 | `Spacing/40` | `--wp--preset--spacing--40` | `min(4rem, 8vw)` | `40` |
 | `Spacing/50` | `--wp--preset--spacing--50` | `min(6.5rem, 13vw)` | `50` |
 | `Spacing/60` | `--wp--preset--spacing--60` | `min(10.5rem, 24vw)` | `60` |
+| `Spacing/70` | `--wp--preset--spacing--70` | `min(5rem, 14vw)` | `70` |
+| `Spacing/80` | `--wp--preset--spacing--80` | `min(7rem, 14vw)` | `80` |
+| `Spacing/90` | `--wp--preset--spacing--90` | `min(5.625rem, 5.625vw)` | `90` |
+| `Spacing/100` | `--wp--preset--spacing--100` | `min(6.25rem, 6.25vw)` | `100` |
 
 ### Token Cheat-sheet
 
@@ -138,13 +149,27 @@ This functionality essentially transforms the site editor into a theme builder. 
 
 | Figma Token | CSS Variable | Color | Name | Slug | Visual |
 | --------------- | --------------- | --------------- | --------------------- | --------------------- | --------------------- |
-| N/A | --wp--preset--color--background | `#f9f9f9` | Background | background | ![jpg](https://placehold.co/20x20/F9F9F9/F9F9F9/jpg) |
+| N/A | --wp--preset--color--background | `#f6f5f2` | Background | background | ![jpg](https://placehold.co/20x20/f6f5f2/f6f5f2/jpg) |
+| N/A | --wp--preset--color--foreground | `#1c1c1e` | Foreground | foreground | ![jpg](https://placehold.co/20x20/1c1c1e/1c1c1e/jpg) |
+| N/A | --wp--preset--color--primary | `#252528` | Primary | primary | ![jpg](https://placehold.co/20x20/252528/252528/jpg) |
+| N/A | --wp--preset--color--secondary | `#5a5a60` | Secondary | secondary | ![jpg](https://placehold.co/20x20/5a5a60/5a5a60/jpg) |
+| N/A | --wp--preset--color--tertiary | `#f0eee9` | Tertiary | tertiary | ![jpg](https://placehold.co/20x20/f0eee9/f0eee9/jpg) |
+| N/A | --wp--preset--color--quaternary | `#e6e2da` | Quaternary | quaternary | ![jpg](https://placehold.co/20x20/e6e2da/e6e2da/jpg) |
+| N/A | --wp--preset--color--quinary | `#dcd6cb` | Quinary | quinary | ![jpg](https://placehold.co/20x20/dcd6cb/dcd6cb/jpg) |
+| N/A | --wp--preset--color--senary | `#d2cabc` | Senary | senary | ![jpg](https://placehold.co/20x20/d2cabc/d2cabc/jpg) |
+
+#### Onyx Global Style
+
+| Figma Token | CSS Variable | Color | Name | Slug | Visual |
+| --------------- | --------------- | --------------- | --------------------- | --------------------- | --------------------- |
+| N/A | --wp--preset--color--background | `#f9f9f9` | Background | background | ![jpg](https://placehold.co/20x20/f9f9f9/f9f9f9/jpg) |
 | N/A | --wp--preset--color--foreground | `#0a0a0a` | Foreground | foreground | ![jpg](https://placehold.co/20x20/0a0a0a/0a0a0a/jpg) |
-| N/A | --wp--preset--color--primary | `#3e3d3d` | Primary | primary | ![jpg](https://placehold.co/20x20/3e3d3d/3e3d3d/jpg) |
-| N/A | --wp--preset--color--secondary | `#ebebef` | Secondary | secondary | ![jpg](https://placehold.co/20x20/ebebef/ebebef/jpg) |
-| N/A | --wp--preset--color--tertiary | `#d7dade` | Tertiary | tertiary | ![jpg](https://placehold.co/20x20/d7dade/d7dade/jpg) |
-| N/A | --wp--preset--color--quaternary | `#ccd0d4` | Quaternary | quaternary | ![jpg](https://placehold.co/20x20/ccd0d4/ccd0d4/jpg) |
-| N/A | --wp--preset--color--quinary | `#b5bcc2` | Quinary | quinary | ![jpg](https://placehold.co/20x20/b5bcc2/b5bcc2/jpg) |
+| N/A | --wp--preset--color--primary | `#252528` | Primary | primary | ![jpg](https://placehold.co/20x20/252528/252528/jpg) |
+| N/A | --wp--preset--color--secondary | `#3e3d3d` | Secondary | secondary | ![jpg](https://placehold.co/20x20/3e3d3d/3e3d3d/jpg) |
+| N/A | --wp--preset--color--tertiary | `#ebebef` | Tertiary | tertiary | ![jpg](https://placehold.co/20x20/ebebef/ebebef/jpg) |
+| N/A | --wp--preset--color--quaternary | `#d7dade` | Quaternary | quaternary | ![jpg](https://placehold.co/20x20/d7dade/d7dade/jpg) |
+| N/A | --wp--preset--color--quinary | `#ccd0d4` | Quinary | quinary | ![jpg](https://placehold.co/20x20/ccd0d4/ccd0d4/jpg) |
+| N/A | --wp--preset--color--senary | `#b5bcc2` | Senary | senary | ![jpg](https://placehold.co/20x20/b5bcc2/b5bcc2/jpg) |
 
 ### Pattern Creation Guidelines
 
