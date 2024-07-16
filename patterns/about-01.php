@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: About us with full-width gradient and vertical image
- * Slug: aegis/about-dark-vertical-image
+ * Title: 01. About Pattern
+ * Slug: aegis/about-01
  * Categories: about
  * Description: A block pattern featuring an about section with a full-width gradient background, a large image, and content including a tagline, heading, description, and call-to-action button.
  * Keywords: about, full-width, image, call-to-action
@@ -14,7 +14,7 @@
  */
 ?>
 
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"gradient":"vertical-background-to-foreground","layout":{"type":"default"},"metadata":{"name":"<?php echo esc_html_x('About Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"gradient":"vertical-background-to-foreground","layout":{"type":"default"},"metadata":{"name":"<?php echo esc_html_x('01. About Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
 <div class="wp-block-group alignfull has-vertical-background-to-foreground-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
     <!-- wp:columns {"align":"full","style":{"spacing":{"margin":{"bottom":"0"}}}} -->
     <div class="wp-block-columns alignfull" style="margin-bottom:0">
