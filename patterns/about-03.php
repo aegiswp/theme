@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: About us with horizontal image and call-to-action
- * Slug: aegis/about-image-cta
+ * Title:03. About Pattern
+ * Slug: aegis/about-03
  * Categories: about
  * Description: A block pattern featuring an about section with an image on the left and content on the right, including a tagline, heading, description, and call-to-action button.
  * Keywords: about, media, full-width, call-to-action, image
@@ -14,7 +14,7 @@
  */
 ?>
 
-<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"gradient":"diagonal-tertiary-to-background","layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('About Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"gradient":"diagonal-tertiary-to-background","layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('03. About Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
 <div class="wp-block-group has-diagonal-tertiary-to-background-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
     <!-- wp:media-text {"align":"wide","mediaId":1410,"mediaLink":"<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp","mediaType":"image","imageFill":false} -->
     <div class="wp-block-media-text alignwide is-stacked-on-mobile">
