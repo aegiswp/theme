@@ -1,7 +1,7 @@
 === Aegis ===
 Contributors: atmostfearentertainment
-Requires at least: 6.4
-Tested up to: 6.5.3
+Requires at least: 6.6
+Tested up to: 6.6
 Requires PHP: 7.4
 Stable tag: 1.0.0-beta.3
 License: GNU General Public License v3.0
