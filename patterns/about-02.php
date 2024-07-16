@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: About us with vertical image columns and call-to-action
- * Slug: aegis/about-image-columns-cta
+ * Title: 02. About Pattern
+ * Slug: aegis/about-02
  * Categories: about
  * Description: A block pattern featuring an about section with an image column on the right, and content on the left, including a tagline, heading, description, and call-to-action button.
  * Keywords: about, media, call-to-action, full-width, image, columns
@@ -14,7 +14,7 @@
  */
 ?>
 
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"gradient":"vertical-background-to-tertiary","layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('About Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"gradient":"vertical-background-to-tertiary","layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('02. About Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
 <div class="wp-block-group alignfull has-vertical-background-to-tertiary-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
     <!-- wp:columns {"align":"wide"} -->
     <div class="wp-block-columns alignwide">
