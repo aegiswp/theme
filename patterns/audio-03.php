@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: 01. Audio Pattern
- * Slug: aegis/audio-01
+ * Title: 03. Audio Pattern
+ * Slug: aegis/audio-03
  * Categories: audio
  * Description: Two-column cover overlay on the left and tagline, headline, paragraph, audio player, social icons and call to action button on the right
  * Keywords: audio, call-to-action, music, podcast, radio
@@ -14,7 +14,7 @@
  */
 ?>
 
-<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"backgroundColor":"foreground","textColor":"background","layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('01. Audio Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"backgroundColor":"foreground","textColor":"background","layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('03. Audio Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
 <div class="wp-block-group has-background-color has-foreground-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
     <!-- wp:columns {"verticalAlignment":null,"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|40"},"padding":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}}} -->
     <div class="wp-block-columns alignwide" style="padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px">
