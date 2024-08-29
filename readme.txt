@@ -4,8 +4,8 @@ Requires at least: 6.6
 Tested up to: 6.6
 Requires PHP: 7.4
 Stable tag: 1.0.0-beta.3
-License: GNU General Public License v3.0
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
@@ -31,35 +31,51 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
-This theme bundles the following third-party resources:
+== Third-Party Resources Bundled in This Theme ==
+
+Composer
+License: MIT
+License URL: https://github.com/composer/composer/blob/main/LICENSE
+Source URL: https://github.com/composer/composer
 
 Lexend Font
-Copyright 2018-2024 Thomas Jockin (https://thomasjockin.com/)
-License: SIL Open Font License, 1.1, https://opensource.org/licenses/OFL-1.1
-Source: https://github.com/googlefonts/lexend
+Copyright: © 2018-2024 Thomas Jockin
+Author URL: https://thomasjockin.com/
+License: SIL Open Font License, 1.1
+License URL: https://opensource.org/licenses/OFL-1.1
+Source URL: https://github.com/googlefonts/lexend
 
 Outfit Font
-Copyright 2021-2024 Rodrigo Fuenzalida (https://outfit.io/font)
-License: SIL Open Font License, 1.1, https://opensource.org/licenses/OFL-1.1
-Source: https://github.com/googlefonts/outfit
+Copyright: © 2021-2024 Rodrigo Fuenzalida
+Author URL: https://outfit.io/font
+License: SIL Open Font License, 1.1
+License URL: https://opensource.org/licenses/OFL-1.1
+Source URL: https://github.com/googlefonts/outfit
 
-Audio used in theme block patterns:
+== Audio Used in Theme Block Patterns ==
 
-Our Campion by Anuch
+Our Champion by Anuch
 License: Public Domain
-Source: https://uppbeat.io/track/anuch/our-champion
-Included as short audio clip.
+Source URL: https://uppbeat.io/track/anuch/our-champion
+Note: Included as a short audio clip.
 
-Video used in theme block patterns:
+== Video Used in Theme Block Patterns ==
 
 Animated Abstract Burning Effect Video by Rostislav Uzunov
 License: Public Domain
-Source: https://www.pexels.com/video/animated-abstract-burning-effect-5091624/
-Included as a short video clip.
+Source URL: https://www.pexels.com/video/animated-abstract-burning-effect-5091624/
+Note: Included as a short video clip.
 
-Images and Icons used in theme block patterns:
+== Images and Icons Used in Theme Block Patterns ==
 
-Illustrations used are created by Atmostfear Entertaiment and released under Creative Commons (CC0) License.
+WordPress & Social Icons
+License: GPL-2.0-or-later
+License URL: https://github.com/WordPress/WordPress/blob/master/license.txt
+
+Illustrations Created by Atmostfear Entertainment
+License: Creative Commons (CC0) License
+
+Included Files:
 
 /assets/images/thumb_800x800_dark.webp
 /assets/images/thumb_800x800_light.webp
