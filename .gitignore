@@ -10,3 +10,4 @@ composer.lock
 bun.lockb
 *DS_Store
 composer.phar
+/wp-content
