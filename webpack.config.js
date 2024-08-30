@@ -1,6 +1,7 @@
 const { merge } = require('webpack-merge');
 const defaultConfig = require('@wordpress/scripts/config/webpack.config');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const path = require('path');
 
 module.exports = (env) => {
     const isProduction = env && env.production;
@@ -15,6 +16,11 @@ module.exports = (env) => {
             details: './src/public/details.tsx',
             packery: './src/public/packery.tsx',
             scroll: './src/public/scroll.tsx',
+        },
+
+        output: {
+            path: path.resolve(__dirname, 'build'), // Outputs to 'build' folder
+            filename: '[name].js',
         },
 
         devtool: isProduction ? false : 'source-map',
