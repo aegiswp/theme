@@ -9,3 +9,4 @@ package-lock.json
 composer.lock
 bun.lockb
 *DS_Store
+composer.phar
