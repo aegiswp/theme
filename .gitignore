@@ -12,3 +12,4 @@ bun.lockb
 composer.phar
 /wp-content
 /src
+/.vscode
