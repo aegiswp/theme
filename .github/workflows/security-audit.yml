@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow
+
+name: "PHP Security Audit"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * 0'  # Runs every Sunday at midnight (UTC)
+
+permissions:
+  contents: "read"
+
+jobs:
+  security_audit:
+    name: "Run PHP Security Audit"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.0"
+      
+      - name: Install PHP dependencies
+        run: composer install
+
+      - name: "Download and Run PHP Security Checker"
+        run: |
+          curl -s https://api.github.com/repos/fabpot/local-php-security-checker/releases/latest \
+            | grep "browser_download_url.*local-php-security-checker_.*_linux_amd64" \
+            | cut -d : -f 2,3 \
+            | tr -d \" \
+            | wget -qi - -O local-php-security-checker \
+            && chmod +x local-php-security-checker \
+            && ./local-php-security-checker
