@@ -9,7 +9,9 @@ package-lock.json
 composer.lock
 bun.lockb
 *DS_Store
-composer.phar
-/wp-content
-/src
 /.vscode
+composer.phar
+/src
+/wp-content
+/develop
+/.dev
