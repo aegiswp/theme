@@ -1,5 +1,5 @@
 === Aegis ===
-Contributors: atmostfearentertainment
+Contributors: atmostfearentertainment, alexdeborba
 Requires at least: 6.6
 Tested up to: 6.6
 Requires PHP: 7.4
