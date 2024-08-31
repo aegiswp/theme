@@ -19,7 +19,7 @@ module.exports = (env) => {
         },
 
         output: {
-            path: path.resolve(__dirname, 'build'), // Outputs to 'build' folder
+            path: path.resolve(__dirname, 'build'),
             filename: '[name].js',
         },
 
