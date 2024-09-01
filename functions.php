@@ -14,6 +14,18 @@
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
+ * This function initializes the theme by setting up support for several core WordPress features:
+ * - Enqueues editor styles to match the theme's front-end appearance in the block editor.
+ *   @link https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-support/#editor-styles
+ * - Enables support for custom CSS units like 'rem', 'em', 'vw', and 'vh' in the block editor.
+ *   @link https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-support/#custom-css-units
+ * - Adds support for responsive embeds to ensure embedded content scales properly on all devices.
+ *   @link https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-support/#responsive-embedded-content
+ * - Disables default WordPress core block patterns to customize the editor experience.
+ *   @link https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-support/#block-patterns
+ * - Disables loading of remote block patterns for enhanced security and control.
+ * - Removes WooCommerce-specific block patterns if WooCommerce is installed.
+ *
  * @since 1.0.0
  * @return void
  */
@@ -47,7 +59,14 @@ function aegis_theme_support() {
 add_action('after_setup_theme', 'aegis_theme_support');
 
 /**
- * Enqueue theme styles.
+ * Enqueue theme styles and scripts.
+ *
+ * This function enqueues the main stylesheet and JavaScript files required for the theme.
+ * - Enqueues the main stylesheet (`style.css`) to ensure that it is loaded on the front end.
+ *   @link https://developer.wordpress.org/reference/functions/wp_enqueue_style/
+ * - Enqueues the global JavaScript file (`index.js`) and additional scripts, ensuring they are loaded in the correct order and position.
+ *   @link https://developer.wordpress.org/reference/functions/wp_enqueue_script/
+ * - Ensures that all scripts and styles use the theme's version for cache-busting purposes.
  *
  * @since 1.0.0
  * @return void
@@ -72,14 +91,20 @@ add_action('wp_enqueue_scripts', 'aegis_theme_styles');
 /**
  * Register Block Pattern Categories.
  *
- * @link https://developer.wordpress.org/reference/functions/register_block_pattern/
+ * This function registers custom block pattern categories to organize block patterns
+ * within the block editor. Categories help users find patterns quickly by grouping them
+ * under meaningful labels.
+ * 
+ * Uses `register_block_pattern_category()` to define new pattern categories.
+ * @link https://developer.wordpress.org/reference/functions/register_block_pattern_category/
+ * Provides custom labels and descriptions for each category to improve the user experience.
  * 
  * @since 1.0.0
  * @return void
  */
 function aegis_register_block_categories() {
 
-        // Registers About Pattern Category
+        // Registers: About Pattern Category
         register_block_pattern_category(
             'about',
             array(
@@ -88,7 +113,7 @@ function aegis_register_block_categories() {
             )
         );
 
-        // Registers Audio Pattern Category
+        // Registers: Audio Pattern Category
         register_block_pattern_category(
             'audio',
             array(
@@ -97,7 +122,7 @@ function aegis_register_block_categories() {
             )
         );
 
-        // Registers Blog Pattern Category
+        // Registers: Blog Pattern Category
         register_block_pattern_category(
             'blog',
             array(
@@ -106,7 +131,7 @@ function aegis_register_block_categories() {
             )
         );
 
-        // Registers eCommerce Pattern Category
+        // Registers: eCommerce Pattern Category
         register_block_pattern_category(
             'ecommerce',
             array(
@@ -115,7 +140,7 @@ function aegis_register_block_categories() {
             )
         );
 
-        // Registers Events Pattern Category
+        // Registers: Events Pattern Category
         register_block_pattern_category(
             'events',
             array(
@@ -124,7 +149,7 @@ function aegis_register_block_categories() {
             )
         );
 
-        // Registers FAQ Pattern Category
+        // Registers: FAQ Pattern Category
         register_block_pattern_category(
             'faq',
             array(
@@ -133,7 +158,7 @@ function aegis_register_block_categories() {
             )
         );
 
-        // Registers Hero Pattern Category
+        // Registers: Hero Pattern Category
         register_block_pattern_category(
             'hero',
             array(
@@ -142,7 +167,7 @@ function aegis_register_block_categories() {
             )
         );
 
-        // Registers Pricing Category
+        // Registers: Pricing Category
         register_block_pattern_category(
             'pricing',
             array(
@@ -151,7 +176,7 @@ function aegis_register_block_categories() {
             )
         );
 
-        // Registers Video Category
+        // Registers: Video Category
         register_block_pattern_category(
             'video',
             array(
@@ -164,19 +189,33 @@ function aegis_register_block_categories() {
 add_action( 'init', 'aegis_register_block_categories' );
 
 /**
- * Register  Custom Block Styles.
+ * Register Custom Block Styles.
  *
- * This function registers custom block patterns using the register_block_pattern() function.
- * These patterns will be available for use in the block editor and can improve the content creation process.
+ * This function registers multiple custom styles for the 'core' blocks to enhance
+ * the visual options available within the block editor. Custom styles allow users to
+ * apply different pre-defined appearances to the button block, providing flexibility
+ * and creativity without additional custom CSS.
  * 
+ * Uses `register_block_style()` to define each style for the 'core' blocks.
  * @link https://developer.wordpress.org/reference/functions/register_block_style/
  *
  * @since 1.0.0
  * @return void
  */
 function aegis_register_block_styles() {
+    
+        /**
+         * Register styles for the Core Button Block.
+         *
+         * This section registers a collection of styles for the 'core/button' block.
+         *
+         * For more details on the Core Button Block, see:
+         * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#button
+         *
+         * @since 1.0.0
+         */
 
-        // Core Button Block: 3D Push Style
+        // Registers: 3D Push Style
         register_block_style(
             'core/button',
             array(
@@ -185,7 +224,7 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Button Block: Bubble Pop Style
+        // Registers: Bubble Pop Style
         register_block_style(
             'core/button',
             array(
@@ -194,7 +233,7 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Button Block: Center Fill Style
+        // Registers: Center Fill Style
         register_block_style(
             'core/button',
             array(
@@ -203,7 +242,7 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Button Block: Color Wipe Style
+        // Registers: Color Wipe Style
         register_block_style(
             'core/button',
             array(
@@ -212,7 +251,7 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Button Block: Dense Shadow Style
+        // Registers: Dense Shadow Style
         register_block_style(
             'core/button',
             array(
@@ -221,7 +260,7 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Button Block: Outline Border Style
+        // Registers: Outline Border Style
         register_block_style(
             'core/button',
             array(
@@ -230,7 +269,7 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Button Block: Outline Shadow Style
+        // Registers: Outline Shadow Style
         register_block_style(
             'core/button',
             array(
@@ -239,16 +278,7 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Button Block: Underline Border Style
-        register_block_style(
-            'core/button',
-            array(
-                'name'  => 'underline-border',
-                'label' => esc_html__( 'Underline Border', 'aegis' ),
-            )
-        );
-
-        // Core Button Block: Soft Fade Style
+        // Registers: Soft Fade Style
         register_block_style(
             'core/button',
             array(
@@ -257,7 +287,7 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Button Block: Split Reveal Style
+        // Registers: Split Reveal Style
         register_block_style(
             'core/button',
             array(
@@ -266,16 +296,27 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Heading Block: Hide Underline Style
+        // Registers: Underline Border Style
         register_block_style(
-            'core/heading',
+            'core/button',
             array(
-                'name'  => 'hide-underline',
-                'label' => esc_html__( 'Hide Underline', 'aegis' ),
+                'name'  => 'underline-border',
+                'label' => esc_html__( 'Underline Border', 'aegis' ),
             )
         );
 
-        // Core Image Block: Color Overlay Style
+        /**
+         * Register styles for the Core Image Block.
+         *
+         * This section registers a collection of styles for the 'core/image' block.
+         *
+         * For more details on the Core Image Block, see:
+         * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#image
+         *
+         * @since 1.0.0
+         */
+
+        // Registers: Color Overlay Style
         register_block_style(
             'core/image',
             array(
@@ -284,7 +325,7 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Image Block: Ease Out Style
+        // Registers: Ease Out Style
         register_block_style(
             'core/image',
             array(
@@ -293,7 +334,7 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Image Block: Fade Scale Style
+        // Registers: Fade Scale Style
         register_block_style(
             'core/image',
             array(
@@ -302,7 +343,7 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Image Block: Flip Hover Style
+        // Registers: Flip Hover Style
         register_block_style(
             'core/image',
             array(
@@ -311,7 +352,7 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Image Block: Grayscale Hover Style
+        // Registers: Grayscale Hover Style
         register_block_style(
             'core/image',
             array(
@@ -320,7 +361,7 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Image Block: Reveal Hover Style
+        // Registers: Reveal Hover Style
         register_block_style(
             'core/image',
             array(
@@ -329,7 +370,7 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Image Block: Rotate Hover Style
+        // Registers: Rotate Hover Style
         register_block_style(
             'core/image',
             array(
@@ -338,7 +379,7 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Image Block: Shine Hover Style
+        // Registers: Shine Hover Style
         register_block_style(
             'core/image',
             array(
@@ -347,7 +388,7 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Image Block: Split Reveal Style
+        // Registers: Split Reveal Style
         register_block_style(
             'core/image',
             array(
@@ -356,7 +397,7 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Image Block: Zoom Hover Style
+        // Registers: Zoom Hover Style
         register_block_style(
             'core/image',
             array(
@@ -365,7 +406,18 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Navigation Block: Mega Menu Style
+        /**
+         * Register style for the Core Navigation Block.
+         *
+         * This section registers a style for the 'core/navigation' block.
+         *
+         * For more details on the Core Navigation Block, see:
+         * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#navigation
+         *
+         * @since 1.0.0
+         */
+
+        // Registers: Mega Menu
         register_block_style(
             'core/navigation-submenu',
             array(
@@ -373,8 +425,19 @@ function aegis_register_block_styles() {
                 'label' => esc_html__( 'Mega Menu', 'aegis' ),
             )
         );
+        
+        /**
+         * Register style for the Core Post Date Block.
+         *
+         * This section registers a style for the 'core/post-date' block.
+         *
+         * For more details on the Core Post Date Block, see:
+         * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#date
+         *
+         * @since 1.0.0
+         */
 
-        // Core Post Date Block: Hide Underline Style
+        // Registers: Hide Underline Style
         register_block_style(
             'core/post-date',
             array(
@@ -383,7 +446,18 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Post Title Block: Hide Underline Style
+        /**
+         * Register style for the Core Post Title Block.
+         *
+         * This section registers a style for the 'core/post-title' block.
+         *
+         * For more details on the Core Post Title Block, see:
+         * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#title
+         *
+         * @since 1.0.0
+         */
+
+        // Registers: Hide Underline Style
         register_block_style(
             'core/post-title',
             array(
@@ -392,16 +466,18 @@ function aegis_register_block_styles() {
             )
         );
 
-        // Core Pullquote Block: Hide Underline Style
-        register_block_style(
-            'core/pullquote',
-            array(
-                'name'  => 'foreground',
-                'label' => esc_html__( 'Foreground', 'aegis' ),
-            )
-        );
+        /**
+         * Register style for the Core Video Block.
+         *
+         * This section registers a style for the 'core/video' block,
+         *
+         * For more details on the Core Video Block, see:
+         * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#video
+         *
+         * @since 1.0.0
+         */
 
-        // Core Video Block: Dark Shadow Style
+        // Register: Dark Shadow Style
         register_block_style(
             'core/video',
             array(
@@ -414,7 +490,7 @@ function aegis_register_block_styles() {
 add_action( 'init', 'aegis_register_block_styles' );
 
 /**
- * Enqueue Custom Core Block Styles.
+ * Enqueue CSS for the Core Block styles.
  *
  * The wp_enqueue_block_style() function allows us to enqueue a stylesheet
  * for a specific block. These will only get loaded when the block is rendered
@@ -426,7 +502,18 @@ add_action( 'init', 'aegis_register_block_styles' );
  */
 function aegis_enqueue_block_styles() {
 
-		// Core Button Block: 3D Push Style
+        /**
+         * Enqueue styles for the Core Button Block.
+         * 
+         * This section enqueues the CSS styles for the 'core/button' block.
+         * 
+         * For more details on the Core Button Block, see:
+         * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#button
+         *
+         * @since 1.0.0
+         */
+
+		// Enqueues: 3D Push Style
 		wp_enqueue_block_style(
 			'core/button',
 			array(
@@ -437,7 +524,7 @@ function aegis_enqueue_block_styles() {
 				)
 			);
 
-		// Core Button Block: Bubble Pop Style
+        // Enqueues: Bubble Pop Style
 		wp_enqueue_block_style(
 			'core/button',
 			array(
@@ -448,7 +535,7 @@ function aegis_enqueue_block_styles() {
 				)
 			);
 
-		// Core Button Block: Center Fill Style
+		// Enqueues: Center Fill Style
 		wp_enqueue_block_style(
 			'core/button',
 			array(
@@ -459,7 +546,7 @@ function aegis_enqueue_block_styles() {
 				)
 			);
 
-		// Core Button Block: Color Wipe Style
+		// Enqueues: Color Wipe Style
 		wp_enqueue_block_style(
 			'core/button',
 			array(
@@ -470,7 +557,7 @@ function aegis_enqueue_block_styles() {
 				)
 			);
 
-		// Core Button Block: Dense Shadow Style
+		// Enqueues: Dense Shadow Style
 		wp_enqueue_block_style(
 			'core/button',
 			array(
@@ -481,7 +568,7 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Button Block: Outline Border Style
+		// Enqueues: Outline Border Style
 		wp_enqueue_block_style(
 			'core/button',
 			array(
@@ -492,7 +579,7 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Button Block: Outline Shadow Style
+		// Enqueues: Outline Shadow Style
 		wp_enqueue_block_style(
 			'core/button',
 			array(
@@ -503,18 +590,7 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Button Block: Soft Fade Style
-		wp_enqueue_block_style(
-			'core/button',
-			array(
-				'handle' => 'aegis-core-button-soft-fade',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-button-soft-fade.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-button-soft-fade.css' ),
-			)
-		);
-
-        // Core Button Block: Split Reveal Style
+        // Enqueues: Split Reveal Style
 		wp_enqueue_block_style(
 			'core/button',
 			array(
@@ -525,7 +601,7 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Button Block: Underline Border Style
+		// Enqueues: Underline Border Style
 		wp_enqueue_block_style(
 			'core/button',
 			array(
@@ -535,8 +611,19 @@ function aegis_enqueue_block_styles() {
 				'path'   => get_parent_theme_file_path( 'assets/css/core-button-underline-border.css' ),
 			)
 		);
-		
-		// Core Details Block: Default Style
+
+        /**
+         * Enqueue style for the Core Details Block.
+         * 
+         * This section enqueues the CSS style for the 'core/details' block.
+         * 
+         * For more details on the Core Details Block, see:
+         * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#details
+         *
+         * @since 1.0.0
+         */
+
+		// Enqueues: Details Style
 		wp_enqueue_block_style(
 			'core/details',
 			array(
@@ -547,7 +634,18 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Heading Block: Hide Underline Style
+        /**
+         * Enqueue style for the Core Heading Block.
+         * 
+         * This section enqueues the CSS style for the 'core/heading' block.
+         * 
+         * For more details on the Core Heading Block, see:
+         * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#heading
+         *
+         * @since 1.0.0
+         */
+
+		// Enqueues: Hide Underline Style
 		wp_enqueue_block_style(
 			'core/heading',
 			array(
@@ -558,7 +656,18 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Image Block: Color Overlay Style
+        /**
+         * Enqueue style for the Core Image Block.
+         * 
+         * This section enqueues the CSS style for the 'core/image' block.
+         * 
+         * For more details on the Core Image Block, see:
+         * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#image
+         *
+         * @since 1.0.0
+         */
+
+		// Enqueues: Color Overlay Style
 		wp_enqueue_block_style(
 			'core/image',
 			array(
@@ -569,7 +678,7 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Image Block: Ease Out Style
+		// Enqueues: Ease Out Style
 		wp_enqueue_block_style(
 			'core/image',
 			array(
@@ -580,7 +689,7 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Image Block: Fade Scale Style
+		// Enqueues: Fade Scale Style
 		wp_enqueue_block_style(
 			'core/image',
 			array(
@@ -591,7 +700,7 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Image Block: Flip Hover Style
+		// Enqueues: Flip Hover Style
 		wp_enqueue_block_style(
 			'core/image',
 			array(
@@ -602,18 +711,7 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Image Block: Flip Hover Style
-		wp_enqueue_block_style(
-			'core/list',
-			array(
-				'handle' => 'aegis-core-list-disc',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-list-block.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-list-block.css' ),
-			)
-		);
-
-		// Core Image Block: Grayscale Hover Style
+		// Enqueues: Grayscale Hover Style
 		wp_enqueue_block_style(
 			'core/image',
 			array(
@@ -624,7 +722,7 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Image Block: Reveal Hover Style
+		// Enqueues: Reveal Hover Style
 		wp_enqueue_block_style(
 			'core/image',
 			array(
@@ -635,18 +733,7 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Image Block: Reveal Hover Style
-		wp_enqueue_block_style(
-			'core/image',
-			array(
-				'handle' => 'aegis-core-image-reveal-hover',
-				'src'    => get_parent_theme_file_uri( 'assets/css/core-image-reveal-hover.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/core-image-reveal-hover.css' ),
-			)
-		);
-
-		// Core Image Block: Rotate Hover Style
+		// Enqueues: Rotate Hover Style
 		wp_enqueue_block_style(
 			'core/image',
 			array(
@@ -657,7 +744,7 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Image Block: Shine Hover Style
+		// Enqueues: Shine Hover Style
 		wp_enqueue_block_style(
 			'core/image',
 			array(
@@ -668,7 +755,7 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Image Block: Split Reveal Style
+		// Enqueues: Split Reveal Style
 		wp_enqueue_block_style(
 			'core/image',
 			array(
@@ -679,7 +766,7 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Image Block: Zoom Hover Style
+		// Enqueues: Zoom Hover Style
 		wp_enqueue_block_style(
 			'core/image',
 			array(
@@ -690,7 +777,40 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Navigation Block: Navigation Style
+        /**
+         * Enqueue style for the Core List Block.
+         * 
+         * This section enqueues the CSS style for the 'core/list' block.
+         * 
+         * For more details on the Core List Block, see:
+         * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#list
+         *
+         * @since 1.0.0
+         */
+
+		// Enqueues: Flip Hover Style
+		wp_enqueue_block_style(
+			'core/list',
+			array(
+				'handle' => 'aegis-core-list-disc',
+				'src'    => get_parent_theme_file_uri( 'assets/css/core-list-block.css' ),
+				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/core-list-block.css' ),
+			)
+		);
+
+        /**
+         * Enqueue styles for the Core Navigation Block.
+         * 
+         * This section enqueues the CSS styles for the 'core/navigation' block.
+         * 
+         * For more details on the Core Navigation Block, see:
+         * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#navigation
+         *
+         * @since 1.0.0
+         */
+
+		// Enqueues: Navigation Style
 		wp_enqueue_block_style(
 			'core/navigation',
 			array(
@@ -701,7 +821,7 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Navigation Submenu Block: Mega Menu Style
+		// Enqueues: Navigation Mega Menu Style
 		wp_enqueue_block_style(
 			'core/navigation-submenu',
 			array(
@@ -712,7 +832,18 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Post Date Block: Hide Underline Style
+        /**
+         * Enqueue style for the Core Post Date Block.
+         * 
+         * This section enqueues the CSS style for the 'core/post-date' block.
+         * 
+         * For more details on the Core Post Date Block, see:
+         * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#date
+         *
+         * @since 1.0.0
+         */
+
+		// Enqueues: Hide Underline Style
 		wp_enqueue_block_style(
 			'core/post-date',
 			array(
@@ -723,7 +854,18 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Post Title Block: Hide Underline Style
+        /**
+         * Enqueue style for the Core Post Title Block.
+         * 
+         * This section enqueues the CSS style for the 'core/post-title' block.
+         * 
+         * For more details on the Core Post Title Block, see:
+         * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#title
+         *
+         * @since 1.0.0
+         */
+
+		// Enqueues: Hide Underline Style
 		wp_enqueue_block_style(
 			'core/post-title',
 			array(
@@ -734,7 +876,18 @@ function aegis_enqueue_block_styles() {
 			)
 		);
 
-		// Core Video Block: Dark Shadow Style
+        /**
+         * Enqueue style for the Core Video Block.
+         * 
+         * This section enqueues the CSS style for the 'core/video' block.
+         * 
+         * For more details on the Core Video Block, see:
+         * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#video
+         *
+         * @since 1.0.0
+         */
+
+		// Enqueues: Dark Shadow Style
 		wp_enqueue_block_style(
 			'core/video',
 			array(
