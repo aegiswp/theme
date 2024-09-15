@@ -1,6 +1,6 @@
 # Aegis
 
-Welcome to the Aegis Theme development repository.
+Welcome to the Aegis WordPress Block Theme development repository.
 
 ![Aegis](https://github.com/atmostfear-entertainment/aegis/assets/34287288/efac838a-af27-4781-bca2-277156026770)
 
@@ -9,7 +9,6 @@ Welcome to the Aegis Theme development repository.
 - [Introduction](#introduction)
   - [What is Full Site Editing (FSE)?](#what-is-full-site-editing-fse)
   - [Unique Benefits of Aegis](#unique-benefits-of-aegis)
-- [Description](#description)
 - [Working with Block Themes](#working-with-block-themes)
   - [Site Editor](#site-editor)
   - [Patterns](#patterns)
@@ -44,7 +43,6 @@ Welcome to the Aegis Theme development repository.
   - [Version Control](#version-control)
   - [Pull Requests and Reviews](#pull-requests-and-reviews)
   - [Final Checks](#final-checks)
-- [Development](#development)
 - [Experimenting](#experimenting)
 - [Resources](#resources)
 - [Demos](#demos)
@@ -80,14 +78,6 @@ Aegis is designed to offer a range of benefits for both developers and end-users
 * **Future-Proof Design:** Regular updates ensure compatibility with the latest WordPress developments, keeping your website up-to-date with new features and improvements.
 
 Whether you are building a simple blog, a portfolio site, or a complex e-commerce platform, Aegis provides the tools and flexibility needed to create beautiful, functional, and scalable websites with ease.
-
-## Description
-
-Aegis epitomizes a perfect balance between performance and aesthetics. Utilizing the prowess of Vanilla JavaScript, it ensures a lightweight and powerful foundation. The integration of Flexbox Grid means the theme is entirely responsive, flexible, and easy to extend, always prioritizing quality.
-
-Upholding the highest coding standards, Aegis is the ultimate choice for creating scalable websites, from intimate personal blogs to professional portfolios and expansive business sites.
-
-Designed for expansive compatibility, Aegis effortlessly supports multisite configurations and is primed for WooCommerce, search engine optimization, and learning management system functionalities. Every detail of this theme has been meticulously designed, emphasizing performance, accessibility, and user experience. Built to endure, Aegis is a theme destined to remain relevant and efficient through the ages.
 
 ## Working with Block Themes
 
@@ -528,17 +518,6 @@ Before contributing, please read the contributors' [Code of Conduct](https://git
 If after reading you still wish to contribute with code, the list of [open issues](https://github.com/atmostfear-entertainment/aegis/issues) is a superb place to start scrutinising for tasks. However, [pull requests](https://github.com/atmostfear-entertainment/aegis/pulls) are preferred when linked to an existing issue.
 
 Be advised that contributing is not just for developers. We welcome anyone willing to contribute with code, [testing](#getting-started), triage, discussion, designing while building patterns and templates, making Aegis more accessible, etcetera. So please, feel free to look through [open issues](https://github.com/atmostfear-entertainment/aegis/issues), and join wherever you feel most comfortable.
-
-
-## Development
-  
-Aegis aims to load fewer assets as much as possible. With a very performant approach, it relies on the [Block Editor](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/) and [Global Styles](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/) to provide you with the grand part of the visuals, and will progressively move toward a more Full Site Editing experience.
-
-We strongly advise refraining from building any custom-built PHP or JavaScript-based workarounds for functionality that either Aegis or the [Block Editor](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/) might provide. Aegis is the first of its kind, hybrid, minimalistic, lightweight, performant and aimed at individuals with color vision deficiency. So please, let us keep its code as simple as possible.
-
-According to those last two points, Aegis has no unnecessary build process.
-
-If you have [contributed](CONTRIBUTORS.md) to Aegis, due credit will be given. we will be updating [CONTRIBUTORS.md](CONTRIBUTORS.md) periodically with the names of contributors; however, feel free to open a [pull request](https://github.com/atmostfear-entertainment/aegis/pulls) or [issue](https://github.com/atmostfear-entertainment/aegis/issues) if we somehow omitted someone.
 
 
 ## Experimenting
