@@ -32,7 +32,7 @@
 function aegis_theme_support() {
 
     // Enqueue Editor styles.
-    // Adds a stylesheet for the block editor to match the theme's front-end styles.
+    // Adds a stylesheet for the block editor to match the theme's frontend styles.
     add_editor_style('style.css');
 
     // Enable support for custom units.
@@ -62,7 +62,7 @@ add_action('after_setup_theme', 'aegis_theme_support');
  * Enqueue theme styles and scripts.
  *
  * This function enqueues the main stylesheet and JavaScript files required for the theme.
- * - Enqueues the main stylesheet (`style.css`) to ensure that it is loaded on the front end.
+ * - Enqueues the main stylesheet (`style.css`) to ensure that it is loaded on the frontend.
  *   @link https://developer.wordpress.org/reference/functions/wp_enqueue_style/
  * - Enqueues the global JavaScript file (`index.js`) and additional scripts, ensuring they are loaded in the correct order and position.
  *   @link https://developer.wordpress.org/reference/functions/wp_enqueue_script/
@@ -74,15 +74,15 @@ add_action('after_setup_theme', 'aegis_theme_support');
 function aegis_theme_styles() {
 
 	// Enqueue the main stylesheet for the theme.
-	// This function adds the main stylesheet (style.css) to the theme, ensuring it is loaded on the front-end.
+	// This function adds the main stylesheet (`style.css`) to the theme, ensuring it is loaded on the frontend.
 	wp_enqueue_style('aegis-global-style', get_template_directory_uri() . '/style.css', array(), wp_get_theme()->get('Version'));
 
 	// Enqueue the global script.
-	// This function adds the global JavaScript file (index.js) to the theme, ensuring it is loaded on the front-end.
+	// This function adds the global JavaScript file (`index.js`) to the theme, ensuring it is loaded on the frontend.
 	wp_enqueue_script('aegis-global-script', get_template_directory_uri() . '/assets/js/index.js', array(), wp_get_theme()->get('Version'), true);
 
 	// Enqueue the animations script.
-	// This function adds the animations JavaScript file (animations.js) to the theme, ensuring it is loaded on the front-end.
+	// This function adds the animations JavaScript file (`animations.js`) to the theme, ensuring it is loaded on the frontend.
 	wp_enqueue_script('aegis-animations-script', get_template_directory_uri() . '/assets/js/animations.js', array(), wp_get_theme()->get('Version'), true);
 }
 
@@ -94,11 +94,11 @@ add_action('wp_enqueue_scripts', 'aegis_theme_styles');
  * This function registers custom block pattern categories to organize block patterns
  * within the block editor. Categories help users find patterns quickly by grouping them
  * under meaningful labels.
- * 
+ *
  * Uses `register_block_pattern_category()` to define new pattern categories.
  * @link https://developer.wordpress.org/reference/functions/register_block_pattern_category/
  * Provides custom labels and descriptions for each category to improve the user experience.
- * 
+ *
  * @since 1.0.0
  * @return void
  */
@@ -191,23 +191,23 @@ add_action( 'init', 'aegis_register_block_categories' );
 /**
  * Register Custom Block Styles.
  *
- * This function registers multiple custom styles for the 'core' blocks to enhance
+ * This function registers multiple custom styles for the `core blocks` to enhance
  * the visual options available within the block editor. Custom styles allow users to
  * apply different pre-defined appearances to the button block, providing flexibility
  * and creativity without additional custom CSS.
- * 
- * Uses `register_block_style()` to define each style for the 'core' blocks.
+ *
+ * Uses `register_block_style()` to define each style for the `core blocks`.
  * @link https://developer.wordpress.org/reference/functions/register_block_style/
  *
  * @since 1.0.0
  * @return void
  */
 function aegis_register_block_styles() {
-    
+
         /**
          * Register styles for the Core Button Block.
          *
-         * This section registers a collection of styles for the 'core/button' block.
+         * This section registers a collection of styles for the `core/button` block.
          *
          * For more details on the Core Button Block, see:
          * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#button
@@ -308,7 +308,7 @@ function aegis_register_block_styles() {
         /**
          * Register styles for the Core Image Block.
          *
-         * This section registers a collection of styles for the 'core/image' block.
+         * This section registers a collection of styles for the `core/image` block.
          *
          * For more details on the Core Image Block, see:
          * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#image
@@ -409,7 +409,7 @@ function aegis_register_block_styles() {
         /**
          * Register style for the Core Navigation Block.
          *
-         * This section registers a style for the 'core/navigation' block.
+         * This section registers a style for the `core/navigation` block.
          *
          * For more details on the Core Navigation Block, see:
          * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#navigation
@@ -425,11 +425,11 @@ function aegis_register_block_styles() {
                 'label' => esc_html__( 'Mega Menu', 'aegis' ),
             )
         );
-        
+
         /**
          * Register style for the Core Post Date Block.
          *
-         * This section registers a style for the 'core/post-date' block.
+         * This section registers a style for the `core/post-date` block.
          *
          * For more details on the Core Post Date Block, see:
          * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#date
@@ -449,7 +449,7 @@ function aegis_register_block_styles() {
         /**
          * Register style for the Core Post Title Block.
          *
-         * This section registers a style for the 'core/post-title' block.
+         * This section registers a style for the `core/post-title` block.
          *
          * For more details on the Core Post Title Block, see:
          * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#title
@@ -469,7 +469,7 @@ function aegis_register_block_styles() {
         /**
          * Register style for the Core Video Block.
          *
-         * This section registers a style for the 'core/video' block,
+         * This section registers a style for the `core/video` block,
          *
          * For more details on the Core Video Block, see:
          * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#video
@@ -492,7 +492,7 @@ add_action( 'init', 'aegis_register_block_styles' );
 /**
  * Enqueue CSS for the Core Block styles.
  *
- * The wp_enqueue_block_style() function allows us to enqueue a stylesheet
+ * The `wp_enqueue_block_style()` function allows us to enqueue a stylesheet
  * for a specific block. These will only get loaded when the block is rendered
  * (both in the editor and on the front end), improving performance
  * and reducing the amount of data requested by visitors.
@@ -504,9 +504,9 @@ function aegis_enqueue_block_styles() {
 
         /**
          * Enqueue styles for the Core Button Block.
-         * 
-         * This section enqueues the CSS styles for the 'core/button' block.
-         * 
+         *
+         * This section enqueues the CSS styles for the `core/button` block.
+         *
          * For more details on the Core Button Block, see:
          * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#button
          *
@@ -614,9 +614,9 @@ function aegis_enqueue_block_styles() {
 
         /**
          * Enqueue style for the Core Details Block.
-         * 
-         * This section enqueues the CSS style for the 'core/details' block.
-         * 
+         *
+         * This section enqueues the CSS style for the `core/details` block.
+         *
          * For more details on the Core Details Block, see:
          * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#details
          *
@@ -636,9 +636,9 @@ function aegis_enqueue_block_styles() {
 
         /**
          * Enqueue style for the Core Heading Block.
-         * 
-         * This section enqueues the CSS style for the 'core/heading' block.
-         * 
+         *
+         * This section enqueues the CSS style for the `core/heading` block.
+         *
          * For more details on the Core Heading Block, see:
          * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#heading
          *
@@ -658,9 +658,9 @@ function aegis_enqueue_block_styles() {
 
         /**
          * Enqueue style for the Core Image Block.
-         * 
-         * This section enqueues the CSS style for the 'core/image' block.
-         * 
+         *
+         * This section enqueues the CSS style for the `core/image` block.
+         *
          * For more details on the Core Image Block, see:
          * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#image
          *
@@ -779,9 +779,9 @@ function aegis_enqueue_block_styles() {
 
         /**
          * Enqueue style for the Core List Block.
-         * 
-         * This section enqueues the CSS style for the 'core/list' block.
-         * 
+         *
+         * This section enqueues the CSS style for the `core/list` block.
+         *
          * For more details on the Core List Block, see:
          * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#list
          *
@@ -801,9 +801,9 @@ function aegis_enqueue_block_styles() {
 
         /**
          * Enqueue styles for the Core Navigation Block.
-         * 
-         * This section enqueues the CSS styles for the 'core/navigation' block.
-         * 
+         *
+         * This section enqueues the CSS styles for the `core/navigation` block.
+         *
          * For more details on the Core Navigation Block, see:
          * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#navigation
          *
@@ -834,9 +834,9 @@ function aegis_enqueue_block_styles() {
 
         /**
          * Enqueue style for the Core Post Date Block.
-         * 
-         * This section enqueues the CSS style for the 'core/post-date' block.
-         * 
+         *
+         * This section enqueues the CSS style for the `core/post-date` block.
+         *
          * For more details on the Core Post Date Block, see:
          * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#date
          *
@@ -856,9 +856,9 @@ function aegis_enqueue_block_styles() {
 
         /**
          * Enqueue style for the Core Post Title Block.
-         * 
-         * This section enqueues the CSS style for the 'core/post-title' block.
-         * 
+         *
+         * This section enqueues the CSS style for the `core/post-title` block.
+         *
          * For more details on the Core Post Title Block, see:
          * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#title
          *
@@ -878,9 +878,9 @@ function aegis_enqueue_block_styles() {
 
         /**
          * Enqueue style for the Core Video Block.
-         * 
-         * This section enqueues the CSS style for the 'core/video' block.
-         * 
+         *
+         * This section enqueues the CSS style for the `core/video` block.
+         *
          * For more details on the Core Video Block, see:
          * @link https://developer.wordpress.org/block-editor/reference-guides/core-blocks/#video
          *
@@ -900,6 +900,44 @@ function aegis_enqueue_block_styles() {
 	}
 
 add_action('init', 'aegis_enqueue_block_styles');
+
+/**
+ * Enqueue theme styles and scripts.
+ *
+ * @since 1.0.0
+ * @return void
+ */
+function aegis_enqueue_assets() {
+    // Get the current theme version to use for cache-busting.
+    $theme_version = wp_get_theme()->get('Version');
+    // Define the path to the 'build' directory where compiled assets are stored.
+    $build_path = get_template_directory_uri() . '/build/';
+
+    // Enqueue the main stylesheet for the theme.
+    wp_enqueue_style('aegis-style', get_template_directory_uri() . '/style.css', array(), $theme_version);
+
+    // Enqueue the main script for the block editor, ensuring it loads in the editor context.
+    wp_enqueue_script(
+        'aegis-editor',
+        $build_path . 'editor.js',
+        array('wp-blocks', 'wp-element', 'wp-editor'), // Dependencies needed for the script to run.
+        filemtime(get_template_directory() . '/build/editor.js'), // Cache-busting versioning using file modification time.
+        true // Load the script in the footer.
+    );
+
+    // Enqueue additional public scripts that do not depend on jQuery.
+    $scripts = ['animation', 'counter', 'details', 'packery', 'scroll'];
+    foreach ($scripts as $script) {
+        wp_enqueue_script(
+            "aegis-{$script}",
+            $build_path . "{$script}.js",
+            array(), // No dependencies.
+            filemtime(get_template_directory() . "/build/{$script}.js"), // Cache-busting versioning using file modification time.
+            true // Load the script in the footer.
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'aegis_enqueue_assets');
 
 /**
  * Query whether WooCommerce is activated.
@@ -943,5 +981,3 @@ function aegis_include_woocommerce_support() {
         }
     }
 }
-
-add_action( 'after_setup_theme', 'aegis_include_woocommerce_support' );

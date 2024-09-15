@@ -1,0 +1,30 @@
+name: Integration Testing
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  phpunit_tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['7.4', '8.0', '8.1']
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mbstring, xml, dom
+
+      - name: Install PHP Dependencies
+        run: composer install --no-interaction --no-progress
+
+      - name: Run PHPUnit
+        run: vendor/bin/phpunit --configuration phpunit.xml

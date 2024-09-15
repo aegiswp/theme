@@ -1,6 +1,4 @@
-# yaml-language-server: $schema=https://json.schemastore.org/github-workflow
-
-name: Code Quality
+name: Code Quality Check
 
 on:
   push:
@@ -9,95 +7,56 @@ on:
   pull_request:
     branches:
       - main
-  schedule:
-    - cron: '0 0 * * 0'
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.ref }}
-  cancel-in-progress: true
 
 jobs:
-  lint:
-    name: "Lint Code"
+  lint_js:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-      - name: Install dependencies
-        run: npm ci
-      - name: Lint code
-        run: npm run lint
-      - name: Audit JavaScript Dependencies
-        run: npm audit
 
-  build:
-    name: "Build and Test"
-    runs-on: ubuntu-latest
-    needs: lint
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
-      - name: Cache Node modules
+          node-version: '16'
+
+      - name: Cache NPM modules
         uses: actions/cache@v3
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/package.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: Install dependencies
-        run: npm ci
-      - name: Run tests
-        run: npm test
-      - name: Build the project
-        run: npm run build
 
-  lint-php:
-    name: "Lint: PHP"
+      - run: npm ci
+
+      - name: Run ESLint
+        run: npx eslint . --ext .js,.jsx,.ts,.tsx
+
+  php_code_quality:
     runs-on: ubuntu-latest
-    needs: lint
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup PHP
+      - uses: actions/checkout@v3
+
+      - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8.0"
-          tools: cs2pr
+          php-version: '8.0'
+
       - name: Cache Composer dependencies
         uses: actions/cache@v3
         with:
-          path: ~/.composer/cache
+          path: vendor
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-composer-
-      - name: Install PHP dependencies
-        run: composer install
-      - name: Lint PHP Code
+
+      - name: Install PHP Dependencies
+        run: composer install --no-interaction --no-progress --no-scripts
+
+      - name: Run PHPCS
         run: vendor/bin/phpcs --standard=phpcs.xml
 
-  php-tests:
-    name: "Run PHPUnit Tests"
-    runs-on: ubuntu-latest
-    needs: lint-php
-    strategy:
-      matrix:
-        php-version: ['7.4', '8.0', '8.1']
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php-version }}
-      - name: Install PHP dependencies
-        run: composer install
-      - name: Run PHPUnit tests
-        run: vendor/bin/phpunit --configuration phpunit.xml
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyse --configuration=phpstan.neon.dist

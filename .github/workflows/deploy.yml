@@ -1,0 +1,30 @@
+name: Deploy Theme
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - run: npm ci
+
+    - name: Build Assets
+      run: npm run build
+
+    - name: Deploy to Server
+      env:
+        DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+      run: |
+        ssh -i $DEPLOY_KEY user@yourserver.com "mkdir -p /path/to/deploy"
+        scp -i $DEPLOY_KEY -r . user@yourserver.com:/path/to/deploy

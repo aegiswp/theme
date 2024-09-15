@@ -9,14 +9,15 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "outDir": "assets/js",
+    "outDir": "build", // Align with Webpack's output
     "rootDir": "src",
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
       "@utils/*": ["src/utility/*"]
-    }
+    },
+    "skipLibCheck": true // Optional: Speed up builds
   },
   "include": ["src"],
-  "exclude": ["assets/js", "build", "node_modules", "vendor"]
+  "exclude": ["build", "node_modules", "vendor"]
 }
