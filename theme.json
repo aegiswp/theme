@@ -1,6 +1,8 @@
 {
   "$schema": "https://schemas.wp.org/wp/6.6/theme.json",
   "version": 3,
+  "title": "Light Mode",
+  "description": "Default light mode palette",
   "settings": {
     "appearanceTools": true,
     "border": {
@@ -3206,14 +3208,14 @@
     {
       "title": "Blank",
       "name": "blank",
-      "postTypes": ["page","post"]
+      "postTypes": ["page", "post"]
     },
     {
-      "title": "Cart",
+      "title": "Shop Cart",
       "name": "cart"
     },
     {
-      "title": "Checkout",
+      "title": "Shop Checkout",
       "name": "checkout"
     },
     {
@@ -3222,14 +3224,14 @@
       "postTypes": ["page"]
     },
     {
-      "title": "Full Width",
+      "title": "Full Width Page",
       "name": "full-width",
-      "postTypes": ["page","post"]
+      "postTypes": ["page", "post"]
     },
     {
       "title": "Page No Title",
       "name": "page-no-title",
-      "postTypes": ["page","post"]
+      "postTypes": ["page", "post"]
     },
     {
       "title": "Single item: Product",
@@ -3246,10 +3248,6 @@
     {
       "title": "Taxonomy Product Category",
       "name": "taxonomy-product_cat"
-    },
-    {
-      "title": "Product Catalog",
-      "name": "archive-product"
     },
     {
       "title": "Search: Product",
