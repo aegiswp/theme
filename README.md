@@ -28,13 +28,14 @@ Welcome to the Aegis WordPress Block Theme development repository.
   - [Requirements](#requirements)
 - [Deploying WordPress Locally](#deploying-wordpress-locally)
   - [Development Environment Commands](#development-environment-commands)
-  - [How to start the development environment for the first time](#how-to-start-the-development-environment-for-the-first-time)
-  - [How to watch for changes](#how-to-watch-for-changes)
-  - [How to run a WP-CLI command](#how-to-run-a-wp-cli-command)
-  - [How to run the tests](#how-to-run-the-tests)
+  - [Starting the Development Environment](#starting-the-development-environment)
+  - [Stopping and Restarting the Development Environment](#stopping-and-restarting-the-development-environment)
+  - [Watching for Changes](#watching-for-changes)
+  - [Running WP-CLI Commands](#running-wp-cli-commands)
+  - [Running Tests](#running-tests)
+  - [Additional Commands](#additional-commands)
+  - [Credentials](#credentials)
   - [To restart the development environment](#how-to-restart-the-development-environment)
-  - [How to stop the development environment](#how-to-stop-the-development-environment)
-  - [How to start the development environment again](#how-to-start-the-development-environment-again)
   - [Credentials](#credentials)
 - [Contributing](#contributing)
   - [Communication and Collaboration](#communication-and-collaboration)
@@ -362,109 +363,130 @@ You will also need [Docker](https://www.docker.com/products/docker-desktop) inst
 
 ### Development Environment Commands
 
-Ensure [Docker](https://www.docker.com/products/docker-desktop) is running before using these commands.
+To work effectively with the Aegis theme, you need a properly configured development environment. The following commands will help you set up, manage, and maintain your local WordPress environment for Aegis development.
 
 
-#### How to start the development environment for the first time
+#### Starting the Development Environment
 
-Start by cloning the current repository using `git clone https://github.com/WordPress/wordpress-develop.git`.
+Before you begin, ensure that Docker is running on your machine.
 
-Then in your terminal move to the repository folder `cd wordpress-develop` and run the following commands:
+1. **Clone the Repository:**
+
+```
+git clone https://github.com/atmostfear-entertainment/aegis.git
+cd aegis
+```
+
+2. **Install Dependencies:**
+
+Install the required Node.js and Composer dependencies:
 
 ```
 npm install
+composer install
+```
+
+3. **Build the Environment:**
+
+Build the development environment:
+
+```
 npm run build:dev
+```
+
+4. **Start the Environment:**
+
+Start the development environment using Docker:
+
+```
 npm run env:start
 npm run env:install
 ```
 
-Your WordPress site will accessible at http://localhost:8889. You can see or change configurations in the `.env` file located at the root of the project directory.
+Your local WordPress site will be accessible at [https://localhost:8889](https://localhost:8889)
 
+#### Stopping and Restarting the Development Environment
 
-#### To watch for changes
-
-If you are making changes to Aegis core files, you should start the file watcher in order to build or copy the files as necessary:
-
-```
-npm run dev
-```
-
-To stop the file watcher, please press `ctrl+c`.
-
-
-#### To run a [WP-CLI](https://make.wordpress.org/cli/handbook/) command
-
-```
-npm run env:cli <command>
-```
-
-WP-CLI has a plenty of [useful commands](https://developer.wordpress.org/cli/commands/) you can use to work on your Aegis site.
-
-Where the documentation mentions running `wp`, run `npm run env:cli` instead. For example:
-
-```
-npm run env:cli help
-```
-
-
-#### How to run the tests
-
-These commands run the PHP and end-to-end test suites, respectively:
-
-```
-npm run test:php
-npm run test:e2e
-```
-
-
-#### How to restart the development environment
-
-You may want to restart the environment if you have made changes to the configuration in the `docker-compose.yml` or `.env` files.
-
-You can restart the environment with:
-
-```
-npm run env:restart
-```
-
-
-#### How to stop the development environment
-
-You can stop the environment when you are not using it to preserve your computer's power and resources:
+* **Stop the Environment:** To stop the development environment and free up system resources:
 
 ```
 npm run env:stop
 ```
 
-
-#### How to start the development environment again
-
-Starting the environment again is a single command:
+* **Restart the Environment:** To restart the environment, use:
 
 ```
-npm run env:start
+npm run env:restart
 ```
 
+#### Watching for Changes
 
-## Credentials
+If you are actively developing and want to watch for changes in the codebase, use the following command to start a file watcher:
 
-These are the default environment credentials:
+```
+npm run dev
+```
 
-* Database Name: `wordpress_develop`
-* Username: `root`
-* Password: `password`
+To stop the file watcher, press `Ctrl + C.`
 
-To login to the site, navigate to http://localhost:8889/wp-admin.
 
-* Username: `admin`
-* Password: `password`
+#### Running WP-CLI Commands
 
-To generate a new password (recommended):
+To run WP-CLI commands within your development environment:
 
-1. Go to the Dashboard.
-2. Click the Users menu on the left.
-3. Click the Edit link below the admin user.
-4. Scroll down and click 'Generate password'. Either use this password (recommended) or change it, then click 'Update User'. If you use the generated password be sure to save it somewhere (password manager, etcetera).
+```
+npm run env:cli <command>
+```
+
+Replace `<command>` with the desired WP-CLI command. For example, to check the available WP-CLI commands:
+
+```
+npm run env:cli help
+```
+
+#### Running Tests
+
+To run PHP and end-to-end tests for the Aegis theme, use the following commands:
+
+* **PHP Tests:**
+
+```
+npm run test:php
+```
+
+* **End-to-End Tests:**
+
+```
+npm run test:e2e
+```
+
+#### Additional Commands
+
+* **Rebuild the Environment:** If you make changes to environment configuration files (like `docker-compose.yml` or `.env`), rebuild the environment with:
+
+```
+npm run env:restart
+```
+
+* **Update Dependencies:** To update dependencies for both `Node.js` and `Composer,` run:
+
+```
+npm update
+composer update
+```
+
+#### Credentials
+
+These are the default credentials for the development environment:
+
+* **Database Name:** `wordpress_develop`
+* **Username:** `root`
+* **Password:** `password`
+
+To access the local WordPress admin dashboard, navigate to [https://localhost:8889/wp-admin](https://localhost:8889/wp-admin).
+
+* **Admin Username:** `admin`
+* **Password:** `password`
 
 
 ## Contributing
