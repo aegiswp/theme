@@ -1,4 +1,4 @@
-name: Accessibility Issue
+name: Accessibility Report
 description: Report an accessibility issue related to the Aegis WordPress Block Theme.
 labels: ['[Type] Accessibility', 'triage']
 assignees: atmostfear-entertainment
