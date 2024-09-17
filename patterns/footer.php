@@ -16,8 +16,8 @@
 
 <!-- wp:group {"tagName":"footer","metadata":{"name":"<?php echo esc_html_x('01. Footer Pattern', 'Name of the pattern', 'aegis'); ?>"},"align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"default"}} -->
 <footer class="wp-block-group alignfull" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","right":"var:preset|spacing|30","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}},"border":{"top":{"color":"var:preset|color|secondary","width":"1px"},"bottom":{"color":"var:preset|color|secondary","width":"1px"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull" style="border-top-color:var(--wp--preset--color--secondary);border-top-width:1px;border-bottom-color:var(--wp--preset--color--secondary);border-bottom-width:1px;margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","right":"var:preset|spacing|30","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}},"border":{"top":{"color":"var:preset|color|tertiary","width":"1px"},"bottom":{"color":"var:preset|color|tertiary","width":"1px"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull" style="border-top-color:var(--wp--preset--color--tertiary);border-top-width:1px;border-bottom-color:var(--wp--preset--color--tertiary);border-bottom-width:1px;margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 		<!-- wp:columns {"align":"wide"} -->
 		<div class="wp-block-columns alignwide">
 			<!-- wp:column {"width":""} -->
@@ -140,13 +140,13 @@
 	<div class="wp-block-group alignfull" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:var(--wp--preset--spacing--30);padding-bottom:0;padding-left:var(--wp--preset--spacing--30)">
 		<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
 		<div class="wp-block-group alignfull" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
-			<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"0","right":"var:preset|spacing|30","left":"var:preset|spacing|30"},"blockGap":"0","margin":{"top":"0","bottom":"0"}}},"textColor":"foreground","gradient":"vertical-background-to-secondary","className":"footer is-style-default","layout":{"type":"default"}} -->
-			<div class="wp-block-group alignwide footer is-style-default has-foreground-color has-vertical-background-to-secondary-gradient-background has-text-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:0;padding-left:var(--wp--preset--spacing--30)">
+			<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"0","right":"var:preset|spacing|30","left":"var:preset|spacing|30"},"blockGap":"0","margin":{"top":"0","bottom":"0"}}},"textColor":"foreground","gradient":"vertical-background-to-tertiary","className":"footer is-style-default","layout":{"type":"default"}} -->
+			<div class="wp-block-group alignwide footer is-style-default has-foreground-color has-vertical-background-to-tertiary-gradient-background has-text-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:0;padding-left:var(--wp--preset--spacing--30)">
 				<!-- wp:columns {"align":"wide","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"blockGap":{"top":"0"},"padding":{"top":"var:preset|spacing|50","bottom":"0"}}}} -->
 				<div class="wp-block-columns alignwide" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-bottom:0">
 					<!-- wp:column {"width":"20%","style":{"spacing":{"blockGap":"0","padding":{"top":"0","bottom":"var:preset|spacing|30"}}}} -->
 					<div class="wp-block-column" style="padding-top:0;padding-bottom:var(--wp--preset--spacing--30);flex-basis:20%">
-						<!-- wp:site-title {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}},"typography":{"lineHeight":"1"}},"textColor":"intrace-primary"} /-->
+						<!-- wp:site-logo {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} /-->
 
 						<!-- wp:paragraph {"textColor":"intrace-body-text","fontSize":"small"} -->
 						<p class="has-intrace-body-text-color has-text-color has-small-font-size"><?php echo esc_html_e('[Paragraph (95 characters): Briefly describe the mission, vision, or unique selling proposition.]', 'aegis'); ?></p>
@@ -202,8 +202,8 @@
 					</div>
 					<!-- /wp:column -->
 
-					<!-- wp:column {"verticalAlignment":"top","width":"40%","style":{"spacing":{"padding":{"left":"var:preset|spacing|30","top":"0","right":"0","bottom":"var:preset|spacing|30"},"blockGap":"0"}},"className":"is-hidden-on-mobile"} -->
-					<div class="wp-block-column is-vertically-aligned-top is-hidden-on-mobile" style="padding-top:0;padding-right:0;padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30);flex-basis:40%">
+					<!-- wp:column {"verticalAlignment":"top","width":"40%","style":{"spacing":{"padding":{"left":"var:preset|spacing|30","top":"0","right":"0","bottom":"var:preset|spacing|30"},"blockGap":"0"}},"className":"is-style-hide-mobile"} -->
+					<div class="wp-block-column is-vertically-aligned-top is-style-hide-mobile" style="padding-top:0;padding-right:0;padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30);flex-basis:40%">
 						<!-- wp:heading {"level":4,"style":{"spacing":{"margin":{"bottom":"20px"}}}} -->
 						<h4 class="wp-block-heading" style="margin-bottom:20px"><?php echo esc_html_e('[Title (21 characters): Section focus.]', 'aegis'); ?></h4>
 						<!-- /wp:heading -->
@@ -217,8 +217,8 @@
 							style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30)">
 							<!-- wp:buttons {"layout":{"type":"flex","flexWrap":"wrap"},"style":{"spacing":{"blockGap":"0"}}} -->
 							<div class="wp-block-buttons">
-								<!-- wp:button {"className":"is-style-aegis-button-shadow"} -->
-								<div class="wp-block-button is-style-aegis-button-shadow"><a class="wp-block-button__link wp-element-button"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a></div>
+								<!-- wp:button {"className":"is-style-dense-shadow"} -->
+								<div class="wp-block-button is-style-dense-shadow"><a class="wp-block-button__link wp-element-button"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a></div>
 								<!-- /wp:button -->
 							</div>
 							<!-- /wp:buttons -->
@@ -229,8 +229,8 @@
 				</div>
 				<!-- /wp:columns -->
 
-				<!-- wp:separator {"backgroundColor":"secondary","className":"is-style-wide"} -->
-				<hr class="wp-block-separator has-text-color has-secondary-color has-alpha-channel-opacity has-secondary-background-color has-background is-style-wide" />
+				<!-- wp:separator {"backgroundColor":"tertiary","className":"is-style-wide"} -->
+				<hr class="wp-block-separator has-text-color has-tertiary-color has-alpha-channel-opacity has-tertiary-background-color has-background is-style-wide" />
 				<!-- /wp:separator -->
 
 				<!-- wp:columns {"verticalAlignment":"center","isStackedOnMobile":false,"style":{"spacing":{"blockGap":{"top":"0"},"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}}} -->
