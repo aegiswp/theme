@@ -14,8 +14,8 @@
  */
 ?>
 
-<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"gradient":"vertical-secondary-to-background","layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('03. Gallery Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
-    <div class="wp-block-group has-vertical-secondary-to-background-gradient-background has-background"
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"gradient":"vertical-tertiary-to-background","layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('03. Gallery Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
+    <div class="wp-block-group has-vertical-tertiary-to-background-gradient-background has-background"
     style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
     <!-- wp:columns {"verticalAlignment":"top","align":"wide","style":{"spacing":{"blockGap":{"top":"0"},"padding":{"top":"0","bottom":"0"}}}} -->
     <div class="wp-block-columns alignwide are-vertically-aligned-top" style="padding-top:0;padding-bottom:0">
@@ -66,7 +66,7 @@
                 <!-- wp:column {"className":"is-style-default"} -->
                 <div class="wp-block-column is-style-default">
                     <!-- wp:image {"lightbox":{"enabled":true},"width":"400px","aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-default"} -->
-                    <figure class="wp-block-image size-full is-resized is-style-default"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:1;object-fit:cover;width:400px" /></figure>
+                    <figure class="wp-block-image size-full is-resized is-style-default"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers', 'aegis'); ?>" style="aspect-ratio:1;object-fit:cover;width:400px" /></figure>
                     <!-- /wp:image -->
                 </div>
                 <!-- /wp:column -->
@@ -75,8 +75,8 @@
 
             <!-- wp:columns -->
             <div class="wp-block-columns">
-                <!-- wp:column {"verticalAlignment":"center","backgroundColor":"secondary","className":"is-style-default"} -->
-                <div class="wp-block-column is-vertically-aligned-center is-style-default has-secondary-background-color has-background">
+                <!-- wp:column {"verticalAlignment":"center","backgroundColor":"tertiary","className":"is-style-default"} -->
+                <div class="wp-block-column is-vertically-aligned-center is-style-default has-tertiary-background-color has-background">
                     <!-- wp:video -->
                     <figure class="wp-block-video"><video controls poster="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/videos/sample.mp4" playsinline></video></figure>
                     <!-- /wp:video -->
@@ -98,7 +98,7 @@
                 <!-- wp:column {"className":"is-style-default"} -->
                 <div class="wp-block-column is-style-default">
                     <!-- wp:image {"lightbox":{"enabled":true},"width":"400px","aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-                    <figure class="wp-block-image size-full is-resized"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_800x800_dark.webp" alt="<?php echo esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:1;object-fit:cover;width:400px" /></figure>
+                    <figure class="wp-block-image size-full is-resized"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_800x800_dark.webp" alt="<?php echo esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers', 'aegis'); ?>" style="aspect-ratio:1;object-fit:cover;width:400px" /></figure>
                     <!-- /wp:image -->
                 </div>
                 <!-- /wp:column -->
