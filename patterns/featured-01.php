@@ -35,8 +35,8 @@
 
                         <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"0"}}}} -->
                         <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:0">
-                            <!-- wp:button {"backgroundColor":"background","textColor":"foreground","style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}}},"className":"is-style-aegis-button-shadow-outline"} -->
-                            <div class="wp-block-button is-style-aegis-button-shadow-outline">
+                            <!-- wp:button {"backgroundColor":"background","textColor":"foreground","style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}}},"className":"is-style-dense-shadow-outline"} -->
+                            <div class="wp-block-button is-style-dense-shadow-outline">
                                 <a class="wp-block-button__link has-foreground-color has-background-background-color has-text-color has-background has-link-color wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a>
                             </div>
                             <!-- /wp:button -->
@@ -55,8 +55,8 @@
 
         <!-- wp:column {"verticalAlignment":"center","width":"50%","layout":{"type":"default"}} -->
         <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
-            <!-- wp:media-text {"align":"wide","mediaPosition":"right","mediaLink":"<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_800x800_dark.webp","mediaType":"image","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"backgroundColor":"secondary","textColor":"foreground"} -->
-            <div class="wp-block-media-text alignwide has-media-on-the-right is-stacked-on-mobile has-foreground-color has-secondary-background-color has-text-color has-background" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
+            <!-- wp:media-text {"align":"wide","mediaPosition":"right","mediaLink":"<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_800x800_dark.webp","mediaType":"image","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"backgroundColor":"tertiary","textColor":"foreground"} -->
+            <div class="wp-block-media-text alignwide has-media-on-the-right is-stacked-on-mobile has-foreground-color has-tertiary-background-color has-text-color has-background" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
                 <div class="wp-block-media-text__content">
                     <!-- wp:group {"layout":{"type":"constrained"}} -->
                     <div class="wp-block-group">
@@ -70,8 +70,8 @@
 
                         <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"0"}}}} -->
                         <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:0">
-                            <!-- wp:button {"backgroundColor":"secondary","textColor":"foreground","style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}}},"className":"is-style-aegis-button-shadow-outline"} -->
-                            <div class="wp-block-button is-style-aegis-button-shadow-outline"><a class="wp-block-button__link has-foreground-color has-secondary-background-color has-text-color has-background has-link-color wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a></div>
+                            <!-- wp:button {"backgroundColor":"tertiary","textColor":"foreground","style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}}},"className":"is-style-dense-shadow-outline"} -->
+                            <div class="wp-block-button is-style-dense-shadow-outline"><a class="wp-block-button__link has-foreground-color has-tertiary-background-color has-text-color has-background has-link-color wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a></div>
                             <!-- /wp:button -->
                         </div>
                         <!-- /wp:buttons -->
@@ -79,7 +79,7 @@
                     <!-- /wp:group -->
                 </div>
                 <figure class="wp-block-media-text__media">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_800x800_dark.webp" alt="<?php echo esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers', 'aegis'); ?>" />
+                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_800x800_dark.webp" alt="<?php echo esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" />
                 </figure>
             </div>
             <!-- /wp:media-text -->
@@ -110,8 +110,8 @@
 
                         <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"0"}}}} -->
                         <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:0">
-                            <!-- wp:button {"className":"is-style-aegis-button-shadow-outline"} -->
-                            <div class="wp-block-button is-style-aegis-button-shadow-outline"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a></div>
+                            <!-- wp:button {"className":"is-style-dense-shadow-outline"} -->
+                            <div class="wp-block-button is-style-dense-shadow-outline"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a></div>
                             <!-- /wp:button -->
                         </div>
                         <!-- /wp:buttons -->
@@ -142,8 +142,8 @@
 
                         <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"0"}}}} -->
                         <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:0">
-                            <!-- wp:button {"className":"is-style-aegis-button-shadow-outline"} -->
-                            <div class="wp-block-button is-style-aegis-button-shadow-outline"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a></div>
+                            <!-- wp:button {"className":"is-style-dense-shadow-outline"} -->
+                            <div class="wp-block-button is-style-dense-shadow-outline"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a></div>
                             <!-- /wp:button -->
                         </div>
                         <!-- /wp:buttons -->
