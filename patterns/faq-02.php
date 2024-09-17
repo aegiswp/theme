@@ -29,8 +29,8 @@
                 <!-- wp:details {"style":{"border":{"bottom":{"color":"var:preset|color|foreground","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"fontSize":"medium"} -->
                 <details class="wp-block-details has-medium-font-size" style="border-bottom-color:var(--wp--preset--color--foreground);border-bottom-width:1px;margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">
                     <summary><?php echo wp_kses_post( _x( '<strong>#.</strong> [Question (57 characters): Frame a frequently asked question about a feature or service.]', 'Replace with a frequently asked question', 'aegis' ) ); ?></summary>
-                    <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"bottom":"0"}}},"backgroundColor":"secondary","fontSize":"small"} -->
-                    <p class="has-secondary-background-color has-background has-small-font-size" style="margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x(' [Answer (150 characters): [Provide a clear response to a common query.]', 'Replace with a informative answer', 'aegis'); ?></p>
+                    <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"bottom":"0"}}},"backgroundColor":"tertiary","fontSize":"small"} -->
+                    <p class="has-tertiary-background-color has-background has-small-font-size" style="margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x(' [Answer (150 characters): [Provide a clear response to a common query.]', 'Replace with a informative answer', 'aegis'); ?></p>
                     <!-- /wp:paragraph -->
                 </details>
                 <!-- /wp:details -->
@@ -38,8 +38,8 @@
                 <!-- wp:details {"style":{"border":{"bottom":{"color":"var:preset|color|foreground","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"fontSize":"medium"} -->
                 <details class="wp-block-details has-medium-font-size" style="border-bottom-color:var(--wp--preset--color--foreground);border-bottom-width:1px;margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">
                     <summary><?php echo wp_kses_post( _x( '<strong>#.</strong> [Question (57 characters): Frame a frequently asked question about a feature or service.]', 'Replace with a frequently asked question', 'aegis' ) ); ?></summary>
-                    <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"bottom":"0"}}},"backgroundColor":"secondary","fontSize":"small"} -->
-                    <p class="has-secondary-background-color has-background has-small-font-size" style="margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x(' [Answer (150 characters): [Provide a clear response to a common query.]', 'Replace with a informative answer', 'aegis'); ?></p>
+                    <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"bottom":"0"}}},"backgroundColor":"tertiary","fontSize":"small"} -->
+                    <p class="has-tertiary-background-color has-background has-small-font-size" style="margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x(' [Answer (150 characters): [Provide a clear response to a common query.]', 'Replace with a informative answer', 'aegis'); ?></p>
                     <!-- /wp:paragraph -->
                 </details>
                 <!-- /wp:details -->
@@ -47,8 +47,8 @@
                 <!-- wp:details {"style":{"border":{"bottom":{"color":"var:preset|color|foreground","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"fontSize":"medium"} -->
                 <details class="wp-block-details has-medium-font-size" style="border-bottom-color:var(--wp--preset--color--foreground);border-bottom-width:1px;margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">
                     <summary><?php echo wp_kses_post( _x( '<strong>#.</strong> [Question (57 characters): Frame a frequently asked question about a feature or service.]', 'Replace with a frequently asked question', 'aegis' ) ); ?></summary>
-                    <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"bottom":"0"}}},"backgroundColor":"secondary","fontSize":"small"} -->
-                    <p class="has-secondary-background-color has-background has-small-font-size" style="margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x(' [Answer (150 characters): [Provide a clear response to a common query.]', 'Replace with a informative answer', 'aegis'); ?></p>
+                    <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"bottom":"0"}}},"backgroundColor":"tertiary","fontSize":"small"} -->
+                    <p class="has-tertiary-background-color has-background has-small-font-size" style="margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x(' [Answer (150 characters): [Provide a clear response to a common query.]', 'Replace with a informative answer', 'aegis'); ?></p>
                     <!-- /wp:paragraph -->
                 </details>
                 <!-- /wp:details -->
@@ -56,8 +56,8 @@
                 <!-- wp:details {"style":{"border":{"bottom":{"color":"var:preset|color|foreground","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"fontSize":"medium"} -->
                 <details class="wp-block-details has-medium-font-size" style="border-bottom-color:var(--wp--preset--color--foreground);border-bottom-width:1px;margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">
                     <summary><?php echo wp_kses_post( _x( '<strong>#.</strong> [Question (57 characters): Frame a frequently asked question about a feature or service.]', 'Replace with a frequently asked question', 'aegis' ) ); ?></summary>
-                    <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"bottom":"0"}}},"backgroundColor":"secondary","fontSize":"small"} -->
-                    <p class="has-secondary-background-color has-background has-small-font-size" style="margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x(' [Answer (150 characters): [Provide a clear response to a common query.]', 'Replace with a informative answer', 'aegis'); ?></p>
+                    <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"bottom":"0"}}},"backgroundColor":"tertiary","fontSize":"small"} -->
+                    <p class="has-tertiary-background-color has-background has-small-font-size" style="margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x(' [Answer (150 characters): [Provide a clear response to a common query.]', 'Replace with a informative answer', 'aegis'); ?></p>
                     <!-- /wp:paragraph -->
                 </details>
                 <!-- /wp:details -->
@@ -80,8 +80,8 @@
 
                 <!-- wp:buttons {"layout":{"type":"flex","flexWrap":"wrap"}} -->
                 <div class="wp-block-buttons">
-                    <!-- wp:button {"backgroundColor":"background","textColor":"foreground","className":"is-style-aegis-button-shadow"} -->
-                    <div class="wp-block-button is-style-aegis-button-shadow">
+                    <!-- wp:button {"backgroundColor":"background","textColor":"foreground","className":"is-style-dense-shadow"} -->
+                    <div class="wp-block-button is-style-dense-shadow">
                         <a class="wp-block-button__link has-foreground-color has-background-background-color has-text-color has-background wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a>
                     </div>
                     <!-- /wp:button -->
