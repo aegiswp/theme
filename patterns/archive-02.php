@@ -14,7 +14,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('01. Archive Pattern', 'Name of the pattern', 'aegis'); ?>","categories":["blog"],"patternName":"aegis/archive-02"},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('02. Archive Pattern', 'Name of the pattern', 'aegis'); ?>","categories":["blog"],"patternName":"aegis/archive-02"},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group">
     <!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"left","orientation":"vertical"}} -->
     <div class="wp-block-group alignwide">
