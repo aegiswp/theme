@@ -14,7 +14,7 @@
  */
 ?>
 
-<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"margin":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|background"},":hover":{"color":{"text":"var:preset|color|secondary"}}}}},"backgroundColor":"foreground","textColor":"background","layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('03. Event Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"margin":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|background"},":hover":{"color":{"text":"var:preset|color|tertiary"}}}}},"backgroundColor":"foreground","textColor":"background","layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('03. Event Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
 <div class="wp-block-group has-background-color has-foreground-background-color has-text-color has-background has-link-color" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
     <!-- wp:columns {"align":"wide"} -->
     <div class="wp-block-columns alignwide">
@@ -39,8 +39,8 @@
         </div>
         <!-- /wp:column -->
 
-        <!-- wp:column {"verticalAlignment":"top","width":"2%","style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"className":"is-hidden-on-mobile"} -->
-        <div class="wp-block-column is-vertically-aligned-top is-hidden-on-mobile" style="padding-top:0;padding-bottom:0;flex-basis:2%">
+        <!-- wp:column {"verticalAlignment":"top","width":"2%","style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"className":"is-style-hide-mobile"} -->
+        <div class="wp-block-column is-vertically-aligned-top is-style-hide-mobile" style="padding-top:0;padding-bottom:0;flex-basis:2%">
             <!-- wp:paragraph {"align":"right","style":{"typography":{"fontSize":"4rem","lineHeight":"1","writingMode":"vertical-rl","textTransform":"uppercase","fontStyle":"normal","fontWeight":"600","letterSpacing":"3px"}}} -->
             <p class="has-text-align-right" style="font-size:4rem;font-style:normal;font-weight:600;letter-spacing:3px;line-height:1;text-transform:uppercase;writing-mode:vertical-rl"><?php echo esc_html_x('[Section]', 'Replace with a descriptive section title.', 'aegis'); ?></p>
             <!-- /wp:paragraph -->
@@ -75,10 +75,10 @@
         </div>
         <!-- /wp:column -->
 
-        <!-- wp:column {"width":"20%","className":"is-hidden-on-mobile"} -->
-        <div class="wp-block-column is-hidden-on-mobile" style="flex-basis:20%">
-            <!-- wp:cover {"url":"<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp","dimRatio":60,"overlayColor":"foreground","minHeight":50,"minHeightUnit":"vh","contentPosition":"bottom center","style":{"border":{"width":"1px"}},"borderColor":"background","className":"is-style-aegis-shadow","layout":{"type":"default"}} -->
-            <div class="wp-block-cover has-custom-content-position is-position-bottom-center is-style-aegis-shadow has-border-color has-background-border-color" style="border-width:1px;min-height:50vh">
+        <!-- wp:column {"width":"20%","className":"is-style-hide-mobile"} -->
+        <div class="wp-block-column is-style-hide-mobile" style="flex-basis:20%">
+            <!-- wp:cover {"url":"<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp","dimRatio":60,"overlayColor":"foreground","minHeight":50,"minHeightUnit":"vh","contentPosition":"bottom center","style":{"border":{"width":"1px"}},"borderColor":"background","className":"is-style-dark-shadow","layout":{"type":"default"}} -->
+            <div class="wp-block-cover has-custom-content-position is-position-bottom-center is-style-dark-shadow has-border-color has-background-border-color" style="border-width:1px;min-height:50vh">
                 <span aria-hidden="true" class="wp-block-cover__background has-foreground-background-color has-background-dim-60 has-background-dim"></span>
                 <img class="wp-block-cover__image-background" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" data-object-fit="cover" />
                 <div class="wp-block-cover__inner-container">
