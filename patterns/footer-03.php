@@ -14,8 +14,8 @@
  */
 ?>
 
-<!-- wp:group {"tagName":"footer","metadata":{"name":"<?php echo esc_html_x('03. Footer Pattern', 'Name of the pattern', 'aegis'); ?>"},"align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0","right":"var:preset|spacing|30","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"secondary","layout":{"type":"default"}} -->
-<footer class="wp-block-group alignfull has-secondary-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:var(--wp--preset--spacing--30);padding-bottom:0;padding-left:var(--wp--preset--spacing--30)">
+<!-- wp:group {"tagName":"footer","metadata":{"name":"<?php echo esc_html_x('03. Footer Pattern', 'Name of the pattern', 'aegis'); ?>"},"align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0","right":"var:preset|spacing|30","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"tertiary","layout":{"type":"default"}} -->
+<footer class="wp-block-group alignfull has-tertiary-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:var(--wp--preset--spacing--30);padding-bottom:0;padding-left:var(--wp--preset--spacing--30)">
 	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","right":"0","left":"0"}},"border":{"top":{"color":"var:preset|color|senary","width":"1px"},"bottom":{"color":"var:preset|color|senary","width":"1px"}}},"layout":{"type":"default"}} -->
 	<div class="wp-block-group alignfull" style="border-top-color:var(--wp--preset--color--senary);border-top-width:1px;border-bottom-color:var(--wp--preset--color--senary);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--30);padding-right:0;padding-bottom:var(--wp--preset--spacing--30);padding-left:0">
 		<!-- wp:columns {"align":"wide"} -->
@@ -142,7 +142,7 @@
 		<div class="wp-block-columns alignwide" style="margin-bottom:0">
 			<!-- wp:column {"width":"30%","style":{"spacing":{"padding":{"right":"80px","top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}}} -->
 			<div class="wp-block-column" style="padding-top:var(--wp--preset--spacing--30);padding-right:80px;padding-bottom:var(--wp--preset--spacing--30);flex-basis:30%">
-				<!-- wp:site-title {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}},"typography":{"lineHeight":"1"}},"textColor":"intrace-primary","fontSize":"extra-large"} /-->
+				<!-- wp:site-title {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}},"typography":{"lineHeight":"1"}},"textColor":"intrace-","fontSize":"extra-large"} /-->
 
 				<!-- wp:paragraph {"textColor":"intrace-body-text","fontSize":"small"} -->
 				<p class="has-intrace-body-text-color has-text-color has-small-font-size"><?php echo esc_html_e('[Paragraph (95 characters): Briefly describe the mission, vision, or unique selling proposition.]', 'aegis'); ?></p>
@@ -164,8 +164,8 @@
 
 			<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}}} -->
 			<div class="wp-block-column" style="padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">
-				<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"0","bottom":"35px"}}},"textColor":"intrace-primary","fontSize":"medium"} -->
-				<h3 class="wp-block-heading has-intrace-primary-color has-text-color has-medium-font-size" style="margin-top:0;margin-bottom:35px"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
+				<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"0","bottom":"35px"}}},"textColor":"intrace-tertiary","fontSize":"medium"} -->
+				<h3 class="wp-block-heading has-intrace-tertiary-color has-text-color has-medium-font-size" style="margin-top:0;margin-bottom:35px"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0"}}},"fontSize":"tiny"} -->
@@ -188,8 +188,8 @@
 
 			<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}}} -->
 			<div class="wp-block-column" style="padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">
-				<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"0","bottom":"35px"}}},"textColor":"intrace-primary","fontSize":"medium"} -->
-				<h3 class="wp-block-heading has-intrace-primary-color has-text-color has-medium-font-size" style="margin-top:0;margin-bottom:35px"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
+				<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"0","bottom":"35px"}}},"textColor":"intrace-tertiary","fontSize":"medium"} -->
+				<h3 class="wp-block-heading has-intrace-tertiary-color has-text-color has-medium-font-size" style="margin-top:0;margin-bottom:35px"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0"}}},"fontSize":"tiny"} -->
@@ -212,22 +212,22 @@
 
 			<!-- wp:column {"width":"30%","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}}} -->
 			<div class="wp-block-column" style="padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);flex-basis:30%">
-				<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"0","bottom":"35px"}}},"textColor":"intrace-primary","fontSize":"medium"} -->
-				<h3 class="wp-block-heading has-intrace-primary-color has-text-color has-medium-font-size" style="margin-top:0;margin-bottom:35px"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
+				<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"0","bottom":"35px"}}},"textColor":"intrace-tertiary","fontSize":"medium"} -->
+				<h3 class="wp-block-heading has-intrace-tertiary-color has-text-color has-medium-font-size" style="margin-top:0;margin-bottom:35px"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
 				<!-- /wp:heading -->
 
 				<!-- wp:gallery {"linkTo":"none","sizeSlug":"full"} -->
 				<figure class="wp-block-gallery has-nested-images columns-default is-cropped">
 					<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"size-full is-style-default"} -->
-					<figure class="wp-block-image size-full is-style-default"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis') . '" /></figure>
+					<figure class="wp-block-image size-full is-style-default"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers', 'aegis') . '" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-default"} -->
-					<figure class="wp-block-image size-full is-style-default"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis') . '" /></figure>
+					<figure class="wp-block-image size-full is-style-default"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers', 'aegis') . '" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:image {"className":"size-full is-style-default"} -->
-					<figure class="wp-block-image size-full is-style-default"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis') . '" /></figure>
+					<figure class="wp-block-image size-full is-style-default"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_800x800_dark.webp" alt="' . esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers', 'aegis') . '" /></figure>
 	                <!-- /wp:image -->
 				</figure>
 				<!-- /wp:gallery -->
