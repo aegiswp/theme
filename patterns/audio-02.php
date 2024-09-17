@@ -3,7 +3,7 @@
  * Title: 02. Audio Pattern
  * Slug: aegis/audio-02
  * Categories: audio
- * Description: Two-column cover overlay on the left and tagline, headline, paragraph, audio player, social icons and call to action button on the right
+ * Description: Block pattern with two-column cover overlay on the left and tagline, headline, paragraph, audio player, social icons and call to action button on the right
  * Keywords: audio, call-to-action, music, podcast, radio
  * Viewport Width: 1400
  * Block Types: core/group, core/columns, core/column, core/cover, core/paragraph, core/heading, core/audio, core/buttons
@@ -14,8 +14,8 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('02. Audio Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"gradient":"diagonal-secondary-to-background","layout":{"type":"constrained"}} -->
-<div class="wp-block-group has-diagonal-secondary-to-background-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('02. Audio Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"gradient":"diagonal-tertiary-to-background-right-bottom","layout":{"type":"constrained"}} -->
+<div class="wp-block-group has-diagonal-tertiary-to-background-right-bottom-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
     <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"blockGap":"0","margin":{"bottom":"var:preset|spacing|30"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center","flexWrap":"wrap","verticalAlignment":"top"}} -->
     <div class="wp-block-group alignwide" style="margin-bottom:var(--wp--preset--spacing--30);padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
         <!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"fontSize":"tiny"} -->
