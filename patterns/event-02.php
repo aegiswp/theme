@@ -14,14 +14,14 @@
  */
 ?>
 
-<!-- wp:group {"align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"gradient":"diagonal-background-to-secondary","layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('02. Event Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
-<div class="wp-block-group alignfull has-diagonal-background-to-secondary-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+<!-- wp:group {"align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"gradient":"diagonal-background-to-tertiary-right-bottom","layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('02. Event Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
+<div class="wp-block-group alignfull has-diagonal-background-to-tertiary-right-bottom-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
     <!-- wp:columns {"align":"wide","style":{"spacing":{"padding":{"bottom":"0","top":"0","left":"0","right":"0"},"margin":{"top":"0","bottom":"var:preset|spacing|40"},"blockGap":{"top":"var:preset|spacing|30","left":"var:preset|spacing|30"}}}} -->
     <div class="wp-block-columns alignwide" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--40);padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
         <!-- wp:column {"verticalAlignment":"top","width":"33.33%","style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"className":"is-style-default"} -->
         <div class="wp-block-column is-vertically-aligned-top is-style-default" style="padding-top:0;padding-bottom:0;flex-basis:33.33%">
-            <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-shadow-image"} -->
-            <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" /></figure>
+            <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-dark-shadow-image"} -->
+            <figure class="wp-block-image size-full is-style-dark-shadow-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" /></figure>
             <!-- /wp:image -->
         </div>
         <!-- /wp:column -->
@@ -61,7 +61,7 @@
 
                     <!-- wp:column {"verticalAlignment":"center","width":""} -->
                     <div class="wp-block-column is-vertically-aligned-center">
-                        <!-- wp:post-title {"level":4,"isLink":true,"style":{"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|foreground"},":hover":{"color":{"text":"var:preset|color|primary"}}}}},"textColor":"foreground","className":"is-style-aegis-post-title-border"} /-->
+                        <!-- wp:post-title {"level":4,"isLink":true,"style":{"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|foreground"},":hover":{"color":{"text":"var:preset|color|tertiary"}}}}},"textColor":"foreground","className":"is-style-aegis-post-title-hide-underline"} /-->
                     </div>
                     <!-- /wp:column -->
                 </div>
@@ -74,13 +74,13 @@
 
                 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
                 <div class="wp-block-buttons">
-                    <!-- wp:button {"backgroundColor":"foreground","width":50,"className":"is-style-aegis-3d-button-dark"} -->
-                    <div class="wp-block-button has-custom-width wp-block-button__width-50 is-style-aegis-3d-button-dark">
+                    <!-- wp:button {"backgroundColor":"foreground","width":50,"className":"is-style-dark-shadow"} -->
+                    <div class="wp-block-button has-custom-width wp-block-button__width-50 is-style-dark-shadow">
                         <a class="wp-block-button__link has-foreground-background-color has-background wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a></div>
                     <!-- /wp:button -->
 
-                    <!-- wp:button {"backgroundColor":"foreground","width":50,"className":"is-style-aegis-3d-button-dark"} -->
-                    <div class="wp-block-button has-custom-width wp-block-button__width-50 is-style-aegis-3d-button-dark">
+                    <!-- wp:button {"backgroundColor":"foreground","width":50,"className":"is-style-dark-shadow"} -->
+                    <div class="wp-block-button has-custom-width wp-block-button__width-50 is-style-dark-shadow">
                         <a class="wp-block-button__link has-foreground-background-color has-background wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a></div>
                     <!-- /wp:button -->
                 </div>
