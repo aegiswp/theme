@@ -18,8 +18,8 @@
     <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
     <!-- wp:columns {"align":"wide","style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}}} -->
     <div class="wp-block-columns alignwide" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30)">
-        <!-- wp:column {"width":"50%","className":"is-hidden-on-mobile"} -->
-        <div class="wp-block-column is-hidden-on-mobile" style="flex-basis:50%">
+        <!-- wp:column {"width":"50%","className":"is-style-hide-mobile"} -->
+        <div class="wp-block-column is-style-hide-mobile" style="flex-basis:50%">
             <!-- wp:columns -->
             <div class="wp-block-columns">
                 <!-- wp:column {"verticalAlignment":"center","className":"is-style-default"} -->
@@ -102,9 +102,9 @@
                 </div>
                 <!-- /wp:column -->
 
-                <!-- wp:column {"verticalAlignment":"center","backgroundColor":"tertiary","className":"is-style-default"} -->
+                <!-- wp:column {"verticalAlignment":"center","backgroundColor":"quinary","className":"is-style-default"} -->
                 <div
-                    class="wp-block-column is-vertically-aligned-center is-style-default has-tertiary-background-color has-background">
+                    class="wp-block-column is-vertically-aligned-center is-style-default has-quinary-background-color has-background">
                     <!-- wp:video -->
                     <figure class="wp-block-video"><video controls poster="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/videos/sample.mp4" playsinline></video></figure>
                     <!-- /wp:video -->
@@ -123,8 +123,8 @@
                 </div>
                 <!-- /wp:column -->
 
-                <!-- wp:column {"verticalAlignment":"center","backgroundColor":"tertiary","className":"is-style-default"} -->
-                <div class="wp-block-column is-vertically-aligned-center is-style-default has-tertiary-background-color has-background">
+                <!-- wp:column {"verticalAlignment":"center","backgroundColor":"quinary","className":"is-style-default"} -->
+                <div class="wp-block-column is-vertically-aligned-center is-style-default has-quinary-background-color has-background">
                     <!-- wp:video -->
                     <figure class="wp-block-video"><video controls poster="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/videos/sample.mp4" playsinline></video></figure>
                     <!-- /wp:video -->
