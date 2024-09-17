@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: 02. Gallery Block Pattern
+ * Title: 02. Gallery Pattern
  * Slug: aegis/gallery-02
  * Categories: gallery, media
  * Description: Three-column video gallery with tagline, headings, and paragraphs on the left, and video content distributed among the columns.
@@ -36,8 +36,8 @@
     <div class="wp-block-columns alignwide">
         <!-- wp:column -->
         <div class="wp-block-column">
-            <!-- wp:video {"className":"is-style-aegis-shadow"} -->
-            <figure class="wp-block-video is-style-aegis-shadow"><video controls poster="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_light.webp" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/videos/sample.mp4" playsinline></video></figure>
+            <!-- wp:video {"className":"is-style-dark-shadow"} -->
+            <figure class="wp-block-video is-style-dark-shadow"><video controls poster="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_light.webp" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/videos/sample.mp4" playsinline></video></figure>
             <!-- /wp:video -->
 
             <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"},"blockGap":"0"}},"layout":{"type":"flex","orientation":"vertical"}} -->
@@ -56,8 +56,8 @@
 
         <!-- wp:column -->
         <div class="wp-block-column">
-            <!-- wp:video {"className":"is-style-aegis-shadow"} -->
-            <figure class="wp-block-video is-style-aegis-shadow"><video controls poster="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_light.webp" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/videos/sample.mp4" playsinline></video></figure>
+            <!-- wp:video {"className":"is-style-dark-shadow"} -->
+            <figure class="wp-block-video is-style-dark-shadow"><video controls poster="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_light.webp" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/videos/sample.mp4" playsinline></video></figure>
             <!-- /wp:video -->
 
             <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"},"blockGap":"0"}},"layout":{"type":"flex","orientation":"vertical"}} -->
@@ -76,8 +76,8 @@
 
         <!-- wp:column -->
         <div class="wp-block-column">
-            <!-- wp:video {"className":"is-style-aegis-shadow"} -->
-            <figure class="wp-block-video is-style-aegis-shadow"><video controls poster="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_light.webp" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/videos/sample.mp4" playsinline></video></figure>
+            <!-- wp:video {"className":"is-style-dark-shadow"} -->
+            <figure class="wp-block-video is-style-dark-shadow"><video controls poster="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_light.webp" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/videos/sample.mp4" playsinline></video></figure>
             <!-- /wp:video -->
 
             <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"},"blockGap":"0"}},"layout":{"type":"flex","orientation":"vertical"}} -->
@@ -100,8 +100,8 @@
     <div class="wp-block-columns alignwide">
         <!-- wp:column -->
         <div class="wp-block-column">
-            <!-- wp:video {"className":"is-style-aegis-shadow"} -->
-            <figure class="wp-block-video is-style-aegis-shadow"><video controls poster="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_light.webp" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/videos/sample.mp4" playsinline></video></figure>
+            <!-- wp:video {"className":"is-style-dark-shadow"} -->
+            <figure class="wp-block-video is-style-dark-shadow"><video controls poster="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_light.webp" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/videos/sample.mp4" playsinline></video></figure>
             <!-- /wp:video -->
 
             <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"},"blockGap":"0"}},"layout":{"type":"flex","orientation":"vertical"}} -->
@@ -120,8 +120,8 @@
 
         <!-- wp:column -->
         <div class="wp-block-column">
-            <!-- wp:video {"className":"is-style-aegis-shadow"} -->
-            <figure class="wp-block-video is-style-aegis-shadow"><video controls poster="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_light.webp" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/videos/sample.mp4" playsinline></video></figure>
+            <!-- wp:video {"className":"is-style-dark-shadow"} -->
+            <figure class="wp-block-video is-style-dark-shadow"><video controls poster="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_light.webp" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/videos/sample.mp4" playsinline></video></figure>
             <!-- /wp:video -->
 
             <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"},"blockGap":"0"}},"layout":{"type":"flex","orientation":"vertical"}} -->
@@ -140,8 +140,8 @@
 
         <!-- wp:column -->
         <div class="wp-block-column">
-            <!-- wp:video {"className":"is-style-aegis-shadow"} -->
-            <figure class="wp-block-video is-style-aegis-shadow"><video controls poster="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_light.webp" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/videos/sample.mp4" playsinline></video></figure>
+            <!-- wp:video {"className":"is-style-dark-shadow"} -->
+            <figure class="wp-block-video is-style-dark-shadow"><video controls poster="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_light.webp" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/videos/sample.mp4" playsinline></video></figure>
             <!-- /wp:video -->
 
             <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"},"blockGap":"0"}},"layout":{"type":"flex","orientation":"vertical"}} -->
