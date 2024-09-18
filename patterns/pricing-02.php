@@ -32,8 +32,8 @@
 
         <!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|30"}}}} -->
         <div class="wp-block-columns">
-            <!-- wp:column {"style":{"spacing":{"blockGap":"0","padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30","top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}},"border":{"top":{"color":"var:preset|color|primary","width":"3px"},"right":[],"bottom":[],"left":[]}},"backgroundColor":"secondary"} -->
-            <div class="wp-block-column has-secondary-background-color has-background" style="border-top-color:var(--wp--preset--color--primary);border-top-width:3px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+            <!-- wp:column {"style":{"spacing":{"blockGap":"0","padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30","top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}},"border":{"top":{"color":"var:preset|color|tertiary","width":"3px"},"right":[],"bottom":[],"left":[]}},"backgroundColor":"tertiary} -->
+            <div class="wp-block-column has-tertiary-background-color has-background" style="border-top-color:var(--wp--preset--color--tertiary);border-top-width:3px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
                 <!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"bottom":"var:preset|spacing|30"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
                 <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--30);padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
                     <!-- wp:heading {"level":4,"textColor":"contrast","fontSize":"huge"} -->
@@ -64,9 +64,9 @@
 
                 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","flexWrap":"wrap"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}}} -->
                 <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30)">
-                    <!-- wp:button {"backgroundColor":"foreground","textColor":"secondary","width":100,"style":{"elements":{"link":{"color":{"text":"var:preset|color|secondary"}}}},"className":"is-style-aegis-button-shadow"} -->
-                    <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-aegis-button-shadow">
-                        <a class="wp-block-button__link has-secondary-color has-foreground-background-color has-text-color has-background has-link-color wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a>
+                    <!-- wp:button {"backgroundColor":"foreground","textColor":"tertiary","width":100,"style":{"elements":{"link":{"color":{"text":"var:preset|color|tertiary"}}}},"className":"is-style-dense-shadow"} -->
+                    <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-dense-shadow">
+                        <a class="wp-block-button__link has-tertiary-color has-foreground-background-color has-text-color has-background has-link-color wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a>
                     </div>
                     <!-- /wp:button -->
                 </div>
@@ -90,8 +90,8 @@
             </div>
             <!-- /wp:column -->
 
-            <!-- wp:column {"style":{"spacing":{"blockGap":"0","padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30","top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}},"border":{"top":{"color":"var:preset|color|primary","width":"5px"},"right":[],"bottom":[],"left":[]}},"backgroundColor":"secondary"} -->
-            <div class="wp-block-column has-secondary-background-color has-background" style="border-top-color:var(--wp--preset--color--primary);border-top-width:5px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+            <!-- wp:column {"style":{"spacing":{"blockGap":"0","padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30","top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}},"border":{"top":{"color":"var:preset|color|tertiary","width":"5px"},"right":[],"bottom":[],"left":[]}},"backgroundColor":"tertiary-->
+            <div class="wp-block-column has-tertiary-background-color has-background" style="border-top-color:var(--wp--preset--color--tertiary);border-top-width:5px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
                 <!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"bottom":"var:preset|spacing|30"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
                 <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--30);padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
                     <!-- wp:heading {"level":4,"textColor":"contrast","fontSize":"huge"} -->
@@ -122,9 +122,9 @@
 
                 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","flexWrap":"wrap"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}}} -->
                 <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30)">
-                    <!-- wp:button {"backgroundColor":"foreground","textColor":"secondary","width":100,"style":{"elements":{"link":{"color":{"text":"var:preset|color|secondary"}}}},"className":"is-style-aegis-button-shadow"} -->
-                    <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-aegis-button-shadow">
-                        <a class="wp-block-button__link has-secondary-color has-foreground-background-color has-text-color has-background has-link-color wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a>
+                    <!-- wp:button {"backgroundColor":"foreground","textColor":"tertiary","width":100,"style":{"elements":{"link":{"color":{"text":"var:preset|color|tertiary}}}},"className":"is-style-dense-shadow"} -->
+                    <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-dense-shadow>
+                        <a class="wp-block-button__link has-tertiary-color has-foreground-background-color has-text-color has-background has-link-color wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a>
                     </div>
                     <!-- /wp:button -->
                 </div>
@@ -148,8 +148,8 @@
             </div>
             <!-- /wp:column -->
 
-            <!-- wp:column {"style":{"spacing":{"blockGap":"0","padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30","top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}},"border":{"top":{"color":"var:preset|color|primary","width":"3px"},"right":[],"bottom":[],"left":[]}},"backgroundColor":"secondary"} -->
-            <div class="wp-block-column has-secondary-background-color has-background" style="border-top-color:var(--wp--preset--color--primary);border-top-width:3px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+            <!-- wp:column {"style":{"spacing":{"blockGap":"0","padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30","top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}},"border":{"top":{"color":"var:preset|color|tertiary","width":"3px"},"right":[],"bottom":[],"left":[]}},"backgroundColor":"tertiary"} -->
+            <div class="wp-block-column has-tertiary-background-color has-background" style="border-top-color:var(--wp--preset--color--tertiary);border-top-width:3px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
                 <!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"bottom":"var:preset|spacing|30"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
                 <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--30);padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
                     <!-- wp:heading {"level":4,"textColor":"contrast","fontSize":"huge"} -->
@@ -180,9 +180,9 @@
 
                 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","flexWrap":"wrap"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}}} -->
                 <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30)">
-                    <!-- wp:button {"backgroundColor":"foreground","textColor":"secondary","width":100,"style":{"elements":{"link":{"color":{"text":"var:preset|color|secondary"}}}},"className":"is-style-aegis-button-shadow-outline"} -->
-                    <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-aegis-button-shadow-outline">
-                        <a class="wp-block-button__link has-secondary-color has-foreground-background-color has-text-color has-background has-link-color wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a>
+                    <!-- wp:button {"backgroundColor":"foreground","textColor":"tertiary","width":100,"style":{"elements":{"link":{"color":{"text":"var:preset|color|tertiary"}}}},"className":"is-style-dense-shadowoutline"} -->
+                    <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-dense-shadow-outline">
+                        <a class="wp-block-button__link has-tertiary-color has-foreground-background-color has-text-color has-background has-link-color wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a>
                     </div>
                     <!-- /wp:button -->
                 </div>
