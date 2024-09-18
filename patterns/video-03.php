@@ -7,14 +7,14 @@ return array(
     'description' => __('Video with Tagline, Heading, Paragraph, Socials, and Button', 'aegis'),
     'categories' => array('aegis-video'),
     'content' => '
-<!-- wp:group {"tagName":"section","align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"gradient":"vertical-secondary-to-background","className":"video","layout":{"type":"default"},"metadata":{"name":"Video Section"}} -->
-<section class="wp-block-group alignfull video has-vertical-secondary-to-background-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
+<!-- wp:group {"tagName":"section","align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"gradient":"vertical-tertiary-to-background","className":"video","layout":{"type":"default"},"metadata":{"name":"Video Section"}} -->
+<section class="wp-block-group alignfull video has-vertical-tertiary-to-background-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
     <!-- wp:columns {"align":"wide","style":{"spacing":{"padding":{"bottom":"0","top":"0"}}}} -->
     <div class="wp-block-columns alignwide" style="padding-top:0;padding-bottom:0">
         <!-- wp:column {"verticalAlignment":"center","width":"","className":"is-style-default"} -->
         <div class="wp-block-column is-vertically-aligned-center is-style-default">
-            <!-- wp:group {"gradient":"horizontal-primary-to-background","className":"is-style-aegis-shadow"} -->
-            <div class="wp-block-group is-style-aegis-shadow has-horizontal-primary-to-background-gradient-background has-background">
+            <!-- wp:group {"gradient":"horizontal-tertiary-to-background","className":"is-style-dark-shadow"} -->
+            <div class="wp-block-group is-style-dark-shadow has-horizontal-tertiary-to-background-gradient-background has-background">
                 <!-- wp:video -->
                 <figure class="wp-block-video">
                 <video controls poster="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1920x1200_dark.webp" src="' . esc_url(get_template_directory_uri()) . '/assets/videos/sample.mp4" playsinline></video>
@@ -55,8 +55,8 @@ return array(
 
                 <!-- wp:buttons -->
                 <div class="wp-block-buttons">
-                    <!-- wp:button {"className":"is-style-aegis-button-shadow"} -->
-                    <div class="wp-block-button is-style-aegis-button-shadow"><a class="wp-block-button__link wp-element-button" href="#">' . esc_html__('Call to Action', 'aegis') . '</a></div>
+                    <!-- wp:button {"className":"is-style-dense-shadow"} -->
+                    <div class="wp-block-button is-style-dense-shadow"><a class="wp-block-button__link wp-element-button" href="#">' . esc_html__('Call to Action', 'aegis') . '</a></div>
                     <!-- /wp:button -->
                 </div>
                 <!-- /wp:buttons -->
