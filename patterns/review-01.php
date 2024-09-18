@@ -12,10 +12,10 @@ return array(
     <div class="wp-block-columns alignwide" style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0">
         <!-- wp:column {"verticalAlignment":"top","width":"33.33%","style":{"spacing":{"padding":{"top":"0","bottom":"0"}}}} -->
         <div class="wp-block-column is-vertically-aligned-top" style="padding-top:0;padding-bottom:0;flex-basis:33.33%">
-            <!-- wp:group {"gradient":"horizontal-primary-to-background","layout":{"type":"default"}} -->
-            <div class="wp-block-group has-horizontal-primary-to-background-gradient-background has-background">
-                <!-- wp:image {"lightbox":{"enabled":true},"aspectRatio":"9/16","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-aegis-shadow-image"} -->
-                <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" style="aspect-ratio:9/16;object-fit:cover" /></figure>
+            <!-- wp:group {"gradient":"horizontal-tertiary-to-background","layout":{"type":"default"}} -->
+            <div class="wp-block-group has-horizontal-tertiary-to-background-gradient-background has-background">
+                <!-- wp:image {"lightbox":{"enabled":true},"aspectRatio":"9/16","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-dark-shadow-image"} -->
+                <figure class="wp-block-image size-full is-style-dark-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" style="aspect-ratio:9/16;object-fit:cover" /></figure>
                 <!-- /wp:image -->
             </div>
             <!-- /wp:group -->
@@ -61,24 +61,24 @@ return array(
 
                 <!-- wp:gallery {"columns":5,"linkTo":"none","sizeSlug":"full","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|30","left":"var:preset|spacing|30"}}}} -->
                 <figure class="wp-block-gallery has-nested-images columns-5 is-cropped">
-                    <!-- wp:image {"lightbox":{"enabled":true},"linkDestination":"none","className":"size-full is-style-aegis-shadow-image"} -->
-                    <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+                    <!-- wp:image {"lightbox":{"enabled":true},"linkDestination":"none","className":"size-full is-style-dark-shadow-image"} -->
+                    <figure class="wp-block-image size-full is-style-dark-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
                     <!-- /wp:image -->
 
-                    <!-- wp:image {"lightbox":{"enabled":true},"linkDestination":"none","className":"size-full is-style-aegis-shadow-image"} -->
-                    <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+                    <!-- wp:image {"lightbox":{"enabled":true},"linkDestination":"none","className":"size-full is-style-dark-shadow-image"} -->
+                    <figure class="wp-block-image size-full is-style-dark-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
                     <!-- /wp:image -->
 
-                    <!-- wp:image {"lightbox":{"enabled":true},"linkDestination":"none","className":"size-full is-style-aegis-shadow-image"} -->
-                    <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+                    <!-- wp:image {"lightbox":{"enabled":true},"linkDestination":"none","className":"size-full is-style-dark-shadow-image"} -->
+                    <figure class="wp-block-image size-full is-style-dark-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
                     <!-- /wp:image -->
 
-                    <!-- wp:image {"lightbox":{"enabled":true},"linkDestination":"none","className":"size-full is-style-aegis-shadow-image"} -->
-                    <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+                    <!-- wp:image {"lightbox":{"enabled":true},"linkDestination":"none","className":"size-full is-style-dark-shadow-image"} -->
+                    <figure class="wp-block-image size-full is-style-dark-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
                     <!-- /wp:image -->
 
-                    <!-- wp:image {"lightbox":{"enabled":true},"linkDestination":"none","className":"size-full is-style-aegis-shadow-image"} -->
-                    <figure class="wp-block-image size-full is-style-aegis-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
+                    <!-- wp:image {"lightbox":{"enabled":true},"linkDestination":"none","className":"size-full is-style-dark-shadow-image"} -->
+                    <figure class="wp-block-image size-full is-style-dark-shadow-image"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_1200x1920_dark.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" /></figure>
                     <!-- /wp:image -->
                 </figure>
                 <!-- /wp:gallery -->
@@ -87,25 +87,25 @@ return array(
 
             <!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
             <div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0">
-                <!-- wp:separator {"backgroundColor":"secondary","className":"is-style-wide"} -->
-                <hr class="wp-block-separator has-text-color has-secondary-color has-alpha-channel-opacity has-secondary-background-color has-background is-style-wide" />
+                <!-- wp:separator {"backgroundColor":"tertiary","className":"is-style-wide"} -->
+                <hr class="wp-block-separator has-text-color has-tertiary-color has-alpha-channel-opacity has-tertiary-background-color has-background is-style-wide" />
                 <!-- /wp:separator -->
 
                 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"space-between","orientation":"horizontal"}} -->
                 <div class="wp-block-buttons">
-                    <!-- wp:button {"textAlign":"center","backgroundColor":"background","textColor":"foreground","width":50,"style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}}},"className":"is-style-aegis-button-shadow-outline"} -->
-                    <div class="wp-block-button has-custom-width wp-block-button__width-50 is-style-aegis-button-shadow-outline"><a class="wp-block-button__link has-foreground-color has-background-background-color has-text-color has-background has-link-color has-text-align-center wp-element-button" href="#">' . esc_html__('[Call to Action]', 'aegis') . '</a></div>
+                    <!-- wp:button {"textAlign":"center","backgroundColor":"background","textColor":"foreground","width":50,"style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}}},"className":"is-style-dense-shadow-outline"} -->
+                    <div class="wp-block-button has-custom-width wp-block-button__width-50 is-style-dense-shadow-outline"><a class="wp-block-button__link has-foreground-color has-background-background-color has-text-color has-background has-link-color has-text-align-center wp-element-button" href="#">' . esc_html__('[Call to Action]', 'aegis') . '</a></div>
                     <!-- /wp:button -->
 
-                    <!-- wp:button {"textAlign":"center","backgroundColor":"background","textColor":"foreground","width":50,"style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}}},"className":"is-style-aegis-button-shadow-outline"} -->
-                    <div class="wp-block-button has-custom-width wp-block-button__width-50 is-style-aegis-button-shadow-outline">
+                    <!-- wp:button {"textAlign":"center","backgroundColor":"background","textColor":"foreground","width":50,"style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}}},"className":"is-style-dense-shadow-outline"} -->
+                    <div class="wp-block-button has-custom-width wp-block-button__width-50 is-style-dense-shadow-outline">
                     <a class="wp-block-button__link has-foreground-color has-background-background-color has-text-color has-background has-link-color has-text-align-center wp-element-button" href="#">' . esc_html__('[Call to Action', 'aegis') . '</a></div>
                     <!-- /wp:button -->
                 </div>
                 <!-- /wp:buttons -->
 
-                <!-- wp:separator {"backgroundColor":"secondary","className":"is-style-wide"} -->
-                <hr class="wp-block-separator has-text-color has-secondary-color has-alpha-channel-opacity has-secondary-background-color has-background is-style-wide" />
+                <!-- wp:separator {"backgroundColor":"tertiary","className":"is-style-wide"} -->
+                <hr class="wp-block-separator has-text-color has-tertiary-color has-alpha-channel-opacity has-tertiary-background-color has-background is-style-wide" />
                 <!-- /wp:separator -->
 
                 <!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
