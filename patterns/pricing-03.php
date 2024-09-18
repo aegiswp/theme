@@ -46,8 +46,8 @@
                 </div>
                 <!-- /wp:group -->
 
-                <!-- wp:separator {"backgroundColor":"tertiary","className":"is-style-default"} -->
-                <hr class="wp-block-separator has-text-color has-tertiary-color has-alpha-channel-opacity has-tertiary-background-color has-background is-style-default" />
+                <!-- wp:separator {"backgroundColor":"quinary","className":"is-style-default"} -->
+                <hr class="wp-block-separator has-text-color has-quinary-color has-alpha-channel-opacity has-quinary-background-color has-background is-style-default" />
                 <!-- /wp:separator -->
 
                 <!-- wp:group {"style":{"spacing":{"blockGap":"8px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
@@ -64,16 +64,16 @@
 
                 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","orientation":"horizontal"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
                 <div class="wp-block-buttons">
-                    <!-- wp:button {"backgroundColor":"contrast","textColor":"base","width":100,"className":"is-style-aegis-button-shadow-outline"} -->
-                    <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-aegis-button-shadow-outline">
+                    <!-- wp:button {"backgroundColor":"contrast","textColor":"base","width":100,"className":"is-style-dense-shadow-outline"} -->
+                    <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-dense-shadow-outline">
                         <a class="wp-block-button__link has-base-color has-contrast-background-color has-text-color has-background wp-element-button"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a>
                     </div>
                     <!-- /wp:button -->
                 </div>
                 <!-- /wp:buttons -->
 
-                <!-- wp:separator {"backgroundColor":"tertiary","className":"is-style-default"} -->
-                <hr class="wp-block-separator has-text-color has-tertiary-color has-alpha-channel-opacity has-tertiary-background-color has-background is-style-default" />
+                <!-- wp:separator {"backgroundColor":"quinary","className":"is-style-default"} -->
+                <hr class="wp-block-separator has-text-color has-quinary-color has-alpha-channel-opacity has-quinary-background-color has-background is-style-default" />
                 <!-- /wp:separator -->
 
                 <!-- wp:group {"style":{"spacing":{"blockGap":"14px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
@@ -114,8 +114,8 @@
                     </div>
                     <!-- /wp:group -->
 
-                    <!-- wp:separator {"backgroundColor":"tertiary","className":"is-style-default"} -->
-                    <hr class="wp-block-separator has-text-color has-tertiary-color has-alpha-channel-opacity has-tertiary-background-color has-background is-style-default" />
+                    <!-- wp:separator {"backgroundColor":"quinary","className":"is-style-default"} -->
+                    <hr class="wp-block-separator has-text-color has-quinary-color has-alpha-channel-opacity has-quinary-background-color has-background is-style-default" />
                     <!-- /wp:separator -->
 
                     <!-- wp:group {"style":{"spacing":{"blockGap":"8px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
@@ -132,16 +132,16 @@
 
                     <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","orientation":"horizontal"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
                     <div class="wp-block-buttons">
-                        <!-- wp:button {"backgroundColor":"contrast","textColor":"base","width":100,"className":"is-style-aegis-button-shadow"} -->
-                        <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-aegis-button-shadow">
+                        <!-- wp:button {"backgroundColor":"contrast","textColor":"base","width":100,"className":"is-style-dense-shadow"} -->
+                        <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-dense-shadow">
                             <a class="wp-block-button__link has-base-color has-contrast-background-color has-text-color has-background wp-element-button"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a>
                         </div>
                         <!-- /wp:button -->
                     </div>
                     <!-- /wp:buttons -->
 
-                    <!-- wp:separator {"backgroundColor":"tertiary","className":"is-style-default"} -->
-                    <hr class="wp-block-separator has-text-color has-tertiary-color has-alpha-channel-opacity has-tertiary-background-color has-background is-style-default" />
+                    <!-- wp:separator {"backgroundColor":"quinary","className":"is-style-default"} -->
+                    <hr class="wp-block-separator has-text-color has-quinary-color has-alpha-channel-opacity has-quinary-background-color has-background is-style-default" />
                     <!-- /wp:separator -->
 
                     <!-- wp:group {"style":{"spacing":{"blockGap":"14px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
@@ -174,8 +174,8 @@
                 </div>
                 <!-- /wp:group -->
 
-                <!-- wp:separator {"backgroundColor":"tertiary","className":"is-style-default"} -->
-                <hr class="wp-block-separator has-text-color has-tertiary-color has-alpha-channel-opacity has-tertiary-background-color has-background is-style-default" />
+                <!-- wp:separator {"backgroundColor":"quinary","className":"is-style-default"} -->
+                <hr class="wp-block-separator has-text-color has-quinary-color has-alpha-channel-opacity has-quinary-background-color has-background is-style-default" />
                 <!-- /wp:separator -->
 
                 <!-- wp:group {"style":{"spacing":{"blockGap":"8px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
@@ -192,16 +192,16 @@
 
                 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","orientation":"horizontal"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
                 <div class="wp-block-buttons">
-                    <!-- wp:button {"backgroundColor":"contrast","textColor":"base","width":100,"className":"is-style-aegis-button-shadow-outline"} -->
-                    <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-aegis-button-shadow-outline">
+                    <!-- wp:button {"backgroundColor":"contrast","textColor":"base","width":100,"className":"is-style-dense-shadow-outline"} -->
+                    <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-dense-shadow-outline">
                         <a class="wp-block-button__link has-base-color has-contrast-background-color has-text-color has-background wp-element-button"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text', 'aegis' ); ?></a>
                     </div>
                     <!-- /wp:button -->
                 </div>
                 <!-- /wp:buttons -->
 
-                <!-- wp:separator {"backgroundColor":"tertiary","className":"is-style-default"} -->
-                <hr class="wp-block-separator has-text-color has-tertiary-color has-alpha-channel-opacity has-tertiary-background-color has-background is-style-default" />
+                <!-- wp:separator {"backgroundColor":"quinary","className":"is-style-default"} -->
+                <hr class="wp-block-separator has-text-color has-quinary-color has-alpha-channel-opacity has-quinary-background-color has-background is-style-default" />
                 <!-- /wp:separator -->
 
                 <!-- wp:group {"style":{"spacing":{"blockGap":"14px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
