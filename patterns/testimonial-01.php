@@ -12,8 +12,8 @@ return array(
 	<div class="wp-block-columns alignwide">
 		<!-- wp:column -->
 		<div class="wp-block-column">
-			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}},"border":{"top":{"color":"var:preset|color|foreground","width":"1px"}}},"backgroundColor":"secondary"} -->
-			<div class="wp-block-group has-secondary-background-color has-background" style="border-top-color:var(--wp--preset--color--foreground);border-top-width:1px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}},"border":{"top":{"color":"var:preset|color|foreground","width":"1px"}}},"backgroundColor":"tertiary"} -->
+			<div class="wp-block-group has-tertiary-background-color has-background" style="border-top-color:var(--wp--preset--color--foreground);border-top-width:1px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 				<!-- wp:quote -->
 				<blockquote class="wp-block-quote">
 					<!-- wp:paragraph {"fontSize":"small"} -->
@@ -24,16 +24,16 @@ return array(
 			</div>
 			<!-- /wp:group -->
 
-			<!-- wp:group {"style":{"spacing":{"padding":{"top":"5%","right":"5%","bottom":"5%","left":"5%"},"margin":{"top":"0","bottom":"0"}}},"gradient":"diagonal-background-to-secondary-triangle"} -->
-			<div class="wp-block-group has-diagonal-background-to-secondary-triangle-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:5%;padding-right:5%;padding-bottom:5%;padding-left:5%">
+			<!-- wp:group {"style":{"spacing":{"padding":{"top":"5%","right":"5%","bottom":"5%","left":"5%"},"margin":{"top":"0","bottom":"0"}}},"gradient":"diagonal-background-to-tertiary-right-bottom-triangle"} -->
+			<div class="wp-block-group has-diagonal-background-to-tertiary-right-bottom-triangle-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:5%;padding-right:5%;padding-bottom:5%;padding-left:5%">
 				<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"flex","allowOrientation":false,"justifyContent":"right"}} -->
 				<div class="wp-block-group" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
 					<!-- wp:paragraph {"fontSize":"small"} -->
 					<p class="has-small-font-size">' . esc_html__('[Customer Name]', 'aegis') . '</p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:image {"width":"100px","aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"100px"}},"className":"is-style-aegis-shadow-image"} -->
-					<figure class="wp-block-image size-full is-resized has-custom-border is-style-aegis-shadow-image">
+					<!-- wp:image {"width":"100px","aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"100px"}},"className":"is-style-dark-shadow-image"} -->
+					<figure class="wp-block-image size-full is-resized has-custom-border is-style-dark-shadow-image">
 						<img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_dark.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" style="border-radius:100px;aspect-ratio:1;object-fit:cover;width:100px" /></figure>
 					<!-- /wp:image -->
 				</div>
@@ -66,8 +66,8 @@ return array(
 					<p class="has-small-font-size">' . esc_html__('[Customer Name]', 'aegis') . '</p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:image {"width":"100px","aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"100px"}},"className":"is-style-aegis-shadow-image"} -->
-					<figure class="wp-block-image size-full is-resized has-custom-border is-style-aegis-shadow-image">
+					<!-- wp:image {"width":"100px","aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"100px"}},"className":"is-style-dark-shadow-image"} -->
+					<figure class="wp-block-image size-full is-resized has-custom-border is-style-dark-shadow-image">
 						<img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_dark.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" style="border-radius:100px;aspect-ratio:1;object-fit:cover;width:100px" /></figure>
 					<!-- /wp:image -->
 				</div>
@@ -99,8 +99,8 @@ return array(
 					<p class="has-small-font-size">' . esc_html__('[Customer Name]', 'aegis') . '</p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:image {"width":"100px","aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"100px"}},"className":"is-style-aegis-shadow-image"} -->
-					<figure class="wp-block-image size-full is-resized has-custom-border is-style-aegis-shadow-image">
+					<!-- wp:image {"width":"100px","aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"100px"}},"className":"is-style-dark-shadow-image"} -->
+					<figure class="wp-block-image size-full is-resized has-custom-border is-style-dark-shadow-image">
 						<img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_dark.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" style="border-radius:100px;aspect-ratio:1;object-fit:cover;width:100px" /></figure>
 					<!-- /wp:image -->
 				</div>
