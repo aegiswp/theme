@@ -19,7 +19,7 @@
 	<!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|30","bottom":"7px","left":"var:preset|spacing|30","top":"7px"}}},"backgroundColor":"foreground","textColor":"background","layout":{"type":"constrained"}} -->
 	<div class="wp-block-group has-background-color has-foreground-background-color has-text-color has-background" style="padding-top:7px;padding-right:var(--wp--preset--spacing--30);padding-bottom:7px;padding-left:var(--wp--preset--spacing--30)">
 		<!-- wp:paragraph {"align":"center","fontSize":"tiny"} -->
-		<p class="has-text-align-center has-tiny-font-size"><?php echo esc_html_e('[Offer Highlight (52 chars): Announce a special deal or limited-time opportunity.]', 'aegis'); ?></p>
+		<p class="has-text-align-center has-tiny-font-size"><?php echo esc_html_x('[Offer Highlight (52 chars): Announce a special deal or limited-time opportunity.]', 'Replace with a description of the section.', 'aegis'); ?></p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->
