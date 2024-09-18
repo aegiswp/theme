@@ -53,8 +53,8 @@ return array(
 			<figure class="wp-block-image size-full"><img src="' . esc_url(get_template_directory_uri()) . '/assets/images/thumb_800x800_dark.webp" alt="' . esc_html__('Describe the main elements of the image and its context.', 'aegis') . '" style="aspect-ratio:1;object-fit:cover" /></figure>
 			<!-- /wp:image -->
 
-			<!-- wp:group {"style":{"spacing":{"padding":{"right":"35px","bottom":"35px","left":"35px","top":"5px"}}},"backgroundColor":"secondary"} -->
-			<div class="wp-block-group has-secondary-background-color has-background" style="padding-top:5px;padding-right:35px;padding-bottom:35px;padding-left:35px">
+			<!-- wp:group {"style":{"spacing":{"padding":{"right":"35px","bottom":"35px","left":"35px","top":"5px"}}},"backgroundColor":"tertiary"} -->
+			<div class="wp-block-group has-tertiary-background-color has-background" style="padding-top:5px;padding-right:35px;padding-bottom:35px;padding-left:35px">
 				<!-- wp:heading {"textAlign":"left","level":3,"style":{"typography":{"textTransform":"capitalize","lineHeight":"0.8"},"spacing":{"margin":{"top":"40px"}}},"fontSize":"extra-large"} -->
 				<h3 class="wp-block-heading has-text-align-left has-extra-large-font-size" style="margin-top:40px;line-height:0.8;text-transform:capitalize">' . esc_html__('[Name]', 'aegis') . '</h3>
 				<!-- /wp:heading -->
@@ -71,7 +71,7 @@ return array(
 				<hr class="wp-block-separator has-text-color has-background-color has-alpha-channel-opacity has-background-background-color has-background is-style-default" />
 				<!-- /wp:separator -->
 
-				<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","iconBackgroundColor":"secondary","iconBackgroundColorValue":"#f0eee9","size":"has-small-icon-size","style":{"spacing":{"blockGap":{"top":"10px","left":"10px"}}},"className":"is-style-default","layout":{"type":"flex","justifyContent":"left"}} -->
+				<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","iconBackgroundColor":"tertiary","iconBackgroundColorValue":"#f0eee9","size":"has-small-icon-size","style":{"spacing":{"blockGap":{"top":"10px","left":"10px"}}},"className":"is-style-default","layout":{"type":"flex","justifyContent":"left"}} -->
 				<ul class="wp-block-social-links has-small-icon-size has-icon-color has-icon-background-color is-style-default">
 					<!-- wp:social-link {"url":"#","service":"facebook","label":"Facebook"} /-->
 					<!-- wp:social-link {"url":"#","service":"linkedin","label":"LinkedIn"} /-->
