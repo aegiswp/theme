@@ -6,8 +6,8 @@ return array(
 	'title'	  => __( '01. Team', 'aegis' ),
 	'description' => __( 'Team three-columns with image, heading, paragraph, separator,and social icons', 'aegis' ),
 	'categories' => array( 'aegis-team' ),
-	'content'	=> '<!-- wp:group {"metadata":{"name":"' . esc_html__('01. Team Pattern', 'aegis') . '"},"align":"full","style":{"spacing":{"padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30","top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"margin":{"top":"0","bottom":"0"}}},"gradient":"diagonal-secondary-to-background","layout":{"type":"default"}} -->
-<div class="wp-block-group alignfull has-diagonal-secondary-to-background-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
+	'content'	=> '<!-- wp:group {"metadata":{"name":"' . esc_html__('01. Team Pattern', 'aegis') . '"},"align":"full","style":{"spacing":{"padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30","top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"margin":{"top":"0","bottom":"0"}}},"gradient":"diagonal-tertiary-to-background-right-bottom","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull has-diagonal-tertiary-to-background-right-bottom-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
 	<!-- wp:columns {"align":"wide","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"blockGap":{"top":"var:preset|spacing|30"}}}} -->
 	<div class="wp-block-columns alignwide" style="margin-top:0;margin-bottom:0">
 		<!-- wp:column {"style":{"spacing":{"blockGap":"0","padding":{"right":"0","left":"0","top":"0","bottom":"0"}}},"backgroundColor":"background"} -->
@@ -49,8 +49,8 @@ return array(
 		</div>
 		<!-- /wp:column -->
 
-		<!-- wp:column {"backgroundColor":"secondary"} -->
-		<div class="wp-block-column has-secondary-background-color has-background">
+		<!-- wp:column {"backgroundColor":"tertiary"} -->
+		<div class="wp-block-column has-tertiary-background-color has-background">
 			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"className":"is-style-aegis-border"} -->
 			<div class="wp-block-group is-style-aegis-border" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 				<!-- wp:image {"width":"160px","aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none","align":"center","style":{"color":{"duotone":"unset"}},"className":"is-style-rounded"} -->
