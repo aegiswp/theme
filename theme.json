@@ -1900,24 +1900,24 @@
       "defaultPresets": false,
       "presets": [
         {
-          "name": "Background solid shadow left top",
-          "slug": "background-solid-shadow-left-top",
-          "shadow": "-7px -7px 0px rgba(246, 245, 242, 1)"
+          "name": "Background faded shadow left top",
+          "slug": "background-faded-shadow-left-top",
+          "shadow": "-7px -7px 0px rgba(246, 245, 242, 0.4)"
         },
         {
-          "name": "Background solid shadow left bottom",
-          "slug": "background-solid-shadow-left-bottom",
-          "shadow": "-7px 7px 0px rgba(246, 245, 242, 1)"
+          "name": "Background faded shadow left bottom",
+          "slug": "background-faded-shadow-left-bottom",
+          "shadow": "-7px 7px 0px rgba(246, 245, 242, 0.4)"
         },
         {
-          "name": "Background solid shadow right bottom",
-          "slug": "background-solid-shadow-right-bottom",
-          "shadow": "7px 7px 0px rgba(246, 245, 242, 1)"
+          "name": "Background faded shadow right bottom",
+          "slug": "background-faded-shadow-right-bottom",
+          "shadow": "7px 7px 0px rgba(246, 245, 242, 0.4)"
         },
         {
-          "name": "Background solid shadow right top",
-          "slug": "background-solid-shadow-right-top",
-          "shadow": "7px -7px 0px rgba(246, 245, 242, 1)"
+          "name": "Background faded shadow right top",
+          "slug": "background-faded-shadow-right-top",
+          "shadow": "7px -7px 0px rgba(246, 245, 242, 0.4)"
         },
         {
           "name": "Primary faded shadow left top",
