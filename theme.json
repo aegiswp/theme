@@ -1900,89 +1900,424 @@
       "defaultPresets": false,
       "presets": [
         {
-          "name": "Foreground small shadow",
-          "slug": "foreground-small-shadow",
-          "shadow": "6px 6px 9px rgba(28, 28, 30, 0.2)"
+          "name": "Background solid shadow left top",
+          "slug": "background-solid-shadow-left-top",
+          "shadow": "-7px -7px 0px rgba(246, 245, 242, 1)"
         },
         {
-          "name": "Foreground large shadow",
-          "slug": "foreground-large-shadow",
-          "shadow": "12px 12px 50px rgba(28, 28, 30, 0.4)"
+          "name": "Background solid shadow left bottom",
+          "slug": "background-solid-shadow-left-bottom",
+          "shadow": "-7px 7px 0px rgba(246, 245, 242, 1)"
         },
         {
-          "name": "Background shadow right bottom",
-          "slug": "background-shadow-right-bottom",
+          "name": "Background solid shadow right bottom",
+          "slug": "background-solid-shadow-right-bottom",
           "shadow": "7px 7px 0px rgba(246, 245, 242, 1)"
         },
         {
-          "name": "Foreground shadow right bottom",
-          "slug": "foreground-shadow-right-bottom",
-          "shadow": "7px 7px 0px rgba(28, 28, 30, 1)"
+          "name": "Background solid shadow right top",
+          "slug": "background-solid-shadow-right-top",
+          "shadow": "7px -7px 0px rgba(246, 245, 242, 1)"
         },
         {
-          "name": "Primary shadow right bottom",
-          "slug": "primary-shadow-right-bottom",
+          "name": "Primary faded shadow left top",
+          "slug": "primary-faded-shadow-left-top",
+          "shadow": "-6px -6px 9px rgba(37, 37, 40, 0.4)"
+        },
+        {
+          "name": "Primary faded shadow left bottom",
+          "slug": "primary-faded-shadow-left-bottom",
+          "shadow": "-6px 6px 9px rgba(37, 37, 40, 0.4)"
+        },
+        {
+          "name": "Primary faded shadow right bottom",
+          "slug": "primary-faded-shadow-right-bottom",
+          "shadow": "6px 6px 9px rgba(37, 37, 40, 0.4)"
+        },
+        {
+          "name": "Primary faded shadow right top",
+          "slug": "primary-faded-shadow-right-top",
+          "shadow": "6px -6px 9px rgba(37, 37, 40, 0.4)"
+        },
+        {
+          "name": "Secondary faded shadow left top",
+          "slug": "secondary-faded-shadow-left-top",
+          "shadow": "-6px -6px 9px rgba(90, 90, 96, 0.4)"
+        },
+        {
+          "name": "Secondary faded shadow left bottom",
+          "slug": "secondary-faded-shadow-left-bottom",
+          "shadow": "-6px 6px 9px rgba(90, 90, 96, 0.4)"
+        },
+        {
+          "name": "Secondary faded shadow right bottom",
+          "slug": "secondary-faded-shadow-right-bottom",
+          "shadow": "6px 6px 9px rgba(90, 90, 96, 0.4)"
+        },
+        {
+          "name": "Secondary faded shadow right top",
+          "slug": "secondary-faded-shadow-right-top",
+          "shadow": "6px -6px 9px rgba(90, 90, 96, 0.4)"
+        },
+        {
+          "name": "Tertiary faded shadow left top",
+          "slug": "tertiary-faded-shadow-left-top",
+          "shadow": "-6px -6px 9px rgba(240, 238, 233, 0.4)"
+        },
+        {
+          "name": "Tertiary faded shadow left bottom",
+          "slug": "tertiary-faded-shadow-left-bottom",
+          "shadow": "-6px 6px 9px rgba(240, 238, 233, 0.4)"
+        },
+        {
+          "name": "Tertiary faded shadow right bottom",
+          "slug": "tertiary-faded-shadow-right-bottom",
+          "shadow": "6px 6px 9px rgba(240, 238, 233, 0.4)"
+        },
+        {
+          "name": "Tertiary faded shadow right top",
+          "slug": "tertiary-faded-shadow-right-top",
+          "shadow": "6px -6px 9px rgba(240, 238, 233, 0.4)"
+        },
+        {
+          "name": "Quaternary faded shadow left top",
+          "slug": "quaternary-faded-shadow-left-top",
+          "shadow": "-6px -6px 9px rgba(230, 226, 218, 0.4)"
+        },
+        {
+          "name": "Quaternary faded shadow left bottom",
+          "slug": "quaternary-faded-shadow-left-bottom",
+          "shadow": "-6px 6px 9px rgba(230, 226, 218, 0.4)"
+        },
+        {
+          "name": "Quaternary faded shadow right bottom",
+          "slug": "quaternary-faded-shadow-right-bottom",
+          "shadow": "6px 6px 9px rgba(230, 226, 218, 0.4)"
+        },
+        {
+          "name": "Quaternary faded shadow right top",
+          "slug": "quaternary-faded-shadow-right-top",
+          "shadow": "6px -6px 9px rgba(230, 226, 218, 0.4)"
+        },
+        {
+          "name": "Quinary faded shadow left top",
+          "slug": "quinary-faded-shadow-left-top",
+          "shadow": "-6px -6px 9px rgba(220, 214, 203, 0.4)"
+        },
+        {
+          "name": "Quinary faded shadow left bottom",
+          "slug": "quinary-faded-shadow-left-bottom",
+          "shadow": "-6px 6px 9px rgba(220, 214, 203, 0.4)"
+        },
+        {
+          "name": "Quinary faded shadow right bottom",
+          "slug": "quinary-faded-shadow-right-bottom",
+          "shadow": "6px 6px 9px rgba(220, 214, 203, 0.4)"
+        },
+        {
+          "name": "Quinary faded shadow right top",
+          "slug": "quinary-faded-shadow-right-top",
+          "shadow": "6px -6px 9px rgba(220, 214, 203, 0.4)"
+        },
+        {
+          "name": "Senary faded shadow left top",
+          "slug": "senary-faded-shadow-left-top",
+          "shadow": "-6px -6px 9px rgba(210, 202, 188, 0.4)"
+        },
+        {
+          "name": "Senary faded shadow left bottom",
+          "slug": "senary-faded-shadow-left-bottom",
+          "shadow": "-6px 6px 9px rgba(210, 202, 188, 0.4)"
+        },
+        {
+          "name": "Senary faded shadow right bottom",
+          "slug": "senary-faded-shadow-right-bottom",
+          "shadow": "6px 6px 9px rgba(210, 202, 188, 0.4)"
+        },
+        {
+          "name": "Senary faded shadow right top",
+          "slug": "senary-faded-shadow-right-top",
+          "shadow": "6px -6px 9px rgba(210, 202, 188, 0.4)"
+        },
+        {
+          "name": "Background solid shadow left top",
+          "slug": "background-solid-shadow-left-top",
+          "shadow": "-7px -7px 0px rgba(246, 245, 242, 1)"
+        },
+        {
+          "name": "Background solid shadow left bottom",
+          "slug": "background-solid-shadow-left-bottom",
+          "shadow": "-7px 7px 0px rgba(246, 245, 242, 1)"
+        },
+        {
+          "name": "Background solid shadow right bottom",
+          "slug": "background-solid-shadow-right-bottom",
+          "shadow": "7px 7px 0px rgba(246, 245, 242, 1)"
+        },
+        {
+          "name": "Background solid shadow right top",
+          "slug": "background-solid-shadow-right-top",
+          "shadow": "7px -7px 0px rgba(246, 245, 242, 1)"
+        },
+        {
+          "name": "Primary solid shadow left top",
+          "slug": "primary-solid-shadow-left-top",
+          "shadow": "-7px -7px 0px rgba(37, 37, 40, 1)"
+        },
+        {
+          "name": "Primary solid shadow left bottom",
+          "slug": "primary-solid-shadow-left-bottom",
+          "shadow": "-7px 7px 0px rgba(37, 37, 40, 1)"
+        },
+        {
+          "name": "Primary solid shadow right bottom",
+          "slug": "primary-solid-shadow-right-bottom",
           "shadow": "7px 7px 0px rgba(37, 37, 40, 1)"
         },
         {
-          "name": "Secondary shadow right bottom",
-          "slug": "secondary-shadow-right-bottom",
+          "name": "Primary solid shadow right top",
+          "slug": "primary-solid-shadow-right-top",
+          "shadow": "7px -7px 0px rgba(37, 37, 40, 1)"
+        },
+        {
+          "name": "Secondary solid shadow left top",
+          "slug": "secondary-solid-shadow-left-top",
+          "shadow": "-7px -7px 0px rgba(90, 90, 96, 1)"
+        },
+        {
+          "name": "Secondary solid shadow left bottom",
+          "slug": "secondary-solid-shadow-left-bottom",
+          "shadow": "-7px 7px 0px rgba(90, 90, 96, 1)"
+        },
+        {
+          "name": "Secondary solid shadow right bottom",
+          "slug": "secondary-solid-shadow-right-bottom",
           "shadow": "7px 7px 0px rgba(90, 90, 96, 1)"
         },
         {
-          "name": "Tertiary shadow right bottom",
-          "slug": "tertiary-shadow-right-bottom",
+          "name": "Secondary solid shadow right top",
+          "slug": "secondary-solid-shadow-right-top",
+          "shadow": "7px -7px 0px rgba(90, 90, 96, 1)"
+        },
+        {
+          "name": "Tertiary solid shadow left top",
+          "slug": "tertiary-solid-shadow-left-top",
+          "shadow": "-7px -7px 0px rgba(240, 238, 233, 1)"
+        },
+        {
+          "name": "Tertiary solid shadow left bottom",
+          "slug": "tertiary-solid-shadow-left-bottom",
+          "shadow": "-7px 7px 0px rgba(240, 238, 233, 1)"
+        },
+        {
+          "name": "Tertiary solid shadow right bottom",
+          "slug": "tertiary-solid-shadow-right-bottom",
           "shadow": "7px 7px 0px rgba(240, 238, 233, 1)"
         },
         {
-          "name": "Quaternary shadow right bottom",
-          "slug": "quaternary-shadow-right-bottom",
+          "name": "Tertiary solid shadow right top",
+          "slug": "tertiary-solid-shadow-right-top",
+          "shadow": "7px -7px 0px rgba(240, 238, 233, 1)"
+        },
+        {
+          "name": "Quaternary solid shadow left top",
+          "slug": "quaternary-solid-shadow-left-top",
+          "shadow": "-7px -7px 0px rgba(230, 226, 218, 1)"
+        },
+        {
+          "name": "Quaternary solid shadow left bottom",
+          "slug": "quaternary-solid-shadow-left-bottom",
+          "shadow": "-7px 7px 0px rgba(230, 226, 218, 1)"
+        },
+        {
+          "name": "Quaternary solid shadow right bottom",
+          "slug": "quaternary-solid-shadow-right-bottom",
           "shadow": "7px 7px 0px rgba(230, 226, 218, 1)"
         },
         {
-          "name": "Quinary shadow right bottom",
-          "slug": "quinary-shadow-right-bottom",
+          "name": "Quaternary solid shadow right top",
+          "slug": "quaternary-solid shadow-right-top",
+          "shadow": "7px -7px 0px rgba(230, 226, 218, 1)"
+        },
+        {
+          "name": "Quinary solid shadow left top",
+          "slug": "quinary-solid-shadow-left-top",
+          "shadow": "-7px -7px 0px rgba(220, 214, 203, 1)"
+        },
+        {
+          "name": "Quinary solid shadow left bottom",
+          "slug": "quinary-solid-shadow-left-bottom",
+          "shadow": "-7px 7px 0px rgba(220, 214, 203, 1)"
+        },
+        {
+          "name": "Quinary solid shadow right bottom",
+          "slug": "quinary-solid-shadow-right-bottom",
           "shadow": "7px 7px 0px rgba(220, 214, 203, 1)"
         },
         {
-          "name": "Senary shadow right bottom",
-          "slug": "senary-shadow-right-bottom",
+          "name": "Quinary solid shadow right top",
+          "slug": "quinary-solid-shadow-right-top",
+          "shadow": "7px -7px 0px rgba(220, 214, 203, 1)"
+        },
+        {
+          "name": "Senary solid shadow left top",
+          "slug": "senary-solid-shadow-left-top",
+          "shadow": "-7px -7px 0px rgba(210, 202, 188, 1)"
+        },
+        {
+          "name": "Senary solid shadow left bottom",
+          "slug": "senary-solid-shadow-left-bottom",
+          "shadow": "-7px 7px 0px rgba(210, 202, 188, 1)"
+        },
+        {
+          "name": "Senary solid shadow right bottom",
+          "slug": "senary-solid-shadow-right-bottom",
           "shadow": "7px 7px 0px rgba(210, 202, 188, 1)"
         },
         {
-          "name": "Foreground outline right bottom",
-          "slug": "foreground-outlined-right-bottom",
+          "name": "Senary solid shadow right top",
+          "slug": "senary-solid-shadow-right-top",
+          "shadow": "7px -7px 0px rgba(210, 202, 188, 1)"
+        },
+        {
+          "name": "Foreground outlined shadow left top",
+          "slug": "foreground-outlined-shadow-left-top",
+          "shadow": "-7px -7px 0px -3px rgba(246, 245, 242, 1), -7px -7px rgba(28, 28, 30, 1)"
+        },
+        {
+          "name": "Foreground outlined shadow left bottom",
+          "slug": "foreground-outlined-shadow-left-bottom",
+          "shadow": "-7px 7px 0px -3px rgba(246, 245, 242, 1), -7px 7px rgba(28, 28, 30, 1)"
+        },
+        {
+          "name": "Foreground outlined shadow right bottom",
+          "slug": "foreground-outlined-shadow-right-bottom",
           "shadow": "7px 7px 0px -3px rgba(246, 245, 242, 1), 7px 7px rgba(28, 28, 30, 1)"
         },
         {
-          "name": "Primary outline right bottom",
+          "name": "Foreground outlined shadow right top",
+          "slug": "foreground-outlined-shadow-right-top",
+          "shadow": "7px -7px 0px -3px rgba(246, 245, 242, 1), 7px -7px rgba(28, 28, 30, 1)"
+        },
+        {
+          "name": "Primary outlined left top",
+          "slug": "primary-outlined-left-top",
+          "shadow": "-7px -7px 0px -3px rgba(246, 245, 242, 1), -7px -7px rgba(37, 37, 40, 1)"
+        },
+        {
+          "name": "Primary outlined left bottom",
+          "slug": "primary-outlined-left-bottom",
+          "shadow": "-7px 7px 0px -3px rgba(246, 245, 242, 1), -7px 7px rgba(37, 37, 40, 1)"
+        },
+        {
+          "name": "Primary outlined right bottom",
           "slug": "primary-outlined-right-bottom",
           "shadow": "7px 7px 0px -3px rgba(246, 245, 242, 1), 7px 7px rgba(37, 37, 40, 1)"
         },
         {
-          "name": "Secondary outline right bottom",
+          "name": "Primary outlined right top",
+          "slug": "primary-outlined-right-top",
+          "shadow": "7px -7px 0px -3px rgba(246, 245, 242, 1), 7px -7px rgba(37, 37, 40, 1)"
+        },
+        {
+          "name": "Secondary outlined left top",
+          "slug": "secondary-outlined-left-top",
+          "shadow": "-7px -7px 0px -3px rgba(246, 245, 242, 1), -7px -7px rgba(90, 90, 96, 1)"
+        },
+        {
+          "name": "Secondary outlined left bottom",
+          "slug": "secondary-outlined-left-bottom",
+          "shadow": "-7px 7px 0px -3px rgba(246, 245, 242, 1), -7px 7px rgba(90, 90, 96, 1)"
+        },
+        {
+          "name": "Secondary outlined right bottom",
           "slug": "secondary-outlined-right-bottom",
           "shadow": "7px 7px 0px -3px rgba(246, 245, 242, 1), 7px 7px rgba(90, 90, 96, 1)"
         },
         {
-          "name": "Tertiary outline right bottom",
+          "name": "Secondary outlined right top",
+          "slug": "secondary-outlined-right-top",
+          "shadow": "7px -7px 0px -3px rgba(246, 245, 242, 1), 7px -7px rgba(90, 90, 96, 1)"
+        },
+        {
+          "name": "Tertiary outlined left top",
+          "slug": "tertiary-outlined-left-top",
+          "shadow": "-7px -7px 0px -3px rgba(246, 245, 242, 1), -7px -7px rgba(240, 238, 233, 1)"
+        },
+        {
+          "name": "Tertiary outlined left bottom",
+          "slug": "tertiary-outlined-left-bottom",
+          "shadow": "-7px 7px 0px -3px rgba(246, 245, 242, 1), -7px 7px rgba(240, 238, 233, 1)"
+        },
+        {
+          "name": "Tertiary outlined right bottom",
           "slug": "tertiary-outlined-right-bottom",
           "shadow": "7px 7px 0px -3px rgba(246, 245, 242, 1), 7px 7px rgba(240, 238, 233, 1)"
         },
         {
-          "name": "Quaternary outline right bottom",
+          "name": "Tertiary outlined right top",
+          "slug": "tertiary-outlined-right-top",
+          "shadow": "7px -7px 0px -3px rgba(246, 245, 242, 1), 7px -7px rgba(240, 238, 233, 1)"
+        },
+        {
+          "name": "Quaternary outlined left top",
+          "slug": "quaternary-outlined-left-top",
+          "shadow": "-7px -7px 0px -3px rgba(246, 245, 242, 1), -7px -7px rgba(230, 226, 218, 1)"
+        },
+        {
+          "name": "Quaternary outlined left bottom",
+          "slug": "quaternary-outlined-left-bottom",
+          "shadow": "-7px 7px 0px -3px rgba(246, 245, 242, 1), -7px 7px rgba(230, 226, 218, 1)"
+        },
+        {
+          "name": "Quaternary outlined right bottom",
           "slug": "quaternary-outlined-right-bottom",
           "shadow": "7px 7px 0px -3px rgba(246, 245, 242, 1), 7px 7px rgba(230, 226, 218, 1)"
         },
         {
-          "name": "Quinary outline right bottom",
+          "name": "Quaternary outlined right top",
+          "slug": "quaternary-outlined-right-top",
+          "shadow": "7px -7px 0px -3px rgba(246, 245, 242, 1), 7px -7px rgba(230, 226, 218, 1)"
+        },
+        {
+          "name": "Quinary outlined left top",
+          "slug": "quinary-outlined-left-top",
+          "shadow": "-7px -7px 0px -3px rgba(246, 245, 242, 1), -7px -7px rgba(220, 214, 203, 1)"
+        },
+        {
+          "name": "Quinary outlined left bottom",
+          "slug": "quinary-outlined-left-bottom",
+          "shadow": "-7px 7px 0px -3px rgba(246, 245, 242, 1), -7px 7px rgba(220, 214, 203, 1)"
+        },
+        {
+          "name": "Quinary outlined right bottom",
           "slug": "quinary-outlined-right-bottom",
           "shadow": "7px 7px 0px -3px rgba(246, 245, 242, 1), 7px 7px rgba(220, 214, 203, 1)"
         },
         {
-          "name": "Senary outline right-bottom",
+          "name": "Quinary outlined right top",
+          "slug": "quinary-outlined-right-top",
+          "shadow": "7px -7px 0px -3px rgba(246, 245, 242, 1), 7px -7px rgba(220, 214, 203, 1)"
+        },
+        {
+          "name": "Senary outlined left top",
+          "slug": "senary-outlined-left-top",
+          "shadow": "-7px -7px 0px -3px rgba(246, 245, 242, 1), -7px -7px rgba(210, 202, 188, 1)"
+        },
+        {
+          "name": "Senary outlined left bottom",
+          "slug": "senary-outlined-left-bottom",
+          "shadow": "-7px 7px 0px -3px rgba(246, 245, 242, 1), -7px 7px rgba(210, 202, 188, 1)"
+        },
+        {
+          "name": "Senary outlined right bottom",
           "slug": "senary-outlined-right-bottom",
           "shadow": "7px 7px 0px -3px rgba(246, 245, 242, 1), 7px 7px rgba(210, 202, 188, 1)"
+        },
+        {
+          "name": "Senary outlined right top",
+          "slug": "senary-outlined-right-top",
+          "shadow": "7px -7px 0px -3px rgba(246, 245, 242, 1), 7px -7px rgba(210, 202, 188, 1)"
         }
       ]
     },
