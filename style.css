@@ -170,24 +170,30 @@ a:focus {
     opacity: 0.96;
 }
 
-
 /* ------------------------------------------- */
 /* Blog
 /* ------------------------------------------- */
 /* Excerpt */
+
+/* Base Styles */
 .wp-block-post-excerpt__more-link {
-	background: var(--wp--preset--color--foreground);
-	color: var(--wp--preset--color--background);
-	padding: 7px 25px;
-	transition: all .3s ease;
+    background-color: var(--wp--preset--color--foreground);
+    color: var(--wp--preset--color--background);
+    padding: 0.5em 1.5em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
 }
 
+/* Hover Styles */
 .wp-block-post-excerpt__more-link:hover {
-	padding: 7px 28px;
+    /* Optionally change background color or use transform */
+    background-color: var(--wp--preset--color--secondary);
+    transform: scale(1.05);
 }
 
+/* Additional Padding */
 .wp-block-post-content .wp-block-post-excerpt__more-link {
-	padding-bottom: 7px;
+    padding-bottom: 0.5em;
 }
 
 /* ------------------------------------------- */
