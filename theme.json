@@ -2687,7 +2687,7 @@
         "elements": {
           "caption": {
             "typography": {
-              "fontSize": "var(--wp--preset--font-size--tiny)",
+              "fontSize": "var(--wp--preset--font-size--tiny, 0.875rem)",
               "lineHeight": "1.5"
             },
             "spacing": {
@@ -2696,10 +2696,10 @@
                 "bottom": "0"
               },
               "padding": {
-                "top": "var(--wp--preset--spacing--10)",
-                "left": "var(--wp--preset--spacing--30)",
-                "right": "var(--wp--preset--spacing--30)",
-                "bottom": "var(--wp--preset--spacing--10)"
+                "top": "var(--wp--preset--spacing--10, 1rem)",
+                "left": "var(--wp--preset--spacing--30, 2rem)",
+                "right": "var(--wp--preset--spacing--30, 2rem)",
+                "bottom": "var(--wp--preset--spacing--10, 1rem)"
               }
             },
             "color": {
