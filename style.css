@@ -32,30 +32,34 @@ body {
     animation: fadein 0.7s;
 }
 
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 /*
  * Text link styles.
  * Necessary until the following issue is resolved in Gutenberg:
  * https://github.com/WordPress/gutenberg/issues/27075
  */
+:root {
+    --underline-thickness: 2px;
+}
+
 a {
-    background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
-    background-size: 0;
+    background-image: linear-gradient(
+        transparent calc(100% - var(--underline-thickness)),
+        currentColor var(--underline-thickness)
+    );
+    background-size: 0% 100%;
     background-repeat: no-repeat;
     background-position: bottom left;
-    color: var(--wp--preset--color--foreground); /* Temporary fix: Remove on Beta 3 */
-    padding-bottom: 3px;
-    text-decoration: none;
-    transition: all 0.4s ease, text-decoration 0s ease;
+    transition: background-size 0.4s ease;
 }
 
 a:hover,
 a:focus {
-    background-image: linear-gradient(transparent calc(100% - 2px), currentColor 2px);
-    background-size: 100%;
-}
-
-a:active {
-    text-decoration: none;
+    background-size: 100% 100%;
 }
 
 /* ------------------------------------------- */
