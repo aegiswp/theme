@@ -143,20 +143,6 @@ a:focus {
     height: fit-content;
 }
 
-
-/* ------------------------------------------- */
-/* Search Block
-/* ------------------------------------------- */
-/* Includes Buttons */
-.wp-block-search__button,
-.wp-block-file .wp-block-file__button {
-    background-color: var(--wp--preset--color--foreground);
-	border: none;
-	color: var(--wp--preset--color--background);
-	font-size: var(--wp--preset--typography--font-size--normal);
-	padding: calc(.667em + 2px) calc(1.333em + 2px);
-}
-
 /*
  * Button hover styles.
  * Necessary until the following issue is resolved in Gutenberg:
