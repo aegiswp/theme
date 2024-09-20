@@ -2334,7 +2334,10 @@
       "navigationItem": {
         "padding": "0.5em",
         "position": "relative",
-        "boxShadow": "none"
+        "boxShadow": "none",
+        "hover": {
+          "boxShadow": "0px 4px 6px rgba(0,0,0,0.1)"
+        }
       },
       "navigationSubmenu": {
         "border": {
@@ -2344,10 +2347,10 @@
         }
       },
       "spacing": {
-        "small": "max(1.25rem, 5vw)",
-        "medium": "clamp(2rem, 8vw, calc(4 * var(--wp--style--block-gap)))",
-        "large": "clamp(4rem, 10vw, 8rem)",
-        "outer": "var(--wp--custom--spacing--small, 1.25rem)"
+        "small": "max(1.25rem, 5vw, 20px)",
+        "medium": "clamp(2rem, 8vw, calc(4 * var(--wp--style--block-gap)), 32px)",
+        "large": "clamp(4rem, 10vw, 8rem, 64px)",
+        "outer": "var(--wp--custom--spacing--small, 1.25rem, 20px)"
       },
       "typography": {
         "lineHeight": {
