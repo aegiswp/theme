@@ -2742,7 +2742,7 @@
         },
         "elements": {
           "link": {
-            "hover": {
+            ":hover": {
               "color": {
                 "background": "var(--wp--preset--color--hover-background)",
                 "text": "var(--wp--preset--color--hover-text)"
@@ -2754,10 +2754,9 @@
           {
             "name": "3d-push",
             "label": "3D Push",
-            "isDefault": false,
             "styles": {
               "border": {
-                "width": "2px",
+                "width": "clamp(1px, 0.2vw, 2px)",
                 "style": "solid",
                 "color": "var(--wp--preset--color--foreground)"
               },
@@ -2766,30 +2765,27 @@
                 "text": "var(--wp--preset--color--background)"
               },
               "typography": {
-                "fontSize": "var(--wp--preset--font-size--small)",
+                "fontSize": "clamp(0.875rem, 2vw, 1rem)",
                 "fontWeight": "500"
               },
               "spacing": {
                 "padding": {
-                  "top": "0.667em",
-                  "left": "1.333em",
-                  "right": "1.333em",
-                  "bottom": "0.667em"
+                  "top": "clamp(0.5rem, 1vw, 0.667rem)",
+                  "left": "clamp(1rem, 2vw, 1.333rem)",
+                  "right": "clamp(1rem, 2vw, 1.333rem)",
+                  "bottom": "clamp(0.5rem, 1vw, 0.667rem)"
                 }
               },
               "elements": {
                 "link": {
-                  "outline": "none",
-                  "transition": "all 0.3s ease",
-                  "position": "relative",
                   "box-shadow": "0 4px var(--wp--preset--color--foreground)",
+                  ":hover": {
+                    "background": "var(--wp--preset--color--background)",
+                    "color": "var(--wp--preset--color--foreground)"
+                  },
                   ":active": {
                     "box-shadow": "0 0 var(--wp--preset--color--foreground)",
                     "top": "4px"
-                  },
-                  ":hover": {
-                    "color": "var(--wp--preset--color--foreground)",
-                    "background": "var(--wp--preset--color--background)"
                   }
                 }
               }
