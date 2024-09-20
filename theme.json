@@ -2679,7 +2679,6 @@
     },
     "blocks": {
       "core/audio": {
-        "isDefault": true,
         "color": {
           "background": "var(--wp--preset--color--foreground)",
           "text": "var(--wp--preset--color--background)"
@@ -2710,11 +2709,10 @@
         }
       },
       "core/avatar": {
-        "isDefault": true,
         "border": {
           "color": "var(--wp--preset--color--foreground)",
-          "radius": "100%",
-          "width": "2px"
+          "radius": "100%, 50px",
+          "width": "2px, 1px"
         }
       },
       "core/buttons": {
