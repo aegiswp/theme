@@ -2496,7 +2496,8 @@
           "fluid": {
             "min": "1.125rem",
             "max": "1.25rem"
-          }
+          },
+          "size": "1.25rem"
         },
         {
           "slug": "large",
@@ -2505,7 +2506,8 @@
           "fluid": {
             "min": "1.25rem",
             "max": "1.5rem"
-          }
+          },
+          "size": "1.5rem"
         },
         {
           "slug": "extra-large",
@@ -2514,7 +2516,8 @@
           "fluid": {
             "min": "1.5rem",
             "max": "1.875rem"
-          }
+          },
+          "size": "1.875rem"
         },
         {
           "slug": "huge",
@@ -2523,7 +2526,8 @@
           "fluid": {
             "min": "1.875rem",
             "max": "2.25rem"
-          }
+          },
+          "size": "2.25rem"
         },
         {
           "slug": "gigantic",
@@ -2532,7 +2536,8 @@
           "fluid": {
             "min": "2.25rem",
             "max": "4.5rem"
-          }
+          },
+          "size": "4.5rem"
         },
         {
           "slug": "heading-1",
@@ -2541,7 +2546,8 @@
           "fluid": {
             "min": "2.25rem",
             "max": "3rem"
-          }
+          },
+          "size": "3rem"
         },
         {
           "slug": "heading-2",
@@ -2550,7 +2556,8 @@
           "fluid": {
             "min": "1.875rem",
             "max": "2.25rem"
-          }
+          },
+          "size": "2.25rem"
         },
         {
           "slug": "heading-3",
@@ -2559,7 +2566,8 @@
           "fluid": {
             "min": "1.5rem",
             "max": "1.875rem"
-          }
+          },
+          "size": "1.875rem"
         },
         {
           "slug": "heading-4",
@@ -2568,13 +2576,18 @@
           "fluid": {
             "min": "1.25rem",
             "max": "1.5rem"
-          }
+          },
+          "size": "1.5rem"
         },
         {
           "slug": "heading-5",
           "name": "Heading 5",
           "size": "1.25rem",
-          "fluid": false
+          "fluid": {
+            "min": "1.125rem",
+            "max": "1.25rem"
+          },
+          "size": "1.25rem"
         },
         {
           "slug": "heading-6",
