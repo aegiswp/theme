@@ -2,16 +2,17 @@
 Theme Name: Aegis
 Theme URI: https://github.com/atmostfear-entertainment/aegis
 Author: Atmostfear Entertainment
-Author URI: https://www.atmostfear-entertainment.com/
+Author URI: https://www.atmostfear-entertainment.com
 Description: Aegis is a sleek theme that promises agility and a lightweight design. It features elegant animations that add a sophisticated touch without hindering performance. The theme comes with a diverse array of block patterns, including full-page layouts, to ensure precise design control. Its latest full site editing capability facilitates real-time customization. With a solid foundation for ecommerce, it is well-suited for blogging, media outlets, and academic publishing.
-Requires at least: 6.4
-Tested up to: 6.4.3
+Requires at least: 6.6
+Tested up to: 6.6
 Requires PHP: 7.4
 Version: 1.0.0-beta.3
-License: GNU General Public License v3
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: aegis
-Tags: accessibility-ready, blog, block-editor-patterns, block-editor-styles, block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, one-column, portfolio, rtl-language-support, sticky-post, style-variations, template-editing, threaded-comments, translation-ready, two-columns, wide-blocks, woocommerce
+Domain Path: /languages
+Tags: accessibility-ready, block-editor-patterns, block-editor-styles, block-patterns, block-styles, blog, custom-colors, custom-logo, custom-menu, e-commerce, editor-style, featured-images, footer-widgets, full-site-editing, full-width-template, grid-layout, one-column, portfolio, rtl-language-support, sticky-post, style-variations, template-editing, threaded-comments, three-columns, translation-ready, two-columns, wide-blocks, woocommerce
 
 Aegis, (c) 2022-2024 Atmostfear Entertainment SAS.
 Aegis is distributed under the terms of the GNU GPL.
@@ -1000,7 +1001,7 @@ textarea {
 	header .has-search-and-icon {
 		justify-content: flex-end;
 	}
-    
+
 	header p.has-text-align-center.has-tiny-font-size {
 		font-size: 14px !important;
 	}
@@ -2870,7 +2871,7 @@ button.wp-block-button__link.wc-block-filter-submit-button.wc-block-components-f
 /* Fade-in Animation */
 @keyframes fadein {
     from {
-		opacity: 0; 
+		opacity: 0;
 	}
     to {
 		opacity: 1;
