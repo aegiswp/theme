@@ -2729,7 +2729,7 @@
             }
           }
         },
-        "variants": [
+        "variations": [
           {
             "name": "3d-push",
             "label": "3D Push",
@@ -3014,7 +3014,7 @@
             }
           }
         },
-        "variants": [
+        "variations": [
           {
             "name": "hide-underline",
             "label": "Hide Underline",
@@ -3232,7 +3232,7 @@
       "typography": {
         "fontSize": "var(--wp--preset--font-size--large)"
       },
-      "variants": [
+      "variations": [
         {
           "name": "hide-underline",
           "label": "Hide Underline",
