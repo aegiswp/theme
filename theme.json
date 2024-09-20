@@ -2794,11 +2794,27 @@
           {
             "name": "dense-shadow",
             "label": "Dense Shadow",
-            "isDefault": false,
             "styles": {
               "color": {
                 "background": "var(--wp--preset--color--foreground)",
                 "text": "var(--wp--preset--color--background)"
+              },
+              "border": {
+                "width": "clamp(1px, 0.2vw, 2px)",
+                "style": "solid",
+                "color": "var(--wp--preset--color--foreground)"
+              },
+              "spacing": {
+                "padding": {
+                  "top": "clamp(0.5rem, 1vw, 1rem)",
+                  "left": "clamp(1rem, 2vw, 1.5rem)",
+                  "right": "clamp(1rem, 2vw, 1.5rem)",
+                  "bottom": "clamp(0.5rem, 1vw, 1rem)"
+                }
+              },
+              "box-shadow": "0px 4px 10px var(--wp--preset--color--foreground)",
+              ":hover": {
+                "box-shadow": "0px 6px 14px var(--wp--preset--color--foreground)"
               }
             }
           }
