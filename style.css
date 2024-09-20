@@ -148,22 +148,28 @@ a:focus {
  * Necessary until the following issue is resolved in Gutenberg:
  * https://github.com/WordPress/gutenberg/issues/27075
  */
+
+/* Base Styles */
 .wp-block-search__button,
 .wp-block-file .wp-block-file__button,
 .wp-block-button__link {
-	transition: all .3s ease;
-	-webkit-transition: all .3s ease;
+    transition: opacity 0.3s ease;
 }
 
+/* Hover Styles */
 .wp-block-file .wp-block-file__button:hover,
 .wp-block-button__link:hover {
-	opacity: 0.96;
-	padding: 7px 28px;
+    opacity: 0.96;
+    /* Optionally remove padding change to avoid layout shifts */
+    /* padding: 0.5em 1.75em; */
+    /* Alternative: Use transform for hover effect */
+    /* transform: scale(1.05); */
 }
 
 .wp-block-search__button:hover {
-	opacity: 0.96;
+    opacity: 0.96;
 }
+
 
 /* ------------------------------------------- */
 /* Blog
