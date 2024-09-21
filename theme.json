@@ -2967,6 +2967,14 @@
       "core/footnotes": {
         "typography": {
           "fontSize": "var(--wp--preset--font-size--small)"
+        },
+        "elements": {
+          "link": {
+            "color": {
+              "text": "var(--wp--preset--color--primary)",
+              ":hover": "var(--wp--preset--color--secondary)"
+            }
+          }
         }
       },
       "core/gallery": {
