@@ -66,6 +66,7 @@ a {
     background-repeat: no-repeat;
     background-position: bottom left;
     transition: background-size 0.4s ease; /* Smooth transition effect */
+	text-decoration: none;
 }
 
 a:hover,
@@ -99,25 +100,6 @@ a:focus {
 
 .wp-block-calendar table td {
     font-size: var(--wp--preset--font-size--small);
-}
-
-/* ------------------------------------------- */
-/* Core Comments Block
-/* ------------------------------------------- */
-.wp-block-comment-content a,
-.wp-block-comment-author-name a,
-.wp-block-comment-date a,
-.wp-block-comment-edit-link a,
-.wp-block-comment-reply-link a,
-.logged-in-as a {
-	text-decoration: none;
-}
-
-/* ------------------------------------------- */
-/* Core Footnotes Block
-/* ------------------------------------------- */
-.wp-block-footnotes a {
-	text-decoration: none;
 }
 
 /* ------------------------------------------- */
