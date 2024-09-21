@@ -2966,7 +2966,7 @@
       },
       "core/footnotes": {
         "typography": {
-          "fontSize": "var(--wp--preset--font-size--small)"
+          "fontSize": "var(--wp--preset--font-size--tiny)"
         },
         "elements": {
           "link": {
