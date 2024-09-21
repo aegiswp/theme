@@ -2800,8 +2800,28 @@
         ]
       },
       "core/calendar": {
+        "color": {
+          "text": "var(--wp--preset--color--foreground)",
+          "background": "var(--wp--preset--color--background)"
+        },
         "typography": {
-          "fontSize": "var(--wp--preset--font-size--small)"
+          "fontSize": "var(--wp--preset--font-size--small)",
+          "fontWeight": "500"
+        },
+        "spacing": {
+          "padding": {
+            "top": "clamp(0.5rem, 1vw, 1rem)",
+            "left": "clamp(1rem, 2vw, 1.5rem)",
+            "right": "clamp(1rem, 2vw, 1.5rem)",
+            "bottom": "clamp(0.5rem, 1vw, 1rem)"
+          }
+        },
+        "elements": {
+          "link": {
+            "color": {
+              "text": "var(--wp--preset--color--primary)"
+            }
+          }
         }
       },
       "core/code": {
