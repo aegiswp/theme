@@ -18,24 +18,34 @@ Aegis, (c) 2022-2024 Atmostfear Entertainment SAS.
 Aegis is distributed under the terms of the GNU GPL.
 */
 
-/*
- * Font smoothing.
- */
-body {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    -webkit-animation: fadein 0.7s;
-    -moz-animation: fadein 0.7s;
-    -ms-animation: fadein 0.7s;
-    -o-animation: fadein 0.7s;
-    font-smoothing: antialiased;
-    animation: fadein 0.7s;
-}
+/* ------------------------------------------- */
+/* Start Beta 3: Refractured Styling
+/* ------------------------------------------- */
 
+/*
+ * Fade-in Animation for Body
+ * Cross-browser animation for a smooth fade-in effect on page load.
+ * Duration: 0.7s.
+ * Keyframes ensure opacity transitions from 0 to 1.
+ */
 @keyframes fadein {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
+body {
+    -webkit-animation: fadein 0.7s; /* Safari & Chrome */
+    -moz-animation: fadein 0.7s;    /* Firefox */
+    -ms-animation: fadein 0.7s;     /* IE */
+    -o-animation: fadein 0.7s;      /* Opera */
+    animation: fadein 0.7s;         /* Standard */
+}
+
+/* ------------------------------------------- */
+/* End Beta 3
+/* ------------------------------------------- */
+
+
 
 /*
  * Text link styles.
@@ -278,7 +288,7 @@ a.wp-block-social-link-anchor,
 }
 
 /* ------------------------------------------- */
-/* Beta 3: Redo and Optimize
+/* Beta 2: Redo and Optimize
 /* ------------------------------------------- */
 figure {
 	margin-top: 0;
