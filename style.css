@@ -520,10 +520,6 @@ p.banner-text-margin {
 	box-shadow: 0 3px 10px 0 rgb(15 16 18 / 10%), 0 12px 30px 0 rgb(15 16 18 / 10%);
 }
 
-.wp-block-group.commments-block {
-	margin-bottom: -1.5rem !important;
-}
-
 /* Target the core/image block */
 .wp-block-image {
     margin-bottom: 0.75em;
