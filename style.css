@@ -102,6 +102,18 @@ a:focus {
 }
 
 /* ------------------------------------------- */
+/* Core Comments Block
+/* ------------------------------------------- */
+.wp-block-comment-content a,
+.wp-block-comment-author-name a,
+.wp-block-comment-date a,
+.wp-block-comment-edit-link a,
+.wp-block-comment-reply-link a,
+.logged-in-as a {
+	text-decoration: none;
+}
+
+/* ------------------------------------------- */
 /* End Beta 3
 /* ------------------------------------------- */
 
