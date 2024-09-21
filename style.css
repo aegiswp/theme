@@ -74,6 +74,34 @@ a:focus {
 }
 
 /* ------------------------------------------- */
+/* Core Calendar Block
+/* ------------------------------------------- */
+/*
+ * Uses global presets for colors and font sizes defined in theme.json.
+ * Ensure consistency across the site by leveraging CSS variables.
+ */
+.wp-block-calendar caption {
+    color: var(--wp--preset--color--background);
+    background-color: var(--wp--preset--color--foreground);
+    font-size: var(--wp--preset--font-size--medium);
+    font-weight: 500; /* Font weight not handled by theme.json */
+}
+
+.wp-block-calendar {
+    color: var(--wp--preset--color--foreground);
+    background-color: var(--wp--preset--color--background);
+}
+
+.wp-block-calendar table th {
+    background-color: var(--wp--preset--color--foreground);
+    color: var(--wp--preset--color--background);
+}
+
+.wp-block-calendar table td {
+    font-size: var(--wp--preset--font-size--small);
+}
+
+/* ------------------------------------------- */
 /* End Beta 3
 /* ------------------------------------------- */
 
