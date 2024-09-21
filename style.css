@@ -41,19 +41,20 @@ body {
     animation: fadein 0.7s;         /* Standard */
 }
 
-/* ------------------------------------------- */
-/* End Beta 3
-/* ------------------------------------------- */
-
-
-
 /*
- * Text link styles.
- * Necessary until the following issue is resolved in Gutenberg:
+ * Text link styles using background-underline animation.
+ * Custom underline thickness can be adjusted with --underline-thickness.
+ * This code is necessary due to Gutenberg issue #27075:
  * https://github.com/WordPress/gutenberg/issues/27075
+ *
+ * Background-based underline technique:
+ * - Uses linear-gradient to create a smooth underline effect.
+ * - Transitions the background-size from 0% to 100% on hover/focus.
+ * - Accessible and visually clean alternative to text-decoration.
  */
+
 :root {
-    --underline-thickness: 2px;
+    --underline-thickness: 2px; /* Adjust thickness as needed */
 }
 
 a {
@@ -64,13 +65,22 @@ a {
     background-size: 0% 100%;
     background-repeat: no-repeat;
     background-position: bottom left;
-    transition: background-size 0.4s ease;
+    transition: background-size 0.4s ease; /* Smooth transition effect */
 }
 
 a:hover,
 a:focus {
-    background-size: 100% 100%;
+    background-size: 100% 100%; /* Expands the underline on hover/focus */
 }
+
+
+/* ------------------------------------------- */
+/* End Beta 3
+/* ------------------------------------------- */
+
+/* ------------------------------------------- */
+/* Start Beta 2
+/* ------------------------------------------- */
 
 /* ------------------------------------------- */
 /* Navigation Blocks
@@ -2849,3 +2859,6 @@ button.wp-block-button__link.wc-block-filter-submit-button.wc-block-components-f
         display: none !important;
     }
 }
+/* ------------------------------------------- */
+/* End Beta 2
+/* ------------------------------------------- */
