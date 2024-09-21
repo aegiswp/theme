@@ -173,27 +173,44 @@ a:focus {
 /* ------------------------------------------- */
 /* Blog
 /* ------------------------------------------- */
-/* Excerpt */
-
-/* Base Styles */
+/* Core Post Excerpt Block */
 .wp-block-post-excerpt__more-link {
-    background-color: var(--wp--preset--color--foreground);
-    color: var(--wp--preset--color--background);
-    padding: 0.5em 1.5em;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    text-decoration: none;
+    box-shadow: var(--wp--preset--color--foreground) 0 8px 20px -10px, 0 4px 8px rgba(66, 44, 35, 0.3);
+    background: var(--wp--preset--color--foreground);
+	color: var(--wp--preset--color--background);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 500;
+	padding-top: 0.667em;
+	padding-left: 1.333em;
+	padding-right: 1.333em;
+	padding-bottom: 0.667em;
+    transition: all 0.3s ease;
+    position: relative;
+    text-decoration: none; /* Ensure no underline by default */
 }
 
-/* Hover Styles */
+.wp-block-post-excerpt__more-link:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(66, 44, 35, 0.3);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
 .wp-block-post-excerpt__more-link:hover {
-    /* Optionally change background color or use transform */
-    background-color: var(--wp--preset--color--secondary);
-    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(66, 44, 35, 0.3), 0 8px 16px rgba(66, 44, 35, 0.4);
+    transform: translateY(-2px);
+    text-decoration: none; /* Ensure no underline on hover */
 }
 
-/* Additional Padding */
-.wp-block-post-content .wp-block-post-excerpt__more-link {
-    padding-bottom: 0.5em;
+.wp-block-post-excerpt__more-link:hover:before {
+    box-shadow: 0 8px 16px rgba(66, 44, 35, 0.4);
+    transform: translateY(-2px);
+    text-decoration: none; /* Ensure no underline on hover */
 }
 
 /* ------------------------------------------- */
