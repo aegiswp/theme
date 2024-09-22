@@ -2660,38 +2660,38 @@
   "color": {
     "background": "var(--wp--preset--color--background)",
     "text": "var(--wp--preset--color--foreground)"
-    },
-    "blocks": {
-      "core/audio": {
-        "color": {
-          "background": "var(--wp--preset--color--foreground)",
-          "text": "var(--wp--preset--color--background)"
-        },
-        "elements": {
-          "caption": {
-            "typography": {
-              "fontSize": "var(--wp--preset--font-size--tiny, 0.875rem)",
-              "lineHeight": "1.5"
+  },
+  "blocks": {
+    "core/audio": {
+      "color": {
+        "background": "var(--wp--preset--color--foreground)",
+        "text": "var(--wp--preset--color--background)"
+      },
+      "elements": {
+        "caption": {
+          "typography": {
+            "fontSize": "var(--wp--preset--font-size--tiny, 0.875rem)",
+            "lineHeight": "1.5"
+          },
+          "spacing": {
+            "margin": {
+              "top": "0",
+              "bottom": "0"
             },
-            "spacing": {
-              "margin": {
-                "top": "0",
-                "bottom": "0"
-              },
-              "padding": {
-                "top": "var(--wp--preset--spacing--10, 1rem)",
-                "left": "var(--wp--preset--spacing--30, 2rem)",
-                "right": "var(--wp--preset--spacing--30, 2rem)",
-                "bottom": "var(--wp--preset--spacing--10, 1rem)"
-              }
-            },
-            "color": {
-              "background": "var(--wp--preset--color--foreground)",
-              "text": "var(--wp--preset--color--background)"
+            "padding": {
+              "top": "var(--wp--preset--spacing--10, 1rem)",
+              "left": "var(--wp--preset--spacing--30, 2rem)",
+              "right": "var(--wp--preset--spacing--30, 2rem)",
+              "bottom": "var(--wp--preset--spacing--10, 1rem)"
             }
+          },
+          "color": {
+            "background": "var(--wp--preset--color--foreground)",
+            "text": "var(--wp--preset--color--background)"
           }
         }
-      },
+      }
+    },
       "core/avatar": {
         "border": {
           "color": "var(--wp--preset--color--foreground)",
