@@ -515,14 +515,6 @@ p.banner-text-margin {
     margin-top: 1.25em;
 }
 
-/* Target the image caption in the core/image block */
-.wp-block-image figcaption {
-    background-color: var(--wp--preset--color--secondary);
-    color: var(--wp--preset--color--foreground);
-    margin-top: 0%;
-    padding: calc(.667em + 2px) calc(1.333em + 2px);
-}
-
 /* Scroll to Top */
 .scroll-to-top {
 	cursor: pointer;
