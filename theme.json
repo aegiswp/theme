@@ -2452,14 +2452,12 @@
               "fontStretch": "normal",
               "fontStyle": "normal",
               "fontWeight": "300 900",
-              "src": [
-                "file:./assets/fonts/lexend/Lexend-Variable.woff2"
-              ]
+              "src": ["file:./assets/fonts/lexend/Lexend-Variable.woff2"]
             }
           ]
         },
         {
-          "fontFamily": "\"Outfit\", sans-serif",
+          "fontFamily": "Outfit, sans-serif",
           "name": "Outfit",
           "slug": "outfit",
           "fontFace": [
@@ -2469,9 +2467,7 @@
               "fontStretch": "normal",
               "fontStyle": "normal",
               "fontWeight": "300 900",
-              "src": [
-                "file:./assets/fonts/outfit/Outfit-Variable.woff2"
-              ]
+              "src": ["file:./assets/fonts/outfit/Outfit-Variable.woff2"]
             }
           ]
         }
@@ -2496,8 +2492,7 @@
           "fluid": {
             "min": "1.125rem",
             "max": "1.25rem"
-          },
-          "size": "1.25rem"
+          }
         },
         {
           "slug": "large",
@@ -2506,8 +2501,7 @@
           "fluid": {
             "min": "1.25rem",
             "max": "1.5rem"
-          },
-          "size": "1.5rem"
+          }
         },
         {
           "slug": "extra-large",
@@ -2516,8 +2510,7 @@
           "fluid": {
             "min": "1.5rem",
             "max": "1.875rem"
-          },
-          "size": "1.875rem"
+          }
         },
         {
           "slug": "huge",
@@ -2526,8 +2519,7 @@
           "fluid": {
             "min": "1.875rem",
             "max": "2.25rem"
-          },
-          "size": "2.25rem"
+          }
         },
         {
           "slug": "gigantic",
@@ -2536,8 +2528,7 @@
           "fluid": {
             "min": "2.25rem",
             "max": "4.5rem"
-          },
-          "size": "4.5rem"
+          }
         },
         {
           "slug": "heading-1",
@@ -2546,8 +2537,7 @@
           "fluid": {
             "min": "2.25rem",
             "max": "3rem"
-          },
-          "size": "3rem"
+          }
         },
         {
           "slug": "heading-2",
@@ -2556,8 +2546,7 @@
           "fluid": {
             "min": "1.875rem",
             "max": "2.25rem"
-          },
-          "size": "2.25rem"
+          }
         },
         {
           "slug": "heading-3",
@@ -2566,8 +2555,7 @@
           "fluid": {
             "min": "1.5rem",
             "max": "1.875rem"
-          },
-          "size": "1.875rem"
+          }
         },
         {
           "slug": "heading-4",
@@ -2576,8 +2564,7 @@
           "fluid": {
             "min": "1.25rem",
             "max": "1.5rem"
-          },
-          "size": "1.5rem"
+          }
         },
         {
           "slug": "heading-5",
@@ -2586,8 +2573,7 @@
           "fluid": {
             "min": "1.125rem",
             "max": "1.25rem"
-          },
-          "size": "1.25rem"
+          }
         },
         {
           "slug": "heading-6",
