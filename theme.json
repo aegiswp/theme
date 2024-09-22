@@ -3055,7 +3055,6 @@
           {
             "name": "hide-underline",
             "label": "Hide Underline",
-            "isDefault": false,
             "styles": {
               "elements": {
                 "link": {
