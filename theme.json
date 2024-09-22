@@ -3082,9 +3082,9 @@
                 "bottom": "0"
               },
               "padding": {
-                "top": "var(--wp--preset--spacing--10)",
+                "top": "var(--wp--preset--spacing--20)",
                 "right": "var(--wp--preset--spacing--30)",
-                "bottom": "var(--wp--preset--spacing--10)",
+                "bottom": "var(--wp--preset--spacing--20)",
                 "left": "var(--wp--preset--spacing--30)"
               }
             },
@@ -3098,7 +3098,7 @@
       "core/list": {
         "spacing": {
           "padding": {
-            "left": "var(--wp--preset--spacing--60)"
+            "left": "var(--wp--preset--spacing--30)"
           }
         }
       },
