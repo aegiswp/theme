@@ -3095,15 +3095,12 @@
         "elements": {
           "link": {
             "color": {
-              "text": "var(--wp--preset--color--foreground)"
+              "text": "var(--wp--preset--color--secondary)"
             },
-            "textDecoration": "none",
-            "fontWeight": "bold",
             ":hover": {
               "color": {
                 "text": "var(--wp--preset--color--foreground)"
-              },
-              "textDecoration": "none"
+              }
             }
           }
         }
