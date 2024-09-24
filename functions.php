@@ -902,44 +902,6 @@ function aegis_enqueue_block_styles() {
 add_action('init', 'aegis_enqueue_block_styles');
 
 /**
- * Enqueue theme styles and scripts.
- *
- * @since 1.0.0
- * @return void
- */
-function aegis_enqueue_assets() {
-    // Get the current theme version to use for cache-busting.
-    $theme_version = wp_get_theme()->get('Version');
-    // Define the path to the 'build' directory where compiled assets are stored.
-    $build_path = get_template_directory_uri() . '/build/';
-
-    // Enqueue the main stylesheet for the theme.
-    wp_enqueue_style('aegis-style', get_template_directory_uri() . '/style.css', array(), $theme_version);
-
-    // Enqueue the main script for the block editor, ensuring it loads in the editor context.
-    wp_enqueue_script(
-        'aegis-editor',
-        $build_path . 'editor.js',
-        array('wp-blocks', 'wp-element', 'wp-editor'), // Dependencies needed for the script to run.
-        filemtime(get_template_directory() . '/build/editor.js'), // Cache-busting versioning using file modification time.
-        true // Load the script in the footer.
-    );
-
-    // Enqueue additional public scripts that do not depend on jQuery.
-    $scripts = ['animation', 'counter', 'details', 'packery', 'scroll'];
-    foreach ($scripts as $script) {
-        wp_enqueue_script(
-            "aegis-{$script}",
-            $build_path . "{$script}.js",
-            array(), // No dependencies.
-            filemtime(get_template_directory() . "/build/{$script}.js"), // Cache-busting versioning using file modification time.
-            true // Load the script in the footer.
-        );
-    }
-}
-add_action('wp_enqueue_scripts', 'aegis_enqueue_assets');
-
-/**
  * Query whether WooCommerce is activated.
  *
  * @since 1.0.0

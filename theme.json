@@ -63,58 +63,37 @@
       "duotone": [
         {
           "name": "Foreground and background",
-          "colors": [
-            "#1c1c1e",
-            "#f6f5f2"
-          ],
+          "colors": ["#1c1c1e", "#f6f5f2"],
           "slug": "foreground-and-background"
         },
         {
           "name": "Foreground and secondary",
-          "colors": [
-            "#1c1c1e",
-            "#5a5a60"
-          ],
+          "colors": ["#1c1c1e", "#5a5a60"],
           "slug": "foreground-and-secondary"
         },
         {
           "name": "Foreground and tertiary",
-          "colors": [
-            "#1c1c1e",
-            "#f0eee9"
-          ],
+          "colors": ["#1c1c1e", "#f0eee9"],
           "slug": "foreground-and-tertiary"
         },
         {
           "name": "Foreground and quaternary",
-          "colors": [
-            "#1c1c1e",
-            "#e6e2da"
-          ],
+          "colors": ["#1c1c1e", "#e6e2da"],
           "slug": "foreground-and-quaternary"
         },
         {
           "name": "Foreground and quinary",
-          "colors": [
-            "#1c1c1e",
-            "#dcd6cb"
-          ],
+          "colors": ["#1c1c1e", "#dcd6cb"],
           "slug": "foreground-and-quinary"
         },
         {
           "name": "Foreground and senary",
-          "colors": [
-            "#1c1c1e",
-            "#d2cabc"
-          ],
+          "colors": ["#1c1c1e", "#d2cabc"],
           "slug": "foreground-and-senary"
         },
         {
           "name": "Primary and background",
-          "colors": [
-            "#252528",
-            "#f6f5f2"
-          ],
+          "colors": [ "#252528", "#f6f5f2"],
           "slug": "primary-and-background"
         }
       ],
@@ -2830,7 +2809,6 @@
         }
       },
       "core/code": {
-        "isDefault": true,
         "border": {
           "radius": "0"
         },
@@ -2862,7 +2840,6 @@
         }
       },
       "core/details": {
-        "isDefault": true,
         "border": {
           "bottom": {
             "color": "var(--wp--preset--color--foreground)",
@@ -2888,10 +2865,6 @@
           "link": {
             "color": {
               "text": "var(--wp--preset--color--secondary)"
-            },
-            "textDecoration": "none",
-            ":hover": {
-              "textDecoration": "none"
             }
           }
         },
@@ -2909,10 +2882,6 @@
           "link": {
             "color": {
               "text": "var(--wp--preset--color--secondary)"
-            },
-            "textDecoration": "none",
-            ":hover": {
-              "textDecoration": "none"
             }
           }
         },
@@ -2942,10 +2911,6 @@
           "link": {
             "color": {
               "text": "var(--wp--preset--color--foreground)"
-            },
-            "textDecoration": "none",
-            ":hover": {
-              "textDecoration": "none"
             }
           }
         },
@@ -2958,10 +2923,6 @@
           "link": {
             "color": {
               "text": "var(--wp--preset--color--foreground)"
-            },
-            "textDecoration": "none",
-            ":hover": {
-              "textDecoration": "underline"
             }
           }
         },
@@ -2984,8 +2945,7 @@
       },
       "core/gallery": {
         "color": {
-          "text": "var(--wp--preset--color--background)",
-          "link": "var(--wp--preset--color--primary)"
+          "text": "var(--wp--preset--color--background)"
         },
         "typography": {
           "fontSize": "var(--wp--preset--font-size--tiny)",
@@ -3002,14 +2962,12 @@
           "margin": {
             "top": "1rem",
             "bottom": "1rem"
+          }
           },
-          "gap": "var(--wp--preset--spacing--10)"
-        },
         "elements": {
           "link": {
             "color": {
-              "text": "var(--wp--preset--color--foreground)",
-              "hover": "var(--wp--preset--color--primary)"
+              "text": "var(--wp--preset--color--foreground)"
             }
           },
           "caption": {
