@@ -3106,24 +3106,8 @@
         }
       },
       "core/post-author": {
-        "typography": {
-          "fontSize": "var(--wp--preset--font-size--small)",
-          "color": "var(--wp--preset--color--foreground)",
-          "textTransform": "capitalize"
-        },
         "border": {
           "radius": "999px"
-        },
-        "elements": {
-          "link": {
-            "color": {
-              "text": "var(--wp--preset--color--secondary)"
-            },
-            "textDecoration": "none",
-            ":hover": {
-              "textDecoration": "underline"
-            }
-          }
         }
       },
       "core/post-author-name": {
