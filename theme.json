@@ -3114,14 +3114,6 @@
         "typography": {
           "color": "var(--wp--preset--color--foreground)",
           "fontSize": "var(--wp--preset--font-size--small)"
-        },
-        "elements": {
-          "link": {
-            "textDecoration": "none"
-          },
-          ":hover": {
-            "textDecoration": "underline"
-          }
         }
       },
       "core/post-comments": {
