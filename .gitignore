@@ -34,3 +34,4 @@ wp-content/cache/
 # /tests
 /tests
 functions.php
+webpack.config.js

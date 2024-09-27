@@ -28,8 +28,8 @@ module.exports = (env) => {
         plugins: [
             new BrowserSyncPlugin({
                 host: 'localhost',
-                port: 8881,
-                proxy: 'http://localhost:8881',
+                port: 10019,
+                proxy: 'https://aegis.local/',
                 reload: !isProduction,
             }),
         ],
