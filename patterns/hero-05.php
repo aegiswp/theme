@@ -2,11 +2,11 @@
 /**
  * Title: 05. Hero Pattern
  * Slug: aegis/hero-05
- * Categories: hero
- * Description: Dual background hero with heading, paragraph, and call to action button on the left and parallel vertical images on the right
- * Keywords: call to action, gallery, hero
+ * Categories: hero, podcast
+ * Description: Full-width hero with a brief description, large centered heading, and social media links.
+ * Keywords: hero, social links, cover, event, podcast
  * Viewport Width: 1400
- * Block Types: core/group, core/columns, core/column, core/heading, core/paragraph, core/buttons, core/image
+ * Block Types: core/group, core/cover, core/heading, core/paragraph, core/social-links, core/social-link
  * Inserter: true
  * 
  * @package aegis
@@ -14,54 +14,44 @@
  */
 ?>
 
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}},"dimensions":{"minHeight":"100vh"}},"gradient":"vertical-large-background-to-foreground","className":"grid-gallery","layout":{"type":"default"},"metadata":{"name":"<?php echo esc_html_x('05. Hero Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
-<div class="wp-block-group alignfull grid-gallery has-vertical-large-background-to-foreground-gradient-background has-background" style="min-height:100vh;margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
-    <!-- wp:columns {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}}} -->
-    <div class="wp-block-columns alignwide" style="padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">
-        <!-- wp:column {"verticalAlignment":"center"} -->
-        <div class="wp-block-column is-vertically-aligned-center">
-            <!-- wp:heading {"level":1,"style":{"typography":{"fontStyle":"normal","fontWeight":"300"}},"fontSize":"gigantic"} -->
-            <h1 class="wp-block-heading has-gigantic-font-size" style="font-style:normal;font-weight:300"><?php echo wp_kses_post( _x( '<strong>Main</strong> Heading', 'Replace with a descriptive section title.', 'aegis' ) ); ?></h1>
-            <!-- /wp:heading -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('04. Hero Pattern', 'Name of the pattern', 'aegis'); ?>","categories":["<?php echo esc_html_x('hero, podcast', 'Name of the categories', 'aegis'); ?>"],"patternName":"aegis/hero-07"},"align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}}} -->
+<div class="wp-block-group alignfull" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
+	<!-- wp:cover {"url":"<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp","alt":"<?php echo esc_attr__('Placeholder image depicting abstract mountains and a sun. Replace with your image.', 'aegis'); ?>","dimRatio":60,"overlayColor":"foreground","isUserOverlayColor":true,"minHeight":100,"minHeightUnit":"vh","contentPosition":"center center","align":"full","className":"is-style-default","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"},"margin":{"top":"0","bottom":"0"}}}} -->
+	<div class="wp-block-cover alignfull is-style-default" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;min-height:100vh">
+		<span aria-hidden="true" class="wp-block-cover__background has-foreground-background-color has-background-dim-60 has-background-dim"></span><img class="wp-block-cover__image-background" alt="<?php echo esc_attr__('Placeholder image depicting abstract mountains and a sun. Replace with your image.', 'aegis'); ?>" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" data-object-fit="cover" />
+		<div class="wp-block-cover__inner-container">
+			<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"var:preset|spacing|30","left":"var:preset|spacing|30","bottom":"0"},"blockGap":"0"}},"layout":{"type":"constrained"}} -->
+			<div class="wp-block-group" style="padding-top:0;padding-right:var(--wp--preset--spacing--30);padding-bottom:0;padding-left:var(--wp--preset--spacing--30)">
+				<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center","verticalAlignment":"center","flexWrap":"wrap"}} -->
+				<div class="wp-block-group" style="margin-top:0;margin-bottom:0">
+					<!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"fontSize":"tiny"} -->
+					<p class="has-text-align-center has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">
+						<?php echo esc_html_x('Provide a brief description with a maximum of 155 characters. Summarize key details of featured shows, interviews, or discussions.', 'Replace with a description of the section.', 'aegis'); ?>
+					</p>
+					<!-- /wp:paragraph -->
 
-            <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"0","right":"var:preset|spacing|80","bottom":"0","left":"0"}}},"className":"mobile-padding-paragraph"} -->
-            <p class="mobile-padding-paragraph" style="padding-top:0;padding-right:var(--wp--preset--spacing--80);padding-bottom:0;padding-left:0"><?php echo esc_html_x('[Description (155 characters): Enter a brief overview of an offer, article, or overview of a news update.]', 'Replace with a description of the section', 'aegis'); ?></p>
-            <!-- /wp:paragraph -->
+					<!-- wp:heading {"textAlign":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"600","textTransform":"uppercase","fontSize":"6rem"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}}} -->
+					<h2 class="wp-block-heading has-text-align-center" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:6rem;font-style:normal;font-weight:600;text-transform:uppercase">
+						<?php echo esc_html_x('Heading', 'Replace with a descriptive headline.', 'aegis'); ?></h2>
+					<!-- /wp:heading -->
 
-            <!-- wp:buttons -->
-            <div class="wp-block-buttons">
-                <!-- wp:button {"className":"is-style-dark-slider"} -->
-                <div class="wp-block-button is-style-dark-slider"><a class="wp-block-button__link wp-element-button"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a></div>
-                <!-- /wp:button -->
-            </div>
-            <!-- /wp:buttons -->
-        </div>
-        <!-- /wp:column -->
+					<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","iconBackgroundColor":"background","iconBackgroundColorValue":"#f6f5f2","showLabels":true,"layout":{"type":"flex","justifyContent":"center","orientation":"horizontal"}} -->
+					<ul class="wp-block-social-links has-visible-labels has-icon-color has-icon-background-color">
+						<!-- wp:social-link {"url":"#","service":"spotify","label":"Spotify"} /-->
 
-        <!-- wp:column -->
-        <div class="wp-block-column">
-            <!-- wp:columns -->
-            <div class="wp-block-columns">
-                <!-- wp:column -->
-                <div class="wp-block-column">
-                    <!-- wp:image {"aspectRatio":"9/16","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-aegis-effect-3-image"} -->
-                    <figure class="wp-block-image size-large is-style-aegis-effect-3-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers', 'aegis'); ?>" style="aspect-ratio:9/16;object-fit:cover" /></figure>
-                    <!-- /wp:image -->
-                </div>
-                <!-- /wp:column -->
+						<!-- wp:social-link {"url":"#","service":"soundcloud","label":"SoundCloud"} /-->
 
-                <!-- wp:column -->
-                <div class="wp-block-column">
-                    <!-- wp:image {"aspectRatio":"9/16","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-hide-mobile is-style-aegis-effect-3-image"} -->
-                    <figure class="wp-block-image size-large is-style-hide-mobile is-style-aegis-effect-3-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_light.webp" alt="<?php echo esc_attr__('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:9/16;object-fit:cover" /></figure>
-                    <!-- /wp:image -->
-                </div>
-                <!-- /wp:column -->
-            </div>
-            <!-- /wp:columns -->
-        </div>
-        <!-- /wp:column -->
-    </div>
-    <!-- /wp:columns -->
+						<!-- wp:social-link {"url":"#","service":"youtube","label":"YouTube"} /-->
+
+						<!-- wp:social-link {"url":"#","service":"patreon","label":""} /-->
+					</ul>
+					<!-- /wp:social-links -->
+				</div>
+				<!-- /wp:group -->
+			</div>
+			<!-- /wp:group -->
+		</div>
+	</div>
+	<!-- /wp:cover -->
 </div>
 <!-- /wp:group -->
