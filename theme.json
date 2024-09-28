@@ -2994,9 +2994,6 @@
         }
       },
       "core/heading": {
-        "color": {
-          "text": "var(--wp--preset--color--foreground)"
-        },
         "elements": {
           "link": {
             "color": {
