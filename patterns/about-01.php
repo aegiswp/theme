@@ -3,7 +3,7 @@
  * Title: 01. About Pattern
  * Slug: aegis/about-01
  * Categories: about
- * Description: About section with an image, tagline, large heading, description, and call-to-action button.
+ * Description: Section with an image, tagline, large heading, description, and call-to-action button.
  * Keywords: about, image, tagline, heading, description, call-to-action
  * Viewport Width: 1440
  * Block Types: core/group, core/columns, core/column, core/heading, core/paragraph, core/image, core/buttons, core/button
@@ -42,8 +42,8 @@
 
 			<!-- wp:buttons {"layout":{"type":"flex","flexWrap":"nowrap","orientation":"horizontal"}} -->
 			<div class="wp-block-buttons">
-				<!-- wp:button {"className":"is-style-dense-shadow"} -->
-				<div class="wp-block-button is-style-dense-shadow"><a class="wp-block-button__link wp-element-button"href="#"><?php echo esc_html_x( 'Call to Action', 'Call-to-action button text', 'aegis' ); ?></a>
+				<!-- wp:button {"className":"is-style-outline-shadow"} -->
+				<div class="wp-block-button is-style-outline-shadow"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x('Call to Action', 'Call-to-action button text', 'aegis'); ?></a>
 				</div>
 				<!-- /wp:button -->
 			</div>
