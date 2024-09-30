@@ -3,10 +3,10 @@
  * Title: 02. About Pattern
  * Slug: aegis/about-02
  * Categories: about
- * Description: A block pattern featuring an about section with an image column on the right, and content on the left, including a tagline, heading, description, and call-to-action button.
- * Keywords: about, media, call-to-action, full-width, image, columns
- * Viewport Width: 1400
- * Block Types: core/group, core/columns, core/column, core/image, core/paragraph, core/heading, core/button, core/buttons
+ * Description: Section with a heading, description, image, tagline, and social links.
+ * Keywords: about, heading, description, image, tagline, social links, gradient, call-to-action
+ * Viewport Width: 1440
+ * Block Types: core/group, core/columns, core/column, core/heading, core/paragraph, core/image, core/separator, core/social-links, core/social-link, core/buttons, core/button
  * Inserter: true
  * 
  * @package aegis
@@ -14,58 +14,56 @@
  */
 ?>
 
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"gradient":"vertical-background-to-tertiary","layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('02. About Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
-<div class="wp-block-group alignfull has-vertical-background-to-tertiary-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
-    <!-- wp:columns {"align":"wide"} -->
-    <div class="wp-block-columns alignwide">
-        <!-- wp:column {"verticalAlignment":"center","width":"40%"} -->
-        <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:40%">
-            <!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"},"spacing":{"margin":{"bottom":"0"}}},"fontSize":"tiny"} -->
-            <p class="has-text-align-left has-tiny-font-size" style="margin-bottom:0;font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('[Tagline]', 'Replace with a descriptive section tagline.', 'aegis'); ?></p>
-            <!-- /wp:paragraph -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('02. About Pattern', 'Name of the pattern', 'aegis'); ?>","categories":["Running %1$s tests against %2$s."],"patternName":"aegis/about-02"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"},"margin":{"top":"0","bottom":"0"}}},"gradient":"vertical-small-background-to-tertiary","layout":{"type":"default"}} -->
+<div class="wp-block-group has-vertical-small-background-to-tertiary-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)"><!-- wp:columns {"verticalAlignment":"center"} -->
+<div class="wp-block-columns are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center"} -->
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:paragraph {"align":"left","metadata":{"name":"Tagline"},"style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"500"},"spacing":{"margin":{"bottom":"-15px"}}},"fontSize":"tiny"} -->
+<p class="has-text-align-left has-tiny-font-size" style="margin-bottom:-15px;font-style:normal;font-weight:500;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('Tagline', 'Enter a brief and descriptive tagline here.', 'aegis'); ?></p>
+<!-- /wp:paragraph -->
 
-            <!-- wp:heading {"style":{"typography":{"textTransform":"uppercase"},"spacing":{"margin":{"top":"0","bottom":"0","left":"0","right":"0"}}},"fontSize":"gigantic"} -->
-            <h2 class="wp-block-heading has-gigantic-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h2>
-            <!-- /wp:heading -->
+<!-- wp:heading {"style":{"typography":{"textTransform":"uppercase"},"spacing":{"margin":{"top":"0","bottom":"0","left":"0","right":"0"}}},"fontSize":"gigantic"} -->
+<h2 class="wp-block-heading has-gigantic-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase">Heading</h2>
+<!-- /wp:heading -->
 
-            <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
-            <p style="margin-top:var(--wp--preset--spacing--30)"><?php echo esc_html_x('[Description (333 characters): Detail the core principles, values, or characteristics of the organization, project or subject.]', 'Replace with a description of the section.', 'aegis'); ?></p>
-            <!-- /wp:paragraph -->
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}}}} -->
+<p style="margin-top:var(--wp--preset--spacing--40);margin-bottom:var(--wp--preset--spacing--40)">Provide a concise description, up to 333 characters, summarizing your core principles, values, or key characteristics for easy understanding.</p>
+<!-- /wp:paragraph -->
 
-            <!-- wp:buttons -->
-            <div class="wp-block-buttons">
-                <!-- wp:button {"className":"is-style-dense-shadow"} -->
-                <div class="wp-block-button is-style-dense-shadow"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a></div>
-                <!-- /wp:button -->
-            </div>
-            <!-- /wp:buttons -->
-        </div>
-        <!-- /wp:column -->
+<!-- wp:buttons {"layout":{"type":"flex","flexWrap":"nowrap","orientation":"horizontal"}} -->
+<div class="wp-block-buttons"><!-- wp:button {"className":"is-style-dense-shadow"} -->
+<div class="wp-block-button is-style-dense-shadow"><a class="wp-block-button__link wp-element-button" href="#">Call to Action</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:column -->
 
-        <!-- wp:column -->
-        <div class="wp-block-column">
-            <!-- wp:columns -->
-            <div class="wp-block-columns">
-                <!-- wp:column -->
-                <div class="wp-block-column">
-                    <!-- wp:image {"aspectRatio":"3/4","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-shine-hover"} -->
-                    <figure class="wp-block-image size-full is-style-shine-hover"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:3/4;object-fit:cover" /></figure>
-                    <!-- /wp:image -->
-                </div>
-                <!-- /wp:column -->
+<!-- wp:column {"verticalAlignment":"center"} -->
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"id":95,"aspectRatio":"16/9","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-default","style":{"shadow":"var:preset|shadow|primary-faded-shadow-left-bottom"}} -->
+<figure class="wp-block-image size-large is-style-default"><img src="https://aegis.local/wp-content/uploads/2024/09/ereshkigal-queen-underworld-her-influence-mesopotamian-religious-practices-1024x640.jpg" alt="Alternative text" class="wp-image-95" style="box-shadow:var(--wp--preset--shadow--primary-faded-shadow-left-bottom);aspect-ratio:16/9;object-fit:cover"/></figure>
+<!-- /wp:image -->
 
-                <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50"}}},"className":"is-style-hide-mobile"} -->
-                <div class="wp-block-column is-style-hide-mobile" style="padding-top:var(--wp--preset--spacing--50)">
-                    <!-- wp:image {"aspectRatio":"3/4","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-shine-hover"} -->
-                    <figure class="wp-block-image size-full is-style-shine-hover"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:3/4;object-fit:cover" /></figure>
-                    <!-- /wp:image -->
-                </div>
-                <!-- /wp:column -->
-            </div>
-            <!-- /wp:columns -->
-        </div>
-        <!-- /wp:column -->
-    </div>
-    <!-- /wp:columns -->
-</div>
+<!-- wp:paragraph {"align":"center","style":{"typography":{"letterSpacing":"3px","textTransform":"uppercase","fontStyle":"normal","fontWeight":"500"}},"fontSize":"tiny"} -->
+<p class="has-text-align-center has-tiny-font-size" style="font-style:normal;font-weight:500;letter-spacing:3px;text-transform:uppercase">Tagline</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:separator {"className":"is-style-default","backgroundColor":"foreground"} -->
+<hr class="wp-block-separator has-text-color has-foreground-color has-alpha-channel-opacity has-foreground-background-color has-background is-style-default"/>
+<!-- /wp:separator -->
+
+<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","openInNewTab":true,"className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"center","flexWrap":"wrap"}} -->
+<ul class="wp-block-social-links has-icon-color is-style-logos-only"><!-- wp:social-link {"url":"#","service":"facebook","label":""} /-->
+
+<!-- wp:social-link {"url":"#","service":"linkedin","label":""} /-->
+
+<!-- wp:social-link {"url":"#","service":"threads","label":""} /-->
+
+<!-- wp:social-link {"url":"#","service":"x"} /-->
+
+<!-- wp:social-link {"url":"#","service":"instagram","label":""} /-->
+
+<!-- wp:social-link {"url":"#","service":"pinterest","label":""} /-->
+
+<!-- wp:social-link {"url":"#","service":"tiktok"} /--></ul>
+<!-- /wp:social-links --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
 <!-- /wp:group -->
