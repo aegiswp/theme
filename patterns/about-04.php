@@ -3,10 +3,10 @@
  * Title: 04. About Pattern
  * Slug: aegis/about-04
  * Categories: about
- * Description: A block pattern featuring an about section with multiple image highlights and content on the left, including a tagline, heading, description, and call-to-action button.
- * Keywords: about, media, call-to-action, full-width, images
+ * Description: Block pattern with a dark gradient background, image, tagline, heading, description, and social links.
+ * Keywords: about, heading, description, image, tagline, social links, gradient
  * Viewport Width: 1400
- * Block Types: core/group, core/columns, core/column, core/image, core/paragraph, core/heading, core/button, core/buttons
+ * Block Types: core/group, core/columns, core/column, core/heading, core/paragraph, core/image, core/social-links, core/social-link
  * Inserter: true
  * 
  * @package aegis
@@ -14,107 +14,58 @@
  */
 ?>
 
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"var:preset|spacing|30","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"gradient":"vertical-tertiary-to-background","layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('04. About Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
-<div class="wp-block-group alignfull has-vertical-tertiary-to-background-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
-	<!-- wp:columns {"align":"wide"} -->
-	<div class="wp-block-columns alignwide">
-		<!-- wp:column {"verticalAlignment":"center","width":"43.33%","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}}} -->
-		<div class="wp-block-column is-vertically-aligned-center" style="padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);flex-basis:43.33%">
-			<!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"},"spacing":{"margin":{"bottom":"0"}}},"fontSize":"tiny"} -->
-			<p class="has-text-align-left has-tiny-font-size" style="margin-bottom:0;font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('[Tagline]', 'Replace with a descriptive section tagline.', 'aegis'); ?></p>
-			<!-- /wp:paragraph -->
-
-			<!-- wp:heading {"style":{"typography":{"textTransform":"uppercase"},"spacing":{"margin":{"top":"0","bottom":"0","left":"0","right":"0"}}},"fontSize":"gigantic"} -->
-			<h2 class="wp-block-heading has-gigantic-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h2>
-			<!-- /wp:heading -->
-
-			<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
-			<p style="margin-top:var(--wp--preset--spacing--30)"><?php echo esc_html_x('[Description (333 characters): Detail the core principles, values, or characteristics of the organization, project or subject.]', 'Replace with a description of the section.', 'aegis'); ?></p>
-			<!-- /wp:paragraph -->
-
-			<!-- wp:buttons -->
-			<div class="wp-block-buttons">
-				<!-- wp:button {"className":"is-style-dense-shadow"} -->
-				<div class="wp-block-button is-style-dense-shadow"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( '[Call to Action]', 'Call to action button text.', 'aegis' ); ?></a></div>
-				<!-- /wp:button -->
-			</div>
-			<!-- /wp:buttons -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('04. About Pattern', 'Name of the pattern', 'aegis'); ?>","categories":["<?php echo esc_html_x('about', 'Name of the category', 'aegis'); ?>"],"patternName":"aegis/about-04"},"className":"is-style-section-dark","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"gradient":"diagonal-primary-to-foreground-left-bottom","layout":{"type":"default"}} -->
+<div class="wp-block-group is-style-section-dark has-diagonal-primary-to-foreground-left-bottom-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+	<!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"gradient":"diagonal-primary-to-foreground-left-bottom"} -->
+	<div class="wp-block-columns are-vertically-aligned-center has-diagonal-primary-to-foreground-left-bottom-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+		<!-- wp:column {"verticalAlignment":"center","width":""} -->
+		<div class="wp-block-column is-vertically-aligned-center">
+			<!-- wp:image {"aspectRatio":"16/9","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-default"} -->
+			<figure class="wp-block-image size-large is-style-default"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_light.webp" alt="<?php echo esc_html__('Abstract illustration featuring the theme\'s logo. Please replace this image with your own.', 'aegis'); ?>" style="aspect-ratio:16/9;object-fit:cover" /></figure>
+			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
 
-		<!-- wp:column {"width":"56.66%","style":{"spacing":{"padding":{"left":"0"}}}} -->
-		<div class="wp-block-column" style="padding-left:0;flex-basis:56.66%">
-			<!-- wp:columns {"style":{"spacing":{"margin":{"bottom":"0"}}}} -->
-			<div class="wp-block-columns" style="margin-bottom:0">
-				<!-- wp:column -->
-				<div class="wp-block-column">
-					<!-- wp:image {"aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-ease-out"} -->
-					<figure class="wp-block-image size-full is-style-ease-out"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:4/3;object-fit:cover" /></figure>
-					<!-- /wp:image -->
+		<!-- wp:column {"verticalAlignment":"center"} -->
+		<div class="wp-block-column is-vertically-aligned-center">
+			<!-- wp:paragraph {"align":"left","metadata":{"name":"Tagline"},"style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"},"spacing":{"margin":{"bottom":"-15px"}}},"fontSize":"tiny"} -->
+			<p class="has-text-align-left has-tiny-font-size" style="margin-bottom:-15px;font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('Tagline', 'Enter a brief and descriptive tagline here.', 'aegis'); ?></p>
+			<!-- /wp:paragraph -->
 
-					<!-- wp:heading {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"large"} -->
-					<h3 class="wp-block-heading has-large-font-size" style="font-style:normal;font-weight:600"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
-					<!-- /wp:heading -->
+			<!-- wp:heading {"level":3,"style":{"typography":{"textTransform":"uppercase"},"spacing":{"margin":{"top":"0","bottom":"0","left":"0","right":"0"}}},"fontSize":"gigantic"} -->
+			<h3 class="wp-block-heading has-gigantic-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase"><?php echo esc_html_x('Heading', 'Enter a compelling headline for this section.', 'aegis'); ?></h3>
+			<!-- /wp:heading -->
 
-					<!-- wp:paragraph {"fontSize":"small"} -->
-					<p class="has-small-font-size"><?php echo esc_html_x('[Description (100 characters): Highlight key advantages or unique offerings of the organization, project, or subject.]', 'Replace with a description of the section.', 'aegis'); ?></p>
-					<!-- /wp:paragraph -->
-				</div>
-				<!-- /wp:column -->
+			<!-- wp:paragraph -->
+			<p><?php echo esc_html_x('Provide a concise description, up to 333 characters, summarizing your core principles, values, or key characteristics for easy understanding.', 'aegis'); ?></p>
+			<!-- /wp:paragraph -->
 
-				<!-- wp:column -->
-				<div class="wp-block-column">
-					<!-- wp:image {"aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-ease-out"} -->
-					<figure class="wp-block-image size-full is-style-ease-out"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:4/3;object-fit:cover" /></figure>
-					<!-- /wp:image -->
+			<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"left"}} -->
+			<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--40)">
+				<!-- wp:paragraph {"align":"left","metadata":{"name":"Tagline"},"style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"500"},"spacing":{"margin":{"bottom":"0"}}},"fontSize":"tiny"} -->
+				<p class="has-text-align-left has-tiny-font-size" style="margin-bottom:0;font-style:normal;font-weight:500;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('Socials:', 'Call-to-action text', 'aegis'); ?></p>
+				<!-- /wp:paragraph -->
 
-					<!-- wp:heading {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"large"} -->
-					<h3 class="wp-block-heading has-large-font-size" style="font-style:normal;font-weight:600"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
-					<!-- /wp:heading -->
+				<!-- wp:social-links {"openInNewTab":true,"align":"left","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left","flexWrap":"wrap"}} -->
+				<ul class="wp-block-social-links alignleft is-style-logos-only">
 
-					<!-- wp:paragraph {"fontSize":"small"} -->
-					<p class="has-small-font-size"><?php echo esc_html_x('[Description (100 characters): Highlight key advantages or unique offerings of the organization, project, or subject.]', 'Replace with a description of the section.', 'aegis'); ?></p>
-					<!-- /wp:paragraph -->
-				</div>
-				<!-- /wp:column -->
+					<!-- wp:social-link {"url":"#","service":"facebook","label":""} /-->
+
+					<!-- wp:social-link {"url":"#","service":"linkedin","label":""} /-->
+
+					<!-- wp:social-link {"url":"#","service":"threads","label":""} /-->
+
+					<!-- wp:social-link {"url":"#","service":"x"} /-->
+
+					<!-- wp:social-link {"url":"#","service":"instagram","label":""} /-->
+
+					<!-- wp:social-link {"url":"#","service":"pinterest","label":""} /-->
+
+					<!-- wp:social-link {"url":"#","service":"tiktok"} /-->
+				</ul>
+				<!-- /wp:social-links -->
 			</div>
-			<!-- /wp:columns -->
-
-			<!-- wp:columns {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
-			<div class="wp-block-columns" style="margin-top:var(--wp--preset--spacing--50)">
-				<!-- wp:column -->
-				<div class="wp-block-column">
-					<!-- wp:image {"aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-ease-out"} -->
-					<figure class="wp-block-image size-full is-style-ease-out"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:4/3;object-fit:cover" /></figure>
-					<!-- /wp:image -->
-
-					<!-- wp:heading {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"large"} -->
-					<h3 class="wp-block-heading has-large-font-size" style="font-style:normal;font-weight:600"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
-					<!-- /wp:heading -->
-
-					<!-- wp:paragraph {"fontSize":"small"} -->
-					<p class="has-small-font-size"><?php echo esc_html_x('[Description (100 characters): Highlight key advantages or unique offerings of the organization, project, or subject.]', 'Replace with a description of the section.', 'aegis'); ?></p>
-					<!-- /wp:paragraph -->
-				</div>
-				<!-- /wp:column -->
-
-				<!-- wp:column -->
-				<div class="wp-block-column">
-					<!-- wp:image {"aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"is-style-ease-out"} -->
-					<figure class="wp-block-image size-full is-style-ease-out"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_attr_e('Add a brief description of the placeholder image and its context, non-text content for screen readers.', 'aegis'); ?>" style="aspect-ratio:4/3;object-fit:cover" /></figure>
-					<!-- /wp:image -->
-
-					<!-- wp:heading {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"large"} -->
-					<h3 class="wp-block-heading has-large-font-size" style="font-style:normal;font-weight:600"><?php echo esc_html_x('[Heading]', 'Replace with a descriptive section title.', 'aegis'); ?></h3>
-					<!-- /wp:heading -->
-
-					<!-- wp:paragraph {"fontSize":"small"} -->
-					<p class="has-small-font-size"><?php echo esc_html_x('[Description (100 characters): Highlight key advantages or unique offerings of the organization, project, or subject.]', 'Replace with a description of the section.', 'aegis'); ?></p>
-					<!-- /wp:paragraph -->
-				</div>
-				<!-- /wp:column -->
-			</div>
-			<!-- /wp:columns -->
+			<!-- /wp:group -->
 		</div>
 		<!-- /wp:column -->
 	</div>
