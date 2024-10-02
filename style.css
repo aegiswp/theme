@@ -325,6 +325,87 @@ a.wp-block-social-link-anchor,
 }
 
 /* ------------------------------------------- */
+/* Core Blocks Responsive Visibility Styles
+/* ------------------------------------------- */
+
+/* Desktop view (1024px to 1920) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .is-style-show-on-desktop {
+        display: block;
+    }
+    .is-style-hide-on-desktop {
+        display: none;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1599px) {
+    .is-style-show-on-desktop {
+        display: block;
+    }
+    .is-style-hide-on-desktop {
+        display: none;
+    }
+}
+
+@media (min-width: 1600px) and (max-width: 1919px) {
+    .is-style-show-on-desktop {
+        display: block;
+    }
+    .is-style-hide-on-desktop {
+        display: none;
+    }
+}
+
+@media (min-width: 1920px) {
+    .is-style-show-on-desktop {
+        display: block;
+    }
+    .is-style-hide-on-desktop {
+        display: none;
+    }
+}
+
+/* Tablet view (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .is-style-show-on-tablet {
+        display: block;
+    }
+    .is-style-hide-on-tablet {
+        display: none;
+    }
+}
+
+/* Mobile view (up to 599px) */
+@media (max-width: 599px) {
+    .is-style-show-on-mobile {
+        display: block;
+    }
+    .is-style-hide-on-mobile {
+        display: none;
+    }
+}
+
+/* Tablets in portrait mode (600px to 899px) */
+@media (min-width: 600px) and (max-width: 899px) {
+    .is-style-show-on-tablet-portrait {
+        display: block;
+    }
+    .is-style-hide-on-tablet-portrait {
+        display: none;
+    }
+}
+
+/* Tablets in landscape mode (900px to 1023px) */
+@media (min-width: 900px) and (max-width: 1023px) {
+    .is-style-show-on-tablet-landscape {
+        display: block;
+    }
+    .is-style-hide-on-tablet-landscape {
+        display: none;
+    }
+}
+
+/* ------------------------------------------- */
 /* Beta 2: Redo and Optimize
 /* ------------------------------------------- */
 figure {
