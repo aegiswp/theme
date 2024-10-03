@@ -8,12 +8,12 @@ To ensure a productive and positive environment, we have a few guidelines:
 
 ### General Contribution Guidelines
 
-- **No Self-Promotion**: Please focus on enhancing the project rather than promoting personal content or services.
-- **Adhere to WordPress Standards**: All contributions must comply with the [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/).
+-   **No Self-Promotion**: Please focus on enhancing the project rather than promoting personal content or services.
+-   **Adhere to WordPress Standards**: All contributions must comply with the [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/).
 
-If you are unsure about anything, feel free to open an [issue](https://github.com/atmostfear-entertainment/aegis/issues) or a [pull request](https://github.com/atmostfear-entertainment/aegis/pulls) for guidance. Even if your contribution needs changes, we will kindly direct you to the appropriate resources or suggest modifications to your pull request.
+If you are unsure about anything, feel free to open an [issue](https://github.com/aegiswp/theme/issues) or a [pull request](https://github.com/aegiswp/theme/pulls) for guidance. Even if your contribution needs changes, we will kindly direct you to the appropriate resources or suggest modifications to your pull request.
 
-We aim to foster a welcoming environment for everyone involved. Therefore, all contributors are expected to follow our [Code of Conduct](https://github.com/atmostfear-entertainment/aegis/blob/main/CODE_OF_CONDUCT.md).
+We aim to foster a welcoming environment for everyone involved. Therefore, all contributors are expected to follow our [Code of Conduct](https://github.com/aegiswp/theme/blob/main/CODE_OF_CONDUCT.md).
 
 ### How to Contribute
 
@@ -49,15 +49,15 @@ We aim to foster a welcoming environment for everyone involved. Therefore, all c
 
 ### Contribution Best Practices
 
-- **Be Clear and Concise**: When creating issues or pull requests, provide as much context as possible.
-- **Stay Focused**: Keep your commits and pull requests focused on a single issue or feature.
-- **Write Meaningful Commit Messages**: Use descriptive commit messages that explain the "why" of the changes, not just the "what."
+-   **Be Clear and Concise**: When creating issues or pull requests, provide as much context as possible.
+-   **Stay Focused**: Keep your commits and pull requests focused on a single issue or feature.
+-   **Write Meaningful Commit Messages**: Use descriptive commit messages that explain the "why" of the changes, not just the "what."
 
 ### Licensing and Copyright
 
-Aegis is licensed under the [GPL-2.0-or-later](https://github.com/atmostfear-entertainment/aegis/blob/main/LICENSE) license. By contributing to the Aegis theme, you agree that your contributions will be released under the GPLv2 license.
+Aegis is licensed under the [GPL-2.0-or-later](https://github.com/aegiswp/theme/blob/main/LICENSE) license. By contributing to the Aegis theme, you agree that your contributions will be released under the GPLv2 license.
 
-You retain copyright over any contribution made to Aegis. However, by submitting a [pull request](https://github.com/atmostfear-entertainment/aegis/pulls), you agree to release that contribution under the [GPLv2](https://github.com/atmostfear-entertainment/aegis/blob/main/LICENSE) license.
+You retain copyright over any contribution made to Aegis. However, by submitting a [pull request](https://github.com/aegiswp/theme/pulls), you agree to release that contribution under the [GPLv2](https://github.com/aegiswp/theme/blob/main/LICENSE) license.
 
 ### Final Notes
 
