@@ -20,7 +20,7 @@ module.exports = (env) => {
 
         output: {
             path: path.resolve(__dirname, 'build'),
-            filename: '[name].js',
+            filename: '[name].js'
         },
 
         devtool: isProduction ? false : 'source-map',
@@ -28,8 +28,8 @@ module.exports = (env) => {
         plugins: [
             new BrowserSyncPlugin({
                 host: 'localhost',
-                port: 10019,
-                proxy: 'https://aegis.local/',
+                port: 8881,
+                proxy: 'http://localhost:8881',
                 reload: !isProduction,
             }),
         ],
