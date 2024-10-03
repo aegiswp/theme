@@ -4,6 +4,11 @@ Welcome to the Aegis WordPress Block Theme development repository.
 
 ![Aegis](https://github.com/user-attachments/assets/4bb9bafd-cbdc-4931-b924-a2ef5f332745)
 
+[![CI Status](https://github.com/aegiswp/theme/actions/workflows/integrate.yml/badge.svg)](https://github.com/aegiswp/theme/actions)
+[![License](https://img.shields.io/badge/License-GPLv2-blue.svg)](https://github.com/aegiswp/theme/blob/main/LICENSE)
+[![WordPress.org](https://img.shields.io/wordpress/theme/installs/aegis?label=WordPress.org)](https://img.shields.io/wordpress/theme/installs/aegis?label=WordPress.org)
+
+
 ##### Table of Contents
 
 -   [Introduction](#introduction)
