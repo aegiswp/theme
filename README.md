@@ -2,7 +2,7 @@
 
 Welcome to the Aegis WordPress Block Theme development repository.
 
-![Aegis](https://github.com/aegiswp/theme/assets/34287288/efac838a-af27-4781-bca2-277156026770)
+![Aegis](https://github.com/user-attachments/assets/4bb9bafd-cbdc-4931-b924-a2ef5f332745)
 
 ##### Table of Contents
 
