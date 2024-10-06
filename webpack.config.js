@@ -4,34 +4,38 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const path = require('path');
 
 module.exports = (env) => {
-    const isProduction = env && env.production;
+	const isProduction = env && env.production;
 
-    return merge(defaultConfig, {
-        mode: isProduction ? 'production' : 'development',
+	return merge(defaultConfig, {
+		mode: isProduction ? 'production' : 'development',
 
-        entry: {
-            editor: './src/index.tsx',
-            animation: './src/public/animation.tsx',
-            counter: './src/public/counter.tsx',
-            details: './src/public/details.tsx',
-            packery: './src/public/packery.tsx',
-            scroll: './src/public/scroll.tsx',
-        },
+		entry: {
+			editor: './src/index.tsx',
+			animation: './src/public/animation.tsx',
+			counter: './src/public/counter.tsx',
+			details: './src/public/details.tsx',
+			packery: './src/public/packery.tsx',
+			scroll: './src/public/scroll.tsx',
+		},
 
-        output: {
-            path: path.resolve(__dirname, 'build'),
-            filename: '[name].js'
-        },
+		output: {
+			path: path.resolve(__dirname, 'build'),
+			filename: '[name].js',
+		},
 
-        devtool: isProduction ? false : 'source-map',
+		devtool: isProduction ? false : 'source-map',
 
-        plugins: [
-            new BrowserSyncPlugin({
-                host: 'localhost',
-                port: 8881,
-                proxy: 'http://localhost:8881',
-                reload: !isProduction,
-            }),
-        ],
-    });
+		plugins: [
+			new BrowserSyncPlugin({
+				host: 'localhost',
+				port: 10019,
+				proxy: 'https://localhost:10019',
+				reload: !isProduction,
+			},
+				{
+					reload: false // Prevents double-refresh when using webpack's HMR
+				}
+			),
+		],
+	});
 };
