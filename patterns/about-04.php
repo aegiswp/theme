@@ -21,7 +21,8 @@
 		<!-- wp:column {"verticalAlignment":"center","width":""} -->
 		<div class="wp-block-column is-vertically-aligned-center">
 			<!-- wp:image {"aspectRatio":"16/9","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-default"} -->
-			<figure class="wp-block-image size-large is-style-default"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_light.webp" alt="<?php echo esc_html__('Abstract illustration featuring the theme\'s logo. Please replace this image with your own.', 'aegis'); ?>" style="aspect-ratio:16/9;object-fit:cover" /></figure>
+			<figure class="wp-block-image size-large is-style-default">
+				<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_light.webp" alt="<?php echo esc_html__('Abstract illustration featuring the theme\'s logo. Please replace this image with your own.', 'aegis'); ?>" style="aspect-ratio:16/9;object-fit:cover" /></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
@@ -46,9 +47,8 @@
 				<p class="has-text-align-left has-tiny-font-size" style="margin-bottom:0;font-style:normal;font-weight:500;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('Socials:', 'Call-to-action text', 'aegis'); ?></p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:social-links {"openInNewTab":true,"align":"left","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left","flexWrap":"wrap"}} -->
-				<ul class="wp-block-social-links alignleft is-style-logos-only">
-
+				<!-- wp:social-links {"iconColor":"background","iconColorValue":"#f6f5f2","openInNewTab":true,"align":"left","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left","flexWrap":"wrap"}} -->
+				<ul class="wp-block-social-links alignleft has-icon-color is-style-logos-only">
 					<!-- wp:social-link {"url":"#","service":"facebook","label":""} /-->
 
 					<!-- wp:social-link {"url":"#","service":"linkedin","label":""} /-->
@@ -64,6 +64,7 @@
 					<!-- wp:social-link {"url":"#","service":"tiktok"} /-->
 				</ul>
 				<!-- /wp:social-links -->
+
 			</div>
 			<!-- /wp:group -->
 		</div>
