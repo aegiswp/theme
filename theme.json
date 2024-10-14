@@ -2674,8 +2674,8 @@
       "core/avatar": {
         "border": {
           "color": "var(--wp--preset--color--foreground)",
-          "radius": "100%, 50px",
-          "width": "2px, 1px"
+          "radius": "50%",
+          "width": "2px"
         }
       },
       "core/buttons": {
