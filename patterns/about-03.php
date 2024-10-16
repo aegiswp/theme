@@ -3,7 +3,7 @@
  * Title: 03. About Pattern
  * Slug: aegis/about-03
  * Categories: about
- * Description: Block pattern featuring an image, tagline, heading, description, separators, and social links.
+ * Description: Block pattern with image, tagline, heading, description, separators, and social links.
  * Keywords: about, heading, description, image, tagline, social links, separators, gradient
  * Viewport Width: 1400
  * Block Types: core/group, core/columns, core/column, core/heading, core/paragraph, core/image, core/separator, core/social-links, core/social-link
