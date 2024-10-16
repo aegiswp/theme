@@ -1,0 +1,58 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "title": "Aegis - WordPress Block Theme with WooCommerce",
+  "landingPage": "/wp-admin/edit.php",
+  "login": true,
+  "features": {
+    "networking": true
+  },
+  "steps": [
+    {
+      "step": "updateUserMeta",
+      "meta": {
+        "admin_color": "modern",
+        "show_welcome_panel": 0
+      },
+      "userId": 1
+    },
+    {
+      "step": "setSiteOptions",
+      "options": {
+        "blogname": "Aegis - WordPress Playground",
+        "woocommerce_store_address": "123 Demo St",
+        "woocommerce_store_city": "Sample City",
+        "woocommerce_default_country": "US:CA",
+        "woocommerce_currency": "USD"
+      }
+    },
+    {
+      "step": "installPlugin",
+      "pluginZipFile": {
+        "resource": "wordpress.org/plugins",
+        "slug": "woocommerce"
+      }
+    },
+    {
+      "step": "installTheme",
+      "themeZipFile": {
+        "resource": "url",
+        "url": "https://github.com/aegiswp/theme/archive/refs/heads/main.zip"
+      }
+    },
+    {
+      "step": "importWxr",
+      "file": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/aegiswp/theme/main/_playground/demo-content.xml"
+      }
+    },
+    {
+      "step": "wpInsertPost",
+      "post": {
+        "post_title": "Welcome to Aegis Playground",
+        "post_content": "<!-- wp:paragraph --><p>Experience the power of Aegis with WooCommerce functionality.</p><!-- /wp:paragraph -->",
+        "post_status": "publish"
+      }
+    }
+  ]
+}
