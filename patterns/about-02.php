@@ -3,7 +3,7 @@
  * Title: 02. About Pattern
  * Slug: aegis/about-02
  * Categories: about
- * Description: Section with a heading, description, image, tagline, and social links.
+ * Description: Block pattern with a heading, description, image, tagline, and social links.
  * Keywords: about, heading, description, image, tagline, social links, gradient, call-to-action
  * Viewport Width: 1400
  * Block Types: core/group, core/columns, core/column, core/heading, core/paragraph, core/image, core/separator, core/social-links, core/social-link, core/buttons, core/button
