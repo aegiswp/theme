@@ -3,7 +3,7 @@
  * Title: 01. About Pattern
  * Slug: aegis/about-01
  * Categories: about
- * Description: Section with an image, tagline, large heading, description, and call-to-action button.
+ * Description: Block pattern with an image, tagline, large heading, description, and call-to-action button.
  * Keywords: about, image, tagline, heading, description, call-to-action
  * Viewport Width: 1400
  * Block Types: core/group, core/columns, core/column, core/heading, core/paragraph, core/image, core/buttons, core/button
