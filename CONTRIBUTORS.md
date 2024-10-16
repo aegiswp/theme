@@ -9,4 +9,5 @@
 | [@fusiuneer](https://github.com/fusiuneer) | [@crowvision](https://profiles.wordpress.org/crowvision/) |
 | [@LoreAngulo](https://github.com/LoreAngulo) ||
 | [@mpmoreno](https://github.com/mpmoreno) | [@mdpmoreno](https://profiles.wordpress.org/mdpmoreno/) |
+| [@naveed-alam](https://github.com/naveed-alam) ||
 | [@ssenye85](https://github.com/ssenye85) ||
