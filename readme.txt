@@ -38,19 +38,145 @@ License: MIT
 License URL: https://github.com/composer/composer/blob/main/LICENSE
 Source URL: https://github.com/composer/composer
 
+Cardo Font
+Copyright: © 2002-2014 David J. Perry
+Author URL: http://scholarsfonts.net/
+License: SIL Open Font License, 1.1
+License URL: https://scripts.sil.org/OFL
+Source URL: https://github.com/googlefonts/cardo
+
+DM Sans Font
+Copyright: © 2019 Colophon Foundry (COLOPHON™)
+Author URL: https://www.colophon-foundry.org/
+License: SIL Open Font License, 1.1
+License URL: https://scripts.sil.org/OFL
+Source URL: https://github.com/googlefonts/dm-sans
+
+DM Serif Display Font
+Copyright: © 2018 Colophon Foundry (COLOPHON™)
+Author URL: https://www.colophon-foundry.org/
+License: SIL Open Font License, 1.1
+License URL: https://scripts.sil.org/OFL
+Source URL: https://github.com/googlefonts/dm-serif-display
+
+Figtree Font
+Copyright: © 2022 Erik Kennedy
+Author URL: https://learnui.design/
+License: SIL Open Font License, 1.1
+License URL: https://scripts.sil.org/OFL
+Source URL: https://github.com/erikdkennedy/figtree
+
+Fraunces Font
+Copyright: © 2020 Undercase Type, Inc.
+Author URL: https://undercasetype.com/
+License: SIL Open Font License, 1.1
+License URL: https://scripts.sil.org/OFL
+Source URL: https://github.com/undercasetype/Fraunces
+
+Gabarito Font
+Copyright: © 2022 Black[Foundry]
+Author URL: https://black-foundry.com/
+License: SIL Open Font License, 1.1
+License URL: https://scripts.sil.org/OFL
+Source URL: https://github.com/BlackFoundry-Fonts/Gabarito
+
+Ibarra Real Nova Font
+Copyright: © 2017-2021 Juan Pablo del Peral
+Author URL: https://www.juanpablodelperal.com/
+License: SIL Open Font License, 1.1
+License URL: https://scripts.sil.org/OFL
+Source URL: https://github.com/googlefonts/ibarrareal-nova
+
+Instrument Sans Font
+Copyright: © 2019 Instrument
+Author URL: https://www.instrument.com/
+License: SIL Open Font License, 1.1
+License URL: https://scripts.sil.org/OFL
+Source URL: https://github.com/instrument/instrument-sans
+
+Instrument Serif Font
+Copyright: © 2019 Instrument
+Author URL: https://www.instrument.com/
+License: SIL Open Font License, 1.1
+License URL: https://scripts.sil.org/OFL
+Source URL: https://github.com/instrument/instrument-serif
+
+Inter Font
+Copyright: © 2016-2022 Rasmus Andersson
+Author URL: https://rsms.me/
+License: SIL Open Font License, 1.1
+License URL: https://scripts.sil.org/OFL
+Source URL: https://github.com/rsms/inter
+
 Lexend Font
-Copyright: © 2018-2024 Thomas Jockin
+Copyright: © 2018-2021 Thomas Jockin
 Author URL: https://thomasjockin.com/
 License: SIL Open Font License, 1.1
-License URL: https://opensource.org/licenses/OFL-1.1
+License URL: https://scripts.sil.org/OFL
 Source URL: https://github.com/googlefonts/lexend
 
-Outfit Font
-Copyright: © 2021-2024 Rodrigo Fuenzalida
-Author URL: https://outfit.io/font
+Libre Baskerville Font
+Copyright: © 2012 Pablo Impallari, Rodrigo Fuenzalida
+Author URL: http://www.impallari.com/
 License: SIL Open Font License, 1.1
-License URL: https://opensource.org/licenses/OFL-1.1
+License URL: https://scripts.sil.org/OFL
+Source URL: https://github.com/impallari/Libre-Baskerville
+
+Lucette Font
+Copyright: © 2022 AJ Paglia
+Author URL: https://ajpaglia.com/
+License: SIL Open Font License, 1.1
+License URL: https://scripts.sil.org/OFL
+Source URL: https://github.com/ajpaglia/lucette
+
+Noto Sans Font
+Copyright: © 2014 Google Inc.
+Author URL: https://www.google.com/get/noto/
+License: SIL Open Font License, 1.1
+License URL: https://scripts.sil.org/OFL
+Source URL: https://github.com/googlefonts/noto-fonts
+
+Outfit Font
+Copyright: © 2021-2023 Rodrigo Fuenzalida
+Author URL: https://www.rodrigofuenzalida.com/
+License: SIL Open Font License, 1.1
+License URL: https://scripts.sil.org/OFL
 Source URL: https://github.com/googlefonts/outfit
+
+PT Serif Font
+Copyright: © 2010 ParaType Ltd.
+Author URL: https://www.paratype.com/
+License: SIL Open Font License, 1.1
+License URL: https://scripts.sil.org/OFL
+Source URL: https://github.com/paratype/pt-serif
+
+Roboto Font
+Copyright: © 2011 Google
+Author URL: https://fonts.google.com/specimen/Roboto
+License: Apache License, Version 2.0
+License URL: https://www.apache.org/licenses/LICENSE-2.0
+Source URL: https://github.com/googlefonts/roboto
+
+Rufina Font
+Copyright: © 2015 Martín Sommaruga
+Author URL: https://www.typemadefoundry.com/
+License: SIL Open Font License, 1.1
+License URL: https://scripts.sil.org/OFL
+Source URL: https://github.com/martinsommaruga/Rufina
+
+Sora Font
+Copyright: © 2020 Sora
+Author URL: https://sora.org/
+License: SIL Open Font License, 1.1
+License URL: https://scripts.sil.org/OFL
+Source URL: https://github.com/googlefonts/sora
+
+Urbanist Font
+Copyright: © 2020-2022 Corey Hu
+Author URL: https://coreyhu.com/
+License: SIL Open Font License, 1.1
+License URL: https://scripts.sil.org/OFL
+Source URL: https://github.com/coreyhu/Urbanist
 
 == Audio Used in Theme Block Patterns ==
 
