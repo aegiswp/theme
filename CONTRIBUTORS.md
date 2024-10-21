@@ -5,7 +5,7 @@
 | [@atmostfear-entertainment](https://github.com/atmostfear-entertainment) | [@atmostfearentertainment](https://profiles.wordpress.org/atmostfearentertainment/) |
 | [@alexdeborba](https://github.com/alexdeborba) | [@alexdeborba](https://profiles.wordpress.org/alexdeborba/) |
 | [@albiondigital](https://github.com/albiondigital) ||
-| [@deepaklucky](https://github.com/deepaklucky) ||
+| [@deepaklucky](https://github.com/deepaklucky) | [@deepaklakhchaura](https://profiles.wordpress.org/deepaklakhchaura/)
 | [@eelinolafsdottir](https://github.com/eelinolafsdottir) ||
 | [@fusiuneer](https://github.com/fusiuneer) | [@crowvision](https://profiles.wordpress.org/crowvision/) |
 | [@LoreAngulo](https://github.com/LoreAngulo) ||
