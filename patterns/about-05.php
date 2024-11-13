@@ -9,8 +9,7 @@
  * Block Types: core/group, core/columns, core/column, core/image, core/paragraph, core/heading, core/button, core/buttons
  * Inserter: true
  * 
- * @package WordPress
- * @subpackage aegis
+ * @package aegis
  * @since 1.0.0
  */
 ?>
@@ -54,7 +53,7 @@
                         <!-- wp:buttons -->
                         <div class="wp-block-buttons">
                             <!-- wp:button {"backgroundColor":"tertiary","textColor":"foreground","className":"is-style-outline-shadow","style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}}}} -->
-                            <div class="wp-block-button is-style-outline-shadow"><a class="wp-block-button__link has-foreground-color has-tertiary-background-color has-text-color has-background has-link-color wp-element-button" href="#" rel="nofollow"><?php echo esc_html_x( 'Call to Action', 'Call-to-action button text', 'aegis' ); ?></a>
+                            <div class="wp-block-button is-style-outline-shadow"><a class="wp-block-button__link has-foreground-color has-tertiary-background-color has-text-color has-background has-link-color wp-element-button" href="#"><?php echo esc_html_x( 'Call to Action', 'Call-to-action button text', 'aegis' ); ?></a>
                             </div>
                             <!-- /wp:button -->
                         </div>
