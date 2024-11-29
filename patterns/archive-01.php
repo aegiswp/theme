@@ -2,7 +2,7 @@
 /**
  * Title: 01. Archive Pattern
  * Slug: aegis/archive-01
- * Categories: archives, blog
+ * Categories: archives
  * Description: A wide, grid-based archive pattern featuring post titles, featured images, excerpts, and pagination with a focus on readability and user navigation.
  * Keywords: archive, blog, grid, pagination, post list
  * Viewport Width: 1400
@@ -14,7 +14,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('01. Archive Pattern', 'Name of the pattern', 'aegis'); ?>","categories":["archives, blog"],"patternName":"aegis/archive-01"},"layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('01. Archive Pattern', 'Name of the pattern', 'aegis'); ?>","categories":["archives"],"patternName":"aegis/archive-01"},"layout":{"type":"default"}} -->
 <div class="wp-block-group">
     <!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"left","orientation":"horizontal"}} -->
     <div class="wp-block-group alignwide">
