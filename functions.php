@@ -113,6 +113,15 @@ function aegis_register_block_categories() {
             )
         );
 
+        // Registers: Archives Pattern Category
+        register_block_pattern_category(
+            'archives',
+            array(
+                'label'       => _x( 'Archives', 'Block pattern category', 'aegis' ),
+                'description' => __( 'A collection of Archive Patterns.', 'aegis' ),
+            )
+        );
+
         // Registers: Audio Pattern Category
         register_block_pattern_category(
             'audio',
