@@ -16,9 +16,9 @@
 
 <!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('08. Hero Pattern', 'Name of the pattern', 'aegis'); ?>"},"categories":["<?php echo esc_html_x('hero, services', 'Name of the categories', 'aegis'); ?>"],"align":"full","style":{"spacing":{"padding":{"right":"0","left":"0"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull" style="margin-top:0;margin-bottom:0;padding-right:0;padding-left:0">
-	<!-- wp:cover {"url":"<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp","alt":"<?php echo esc_attr__('Placeholder image depicting abstract mountains and a sun. Replace with your image.', 'aegis'); ?>","dimRatio":60,"overlayColor":"foreground","isUserOverlayColor":true,"minHeight":100,"minHeightUnit":"vh","contentPosition":"bottom center","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"},"margin":{"top":"0","bottom":"0"}}}} -->
+	<!-- wp:cover {"url":"<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp","alt":"<?php echo esc_html__( 'Abstract illustration featuring the theme\'s logo. Please replace this image with your own.', 'aegis' ); ?>","dimRatio":60,"overlayColor":"foreground","isUserOverlayColor":true,"minHeight":100,"minHeightUnit":"vh","contentPosition":"bottom center","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"},"margin":{"top":"0","bottom":"0"}}}} -->
 	<div class="wp-block-cover has-custom-content-position is-position-bottom-center" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;min-height:100vh">
-		<span aria-hidden="true" class="wp-block-cover__background has-foreground-background-color has-background-dim-60 has-background-dim"></span><img class="wp-block-cover__image-background" alt="<?php echo esc_attr__('Placeholder image depicting abstract mountains and a sun. Replace with your image.', 'aegis'); ?>" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" data-object-fit="cover" />
+		<span aria-hidden="true" class="wp-block-cover__background has-foreground-background-color has-background-dim-60 has-background-dim"></span><img class="wp-block-cover__image-background" alt="<?php echo esc_html__( 'Abstract illustration featuring the theme\'s logo. Please replace this image with your own.', 'aegis' ); ?>" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" data-object-fit="cover" />
 		<div class="wp-block-cover__inner-container">
 			<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"right":"0","left":"0"}}},"layout":{"type":"constrained"}} -->
 			<div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-right:0;padding-left:0">
@@ -26,17 +26,17 @@
 				<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--70);margin-bottom:var(--wp--preset--spacing--70);padding-top:0;padding-bottom:0">
 					<!-- wp:paragraph {"align":"left","metadata":{"name":"Tagline"},"style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"},"spacing":{"margin":{"bottom":"-20px"}}},"fontSize":"tiny"} -->
 					<p class="has-text-align-left has-tiny-font-size" style="margin-bottom:-20px;font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">
-						<?php echo esc_html_x('Tagline', 'Replace with a descriptive tagline.', 'aegis'); ?></p>
+					<?php echo esc_html_x( 'Tagline', 'Enter a brief and descriptive tagline here.', 'aegis' ); ?></p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:heading {"style":{"typography":{"textTransform":"uppercase","fontSize":"6.5rem"},"spacing":{"margin":{"top":"0","bottom":"0","left":"0","right":"0"}}}} -->
 					<h2 class="wp-block-heading" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;font-size:6.5rem;text-transform:uppercase">
-						<?php echo esc_html_x('Heading', 'Replace with a descriptive headline.', 'aegis'); ?></h2>
+					<?php echo esc_html_x( 'Heading', 'Enter a compelling headline for this section.', 'aegis' ); ?></h2>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"align":"center","style":{"layout":{"selfStretch":"fixed","flexSize":"50%"},"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}}}} -->
 					<p class="has-text-align-center" style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0">
-						<?php echo esc_html_x('Provide a brief description, up to 155 characters, of services or product brands. Summarize their key features concisely for easy understanding.', 'Replace with a description of the section.', 'aegis'); ?>
+					<?php echo esc_html_x('Provide a concise description, up to 155 characters, summarizing the key points of an offer, article, or news update.', 'Replace with a description of the section.', 'aegis'); ?>
 					</p>
 					<!-- /wp:paragraph -->
 				</div>
@@ -56,12 +56,12 @@
 
 						<!-- wp:heading {"textAlign":"center","level":3,"style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"},"spacing":{"margin":{"bottom":"-20px"}}},"fontSize":"medium"} -->
 						<h3 class="wp-block-heading has-text-align-center has-medium-font-size" style="margin-bottom:-20px;font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">
-							<?php echo esc_html_x('Heading', 'Replace with a descriptive headline.', 'aegis'); ?></h3>
+						<?php echo esc_html_x( 'Heading', 'Enter a compelling headline for this section.', 'aegis' ); ?></h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"align":"center","fontSize":"small"} -->
 						<p class="has-text-align-center has-small-font-size">
-							<?php echo esc_html_x('Provide a brief description, up to 65 characters, of a service or product brand.', 'Replace with a description of the section.', 'aegis'); ?>
+						<?php echo esc_html_x('Provide a concise description, up to 65 characters, summarizing a service of product brand.', 'Replace with a description of the section.', 'aegis'); ?>
 						</p>
 						<!-- /wp:paragraph -->
 					</div>
@@ -75,12 +75,12 @@
 
 						<!-- wp:heading {"textAlign":"center","level":3,"style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"},"spacing":{"margin":{"bottom":"-20px"}}},"fontSize":"medium"} -->
 						<h3 class="wp-block-heading has-text-align-center has-medium-font-size" style="margin-bottom:-20px;font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">
-							<?php echo esc_html_x('Heading', 'Replace with a descriptive headline.', 'aegis'); ?></h3>
+						<?php echo esc_html_x( 'Heading', 'Enter a compelling headline for this section.', 'aegis' ); ?></h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"align":"center","fontSize":"small"} -->
 						<p class="has-text-align-center has-small-font-size">
-							<?php echo esc_html_x('Provide a brief description, up to 65 characters, of a service or product brand.', 'Replace with a description of the section.', 'aegis'); ?>
+						<?php echo esc_html_x('Provide a concise description, up to 65 characters, summarizing a service of product brand.', 'Replace with a description of the section.', 'aegis'); ?>
 						</p>
 						<!-- /wp:paragraph -->
 					</div>
@@ -94,12 +94,12 @@
 
 						<!-- wp:heading {"textAlign":"center","level":3,"style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"},"spacing":{"margin":{"bottom":"-20px"}}},"fontSize":"medium"} -->
 						<h3 class="wp-block-heading has-text-align-center has-medium-font-size" style="margin-bottom:-20px;font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">
-							<?php echo esc_html_x('Heading', 'Replace with a descriptive headline.', 'aegis'); ?></h3>
+						<?php echo esc_html_x( 'Heading', 'Enter a compelling headline for this section.', 'aegis' ); ?></h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"align":"center","fontSize":"small"} -->
 						<p class="has-text-align-center has-small-font-size">
-							<?php echo esc_html_x('Provide a brief description, up to 65 characters, of a service or product brand.', 'Replace with a description of the section.', 'aegis'); ?>
+						<?php echo esc_html_x('Provide a concise description, up to 65 characters, summarizing a service of product brand.', 'Replace with a description of the section.', 'aegis'); ?>
 						</p>
 						<!-- /wp:paragraph -->
 					</div>
@@ -113,12 +113,12 @@
 
 						<!-- wp:heading {"textAlign":"center","level":3,"style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"},"spacing":{"margin":{"bottom":"-20px"}}},"fontSize":"medium"} -->
 						<h3 class="wp-block-heading has-text-align-center has-medium-font-size" style="margin-bottom:-20px;font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">
-							<?php echo esc_html_x('Heading', 'Replace with a descriptive headline.', 'aegis'); ?></h3>
+						<?php echo esc_html_x( 'Heading', 'Enter a compelling headline for this section.', 'aegis' ); ?></h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"align":"center","fontSize":"small"} -->
 						<p class="has-text-align-center has-small-font-size">
-							<?php echo esc_html_x('Provide a brief description, up to 65 characters, of a service or product brand.', 'Replace with a description of the section.', 'aegis'); ?>
+						<?php echo esc_html_x('Provide a concise description, up to 65 characters, summarizing a service of product brand.', 'Replace with a description of the section.', 'aegis'); ?>
 						</p>
 						<!-- /wp:paragraph -->
 					</div>
