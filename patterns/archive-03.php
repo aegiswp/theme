@@ -14,7 +14,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('03. Archive Pattern', 'Name of the pattern', 'aegis'); ?>","categories":["archives"],"patternName":"aegis/archive-01"},"layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('03. Archive Pattern', 'Name of the pattern', 'aegis'); ?>","categories":["archives"],"patternName":"aegis/archive-03"},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group">
     <!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"left","orientation":"horizontal"}} -->
     <div class="wp-block-group alignwide">
@@ -27,10 +27,10 @@
         <!-- wp:post-template {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"grid","columnCount":null,"minimumColumnWidth":"35rem"}} -->
         <!-- wp:group {"className":"is-style-section-dark","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|30","right":"0"},"margin":{"bottom":"0"},"blockGap":"0"}},"gradient":"diagonal-foreground-to-transparent-right-bottom"} -->
         <div class="wp-block-group is-style-section-dark has-diagonal-foreground-to-transparent-right-bottom-gradient-background has-background" style="margin-bottom:0;padding-right:0;padding-bottom:var(--wp--preset--spacing--30)">
-            <!-- wp:cover {"useFeaturedImage":true,"dimRatio":50,"customOverlayColor":"#30383a","layout":{"type":"constrained"}} -->
+            <!-- wp:cover {"useFeaturedImage":true,"dimRatio":50,"customOverlayColor":"#30383a","isUserOverlayColor":true,"layout":{"type":"constrained"}} -->
             <div class="wp-block-cover"><span aria-hidden="true" class="wp-block-cover__background has-background-dim" style="background-color:#30383a"></span>
                 <div class="wp-block-cover__inner-container">
-                    <!-- wp:post-title {"textAlign":"center","level":3,"fontSize":"huge"} /-->
+                    <!-- wp:post-title {"textAlign":"center","level":3,"isLink":true,"style":{"elements":{"link":{"color":{"text":"var:preset|color|background"},":hover":{"color":{"text":"var:preset|color|quaternary"}}}}},"textColor":"background","fontSize":"huge"} /-->
                 </div>
             </div>
             <!-- /wp:cover -->
