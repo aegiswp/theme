@@ -3,7 +3,7 @@
  * Title: 01. Archive Pattern
  * Slug: aegis/archive-01
  * Categories: archives
- * Description: Block pattern featuring a stylized archive layout displaying posts with featured images, categories, dates, titles, excerpts, and pagination.
+ * Description: Block pattern an archive of posts featuring a stylized layout displaying with featured images, categories, dates, titles, excerpts, and pagination.
  * Keywords: archive, categories, date, excerpt, featured image, pagination, title
  * Viewport Width: 1400
  * Block Types: core/button, core/buttons, core/column, core/columns, core/group, core/heading, core/paragraph, core/post-date, core/post-excerpt, core/post-featured-image, core/post-template, core/post-terms, core/post-title, core/query, core/query-pagination, core/query-pagination-next, core/query-pagination-numbers, core/query-pagination-previous, core/query-title
