@@ -3,12 +3,12 @@
  * Title: 02. About Pattern
  * Slug: aegis/about-02
  * Categories: about
- * Description: Block pattern with a heading, description, image, tagline, and social links.
- * Keywords: about, heading, description, image, tagline, social links, gradient, call-to-action
+ * Description: Block pattern featuring a heading, paragraph, and call-to-action button on the left, and an image, tagline, separator, and social links on the right.
+ * Keywords: about, call-to-action, description, heading, image, social, tagline
  * Viewport Width: 1400
- * Block Types: core/group, core/columns, core/column, core/heading, core/paragraph, core/image, core/separator, core/social-links, core/social-link, core/buttons, core/button
+ * Block Types: core/button, core/buttons, core/column, core/columns, core/group, core/heading, core/image, core/paragraph, core/separator, core/social-link, core/social-links
  * Inserter: true
- * 
+ *
  * @package aegis
  * @since 1.0.0
  */
