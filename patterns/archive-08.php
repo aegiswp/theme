@@ -3,14 +3,14 @@
  * Title: 08. Archive Pattern
  * Slug: aegis/archive-08
  * Categories: archives
- * Description: Display a list of blog entries with a left sidebar that includes titles, featured images, date, excerpts, and pagination on the right
- * Keywords: archive, blog, posts, pagination, featured image, excerpt
+ * Description: Block pattern presenting an archive of posts with a sidebar layout with an author profile, ad space, and posts featuring dates, featured images, titles, excerpts, and pagination.
+ * Keywords: archive, ad, author, date, excerpt, featured image, pagination, title
  * Viewport Width: 1400
- * Block Types: core/group, core/query, core/post-template, core/post-featured-image, core/post-terms, core/post-date, core/post-title, core/post-excerpt, core/query-pagination, core/query-pagination-previous, core/query-pagination-numbers, core/query-pagination-next
+ * Block Types: core/button, core/buttons, core/column, core/columns, core/group, core/heading, core/image, core/paragraph, core/post-date, core/post-excerpt, core/post-featured-image, core/post-template, core/post-title, core/query, core/query-pagination, core/query-pagination-next, core/query-pagination-numbers, core/query-pagination-previous, core/query-title, core/social-link, core/social-links
  * Inserter: true
- * 
+ *
  * @package aegis
- * @since Aegis 1.0.0
+ * @since 1.0.0
  */
 ?>
 
