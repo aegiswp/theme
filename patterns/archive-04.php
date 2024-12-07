@@ -3,12 +3,12 @@
  * Title: 04. Archive Pattern
  * Slug: aegis/archive-04
  * Categories: archives
- * Description: An archive pattern with a constrained layout, featuring post titles, featured images, excerpts, categories, dates, and pagination. The design includes a tertiary background color with flexible alignment and negative margins for enhanced visual appeal.
- * Keywords: archive, blog, featured image, post title, excerpt, pagination, category, date, flexible layout
+ * Description: Block pattern presenting an archive of posts with featured images, categories, dates, titles, excerpts, and pagination.
+ * Keywords: archive, categories, date, excerpt, featured image, pagination, title
  * Viewport Width: 1400
- * Block Types: core/group, core/query-title, core/query, core/post-template, core/post-featured-image, core/post-terms, core/post-date, core/post-title, core/post-excerpt, core/query-pagination
+ * Block Types: core/group, core/post-date, core/post-excerpt, core/post-featured-image, core/post-template, core/post-terms, core/post-title, core/query, core/query-pagination, core/query-pagination-next, core/query-pagination-numbers, core/query-pagination-previous, core/query-title
  * Inserter: true
- * 
+ *
  * @package aegis
  * @since 1.0.0
  */
