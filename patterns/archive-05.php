@@ -3,14 +3,14 @@
  * Title: 05. Archive Pattern
  * Slug: aegis/archive-05
  * Categories: archives
- * Description: One-column list of blog entries with archive title, post featured images, terms, date, title, excerpts, call to action buttons, and pagination
- * Keywords: blog, posts, pagination, featured image, excerpt
+ * Description: Block pattern presenting an archive of posts with cover backgrounds, categories, dates, excerpts, titles, and pagination.
+ * Keywords: archive, categories, cover, date, excerpt, pagination, title
  * Viewport Width: 1400
- * Block Types: core/group, core/query, core/post-template, core/post-featured-image, core/post-terms, core/post-date, core/post-title, core/post-excerpt, core/query-pagination, core/query-pagination-previous, core/query-pagination-numbers, core/query-pagination-next
+ * Block Types: core/cover, core/group, core/post-date, core/post-excerpt, core/post-template, core/post-terms, core/post-title, core/query, core/query-pagination, core/query-pagination-next, core/query-pagination-numbers, core/query-pagination-previous, core/query-title
  * Inserter: true
- * 
+ *
  * @package aegis
- * @since Aegis 1.0.0
+ * @since 1.0.0
  */
 ?>
 
@@ -47,8 +47,7 @@
         </div>
         <!-- /wp:group -->
         <!-- /wp:post-template -->
-
-        <!-- wp:query-pagination {"paginationArrow":"arrow","align":"wide","style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground"},":hover":{"color":{"text":"var:preset|color|secondary"}}}}},"fontSize":"small","layout":{"type":"flex","justifyContent":"space-between"}} -->
+        <!-- wp:query-pagination {"paginationArrow":"arrow","align":"wide","style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground"},":hover":{"color":{"text":"var:preset|color|secondary"}}}}},"fontSize":"tiny","layout":{"type":"flex","justifyContent":"space-between"}} -->
         <!-- wp:query-pagination-previous /-->
 
         <!-- wp:query-pagination-numbers /-->
