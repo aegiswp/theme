@@ -3,12 +3,12 @@
  * Title: 04. About Pattern
  * Slug: aegis/about-04
  * Categories: about
- * Description: Block pattern with a dark gradient background, image, tagline, heading, description, and social links.
- * Keywords: about, heading, description, image, tagline, social links, gradient
+ * Description: Block pattern featuring an image on the left and a tagline, heading, paragraph, and social links on the right.
+ * Keywords: about, description, heading, image, social, tagline
  * Viewport Width: 1400
- * Block Types: core/group, core/columns, core/column, core/heading, core/paragraph, core/image, core/social-links, core/social-link
+ * Block Types: core/column, core/columns, core/group, core/heading, core/image, core/paragraph, core/social-link, core/social-links
  * Inserter: true
- * 
+ *
  * @package aegis
  * @since 1.0.0
  */
