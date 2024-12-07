@@ -3,18 +3,18 @@
  * Title: 06. Archive Pattern
  * Slug: aegis/archive-06
  * Categories: archives
- * Description: One-column list of blog entries with archive title, post titles, featured images, excerpts, call to action buttons, and pagination
- * Keywords: archive, blog, posts, pagination, featured image, excerpt
+ * Description: Block pattern presenting an archive of posts with featured images, titles, excerpts, and pagination.
+ * Keywords: archive, excerpt, featured image, pagination, title
  * Viewport Width: 1400
- * Block Types: core/group, core/query, core/post-template, core/post-featured-image, core/post-title, core/post-excerpt, core/query-pagination, core/query-pagination-previous, core/query-pagination-numbers, core/query-pagination-next
+ * Block Types: core/group, core/post-excerpt, core/post-featured-image, core/post-template, core/post-title, core/query, core/query-pagination, core/query-pagination-next, core/query-pagination-numbers, core/query-pagination-previous, core/query-title
  * Inserter: true
- * 
+ *
  * @package aegis
- * @since Aegis 1.0.0
+ * @since 1.0.0
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('06. Archive Pattern', 'Name of the pattern', 'aegis'); ?>","categories":["archives"],"patternName":"aegis/blog-04"},"style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('06. Archive Pattern', 'Name of the pattern', 'aegis'); ?>","categories":["archives"],"patternName":"aegis/archive-06"},"style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="padding-top:0;padding-bottom:0">
     <!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"stretch","orientation":"vertical"}} -->
     <div class="wp-block-group alignwide">
@@ -29,9 +29,13 @@
         <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">
             <!-- wp:post-title {"level":3,"isLink":true,"className":"is-style-aegis-post-title-hide-underline","style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}},"elements":{"link":{"color":{"text":"var:preset|color|foreground"},":hover":{"color":{"text":"var:preset|color|secondary"}}}}},"fontSize":"huge"} /-->
 
-            <!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9"} /-->
+            <!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","dimRatio":100,"gradient":"diagonal-transparent-to-tiny-tertiary-right-bottom","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"bottom":"0","top":"0"}}}} /-->
 
-            <!-- wp:post-excerpt {"moreText":"Read More","className":"is-style-default"} /-->
+            <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|40","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"top":"-10px","bottom":"0"}}},"backgroundColor":"tertiary","layout":{"type":"default"}} -->
+            <div class="wp-block-group has-tertiary-background-color has-background" style="margin-top:-10px;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--30)">
+                <!-- wp:post-excerpt {"moreText":"Read More","className":"is-style-default"} /-->
+            </div>
+            <!-- /wp:group -->
         </div>
         <!-- /wp:group -->
         <!-- /wp:post-template -->
