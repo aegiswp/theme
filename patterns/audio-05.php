@@ -3,18 +3,18 @@
  * Title: 05. Audio Pattern
  * Slug: aegis/audio-05
  * Categories: audio
- * Description: Block pattern with two-column cover overlay on the left and tagline, headline, paragraph, avatar, audio player, and social icons
- * Keywords: audio, call-to-action, music, podcast, radio
+ * Description: Block pattern featuring an episode number over a cover image on the left, and a tagline, heading, audio player, concise description, social links, and a call-to-action button on the right.
+ * Keywords: audio, cover, episode, heading, social, tagline, call-to-action
  * Viewport Width: 1400
- * Block Types: core/group, core/columns, core/column, core/cover, core/paragraph, core/heading, core/audio, core/buttons, core/social-links
+ * Block Types: core/audio, core/button, core/buttons, core/column, core/columns, core/cover, core/group, core/heading, core/image, core/paragraph, core/social-link, core/social-links
  * Inserter: true
- * 
+ *
  * @package aegis
  * @since 1.0.0
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('05. Audio Pattern', 'Name of the pattern', 'aegis'); ?>","categories":["audio"],"patternName":"aegis/audio-01"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"textColor":"background","gradient":"diagonal-foreground-to-background","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('05. Audio Pattern', 'Name of the pattern', 'aegis'); ?>","categories":["audio"],"patternName":"aegis/audio-05"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"textColor":"background","gradient":"diagonal-foreground-to-background","layout":{"type":"default"}} -->
 <div class="wp-block-group has-background-color has-diagonal-foreground-to-background-gradient-background has-text-color has-background" style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--40)">
     <!-- wp:columns {"verticalAlignment":"center","align":"wide","style":{"spacing":{"padding":{"right":"var:preset|spacing|40","left":"var:preset|spacing|40"}}},"gradient":"diagonal-tertiary-to-transparent-left-bottom"} -->
     <div class="wp-block-columns alignwide are-vertically-aligned-center has-diagonal-tertiary-to-transparent-left-bottom-gradient-background has-background" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
