@@ -14,7 +14,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('02. Audio Pattern', 'Name of the pattern', 'aegis'); ?>","categories":["audio"],"patternName":"aegis/audio-01"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"textColor":"background","gradient":"diagonal-transparent-to-large-foreground-left-bottom","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('02. Audio Pattern', 'Name of the pattern', 'aegis'); ?>","categories":["audio"],"patternName":"aegis/audio-02"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"textColor":"background","gradient":"diagonal-transparent-to-large-foreground-left-bottom","layout":{"type":"default"}} -->
 <div class="wp-block-group has-background-color has-diagonal-transparent-to-large-foreground-left-bottom-gradient-background has-text-color has-background" style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--40)">
     <!-- wp:columns {"verticalAlignment":"center","align":"wide"} -->
     <div class="wp-block-columns alignwide are-vertically-aligned-center">
