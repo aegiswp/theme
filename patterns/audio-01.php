@@ -3,12 +3,12 @@
  * Title: 01. Audio Pattern
  * Slug: aegis/audio-01
  * Categories: audio
- * Description: Block pattern with two-column cover overlay on the left and tagline, headline, paragraph, audio player, social icons and call to action button on the right
- * Keywords: audio, call-to-action, music, podcast, radio
+ * Description: Block pattern featuring a cover image and episode number on the left, and a tagline, heading, brief description, audio player, social links, and a call-to-action button on the right.
+ * Keywords: audio, call-to-action, cover, heading, image, social, tagline
  * Viewport Width: 1400
- * Block Types: core/group, core/columns, core/column, core/cover, core/paragraph, core/heading, core/audio, core/buttons, core/social-links
+ * Block Types: core/audio, core/button, core/buttons, core/column, core/columns, core/cover, core/group, core/heading, core/image, core/paragraph, core/social-link, core/social-links
  * Inserter: true
- * 
+ *
  * @package aegis
  * @since 1.0.0
  */
