@@ -3,12 +3,12 @@
  * Title: 03. CTA Pattern
  * Slug: aegis/cta-03
  * Categories: call-to-action
- * Description: Two-column with heading, paragraph, image, and call to action button
- * Keywords: cta, marketing, promotion, sale
+ * Description: Block pattern featuring a visually dynamic call-to-action layout with a gradient background, bold typography, a tagline, and buttons, designed to engage users effectively and ensure accessibility for all audiences.
+ * Keywords: call-to-action, buttons, heading, description, tagline, gradient, image
  * Viewport Width: 1400
- * Block Types: core/group, core/columns, core/column, core/heading, core/paragraph, core/image, core/button
+ * Block Types: core/button, core/buttons, core/columns, core/group, core/heading, core/image, core/paragraph
  * Inserter: true
- * 
+ *
  * @package aegis
  * @since 1.0.0
  */
