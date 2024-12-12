@@ -3,10 +3,10 @@
  * Title: 01. CTA Pattern
  * Slug: aegis/cta-01
  * Categories: call-to-action
- * Description: Block pattern featuring a background image with a tagline, heading, description, and call-to-action buttons.
- * Keywords: call-to-action, buttons, image, tagline, heading, description
+ * Description: Block pattern featuring a gradient background, bold typography, and a call-to-action layout with a tagline, headline, and buttons, designed for accessibility and user engagement.
+ * Keywords: call-to-action, buttons, headline, tagline, gradient
  * Viewport Width: 1400
- * Block Types: core/button, core/buttons, core/group, core/heading, core/image, core/paragraph, core/social-link, core/social-links
+ * Block Types: core/button, core/buttons, core/columns, core/group, core/heading, core/paragraph
  * Inserter: true
  *
  * @package aegis
@@ -14,40 +14,32 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["call-to-action"],"patternName":"aegis/cta-01","name":"<?php echo esc_html_x('01. CTA Pattern', 'Name of the pattern', 'aegis'); ?>"},"align":"wide"} -->
-<div class="wp-block-group alignwide">
-    <!-- wp:image {"aspectRatio":"16/9","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-    <figure class="wp-block-image size-full"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_html__( 'Abstract illustration featuring the theme\'s logo. Please replace this image with your own.', 'aegis' ); ?>" style="aspect-ratio:16/9;object-fit:cover" /></figure>
-    <!-- /wp:image -->
-
-    <!-- wp:columns -->
-    <div class="wp-block-columns">
-        <!-- wp:column {"verticalAlignment":"top"} -->
-        <div class="wp-block-column is-vertically-aligned-top">
-            <!-- wp:paragraph {"align":"left","metadata":{"name":"Tagline"},"style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"},"spacing":{"margin":{"bottom":"-15px"}}},"fontSize":"medium"} -->
-            <p class="has-text-align-left has-medium-font-size" style="margin-bottom:-15px;font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x( 'Tagline', 'Enter a brief and descriptive tagline here.', 'aegis' ); ?></p>
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('01. CTA Pattern', 'Name of the pattern', 'aegis'); ?>","categories":["<?php echo esc_html_x('call-to-action', 'Name of the categories', 'aegis'); ?>"],"patternName":"aegis/cta-01"},"gradient":"vertical-background-to-foreground","layout":{"type":"default"}} -->
+<div class="wp-block-group has-vertical-background-to-foreground-gradient-background has-background">
+    <!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"gradient":"diagonal-tertiary-to-transparent-right-top"} -->
+    <div class="wp-block-columns are-vertically-aligned-center has-diagonal-tertiary-to-transparent-right-top-gradient-background has-background" style="padding-right:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+        <!-- wp:column {"verticalAlignment":"center","width":"70%"} -->
+        <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:70%">
+            <!-- wp:paragraph {"align":"left","metadata":{"name":"Tagline"},"style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"500"},"spacing":{"margin":{"bottom":"-15px"}}},"fontSize":"tiny"} -->
+            <p class="has-text-align-left has-tiny-font-size" style="margin-bottom:-15px;font-style:normal;font-weight:500;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x( 'Tagline', 'Enter a brief and descriptive tagline here.', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"style":{"typography":{"textTransform":"uppercase","fontSize":"6.5rem"},"spacing":{"margin":{"top":"0","bottom":"0","left":"0","right":"0"}}}} -->
-            <h3 class="wp-block-heading" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;font-size:6.5rem;text-transform:uppercase"><?php echo esc_html_x( 'Heading', 'Enter a compelling headline for this section.', 'aegis' ); ?></h3>
+            <!-- wp:heading {"level":3,"style":{"typography":{"textTransform":"uppercase"},"spacing":{"margin":{"top":"0","bottom":"0","left":"0","right":"0"}}},"fontSize":"gigantic"} -->
+            <h3 class="wp-block-heading has-gigantic-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase"><?php echo esc_html_x( 'Heading', 'Enter a compelling headline for this section.', 'aegis' ); ?></h3>
             <!-- /wp:heading -->
         </div>
         <!-- /wp:column -->
 
-        <!-- wp:column {"verticalAlignment":"bottom","style":{"spacing":{"padding":{"bottom":"6rem"}}}} -->
-        <div class="wp-block-column is-vertically-aligned-bottom" style="padding-bottom:6rem">
-            <!-- wp:paragraph -->
-            <p><?php echo esc_html_x( 'Provide a concise description, up to 155 characters, summarizing the key points of an offer, article, or news update.', 'aegis' ); ?></p>
-            <!-- /wp:paragraph -->
-
+        <!-- wp:column {"verticalAlignment":"center","width":"30%"} -->
+        <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:30%">
             <!-- wp:buttons -->
             <div class="wp-block-buttons">
-                <!-- wp:button {"className":"is-style-outline"} -->
-                <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( 'Call to Action', 'Call-to-action button text', 'aegis' ); ?></a></div>
+                <!-- wp:button {"className":"is-style-fill","style":{"border":{"width":"2px"}},"borderColor":"background"} -->
+                <div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-border-color has-background-border-color wp-element-button" style="border-width:2px"><?php echo esc_html_x( 'Call to Action', 'Call-to-action button text', 'aegis' ); ?></a></div>
                 <!-- /wp:button -->
 
-                <!-- wp:button {"className":"is-style-outline","style":{"border":{"width":"0px","style":"none"}}} -->
-                <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="#" style="border-style:none;border-width:0px"><?php echo esc_html_x( 'Call to Action →', 'Call-to-action button text', 'aegis' ); ?></a></div>
+                <!-- wp:button {"backgroundColor":"tertiary","textColor":"foreground","className":"is-style-fill","style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}}}} -->
+                <div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-foreground-color has-tertiary-background-color has-text-color has-background has-link-color wp-element-button"><?php echo esc_html_x( 'Call to Action →', 'Call-to-action button text', 'aegis' ); ?></a></div>
                 <!-- /wp:button -->
             </div>
             <!-- /wp:buttons -->
