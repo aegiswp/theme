@@ -21,8 +21,7 @@
         <!-- wp:column {"width":"33.33%","className":"is-style-hide-mobile"} -->
         <div class="wp-block-column is-style-hide-mobile" style="flex-basis:33.33%">
             <!-- wp:group {"className":"is-style-section-dark","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|40","top":"var:preset|spacing|40","right":"var:preset|spacing|40","left":"var:preset|spacing|40"}}},"gradient":"diagonal-foreground-to-transparent-left-top"} -->
-            <div class="wp-block-group is-style-section-dark has-diagonal-foreground-to-transparent-left-top-gradient-background has-background"
-                style="padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+            <div class="wp-block-group is-style-section-dark has-diagonal-foreground-to-transparent-left-top-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
                 <!-- wp:image {"width":"120px","aspectRatio":"1","scale":"cover","sizeSlug":"large","linkDestination":"none","align":"center","className":"is-resized is-style-rounded","style":{"color":{"duotone":"unset"}}} -->
                 <figure class="wp-block-image aligncenter size-large is-resized is-style-rounded"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_800x800_dark.webp" alt="<?php echo esc_html__( 'Abstract illustration featuring the theme\'s logo. Please replace this image with your own.', 'aegis' ); ?>" style="aspect-ratio:1;object-fit:cover;width:120px" /></figure>
                 <!-- /wp:image -->
