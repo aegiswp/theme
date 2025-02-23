@@ -21,8 +21,7 @@
         <!-- wp:column {"width":"33.33%","style":{"spacing":{"padding":{"right":"0","left":"0"}}}} -->
         <div class="wp-block-column" style="padding-right:0;padding-left:0;flex-basis:33.33%">
             <!-- wp:image {"aspectRatio":"3/4","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"color":[],"border":{"radius":{"topLeft":null,"topRight":null,"bottomRight":null}},"shadow":"var:preset|shadow|tertiary-solid-shadow-left-top"}} -->
-            <figure class="wp-block-image size-full"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_html__( 'Abstract illustration featuring the theme\'s logo. Please replace this image with your own.', 'aegis' ); ?>" style="box-shadow:var(--wp--preset--shadow--tertiary-solid-shadow-left-top);aspect-ratio:3/4;object-fit:cover" />
-            </figure>
+            <figure class="wp-block-image size-full"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" alt="<?php echo esc_html__( 'Abstract illustration featuring the theme\'s logo. Please replace this image with your own.', 'aegis' ); ?>" style="box-shadow:var(--wp--preset--shadow--tertiary-solid-shadow-left-top);aspect-ratio:3/4;object-fit:cover" /></figure>
             <!-- /wp:image -->
         </div>
         <!-- /wp:column -->
@@ -46,8 +45,7 @@
                 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"right","flexWrap":"wrap","orientation":"horizontal"}} -->
                 <div class="wp-block-buttons">
                     <!-- wp:button {"className":"is-style-outline-shadow"} -->
-                    <div class="wp-block-button is-style-outline-shadow"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( 'Call to Action', 'Call-to-action button text', 'aegis' ); ?></a>
-                    </div>
+                    <div class="wp-block-button is-style-outline-shadow"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( 'Call to Action', 'Call-to-action button text', 'aegis' ); ?></a></div>
                     <!-- /wp:button -->
                 </div>
                 <!-- /wp:buttons -->
