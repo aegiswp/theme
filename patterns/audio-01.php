@@ -88,8 +88,7 @@
                 <!-- wp:buttons -->
                 <div class="wp-block-buttons">
                     <!-- wp:button {"className":"is-style-dense-shadow","style":{"border":{"width":"2px"}},"borderColor":"senary"} -->
-                    <div class="wp-block-button is-style-dense-shadow"><a class="wp-block-button__link has-border-color has-senary-border-color wp-element-button" style="border-width:2px" href="#"><?php echo esc_html_x( 'Call to Action', 'Call-to-action button text', 'aegis' ); ?></a>
-                    </div>
+                    <div class="wp-block-button is-style-dense-shadow"><a class="wp-block-button__link has-border-color has-senary-border-color wp-element-button" style="border-width:2px" href="#"><?php echo esc_html_x( 'Call to Action', 'Call-to-action button text', 'aegis' ); ?></a></div>
                     <!-- /wp:button -->
                 </div>
                 <!-- /wp:buttons -->
