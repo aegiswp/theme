@@ -39,7 +39,7 @@
 
             <!-- wp:post-title {"level":3,"isLink":true,"className":"is-style-hide-underline","style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}},"elements":{"link":{"color":{"text":"var:preset|color|foreground"},":hover":{"color":{"text":"var:preset|color|secondary"}}}}},"textColor":"foreground","fontSize":"huge"} /-->
 
-            <!-- wp:post-excerpt {"moreText":"Read More"} /-->
+            <!-- wp:post-excerpt {"moreText":"","showMoreOnNewLine":false} /-->
         </div>
         <!-- /wp:group -->
         <!-- /wp:post-template -->
