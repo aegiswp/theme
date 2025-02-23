@@ -28,7 +28,8 @@
 
                 <!-- wp:heading {"textAlign":"center","level":3,"fontSize":"large"} -->
                 <h3 class="wp-block-heading has-text-align-center has-large-font-size">
-                    <?php echo esc_html_x( 'Author Name', 'Enter the author name here.', 'aegis' ); ?></h3>
+                    <?php echo esc_html_x( 'Author Name', 'Enter the author name here.', 'aegis' ); ?>
+                </h3>
                 <!-- /wp:heading -->
 
                 <!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase"},"spacing":{"margin":{"right":"0","bottom":"0","left":"0","top":"5px"}}},"fontSize":"tiny"} -->
