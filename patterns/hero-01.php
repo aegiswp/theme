@@ -23,11 +23,15 @@
             <!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"layout":{"type":"constrained"}} -->
             <div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
                 <!-- wp:heading {"textAlign":"center","level":1,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"gigantic"} -->
-                <h1 class="wp-block-heading has-text-align-center has-gigantic-font-size" style="font-style:normal;font-weight:400"><?php echo wp_kses_post( _x( '<strong>Main</strong> Heading', 'Enter a compelling headline for this section.', 'aegis' ) ); ?></h1>
+                <h1 class="wp-block-heading has-text-align-center has-gigantic-font-size" style="font-style:normal;font-weight:400">
+                    <?php echo wp_kses_post( _x( '<strong>Main</strong> Heading', 'Enter a compelling headline for this section.', 'aegis' ) ); ?>
+                </h1>
                 <!-- /wp:heading -->
 
                 <!-- wp:paragraph {"align":"center","style":{"spacing":{"padding":{"top":"0","bottom":"var:preset|spacing|30"}}}} -->
-                <p class="has-text-align-center" style="padding-top:0;padding-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x('Provide a concise description, up to 155 characters, summarizing the key points of an offer, article, or news update.', 'Replace with a description of the section.', 'aegis'); ?></p>
+                <p class="has-text-align-center" style="padding-top:0;padding-bottom:var(--wp--preset--spacing--30)">
+                    <?php echo esc_html_x('Provide a concise description, up to 155 characters, summarizing the key points of an offer, article, or news update.', 'Replace with a description of the section.', 'aegis'); ?>
+                </p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:buttons {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|30"}}},"layout":{"type":"flex","justifyContent":"center","flexWrap":"nowrap","orientation":"horizontal"}} -->
