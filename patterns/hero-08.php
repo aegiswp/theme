@@ -31,7 +31,9 @@
 				<!-- /wp:paragraph -->
 
 				<!-- wp:heading {"level":3,"style":{"typography":{"textTransform":"uppercase","fontSize":"6rem"},"spacing":{"margin":{"top":"0","bottom":"0","left":"0","right":"0"}}}} -->
-				<h3 class="wp-block-heading" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;font-size:6rem;text-transform:uppercase"><?php echo esc_html_x( 'Heading', 'Enter a compelling headline for this section.', 'aegis' ); ?></h3>
+				<h3 class="wp-block-heading" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;font-size:6rem;text-transform:uppercase">
+					<?php echo esc_html_x( 'Heading', 'Enter a compelling headline for this section.', 'aegis' ); ?>
+				</h3>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"style":{"border":{"left":{"width":"6px"}},"spacing":{"padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}}} -->
@@ -43,7 +45,8 @@
 				<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"left","flexWrap":"wrap"}} -->
 				<div class="wp-block-buttons">
 					<!-- wp:button {"className":"is-style-outline-shadow"} -->
-					<div class="wp-block-button is-style-outline-shadow"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( 'Call to Action', 'Call-to-action button text', 'aegis' ); ?></a>
+					<div class="wp-block-button is-style-outline-shadow">
+						<a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( 'Call to Action', 'Call-to-action button text', 'aegis' ); ?></a>
 					</div>
 					<!-- /wp:button -->
 				</div>
