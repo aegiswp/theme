@@ -33,13 +33,16 @@
 				<!-- wp:group {"layout":{"type":"constrained","contentSize":"300px"}} -->
 				<div class="wp-block-group">
 					<!-- wp:paragraph {"style":{"layout":{"selfStretch":"fixed","flexSize":"50%"}}} -->
-					<p><?php echo esc_html_x('Provide a concise description, up to 155 characters, summarizing the key points of an offer, article, or news update.', 'Replace with a description of the section.', 'aegis'); ?></p>
+					<p>
+						<?php echo esc_html_x('Provide a concise description, up to 155 characters, summarizing the key points of an offer, article, or news update.', 'Replace with a description of the section.', 'aegis'); ?>
+					</p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:buttons {"layout":{"type":"flex","flexWrap":"nowrap","orientation":"horizontal"}} -->
 					<div class="wp-block-buttons">
 						<!-- wp:button {"className":"is-style-outline-shadow"} -->
-						<div class="wp-block-button is-style-outline-shadow"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( 'Call to Action', 'Call-to-action button text', 'aegis' ); ?></a>
+						<div class="wp-block-button is-style-outline-shadow">
+							<a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( 'Call to Action', 'Call-to-action button text', 'aegis' ); ?></a>
 						</div>
 						<!-- /wp:button -->
 					</div>
