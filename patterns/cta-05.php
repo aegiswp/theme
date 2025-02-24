@@ -25,11 +25,15 @@
             <!-- /wp:paragraph -->
 
             <!-- wp:heading {"level":3,"style":{"typography":{"textTransform":"uppercase"},"spacing":{"margin":{"top":"0","bottom":"0","left":"0","right":"0"}}},"fontSize":"gigantic"} -->
-            <h3 class="wp-block-heading has-gigantic-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase"><?php echo esc_html_x( 'Heading', 'Enter a compelling headline for this section.', 'aegis' ); ?></h3>
+            <h3 class="wp-block-heading has-gigantic-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase">
+                <?php echo esc_html_x( 'Heading', 'Enter a compelling headline for this section.', 'aegis' ); ?>
+            </h3>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph -->
-            <p><?php echo esc_html_x( 'Provide a concise description, up to 155 characters, summarizing the key points of an offer, article, or news update.', 'aegis' ); ?></p>
+            <p>
+                <?php echo esc_html_x( 'Provide a concise description, up to 155 characters, summarizing the key points of an offer, article, or news update.', 'aegis' ); ?>
+            </p>
             <!-- /wp:paragraph -->
 
             <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"left"}} -->
@@ -37,11 +41,15 @@
                 <!-- wp:buttons -->
                 <div class="wp-block-buttons">
                     <!-- wp:button {"backgroundColor":"background","textColor":"foreground","className":"is-style-outline","style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}}}} -->
-                    <div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-foreground-color has-background-background-color has-text-color has-background has-link-color wp-element-button" href="#"><?php echo esc_html_x( 'Call to Action', 'Call-to-action button text', 'aegis' ); ?></a></div>
+                    <div class="wp-block-button is-style-outline">
+                        <a class="wp-block-button__link has-foreground-color has-background-background-color has-text-color has-background has-link-color wp-element-button" href="#"><?php echo esc_html_x( 'Call to Action', 'Call-to-action button text', 'aegis' ); ?></a>
+                    </div>
                     <!-- /wp:button -->
 
                     <!-- wp:button {"backgroundColor":"primary"} -->
-                    <div class="wp-block-button"><a class="wp-block-button__link has-primary-background-color has-background wp-element-button" href="#"><?php echo esc_html_x( 'Call to Action →', 'Call-to-action button text', 'aegis' ); ?></a></div>
+                    <div class="wp-block-button">
+                        <a class="wp-block-button__link has-primary-background-color has-background wp-element-button" href="#"><?php echo esc_html_x( 'Call to Action →', 'Call-to-action button text', 'aegis' ); ?></a>
+                    </div>
                     <!-- /wp:button -->
                 </div>
                 <!-- /wp:buttons -->
