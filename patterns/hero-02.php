@@ -29,7 +29,9 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"align":"center"} -->
-				<p class="has-text-align-center"><?php echo esc_html_x('Provide a concise description, up to 155 characters, summarizing the key points of an offer, article, or news update.', 'Replace with a description of the section.', 'aegis'); ?></p>
+				<p class="has-text-align-center">
+					<?php echo esc_html_x('Provide a concise description, up to 155 characters, summarizing the key points of an offer, article, or news update.', 'Replace with a description of the section.', 'aegis'); ?>
+				</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"<?php echo esc_attr__('Optional placeholder...', 'aegis'); ?>","buttonText":"<?php echo esc_attr__('Search', 'aegis'); ?>","buttonPosition":"button-inside","backgroundColor":"primary","borderColor":"secondary"} /-->
