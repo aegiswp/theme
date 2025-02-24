@@ -17,8 +17,7 @@
 <!-- wp:group {"metadata":{"categories":["<?php echo esc_html_x('call-to-action', 'Name of the categories', 'aegis'); ?>"],"patternName":"aegis/cta-04","name":"<?php echo esc_html_x('04. CTA Pattern', 'Name of the pattern', 'aegis'); ?>"},"style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"gradient":"diagonal-foreground-to-primary","layout":{"type":"constrained"}} -->
 <div class="wp-block-group has-diagonal-foreground-to-primary-gradient-background has-background" style="padding-top:0;padding-right:var(--wp--preset--spacing--30);padding-bottom:0;padding-left:var(--wp--preset--spacing--30)">
     <!-- wp:media-text {"align":"full","mediaId":544,"mediaLink":"<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp","mediaType":"image","mediaWidth":60,"verticalAlignment":"center","style":{"elements":{"link":{"color":{"text":"var:preset|color|background"}}},"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}}},"textColor":"background","gradient":"diagonal-foreground-to-transparent-right-bottom"} -->
-    <div class="wp-block-media-text alignfull is-stacked-on-mobile is-vertically-aligned-center has-background-color has-diagonal-foreground-to-transparent-right-bottom-gradient-background has-text-color has-background has-link-color"
-        style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0;grid-template-columns:60% auto">
+    <div class="wp-block-media-text alignfull is-stacked-on-mobile is-vertically-aligned-center has-background-color has-diagonal-foreground-to-transparent-right-bottom-gradient-background has-text-color has-background has-link-color" style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0;grid-template-columns:60% auto">
         <figure class="wp-block-media-text__media"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_html__( 'Abstract illustration featuring the theme\'s logo. Please replace this image with your own.', 'aegis' ); ?>" class="wp-image-544 size-full" /></figure>
         <div class="wp-block-media-text__content">
             <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"layout":{"type":"flex","flexWrap":"wrap","orientation":"vertical"}} -->
@@ -28,7 +27,9 @@
                 <!-- /wp:paragraph -->
 
                 <!-- wp:heading {"level":3,"style":{"typography":{"textTransform":"uppercase"},"spacing":{"margin":{"top":"0","bottom":"0","left":"0","right":"0"}}},"fontSize":"gigantic"} -->
-                <h3 class="wp-block-heading has-gigantic-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase"><?php echo esc_html_x( 'Heading', 'Enter a compelling headline for this section.', 'aegis' ); ?></h3>
+                <h3 class="wp-block-heading has-gigantic-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase">
+                    <?php echo esc_html_x( 'Heading', 'Enter a compelling headline for this section.', 'aegis' ); ?>
+                </h3>
                 <!-- /wp:heading -->
 
                 <!-- wp:paragraph -->
