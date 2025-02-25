@@ -2,7 +2,7 @@
 /**
  * Title: 01. Event Pattern
  * Slug: aegis/event-01
- * Categories: event
+ * Categories: events
  * Description: Block pattern featuring an event layout with a centered tagline, heading, event description, video content, dynamic event query, and social links.
  * Keywords: event, video, query, social, layout, call-to-action
  * Viewport Width: 1400
