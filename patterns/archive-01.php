@@ -27,7 +27,7 @@
         <!-- wp:post-template {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"grid","columnCount":null,"minimumColumnWidth":"100rem"}} -->
         <!-- wp:group {"style":{"spacing":{"padding":{"bottom":"var:preset|spacing|30"},"margin":{"bottom":"0"}}}} -->
         <div class="wp-block-group" style="margin-bottom:0;padding-bottom:var(--wp--preset--spacing--30)">
-            <!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9"} /-->
+            <!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","style":{"border":{"radius":"4px"}}} /-->
 
             <!-- wp:group {"style":{"spacing":{"padding":{"right":"20px","left":"20px","top":"20px","bottom":"20px"},"margin":{"top":"-10px"}}},"backgroundColor":"tertiary","layout":{"type":"flex","justifyContent":"space-between","verticalAlignment":"center","orientation":"horizontal"}} -->
             <div class="wp-block-group has-tertiary-background-color has-background" style="margin-top:-10px;padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px">
@@ -39,18 +39,22 @@
 
             <!-- wp:post-title {"level":3,"isLink":true,"className":"is-style-hide-underline","style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}},"elements":{"link":{"color":{"text":"var:preset|color|foreground"},":hover":{"color":{"text":"var:preset|color|secondary"}}}}},"textColor":"foreground","fontSize":"huge"} /-->
 
-            <!-- wp:post-excerpt {"moreText":"Read More"} /-->
+            <!-- wp:post-excerpt {"moreText":"<?php echo esc_html_x( 'Read More', 'Post excerpt read more link text (15-25 characters recommended)', 'aegis' ); ?>"} /-->
         </div>
         <!-- /wp:group -->
         <!-- /wp:post-template -->
 
         <!-- wp:query-pagination {"paginationArrow":"arrow","align":"wide","style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground"},":hover":{"color":{"text":"var:preset|color|secondary"}}}}},"textColor":"foreground","fontSize":"tiny","layout":{"type":"flex","justifyContent":"space-between","orientation":"horizontal"}} -->
-        <!-- wp:query-pagination-previous /-->
+        <!-- wp:query-pagination-previous {"label":"<?php echo esc_html_x( 'Previous Page', 'Previous page navigation text', 'aegis' ); ?>"} /-->
 
         <!-- wp:query-pagination-numbers /-->
 
-        <!-- wp:query-pagination-next /-->
+        <!-- wp:query-pagination-next {"label":"<?php echo esc_html_x( 'Next Page', 'Next page navigation text', 'aegis' ); ?>"} /-->
         <!-- /wp:query-pagination -->
+
+        <!-- wp:paragraph {"align":"center","className":"screen-reader-text","fontSize":"small"} -->
+        <p class="has-text-align-center screen-reader-text has-small-font-size"><?php echo esc_html_x( 'Archive navigation', 'Screen reader text for archive navigation', 'aegis' ); ?></p>
+        <!-- /wp:paragraph -->
     </div>
     <!-- /wp:query -->
 </div>
