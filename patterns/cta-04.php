@@ -18,22 +18,22 @@
 <div class="wp-block-group has-diagonal-foreground-to-primary-gradient-background has-background" style="padding-top:0;padding-right:var(--wp--preset--spacing--30);padding-bottom:0;padding-left:var(--wp--preset--spacing--30)">
     <!-- wp:media-text {"align":"full","mediaId":544,"mediaLink":"<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp","mediaType":"image","mediaWidth":60,"verticalAlignment":"center","style":{"elements":{"link":{"color":{"text":"var:preset|color|background"}}},"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}}},"textColor":"background","gradient":"diagonal-foreground-to-transparent-right-bottom"} -->
     <div class="wp-block-media-text alignfull is-stacked-on-mobile is-vertically-aligned-center has-background-color has-diagonal-foreground-to-transparent-right-bottom-gradient-background has-text-color has-background has-link-color" style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0;grid-template-columns:60% auto">
-        <figure class="wp-block-media-text__media"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_html__( 'Abstract illustration featuring the theme\'s logo. Please replace this image with your own.', 'aegis' ); ?>" class="wp-image-544 size-full" /></figure>
+        <figure class="wp-block-media-text__media"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1920x1200_dark.webp" alt="<?php echo esc_html__( 'Featured image showcasing our latest product or service offering', 'aegis' ); ?>" class="wp-image-544 size-full" /></figure>
         <div class="wp-block-media-text__content">
             <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"layout":{"type":"flex","flexWrap":"wrap","orientation":"vertical"}} -->
             <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--30)">
                 <!-- wp:paragraph {"align":"left","metadata":{"name":"Tagline"},"style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"},"spacing":{"margin":{"bottom":"-15px"}}},"fontSize":"tiny"} -->
-                <p class="has-text-align-left has-tiny-font-size" style="margin-bottom:-15px;font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x( 'Tagline', 'Enter a brief and descriptive tagline here.', 'aegis' ); ?></p>
+                <p class="has-text-align-left has-tiny-font-size" style="margin-bottom:-15px;font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x( 'New Release', 'CTA tagline (10-20 characters recommended)', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:heading {"level":3,"style":{"typography":{"textTransform":"uppercase"},"spacing":{"margin":{"top":"0","bottom":"0","left":"0","right":"0"}}},"fontSize":"gigantic"} -->
                 <h3 class="wp-block-heading has-gigantic-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase">
-                    <?php echo esc_html_x( 'Heading', 'Enter a compelling headline for this section.', 'aegis' ); ?>
+                    <?php echo esc_html_x( 'Introducing', 'CTA heading (10-20 characters recommended)', 'aegis' ); ?>
                 </h3>
                 <!-- /wp:heading -->
 
                 <!-- wp:paragraph -->
-                <p><?php echo esc_html_x( 'Provide a concise description, up to 155 characters, summarizing the key points of an offer, article, or news update.', 'aegis' ); ?></p>
+                <p><?php echo esc_html_x( 'Our newest product is now available with exclusive launch pricing. Be among the first to experience the features that will transform how you work.', 'CTA description (100-150 characters recommended)', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"left"}} -->
@@ -42,13 +42,13 @@
                     <div class="wp-block-buttons">
                         <!-- wp:button {"backgroundColor":"background","textColor":"foreground","className":"is-style-outline","style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}}}} -->
                         <div class="wp-block-button is-style-outline">
-                            <a class="wp-block-button__link has-foreground-color has-background-background-color has-text-color has-background has-link-color wp-element-button" href="#"><?php echo esc_html_x( 'Call to Action', 'Call-to-action button text', 'aegis' ); ?></a>
+                            <a class="wp-block-button__link has-foreground-color has-background-background-color has-text-color has-background has-link-color wp-element-button" href="#"><?php echo esc_html_x( 'Buy Now', 'Primary CTA button text (5-15 characters recommended)', 'aegis' ); ?></a>
                         </div>
                         <!-- /wp:button -->
 
                         <!-- wp:button -->
                         <div class="wp-block-button">
-                            <a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( 'Call to Action →', 'Call-to-action button text', 'aegis' ); ?></a>
+                            <a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html_x( 'Learn More', 'Secondary CTA button text (5-15 characters recommended)', 'aegis' ); ?> <span class="wp-element-button__arrow" aria-hidden="true">&rarr;</span></a>
                         </div>
                         <!-- /wp:button -->
                     </div>
