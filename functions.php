@@ -7,7 +7,7 @@
  * @package aegis
  * @author  Atmostfear Entertainment
  * @license GNU General Public License v2 or later
- * @link    https://github.com/atmostfear-entertainment/aegis
+ * @link    https://github.com/aegiswp/theme/
  * @since   1.0.0
  */
 
