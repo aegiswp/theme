@@ -1,0 +1,34 @@
+/* Core Button Block: Dense Shadow Style
+--------------------------------------------- */
+.wp-block-button.is-style-dense-shadow .wp-block-button__link {
+    background: var(--wp--preset--color--foreground);
+    box-shadow: var(--wp--preset--color--foreground) 0 8px 20px -10px, 0 4px 8px rgba(66, 44, 35, 0.3);
+    color: var(--wp--preset--color--background);
+    transition: all 0.3s ease;
+    position: relative;
+    text-decoration: none; /* Ensure no underline by default */
+}
+
+.wp-block-button.is-style-dense-shadow .wp-block-button__link:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(66, 44, 35, 0.3);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.wp-block-button.is-style-dense-shadow .wp-block-button__link:hover {
+    box-shadow: 0 4px 8px rgba(66, 44, 35, 0.3), 0 8px 16px rgba(66, 44, 35, 0.4);
+    transform: translateY(-2px);
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+.wp-block-button.is-style-dense-shadow .wp-block-button__link:hover:before {
+    box-shadow: 0 8px 16px rgba(66, 44, 35, 0.4);
+    transform: translateY(-2px);
+    text-decoration: none; /* Ensure no underline on hover */
+}

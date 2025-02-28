@@ -1,0 +1,27 @@
+/* Core Image Block: Color Overlay Style
+--------------------------------------------- */
+.wp-block-image.is-style-color-overlay {
+  position: relative;
+  display: inline-block;
+}
+
+.wp-block-image.is-style-color-overlay img {
+  display: block;
+  transition: opacity 0.5s ease;
+}
+
+.wp-block-image.is-style-color-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+.wp-block-image.is-style-color-overlay:hover::after {
+  opacity: 0;
+}

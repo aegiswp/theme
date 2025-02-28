@@ -1,0 +1,36 @@
+/* Core Button Block: Soft Fade Style
+--------------------------------------------- */
+.wp-block-button.is-style-soft-fade .wp-block-button__link {
+	outline: none;
+	border: 2px solid var(--wp--preset--color--foreground);
+	background: var(--wp--preset--color--foreground);
+	color: var(--wp--preset--color--background);
+	transition: all 0.5s ease;
+	position: relative;
+	overflow: hidden;
+}
+
+.wp-block-button.is-style-soft-fade .wp-block-button__link:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--wp--preset--color--background);
+	opacity: 0;
+	transition: opacity 0.5s ease;
+	z-index: -1;
+}
+
+.wp-block-button.is-style-soft-fade .wp-block-button__link:hover:before {
+	opacity: 1;
+}
+
+.wp-block-button.is-style-soft-fade .wp-block-button__link:hover {
+	color: var(--wp--preset--color--foreground);
+	background: var(--wp--preset--color--background);
+}
+
+
+

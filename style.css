@@ -2,189 +2,181 @@
 Theme Name: Aegis
 Theme URI: https://github.com/atmostfear-entertainment/aegis
 Author: Atmostfear Entertainment
-Author URI: https://www.atmostfear-entertainment.com/
+Author URI: https://www.atmostfear-entertainment.com
 Description: Aegis is a sleek theme that promises agility and a lightweight design. It features elegant animations that add a sophisticated touch without hindering performance. The theme comes with a diverse array of block patterns, including full-page layouts, to ensure precise design control. Its latest full site editing capability facilitates real-time customization. With a solid foundation for ecommerce, it is well-suited for blogging, media outlets, and academic publishing.
-Requires at least: 6.4
-Tested up to: 6.4.3
+Requires at least: 6.6
+Tested up to: 6.7.2
 Requires PHP: 7.4
-Version: 1.0.0-beta.2
-License: GNU General Public License v3
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Version: 1.0.0-beta.3
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: aegis
-Tags: accessibility-ready, blog, block-editor-patterns, block-editor-styles, block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, one-column, portfolio, rtl-language-support, sticky-post, style-variations, template-editing, threaded-comments, translation-ready, two-columns, wide-blocks, woocommerce
+Domain Path: /languages
+Tags: accessibility-ready, block-editor-patterns, block-editor-styles, block-patterns, block-styles, blog, custom-colors, custom-logo, custom-menu, e-commerce, editor-style, featured-images, footer-widgets, full-site-editing, full-width-template, grid-layout, one-column, portfolio, rtl-language-support, sticky-post, style-variations, template-editing, threaded-comments, three-columns, translation-ready, two-columns, wide-blocks, woocommerce
 
-Aegis, (c) 2022-2024 Atmostfear Entertainment SAS.
+Aegis, (c) 2022-2025 Atmostfear Entertainment SAS.
 Aegis is distributed under the terms of the GNU GPL.
 */
 
+/* ------------------------------------------- */
+/* Start Beta 3: Refractured Styling
+/* ------------------------------------------- */
+
 /*
- * Font smoothing.
- * This is a niche setting that will not be available via Global Styles.
- * https://github.com/WordPress/gutenberg/issues/35934
+ * Fade-in Animation for Body
+ * Cross-browser animation for a smooth fade-in effect on page load.
+ * Duration: 0.7s.
+ * Keyframes ensure opacity transitions from 0 to 1.
  */
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 body {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    -webkit-animation: fadein 0.7s;
-    -moz-animation: fadein 0.7s;
-    -ms-animation: fadein 0.7s;
-    -o-animation: fadein 0.7s;
-    font-smoothing: antialiased;
-    animation: fadein 0.7s;
+    -webkit-animation: fadein 0.7s; /* Safari & Chrome */
+    -moz-animation: fadein 0.7s;    /* Firefox */
+    -ms-animation: fadein 0.7s;     /* IE */
+    -o-animation: fadein 0.7s;      /* Opera */
+    animation: fadein 0.7s;         /* Standard */
 }
 
 /*
- * Text link styles.
- * Necessary until the following issue is resolved in Gutenberg:
+ * Text link styles using background-underline animation.
+ * Custom underline thickness can be adjusted with --underline-thickness.
+ * This code is necessary due to Gutenberg issue #27075:
  * https://github.com/WordPress/gutenberg/issues/27075
+ *
+ * Background-based underline technique:
+ * - Uses linear-gradient to create a smooth underline effect.
+ * - Transitions the background-size from 0% to 100% on hover/focus.
+ * - Accessible and visually clean alternative to text-decoration.
  */
+
+:root {
+    --underline-thickness: 2px; /* Adjust thickness as needed */
+}
+
 a {
-    background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
-    background-size: 0;
+    background-image: linear-gradient(
+        transparent calc(100% - var(--underline-thickness)),
+        currentColor var(--underline-thickness)
+    );
+    background-size: 0% 100%;
     background-repeat: no-repeat;
     background-position: bottom left;
-    color: var(--wp--preset--color--foreground); /* Temporary fix: Remove on Beta 3 */
-    padding-bottom: 3px;
-    text-decoration: none;
-    transition: all 0.4s ease, text-decoration 0s ease;
+    transition: background-size 0.4s ease; /* Smooth transition effect */
+	text-decoration: none;
 }
 
 a:hover,
 a:focus {
-    background-image: linear-gradient(transparent calc(100% - 2px), currentColor 2px);
-    background-size: 100%;
-}
-
-a:active {
-    text-decoration: none;
+    background-size: 100% 100%; /* Expands the underline on hover/focus */
 }
 
 /* ------------------------------------------- */
-/* Navigation Blocks
+/* Core Calendar Block
 /* ------------------------------------------- */
-.wp-block-navigation .wp-block-navigation-item__content {
-	padding: .5em;
-	position: relative;
-	-webkit-box-shadow: 0 0 0;
-	-moz-box-shadow: 0 0 0;
-	box-shadow: 0 0 0;
-}
-.wp-block-navigation:not(.has-background) .wp-block-navigation__submenu-container {
-    border: 1px solid transparent;
-}
-
-.wp-block-navigation .has-child>.wp-block-navigation__submenu-container {
-	transition: opacity .25s ease, transform .5s all;
-	transform: translateY(15px);
-}
-
-.wp-block-navigation__container>.wp-block-navigation-item>a {
-	line-height: 2.5;
-	position: relative;
-}
-
-.wp-block-navigation__container>.wp-block-navigation-item:not(.has-child)>a:after {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	content: "";
-	height: 2px;
-	width: 0;
-	transition: width .5s;
-	background-color: currentColor;
-}
-
-.wp-block-navigation__container>.wp-block-navigation-item:not(.has-child)>a:hover:after {
-	width: 100%;
-}
-
-.wp-block-navigation :where(.wp-block-navigation__submenu-container)>.wp-block-navigation-item:first-child>.wp-block-navigation-item__content {
-	margin-top: .5em;
-}
-
-.wp-block-navigation :where(.wp-block-navigation__submenu-container)>.wp-block-navigation-item:last-child>.wp-block-navigation-item__content {
-	margin-bottom: .5em;
-}
-
-.wp-block-navigation-item.current-menu-item>a {
-	font-weight: 700;
-}
-
-.wp-block-navigation .has-child :where(.wp-block-navigation__submenu-container) {
-	z-index: 10;
-}
-
-.wp-block-navigation .has-child .wp-block-navigation__submenu-container {
-	z-index: 100;
-}
-
-.wp-block-navigation__responsive-container-close {
-	transition: transform .3s ease-in-out;
-	opacity: .8;
-}
-
-.wp-block-navigation__responsive-container-close:focus,
-.wp-block-navigation__responsive-container-close:hover {
-	transform: rotate(90deg);
-	opacity: 1;
-}
-
-.wp-block-navigation-item__content img {
-	height: fit-content;
-}
-
-/* ------------------------------------------- */
-/* Search Block
-/* ------------------------------------------- */
-/* Includes Buttons */
-.wp-block-search__button,
-.wp-block-file .wp-block-file__button {
+/*
+ * Uses global presets for colors and font sizes defined in theme.json.
+ * Ensure consistency across the site by leveraging CSS variables.
+ */
+.wp-block-calendar caption {
+    color: var(--wp--preset--color--background);
     background-color: var(--wp--preset--color--foreground);
-	border: none;
-	color: var(--wp--preset--color--background);
-	font-size: var(--wp--preset--typography--font-size--normal);
-	padding: calc(.667em + 2px) calc(1.333em + 2px);
+    font-size: var(--wp--preset--font-size--medium);
+    font-weight: 500; /* Font weight not handled by theme.json */
 }
 
+.wp-block-calendar {
+    color: var(--wp--preset--color--foreground);
+    background-color: var(--wp--preset--color--background);
+}
+
+.wp-block-calendar table th {
+    background-color: var(--wp--preset--color--foreground);
+    color: var(--wp--preset--color--background);
+}
+
+.wp-block-calendar table td {
+    font-size: var(--wp--preset--font-size--small);
+}
+
+/* ------------------------------------------- */
+/* End Beta 3
+/* ------------------------------------------- */
+
+/* ------------------------------------------- */
+/* Start Beta 2
+/* ------------------------------------------- */
 /*
  * Button hover styles.
  * Necessary until the following issue is resolved in Gutenberg:
  * https://github.com/WordPress/gutenberg/issues/27075
  */
+
+/* Base Styles */
 .wp-block-search__button,
 .wp-block-file .wp-block-file__button,
 .wp-block-button__link {
-	transition: all .3s ease;
-	-webkit-transition: all .3s ease;
+    transition: opacity 0.3s ease;
 }
 
+/* Hover Styles */
 .wp-block-file .wp-block-file__button:hover,
 .wp-block-button__link:hover {
-	opacity: 0.96;
-	padding: 7px 28px;
+    opacity: 0.96;
+    /* Optionally remove padding change to avoid layout shifts */
+    /* padding: 0.5em 1.75em; */
+    /* Alternative: Use transform for hover effect */
+    /* transform: scale(1.05); */
 }
 
 .wp-block-search__button:hover {
-	opacity: 0.96;
+    opacity: 0.96;
 }
 
 /* ------------------------------------------- */
 /* Blog
 /* ------------------------------------------- */
-/* Excerpt */
+/* Core Post Excerpt Block */
 .wp-block-post-excerpt__more-link {
-	background: var(--wp--preset--color--foreground);
+    box-shadow: var(--wp--preset--color--foreground) 0 8px 20px -10px, 0 4px 8px rgba(66, 44, 35, 0.3);
+    background: var(--wp--preset--color--foreground);
 	color: var(--wp--preset--color--background);
-	padding: 7px 25px;
-	transition: all .3s ease;
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 500;
+	padding-top: 0.667em;
+	padding-left: 1.333em;
+	padding-right: 1.333em;
+	padding-bottom: 0.667em;
+    transition: all 0.3s ease;
+    position: relative;
+    text-decoration: none; /* Ensure no underline by default */
+}
+
+.wp-block-post-excerpt__more-link:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(66, 44, 35, 0.3);
+    transition: all 0.3s ease;
+    z-index: -1;
 }
 
 .wp-block-post-excerpt__more-link:hover {
-	padding: 7px 28px;
+    box-shadow: 0 4px 8px rgba(66, 44, 35, 0.3), 0 8px 16px rgba(66, 44, 35, 0.4);
+    transform: translateY(-2px);
+    text-decoration: none; /* Ensure no underline on hover */
 }
 
-.wp-block-post-content .wp-block-post-excerpt__more-link {
-	padding-bottom: 7px;
+.wp-block-post-excerpt__more-link:hover:before {
+    box-shadow: 0 8px 16px rgba(66, 44, 35, 0.4);
+    transform: translateY(-2px);
+    text-decoration: none; /* Ensure no underline on hover */
 }
 
 /* ------------------------------------------- */
@@ -252,240 +244,88 @@ a.wp-block-social-link-anchor,
 }
 
 /* ------------------------------------------- */
-/* Effects
+/* Core Blocks Responsive Visibility Styles
 /* ------------------------------------------- */
-/* Heading Border Effect */
-.is-style-aegis-heading-border-radius {
-	border-top-left-radius: 13px;
-	border-top-right-radius: 13px;
+
+/* Desktop view (1024px to 1920) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .is-style-show-on-desktop {
+        display: block;
+    }
+    .is-style-hide-on-desktop {
+        display: none;
+    }
 }
 
-/* Shadow Effect */
-.is-style-aegis-shadow {
-	box-shadow: 0 3px 10px 0 rgb(15 16 18 / 10%), 0 12px 30px 0 rgb(15 16 18 / 10%);
+@media (min-width: 1280px) and (max-width: 1599px) {
+    .is-style-show-on-desktop {
+        display: block;
+    }
+    .is-style-hide-on-desktop {
+        display: none;
+    }
 }
 
-.is-style-aegis-shadow-image img,
-.is-style-aegis-post-featured-image-shadow img {
-	box-shadow: 0 3px 10px 0 rgb(15 16 18 / 10%), 0 12px 30px 0 rgb(15 16 18 / 10%);
+@media (min-width: 1600px) and (max-width: 1919px) {
+    .is-style-show-on-desktop {
+        display: block;
+    }
+    .is-style-hide-on-desktop {
+        display: none;
+    }
 }
 
-.is-style-aegis-hover-shadow,
-.is-style-aegis-hover-shadow-image img {
-	transition: box-shadow 0.5s;
+@media (min-width: 1920px) {
+    .is-style-show-on-desktop {
+        display: block;
+    }
+    .is-style-hide-on-desktop {
+        display: none;
+    }
 }
 
-.is-style-aegis-hover-shadow:hover,
-.is-style-aegis-hover-shadow-image img:hover {
-	box-shadow: 0 3px 10px 0 rgb(15 16 18 / 20%), 0 12px 30px 0 rgb(15 16 18 / 20%);
+/* Tablet view (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .is-style-show-on-tablet {
+        display: block;
+    }
+    .is-style-hide-on-tablet {
+        display: none;
+    }
 }
 
-.is-style-aegis-shadow {
-	box-shadow: 0 3px 10px 0 rgb(15 16 18 / 10%), 0 12px 30px 0 rgb(15 16 18 / 10%);
+/* Mobile view (up to 599px) */
+@media (max-width: 599px) {
+    .is-style-show-on-mobile {
+        display: block;
+    }
+    .is-style-hide-on-mobile {
+        display: none;
+    }
 }
 
-/* Image Effect */
-.is-style-aegis-post-featured-image-effect-1 img,
-.is-style-aegis-effect-1-image img,
-.is-style-aegis-effect-3-image img {
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
+/* Tablets in portrait mode (600px to 899px) */
+@media (min-width: 600px) and (max-width: 899px) {
+    .is-style-show-on-tablet-portrait {
+        display: block;
+    }
+    .is-style-hide-on-tablet-portrait {
+        display: none;
+    }
 }
 
-.is-style-aegis-post-featured-image-effect-1:hover img,
-.is-style-aegis-effect-1-image:hover img {
-	transform: scale(.95);
-}
-
-.is-style-aegis-effect-3-image:hover img {
-	transform: scale(1.05);
-}
-
-.is-style-aegis-post-featured-image-effect-2,
-.is-style-aegis-effect-2-image {
-	cursor: pointer;
-	position: relative;
-	overflow: hidden;
-}
-
-.is-style-aegis-post-featured-image-effect-2::before,
-.is-style-aegis-effect-2-image::before {
-	position: absolute;
-	top: 0;
-	left: -75%;
-	z-index: 2;
-	display: block;
-	content: '';
-	width: 50%;
-	height: 100%;
-	background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
-	background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
-	-webkit-transform: skewX(-25deg);
-	transform: skewX(-25deg);
-}
-
-.is-style-aegis-post-featured-image-effect-2:hover::before,
-.is-style-aegis-effect-2-image:hover::before {
-	-webkit-animation: shine 1s;
-	animation: shine 1s;
-}
-
-/* Shape Effect */
-.is-style-aegis-shape-one .wp-block-cover__background,
-.is-style-aegis-shape-one img {
-	border-radius: 500px;
-	border-bottom-right-radius: 20px;
-}
-
-.is-style-aegis-shape-two .wp-block-cover__background,
-.is-style-aegis-shape-two img {
-	border-radius: 500px;
-	border-top-left-radius: 20px;
-}
-
-.is-style-aegis-shape-three .wp-block-cover__background,
-.is-style-aegis-shape-three img {
-	border-radius: 13px;
+/* Tablets in landscape mode (900px to 1023px) */
+@media (min-width: 900px) and (max-width: 1023px) {
+    .is-style-show-on-tablet-landscape {
+        display: block;
+    }
+    .is-style-hide-on-tablet-landscape {
+        display: none;
+    }
 }
 
 /* ------------------------------------------- */
-/* Button Styles
-/* ------------------------------------------- */
-.is-style-aegis-button-shadow-outline .wp-block-button__link {
-	background-color: transparent;
-	color: currentColor;
-	border: 2px solid;
-	box-shadow: 5px 5px 0 currentColor;
-	transition: all .3s linear;
-	-webkit-transition: all .3s linear;
-}
-
-.is-style-aegis-button-shadow-outline .wp-block-button__link:hover {
-	box-shadow: 0 0 0 currentColor;
-}
-
-.is-style-aegis-3d-button-light .wp-block-button__link {
-	background: var(--wp--preset--color--secondary);
-	color: var(--wp--preset--color--foreground);
-	box-shadow: 0px 2px 4px rgba(38, 23, 14, 0.1), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px #d6d0d0;
-	padding: 7px 25px;
-	transition: all .3s ease;
-}
-
-.is-style-aegis-3d-button-dark .wp-block-button__link {
-	background: var(--wp--preset--color--primary);
-	color: var(--wp--preset--color--background);
-	box-shadow: 0px 2px 4px rgba(66, 44, 35, 0.2), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px rgba(111, 81, 58, 0.5);
-	padding: 7px 25px;
-	transition: all .3s ease;
-}
-
-.is-style-aegis-3d-button-dark .wp-block-button__link:hover,
-.is-style-aegis-3d-button-light .wp-block-button__link:hover {
-	box-shadow: none;
-	margin-left: 0;
-}
-
-.is-style-aegis-button-line-light .wp-block-button__link {
-	background: transparent;
-	color: currentColor;
-	padding: 0;
-	transition: all .3s ease;
-	display: inline-block;
-	box-shadow: 0 -9px var(--wp--preset--color--primary) inset;
-}
-
-.is-style-aegis-button-line-light .wp-block-button__link:hover {
-	box-shadow: 0 -50px 0 0 var(--wp--preset--color--primary) inset;
-	padding: 0;
-}
-
-.is-style-aegis-button-line-dark .wp-block-button__link {
-	background: transparent;
-	color: currentColor;
-	padding: 0;
-	transition: all .3s ease;
-	display: inline-block;
-	box-shadow: 0 -9px var(--wp--preset--color--foreground) inset;
-}
-
-.is-style-aegis-button-line-dark .wp-block-button__link:hover {
-	color: var(--wp--preset--color--secondary) !important;
-	box-shadow: 0 -50px 0 0 var(--wp--preset--color--foreground) inset;
-	padding: 0;
-}
-
-.is-style-aegis-button-shadow .wp-block-button__link {
-	background: var(--wp--preset--color--foreground);
-	box-shadow: var(--wp--preset--color--foreground) 0 8px 20px -10px;
-	color: var(--wp--preset--color--background);
-	transition: all .3s ease;
-}
-
-.is-style-aegis-button-shadow .wp-block-button__link:hover {
-	box-shadow: none;
-	padding: 7px 28px;
-}
-
-.is-style-aegis-button-effect-1 .wp-block-button__link {
-	background: var(--wp--preset--color--foreground);
-	position: relative;
-	user-select: none;
-	-webkit-user-select: none;
-	touch-action: manipulation;
-}
-
-.is-style-aegis-button-effect-1 .wp-block-button__link:after {
-	content: "";
-	border: 2px solid var(--wp--preset--color--foreground);
-	width: 100%;
-	z-index: -1;
-	position: absolute;
-	height: 100%;
-	top: 5px;
-	left: 5px;
-	transition: 0.3s all;
-}
-
-.is-style-aegis-button-effect-1 .wp-block-button__link:hover:after {
-	top: 0px;
-	left: 0px;
-}
-
-.is-style-aegis-button-effect-2 .wp-block-button__link {
-	outline: none;
-	border: 2px solid var(--wp--preset--color--foreground);
-	background: var(--wp--preset--color--foreground);
-	color: var(--wp--preset--color--background);
-	box-shadow: var(--wp--preset--color--foreground) 0 8px 20px -10px;
-	transition: all 0.3s ease;
-	position: relative;
-	z-index: 1;
-}
-
-.is-style-aegis-button-effect-2 .wp-block-button__link:after {
-	position: absolute;
-	content: "";
-	width: 0;
-	height: 100%;
-	top: 0;
-	right: 0;
-	z-index: -1;
-	background: var(--wp--preset--color--background);
-	transition: all 0.3s ease;
-}
-
-.is-style-aegis-button-effect-2 .wp-block-button__link:hover {
-	color: var(--wp--preset--color--foreground);
-}
-
-.is-style-aegis-button-effect-2 .wp-block-button__link:hover:after {
-	left: 0;
-	width: 100%;
-}
-
-/* ------------------------------------------- */
-/* Beta 3: Redo and Optimize
+/* Beta 2: Redo and Optimize
 /* ------------------------------------------- */
 figure {
 	margin-top: 0;
@@ -586,10 +426,6 @@ p.banner-text-margin {
 	position: relative;
 }
 
-.is-tagline {
-	margin-bottom: -10px;
-}
-
 .about .number,
 .about .icon {
 	display: inline-block;
@@ -673,22 +509,10 @@ p.banner-text-margin {
 	box-shadow: 0 3px 10px 0 rgb(15 16 18 / 10%), 0 12px 30px 0 rgb(15 16 18 / 10%);
 }
 
-.wp-block-group.commments-block {
-	margin-bottom: -1.5rem !important;
-}
-
 /* Target the core/image block */
 .wp-block-image {
     margin-bottom: 0.75em;
     margin-top: 1.25em;
-}
-
-/* Target the image caption in the core/image block */
-.wp-block-image figcaption {
-    background-color: var(--wp--preset--color--secondary);
-    color: var(--wp--preset--color--foreground);
-    margin-top: 0%;
-    padding: calc(.667em + 2px) calc(1.333em + 2px);
 }
 
 /* Scroll to Top */
@@ -1005,7 +829,7 @@ textarea {
 	header .has-search-and-icon {
 		justify-content: flex-end;
 	}
-    
+
 	header p.has-text-align-center.has-tiny-font-size {
 		font-size: 14px !important;
 	}
@@ -1197,10 +1021,6 @@ textarea {
 		padding: 0;
 	}
 
-	/* Hide on Mobile Class */
-	.is-hidden-on-mobile {
-		display: none !important;
-	}
 }
 
 @media (max-width: 982px) {
@@ -1912,7 +1732,7 @@ button.components-button.has-icon,
 #add_payment_method table.cart td.actions .coupon .input-text,
 .woocommerce-cart table.cart td.actions .coupon .input-text,
 .woocommerce-checkout table.cart td.actions .coupon .input-text {
-	border: 1px solid var(--wp--preset--color--septenary);
+	border: 1px solid var(--wp--preset--color--quaternary);
 }
 
 .woocommerce .cart_totals table.shop_table {
@@ -1920,18 +1740,11 @@ button.components-button.has-icon,
 }
 
 .woocommerce table.shop_table td {
-	border-top: 1px solid var(--wp--preset--color--septenary);
+	border-top: 1px solid var(--wp--preset--color--quaternary);
 }
 
 .woocommerce th {
 	background: var(--wp--preset--color--secondary);
-}
-
-.cart-collaterals,
-.wp-block-woocommerce-cart-order-summary-block,
-.wp-block-woocommerce-checkout-order-summary-block {
-	background: var(--wp--preset--color--secondary);
-	padding: 10px 30px;
 }
 
 tr.cart-subtotal,
@@ -2879,7 +2692,7 @@ button.wp-block-button__link.wc-block-filter-submit-button.wc-block-components-f
 /* Fade-in Animation */
 @keyframes fadein {
     from {
-		opacity: 0; 
+		opacity: 0;
 	}
     to {
 		opacity: 1;
@@ -2902,143 +2715,19 @@ button.wp-block-button__link.wc-block-filter-submit-button.wc-block-components-f
 /* ------------------------------------------- */
 /* Media Queries
 /* ------------------------------------------- */
-/* Navigation Block */
-@media only screen and (max-width: 962px) {
-	.wp-block-navigation.items-justified-right {
-		--navigation-layout-justification-setting: flex-start;
-		--navigation-layout-justify: flex-start;
-	}
+
+/* MOVED */
+.is-tagline {
+	margin-bottom: -15px;
 }
 
-@media (min-width:962px) {
-	.wp-block-navigation .has-child:hover>.wp-block-navigation__submenu-container,
-	.wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria-expanded=true]+.wp-block-navigation__submenu-container {
-		box-shadow: 0 20px 40px -5px rgb(15 16 18 / 18%);
-		transform: translateY(0);
-	}
+@media only screen and (max-width: 961px) {
 
-	.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
-		display: block;
-		width: 100%;
-		position: relative;
-		z-index: auto;
-		background-color: inherit;
-	}
-
-	.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) .wp-block-navigation__responsive-container-close {
-		display: none;
-	}
-
-	.wp-block-navigation__responsive-container-open:not(.always-shown) {
-		display: none;
-	}
-
-	.wp-block-navigation .has-child :where(.wp-block-navigation__submenu-container) .wp-block-navigation__submenu-icon {
-		margin-right: .7em;
-	}
-
-	[class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container {
-		flex-direction: row;
-	}
-
-	[class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li {
-		max-width: 250px;
-		display: block;
-		min-width: 200px;
-	}
-
-	[class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li button {
-		display: none;
-	}
-
-	[class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>a {
-		font-weight: var(--wp--custom--font-weight--bold, 700);
-		margin: 5px 0 0 0 !important;
-	}
-
-	[class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>a:hover {
-		transform: translateX(0) !important;
-	}
-
-	[class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>ul {
-		position: static;
-		visibility: visible;
-		opacity: .9;
-		font-size: .9em;
-		width: auto;
-		height: auto;
-		display: block;
-		box-shadow: none !important;
-		transform: translateY(0) !important;
-	}
+    /* Hide on Mobile Class */
+    .is-hidden-on-mobile {
+        display: none !important;
+    }
 }
-
-@media (max-width:960px) {
-	.wp-block-navigation__responsive-container-close {
-		top: 50px;
-		right: 20px;
-	}
-
-	.wp-block-navigation__responsive-container {
-		opacity: 0;
-		visibility: hidden;
-		transition: opacity 0s, visibility 0s;
-		display: flex;
-	}
-
-	.wp-block-navigation__responsive-container.is-menu-open {
-		opacity: 1;
-		visibility: visible;
-		transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
-	}
-
-	.wp-block-navigation__responsive-container .wp-block-navigation__responsive-container-content .wp-block-navigation__container {
-		transition: transform .4s all, opacity .4s all;
-		transform: translateY(-35px);
-		opacity: 0;
-		transition-delay: .2s;
-		font-size: 20px;
-		width: 100%;
-	}
-
-	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__container {
-		transform: translateY(0);
-		opacity: 1;
-		gap: 20px;
-		padding: 40px;
-	}
-
-	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .has-child .wp-block-navigation__submenu-container {
-		font-size: .9em;
-		gap: 15px;
-		padding: 0 30px 24px 30px;
-		position: relative;
-	}
-
-	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container:before {
-		content: "↑";
-		position: absolute;
-		left: 0;
-		top: 10px;
-	}
-
-	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation-item__content {
-		color: currentColor;
-	}
-}
-
-/*
-@media (min-width:600px) {
-	.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
-		display: none;
-	}
-
-	.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) .wp-block-navigation__responsive-container-close {
-		display: block;
-	}
-
-	.wp-block-navigation__responsive-container-open:not(.always-shown) {
-		display: flex;
-	}
-}
-*/
+/* ------------------------------------------- */
+/* End Beta 2
+/* ------------------------------------------- */

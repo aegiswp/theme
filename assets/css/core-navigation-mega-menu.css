@@ -1,0 +1,40 @@
+/* Core Navigation Block: Mega Menu Style
+--------------------------------------------- */
+
+/* Desktop view (1024px and above) */
+@media (min-width: 1024px) {
+    [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container {
+        flex-direction: row;
+    }
+
+    [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li {
+        max-width: 250px;
+        display: block;
+        min-width: 200px;
+    }
+
+    [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li button {
+        display: none;
+    }
+
+    [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>a {
+        font-weight: var(--wp--custom--font-weight--bold, 700);
+        margin: 5px 0 0 0 !important;
+    }
+
+    [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>a:hover {
+        transform: translateX(0) !important;
+    }
+
+    [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>ul {
+        position: static;
+        visibility: visible;
+        opacity: .9;
+        font-size: .9em;
+        width: auto;
+        height: auto;
+        display: block;
+        box-shadow: none !important;
+        transform: translateY(0) !important;
+    }
+}

@@ -1,0 +1,19 @@
+/* Core Image Block: Fade Scale Style
+--------------------------------------------- */
+.wp-block-image.is-style-fade-scale {
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+}
+
+.wp-block-image.is-style-fade-scale img {
+  display: block;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  transform: scale(0.8);
+  opacity: 0.5;
+}
+
+.wp-block-image.is-style-fade-scale:hover img {
+  transform: scale(1);
+  opacity: 1;
+}

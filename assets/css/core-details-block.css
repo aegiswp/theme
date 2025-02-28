@@ -1,0 +1,49 @@
+/* Core Details Block: Transition and Styling
+--------------------------------------------- */
+.wp-block-details {
+	transition: all 0.5s ease-in-out;
+}
+
+.wp-block-details summary {
+	transition: all 0.5s ease-in-out;
+	box-sizing: border-box;
+	padding: 1rem;
+	font-weight: 500;
+}
+
+.wp-block-details summary:hover {
+	background: var(--wp--preset--color--tertiary);
+}
+
+.wp-block-details summary:focus {
+	background: var(--wp--preset--color--background);
+}
+
+.wp-block-details summary::marker {
+	content: none;
+}
+
+.wp-block-details summary::after {
+	content: " +";
+	float: right;
+	text-align: right;
+}
+
+.wp-block-details[open] summary::after {
+	content: " -";
+}
+
+.wp-block-details[open] summary {
+	background: var(--wp--preset--color--background);
+}
+
+.wp-block-details[open] {
+	padding-bottom: 1rem;
+	border-bottom: 1px solid var(--wp--preset--color--foreground);
+}
+
+.wp-block-details > :where(:not(summary)) {
+	font-size: var(--wp--preset--font-size--small);
+	margin-left: 2rem;
+	margin-right: 2rem;
+}

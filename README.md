@@ -2,7 +2,7 @@
 
 Welcome to the Aegis Theme development repository.
 
-![Aegis](https://github.com/atmostfear-entertainment/aegis/assets/34287288/efac838a-af27-4781-bca2-277156026770)
+![Aegis](https://github.com/user-attachments/assets/4a923c3a-fada-4400-9345-bffe949d31f1)
 
 ##### Table of Contents
 
@@ -267,7 +267,7 @@ By adhering to these practices, you can make your development process more strea
 To get started with Aegis development:
 
 1. Set up a [WordPress](#deploying-wordpress-locally) instance.
-2. Download [Aegis](https://github.com/atmostfear-entertainment/aegis/releases/).
+2. Download [Aegis](https://github.com/aegiswp/theme/releases/).
 3. Unzip, and upload this repository into your `/wp-content/themes/` directory.
 
 Just in case you find the method to install WordPress locally too overwhelming, then we would recommend experimenting with [wp-env](https://developer.wordpress.org/block-editor/getting-started/devenv/), [Local](https://localwp.com/) or [DevKinsta](https://kinsta.com/devkinsta/).
@@ -275,7 +275,7 @@ Just in case you find the method to install WordPress locally too overwhelming, 
 
 #### Requirements
 
-- [Aegis](https://github.com/atmostfear-entertainment/aegis/releases/)
+- [Aegis](https://github.com/aegiswp/theme/releases/)
 - [WordPress 6.0+](https://wordpress.org/download/)
 - PHP 7.4+
 - License: [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) or later.
@@ -285,7 +285,7 @@ Just in case you find the method to install WordPress locally too overwhelming, 
 > Please note that the documentation below is based partially on the upcoming Aegis's [Full Site Editing](https://developer.wordpress.org/block-editor/getting-started/full-site-editing/) features.
 
 
-Some Aegis features and/or [pull requests](https://github.com/atmostfear-entertainment/aegis/pulls) may require the [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/) trunk and will be described or tagged accordingly.
+Some Aegis features and/or [pull requests](https://github.com/aegiswp/theme/pulls) may require the [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/) trunk and will be described or tagged accordingly.
 
 To optionally run tests locally, it will also be required:
 
@@ -473,11 +473,11 @@ Contributing to the Aegis theme or any other open-source project can be a reward
 
 By adhering to these tips and best practices, you will be making a valuable contribution to the project and fostering a healthy, collaborative community.
 
-Before contributing, please read the contributors' [Code of Conduct](https://github.com/atmostfear-entertainment/aegis/blob/main/CODE_OF_CONDUCT.md) and [Contributing](https://github.com/atmostfear-entertainment/aegis/blob/main/CONTRIBUTING.md) for information about how to open bug reports, contribute patches, test changes, write documentation, or get involved in any way you can.
+Before contributing, please read the contributors' [Code of Conduct](https://github.com/aegiswp/theme/blob/main/CODE_OF_CONDUCT.md) and [Contributing](https://github.com/aegiswp/theme/blob/main/CONTRIBUTING.md) for information about how to open bug reports, contribute patches, test changes, write documentation, or get involved in any way you can.
 
-If after reading you still wish to contribute with code, the list of [open issues](https://github.com/atmostfear-entertainment/aegis/issues) is a superb place to start scrutinising for tasks. However, [pull requests](https://github.com/atmostfear-entertainment/aegis/pulls) are preferred when linked to an existing issue.
+If after reading you still wish to contribute with code, the list of [open issues](https://github.com/aegiswp/theme/issues) is a superb place to start scrutinising for tasks. However, [pull requests](https://github.com/aegiswp/theme/pulls) are preferred when linked to an existing issue.
 
-Be advised that contributing is not just for developers. We welcome anyone willing to contribute with code, [testing](#getting-started), triage, discussion, designing while building patterns and templates, making Aegis more accessible, etcetera. So please, feel free to look through [open issues](https://github.com/atmostfear-entertainment/aegis/issues), and join wherever you feel most comfortable.
+Be advised that contributing is not just for developers. We welcome anyone willing to contribute with code, [testing](#getting-started), triage, discussion, designing while building patterns and templates, making Aegis more accessible, etcetera. So please, feel free to look through [open issues](https://github.com/aegiswp/theme/issues), and join wherever you feel most comfortable.
 
 
 ## Development
@@ -488,7 +488,7 @@ We strongly advise refraining from building any custom-built PHP or JavaScript-b
 
 According to those last two points, Aegis has no unnecessary build process.
 
-If you have [contributed](CONTRIBUTORS.md) to Aegis, due credit will be given. we will be updating [CONTRIBUTORS.md](CONTRIBUTORS.md) periodically with the names of contributors; however, feel free to open a [pull request](https://github.com/atmostfear-entertainment/aegis/pulls) or [issue](https://github.com/atmostfear-entertainment/aegis/issues) if we somehow omitted someone.
+If you have [contributed](CONTRIBUTORS.md) to Aegis, due credit will be given. we will be updating [CONTRIBUTORS.md](CONTRIBUTORS.md) periodically with the names of contributors; however, feel free to open a [pull request](https://github.com/aegiswp/theme/pulls) or [issue](https://github.com/aegiswp/theme/issues) if we somehow omitted someone.
 
 
 ## Experimenting
@@ -532,4 +532,4 @@ Aegis by Atmostfear Entertaiment SAS, CCO
 
 ## Suggestions?
 
-If you would wish to propose any improvements to this repository, please feel free to open an [issue](https://github.com/atmostfear-entertainment/aegis/issues) or [pull request](https://github.com/atmostfear-entertainment/aegis/pulls).
+If you would wish to propose any improvements to this repository, please feel free to open an [issue](https://github.com/aegiswp/theme/issues) or [pull request](https://github.com/aegiswp/theme/pulls).
