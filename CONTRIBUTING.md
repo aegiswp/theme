@@ -17,7 +17,7 @@ We aim to foster a welcoming environment for everyone involved. Therefore, all c
 
 ### How to Contribute
 
-1. **Fork the Repository**: Start by forking the [Aegis repository](https://github.com/atmostfear-entertainment/aegis) to your GitHub account.
+1. **Fork the Repository**: Start by forking the [Aegis repository](https://github.com/aegiswp/theme/) to your GitHub account.
 2. **Clone Your Fork**: Clone your fork to your local machine:
 
     ```bash
