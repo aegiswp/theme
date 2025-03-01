@@ -1,0 +1,30 @@
+{
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.fixAll.stylelint": "explicit"
+    },
+    "php.validate.executablePath": "C:/xampp/php/php.exe",
+    "intelephense.environment.phpVersion": "8.0",
+    "files.associations": {
+        "*.php": "php",
+        "*.css": "css",
+        "*.scss": "scss",
+        "*.html": "html"
+    },
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "[php]": {
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    }
+} 

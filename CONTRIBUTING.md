@@ -2,7 +2,7 @@
 
 Thank you for considering contributing to the Aegis WordPress Block Theme! Whether you are interested in enhancing the theme's functionality with new features, creating new block patterns specifically tailored for Aegis, refining its global styles, improving the theme's code, or participating in beta testing, your contributions are always welcome.
 
-Aegis is built to fully utilize WordPress’s Full Site Editing (FSE) capabilities, allowing for extensive customization directly within the block editor. Contributions can help enhance the theme's flexibility, performance, and user experience, making it even more robust and versatile for a diverse range of users.
+Aegis is built to fully utilize WordPress's Full Site Editing (FSE) capabilities, allowing for extensive customization directly within the block editor. Contributions can help enhance the theme's flexibility, performance, and user experience, making it even more robust and versatile for a diverse range of users.
 
 To ensure a productive and positive environment, we have a few guidelines:
 

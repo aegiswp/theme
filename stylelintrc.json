@@ -1,3 +1,12 @@
 {
-	"extends": "stylelint-config-recommended"
+	"extends": [
+		"stylelint-config-standard",
+		"stylelint-config-recommended",
+		"stylelint-config-wordpress"
+	],
+	"rules": {
+		"no-descending-specificity": null,
+		"selector-class-pattern": null,
+		"selector-id-pattern": null
+	}
 }
