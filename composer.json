@@ -1,5 +1,5 @@
 {
-	"name": "atmostfear-entertainment/aegis",
+	"name": "aegiswp/theme",
 	"type": "package",
 	"description": "Aegis WordPress Block Theme",
 	"keywords": [
@@ -8,7 +8,7 @@
 		"Theme"
 	],
 	"homepage": "https://github.com/aegiswp/theme",
-	"license": "GPL-3.0",
+	"license": "GPL-2.0",
 	"authors": [
 		{
 			"name": "Contributors",
@@ -34,5 +34,6 @@
 		"lint": "phpcs --standard=phpcs.xml.dist",
 		"standards:check": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
 		"standards:fix": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
-	}
+	},
+	"version": "1.0.0-rc.1"
 }
