@@ -2,15 +2,15 @@
 --------------------------------------------- */
 .wp-block-button.is-style-3d-push .wp-block-button__link {
 	outline: none;
-	border: 2px solid var(--wp--preset--color--foreground);
-	box-shadow: 0 4px var(--wp--preset--color--foreground);
+	border: 2px solid var(--wp--preset--color--contrast);
+	box-shadow: 0 4px var(--wp--preset--color--contrast);
 }
 
 .wp-block-button.is-style-3d-push .wp-block-button__link:active {
-	box-shadow: 0 0 var(--wp--preset--color--foreground);
+	box-shadow: 0 0 var(--wp--preset--color--contrast);
 }
 
 .wp-block-button.is-style-3d-push .wp-block-button__link:hover {
-	color: var(--wp--preset--color--foreground);
+	color: var(--wp--preset--color--contrast);
 	background: var(--wp--preset--color--base);
 }

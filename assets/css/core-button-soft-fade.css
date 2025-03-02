@@ -2,8 +2,8 @@
 --------------------------------------------- */
 .wp-block-button.is-style-soft-fade .wp-block-button__link {
 	outline: none;
-	border: 2px solid var(--wp--preset--color--foreground);
-	background: var(--wp--preset--color--foreground);
+	border: 2px solid var(--wp--preset--color--contrast);
+	background: var(--wp--preset--color--contrast);
 	color: var(--wp--preset--color--base);
 	transition: all 0.5s ease;
 	position: relative;
@@ -28,7 +28,7 @@
 }
 
 .wp-block-button.is-style-soft-fade .wp-block-button__link:hover {
-	color: var(--wp--preset--color--foreground);
+	color: var(--wp--preset--color--contrast);
 	background: var(--wp--preset--color--base);
 }
 

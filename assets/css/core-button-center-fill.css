@@ -2,9 +2,9 @@
 --------------------------------------------- */
 .wp-block-button.is-style-center-fill .wp-block-button__link {
     outline: none;
-    border: 2px solid var(--wp--preset--color--foreground);
+    border: 2px solid var(--wp--preset--color--contrast);
     background: var(--wp--preset--color--base);
-    color: var(--wp--preset--color--foreground);
+    color: var(--wp--preset--color--contrast);
     position: relative;
     overflow: hidden;
     padding: 10px 20px;
@@ -18,7 +18,7 @@
     left: 50%;
     width: 300%;
     height: 300%;
-    background: var(--wp--preset--color--foreground);
+    background: var(--wp--preset--color--contrast);
     z-index: -1;
     transition: transform 0.4s ease, opacity 0.4s ease;
     transform: translate(-50%, -50%) scale(0);

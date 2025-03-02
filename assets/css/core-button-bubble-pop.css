@@ -2,9 +2,9 @@
 --------------------------------------------- */
 .wp-block-button.is-style-bubble-pop .wp-block-button__link {
     outline: none;
-    border: 2px solid var(--wp--preset--color--foreground);
+    border: 2px solid var(--wp--preset--color--contrast);
     background: var(--wp--preset--color--base);
-    color: var(--wp--preset--color--foreground);
+    color: var(--wp--preset--color--contrast);
     position: relative;
     padding: 10px 20px;
     overflow: hidden;
@@ -15,7 +15,7 @@
 .wp-block-button.is-style-bubble-pop .wp-block-button__link::after {
     content: "";
     position: absolute;
-    background: var(--wp--preset--color--foreground);
+    background: var(--wp--preset--color--contrast);
     border-radius: 50%;
     transform: scale(0);
     transition: transform 0.4s ease, opacity 0.4s ease;
@@ -41,7 +41,7 @@
 }
 
 .wp-block-button.is-style-bubble-pop .wp-block-button__link:hover {
-    background: var(--wp--preset--color--foreground);
+    background: var(--wp--preset--color--contrast);
     color: var(--wp--preset--color--base);
 }
 

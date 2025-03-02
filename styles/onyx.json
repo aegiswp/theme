@@ -12,9 +12,9 @@
 				"slug": "base"
 			},
 			{
-				"name": "Foreground",
+				"name": "Contrast",
 				"color": "#0a0a0a",
-				"slug": "foreground"
+				"slug": "contrast"
 			},
 			{
 				"name": "Primary",
@@ -49,34 +49,34 @@
 		],
 		"duotone": [
 			{
-				"name": "Foreground and base",
+				"name": "Contrast and base",
 				"colors": ["#0a0a0a", "#f9f9f9"],
-				"slug": "foreground-and-base"
+				"slug": "contrast-and-base"
 			},
 			{
-				"name": "Foreground and secondary",
+				"name": "Contrast and secondary",
 				"colors": ["#0a0a0a", "#3e3d3d"],
-				"slug": "foreground-and-secondary"
+				"slug": "contrast-and-secondary"
 			},
 			{
-				"name": "Foreground and tertiary",
+				"name": "Contrast and tertiary",
 				"colors": ["#0a0a0a", "#ebebef"],
-				"slug": "foreground-and-tertiary"
+				"slug": "contrast-and-tertiary"
 			},
 			{
-				"name": "Foreground and quaternary",
+				"name": "Contrast and quaternary",
 				"colors": ["#0a0a0a", "#d7dade"],
-				"slug": "foreground-and-quaternary"
+				"slug": "contrast-and-quaternary"
 			},
 			{
-				"name": "Foreground and quinary",
+				"name": "Contrast and quinary",
 				"colors": ["#0a0a0a", "#ccd0d4"],
-				"slug": "foreground-and-quinary"
+				"slug": "contrast-and-quinary"
 			},
 			{
-				"name": "Foreground and senary",
+				"name": "Contrast and senary",
 				"colors": ["#0a0a0a", "#b5bcc2"],
-				"slug": "foreground-and-senary"
+				"slug": "contrast-and-senary"
 			},
 			{
 				"name": "Primary and base",

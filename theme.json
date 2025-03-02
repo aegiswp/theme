@@ -27,8 +27,8 @@
         },
         {
           "color": "#1c1c1e",
-          "name": "Foreground",
-          "slug": "foreground"
+          "name": "Contrast",
+          "slug": "contrast"
         },
         {
           "color": "#252528",
@@ -64,33 +64,33 @@
       "duotone": [
         {
           "colors": ["#1c1c1e","#f6f5f2"],
-          "name": "Foreground and base",
-          "slug": "foreground-and-base"
+          "name": "Contrast and base",
+          "slug": "contrast-and-base"
         },
         {
           "colors": ["#1c1c1e","#5a5a60"],
-          "name": "Foreground and secondary",
-          "slug": "foreground-and-secondary"
+          "name": "Contrast and secondary",
+          "slug": "contrast-and-secondary"
         },
         {
           "colors": ["#1c1c1e","#f0eee9"],
-          "name": "Foreground and tertiary",
-          "slug": "foreground-and-tertiary"
+          "name": "Contrast and tertiary",
+          "slug": "contrast-and-tertiary"
         },
         {
           "colors": ["#1c1c1e","#e6e2da"],
-          "name": "Foreground and quaternary",
-          "slug": "foreground-and-quaternary"
+          "name": "Contrast and quaternary",
+          "slug": "contrast-and-quaternary"
         },
         {
           "colors": ["#1c1c1e","#dcd6cb"],
-          "name": "Foreground and quinary",
-          "slug": "foreground-and-quinary"
+          "name": "Contrast and quinary",
+          "slug": "contrast-and-quinary"
         },
         {
           "colors": ["#1c1c1e","#d2cabc"],
-          "name": "Foreground and senary",
-          "slug": "foreground-and-senary"
+          "name": "Contrast and senary",
+          "slug": "contrast-and-senary"
         },
         {
           "colors": ["#252528","#f6f5f2"],
@@ -180,234 +180,234 @@
           "slug": "diagonal-transparent-to-tiny-base-right-bottom"
         },
         {
-          "gradient": "linear-gradient(to left bottom, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 50%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 50%)",
-          "name": "Diagonal base to foreground left bottom",
-          "slug": "diagonal-base-to-foreground-left-bottom"
+          "gradient": "linear-gradient(to left bottom, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 50%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 50%)",
+          "name": "Diagonal base to contrast left bottom",
+          "slug": "diagonal-base-to-contrast-left-bottom"
         },
         {
-          "gradient": "linear-gradient(to left bottom, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 50%, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 50%)",
-          "name": "Diagonal foreground to base left bottom",
-          "slug": "diagonal-foreground-to-base-left-bottom"
+          "gradient": "linear-gradient(to left bottom, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 50%, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 50%)",
+          "name": "Diagonal contrast to base left bottom",
+          "slug": "diagonal-contrast-to-base-left-bottom"
         },
         {
-          "gradient": "linear-gradient(to right bottom, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 50%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 50%)",
-          "name": "Diagonal base to foreground right bottom",
-          "slug": "diagonal-base-to-foreground-right-bottom"
+          "gradient": "linear-gradient(to right bottom, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 50%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 50%)",
+          "name": "Diagonal base to contrast right bottom",
+          "slug": "diagonal-base-to-contrast-right-bottom"
         },
         {
-          "gradient": "linear-gradient(to right bottom, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 50%, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 50%)",
-          "name": "Diagonal foreground to base right bottom",
-          "slug": "diagonal-foreground-to-base-right-bottom"
+          "gradient": "linear-gradient(to right bottom, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 50%, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 50%)",
+          "name": "Diagonal contrast to base right bottom",
+          "slug": "diagonal-contrast-to-base-right-bottom"
         },
         {
-          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 55%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 55%)",
-          "name": "Vertical base to foreground",
-          "slug": "vertical-base-to-foreground"
+          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 55%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 55%)",
+          "name": "Vertical base to contrast",
+          "slug": "vertical-base-to-contrast"
         },
         {
-          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 55%, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 55%)",
-          "name": "Vertical foreground to base",
-          "slug": "vertical-foreground-to-base"
+          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 55%, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 55%)",
+          "name": "Vertical contrast to base",
+          "slug": "vertical-contrast-to-base"
         },
         {
-          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 28%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 28%)",
-          "name": "Vertical small base to foreground",
-          "slug": "vertical-small-base-to-foreground"
+          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 28%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 28%)",
+          "name": "Vertical small base to contrast",
+          "slug": "vertical-small-base-to-contrast"
         },
         {
-          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 28%, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 28%)",
-          "name": "Vertical small foreground to base",
-          "slug": "vertical-small-foreground-to-base"
+          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 28%, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 28%)",
+          "name": "Vertical small contrast to base",
+          "slug": "vertical-small-contrast-to-base"
         },
         {
-          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 59%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 59%)",
-          "name": "Vertical large base to foreground",
-          "slug": "vertical-large-base-to-foreground"
+          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 59%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 59%)",
+          "name": "Vertical large base to contrast",
+          "slug": "vertical-large-base-to-contrast"
         },
         {
-          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 59%, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 59%)",
-          "name": "Vertical large foreground to base",
-          "slug": "vertical-large-foreground-to-base"
+          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 59%, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 59%)",
+          "name": "Vertical large contrast to base",
+          "slug": "vertical-large-contrast-to-base"
         },
         {
-          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 51%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 51%)",
-          "name": "Horizontal base to foreground",
-          "slug": "horizontal-base-to-foreground"
+          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 51%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 51%)",
+          "name": "Horizontal base to contrast",
+          "slug": "horizontal-base-to-contrast"
         },
         {
-          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 51%, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 51%)",
-          "name": "Horizontal foreground to base",
-          "slug": "horizontal-foreground-to-base"
+          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 51%, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 51%)",
+          "name": "Horizontal contrast to base",
+          "slug": "horizontal-contrast-to-base"
         },
         {
-          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 72%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 72%)",
-          "name": "Horizontal large base to small foreground",
-          "slug": "horizontal-large-base-to-small-foreground"
+          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 72%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 72%)",
+          "name": "Horizontal large base to small contrast",
+          "slug": "horizontal-large-base-to-small-contrast"
         },
         {
-          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 72%, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 72%)",
-          "name": "Horizontal large foreground to small base",
-          "slug": "horizontal-large-foreground-to-small-base"
+          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 72%, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 72%)",
+          "name": "Horizontal large contrast to small base",
+          "slug": "horizontal-large-contrast-to-small-base"
         },
         {
-          "gradient": "linear-gradient(106deg, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 46%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 46%)",
-          "name": "Diagonal base to foreground",
-          "slug": "diagonal-base-to-foreground"
+          "gradient": "linear-gradient(106deg, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 46%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 46%)",
+          "name": "Diagonal base to contrast",
+          "slug": "diagonal-base-to-contrast"
         },
         {
-          "gradient": "linear-gradient(106deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 50%, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 50%)",
-          "name": "Diagonal foreground to base",
-          "slug": "diagonal-foreground-to-base"
+          "gradient": "linear-gradient(106deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 50%, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 50%)",
+          "name": "Diagonal contrast to base",
+          "slug": "diagonal-contrast-to-base"
         },
         {
-          "gradient": "linear-gradient(315deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 89%, transparent 89%)",
-          "name": "Diagonal foreground to transparent left top",
-          "slug": "diagonal-foreground-to-transparent-left-top"
+          "gradient": "linear-gradient(315deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 89%, transparent 89%)",
+          "name": "Diagonal contrast to transparent left top",
+          "slug": "diagonal-contrast-to-transparent-left-top"
         },
         {
-          "gradient": "linear-gradient(225deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 89%, transparent 89%)",
-          "name": "Diagonal foreground to transparent left bottom",
-          "slug": "diagonal-foreground-to-transparent-left-bottom"
+          "gradient": "linear-gradient(225deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 89%, transparent 89%)",
+          "name": "Diagonal contrast to transparent left bottom",
+          "slug": "diagonal-contrast-to-transparent-left-bottom"
         },
         {
-          "gradient": "linear-gradient(45deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 89%, transparent 89%)",
-          "name": "Diagonal foreground to transparent right top",
-          "slug": "diagonal-foreground-to-transparent-right-top"
+          "gradient": "linear-gradient(45deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 89%, transparent 89%)",
+          "name": "Diagonal contrast to transparent right top",
+          "slug": "diagonal-contrast-to-transparent-right-top"
         },
         {
-          "gradient": "linear-gradient(135deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 89%, transparent 89%)",
-          "name": "Diagonal foreground to transparent right bottom",
-          "slug": "diagonal-foreground-to-transparent-right-bottom"
+          "gradient": "linear-gradient(135deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 89%, transparent 89%)",
+          "name": "Diagonal contrast to transparent right bottom",
+          "slug": "diagonal-contrast-to-transparent-right-bottom"
         },
         {
-          "gradient": "linear-gradient(315deg, transparent 50%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 50%)",
-          "name": "Diagonal transparent to large foreground left top",
-          "slug": "diagonal-transparent-to-large-foreground-left-top"
+          "gradient": "linear-gradient(315deg, transparent 50%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 50%)",
+          "name": "Diagonal transparent to large contrast left top",
+          "slug": "diagonal-transparent-to-large-contrast-left-top"
         },
         {
-          "gradient": "linear-gradient(225deg, transparent 50%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 50%)",
-          "name": "Diagonal transparent to large foreground left bottom",
-          "slug": "diagonal-transparent-to-large-foreground-left-bottom"
+          "gradient": "linear-gradient(225deg, transparent 50%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 50%)",
+          "name": "Diagonal transparent to large contrast left bottom",
+          "slug": "diagonal-transparent-to-large-contrast-left-bottom"
         },
         {
-          "gradient": "linear-gradient(45deg, transparent 50%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 50%)",
-          "name": "Diagonal transparent to large foreground right top",
-          "slug": "diagonal-transparent-to-large-foreground-right-top"
+          "gradient": "linear-gradient(45deg, transparent 50%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 50%)",
+          "name": "Diagonal transparent to large contrast right top",
+          "slug": "diagonal-transparent-to-large-contrast-right-top"
         },
         {
-          "gradient": "linear-gradient(135deg, transparent 50%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 50%)",
-          "name": "Diagonal transparent to large foreground right bottom",
-          "slug": "diagonal-transparent-to-large-foreground-right-bottom"
+          "gradient": "linear-gradient(135deg, transparent 50%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 50%)",
+          "name": "Diagonal transparent to large contrast right bottom",
+          "slug": "diagonal-transparent-to-large-contrast-right-bottom"
         },
         {
-          "gradient": "linear-gradient(315deg, transparent 74%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 74%)",
-          "name": "Diagonal transparent to small foreground left top",
-          "slug": "diagonal-transparent-to-small-foreground-left-top"
+          "gradient": "linear-gradient(315deg, transparent 74%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 74%)",
+          "name": "Diagonal transparent to small contrast left top",
+          "slug": "diagonal-transparent-to-small-contrast-left-top"
         },
         {
-          "gradient": "linear-gradient(45deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 26%, transparent 26%)",
-          "name": "Diagonal transparent to small foreground left bottom",
-          "slug": "diagonal-transparent-to-small-foreground-left-bottom"
+          "gradient": "linear-gradient(45deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 26%, transparent 26%)",
+          "name": "Diagonal transparent to small contrast left bottom",
+          "slug": "diagonal-transparent-to-small-contrast-left-bottom"
         },
         {
-          "gradient": "linear-gradient(45deg, transparent 74%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 74%)",
-          "name": "Diagonal transparent to small foreground right top",
-          "slug": "diagonal-transparent-to-small-foreground-right-top"
+          "gradient": "linear-gradient(45deg, transparent 74%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 74%)",
+          "name": "Diagonal transparent to small contrast right top",
+          "slug": "diagonal-transparent-to-small-contrast-right-top"
         },
         {
-          "gradient": "linear-gradient(135deg, transparent 74%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 74%)",
-          "name": "Diagonal transparent to small foreground right bottom",
-          "slug": "diagonal-transparent-to-small-foreground-right-bottom"
+          "gradient": "linear-gradient(135deg, transparent 74%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 74%)",
+          "name": "Diagonal transparent to small contrast right bottom",
+          "slug": "diagonal-transparent-to-small-contrast-right-bottom"
         },
         {
-          "gradient": "linear-gradient(315deg, transparent 87%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 87%)",
-          "name": "Diagonal transparent to tiny foreground top left",
-          "slug": "diagonal-transparent-to-tiny-foreground-top-left"
+          "gradient": "linear-gradient(315deg, transparent 87%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 87%)",
+          "name": "Diagonal transparent to tiny contrast top left",
+          "slug": "diagonal-transparent-to-tiny-contrast-top-left"
         },
         {
-          "gradient": "linear-gradient(45deg, transparent 87%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 87%)",
-          "name": "Diagonal transparent to tiny foreground top right",
-          "slug": "diagonal-transparent-to-tiny-foreground-top-right"
+          "gradient": "linear-gradient(45deg, transparent 87%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 87%)",
+          "name": "Diagonal transparent to tiny contrast top right",
+          "slug": "diagonal-transparent-to-tiny-contrast-top-right"
         },
         {
-          "gradient": "linear-gradient(225deg, transparent 87%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 87%)",
-          "name": "Diagonal transparent to tiny foreground left bottom",
-          "slug": "diagonal-transparent-to-tiny-foreground-left-bottom"
+          "gradient": "linear-gradient(225deg, transparent 87%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 87%)",
+          "name": "Diagonal transparent to tiny contrast left bottom",
+          "slug": "diagonal-transparent-to-tiny-contrast-left-bottom"
         },
         {
-          "gradient": "linear-gradient(135deg, transparent 87%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 87%)",
-          "name": "Diagonal transparent to tiny foreground right bottom",
-          "slug": "diagonal-transparent-to-tiny-foreground-right-bottom"
+          "gradient": "linear-gradient(135deg, transparent 87%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 87%)",
+          "name": "Diagonal transparent to tiny contrast right bottom",
+          "slug": "diagonal-transparent-to-tiny-contrast-right-bottom"
         },
         {
-          "gradient": "linear-gradient(to left bottom, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 50%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 50%)",
-          "name": "Diagonal primary to foreground left bottom",
-          "slug": "diagonal-primary-to-foreground-left-bottom"
+          "gradient": "linear-gradient(to left bottom, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 50%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 50%)",
+          "name": "Diagonal primary to contrast left bottom",
+          "slug": "diagonal-primary-to-contrast-left-bottom"
         },
         {
-          "gradient": "linear-gradient(to left bottom, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 50%, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 50%)",
-          "name": "Diagonal foreground to primary left bottom",
-          "slug": "diagonal-foreground-to-primary-left-bottom"
+          "gradient": "linear-gradient(to left bottom, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 50%, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 50%)",
+          "name": "Diagonal contrast to primary left bottom",
+          "slug": "diagonal-contrast-to-primary-left-bottom"
         },
         {
-          "gradient": "linear-gradient(to right bottom, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 50%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 50%)",
-          "name": "Diagonal primary to foreground right bottom",
-          "slug": "diagonal-primary-to-foreground-right-bottom"
+          "gradient": "linear-gradient(to right bottom, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 50%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 50%)",
+          "name": "Diagonal primary to contrast right bottom",
+          "slug": "diagonal-primary-to-contrast-right-bottom"
         },
         {
-          "gradient": "linear-gradient(to right bottom, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 50%, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 50%)",
-          "name": "Diagonal foreground to primary right bottom",
-          "slug": "diagonal-foreground-to-primary-right-bottom"
+          "gradient": "linear-gradient(to right bottom, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 50%, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 50%)",
+          "name": "Diagonal contrast to primary right bottom",
+          "slug": "diagonal-contrast-to-primary-right-bottom"
         },
         {
-          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 28%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 28%)",
-          "name": "Vertical small primary to foreground",
-          "slug": "vertical-small-primary-to-foreground"
+          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 28%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 28%)",
+          "name": "Vertical small primary to contrast",
+          "slug": "vertical-small-primary-to-contrast"
         },
         {
-          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 28%, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 28%)",
-          "name": "Vertical small foreground to primary",
-          "slug": "vertical-small-foreground-to-primary"
+          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 28%, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 28%)",
+          "name": "Vertical small contrast to primary",
+          "slug": "vertical-small-contrast-to-primary"
         },
         {
-          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 59%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 59%)",
-          "name": "Vertical large primary to foreground",
-          "slug": "vertical-large-primary-to-foreground"
+          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 59%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 59%)",
+          "name": "Vertical large primary to contrast",
+          "slug": "vertical-large-primary-to-contrast"
         },
         {
-          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 59%, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 59%)",
-          "name": "Vertical large foreground to primary",
-          "slug": "vertical-large-foreground-to-primary"
+          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 59%, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 59%)",
+          "name": "Vertical large contrast to primary",
+          "slug": "vertical-large-contrast-to-primary"
         },
         {
-          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 51%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 51%)",
-          "name": "Horizontal primary to foreground",
-          "slug": "horizontal-primary-to-foreground"
+          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 51%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 51%)",
+          "name": "Horizontal primary to contrast",
+          "slug": "horizontal-primary-to-contrast"
         },
         {
-          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 51%, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 51%)",
-          "name": "Horizontal foreground to primary",
-          "slug": "horizontal-foreground-to-primary"
+          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 51%, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 51%)",
+          "name": "Horizontal contrast to primary",
+          "slug": "horizontal-contrast-to-primary"
         },
         {
-          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 72%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 72%)",
-          "name": "Horizontal large primary to small foreground",
-          "slug": "horizontal-large-primary-to-small-foreground"
+          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 72%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 72%)",
+          "name": "Horizontal large primary to small contrast",
+          "slug": "horizontal-large-primary-to-small-contrast"
         },
         {
-          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 72%, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 72%)",
-          "name": "Horizontal large foreground to small primary",
-          "slug": "horizontal-large-foreground-to-small-primary"
+          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 72%, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 72%)",
+          "name": "Horizontal large contrast to small primary",
+          "slug": "horizontal-large-contrast-to-small-primary"
         },
         {
-          "gradient": "linear-gradient(106deg, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 46%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 46%)",
-          "name": "Diagonal primary to foreground",
-          "slug": "diagonal-primary-to-foreground"
+          "gradient": "linear-gradient(106deg, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 46%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 46%)",
+          "name": "Diagonal primary to contrast",
+          "slug": "diagonal-primary-to-contrast"
         },
         {
-          "gradient": "linear-gradient(106deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 50%, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 50%)",
-          "name": "Diagonal foreground to primary",
-          "slug": "diagonal-foreground-to-primary"
+          "gradient": "linear-gradient(106deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 50%, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 50%)",
+          "name": "Diagonal contrast to primary",
+          "slug": "diagonal-contrast-to-primary"
         },
         {
           "gradient": "linear-gradient(315deg, var(--wp--custom--color--constants--primary, var(--wp--preset--color--primary)) 89%, transparent 89%)",
@@ -620,74 +620,74 @@
           "slug": "diagonal-transparent-to-tiny-secondary-right-bottom"
         },
         {
-          "gradient": "linear-gradient(to left bottom, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 50%, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 50%)",
-          "name": "Diagonal foreground to secondary left bottom",
-          "slug": "diagonal-foreground-to-secondary-left-bottom"
+          "gradient": "linear-gradient(to left bottom, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 50%, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 50%)",
+          "name": "Diagonal contrast to secondary left bottom",
+          "slug": "diagonal-contrast-to-secondary-left-bottom"
         },
         {
-          "gradient": "linear-gradient(to left bottom, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 50%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 50%)",
-          "name": "Diagonal secondary to foreground left bottom",
-          "slug": "diagonal-secondary-to-foreground-left-bottom"
+          "gradient": "linear-gradient(to left bottom, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 50%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 50%)",
+          "name": "Diagonal secondary to contrast left bottom",
+          "slug": "diagonal-secondary-to-contrast-left-bottom"
         },
         {
-          "gradient": "linear-gradient(to right bottom, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 50%, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 50%)",
-          "name": "Diagonal foreground to secondary right bottom",
-          "slug": "diagonal-foreground-to-secondary-right-bottom"
+          "gradient": "linear-gradient(to right bottom, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 50%, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 50%)",
+          "name": "Diagonal contrast to secondary right bottom",
+          "slug": "diagonal-contrast-to-secondary-right-bottom"
         },
         {
-          "gradient": "linear-gradient(to right bottom, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 50%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 50%)",
-          "name": "Diagonal secondary to foreground right bottom",
-          "slug": "diagonal-secondary-to-foreground-right-bottom"
+          "gradient": "linear-gradient(to right bottom, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 50%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 50%)",
+          "name": "Diagonal secondary to contrast right bottom",
+          "slug": "diagonal-secondary-to-contrast-right-bottom"
         },
         {
-          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 28%, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 28%)",
-          "name": "Vertical small foreground to secondary",
-          "slug": "vertical-small-foreground-to-secondary"
+          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 28%, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 28%)",
+          "name": "Vertical small contrast to secondary",
+          "slug": "vertical-small-contrast-to-secondary"
         },
         {
-          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 28%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 28%)",
-          "name": "Vertical small secondary to foreground",
-          "slug": "vertical-small-secondary-to-foreground"
+          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 28%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 28%)",
+          "name": "Vertical small secondary to contrast",
+          "slug": "vertical-small-secondary-to-contrast"
         },
         {
-          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 59%, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 59%)",
-          "name": "Vertical large foreground to secondary",
-          "slug": "vertical-large-foreground-to-secondary"
+          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 59%, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 59%)",
+          "name": "Vertical large contrast to secondary",
+          "slug": "vertical-large-contrast-to-secondary"
         },
         {
-          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 59%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 59%)",
-          "name": "Vertical large secondary to foreground",
-          "slug": "vertical-large-secondary-to-foreground"
+          "gradient": "linear-gradient(90deg, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 59%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 59%)",
+          "name": "Vertical large secondary to contrast",
+          "slug": "vertical-large-secondary-to-contrast"
         },
         {
-          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 51%, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 51%)",
-          "name": "Horizontal foreground to secondary",
-          "slug": "horizontal-foreground-to-secondary"
+          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 51%, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 51%)",
+          "name": "Horizontal contrast to secondary",
+          "slug": "horizontal-contrast-to-secondary"
         },
         {
-          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 51%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 51%)",
-          "name": "Horizontal secondary to foreground",
-          "slug": "horizontal-secondary-to-foreground"
+          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 51%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 51%)",
+          "name": "Horizontal secondary to contrast",
+          "slug": "horizontal-secondary-to-contrast"
         },
         {
-          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 72%, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 72%)",
-          "name": "Horizontal large foreground to small secondary",
-          "slug": "horizontal-large-foreground-to-small-secondary"
+          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 72%, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 72%)",
+          "name": "Horizontal large contrast to small secondary",
+          "slug": "horizontal-large-contrast-to-small-secondary"
         },
         {
-          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 72%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 72%)",
-          "name": "Horizontal large secondary to small foreground",
-          "slug": "horizontal-large-secondary-to-small-foreground"
+          "gradient": "linear-gradient(180deg, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 72%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 72%)",
+          "name": "Horizontal large secondary to small contrast",
+          "slug": "horizontal-large-secondary-to-small-contrast"
         },
         {
-          "gradient": "linear-gradient(106deg, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 50%, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 50%)",
-          "name": "Diagonal foreground to secondary",
-          "slug": "diagonal-foreground-to-secondary"
+          "gradient": "linear-gradient(106deg, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 50%, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 50%)",
+          "name": "Diagonal contrast to secondary",
+          "slug": "diagonal-contrast-to-secondary"
         },
         {
-          "gradient": "linear-gradient(106deg, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 46%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 46%)",
-          "name": "Diagonal secondary to foreground",
-          "slug": "diagonal-secondary-to-foreground"
+          "gradient": "linear-gradient(106deg, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 46%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 46%)",
+          "name": "Diagonal secondary to contrast",
+          "slug": "diagonal-secondary-to-contrast"
         },
         {
           "gradient": "linear-gradient(315deg, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 89%, transparent 89%)",
@@ -900,9 +900,9 @@
           "slug": "diagonal-transparent-to-tiny-tertiary-right-bottom"
         },
         {
-          "gradient": "linear-gradient(41deg, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 96%, var(--wp--custom--color--constants--foreground, var(--wp--preset--color--foreground)) 97%)",
-          "name": "Diagonal base to foreground triangle",
-          "slug": "diagonal-base-to-foreground-triangle"
+          "gradient": "linear-gradient(41deg, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 96%, var(--wp--custom--color--constants--contrast, var(--wp--preset--color--contrast)) 97%)",
+          "name": "Diagonal base to contrast triangle",
+          "slug": "diagonal-base-to-contrast-triangle"
         },
         {
           "gradient": "linear-gradient(41deg, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 96%, var(--wp--custom--color--constants--tertiary, var(--wp--preset--color--tertiary)) 97%)",
@@ -916,22 +916,22 @@
       "presets": [
         {
           "shadow": "-7px -7px 0px rgba(var(--wp--custom--color--constants--base-rgb, 246, 245, 242), 0.4)",
-          "name": "base faded shadow left top",
+          "name": "Base faded shadow left top",
           "slug": "base-faded-shadow-left-top"
         },
         {
           "shadow": "-7px 7px 0px rgba(var(--wp--custom--color--constants--base-rgb, 246, 245, 242), 0.4)",
-          "name": "base faded shadow left bottom",
+          "name": "Base faded shadow left bottom",
           "slug": "base-faded-shadow-left-bottom"
         },
         {
           "shadow": "7px 7px 0px rgba(var(--wp--custom--color--constants--base-rgb, 246, 245, 242), 0.4)",
-          "name": "base faded shadow right bottom",
+          "name": "Base faded shadow right bottom",
           "slug": "base-faded-shadow-right-bottom"
         },
         {
           "shadow": "7px -7px 0px rgba(var(--wp--custom--color--constants--base-rgb, 246, 245, 242), 0.4)",
-          "name": "base faded shadow right top",
+          "name": "Base faded shadow right top",
           "slug": "base-faded-shadow-right-top"
         },
         {
@@ -1056,22 +1056,22 @@
         },
         {
           "shadow": "-7px -7px 0px rgba(var(--wp--custom--color--constants--base-rgb, 246, 245, 242), 1)",
-          "name": "base solid shadow left top",
+          "name": "Base solid shadow left top",
           "slug": "base-solid-shadow-left-top"
         },
         {
           "shadow": "-7px 7px 0px rgba(var(--wp--custom--color--constants--base-rgb, 246, 245, 242), 1)",
-          "name": "base solid shadow left bottom",
+          "name": "Base solid shadow left bottom",
           "slug": "base-solid-shadow-left-bottom"
         },
         {
           "shadow": "7px 7px 0px rgba(var(--wp--custom--color--constants--base-rgb, 246, 245, 242), 1)",
-          "name": "base solid shadow right bottom",
+          "name": "Base solid shadow right bottom",
           "slug": "base-solid-shadow-right-bottom"
         },
         {
           "shadow": "7px -7px 0px rgba(var(--wp--custom--color--constants--base-rgb, 246, 245, 242), 1)",
-          "name": "base solid shadow right top",
+          "name": "Base solid shadow right top",
           "slug": "base-solid-shadow-right-top"
         },
         {
@@ -1195,24 +1195,24 @@
           "slug": "senary-solid-shadow-right-top"
         },
         {
-          "shadow": "-7px -7px 0px -3px rgba(var(--wp--custom--color--constants--base-rgb, 246, 245, 242), 1), -7px -7px rgba(var(--wp--custom--color--constants--foreground-rgb, 28, 28, 30), 1)",
-          "name": "Foreground outlined shadow left top",
-          "slug": "foreground-outlined-shadow-left-top"
+          "shadow": "-7px -7px 0px -3px rgba(var(--wp--custom--color--constants--base-rgb, 246, 245, 242), 1), -7px -7px rgba(var(--wp--custom--color--constants--contrast-rgb, 28, 28, 30), 1)",
+          "name": "Contrast outlined shadow left top",
+          "slug": "contrast-outlined-shadow-left-top"
         },
         {
-          "shadow": "-7px 7px 0px -3px rgba(var(--wp--custom--color--constants--base-rgb, 246, 245, 242), 1), -7px 7px rgba(var(--wp--custom--color--constants--foreground-rgb, 28, 28, 30), 1)",
-          "name": "Foreground outlined shadow left bottom",
-          "slug": "foreground-outlined-shadow-left-bottom"
+          "shadow": "-7px 7px 0px -3px rgba(var(--wp--custom--color--constants--base-rgb, 246, 245, 242), 1), -7px 7px rgba(var(--wp--custom--color--constants--contrast-rgb, 28, 28, 30), 1)",
+          "name": "Contrast outlined shadow left bottom",
+          "slug": "contrast-outlined-shadow-left-bottom"
         },
         {
-          "shadow": "7px 7px 0px -3px rgba(var(--wp--custom--color--constants--base-rgb, 246, 245, 242), 1), 7px 7px rgba(var(--wp--custom--color--constants--foreground-rgb, 28, 28, 30), 1)",
-          "name": "Foreground outlined shadow right bottom",
-          "slug": "foreground-outlined-shadow-right-bottom"
+          "shadow": "7px 7px 0px -3px rgba(var(--wp--custom--color--constants--base-rgb, 246, 245, 242), 1), 7px 7px rgba(var(--wp--custom--color--constants--contrast-rgb, 28, 28, 30), 1)",
+          "name": "Contrast outlined shadow right bottom",
+          "slug": "contrast-outlined-shadow-right-bottom"
         },
         {
-          "shadow": "7px -7px 0px -3px rgba(var(--wp--custom--color--constants--base-rgb, 246, 245, 242), 1), 7px -7px rgba(var(--wp--custom--color--constants--foreground-rgb, 28, 28, 30), 1)",
-          "name": "Foreground outlined shadow right top",
-          "slug": "foreground-outlined-shadow-right-top"
+          "shadow": "7px -7px 0px -3px rgba(var(--wp--custom--color--constants--base-rgb, 246, 245, 242), 1), 7px -7px rgba(var(--wp--custom--color--constants--contrast-rgb, 28, 28, 30), 1)",
+          "name": "Contrast outlined shadow right top",
+          "slug": "contrast-outlined-shadow-right-top"
         },
         {
           "shadow": "-7px -7px 0px -3px rgba(var(--wp--custom--color--constants--base-rgb, 246, 245, 242), 1), -7px -7px rgba(var(--wp--custom--color--constants--primary-rgb, 37, 37, 40), 1)",
@@ -1341,8 +1341,8 @@
         "constants": {
           "background": "#f6f5f2",
           "background-rgb": "246, 245, 242",
-          "foreground": "#1c1c1e",
-          "foreground-rgb": "28, 28, 30",
+          "contrast": "#1c1c1e",
+          "contrast-rgb": "28, 28, 30",
           "primary": "#252528",
           "primary-rgb": "37, 37, 40",
           "secondary": "#5a5a60",
@@ -1552,7 +1552,7 @@
         },
         "link": {
           "color": {
-            "text": "var(--wp--preset--color--foreground)"
+            "text": "var(--wp--preset--color--contrast)"
           },
           ":hover": {
             "color": {
@@ -1564,7 +1564,7 @@
       "caption": {
         "color": {
           "background": "var(--wp--preset--color--tertiary)",
-          "text": "var(--wp--preset--color--foreground)"
+          "text": "var(--wp--preset--color--contrast)"
         },
         "spacing": {
           "margin": {
@@ -1584,7 +1584,7 @@
         "elements": {
           "link": {
             "color": {
-              "text": "var(--wp--preset--color--foreground)"
+              "text": "var(--wp--preset--color--contrast)"
             },
             ":hover": {
               "color": {
@@ -1601,7 +1601,7 @@
         "elements": {
           "link": {
             "color": {
-              "text": "var(--wp--preset--color--foreground)"
+              "text": "var(--wp--preset--color--contrast)"
             },
             ":hover": {
               "color": {
@@ -1618,7 +1618,7 @@
         "elements": {
           "link": {
             "color": {
-              "text": "var(--wp--preset--color--foreground)"
+              "text": "var(--wp--preset--color--contrast)"
             },
             ":hover": {
               "color": {
@@ -1635,7 +1635,7 @@
         "elements": {
           "link": {
             "color": {
-              "text": "var(--wp--preset--color--foreground)"
+              "text": "var(--wp--preset--color--contrast)"
             },
             ":hover": {
               "color": {
@@ -1652,7 +1652,7 @@
         "elements": {
           "link": {
             "color": {
-              "text": "var(--wp--preset--color--foreground)"
+              "text": "var(--wp--preset--color--contrast)"
             },
             ":hover": {
               "color": {
@@ -1669,7 +1669,7 @@
         "elements": {
           "link": {
             "color": {
-              "text": "var(--wp--preset--color--foreground)"
+              "text": "var(--wp--preset--color--contrast)"
             },
             ":hover": {
               "color": {
@@ -1682,12 +1682,12 @@
     },
     "color": {
       "background": "var(--wp--preset--color--base)",
-      "text": "var(--wp--preset--color--foreground)"
+      "text": "var(--wp--preset--color--contrast)"
     },
     "blocks": {
       "core/audio": {
         "color": {
-          "background": "var(--wp--preset--color--foreground)",
+          "background": "var(--wp--preset--color--contrast)",
           "text": "var(--wp--preset--color--base)"
         },
         "elements": {
@@ -1709,7 +1709,7 @@
               }
             },
             "color": {
-              "background": "var(--wp--preset--color--foreground)",
+              "background": "var(--wp--preset--color--contrast)",
               "text": "var(--wp--preset--color--base)"
             }
           }
@@ -1717,7 +1717,7 @@
       },
       "core/avatar": {
         "border": {
-          "color": "var(--wp--preset--color--foreground)",
+          "color": "var(--wp--preset--color--contrast)",
           "radius": "50%",
           "width": "2px"
         }
@@ -1732,7 +1732,7 @@
           "radius": "0"
         },
         "color": {
-          "background": "var(--wp--preset--color--foreground)",
+          "background": "var(--wp--preset--color--contrast)",
           "text": "var(--wp--preset--color--base)"
         },
         "typography": {
@@ -1765,10 +1765,10 @@
               "border": {
                 "width": "clamp(1px, 0.2vw, 2px)",
                 "style": "solid",
-                "color": "var(--wp--preset--color--foreground)"
+                "color": "var(--wp--preset--color--contrast)"
               },
               "color": {
-                "background": "var(--wp--preset--color--foreground)",
+                "background": "var(--wp--preset--color--contrast)",
                 "text": "var(--wp--preset--color--base)"
               },
               "typography": {
@@ -1785,13 +1785,13 @@
               },
               "elements": {
                 "link": {
-                  "box-shadow": "0 4px var(--wp--preset--color--foreground)",
+                  "box-shadow": "0 4px var(--wp--preset--color--contrast)",
                   ":hover": {
                     "background": "var(--wp--preset--color--base)",
-                    "color": "var(--wp--preset--color--foreground)"
+                    "color": "var(--wp--preset--color--contrast)"
                   },
                   ":active": {
-                    "box-shadow": "0 0 var(--wp--preset--color--foreground)",
+                    "box-shadow": "0 0 var(--wp--preset--color--contrast)",
                     "top": "4px"
                   }
                 }
@@ -1803,13 +1803,13 @@
             "label": "Dense Shadow",
             "styles": {
               "color": {
-                "background": "var(--wp--preset--color--foreground)",
+                "background": "var(--wp--preset--color--contrast)",
                 "text": "var(--wp--preset--color--base)"
               },
               "border": {
                 "width": "clamp(1px, 0.2vw, 2px)",
                 "style": "solid",
-                "color": "var(--wp--preset--color--foreground)"
+                "color": "var(--wp--preset--color--contrast)"
               },
               "spacing": {
                 "padding": {
@@ -1819,9 +1819,9 @@
                   "bottom": "clamp(0.5rem, 1vw, 1rem)"
                 }
               },
-              "box-shadow": "0px 4px 10px var(--wp--preset--color--foreground)",
+              "box-shadow": "0px 4px 10px var(--wp--preset--color--contrast)",
               ":hover": {
-                "box-shadow": "0px 6px 14px var(--wp--preset--color--foreground)"
+                "box-shadow": "0px 6px 14px var(--wp--preset--color--contrast)"
               }
             }
           }
@@ -1830,7 +1830,7 @@
       "core/calendar": {
         "color": {
           "background": "var(--wp--preset--color--base)",
-          "text": "var(--wp--preset--color--foreground)"
+          "text": "var(--wp--preset--color--contrast)"
         },
         "typography": {
           "fontSize": "var(--wp--preset--font-size--small)",
@@ -1857,7 +1857,7 @@
           "radius": "0"
         },
         "color": {
-          "background": "var(--wp--preset--color--foreground)",
+          "background": "var(--wp--preset--color--contrast)",
           "text": "var(--wp--preset--color--base)"
         },
         "typography": {
@@ -1886,13 +1886,13 @@
       "core/details": {
         "border": {
           "bottom": {
-            "color": "var(--wp--preset--color--foreground)",
+            "color": "var(--wp--preset--color--contrast)",
             "width": "1px"
           }
         },
         "color": {
           "background": "var(--wp--preset--color--tertiary)",
-          "text": "var(--wp--preset--color--foreground)"
+          "text": "var(--wp--preset--color--contrast)"
         },
         "typography": {
           "fontSize": "var(--wp--preset--font-size--medium)",
@@ -1903,7 +1903,7 @@
       },
       "core/comment-author-name": {
         "color": {
-          "text": "var(--wp--preset--color--foreground)"
+          "text": "var(--wp--preset--color--contrast)"
         },
         "elements": {
           "link": {
@@ -1920,7 +1920,7 @@
       },
       "core/comment-date": {
         "color": {
-          "text": "var(--wp--preset--color--foreground)"
+          "text": "var(--wp--preset--color--contrast)"
         },
         "elements": {
           "link": {
@@ -1954,7 +1954,7 @@
         "elements": {
           "link": {
             "color": {
-              "text": "var(--wp--preset--color--foreground)"
+              "text": "var(--wp--preset--color--contrast)"
             }
           }
         },
@@ -1966,7 +1966,7 @@
         "elements": {
           "link": {
             "color": {
-              "text": "var(--wp--preset--color--foreground)"
+              "text": "var(--wp--preset--color--contrast)"
             }
           }
         },
@@ -2011,7 +2011,7 @@
         "elements": {
           "link": {
             "color": {
-              "text": "var(--wp--preset--color--foreground)"
+              "text": "var(--wp--preset--color--contrast)"
             }
           },
           "caption": {
@@ -2032,7 +2032,7 @@
               }
             },
             "color": {
-              "text": "var(--wp--preset--color--foreground)"
+              "text": "var(--wp--preset--color--contrast)"
             }
           }
         }
@@ -2041,7 +2041,7 @@
         "elements": {
           "link": {
             "color": {
-              "text": "var(--wp--preset--color--foreground)"
+              "text": "var(--wp--preset--color--contrast)"
             },
             ":hover": {
               "color": {
@@ -2088,7 +2088,7 @@
               }
             },
             "color": {
-              "background": "var(--wp--preset--color--foreground)",
+              "background": "var(--wp--preset--color--contrast)",
               "text": "var(--wp--preset--color--base)"
             }
           }
@@ -2103,7 +2103,7 @@
       },
       "core/loginout": {
         "color": {
-          "text": "var(--wp--preset--color--foreground)"
+          "text": "var(--wp--preset--color--contrast)"
         },
         "typography": {
           "fontSize": "var(--wp--preset--font-size--tiny)",
@@ -2113,7 +2113,7 @@
         "elements": {
           "link": {
             "color": {
-              "text": "var(--wp--preset--color--foreground)"
+              "text": "var(--wp--preset--color--contrast)"
             },
             ":hover": {
               "color": {
@@ -2140,7 +2140,7 @@
             },
             ":hover": {
               "color": {
-                "text": "var(--wp--preset--color--foreground)"
+                "text": "var(--wp--preset--color--contrast)"
               }
             }
           }
@@ -2153,7 +2153,7 @@
       },
       "core/post-author-name": {
         "typography": {
-          "color": "var(--wp--preset--color--foreground)",
+          "color": "var(--wp--preset--color--contrast)",
           "fontSize": "var(--wp--preset--font-size--small)"
         }
       },
@@ -2177,13 +2177,13 @@
       },
       "core/post-date": {
         "color": {
-          "text": "var(--wp--preset--color--foreground)",
+          "text": "var(--wp--preset--color--contrast)",
           "fontSize": "var(--wp--preset--font-size--small)"
         },
         "elements": {
           "link": {
             "color": {
-              "text": "var(--wp--preset--color--foreground)"
+              "text": "var(--wp--preset--color--contrast)"
             },
             ":hover": {
               "color": {
@@ -2239,11 +2239,11 @@
       "typography": {
         "fontSize": "var(--wp--preset--font-size--small)"
       },
-      "css": "& .wp-block-post-terms__prefix{color: var(--wp--preset--color--foreground);}"
+      "css": "& .wp-block-post-terms__prefix{color: var(--wp--preset--color--contrast);}"
     },
     "core/post-title": {
       "color": {
-        "text": "var(--wp--preset--color--foreground)"
+        "text": "var(--wp--preset--color--contrast)"
       },
       "elements": {
         "link": {
@@ -2291,13 +2291,13 @@
           }
         },
         "variations": {
-          "foreground": {
+          "contrast": {
             "border": {
               "color": "var(--wp--preset--color--primary)",
               "style": "solid"
             },
             "color": {
-              "background": "var(--wp--preset--color--foreground)",
+              "background": "var(--wp--preset--color--contrast)",
               "text": "var(--wp--preset--color--base)"
             },
             "elements": {
@@ -2332,12 +2332,12 @@
       },
       "core/query-pagination": {
         "color": {
-          "text": "var(--wp--preset--color--foreground)"
+          "text": "var(--wp--preset--color--contrast)"
         },
         "elements": {
           "link": {
             "color": {
-              "text": "var(--wp--preset--color--foreground)"
+              "text": "var(--wp--preset--color--contrast)"
             },
             ":hover": {
               "color": {
@@ -2382,12 +2382,12 @@
       },
       "core/site-logo": {
         "color": {
-          "text": "var(--wp--preset--color--foreground)"
+          "text": "var(--wp--preset--color--contrast)"
         }
       },
       "core/site-title": {
         "color": {
-          "text": "var(--wp--preset--color--foreground)"
+          "text": "var(--wp--preset--color--contrast)"
         },
         "spacing": {
           "margin": {
@@ -2418,7 +2418,7 @@
       },
       "core/table": {
         "color": {
-          "background": "var(--wp--preset--color--foreground)",
+          "background": "var(--wp--preset--color--contrast)",
           "text": "var(--wp--preset--color--base)",
           "link": "var(--wp--preset--color--primary)"
         },
@@ -2458,7 +2458,7 @@
       },
       "core/video": {
         "color": {
-          "background": "var(--wp--preset--color--foreground)",
+          "background": "var(--wp--preset--color--contrast)",
           "text": "var(--wp--preset--color--base)"
         }
       }

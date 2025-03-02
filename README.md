@@ -139,7 +139,7 @@ This functionality essentially transforms the site editor into a theme builder. 
 | Figma Token | CSS Variable | Color | Name | Slug | Visual |
 | --------------- | --------------- | --------------- | --------------------- | --------------------- | --------------------- |
 | N/A | --wp--preset--color--base | `#f9f9f9` | Base | base | ![jpg](https://placehold.co/20x20/F9F9F9/F9F9F9/jpg) |
-| N/A | --wp--preset--color--foreground | `#0a0a0a` | Foreground | foreground | ![jpg](https://placehold.co/20x20/0a0a0a/0a0a0a/jpg) |
+| N/A | --wp--preset--color--contrast | `#0a0a0a` | Contrast | contrast | ![jpg](https://placehold.co/20x20/0a0a0a/0a0a0a/jpg) |
 | N/A | --wp--preset--color--primary | `#3e3d3d` | Primary | primary | ![jpg](https://placehold.co/20x20/3e3d3d/3e3d3d/jpg) |
 | N/A | --wp--preset--color--secondary | `#ebebef` | Secondary | secondary | ![jpg](https://placehold.co/20x20/ebebef/ebebef/jpg) |
 | N/A | --wp--preset--color--tertiary | `#d7dade` | Tertiary | tertiary | ![jpg](https://placehold.co/20x20/d7dade/d7dade/jpg) |

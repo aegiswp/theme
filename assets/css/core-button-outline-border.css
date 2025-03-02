@@ -1,7 +1,7 @@
 /* Core Button Block: Outline Border Style
 --------------------------------------------- */
 .wp-block-button.is-style-outline-border .wp-block-button__link {
-    background: var(--wp--preset--color--foreground);
+    background: var(--wp--preset--color--contrast);
     color: var(--wp--preset--color--base);
     position: relative;
     user-select: none;
@@ -15,7 +15,7 @@
 
 .wp-block-button.is-style-outline-border .wp-block-button__link:after {
     content: "";
-    border: 2px solid var(--wp--preset--color--foreground);
+    border: 2px solid var(--wp--preset--color--contrast);
     width: 100%;
     z-index: -1;
     position: absolute;
@@ -26,7 +26,7 @@
 }
 
 .wp-block-button.is-style-outline-border .wp-block-button__link:hover {
-    background: var(--wp--preset--color--foreground);
+    background: var(--wp--preset--color--contrast);
     box-shadow: 0px 2px 4px rgba(66, 44, 35, 0.2), 0px 7px 13px -3px rgb(45 35 66 / 30%);
 }
 

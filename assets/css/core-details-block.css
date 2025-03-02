@@ -39,7 +39,7 @@
 
 .wp-block-details[open] {
 	padding-bottom: 1rem;
-	border-bottom: 1px solid var(--wp--preset--color--foreground);
+	border-bottom: 1px solid var(--wp--preset--color--contrast);
 }
 
 .wp-block-details > :where(:not(summary)) {
