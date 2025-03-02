@@ -63,37 +63,58 @@
       ],
       "duotone": [
         {
-          "colors": ["#1c1c1e","#f6f5f2"],
+          "colors": [
+            "#1c1c1e",
+            "#f6f5f2"
+          ],
           "name": "Contrast and base",
           "slug": "contrast-and-base"
         },
         {
-          "colors": ["#1c1c1e","#5a5a60"],
+          "colors": [
+            "#1c1c1e",
+            "#5a5a60"
+          ],
           "name": "Contrast and secondary",
           "slug": "contrast-and-secondary"
         },
         {
-          "colors": ["#1c1c1e","#f0eee9"],
+          "colors": [
+            "#1c1c1e",
+            "#f0eee9"
+          ],
           "name": "Contrast and tertiary",
           "slug": "contrast-and-tertiary"
         },
         {
-          "colors": ["#1c1c1e","#e6e2da"],
+          "colors": [
+            "#1c1c1e",
+            "#e6e2da"
+          ],
           "name": "Contrast and quaternary",
           "slug": "contrast-and-quaternary"
         },
         {
-          "colors": ["#1c1c1e","#dcd6cb"],
+          "colors": [
+            "#1c1c1e",
+            "#dcd6cb"
+          ],
           "name": "Contrast and quinary",
           "slug": "contrast-and-quinary"
         },
         {
-          "colors": ["#1c1c1e","#d2cabc"],
+          "colors": [
+            "#1c1c1e",
+            "#d2cabc"
+          ],
           "name": "Contrast and senary",
           "slug": "contrast-and-senary"
         },
         {
-          "colors": ["#252528","#f6f5f2"],
+          "colors": [
+            "#252528",
+            "#f6f5f2"
+          ],
           "name": "Primary and base",
           "slug": "primary-and-base"
         }
@@ -743,6 +764,26 @@
           "gradient": "linear-gradient(135deg, transparent 74%, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 74%)",
           "name": "Diagonal transparent to small secondary right bottom",
           "slug": "diagonal-transparent-to-small-secondary-right-bottom"
+        },
+        {
+          "gradient": "linear-gradient(315deg, transparent 87%, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 87%)",
+          "name": "Diagonal transparent to tiny secondary top left",
+          "slug": "diagonal-transparent-to-tiny-secondary-top-left"
+        },
+        {
+          "gradient": "linear-gradient(45deg, transparent 87%, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 87%)",
+          "name": "Diagonal transparent to tiny secondary top right",
+          "slug": "diagonal-transparent-to-tiny-secondary-top-right"
+        },
+        {
+          "gradient": "linear-gradient(225deg, transparent 87%, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 87%)",
+          "name": "Diagonal transparent to tiny secondary left bottom",
+          "slug": "diagonal-transparent-to-tiny-secondary-left-bottom"
+        },
+        {
+          "gradient": "linear-gradient(135deg, transparent 87%, var(--wp--custom--color--constants--secondary, var(--wp--preset--color--secondary)) 87%)",
+          "name": "Diagonal transparent to tiny secondary right bottom",
+          "slug": "diagonal-transparent-to-tiny-secondary-right-bottom"
         },
         {
           "gradient": "linear-gradient(to left bottom, var(--wp--custom--color--constants--base, var(--wp--preset--color--base)) 50%, var(--wp--custom--color--constants--tertiary, var(--wp--preset--color--tertiary)) 50%)",
@@ -1749,17 +1790,18 @@
         },
         "elements": {
           "link": {
-            ":hover": {
+            "color": {
+              "text": "var(--wp--preset--color--primary)"
+            },
+            "hover": {
               "color": {
-                "background": "var(--wp--preset--color--hover-base)",
-                "text": "var(--wp--preset--color--hover-text)"
+                "text": "var(--wp--preset--color--secondary)"
               }
             }
           }
         },
-        "variations": [
-          {
-            "name": "3d-push",
+        "variations": {
+          "3d-push": {
             "label": "3D Push",
             "styles": {
               "border": {
@@ -1798,8 +1840,7 @@
               }
             }
           },
-          {
-            "name": "dense-shadow",
+          "dense-shadow": {
             "label": "Dense Shadow",
             "styles": {
               "color": {
@@ -1825,7 +1866,7 @@
               }
             }
           }
-        ]
+        }
       },
       "core/calendar": {
         "color": {
@@ -2050,9 +2091,8 @@
             }
           }
         },
-        "variations": [
-          {
-            "name": "hide-underline",
+        "variations": {
+          "hide-underline": {
             "label": "Hide Underline",
             "styles": {
               "elements": {
@@ -2064,7 +2104,7 @@
               }
             }
           }
-        ]
+        }
       },
       "core/image": {
         "elements": {
@@ -2152,8 +2192,10 @@
         }
       },
       "core/post-author-name": {
+        "color": {
+          "text": "var(--wp--preset--color--contrast)"
+        },
         "typography": {
-          "color": "var(--wp--preset--color--contrast)",
           "fontSize": "var(--wp--preset--font-size--small)"
         }
       },
@@ -2177,8 +2219,7 @@
       },
       "core/post-date": {
         "color": {
-          "text": "var(--wp--preset--color--contrast)",
-          "fontSize": "var(--wp--preset--font-size--small)"
+          "text": "var(--wp--preset--color--contrast)"
         },
         "elements": {
           "link": {
@@ -2226,20 +2267,32 @@
         "typography": {
           "fontSize": "var(--wp--preset--font-size--small)",
           "textDecoration": "none"
-        }
+        },
+        "elements": {
+          "link": {
+            ":hover": {
+              "textDecoration": "underline"
+            },
+            "textDecoration": "none"
+          }
+        },
+        "css": "& .wp-block-post-terms__prefix{color: var(--wp--preset--color--contrast);}"
       },
       "elements": {
         "link": {
-          ":hover": {
-            "textDecoration": "underline"
+          "color": {
+            "text": "var(--wp--preset--color--primary)"
           },
-          "textDecoration": "none"
+          "hover": {
+            "color": {
+              "text": "var(--wp--preset--color--secondary)"
+            }
+          }
         }
       },
       "typography": {
         "fontSize": "var(--wp--preset--font-size--small)"
-      },
-      "css": "& .wp-block-post-terms__prefix{color: var(--wp--preset--color--contrast);}"
+      }
     },
     "core/post-title": {
       "color": {
@@ -2259,11 +2312,9 @@
       "typography": {
         "fontSize": "var(--wp--preset--font-size--large)"
       },
-      "variations": [
-        {
-          "name": "hide-underline",
+      "variations": {
+        "hide-underline": {
           "label": "Hide Underline",
-          "isDefault": false,
           "styles": {
             "elements": {
               "link": {
@@ -2272,7 +2323,7 @@
             }
           }
         }
-      ]
+      }
     },
     "core/preformatted": {
       "spacing": {
@@ -2574,12 +2625,18 @@
     {
       "title": "Blank",
       "name": "blank",
-      "postTypes": ["page","post"]
+      "postTypes": [
+        "page",
+        "post"
+      ]
     },
     {
       "title": "Page No Title",
       "name": "page-no-title",
-      "postTypes": ["page","post"]
+      "postTypes": [
+        "page",
+        "post"
+      ]
     },
     {
       "title": "Single item: Product",
