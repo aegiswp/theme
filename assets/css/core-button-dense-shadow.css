@@ -3,7 +3,7 @@
 .wp-block-button.is-style-dense-shadow .wp-block-button__link {
     background: var(--wp--preset--color--foreground);
     box-shadow: var(--wp--preset--color--foreground) 0 8px 20px -10px, 0 4px 8px rgba(66, 44, 35, 0.3);
-    color: var(--wp--preset--color--background);
+    color: var(--wp--preset--color--base);
     transition: all 0.3s ease;
     position: relative;
     text-decoration: none; /* Ensure no underline by default */

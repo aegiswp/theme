@@ -2,7 +2,7 @@
 --------------------------------------------- */
 .wp-block-button.is-style-outline-border .wp-block-button__link {
     background: var(--wp--preset--color--foreground);
-    color: var(--wp--preset--color--background);
+    color: var(--wp--preset--color--base);
     position: relative;
     user-select: none;
     -webkit-user-select: none;

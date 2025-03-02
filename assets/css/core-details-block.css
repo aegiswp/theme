@@ -16,7 +16,7 @@
 }
 
 .wp-block-details summary:focus {
-	background: var(--wp--preset--color--background);
+	background: var(--wp--preset--color--base);
 }
 
 .wp-block-details summary::marker {
@@ -34,7 +34,7 @@
 }
 
 .wp-block-details[open] summary {
-	background: var(--wp--preset--color--background);
+	background: var(--wp--preset--color--base);
 }
 
 .wp-block-details[open] {

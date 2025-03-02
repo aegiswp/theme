@@ -4,7 +4,7 @@
 	outline: none;
 	border: 2px solid var(--wp--preset--color--foreground);
 	background: var(--wp--preset--color--foreground);
-	color: var(--wp--preset--color--background);
+	color: var(--wp--preset--color--base);
 	transition: all 0.5s ease;
 	position: relative;
 	overflow: hidden;
@@ -17,7 +17,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: var(--wp--preset--color--background);
+	background: var(--wp--preset--color--base);
 	opacity: 0;
 	transition: opacity 0.5s ease;
 	z-index: -1;
@@ -29,7 +29,7 @@
 
 .wp-block-button.is-style-soft-fade .wp-block-button__link:hover {
 	color: var(--wp--preset--color--foreground);
-	background: var(--wp--preset--color--background);
+	background: var(--wp--preset--color--base);
 }
 
 

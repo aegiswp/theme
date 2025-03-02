@@ -2,7 +2,7 @@
 --------------------------------------------- */
 .wp-block-button.is-style-underline-border .wp-block-button__link {
     background: var(--wp--preset--color--foreground);
-    color: var(--wp--preset--color--background);
+    color: var(--wp--preset--color--base);
     transition: all 0.3s ease;
     display: inline-block;
     box-shadow: 0 -9px var(--wp--preset--color--foreground) inset, 0 4px 8px rgba(66, 44, 35, 0.3);
@@ -22,9 +22,9 @@
 }
 
 .wp-block-button.is-style-underline-border .wp-block-button__link:hover {
-    color: var(--wp--preset--color--background)!important;
+    color: var(--wp--preset--color--base)!important;
     background: var(--wp--preset--color--foreground);
-    border-bottom: 4px solid var(--wp--preset--color--background);
+    border-bottom: 4px solid var(--wp--preset--color--base);
     box-shadow: 0 -50px 0 0 var(--wp--preset--color--foreground) inset, 0 8px 16px rgba(66, 44, 35, 0.4);
     transform: translateY(-2px);
 }

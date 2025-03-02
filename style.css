@@ -82,7 +82,7 @@ a:focus {
  * Ensure consistency across the site by leveraging CSS variables.
  */
 .wp-block-calendar caption {
-    color: var(--wp--preset--color--background);
+    color: var(--wp--preset--color--base);
     background-color: var(--wp--preset--color--foreground);
     font-size: var(--wp--preset--font-size--medium);
     font-weight: 500; /* Font weight not handled by theme.json */
@@ -90,12 +90,12 @@ a:focus {
 
 .wp-block-calendar {
     color: var(--wp--preset--color--foreground);
-    background-color: var(--wp--preset--color--background);
+    background-color: var(--wp--preset--color--base);
 }
 
 .wp-block-calendar table th {
     background-color: var(--wp--preset--color--foreground);
-    color: var(--wp--preset--color--background);
+    color: var(--wp--preset--color--base);
 }
 
 .wp-block-calendar table td {
@@ -143,7 +143,7 @@ a:focus {
 .wp-block-post-excerpt__more-link {
     box-shadow: var(--wp--preset--color--foreground) 0 8px 20px -10px, 0 4px 8px rgba(66, 44, 35, 0.3);
     background: var(--wp--preset--color--foreground);
-	color: var(--wp--preset--color--background);
+	color: var(--wp--preset--color--base);
 	font-size: var(--wp--preset--font-size--small);
 	font-weight: 500;
 	padding-top: 0.667em;
@@ -340,7 +340,7 @@ figure {
 /* ------------------------------------------- */
 /* Header */
 .header.sticky-header {
-	background: var(--wp--preset--color--background);
+	background: var(--wp--preset--color--base);
 	margin-left: auto;
 	margin-right: auto;
 	right: 0;
@@ -744,7 +744,7 @@ p.banner-text-margin {
 /* ------------------------------------------- */
 input[type=submit] {
 	background: var(--wp--preset--color--primary);
-	color: var(--wp--preset--color--background);
+	color: var(--wp--preset--color--base);
 	border: none;
 	cursor: pointer;
 	font-size: 18px;
@@ -948,7 +948,7 @@ textarea {
 	}
 
 	.grid-gallery {
-		background: var(--wp--preset--color--background) !important;
+		background: var(--wp--preset--color--base) !important;
 		padding-top: 0 !important;
 		padding-bottom: 0 !important;
 		margin-bottom: -30px !important;
@@ -1170,7 +1170,7 @@ button.components-button.wc-block-components-button.wc-block-components-checkout
 .woocommerce-page #payment #place_order,
 a.checkout-button.button.alt.wc-forward.wp-element-button {
 	background: var(--wp--preset--color--foreground);
-	color: var(--wp--preset--color--background);
+	color: var(--wp--preset--color--base);
 	border: 2px solid transparent;
 	border-radius: 0;
 	font-size: var(--wp--preset--font-size--small);
@@ -1236,7 +1236,7 @@ a.wp-block-button__link.wp-element-button.add_to_cart_button,
 .woocommerce ul.products li.product a.button.wp-element-button.product_type_external {
 	background: var(--wp--preset--color--foreground);
 	border: none;
-	color: var(--wp--preset--color--background);
+	color: var(--wp--preset--color--base);
 	margin-top: auto;
 	padding: 14px 15px 14px 42px !important;
 	min-height: 42px;
@@ -1283,7 +1283,7 @@ a.wp-block-button__link.wp-element-button.add_to_cart_button {
 a.added_to_cart.wc-forward {
 	background: var(--wp--preset--color--foreground);
 	border: none;
-	color: var(--wp--preset--color--background);
+	color: var(--wp--preset--color--base);
 	margin-top: auto;
 	padding: 14px 15px;
 	position: absolute;
@@ -1433,7 +1433,7 @@ button.components-button.wc-block-components-button.wc-block-components-checkout
 .woocommerce span.onsale {
 	background: var(--wp--preset--color--foreground);
 	border: none;
-	color: var(--wp--preset--color--background);
+	color: var(--wp--preset--color--base);
 	border-radius: 0;
 	padding: 0 1em !important;
 	position: absolute;
@@ -1749,7 +1749,7 @@ button.components-button.has-icon,
 
 tr.cart-subtotal,
 tr.order-total {
-	background: var(--wp--preset--color--background);
+	background: var(--wp--preset--color--base);
 }
 
 a.components-button.wc-block-components-button.wc-block-cart__submit-button.contained {
@@ -1972,7 +1972,7 @@ li.wc-block-product-categories-list-item {
 }
 
 .wp-block-woocommerce-mini-cart-contents {
-	background: var(--wp--preset--color--background);
+	background: var(--wp--preset--color--base);
 }
 
 ul.wc-block-product-categories-list {
@@ -2205,7 +2205,7 @@ li.wc-block-product-categories-list-item a {
 }
 
 .woocommerce-shop td.value {
-	background: var(--wp--preset--color--background);
+	background: var(--wp--preset--color--base);
 	padding: 10px 0;
 }
 

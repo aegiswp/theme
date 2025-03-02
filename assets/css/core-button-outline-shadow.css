@@ -11,6 +11,6 @@
 
 .wp-block-button.is-style-outline-shadow .wp-block-button__link:hover {
 	background-color: var(--wp--preset--color--foreground);
-	color: var(--wp--preset--color--background);
+	color: var(--wp--preset--color--base);
 	box-shadow: 0 0 0 currentColor;
 }

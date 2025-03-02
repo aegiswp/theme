@@ -7,9 +7,9 @@
 	"color": {
 		"palette": [
 			{
-				"name": "Background",
+				"name": "Base",
 				"color": "#f9f9f9",
-				"slug": "background"
+				"slug": "base"
 			},
 			{
 				"name": "Foreground",
@@ -49,9 +49,9 @@
 		],
 		"duotone": [
 			{
-				"name": "Foreground and background",
+				"name": "Foreground and base",
 				"colors": ["#0a0a0a", "#f9f9f9"],
-				"slug": "foreground-and-background"
+				"slug": "foreground-and-base"
 			},
 			{
 				"name": "Foreground and secondary",
@@ -79,9 +79,9 @@
 				"slug": "foreground-and-senary"
 			},
 			{
-				"name": "Primary and background",
+				"name": "Primary and base",
 				"colors": ["#252528", "#f9f9f9"],
-				"slug": "primary-and-background"
+				"slug": "primary-and-base"
 			}
 		],
 		"styles": {

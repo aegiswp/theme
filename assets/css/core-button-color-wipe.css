@@ -3,7 +3,7 @@
 .wp-block-button.is-style-color-wipe .wp-block-button__link {
     outline: none;
     border: 2px solid var(--wp--preset--color--foreground);
-    background: var(--wp--preset--color--background);
+    background: var(--wp--preset--color--base);
     color: var(--wp--preset--color--foreground);
     position: relative;
     padding: 10px 20px;
@@ -25,7 +25,7 @@
 }
 
 .wp-block-button.is-style-color-wipe .wp-block-button__link:hover {
-    color: var(--wp--preset--color--background);
+    color: var(--wp--preset--color--base);
 }
 
 .wp-block-button.is-style-color-wipe .wp-block-button__link:hover::before {

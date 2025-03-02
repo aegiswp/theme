@@ -138,7 +138,7 @@ This functionality essentially transforms the site editor into a theme builder. 
 
 | Figma Token | CSS Variable | Color | Name | Slug | Visual |
 | --------------- | --------------- | --------------- | --------------------- | --------------------- | --------------------- |
-| N/A | --wp--preset--color--background | `#f9f9f9` | Background | background | ![jpg](https://placehold.co/20x20/F9F9F9/F9F9F9/jpg) |
+| N/A | --wp--preset--color--base | `#f9f9f9` | Base | base | ![jpg](https://placehold.co/20x20/F9F9F9/F9F9F9/jpg) |
 | N/A | --wp--preset--color--foreground | `#0a0a0a` | Foreground | foreground | ![jpg](https://placehold.co/20x20/0a0a0a/0a0a0a/jpg) |
 | N/A | --wp--preset--color--primary | `#3e3d3d` | Primary | primary | ![jpg](https://placehold.co/20x20/3e3d3d/3e3d3d/jpg) |
 | N/A | --wp--preset--color--secondary | `#ebebef` | Secondary | secondary | ![jpg](https://placehold.co/20x20/ebebef/ebebef/jpg) |
@@ -150,7 +150,7 @@ This functionality essentially transforms the site editor into a theme builder. 
 
 For the construction of patterns pertaining to the default theme, kindly consult the guidelines delineated in the [block-patterns handbook](https://developer.wordpress.org/block-editor/reference-guides/block-api/block-patterns/).
 
-- **Category Selection** 
+- **Category Selection**
 
 When crafting block patterns for WordPress, it is imperative to judiciously select the appropriate category for each pattern. WordPress offers a predefined set of categories, each designed to serve a distinct purpose. We would recommend adhering to these default categories. Multiple categories may be applied by separating them with commas. A list of the relevant slugs is [available for your reference](https://github.com/WordPress/gutenberg/blob/c20350c1d246163201375f090b0b7b4ab49b1dad/packages/block-editor/src/components/inserter/block-patterns-tab.js#L35).
 
@@ -256,7 +256,7 @@ Here are some best practices that can optimize your workflow and enhance our the
 
 2. **Prefixing Full-Page Patterns**: For clarity and ease of identification, prefix all full-page patterns with `page-`. This nomenclature makes it easier to distinguish these patterns from others and streamlines the pattern selection process.
 
-3. **Pattern Order in the Inserter**: The order in which patterns appear in the inserter is determined alphabetically by the name of the file. If you wish to influence this order, consider renaming the files accordingly. 
+3. **Pattern Order in the Inserter**: The order in which patterns appear in the inserter is determined alphabetically by the name of the file. If you wish to influence this order, consider renaming the files accordingly.
 
 By adhering to these practices, you can make your development process more streamlined, your codebase more maintainable, and your user experience more intuitive.
 
@@ -481,7 +481,7 @@ Be advised that contributing is not just for developers. We welcome anyone willi
 
 
 ## Development
-  
+
 Aegis aims to load fewer assets as much as possible. With a very performant approach, it relies on the [Block Editor](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/) and [Global Styles](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/) to provide you with the grand part of the visuals, and will progressively move toward a more Full Site Editing experience.
 
 We strongly advise refraining from building any custom-built PHP or JavaScript-based workarounds for functionality that either Aegis or the [Block Editor](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/) might provide. Aegis is the first of its kind, hybrid, minimalistic, lightweight, performant and aimed at individuals with color vision deficiency. So please, let us keep its code as simple as possible.

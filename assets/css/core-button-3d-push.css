@@ -12,5 +12,5 @@
 
 .wp-block-button.is-style-3d-push .wp-block-button__link:hover {
 	color: var(--wp--preset--color--foreground);
-	background: var(--wp--preset--color--background);
+	background: var(--wp--preset--color--base);
 }

@@ -13,12 +13,12 @@
 	"styles": {
 		"color": {
 			"background": "var:preset|color|primary",
-			"text": "var:preset|color|background"
+			"text": "var:preset|color|base"
 		},
     		"elements": {
 			"heading": {
 				"color": {
-					"text": "var:preset|color|background"
+					"text": "var:preset|color|base"
 				},
 				"typography": {
 					"fontSize": "var:preset|typography|fontSize|mediumsmall"
