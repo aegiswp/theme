@@ -16,6 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Define theme constants.
+ */
+define( 'AEGIS_VERSION', wp_get_theme()->get( 'Version' ) );
+
+/**
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * Note that this function is hooked into the after_setup_theme hook, which
@@ -80,9 +85,10 @@ add_action( 'after_setup_theme', 'aegis_setup' );
  * @return void
  */
 function aegis_enqueue_assets() {
-    $theme_version = wp_get_theme()->get( 'Version' );
+    // Use the theme version constant for cache busting
+    $theme_version = AEGIS_VERSION;
 
-    // Enqueue the main stylesheet.
+    // Enqueue the main stylesheet
     wp_enqueue_style(
         'aegis-style',
         get_template_directory_uri() . '/style.css',
@@ -90,23 +96,42 @@ function aegis_enqueue_assets() {
         $theme_version
     );
 
-    // Enqueue the global script.
+    // Enqueue the theme styles
+    wp_enqueue_style(
+        'aegis-theme-styles',
+        get_template_directory_uri() . '/assets/css/theme.css',
+        array(),
+        $theme_version
+    );
+
+    // Enqueue the global script with jQuery dependency
     wp_enqueue_script(
         'aegis-global',
         get_template_directory_uri() . '/assets/js/index.js',
         array(),
         $theme_version,
-        true
+        array(
+            'in_footer' => true,
+            'strategy'  => 'defer',
+        )
     );
 
-    // Enqueue the animations script.
+    // Enqueue the animations script
     wp_enqueue_script(
         'aegis-animations',
         get_template_directory_uri() . '/assets/js/animations.js',
-        array(),
+        array('aegis-global'),
         $theme_version,
-        true
+        array(
+            'in_footer' => true,
+            'strategy'  => 'defer',
+        )
     );
+
+    // If the current page has comments, enqueue the comment-reply script
+    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+        wp_enqueue_script( 'comment-reply' );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'aegis_enqueue_assets' );
 
@@ -119,13 +144,22 @@ add_action( 'wp_enqueue_scripts', 'aegis_enqueue_assets' );
  * @return void
  */
 function aegis_enqueue_editor_assets() {
-    $theme_version = wp_get_theme()->get( 'Version' );
+    // Use the theme version constant for cache busting
+    $theme_version = AEGIS_VERSION;
 
-    // Editor styles.
+    // Editor styles
     wp_enqueue_style(
         'aegis-editor-style',
         get_template_directory_uri() . '/assets/css/editor-style.css',
         array(),
+        $theme_version
+    );
+
+    // Editor scripts
+    wp_enqueue_script(
+        'aegis-editor-script',
+        get_template_directory_uri() . '/assets/js/editor.js',
+        array('wp-blocks', 'wp-dom-ready', 'wp-edit-post'),
         $theme_version
     );
 }
