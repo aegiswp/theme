@@ -1454,38 +1454,38 @@
       "padding": true,
       "spacingSizes": [
         {
-          "size": "clamp(1rem, 1rem + ((1vw - 0.48rem) * 0.962), 1.5rem)",
           "name": "XXS",
+          "size": "10px",
           "slug": "xxs"
         },
         {
-          "size": "clamp(1.5rem, 5vw, 2rem)",
           "name": "XS",
+          "size": "20px",
           "slug": "xs"
         },
         {
-          "size": "clamp(1.8rem, 1.8rem + ((1vw - 0.48rem) * 2.885), 3rem)",
           "name": "S",
+          "size": "30px",
           "slug": "sm"
         },
         {
-          "size": "clamp(2.5rem, 8vw, 4.5rem)",
           "name": "M",
+          "size": "clamp(30px, 5vw, 50px)",
           "slug": "md"
         },
         {
-          "size": "clamp(3.75rem, 10vw, 7rem)",
           "name": "L",
+          "size": "clamp(30px, 7vw, 70px)",
           "slug": "lg"
         },
         {
-          "size": "clamp(5rem, 5.25rem + ((1vw - 0.48rem) * 9.096), 8rem)",
           "name": "XL",
+          "size": "clamp(50px, 7vw, 90px)",
           "slug": "xl"
         },
         {
-          "size": "clamp(7rem, 14vw, 11rem)",
           "name": "XXL",
+          "size": "clamp(70px, 10vw, 140px)",
           "slug": "xxl"
         }
       ],
