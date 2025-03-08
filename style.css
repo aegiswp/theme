@@ -18,15 +18,40 @@ Aegis, (c) 2022-2025 Atmostfear Entertainment SAS.
 Aegis is distributed under the terms of the GNU GPL.
 */
 
-/* ------------------------------------------- */
-/* Start Beta 3: Refractured Styling
-/* ------------------------------------------- */
+/*
+ * Theme custom properties
+ *
+ * Global CSS variables that define theme-wide settings.
+ * Placing these at the top provides a central location
+ * for adjusting values that affect multiple elements.
+ */
+:root {
+    --underline-thickness: 2px; /* Adjust thickness as needed */
+}
 
 /*
- * Fade-in Animation for Body
- * Cross-browser animation for a smooth fade-in effect on page load.
- * Duration: 0.7s.
- * Keyframes ensure opacity transitions from 0 to 1.
+ * FADE-IN ANIMATION
+ * 
+ * Purpose:
+ * Creates a subtle page entrance effect where content fades into view
+ * rather than abruptly appearing when the page loads.
+ * 
+ * User Experience Benefits:
+ * - Reduces visual jarring during initial page load
+ * - Creates a more polished, professional appearance
+ * - Enhances perceived performance by making load time feel smoother
+ *
+ * Technical Implementation:
+ * - Duration: 0.7s (balanced between noticeable effect and quick load)
+ * - Linear opacity transition from 0 (invisible) to 1 (fully visible)
+ * - Applied to the entire body element for consistent page-wide effect
+ *
+ * Cross-Browser Support:
+ * Includes vendor prefixes for maximum compatibility across:
+ * - WebKit (Safari, Chrome, newer Edge)
+ * - Mozilla (Firefox)
+ * - Microsoft (IE, older Edge)
+ * - Opera
  */
 @keyframes fadein {
     from { opacity: 0; }
@@ -42,20 +67,33 @@ body {
 }
 
 /*
- * Text link styles using background-underline animation.
- * Custom underline thickness can be adjusted with --underline-thickness.
- * This code is necessary due to Gutenberg issue #27075:
- * https://github.com/WordPress/gutenberg/issues/27075
+ * Link styling system
+ * 
+ * Purpose:
+ * Provides a custom underline animation effect for links that creates
+ * a more refined, interactive experience than browser defaults.
+ * 
+ * User Experience Benefits:
+ * - Improves visual feedback for interactive elements
+ * - Creates consistent behavior across the entire theme
+ * - Increases accessibility through clearer link identification
+ * - Adds subtle motion design that enhances user engagement
  *
- * Background-based underline technique:
- * - Uses linear-gradient to create a smooth underline effect.
- * - Transitions the background-size from 0% to 100% on hover/focus.
- * - Accessible and visually clean alternative to text-decoration.
+ * Technical Implementation:
+ * - Uses CSS linear-gradient for the underline effect instead of text-decoration
+ * - Leverages background-size transitions for smooth animation
+ * - Utilizes custom property (--underline-thickness) for easy global adjustments
+ * - Maintains clean markup by handling all styling in CSS
+ *
+ * Accessibility Considerations:
+ * - Maintains sufficient contrast for underlines
+ * - Provides clear visual feedback on interaction
+ * - Uses standard focus behaviors alongside hover states
+ * 
+ * Known Issues:
+ * - Implemented as a workaround for Gutenberg issue #27075
+ *   (https://github.com/WordPress/gutenberg/issues/27075)
  */
-
-:root {
-    --underline-thickness: 2px; /* Adjust thickness as needed */
-}
 
 a {
     background-image: linear-gradient(
@@ -65,75 +103,13 @@ a {
     background-size: 0% 100%;
     background-repeat: no-repeat;
     background-position: bottom left;
-    transition: background-size 0.4s ease; /* Smooth transition effect */
-	text-decoration: none;
+    transition: background-size 0.4s ease;
+    text-decoration: none;
 }
 
 a:hover,
 a:focus {
     background-size: 100% 100%; /* Expands the underline on hover/focus */
-}
-
-/* ------------------------------------------- */
-/* Core Calendar Block
-/* ------------------------------------------- */
-/*
- * Uses global presets for colors and font sizes defined in theme.json.
- * Ensure consistency across the site by leveraging CSS variables.
- */
-.wp-block-calendar caption {
-    color: var(--wp--preset--color--base);
-    background-color: var(--wp--preset--color--contrast);
-    font-size: var(--wp--preset--font-size--medium);
-    font-weight: 500; /* Font weight not handled by theme.json */
-}
-
-.wp-block-calendar {
-    color: var(--wp--preset--color--contrast);
-    background-color: var(--wp--preset--color--base);
-}
-
-.wp-block-calendar table th {
-    background-color: var(--wp--preset--color--contrast);
-    color: var(--wp--preset--color--base);
-}
-
-.wp-block-calendar table td {
-    font-size: var(--wp--preset--font-size--small);
-}
-
-/* ------------------------------------------- */
-/* End Beta 3
-/* ------------------------------------------- */
-
-/* ------------------------------------------- */
-/* Start Beta 2
-/* ------------------------------------------- */
-/*
- * Button hover styles.
- * Necessary until the following issue is resolved in Gutenberg:
- * https://github.com/WordPress/gutenberg/issues/27075
- */
-
-/* Base Styles */
-.wp-block-search__button,
-.wp-block-file .wp-block-file__button,
-.wp-block-button__link {
-    transition: opacity 0.3s ease;
-}
-
-/* Hover Styles */
-.wp-block-file .wp-block-file__button:hover,
-.wp-block-button__link:hover {
-    opacity: 0.96;
-    /* Optionally remove padding change to avoid layout shifts */
-    /* padding: 0.5em 1.75em; */
-    /* Alternative: Use transform for hover effect */
-    /* transform: scale(1.05); */
-}
-
-.wp-block-search__button:hover {
-    opacity: 0.96;
 }
 
 /* ------------------------------------------- */
@@ -327,17 +303,6 @@ a.wp-block-social-link-anchor,
 /* ------------------------------------------- */
 /* Beta 2: Redo and Optimize
 /* ------------------------------------------- */
-figure {
-	margin-top: 0;
-}
-/* Border Effect */
-.is-style-aegis-border {
-	border: 2px solid;
-}
-
-/* ------------------------------------------- */
-/* Block Patterns
-/* ------------------------------------------- */
 /* Header */
 .header.sticky-header {
 	background: var(--wp--preset--color--base);
@@ -365,10 +330,6 @@ p.banner-text-margin {
 	margin-left: -1rem;
 }
 
-.wp-block-cover.additional {
-	align-items: initial;
-}
-
 /* Header Hero */
 .header-hero .wp-block-cover__inner-container {
 	position: relative;
@@ -385,135 +346,15 @@ p.banner-text-margin {
 	margin-top: 0;
 }
 
-.deco-line,
-.negative-margin {
-	margin-top: -30px !important;
-	z-index: 10;
-}
-
-/* Testimonials */
-.testimonials .negative-margin {
-	margin-top: 0 !important;
-	position: relative;
-	z-index: 10;
-}
-
-.testimonials .negative-margin.alternative {
-	margin-top: -30px !important;
-}
-
-.testimonials.one .negative-margin.alternative {
-	margin-top: -30px !important;
-}
-
-.testimonials.one .wp-block-image {
-	position: relative;
-	z-index: 12;
-}
-
-/*
-.testimonials .rating {
-	margin: 0 0 -5px 0 !important;
-}
-*/
-
-.testimonials blockquote.wp-block-quote.is-style-default {
-	margin: 0;
-}
-
-/* About */
-.about .wp-block-column {
-	position: relative;
-}
-
-.about .number,
-.about .icon {
-	display: inline-block;
-}
-
-.about .icon {
-	position: absolute;
-	top: -20px;
-	left: -40px;
-}
-
-.is-rating,
-.aegis-rating {
-	margin: -5px 0 -20px 0 !important;
-}
-
 /* Quotes */
-
 .is-quote-mark {
 	margin-bottom: -70px !important;
 	left: 5% !important;
 	position: relative;
 }
 
-/* Events */
-.event-date {
-	display: inline-block;
-}
 
-.events.alternative .is-layout-flex {
-	gap: 0;
-}
 
-.events.alternative .is-layout-flow>*+* {
-	margin-block-start: 0;
-}
-
-/* FAQ */
-.faq .content {
-	margin-top: 0;
-}
-
-.list-alternative li {
-	list-style: none;
-	padding-bottom: 20px;
-}
-
-.wp-block-column.facts {
-	text-align: center;
-}
-
-#row-media img {
-	border-top-left-radius: 13px;
-	border-bottom-left-radius: 13px;
-}
-
-/* Footer */
-.footer figure.icon img {
-	margin-top: 0;
-	display: block;
-}
-
-.margin-bottom-negative {
-	margin-bottom: -24px !important;
-}
-
-/* Blog */
-.wp-block-group.has-negative-margin {
-	margin-top: -80px;
-	position: relative;
-}
-
-.is-style-aegis-post-excerpt-border-shadow,
-.is-style-aegis-post-excerpt-border {
-	border: 2px solid var(--wp--preset--color--secondary);
-	padding: var(--wp--preset--spacing--40);
-	border-radius: 13px;
-}
-
-.is-style-aegis-post-excerpt-border-shadow {
-	box-shadow: 0 3px 10px 0 rgb(15 16 18 / 10%), 0 12px 30px 0 rgb(15 16 18 / 10%);
-}
-
-/* Target the core/image block */
-.wp-block-image {
-    margin-bottom: 0.75em;
-    margin-top: 1.25em;
-}
 
 /* Scroll to Top */
 .scroll-to-top {
@@ -525,24 +366,6 @@ p.banner-text-margin {
 
 .scroll-to-top:hover {
 	opacity: 70%;
-}
-
-.float-right {
-	float: right;
-}
-
-/* Scroll Text */
-.scroll-container {
-	overflow: hidden;
-}
-
-.is-style-aegis-scroll-text {
-	-moz-transform: translateX(100%);
-	-webkit-transform: translateX(100%);
-	transform: translateX(100%);
-	-moz-animation: my-animation 15s linear infinite;
-	-webkit-animation: my-animation 15s linear infinite;
-	animation: my-animation 15s linear infinite;
 }
 
 /* Firefox Support */
@@ -581,163 +404,9 @@ p.banner-text-margin {
 	}
 }
 
-/* WooCommerce Product Card */
-.product-card {
-	overflow: hidden;
-}
-
-.product-card h2,
-.product-card h1,
-.product-card p,
-.product-card .wp-block-buttons,
-.product-card .wp-block-ep-rating {
-	transition: .5s;
-	opacity: 0;
-	transform: translateY(310px);
-}
-
-.product-card figure {
-	transition: .5s;
-	transform: translateY(180px);
-}
-
-.product-card:hover h2,
-.product-card:hover p,
-.product-card:hover .wp-block-buttons {
-	opacity: 1;
-	transform: translateY(0px);
-}
-
-.product-card:hover figure {
-	transform: translateY(0px);
-}
-
 /* ------------------------------------------- */
 /* Effects
 /* ------------------------------------------- */
-/* Floating Images */
-.floating-image {
-	display: flex;
-}
-
-.floating-image figure {
-	margin: 0px;
-}
-
-.floating-image img {
-	object-fit: cover;
-}
-
-.floating-image .image-two img,
-.floating-image .image-alternative-two img {
-	height: 560px;
-}
-
-.floating-image .image-alternative-two img {
-	margin: 0 40px;
-}
-
-.floating-image .image-one img,
-.floating-image .image-three img,
-.floating-image .image-alternative-one img,
-.floating-image .image-alternative-three img {
-	width: 280px;
-}
-
-.floating-image .image-alternative-three {
-	align-items: self-end;
-	display: flex !important;
-}
-
-.floating-image .image-one {
-	animation: left-right-effect 2.5s infinite alternate;
-}
-
-.floating-image .image-three {
-	animation: right-left-effect 2.5s infinite alternate;
-	margin-left: 0 !important;
-	align-items: self-end;
-	display: flex !important;
-}
-
-.floating-image .image-two {
-	animation: updownEffect 2s infinite alternate;
-	z-index: 1;
-}
-
-@keyframes updownEffect {
-	0% {
-		transform: translateY(0);
-	}
-
-	100% {
-		transform: translateY(-20px);
-	}
-}
-
-@keyframes left-right-effect {
-	0% {
-		transform: translateX(70px);
-	}
-
-	100% {
-		transform: translateX(110px);
-	}
-}
-
-@keyframes right-left-effect {
-	0% {
-		transform: translateX(-70px);
-	}
-
-	100% {
-		transform: translateX(-110px);
-	}
-}
-
-/* Image Effect */
-.image-effect {
-	position: relative;
-	cursor: crosshair;
-}
-
-.image-effect .wp-block-cover {
-	background-color: var(--wp--preset--color--contrast);
-	overflow: hidden;
-}
-
-.image-effect .wp-block-column h2,
-.image-effect .wp-block-column p {
-	transition: 1s;
-	transition-delay: 0.5s;
-	opacity: 0;
-}
-
-.image-effect .wp-block-column .wp-block-group {
-	transform: scale(1.2);
-	transition: 1s ease-in-out;
-	opacity: 0;
-}
-
-.image-effect .wp-block-cover__image-background {
-	transition: 0.8s ease-in;
-}
-
-/* Image Hover Effect */
-.image-effect .wp-block-column:hover .wp-block-group {
-	transform: scale(0.9);
-	opacity: 1;
-}
-
-.image-effect .wp-block-column:hover .wp-block-cover__image-background {
-	opacity: .6;
-	transform: scale(1.5);
-}
-
-.image-effect .wp-block-column:hover h2,
-.image-effect .wp-block-column:hover p {
-	opacity: 1 !important;
-}
 
 /* ------------------------------------------- */
 /* Form Inputs, and Textarea
@@ -804,18 +473,6 @@ textarea {
 		margin-bottom: -20px;
 	}
 
-	/* Floating Image Effect */
-	.floating-image .image-two img,
-	.floating-image .image-alternative-two img {
-		height: 150px;
-	}
-
-	.floating-image .image-one img,
-	.floating-image .image-three img,
-	.floating-image .image-alternative-one img,
-	.floating-image .image-alternative-three img {
-		width: 100px;
-	}
 }
 
 @media only screen and (max-width: 961px) {
