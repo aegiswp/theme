@@ -29,6 +29,15 @@ Aegis is distributed under the terms of the GNU GPL.
     --underline-thickness: 2px; /* Adjust thickness as needed */
 }
 
+/* 
+ * Explicitly set background color for html and body elements
+ * This ensures the theme background color is properly applied
+ */
+html, 
+body {
+    background-color: var(--wp--preset--color--base);
+}
+
 /*
  * FADE-IN ANIMATION
  * 
@@ -54,8 +63,12 @@ Aegis is distributed under the terms of the GNU GPL.
  * - Opera
  */
 @keyframes fadein {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+		opacity: 0;
+	}
+    to {
+		opacity: 1;
+	}
 }
 
 body {

@@ -1601,6 +1601,10 @@
         "fontSize": "var(--wp--preset--font-size--medium)",
         "lineHeight": "var(--wp--custom--typography--line-height--body)"
       },
+      "color": {
+        "background": "var(--wp--preset--color--base)",
+        "text": "var(--wp--preset--color--contrast)"
+      },
       "elements": {
         "h1": {
           "typography": {
