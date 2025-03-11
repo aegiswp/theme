@@ -1,13 +1,56 @@
 /* Core Video Block: Dark Shadow Style
 --------------------------------------------- */
+/* 
+ * This stylesheet adds a subtle dark shadow effect to video blocks.
+ * The shadow intensifies on hover for an interactive feel.
+ */
+
+/* Target the container */
 .wp-block-video.is-style-dark-shadow {
-  box-shadow: 0 3px 10px 0 rgb(15 16 18 / 10%), 0 12px 30px 0 rgb(15 16 18 / 10%);
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 3px 10px 0 rgba(15, 16, 18, 0.1), 0 12px 30px 0 rgba(15, 16, 18, 0.1);
 }
 
+/* Target the video element */
+.wp-block-video.is-style-dark-shadow video {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Target the image (poster) */
 .wp-block-video.is-style-dark-shadow img {
-  box-shadow: 0 3px 10px 0 rgb(15 16 18 / 10%), 0 12px 30px 0 rgb(15 16 18 / 10%);
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: 0 3px 10px 0 rgba(15, 16, 18, 0.1), 0 12px 30px 0 rgba(15, 16, 18, 0.1);
 }
 
+/* Hover state */
 .wp-block-video.is-style-dark-shadow:hover {
-  box-shadow: 0 3px 10px 0 rgb(15 16 18 / 20%), 0 12px 30px 0 rgb(15 16 18 / 20%);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px 0 rgba(15, 16, 18, 0.2), 0 15px 35px 0 rgba(15, 16, 18, 0.2);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .wp-block-video.is-style-dark-shadow {
+    transition: none;
+  }
+  
+  .wp-block-video.is-style-dark-shadow:hover {
+    transform: none;
+  }
 }

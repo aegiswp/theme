@@ -1,17 +1,40 @@
 /* Core Image Block: Split Reveal Style
 --------------------------------------------- */
+/* Target the container */
 .wp-block-image.is-style-split-reveal {
   position: relative;
   overflow: hidden;
-  display: inline-block;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
 
+/* Target the figure element */
+.wp-block-image.is-style-split-reveal figure {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  display: block;
+  overflow: hidden;
+}
+
+/* Target the image */
 .wp-block-image.is-style-split-reveal img {
   display: block;
   width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
   transition: transform 0.5s ease;
 }
 
+/* Split reveal overlay elements */
 .wp-block-image.is-style-split-reveal::before,
 .wp-block-image.is-style-split-reveal::after {
   content: '';
@@ -21,22 +44,51 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
   transition: transform 0.5s ease;
+  z-index: 1;
+  pointer-events: none; /* Ensures the overlay doesn't interfere with interactions */
 }
 
+/* Left panel */
 .wp-block-image.is-style-split-reveal::before {
   left: 0;
   transform: translateX(0);
 }
 
+/* Right panel */
 .wp-block-image.is-style-split-reveal::after {
   right: 0;
   transform: translateX(0);
 }
 
+/* Hover state - left panel */
 .wp-block-image.is-style-split-reveal:hover::before {
   transform: translateX(-100%);
 }
 
+/* Hover state - right panel */
 .wp-block-image.is-style-split-reveal:hover::after {
   transform: translateX(100%);
+}
+
+/* Optional image scale effect on hover */
+.wp-block-image.is-style-split-reveal:hover img {
+  transform: scale(1.05);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .wp-block-image.is-style-split-reveal img,
+  .wp-block-image.is-style-split-reveal::before,
+  .wp-block-image.is-style-split-reveal::after {
+    transition: none;
+  }
+  
+  .wp-block-image.is-style-split-reveal:hover img {
+    transform: none;
+  }
+  
+  .wp-block-image.is-style-split-reveal:hover::before,
+  .wp-block-image.is-style-split-reveal:hover::after {
+    transform: none;
+  }
 }

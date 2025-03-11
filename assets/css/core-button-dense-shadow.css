@@ -1,15 +1,28 @@
 /* Core Button Block: Dense Shadow Style
 --------------------------------------------- */
 .wp-block-button.is-style-dense-shadow .wp-block-button__link {
-    background: var(--wp--preset--color--contrast);
-    box-shadow: var(--wp--preset--color--contrast) 0 8px 20px -10px, 0 4px 8px rgba(66, 44, 35, 0.3);
+    /* Box model */
+    border-radius: 0;
+    padding: 10px 20px;
+    
+    /* Typography */
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    font-weight: 500;
+    
+    /* Visual */
+    background-color: var(--wp--preset--color--contrast);
     color: var(--wp--preset--color--base);
-    transition: all 0.3s ease;
-    position: relative;
+    box-shadow: var(--wp--preset--color--contrast) 0 8px 20px -10px, 0 4px 8px rgba(66, 44, 35, 0.3);
     text-decoration: none; /* Ensure no underline by default */
+    
+    /* Positioning */
+    position: relative;
+    
+    /* Animation */
+    transition: all 0.3s ease;
 }
 
-.wp-block-button.is-style-dense-shadow .wp-block-button__link:before {
+.wp-block-button.is-style-dense-shadow .wp-block-button__link::before {
     content: "";
     position: absolute;
     top: 0;
@@ -27,8 +40,13 @@
     text-decoration: none; /* Ensure no underline on hover */
 }
 
-.wp-block-button.is-style-dense-shadow .wp-block-button__link:hover:before {
+.wp-block-button.is-style-dense-shadow .wp-block-button__link:hover::before {
     box-shadow: 0 8px 16px rgba(66, 44, 35, 0.4);
     transform: translateY(-2px);
-    text-decoration: none; /* Ensure no underline on hover */
+}
+
+/* Accessibility - ensure focus state is visible */
+.wp-block-button.is-style-dense-shadow .wp-block-button__link:focus-visible {
+    outline: 2px solid var(--wp--preset--color--contrast);
+    outline-offset: 2px;
 }

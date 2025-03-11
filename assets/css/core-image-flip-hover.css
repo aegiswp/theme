@@ -1,16 +1,37 @@
 /* Core Image Block: Flip Hover Style
 --------------------------------------------- */
 .wp-block-image.is-style-flip-hover {
-  perspective: 1000px; /* Add perspective to the parent element */
-  display: inline-block;
+    /* Original properties */
+    perspective: 1000px;
+    display: inline-block;
+    
+    /* Added improvements */
+    position: relative;
+    overflow: hidden;
 }
 
 .wp-block-image.is-style-flip-hover img {
-  display: block;
-  transition: transform 0.6s ease;
-  transform-style: preserve-3d;
+    /* Original properties */
+    display: block;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+    
+    /* Added improvements */
+    width: 100%;
 }
 
 .wp-block-image.is-style-flip-hover:hover img {
-  transform: rotateY(180deg);
+    /* Original effect */
+    transform: rotateY(180deg);
+}
+
+/* Add accessibility pause for reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .wp-block-image.is-style-flip-hover img {
+        transition: none;
+    }
+    
+    .wp-block-image.is-style-flip-hover:hover img {
+        transform: scale(0.95);
+    }
 }

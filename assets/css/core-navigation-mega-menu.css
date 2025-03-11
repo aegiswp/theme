@@ -1,40 +1,96 @@
 /* Core Navigation Block: Mega Menu Style
 --------------------------------------------- */
+/* 
+ * This stylesheet adds mega menu functionality to the WordPress navigation block.
+ * It transforms dropdown menus into horizontal panels with multiple columns.
+ */
 
 /* Desktop view (1024px and above) */
 @media (min-width: 1024px) {
-    [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container {
+    /* Main mega menu container - horizontal layout */
+    [class*=' is-style-mega-menu'].has-child > .wp-block-navigation__submenu-container {
         flex-direction: row;
+        width: auto;
+        min-width: 600px;
+        padding: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0 20px 40px -5px rgba(15, 16, 18, 0.18);
     }
 
-    [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li {
+    /* Individual column styling */
+    [class*=' is-style-mega-menu'].has-child > .wp-block-navigation__submenu-container > li {
         max-width: 250px;
         display: block;
         min-width: 200px;
+        padding: 0 15px;
+        border-right: 1px solid rgba(0, 0, 0, 0.05);
     }
 
-    [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li button {
+    /* Remove last column border */
+    [class*=' is-style-mega-menu'].has-child > .wp-block-navigation__submenu-container > li:last-child {
+        border-right: none;
+    }
+
+    /* Hide submenu toggle buttons */
+    [class*=' is-style-mega-menu'].has-child > .wp-block-navigation__submenu-container > li button {
         display: none;
     }
 
-    [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>a {
+    /* Column header styling */
+    [class*=' is-style-mega-menu'].has-child > .wp-block-navigation__submenu-container > li > a {
         font-weight: var(--wp--custom--font-weight--bold, 700);
-        margin: 5px 0 0 0 !important;
+        margin: 5px 0 10px 0 !important;
+        padding: 0 0 5px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
-    [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>a:hover {
+    /* Column header hover state */
+    [class*=' is-style-mega-menu'].has-child > .wp-block-navigation__submenu-container > li > a:hover {
         transform: translateX(0) !important;
     }
 
-    [class*=' is-style-mega-menu'].has-child>.wp-block-navigation__submenu-container>li>ul {
+    /* Submenu items container */
+    [class*=' is-style-mega-menu'].has-child > .wp-block-navigation__submenu-container > li > ul {
         position: static;
         visibility: visible;
-        opacity: .9;
-        font-size: .9em;
+        opacity: 0.9;
+        font-size: 0.9em;
         width: auto;
         height: auto;
         display: block;
         box-shadow: none !important;
         transform: translateY(0) !important;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Submenu individual items */
+    [class*=' is-style-mega-menu'].has-child > .wp-block-navigation__submenu-container > li > ul > li {
+        margin: 5px 0;
+    }
+
+    /* Submenu links */
+    [class*=' is-style-mega-menu'].has-child > .wp-block-navigation__submenu-container > li > ul > li > a {
+        padding: 5px 0;
+        display: block;
+        transition: transform 0.2s ease;
+    }
+
+    /* Submenu links hover */
+    [class*=' is-style-mega-menu'].has-child > .wp-block-navigation__submenu-container > li > ul > li > a:hover {
+        transform: translateX(5px);
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    [class*=' is-style-mega-menu'].has-child > .wp-block-navigation__submenu-container,
+    [class*=' is-style-mega-menu'].has-child > .wp-block-navigation__submenu-container > li > ul > li > a {
+        transition: none;
+    }
+    
+    [class*=' is-style-mega-menu'].has-child > .wp-block-navigation__submenu-container > li > ul > li > a:hover {
+        transform: none;
     }
 }

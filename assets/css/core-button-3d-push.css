@@ -1,16 +1,43 @@
 /* Core Button Block: 3D Push Style
 --------------------------------------------- */
 .wp-block-button.is-style-3d-push .wp-block-button__link {
-	outline: none;
+	/* Box model */
 	border: 2px solid var(--wp--preset--color--contrast);
+	border-radius: 0;
+	padding: clamp(0.5rem, 1vw, 0.667rem) clamp(1rem, 2vw, 1.333rem);
+	
+	/* Typography */
+	font-size: clamp(0.875rem, 2vw, 1rem);
+	font-weight: 500;
+	
+	/* Visual */
+	background-color: var(--wp--preset--color--base);
+	color: var(--wp--preset--color--contrast);
 	box-shadow: 0 4px var(--wp--preset--color--contrast);
-}
-
-.wp-block-button.is-style-3d-push .wp-block-button__link:active {
-	box-shadow: 0 0 var(--wp--preset--color--contrast);
+	outline: none;
+	
+	/* Positioning */
+	position: relative;
+	top: 0;
+	
+	/* Animation */
+	transition: background-color 0.3s ease, color 0.3s ease, top 0.3s ease, box-shadow 0.3s ease;
 }
 
 .wp-block-button.is-style-3d-push .wp-block-button__link:hover {
-	color: var(--wp--preset--color--contrast);
-	background: var(--wp--preset--color--base);
+	background-color: var(--wp--preset--color--contrast);
+	color: var(--wp--preset--color--base);
+	top: 2px;
+	box-shadow: 0 2px var(--wp--preset--color--contrast);
+}
+
+.wp-block-button.is-style-3d-push .wp-block-button__link:active {
+	top: 4px;
+	box-shadow: 0 0 var(--wp--preset--color--contrast);
+}
+
+/* Accessibility - ensure focus state is visible */
+.wp-block-button.is-style-3d-push .wp-block-button__link:focus-visible {
+	outline: 2px solid var(--wp--preset--color--contrast);
+	outline-offset: 2px;
 }

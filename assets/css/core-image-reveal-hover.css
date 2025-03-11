@@ -1,16 +1,49 @@
 /* Core Image Block: Reveal Hover Style
 --------------------------------------------- */
+/* Target the container */
 .wp-block-image.is-style-reveal-hover {
-  overflow: hidden;
-  display: inline-block;
-  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  overflow: visible;
 }
 
+/* Target the figure element that might be causing the lines */
+.wp-block-image.is-style-reveal-hover figure {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  display: block;
+}
+
+/* Target the image */
 .wp-block-image.is-style-reveal-hover img {
-  filter: blur(5px);
-  transition: filter 0.5s ease;
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  filter: blur(2px);
+  transition: filter 0.4s ease;
+  /* Negative margin trick to eliminate edge artifacts */
+  margin-bottom: -2px;
+  margin-right: -2px;
 }
 
+/* Hover state */
 .wp-block-image.is-style-reveal-hover:hover img {
   filter: blur(0);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .wp-block-image.is-style-reveal-hover img {
+    filter: blur(1px);
+    transition: none;
+  }
 }

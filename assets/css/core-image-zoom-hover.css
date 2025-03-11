@@ -1,15 +1,52 @@
 /* Core Image Block: Zoom Hover Style
 --------------------------------------------- */
+/* Target the container */
 .wp-block-image.is-style-zoom-hover {
-  overflow: hidden;
-  display: inline-block;
+  display: block;
   position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
 }
 
+/* Target the figure element */
+.wp-block-image.is-style-zoom-hover figure {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  display: block;
+  overflow: hidden;
+}
+
+/* Target the image */
 .wp-block-image.is-style-zoom-hover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
   transition: transform 0.5s ease;
+  will-change: transform; /* Performance optimization hint */
 }
 
+/* Hover state */
 .wp-block-image.is-style-zoom-hover:hover img {
   transform: scale(1.1);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .wp-block-image.is-style-zoom-hover img {
+    transition: none;
+  }
+  
+  .wp-block-image.is-style-zoom-hover:hover img {
+    transform: none;
+  }
 }

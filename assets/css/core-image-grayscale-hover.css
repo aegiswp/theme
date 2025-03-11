@@ -1,16 +1,39 @@
-/* Core Image Block: Graysacale Hover Style
+/* Core Image Block: Grayscale Hover Style
 --------------------------------------------- */
 .wp-block-image.is-style-grayscale-hover {
-  overflow: hidden;
-  display: inline-block;
+  /* Positioning */
   position: relative;
+  display: inline-block;
+  
+  /* Visual */
+  overflow: hidden;
 }
 
 .wp-block-image.is-style-grayscale-hover img {
+  /* Box model */
+  display: block;
+  width: 100%;
+  
+  /* Visual */
   filter: grayscale(100%);
-  transition: filter 0.5s ease;
+  
+  /* Animation */
+  transition: filter 0.5s ease, transform 0.5s ease;
 }
 
 .wp-block-image.is-style-grayscale-hover:hover img {
+  /* Visual on hover */
   filter: grayscale(0%);
+  transform: scale(1.05); /* Subtle zoom effect on hover */
+}
+
+/* Add accessibility pause for reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .wp-block-image.is-style-grayscale-hover img {
+    transition: filter 0.5s ease;
+  }
+  
+  .wp-block-image.is-style-grayscale-hover:hover img {
+    transform: none; /* Remove transform for reduced motion */
+  }
 }

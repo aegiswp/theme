@@ -1,5 +1,61 @@
+<?php
+/**
+ * Core Heading Block: Hide Underline Style
+ *
+ * This stylesheet removes the default underline styling from links within headings.
+ * It provides a cleaner appearance for heading links while maintaining accessibility.
+ *
+ * @package Aegis
+ * @author  Atmostfear Entertainment
+ * @license GNU General Public License v2 or later
+ * @link    https://github.com/aegiswp/theme/
+ * @since   1.0.0
+ * @version 1.0.1
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly.
+}
+
+?>
 /* Core Heading Block: Hide Underline Style
 --------------------------------------------- */
+
+/* Target heading links */
 .wp-block-heading.is-style-hide-underline a {
 	background-image: none !important;
+	text-decoration: none !important;
+	border-bottom: none !important;
+	box-shadow: none !important;
+	position: relative;
+	transition: color 0.3s ease;
+	color: var(--wp--preset--color--contrast);
+}
+
+/* Hover state */
+.wp-block-heading.is-style-hide-underline a:hover {
+	color: var(--wp--preset--color--primary);
+}
+
+/* Focus state - accessibility */
+.wp-block-heading.is-style-hide-underline a:focus {
+	outline: 2px solid var(--wp--preset--color--primary);
+	outline-offset: 2px;
+}
+
+/* Active state */
+.wp-block-heading.is-style-hide-underline a:active {
+	color: var(--wp--preset--color--secondary);
+}
+
+/* Visited state */
+.wp-block-heading.is-style-hide-underline a:visited {
+	color: var(--wp--preset--color--contrast);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+	.wp-block-heading.is-style-hide-underline a {
+		transition: none;
+	}
 }

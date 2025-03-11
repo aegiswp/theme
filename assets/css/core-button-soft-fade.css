@@ -3,6 +3,7 @@
 .wp-block-button.is-style-soft-fade .wp-block-button__link {
 	outline: none;
 	border: 2px solid var(--wp--preset--color--contrast);
+	border-radius: 0;
 	background: var(--wp--preset--color--contrast);
 	color: var(--wp--preset--color--base);
 	transition: all 0.5s ease;
@@ -32,5 +33,58 @@
 	background: var(--wp--preset--color--base);
 }
 
+/* Target the button with the highest possible specificity */
+html body .wp-block-button.is-style-soft-fade .wp-block-button__link[class],
+html body .wp-block-button.is-style-soft-fade .wp-block-button__link.has-background[class],
+html body .wp-block-button.is-style-soft-fade .wp-block-button__link.wp-element-button[class] {
+	/* Critical overrides */
+	border-radius: 0 !important;
+	-webkit-border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+	
+	/* Box model */
+	display: inline-block !important;
+	box-sizing: border-box !important;
+	border: 2px solid var(--wp--preset--color--contrast) !important;
+	padding: 10px 20px !important;
+	margin: 0 !important;
+	
+	/* Typography */
+	font-family: inherit !important;
+	font-size: clamp(0.875rem, 2vw, 1rem) !important;
+	font-weight: 500 !important;
+	text-align: center !important;
+	text-decoration: none !important;
+	
+	/* Visual */
+	background-color: var(--wp--preset--color--contrast) !important;
+	background-image: none !important;
+	color: var(--wp--preset--color--base) !important;
+	cursor: pointer !important;
+	
+	/* Animation */
+	transition: background-color 0.5s ease, color 0.5s ease !important;
+}
 
+/* Hover state with maximum specificity */
+html body .wp-block-button.is-style-soft-fade .wp-block-button__link[class]:hover,
+html body .wp-block-button.is-style-soft-fade .wp-block-button__link.has-background[class]:hover,
+html body .wp-block-button.is-style-soft-fade .wp-block-button__link.wp-element-button[class]:hover {
+	background-color: var(--wp--preset--color--base) !important;
+	color: var(--wp--preset--color--contrast) !important;
+	border-color: var(--wp--preset--color--contrast) !important;
+	border-radius: 0 !important;
+	-webkit-border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+}
 
+/* Focus state for accessibility with maximum specificity */
+html body .wp-block-button.is-style-soft-fade .wp-block-button__link[class]:focus-visible,
+html body .wp-block-button.is-style-soft-fade .wp-block-button__link.has-background[class]:focus-visible,
+html body .wp-block-button.is-style-soft-fade .wp-block-button__link.wp-element-button[class]:focus-visible {
+	outline: 2px solid var(--wp--preset--color--contrast) !important;
+	outline-offset: 2px !important;
+	border-radius: 0 !important;
+	-webkit-border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+}

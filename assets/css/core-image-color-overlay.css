@@ -1,27 +1,55 @@
 /* Core Image Block: Color Overlay Style
 --------------------------------------------- */
 .wp-block-image.is-style-color-overlay {
+  /* Positioning */
   position: relative;
   display: inline-block;
+  
+  /* Visual */
+  overflow: hidden;
+  
+  /* Animation */
+  transition: all 0.3s ease;
 }
 
 .wp-block-image.is-style-color-overlay img {
+  /* Box model */
   display: block;
-  transition: opacity 0.5s ease;
+  width: 100%;
+  
+  /* Animation */
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .wp-block-image.is-style-color-overlay::after {
+  /* Content */
   content: '';
+  
+  /* Positioning */
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-  transition: opacity 0.5s ease;
-  opacity: 1;
+  
+  /* Visual */
+  background-color: var(--wp--preset--color--contrast);
+  opacity: 0.5;
+  
+  /* Animation */
+  transition: opacity 0.5s ease, background-color 0.5s ease;
+  
+  /* Z-index */
+  z-index: 1;
+}
+
+.wp-block-image.is-style-color-overlay:hover img {
+  /* Animation on hover */
+  transform: scale(1.05);
 }
 
 .wp-block-image.is-style-color-overlay:hover::after {
-  opacity: 0;
+  /* Visual on hover */
+  opacity: 0.2;
+  background-color: var(--wp--preset--color--primary);
 }

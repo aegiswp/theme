@@ -1734,8 +1734,8 @@
           "radius": "0"
         },
         "color": {
-          "background": "var(--wp--preset--color--base)",
-          "text": "var(--wp--preset--color--contrast)"
+          "background": "var(--wp--preset--color--contrast)",
+          "text": "var(--wp--preset--color--base)"
         },
         "typography": {
           "fontSize": "var(--wp--preset--font-size--small)",
@@ -1758,45 +1758,6 @@
           }
         },
         "variations": [
-          {
-            "name": "3d-push",
-            "label": "3D Push",
-            "styles": {
-              "border": {
-                "width": "clamp(1px, 0.2vw, 2px)",
-                "style": "solid",
-                "color": "var(--wp--preset--color--contrast)"
-              },
-              "color": {
-                "background": "var(--wp--preset--color--base)",
-                "text": "var(--wp--preset--color--contrast)"
-              },
-              "typography": {
-                "fontSize": "clamp(0.875rem, 2vw, 1rem)",
-                "fontWeight": "500"
-              },
-              "spacing": {
-                "padding": {
-                  "top": "clamp(0.5rem, 1vw, 0.667rem)",
-                  "left": "clamp(1rem, 2vw, 1.333rem)",
-                  "right": "clamp(1rem, 2vw, 1.333rem)",
-                  "bottom": "clamp(0.5rem, 1vw, 0.667rem)"
-                }
-              },
-              "elements": {
-                "link": {
-                  "box-shadow": "0 4px var(--wp--preset--color--base)",
-                  ":hover": {
-                    "background": "var(--wp--preset--color--base)",
-                    "color": "var(--wp--preset--color--contrast)"
-                  },
-                  ":active": {
-                    "box-shadow": "0 0 var(--wp--preset--color--base)"
-                  }
-                }
-              }
-            }
-          },
           {
             "name": "dense-shadow",
             "label": "Dense Shadow",
@@ -2056,25 +2017,7 @@
               }
             }
           }
-        },
-        "variations": [
-          {
-            "name": "hide-underline",
-            "label": "Hide Underline",
-            "styles": {
-              "elements": {
-                "link": {
-                  "color": {
-                    "background": "none"
-                  },
-                  "typography": {
-                    "textDecoration": "none"
-                  }
-                }
-              }
-            }
-          }
-        ]
+        }
       },
       "core/image": {
         "elements": {

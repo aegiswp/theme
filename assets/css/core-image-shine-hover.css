@@ -1,11 +1,45 @@
 /* Core Image Block: Shine Hover Style
 --------------------------------------------- */
+/* Target the container */
 .wp-block-image.is-style-shine-hover {
-  cursor: pointer;
+  display: block;
   position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+/* Target the figure element */
+.wp-block-image.is-style-shine-hover figure {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  display: block;
   overflow: hidden;
 }
 
+/* Target the image */
+.wp-block-image.is-style-shine-hover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  transition: transform 0.5s ease;
+}
+
+/* Optional image scale effect on hover */
+.wp-block-image.is-style-shine-hover:hover img {
+  transform: scale(1.05);
+}
+
+/* Shine effect overlay */
 .wp-block-image.is-style-shine-hover::before {
   position: absolute;
   top: 0;
@@ -19,14 +53,17 @@
   background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
   -webkit-transform: skewX(-25deg);
   transform: skewX(-25deg);
+  pointer-events: none; /* Ensures the overlay doesn't interfere with interactions */
+  will-change: transform; /* Performance optimization hint */
 }
 
+/* Hover state */
 .wp-block-image.is-style-shine-hover:hover::before {
-  -webkit-animation: shine 1s;
-  animation: shine 1s;
+  -webkit-animation: shine 0.75s;
+  animation: shine 0.75s;
 }
 
-/* Add keyframes for the shine effect */
+/* Keyframes for the shine effect */
 @-webkit-keyframes shine {
   from {
     left: -75%;
@@ -35,11 +72,28 @@
     left: 125%;
   }
 }
+
 @keyframes shine {
   from {
     left: -75%;
   }
   to {
     left: 125%;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .wp-block-image.is-style-shine-hover img {
+    transition: none;
+  }
+  
+  .wp-block-image.is-style-shine-hover:hover img {
+    transform: none;
+  }
+  
+  .wp-block-image.is-style-shine-hover:hover::before {
+    -webkit-animation: none;
+    animation: none;
   }
 }
