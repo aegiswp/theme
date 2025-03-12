@@ -2,13 +2,13 @@
 /**
  * Title: 03. Header Pattern (Sticky)
  * Slug: aegis/header-03
- * Categories: header
+ * Categories: headers
  * Description: A sticky header designed to remain at the top of the screen as users scroll, enhancing navigation ease.
  * Keywords: sticky header, social links, search bar, navigation, e-commerce, responsive, top header
  * Viewport Width: 1400
  * Block Types: core/template-part/header
  * Inserter: true
- * 
+ *
  * @package aegis
  * @since 1.0.0
  */

@@ -2,13 +2,13 @@
 /**
  * Title: 08. Header Pattern
  * Slug: aegis/header-08
- * Categories: header
+ * Categories: headers
  * Description: This header pattern features a minimalistic approach with a clean and clear design, integrating an offer highlight and a dynamic navigation interface including a mini-cart.
  * Keywords: header, minimalistic, clean, modern, navigation, e-commerce, dynamic, responsive
  * Viewport Width: 1400
  * Block Types: core/template-part/header
  * Inserter: true
- * 
+ *
  * @package aegis
  * @since 1.0.0
  */

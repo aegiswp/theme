@@ -2,13 +2,13 @@
 /**
  * Title: 09. Header Pattern
  * Slug: aegis/header-09
- * Categories: header
+ * Categories: headers
  * Description: This header combines a prominent hero image with an overlayed offer highlight, creating a striking visual first impression.
  * Keywords: header, hero image, modern, navigation, social links, e-commerce, overlay, responsive
  * Viewport Width: 1400
  * Block Types: core/template-part/header
  * Inserter: true
- * 
+ *
  * @package aegis
  * @since 1.0.0
  */

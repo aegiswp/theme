@@ -2,13 +2,13 @@
 /**
  * Title: 05. Header Pattern
  * Slug: aegis/header-05
- * Categories: header
+ * Categories: headers
  * Description: A versatile header layout featuring a promotional offer area with a tertiary background color, a site title, and a navigation menu along with a mini-cart.
  * Keywords: header, promotional offer, navigation, e-commerce, business, responsive, modern
  * Viewport Width: 1400
  * Block Types: core/template-part/header
  * Inserter: true
- * 
+ *
  * @package aegis
  * @since 1.0.0
  */

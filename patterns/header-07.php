@@ -2,13 +2,13 @@
 /**
  * Title: 07. Header Pattern
  * Slug: aegis/header-07
- * Categories: header
+ * Categories: headers
  * Description: A modern header layout featuring a striking offer highlight and a sleek navigation interface, complemented by a mini-cart for easy access.
  * Keywords: header, modern, sticky, e-commerce, navigation, responsive, top header, offer highlight
  * Viewport Width: 1400
  * Block Types: core/template-part/header
  * Inserter: true
- * 
+ *
  * @package aegis
  * @since 1.0.0
  */

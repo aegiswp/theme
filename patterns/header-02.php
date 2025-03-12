@@ -2,13 +2,13 @@
 /**
  * Title: 02. Header Pattern
  * Slug: aegis/header-02
- * Categories: header
+ * Categories: headers
  * Description: Features social links, a centralized site title, and a right-aligned search bar and mini-cart, all within a full-width group.
  * Keywords: header, search bar, social links, navigation, e-commerce, business, responsive
  * Viewport Width: 1400
  * Block Types: core/template-part/header
  * Inserter: true
- * 
+ *
  * @package aegis
  * @since 1.0.0
  */

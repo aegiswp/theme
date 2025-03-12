@@ -2,13 +2,13 @@
 /**
  * Title: 10. Header Pattern
  * Slug: aegis/header-10
- * Categories: header
+ * Categories: headers
  * Description: This header pattern features a clean and contemporary design with social media links prominently displayed, and an offer highlight centered for visibility.
  * Keywords: header, modern, minimalist, social links, e-commerce, navigation, responsive
  * Viewport Width: 1400
  * Block Types: core/template-part/header
  * Inserter: true
- * 
+ *
  * @package aegis
  * @since 1.0.0
  */

@@ -2,13 +2,13 @@
 /**
  * Title: 01. Header Pattern
  * Slug: aegis/header
- * Categories: header
+ * Categories: headers
  * Description: A default header layout featuring a full-width design with social links, a special offer announcement, a search functionality, and a navigation menu.
  * Keywords: header, navigation, social links, search bar, responsive, full-width
  * Viewport Width: 1400
  * Block Types: core/template-part/header
  * Inserter: true
- * 
+ *
  * @package aegis
  * @since 1.0.0
  */

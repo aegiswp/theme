@@ -2,13 +2,13 @@
 /**
  * Title: 04. Header Pattern (Sticky)
  * Slug: aegis/header-04
- * Categories: header
+ * Categories: headers
  * Description: This sticky header design is crafted to remain visible at the top of the page as users scroll, enhancing usability and accessibility. It features a clean layout with social links, a central site title, and a right-aligned search bar and mini-cart. This header is ideal for e-commerce platforms, providing essential navigation and quick access to the shopping cart and search functions directly from the top of the site.
  * Keywords: sticky header, social links, search functionality, navigation, e-commerce, modern, responsive
  * Viewport Width: 1400
  * Block Types: core/template-part/header
  * Inserter: true
- * 
+ *
  * @package aegis
  * @since 1.0.0
  */

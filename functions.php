@@ -51,148 +51,6 @@ function aegis_theme_support() {
 add_action('after_setup_theme', 'aegis_theme_support');
 
 /**
- * Additional pattern removal on init.
- * 
- * Ensures complete removal of core block patterns by unregistering them
- * after they have been registered by WordPress core.
- *
- * @since 1.0.0
- * @return void
- */
-function aegis_remove_patterns() {
-    // Remove core and WooCommerce block pattern categories
-    if ( function_exists( 'unregister_block_pattern_category' ) ) {
-        $categories_to_remove = array(
-            'buttons',
-            'columns',
-            'gallery',
-            'header',
-            'text',
-            'query',
-            'featured',
-            'call-to-action',
-            'banner',
-            'footer',
-            'woocommerce-product-collections',
-            'woocommerce-product-elements',
-            'woocommerce-store-elements',
-            'woocommerce-store-notices',
-            'woocommerce-checkout',
-            'woocommerce-cart',
-            'woocommerce-filters'
-        );
-        
-        foreach ( $categories_to_remove as $category ) {
-            unregister_block_pattern_category( $category );
-        }
-    }
-    
-    // Remove individual patterns
-    if ( function_exists( 'unregister_block_pattern' ) ) {
-        // Get all registered patterns
-        $patterns = WP_Block_Patterns_Registry::get_instance()->get_all_registered();
-        
-        if ( $patterns ) {
-            foreach ( $patterns as $pattern ) {
-                // Remove core patterns
-                if ( strpos( $pattern->name, 'core/' ) === 0 ) {
-                    unregister_block_pattern( $pattern->name );
-                }
-                
-                // Remove WooCommerce patterns
-                if ( strpos( $pattern->name, 'woocommerce/' ) === 0 ) {
-                    unregister_block_pattern( $pattern->name );
-                }
-            }
-        }
-    }
-}
-// Run after patterns are registered (default priority for registering is 10)
-add_action( 'init', 'aegis_remove_patterns', 20 );
-
-/**
- * Disable core block patterns and remote patterns.
- * This needs to run before patterns are registered.
- */
-function aegis_disable_core_patterns() {
-    // Disable WordPress Core Block Patterns
-    remove_theme_support( 'core-block-patterns' );
-    
-    // Disable WooCommerce Block Patterns
-    remove_theme_support( 'woocommerce-block-patterns' );
-    
-    // Disable loading of remote Block Patterns
-    add_filter( 'should_load_remote_block_patterns', '__return_false' );
-    
-    // Prevent core patterns from being registered
-    add_filter( 'block_patterns_registry_init', '__return_false' );
-    
-    // Filter out core patterns before they're registered
-    add_filter( 'register_block_pattern_args', 'aegis_filter_block_patterns', 10, 2 );
-    
-    // Filter out core pattern categories before they're registered
-    add_filter( 'register_block_pattern_category_args', 'aegis_filter_block_pattern_categories', 10, 2 );
-}
-add_action( 'after_setup_theme', 'aegis_disable_core_patterns' );
-
-/**
- * Filter block patterns to prevent core and WooCommerce patterns from being registered.
- *
- * @param array  $pattern_properties The pattern properties.
- * @param string $pattern_name       The pattern name.
- * @return array|bool The pattern properties or false to prevent registration.
- */
-function aegis_filter_block_patterns( $pattern_properties, $pattern_name ) {
-    // Block core patterns
-    if ( strpos( $pattern_name, 'core/' ) === 0 ) {
-        return false;
-    }
-    
-    // Block WooCommerce patterns
-    if ( strpos( $pattern_name, 'woocommerce/' ) === 0 ) {
-        return false;
-    }
-    
-    return $pattern_properties;
-}
-
-/**
- * Filter block pattern categories to prevent core categories from being registered.
- *
- * @param array  $category_properties The category properties.
- * @param string $category_name       The category name.
- * @return array|bool The category properties or false to prevent registration.
- */
-function aegis_filter_block_pattern_categories( $category_properties, $category_name ) {
-    // List of categories to block
-    $blocked_categories = array(
-        'buttons',
-        'columns',
-        'gallery',
-        'header',
-        'text',
-        'query',
-        'featured',
-        'call-to-action',
-        'banner',
-        'footer',
-        'woocommerce-product-collections',
-        'woocommerce-product-elements',
-        'woocommerce-store-elements',
-        'woocommerce-store-notices',
-        'woocommerce-checkout',
-        'woocommerce-cart',
-        'woocommerce-filters'
-    );
-    
-    if ( in_array( $category_name, $blocked_categories ) ) {
-        return false;
-    }
-    
-    return $category_properties;
-}
-
-/**
  * Enqueue theme styles and scripts.
  *
  * This function enqueues the main stylesheet and JavaScript files required for the theme.
@@ -575,8 +433,8 @@ function aegis_include_woocommerce_support() {
 
         // Set WooCommerce image sizes
         add_theme_support('woocommerce', array(
-            'thumbnail_image_width' => 1080,
-            'single_image_width'    => 1980,
+            'thumbnail_image_width' => 480,
+            'single_image_width'    => 1920,
         ));
     }
 }

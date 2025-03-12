@@ -2,13 +2,13 @@
 /**
  * Title: 01. Header Pattern
  * Slug: aegis/header-01
- * Categories: header
+ * Categories: headers
  * Description: A default header layout featuring a full-width design with social links, a special offer announcement, a search functionality, and a navigation menu.
  * Keywords: header, navigation, social links, search bar, responsive, full-width
  * Viewport Width: 1400
  * Block Types: core/template-part/header
  * Inserter: true
- * 
+ *
  * @package aegis
  * @since 1.0.0
  */
@@ -19,7 +19,7 @@
 	<!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|30","bottom":"7px","left":"var:preset|spacing|30","top":"7px"}}},"backgroundColor":"secondary","layout":{"type":"constrained"}} -->
 	<div class="wp-block-group has-secondary-background-color has-background" style="padding-top:7px;padding-right:var(--wp--preset--spacing--30);padding-bottom:7px;padding-left:var(--wp--preset--spacing--30)">
 		<!-- wp:paragraph {"align":"center","fontSize":"tiny"} -->
-		<p class="has-text-align-center has-tiny-font-size"><?php echo esc_html_e('[Offer Highlight (52 chars): Announce a special deal or limited-time opportunity.]', 'aegis'); ?></p>
+		<p class="has-text-align-center has-tiny-font-size"><?php echo esc_html_x('Free shipping on all orders over $50 - Limited time offer!', 'Offer highlight text (50-60 characters recommended)', 'aegis'); ?></p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->
@@ -32,13 +32,13 @@
 			<div class="wp-block-column is-vertically-aligned-center">
 				<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left"}} -->
 				<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
-					<!-- wp:social-link {"url":"#","service":"facebook","label":"Facebook"} /-->
+					<!-- wp:social-link {"url":"#","service":"facebook","label":"<?php echo esc_attr_x('Facebook', 'Social media platform name', 'aegis'); ?>"} /-->
 
-					<!-- wp:social-link {"url":"#","service":"linkedin","label":"LinkedIn"} /-->
+					<!-- wp:social-link {"url":"#","service":"linkedin","label":"<?php echo esc_attr_x('LinkedIn', 'Social media platform name', 'aegis'); ?>"} /-->
 
-					<!-- wp:social-link {"url":"#","service":"instagram","label":"Instagram"} /-->
+					<!-- wp:social-link {"url":"#","service":"instagram","label":"<?php echo esc_attr_x('Instagram', 'Social media platform name', 'aegis'); ?>"} /-->
 
-					<!-- wp:social-link {"url":"#","service":"wordpress","label":"WordPress"} /-->
+					<!-- wp:social-link {"url":"#","service":"wordpress","label":"<?php echo esc_attr_x('WordPress', 'Social media platform name', 'aegis'); ?>"} /-->
 				</ul>
 				<!-- /wp:social-links -->
 			</div>
@@ -48,7 +48,7 @@
 			<div class="wp-block-column">
 				<!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"right"}} -->
 				<div class="wp-block-group alignwide">
-					<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search products…","width":350,"widthUnit":"px","buttonText":"Search","buttonPosition":"no-button","query":{"post_type":"product"},"style":{"border":{"width":"1px"}},"borderColor":"foreground","className":"is-hidden-on-mobile"} /-->
+					<!-- wp:search {"label":"<?php echo esc_attr_x('Search', 'Search label', 'aegis'); ?>","showLabel":false,"placeholder":"<?php echo esc_attr_x('Search products…', 'Search placeholder text', 'aegis'); ?>","width":350,"widthUnit":"px","buttonText":"<?php echo esc_attr_x('Search', 'Search button text', 'aegis'); ?>","buttonPosition":"no-button","query":{"post_type":"product"},"style":{"border":{"width":"1px"}},"borderColor":"foreground","className":"is-hidden-on-mobile"} /-->
 
 					<!-- wp:woocommerce/mini-cart {"miniCartIcon":"bag","addToCartBehaviour":"open_drawer","style":{"typography":{"fontSize":"12px"}}} /-->
 				</div>
