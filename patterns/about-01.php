@@ -3,8 +3,8 @@
  * Title: 01. About Pattern
  * Slug: aegis/about-01
  * Categories: about
- * Description: A left-aligned visual layout with an image and a right-hand section for heading, text, and a call-to-action button.
- * Keywords: about, image, mission, layout, call-to-action
+ * Description: Two-column layout featuring an image on the left and a heading, paragraph, and call-to-action button on the right over a diagonal gradient background.
+ * Keywords: introduction, mission, values, branding, call-to-action
  * Viewport Width: 1400
  * Block Types: core/button, core/buttons, core/column, core/columns, core/group, core/heading, core/image, core/paragraph
  * Inserter: true
