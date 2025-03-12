@@ -3,8 +3,8 @@
  * Title: 02. About Pattern
  * Slug: aegis/about-02
  * Categories: about
- * Description: Block pattern featuring a heading, paragraph, and call-to-action button on the left, and an image, tagline, separator, and social links on the right.
- * Keywords: about, call-to-action, description, heading, image, social, tagline
+ * Description: Two-column layout with content and call-to-action on the left, and media, tagline, and social links on the right, ideal for introducing your organization.
+ * Keywords: about, introduction, mission, social media, team, tagline
  * Viewport Width: 1400
  * Block Types: core/button, core/buttons, core/column, core/columns, core/group, core/heading, core/image, core/paragraph, core/separator, core/social-link, core/social-links
  * Inserter: true
@@ -35,7 +35,7 @@
 
       <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
       <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)">
-        <?php echo esc_html_x( 'Write a concise paragraph summarizing your core values or mission (max. 250 characters).', 'Paragraph with character limit guidance', 'aegis' ); ?>
+        <?php echo esc_html_x( 'Write a concise paragraph summarizing your core values or mission (max. 250 characters)', 'Paragraph with character limit guidance', 'aegis' ); ?>
       </p>
       <!-- /wp:paragraph -->
 
@@ -59,7 +59,7 @@
       <!-- wp:image {"aspectRatio":"16/9","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-default","style":{"shadow":"var:preset|shadow|primary-faded-shadow-left-bottom","border":{"width":"2px"}},"borderColor":"base"} -->
       <figure class="wp-block-image size-large has-custom-border is-style-default">
         <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/thumb_1920x1200_dark.webp"
-             alt="<?php echo esc_attr__( 'Abstract illustration featuring the theme’s logo.', 'aegis' ); ?>"
+             alt="<?php echo esc_attr__( 'Abstract illustration featuring the theme’s logo', 'aegis' ); ?>"
              class="has-border-color has-base-border-color"
              style="border-width:2px;box-shadow:var(--wp--preset--shadow--primary-faded-shadow-left-bottom);aspect-ratio:16/9;object-fit:cover" />
       </figure>
