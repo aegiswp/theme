@@ -3,8 +3,8 @@
  * Title: 01. About Pattern
  * Slug: aegis/about-01
  * Categories: about
- * Description: Block pattern featuring an engaging image on the left and a heading, paragraph, and call-to-action button on the right.
- * Keywords: about, call-to-action, description, heading, image, tagline
+ * Description: A left-aligned visual layout with an image and a right-hand section for heading, text, and a call-to-action button.
+ * Keywords: about, image, mission, layout, call-to-action
  * Viewport Width: 1400
  * Block Types: core/button, core/buttons, core/column, core/columns, core/group, core/heading, core/image, core/paragraph
  * Inserter: true
@@ -24,7 +24,7 @@
       <!-- wp:image {"aspectRatio":"16/9","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-default","style":{"shadow":"var:preset|shadow|primary-solid-shadow-right-bottom","border":{"width":"2px"}},"borderColor":"base"} -->
       <figure class="wp-block-image size-large has-custom-border is-style-default">
         <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/thumb_1920x1200_dark.webp"
-             alt="<?php echo esc_attr__( 'Abstract illustration featuring the theme’s logo.', 'aegis' ); ?>"
+             alt="<?php echo esc_attr__( 'Abstract illustration featuring the theme’s logo', 'aegis' ); ?>"
              class="has-border-color has-base-border-color"
              style="border-width:2px;box-shadow:var(--wp--preset--shadow--primary-solid-shadow-right-bottom);aspect-ratio:16/9;object-fit:cover" />
       </figure>
@@ -49,7 +49,7 @@
 
       <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
       <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)">
-        <?php echo esc_html_x( 'Write a concise paragraph summarizing your core values or mission (max. 250 characters).', 'Paragraph with character limit guidance', 'aegis' ); ?>
+        <?php echo esc_html_x( 'Write a concise paragraph summarizing your core values or mission (max. 250 characters)', 'Paragraph with character limit guidance', 'aegis' ); ?>
       </p>
       <!-- /wp:paragraph -->
 
