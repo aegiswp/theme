@@ -3,8 +3,8 @@
  * Title: 03. About Pattern
  * Slug: aegis/about-03
  * Categories: about
- * Description: Block pattern featuring an image on the left and a tagline, heading, paragraph, and social links on the right.
- * Keywords: about, description, heading, image, social, tagline
+ * Description: Dual-column layout with an image on the left and a vertically aligned tagline, heading, paragraph, and social links on the right, designed for storytelling or team messaging.
+ * Keywords: about, image, intro, mission, message, social links, team
  * Viewport Width: 1400
  * Block Types: core/column, core/columns, core/group, core/heading, core/image, core/paragraph, core/social-link, core/social-links
  * Inserter: true
