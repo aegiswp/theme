@@ -532,3 +532,28 @@ wp-config.php
 # Note: If you wish to whitelist themes,
 # uncomment the next line
 #/wp-content/themes
+inc/common/fonts.php
+inc/common/patterns.php
+inc/common/scripts.php
+inc/common/styles.php
+inc/common/templates.php
+inc/extensions/animation.php
+inc/extensions/counter.php
+inc/extensions/dark-mode.php
+inc/extensions/gradient.php
+inc/extensions/grid.php
+inc/extensions/icon.php
+inc/extensions/inline-color.php
+inc/extensions/onclick.php
+inc/extensions/placeholder.php
+inc/extensions/shadow.php
+inc/extensions/svg.php
+inc/extensions/template-tags.php
+inc/utility/array.php
+inc/utility/color.php
+inc/blocks/group.php
+inc/utility/css.php
+inc/utility/dom.php
+inc/utility/icon.php
+inc/utility/string.php
+inc/utility/theme.php
