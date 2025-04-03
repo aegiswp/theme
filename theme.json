@@ -1448,8 +1448,8 @@
         }
       },
       "layout": {
-        "contentSize": "min(calc(100% - var(--wp--preset--spacing--30,4rem)), 900px)",
-        "wideSize": "min(calc(100% - var(--wp--preset--spacing--30, 4rem)), 1620px)"
+        "contentSize": "min(calc(100dvw - var(--wp--preset--spacing--lg,2rem)), 720px)",
+        "wideSize": "min(calc(100dvw - var(--wp--preset--spacing--lg,2rem)), 1200px)"
       },
       "spacing": {
         "defaultSpacingSizes": false,
@@ -1458,7 +1458,7 @@
         "padding": true,
         "spacingSizes": [
           {
-            "name": "Tiny",
+            "name": "XX-Small",
             "size": "10px",
             "slug": "10"
           },
@@ -1470,7 +1470,7 @@
           {
             "name": "Small",
             "size": "30px",
-            "slug": "30"
+            "slug": "small"
           },
           {
             "name": "Regular",
@@ -1503,11 +1503,11 @@
         ]
       },
       "typography": {
+        "defaultFontSizes": false,
         "customFontSize": true,
         "dropCap": true,
         "lineHeight": true,
         "fluid": true,
-        "defaultFontSizes": false,
         "fontFamilies": [
           {
             "fontFamily": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
@@ -2292,9 +2292,7 @@
             }
           }
         },
-        "typography": {
-          "fontSize": "var(--wp--preset--font-size--large)"
-        },
+
         "variations": [
           {
             "name": "hide-underline",
