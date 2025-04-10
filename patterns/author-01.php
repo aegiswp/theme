@@ -1,9 +1,9 @@
 <?php
 /**
- * Title: 07. Archive Pattern
- * Slug: aegis/archive-07
- * Categories: archives
- * Description: Dual-column archive layout combining author profile, ad space, product feature, and a modern post list with negative margins, overlays, and pagination.
+ * Title: 01. Author Pattern
+ * Slug: aegis/author-01
+ * Categories: author
+ * Description: Dual-column author archive layout combining profile, ad space, product feature, and a modern post list with negative margins, overlays, and pagination.
  * Keywords: archive, author, bio, ads, product, grid, blog, pagination
  * Viewport Width: 1400
  * Block Types: core/button, core/buttons, core/columns, core/column, core/cover, core/group, core/heading, core/image, core/paragraph, core/post-date, core/post-excerpt, core/post-featured-image, core/post-template, core/post-terms, core/post-title, core/query, core/query-pagination, core/query-pagination-next, core/query-pagination-numbers, core/query-pagination-previous, core/query-title, core/social-link, core/social-links
@@ -14,7 +14,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( '07. Archive Pattern', 'Pattern name for inserter', 'aegis' ); ?>","categories":["<?php echo esc_html_x( 'archives', 'Block pattern category', 'aegis' ); ?>"],"patternName":"aegis/archive-07"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( '01. Author Pattern', 'Pattern name for inserter', 'aegis' ); ?>","categories":["<?php echo esc_html_x( 'author', 'Block pattern category', 'aegis' ); ?>"],"patternName":"aegis/author-01"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">
 
   <!-- wp:columns {"align":"wide"} -->
