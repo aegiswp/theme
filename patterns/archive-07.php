@@ -1,8 +1,8 @@
 <?php
 /**
- * Title: 01. Author Pattern
- * Slug: aegis/author-01
- * Categories: author
+ * Title: 07. Archive Pattern
+ * Slug: aegis/archive-01
+ * Categories: archive
  * Description: Dual-column author archive layout combining profile, ad space, product feature, and a modern post list with negative margins, overlays, and pagination.
  * Keywords: archive, author, bio, ads, product, grid, blog, pagination
  * Viewport Width: 1400
@@ -14,7 +14,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( '01. Author Pattern', 'Pattern name for inserter', 'aegis' ); ?>","categories":["<?php echo esc_html_x( 'author', 'Block pattern category', 'aegis' ); ?>"],"patternName":"aegis/author-01"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( '01. Archive Pattern', 'Pattern name for inserter', 'aegis' ); ?>","categories":["<?php echo esc_html_x( 'archive', 'Block pattern category', 'aegis' ); ?>"],"patternName":"aegis/author-01"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">
 
   <!-- wp:columns {"align":"wide"} -->
