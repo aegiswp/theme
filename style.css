@@ -5,7 +5,7 @@ Author: Atmostfear Entertainment
 Author URI: https://www.atmostfear-entertainment.com
 Description: Aegis is a sleek theme that promises agility and a lightweight design. It features elegant animations that add a sophisticated touch without hindering performance. The theme comes with a diverse array of block patterns, including full-page layouts, to ensure precise design control. Its latest full site editing capability facilitates real-time customization. With a solid foundation for ecommerce, it is well-suited for blogging, media outlets, and academic publishing.
 Requires at least: 6.6
-Tested up to: 6.7.2
+Tested up to: 6.8.0
 Requires PHP: 7.4
 Version: 1.0.0-rc.1
 License: GNU General Public License v2 or later
@@ -20,23 +20,7 @@ Aegis is distributed under the terms of the GNU GPL.
 
 /*
  * Theme custom properties
- *
- * Global CSS variables that define theme-wide settings.
- * Placing these at the top provides a central location
- * for adjusting values that affect multiple elements.
  */
-:root {
-    --underline-thickness: 2px; /* Adjust thickness as needed */
-}
-
-/* 
- * Explicitly set background color for html and body elements
- * This ensures the theme background color is properly applied
- */
-html, 
-body {
-    background-color: var(--wp--preset--color--base);
-}
 
 /*
  * FADE-IN ANIMATION
@@ -109,10 +93,10 @@ body {
  */
 
 a {
-    background-image: linear-gradient(
-        transparent calc(100% - var(--underline-thickness)),
-        currentColor var(--underline-thickness)
-    );
+	background-image: linear-gradient(
+		transparent calc(100% - var(--wp--custom--underline-thickness)),
+		currentColor var(--wp--custom--underline-thickness)
+	);
     background-size: 0% 100%;
     background-repeat: no-repeat;
     background-position: bottom left;
@@ -129,43 +113,50 @@ a:focus {
 /* Blog
 /* ------------------------------------------- */
 /* Core Post Excerpt Block */
+
 .wp-block-post-excerpt__more-link {
-    box-shadow: var(--wp--preset--color--contrast) 0 8px 20px -10px, 0 4px 8px rgba(66, 44, 35, 0.3);
-    background: var(--wp--preset--color--contrast);
-	color: var(--wp--preset--color--base);
-	font-size: var(--wp--preset--font-size--small);
+	/* Box model */
+	border-radius: 0;
+	padding: 10px 20px!important;
+	display: inline-block;
+
+	/* Typography */
+	font-size: clamp(0.875rem, 2vw, 1rem);
 	font-weight: 500;
-	padding-top: 0.667em;
-	padding-left: 1.333em;
-	padding-right: 1.333em;
-	padding-bottom: 0.667em;
-    transition: all 0.3s ease;
-    position: relative;
-    text-decoration: none; /* Ensure no underline by default */
+
+	/* Visual */
+	background-color: var(--wp--preset--color--contrast);
+	color: var(--wp--preset--color--base);
+	box-shadow: var(--wp--preset--color--contrast) 0 8px 20px -10px, 0 4px 8px rgba(66, 44, 35, 0.3);
+	text-decoration: none;
+
+	/* Positioning */
+	position: relative;
+	z-index: 1;
+	transition: all 0.3s ease;
 }
 
-.wp-block-post-excerpt__more-link:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 4px 8px rgba(66, 44, 35, 0.3);
-    transition: all 0.3s ease;
-    z-index: -1;
+.wp-block-post-excerpt__more-link::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	box-shadow: 0 4px 8px rgba(66, 44, 35, 0.3);
+	transition: all 0.3s ease;
+	z-index: -1;
 }
 
 .wp-block-post-excerpt__more-link:hover {
-    box-shadow: 0 4px 8px rgba(66, 44, 35, 0.3), 0 8px 16px rgba(66, 44, 35, 0.4);
-    transform: translateY(-2px);
-    text-decoration: none; /* Ensure no underline on hover */
+	box-shadow: 0 4px 8px rgba(66, 44, 35, 0.3), 0 8px 16px rgba(66, 44, 35, 0.4);
+	transform: translateY(-2px);
+	text-decoration: none;
 }
 
-.wp-block-post-excerpt__more-link:hover:before {
-    box-shadow: 0 8px 16px rgba(66, 44, 35, 0.4);
-    transform: translateY(-2px);
-    text-decoration: none; /* Ensure no underline on hover */
+.wp-block-post-excerpt__more-link:hover::before {
+	box-shadow: 0 8px 16px rgba(66, 44, 35, 0.4);
+	transform: translateY(-2px);
 }
 
 /* ------------------------------------------- */

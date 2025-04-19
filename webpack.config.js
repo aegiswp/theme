@@ -7,8 +7,8 @@ module.exports = {
         ...defaultConfig.plugins,
         new BrowserSyncPlugin({
             host: 'localhost',
-            port: 3000,
-            proxy: 'https://aegis-rc1.local', // Replace with your Local WP site URL
+            port: 8882,
+            proxy: 'https://aegis.wp.local', // Replace with your Local WP site URL
             files: [
                 './**/*.php',
                 './**/*.css',

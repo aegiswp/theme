@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/aegiswp/theme/wiki
+    about: Please consult the documentation and wiki before opening a new issue.
+  - name: Discussions
+    url: https://github.com/aegiswp/theme/discussions
+    about: For general questions and open discussion, use GitHub Discussions.

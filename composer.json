@@ -1,6 +1,6 @@
 {
 	"name": "aegiswp/theme",
-	"type": "package",
+	"type": "wordpress-theme",
 	"description": "Aegis WordPress Block Theme",
 	"keywords": [
 		"WordPress",
@@ -8,11 +8,11 @@
 		"Theme"
 	],
 	"homepage": "https://github.com/aegiswp/theme",
-	"license": "GPL-2.0",
+	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
 			"name": "Contributors",
-			"homepage": "https://github.com/atmostfear-entertainment/aegis/contributors.md"
+			"homepage": "https://github.com/aegiswp/theme/contributors.md"
 		}
 	],
 	"require": {

@@ -1,0 +1,39 @@
+name: Support/Question
+description: Ask a question or request support for the Aegis WordPress Block Theme
+labels:
+  - question
+  - support
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Need help or have a question?**
+        Please provide as much detail as possible so we can assist you quickly.
+  - type: textarea
+    id: help
+    attributes:
+      label: What do you need help with?
+      description: A clear and concise description of your question or the support you need.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps you've tried
+      description: Describe what you have already tried or researched.
+    validations:
+      required: false
+  - type: textarea
+    id: docs
+    attributes:
+      label: Relevant documentation or links
+      description: If applicable, link to docs, forum posts, or other resources you've reviewed.
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add any other context, screenshots, or details that might help us assist you.
+    validations:
+      required: false

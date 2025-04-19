@@ -276,9 +276,9 @@ Just in case you find the method to install WordPress locally too overwhelming, 
 #### Requirements
 
 - [Aegis](https://github.com/aegiswp/theme/releases/)
-- [WordPress 6.0+](https://wordpress.org/download/)
+- [WordPress 6.6+](https://wordpress.org/download/)
 - PHP 7.4+
-- License: [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) or later.
+- License: [GPLv2](https://www.gnu.org/licenses/gpl-2.0.html) or later.
 
 
 > **Warning**

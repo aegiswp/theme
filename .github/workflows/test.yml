@@ -1,0 +1,49 @@
+name: Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test-theme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      # Example: Run Jest tests if present
+      - name: Run JS/TS tests (Jest)
+        run: |
+          if [ -f jest.config.js ] || [ -f jest.config.ts ]; then
+            npx jest --ci;
+          else
+            echo "No Jest config found, skipping JS/TS tests.";
+          fi
+
+      # Example: Run PHP Unit tests if present
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+      - name: Install Composer dependencies
+        run: |
+          if [ -f composer.json ]; then
+            composer install --prefer-dist --no-progress --no-suggest --no-interaction;
+          fi
+      - name: Run PHP Unit tests
+        run: |
+          if [ -f phpunit.xml ] || [ -f phpunit.xml.dist ]; then
+            vendor/bin/phpunit;
+          else
+            echo "No PHPUnit config found, skipping PHP tests.";
+          fi

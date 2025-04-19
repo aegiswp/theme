@@ -1,11 +1,11 @@
 {
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "explicit",
-        "source.fixAll.stylelint": "explicit"
+        "source.fixAll.eslint": true,
+        "source.fixAll.stylelint": true
     },
     "php.validate.executablePath": "C:/xampp/php/php.exe",
-    "intelephense.environment.phpVersion": "8.0",
+    "intelephense.environment.phpVersion": "8.2",
     "files.associations": {
         "*.php": "php",
         "*.css": "css",
