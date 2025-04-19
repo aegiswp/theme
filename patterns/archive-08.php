@@ -54,14 +54,14 @@
 				<!-- /wp:paragraph -->
 
 				<!-- wp:image {"aspectRatio":"9/16","scale":"cover","sizeSlug":"full","linkDestination":"none","align":"center","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
-				<figure class="wp-block-image aligncenter size-full" style="margin-top:0;margin-bottom:0"><img src="<?php echo esc_url(get_theme_file_uri('assets/images/thumb_1920x1200_dark.webp')); ?>" alt="<?php echo esc_attr__('Abstract illustration featuring the theme\'s logo. Please replace this image with your own.', 'aegis'); ?>" style="aspect-ratio:9/16;object-fit:cover" /></figure>
+				<figure class="wp-block-image aligncenter size-full" style="margin-top:0;margin-bottom:0"><img src="<?php echo esc_url(get_theme_file_uri('assets/images/thumb_1920x1200_dark.webp')); ?>" alt="<?php echo esc_attr__( 'Placeholder image. Replace with your own image and descriptive alt text.', 'aegis' ); ?>" style="aspect-ratio:9/16;object-fit:cover" /></figure>
 				<!-- /wp:image -->
 			</div>
 			<!-- /wp:group -->
 
 			<!-- wp:group {"className":"is-style-section-dark","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|small"}}},"gradient":"diagonal-contrast-to-transparent-left-bottom"} -->
 			<div class="wp-block-group is-style-section-dark has-diagonal-contrast-to-transparent-left-bottom-gradient-background has-background" style="padding-bottom:var(--wp--preset--spacing--small)"><!-- wp:image {"aspectRatio":"16/9","scale":"cover","sizeSlug":"full","linkDestination":"none","align":"center"} -->
-				<figure class="wp-block-image aligncenter size-full"><img src="<?php echo esc_url(get_theme_file_uri('assets/images/thumb_1920x1200_dark.webp')); ?>" alt="<?php echo esc_attr__('Abstract illustration featuring the theme\'s logo. Please replace this image with your own.', 'aegis'); ?>" style="aspect-ratio:16/9;object-fit:cover" /></figure>
+				<figure class="wp-block-image aligncenter size-full"><img src="<?php echo esc_url(get_theme_file_uri('assets/images/thumb_1920x1200_dark.webp')); ?>" alt="<?php echo esc_attr__( 'Placeholder image. Replace with your own image and descriptive alt text.', 'aegis' ); ?>" style="aspect-ratio:16/9;object-fit:cover" /></figure>
 				<!-- /wp:image -->
 
 				<!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|20","left":"var:preset|spacing|20","top":"var:preset|spacing|10","bottom":"var:preset|spacing|small"}}},"backgroundColor":"contrast","layout":{"type":"default"}} -->

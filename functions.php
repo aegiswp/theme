@@ -50,6 +50,11 @@ function aegis_theme_support() {
 
 add_action('after_setup_theme', 'aegis_theme_support');
 
+// Disable the default WordPress block patterns to only show theme patterns.
+add_action( 'after_setup_theme', function() {
+    remove_theme_support( 'core-block-patterns' );
+} );
+
 /**
  * Enqueue theme styles and scripts.
  *

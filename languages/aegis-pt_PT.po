@@ -1,0 +1,90 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: aegis 1.0.0\n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Cascade AI\n"
+
+#: patterns/about-01.php:24
+#: patterns/about-02.php:49
+#: patterns/about-03.php:26
+#: patterns/about-04.php:26
+msgid "Placeholder image. Replace with your own image and descriptive alt text."
+msgstr "Imagem de exemplo. Substitua pela sua própria imagem e texto alternativo descritivo."
+
+#: patterns/about-01.php:32
+#: patterns/about-02.php:31
+#: patterns/about-03.php:34
+#: patterns/about-04.php:32
+msgid "Our Commitment to Innovation"
+msgstr "O nosso compromisso com a inovação"
+
+#: patterns/about-01.php:36
+#: patterns/about-02.php:34
+#: patterns/about-03.php:37
+#: patterns/about-04.php:35
+msgid "About Us"
+msgstr "Sobre nós"
+
+#: patterns/about-01.php:40
+#: patterns/about-02.php:35
+#: patterns/about-03.php:40
+#: patterns/about-04.php:38
+msgid "Write a concise paragraph summarizing your core values or mission (max. 250 characters)."
+msgstr "Escreva um parágrafo conciso resumindo os seus valores ou missão principais (máx. 250 caracteres)."
+
+#: patterns/archive-02.php:36
+#: patterns/archive-03.php:39
+msgid "Published:"
+msgstr "Publicado:"
+
+#: patterns/archive-07.php:51
+msgid "Ad Space"
+msgstr "Espaço publicitário"
+
+#: patterns/archive-07.php:55
+#: patterns/archive-07.php:62
+msgid "Abstract illustration featuring the theme's logo. Please replace this image with your own."
+msgstr "Ilustração abstrata com o logótipo do tema. Por favor, substitua esta imagem pela sua própria."
+
+#: patterns/archive-07.php:68
+msgid "Product Name"
+msgstr "Nome do produto"
+
+#: patterns/archive-08.php:48
+msgid "Advertising"
+msgstr "Publicidade"
+
+#: patterns/archive-08.php:68
+msgid "Product Name"
+msgstr "Nome do produto"
+
+#: patterns/archive-08.php:70
+msgid "Short product description or offer."
+msgstr "Breve descrição do produto ou oferta."
+
+#: patterns/archive-08.php:54
+#: patterns/archive-08.php:61
+msgid "Placeholder image. Replace with your own image and descriptive alt text."
+msgstr "Imagem de exemplo. Substitua pela sua própria imagem e texto alternativo descritivo."
+
+#: patterns/audio-01.php:27
+#: patterns/audio-01.php:50
+msgid "Placeholder image. Replace with your own image and descriptive alt text."
+msgstr "Imagem de exemplo. Substitua pela sua própria imagem e texto alternativo descritivo."
+
+#: patterns/audio-02.php:23
+#: patterns/audio-02.php:50
+#: patterns/audio-03.php:24
+#: patterns/audio-04.php:24
+#: patterns/audio-05.php:24
+#: patterns/audio-06.php:24
+#: patterns/audio-06.php:52
+msgid "Placeholder image. Replace with your own image and descriptive alt text."
+msgstr "Imagem de exemplo. Substitua pela sua própria imagem e texto alternativo descritivo."
+
+#: patterns/about-01.php:47
+msgid "Our Commitment to Innovation"
+msgstr "O nosso compromisso com a inovação"
