@@ -25,24 +25,31 @@ msgstr ""
 #: patterns/about-01.php:36
 #: patterns/about-02.php:34
 #: patterns/about-03.php:37
-#: patterns/about-04.php:35
-msgid "About Us"
+#: patterns/audio-03.php:32
+#: patterns/audio-04.php:47
+msgid "Watch on YouTube"
 msgstr ""
 
 #: patterns/about-01.php:40
 #: patterns/about-02.php:35
 #: patterns/about-03.php:40
 #: patterns/about-04.php:38
-msgid "Write a concise paragraph summarizing your core values or mission (max. 250 characters)."
+#: patterns/audio-03.php:40
+#: patterns/audio-04.php:40
+msgid "Provide a concise description, up to 60 characters, summarizing this episode."
 msgstr ""
 
 #: patterns/archive-02.php:36
 #: patterns/archive-03.php:39
-msgid "Published:"
+#: patterns/audio-03.php:53
+#: patterns/audio-04.php:53
+msgid "Subscribe via RSS"
 msgstr ""
 
 #: patterns/archive-07.php:51
-msgid "Ad Space"
+#: patterns/audio-03.php:45
+#: patterns/audio-04.php:32
+msgid "Episode Title"
 msgstr ""
 
 #: patterns/archive-07.php:55
@@ -84,4 +91,9 @@ msgstr ""
 #: patterns/audio-06.php:24
 #: patterns/audio-06.php:52
 msgid "Placeholder image. Replace with your own image and descriptive alt text."
+msgstr ""
+
+#: patterns/audio-02.php:40
+#: patterns/audio-04.php:28
+msgid "Podcast Series"
 msgstr ""
