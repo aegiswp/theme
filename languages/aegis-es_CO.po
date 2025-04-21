@@ -84,32 +84,43 @@ msgstr "Imagen de ejemplo. Reemplace por su propia imagen y texto alternativo de
 
 #: patterns/audio-02.php:40
 #: patterns/audio-04.php:28
+#: patterns/audio-05.php:28
 msgid "Podcast Series"
 msgstr "Serie de pódcast"
 
 #: patterns/audio-04.php:32
+#: patterns/audio-05.php:32
 msgid "Episode Title"
 msgstr "Título del episodio"
 
 #: patterns/audio-04.php:40
+#: patterns/audio-05.php:40
 msgid "Provide a concise description, up to 60 characters, summarizing this episode."
 msgstr "Proporcione una descripción concisa, de hasta 60 caracteres, que resuma este episodio."
 
 #: patterns/audio-04.php:53
+#: patterns/audio-05.php:53
 msgid "Subscribe via RSS"
 msgstr "Suscribirse vía RSS"
 
 #: patterns/audio-04.php:57
+#: patterns/audio-05.php:57
 msgid "Listen on Spotify"
 msgstr "Escuchar en Spotify"
 
 #: patterns/audio-04.php:61
+#: patterns/audio-05.php:61
 msgid "Watch on YouTube"
 msgstr "Ver en YouTube"
 
 #: patterns/audio-04.php:65
+#: patterns/audio-05.php:65
 msgid "Listen on SoundCloud"
 msgstr "Escuchar en SoundCloud"
+
+#: patterns/audio-05.php:70
+msgid "Subscribe Now"
+msgstr "Suscribirse ahora"
 
 #: patterns/about-01.php:47
 msgid "Our Commitment to Innovation"

@@ -27,6 +27,7 @@ msgstr ""
 #: patterns/about-03.php:37
 #: patterns/audio-03.php:32
 #: patterns/audio-04.php:47
+#: patterns/audio-05.php:1
 msgid "Watch on YouTube"
 msgstr ""
 
@@ -36,6 +37,7 @@ msgstr ""
 #: patterns/about-04.php:38
 #: patterns/audio-03.php:40
 #: patterns/audio-04.php:40
+#: patterns/audio-05.php:1
 msgid "Provide a concise description, up to 60 characters, summarizing this episode."
 msgstr ""
 
@@ -43,12 +45,14 @@ msgstr ""
 #: patterns/archive-03.php:39
 #: patterns/audio-03.php:53
 #: patterns/audio-04.php:53
+#: patterns/audio-05.php:1
 msgid "Subscribe via RSS"
 msgstr ""
 
 #: patterns/archive-07.php:51
 #: patterns/audio-03.php:45
 #: patterns/audio-04.php:32
+#: patterns/audio-05.php:1
 msgid "Episode Title"
 msgstr ""
 
@@ -95,5 +99,6 @@ msgstr ""
 
 #: patterns/audio-02.php:40
 #: patterns/audio-04.php:28
+#: patterns/audio-05.php:1
 msgid "Podcast Series"
 msgstr ""

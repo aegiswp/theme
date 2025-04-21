@@ -30,6 +30,7 @@ msgstr "Our Commitment to Innovation"
 #: patterns/audio-03.php:45
 #: patterns/audio-04.php:47
 #: patterns/audio-04.php:45
+#: patterns/audio-05.php:1
 msgid "Watch on YouTube"
 msgstr ""
 
@@ -47,6 +48,7 @@ msgstr "Write a concise paragraph summarising your core values or mission (max. 
 #: patterns/audio-03.php:40
 #: patterns/audio-03.php:40
 #: patterns/audio-04.php:40
+#: patterns/audio-05.php:1
 msgid "Provide a concise description, up to 60 characters, summarizing this episode."
 msgstr ""
 
@@ -55,6 +57,7 @@ msgstr ""
 #: patterns/audio-03.php:53
 #: patterns/audio-03.php:53
 #: patterns/audio-04.php:53
+#: patterns/audio-05.php:1
 msgid "Subscribe via RSS"
 msgstr ""
 
@@ -62,6 +65,7 @@ msgstr ""
 #: patterns/audio-03.php:32
 #: patterns/audio-03.php:32
 #: patterns/audio-04.php:32
+#: patterns/audio-05.php:1
 msgid "Episode Title"
 msgstr ""
 
@@ -108,5 +112,6 @@ msgstr "Placeholder image. Replace with your own image and descriptive alt text.
 
 #: patterns/audio-02.php:40
 #: patterns/audio-04.php:28
+#: patterns/audio-05.php:1
 msgid "Podcast Series"
 msgstr ""
