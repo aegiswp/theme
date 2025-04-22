@@ -115,3 +115,157 @@ msgstr "Placeholder image. Replace with your own image and descriptive alt text.
 #: patterns/audio-05.php:1
 msgid "Podcast Series"
 msgstr ""
+
+#: patterns/contact-01.php:1
+msgid "Address:"
+msgstr ""
+
+#: patterns/contact-01.php:1
+msgid "Get in touch"
+msgstr ""
+
+#: patterns/contact-01.php:1
+msgid "Have questions or need assistance? We're here to help! Reach out through the form below or use our contact information for direct communication."
+msgstr ""
+
+#: patterns/contact-01.php:1
+msgid "Contact Us"
+msgstr ""
+
+#: patterns/contact-01.php:1
+msgid "Tagline:"
+msgstr ""
+
+#: patterns/contact-01.php:1
+msgid "Heading:"
+msgstr ""
+
+#: patterns/contact-01.php:1
+msgid "Description:"
+msgstr ""
+
+#: patterns/contact-01.php:1
+msgid "Telephone:"
+msgstr ""
+
+#: patterns/contact-01.php:1
+msgid "Email:"
+msgstr ""
+
+#: patterns/cta-02.php:1
+msgid "Shop Now"
+msgstr ""
+
+#: patterns/about-01.php:24
+#: patterns/about-02.php:49
+#: patterns/about-03.php:26
+#: patterns/about-04.php:26
+#: patterns/cta-02.php:1
+msgid "Refresh your wardrobe with our stylish and affordable summer essentials."
+msgstr ""
+
+#: patterns/about-01.php:32
+#: patterns/about-02.php:31
+#: patterns/about-03.php:34
+#: patterns/about-04.php:32
+#: patterns/cta-02.php:1
+msgid "Featured product image for the promotion"
+msgstr ""
+
+#: patterns/about-04.php:38
+#: patterns/audio-03.php:40
+#: patterns/audio-03.php:40
+#: patterns/audio-04.php:40
+#: patterns/audio-05.php:1
+#: patterns/cta-02.php:1
+msgid "Save <strong>25% OFF</strong> on Summer Collection! Shop now during our Season Sale."
+msgstr ""
+
+#: patterns/archive-02.php:36
+#: patterns/archive-03.php:39
+#: patterns/audio-03.php:53
+#: patterns/audio-03.php:53
+#: patterns/audio-04.php:53
+#: patterns/audio-05.php:1
+#: patterns/cta-02.php:1
+msgid "Ends Sunday - While supplies last"
+msgstr ""
+
+#: patterns/archive-07.php:51
+#: patterns/audio-03.php:32
+#: patterns/audio-03.php:32
+#: patterns/audio-04.php:32
+#: patterns/audio-05.php:1
+#: patterns/cta-02.php:1
+msgid "LIMITED TIME"
+msgstr ""
+
+#: patterns/archive-08.php:54
+#: patterns/archive-08.php:61
+#: patterns/cta-02.php:1
+msgid "Refresh your wardrobe with our stylish and affordable summer essentials."
+msgstr ""
+
+#: patterns/audio-01.php:27
+#: patterns/audio-01.php:50
+#: patterns/cta-02.php:1
+msgid "Refresh your wardrobe with our stylish and affordable summer essentials."
+msgstr ""
+
+#: patterns/audio-02.php:23
+#: patterns/audio-02.php:50
+#: patterns/audio-03.php:24
+#: patterns/audio-04.php:24
+#: patterns/audio-05.php:24
+#: patterns/audio-06.php:24
+#: patterns/audio-06.php:52
+#: patterns/cta-02.php:1
+msgid "Refresh your wardrobe with our stylish and affordable summer essentials."
+msgstr ""
+
+#: patterns/audio-02.php:40
+#: patterns/audio-04.php:28
+#: patterns/audio-05.php:1
+msgid "Podcast Series"
+msgstr ""
+
+#: patterns/contact-01.php:1
+#: patterns/cta-02.php:1
+msgid "Visit Shop"
+msgstr ""
+
+#: patterns/cta-02.php:1
+msgid "Promotional Offer"
+msgstr ""
+
+#: patterns/cta-02.php:1
+msgid "Headline"
+msgstr ""
+
+#: patterns/cta-02.php:1
+msgid "Urgency"
+msgstr ""
+
+#: patterns/cta-02.php:1
+msgid "Image Alt"
+msgstr ""
+
+#: patterns/cta-02.php:1
+msgid "Collection Name"
+msgstr ""
+
+#: patterns/cta-02.php:1
+msgid "Product Description"
+msgstr ""
+
+#: patterns/cta-02.php:1
+msgid "Button Text 1"
+msgstr ""
+
+#: patterns/cta-02.php:1
+msgid "Button Text 2"
+msgstr ""
+
+#: patterns/cta-02.php:1
+msgid "Arrow"
+msgstr ""

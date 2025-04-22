@@ -12,6 +12,7 @@ msgstr ""
 #: patterns/about-02.php:49
 #: patterns/about-03.php:26
 #: patterns/about-04.php:26
+#: patterns/cta-02.php:1
 msgid "Placeholder image. Replace with your own image and descriptive alt text."
 msgstr ""
 
@@ -28,7 +29,9 @@ msgstr ""
 #: patterns/audio-03.php:32
 #: patterns/audio-04.php:47
 #: patterns/audio-05.php:1
-msgid "Watch on YouTube"
+#: patterns/contact-01.php:1
+#: patterns/cta-01.php:1
+msgid "Get in touch"
 msgstr ""
 
 #: patterns/about-01.php:40
@@ -46,6 +49,7 @@ msgstr ""
 #: patterns/audio-03.php:53
 #: patterns/audio-04.php:53
 #: patterns/audio-05.php:1
+#: patterns/contact-01.php:1
 msgid "Subscribe via RSS"
 msgstr ""
 
@@ -58,19 +62,23 @@ msgstr ""
 
 #: patterns/archive-07.php:55
 #: patterns/archive-07.php:62
-msgid "Abstract illustration featuring the theme's logo. Please replace this image with your own."
+#: patterns/contact-01.php:1
+msgid "Have questions or need assistance? We're here to help! Reach out through the form below or use our contact information for direct communication."
 msgstr ""
 
 #: patterns/archive-07.php:68
-msgid "Product Name"
+#: patterns/contact-01.php:1
+msgid "Contact Us"
 msgstr ""
 
 #: patterns/archive-08.php:48
-msgid "Advertising"
+#: patterns/contact-01.php:1
+msgid "Address:"
 msgstr ""
 
 #: patterns/archive-08.php:68
-msgid "Product Name"
+#: patterns/contact-01.php:1
+msgid "Contact Us"
 msgstr ""
 
 #: patterns/archive-08.php:70

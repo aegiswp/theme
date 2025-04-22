@@ -125,3 +125,59 @@ msgstr "Suscribirse ahora"
 #: patterns/about-01.php:47
 msgid "Our Commitment to Innovation"
 msgstr "Nuestro compromiso con la innovación"
+
+#: patterns/cta-01.php:1
+msgid "Learn More"
+msgstr "Saber más"
+
+#: patterns/cta-01.php:2
+msgid "Limited time offer"
+msgstr "Oferta por tiempo limitado"
+
+#: patterns/cta-01.php:3
+msgid "Take Action Today"
+msgstr "Actúa hoy"
+
+#: patterns/cta-01.php:4
+msgid "Sign Up Now"
+msgstr "Regístrate ahora"
+
+#: patterns/cta-01.php:5
+msgid "→"
+msgstr "→"
+
+#: patterns/cta-02.php:1
+msgid "Save <strong>25% OFF</strong> on Summer Collection! Shop now during our Season Sale."
+msgstr "Ahorra <strong>25% DE DESCUENTO</strong> en la colección de verano. Compra ahora durante nuestra venta de temporada."
+
+#: patterns/cta-02.php:2
+msgid "LIMITED TIME"
+msgstr "TIEMPO LIMITADO"
+
+#: patterns/cta-02.php:3
+msgid "Ends Sunday - While supplies last"
+msgstr "Termina el domingo - Hasta agotar existencias"
+
+#: patterns/cta-02.php:4
+msgid "Featured product image for the promotion"
+msgstr "Imagen destacada del producto para la promoción"
+
+#: patterns/cta-02.php:5
+msgid "New Summer Collection 2023"
+msgstr "Nueva colección de verano 2023"
+
+#: patterns/cta-02.php:6
+msgid "Refresh your wardrobe with our stylish and affordable summer essentials."
+msgstr "Renueva tu guardarropa con nuestros esenciales de verano elegantes y asequibles."
+
+#: patterns/cta-02.php:7
+msgid "Shop Now"
+msgstr "Compra ahora"
+
+#: patterns/cta-02.php:8
+msgid "Visit Shop"
+msgstr "Visitar tienda"
+
+#: patterns/cta-02.php:9
+msgid "→"
+msgstr "→"
