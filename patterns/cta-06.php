@@ -38,11 +38,6 @@
 <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#" style="border-radius:0px"><?php echo esc_html_x( 'Learn More', 'Secondary CTA button text', 'aegis' ); ?> <span class="wp-element-button__arrow" aria-hidden="true"><?php echo esc_html_x( '→', 'Arrow for CTA button', 'aegis' ); ?></span></a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
-<!-- /wp:group -->
-
-<!-- wp:image {"aspectRatio":"16/9","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-default"} -->
-<figure class="wp-block-image size-large is-style-default"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/thumb_1920x1200_dark.webp' ) ); ?>" alt="<?php echo esc_attr__( 'Promotional visual for limited-time offer', 'aegis' ); ?>" style="aspect-ratio:16/9;object-fit:cover"/></figure>
-<!-- /wp:image -->
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
