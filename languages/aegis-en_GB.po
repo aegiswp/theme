@@ -269,3 +269,86 @@ msgstr ""
 #: patterns/cta-02.php:1
 msgid "Arrow"
 msgstr ""
+
+#: patterns/cta-04.php
+msgid "New Release"
+msgctxt "CTA tagline"
+msgstr "New Release"
+
+#: patterns/cta-04.php
+msgid "Introducing"
+msgctxt "CTA heading"
+msgstr "Introducing"
+
+#: patterns/cta-04.php
+msgid "Our newest product is now available with exclusive launch pricing. Be among the first to experience the features that will transform how you work."
+msgctxt "CTA description"
+msgstr "Our newest product is now available with exclusive launch pricing. Be among the first to experience the features that will transform how you work."
+
+#: patterns/cta-04.php
+msgid "Learn More"
+msgctxt "Secondary CTA button text"
+msgstr "Learn More"
+
+#: patterns/cta-04.php
+msgid "Buy Now"
+msgctxt "Primary CTA button text"
+msgstr "Buy Now"
+
+#: patterns/cta-04.php
+msgid "→"
+msgctxt "Arrow for CTA button"
+msgstr "→"
+
+#: patterns/cta-04.php
+msgid "Featured image showcasing our latest product or service offering"
+msgctxt ""
+msgstr "Featured image showcasing our latest product or service offering"
+
+#: patterns/cta-04.php
+msgid "Shop Now"
+msgstr ""
+
+#: patterns/contact-01.php:1
+msgid "Email:"
+msgstr ""
+
+#: patterns/cta-04.php
+msgid "Visit Shop"
+msgstr ""
+
+#: patterns/cta-04.php
+msgid "Promotional Offer"
+msgstr ""
+
+#: patterns/cta-04.php
+msgid "Headline"
+msgstr ""
+
+#: patterns/cta-04.php
+msgid "Urgency"
+msgstr ""
+
+#: patterns/cta-04.php
+msgid "Image Alt"
+msgstr ""
+
+#: patterns/cta-04.php
+msgid "Collection Name"
+msgstr ""
+
+#: patterns/cta-04.php
+msgid "Product Description"
+msgstr ""
+
+#: patterns/cta-04.php
+msgid "Button Text 1"
+msgstr ""
+
+#: patterns/cta-04.php
+msgid "Button Text 2"
+msgstr ""
+
+#: patterns/cta-04.php
+msgid "Arrow"
+msgstr ""
