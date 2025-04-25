@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Event with featured video, posts, and socials
- * Slug: aegis/event-feature-video-posts-socials
+ * Slug: aegis/event-06
  * Categories: event, featured, media, social, video
  * Description: A full-width event feature pattern with gradient background, centered headings, video showcase, query posts, and centralized social links.
  * Keywords: event, media, video, posts, social links
@@ -14,7 +14,7 @@
  */
 ?>
 
-<!-- wp:group {"align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"gradient":"diagonal-secondary-to-background","layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('01. Event Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
+<!-- wp:group {"align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"gradient":"diagonal-secondary-to-background","layout":{"type":"constrained"},"metadata":{"name":"<?php echo esc_html_x('06. Event Pattern', 'Name of the pattern', 'aegis'); ?>"}} -->
 <div class="wp-block-group alignfull has-diagonal-secondary-to-background-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
     <!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|40"},"padding":{"bottom":"0","top":"0"}}},"layout":{"type":"default"}} -->
     <div class="wp-block-group alignwide" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--40);padding-top:0;padding-bottom:0">
