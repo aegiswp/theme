@@ -56,9 +56,106 @@ msgstr ""
 
 #: patterns/archive-07.php:51
 #: patterns/audio-03.php:45
-#: patterns/audio-04.php:32
-#: patterns/audio-05.php:1
-msgid "Episode Title"
+#: patterns/event-03.php:22
+msgctxt "Section tagline for art exhibition events"
+msgid "Upcoming Events"
+msgstr ""
+
+#: patterns/event-04.php:23
+#: patterns/event-04.php:48
+#: patterns/event-04.php:73
+msgctxt "Section tagline for events"
+msgid "Upcoming Events"
+msgstr ""
+
+#: patterns/event-05.php:24
+msgctxt "Event tagline example"
+msgid "Annual Music Festival"
+msgstr ""
+
+#: patterns/event-05.php:29
+msgctxt "Event heading example"
+msgid "Summer Sounds 2025"
+msgstr ""
+
+#: patterns/event-05.php:33
+msgctxt "Event description example"
+msgid "Join us for three days of music, art, and community as we celebrate our 10th anniversary with performances from over 20 artists across multiple stages."
+msgstr ""
+
+#: patterns/event-05.php:39
+msgctxt "Call-to-action button text"
+msgid "Get Tickets"
+msgstr ""
+
+#: patterns/event-05.php:45
+msgctxt "Social media section label"
+msgid "Follow us:"
+msgstr ""
+
+#: patterns/event-05.php:49
+msgctxt "Social link label"
+msgid "Follow our event on Facebook"
+msgstr ""
+
+#: patterns/event-05.php:51
+msgctxt "Social link label"
+msgid "Follow our event on LinkedIn"
+msgstr ""
+
+#: patterns/event-05.php:53
+msgctxt "Social link label"
+msgid "Follow our event on Threads"
+msgstr ""
+
+#: patterns/event-05.php:55
+msgctxt "Social link label"
+msgid "Follow our event on Bluesky"
+msgstr ""
+
+#: patterns/event-05.php:57
+msgctxt "Social link label"
+msgid "Follow our event on Instagram"
+msgstr ""
+
+#: patterns/event-05.php:59
+msgctxt "Social link label"
+msgid "Follow our event on Pinterest"
+msgstr ""
+
+#: patterns/event-05.php:61
+msgctxt "Social link label"
+msgid "Follow our event on TikTok"
+msgstr ""
+
+#: patterns/event-05.php:20
+msgctxt "Cover image alternative text"
+msgid "Event featured image - concert venue with lighting effects"
+msgstr ""
+
+#: patterns/event-05.php:68
+msgctxt "Cover image alternative text"
+msgid "Event details background with artistic lighting"
+msgstr ""
+
+#: patterns/event-05.php:77
+msgctxt "Event name"
+msgid "Summer Festival"
+msgstr ""
+
+#: patterns/event-05.php:82
+msgctxt "Event date"
+msgid "July 15-17, 2025"
+msgstr ""
+
+#: patterns/event-05.php:94
+msgctxt "Featured artist label"
+msgid "Featuring"
+msgstr ""
+
+#: patterns/event-05.php:99
+msgctxt "Featured artist text"
+msgid "Over 20 Artists & Bands"
 msgstr ""
 
 #: patterns/archive-07.php:55

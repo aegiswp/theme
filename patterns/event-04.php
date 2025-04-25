@@ -14,144 +14,81 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x('04. Event Pattern', 'Name of the pattern', 'aegis'); ?>","categories":["<?php echo esc_html_x('events', 'Name of the category', 'aegis'); ?>"],"patternName":"aegis/event-04"},"align":"full","style":{"spacing":{"padding":{"right":"0","left":"0","top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}},"dimensions":{"minHeight":"100vh"}},"layout":{"type":"default"}} -->
-<div class="wp-block-group alignfull" style="min-height:100vh;margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
-    <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"0","left":"0"}}}} -->
-    <div class="wp-block-columns alignwide">
-        <!-- wp:column {"width":"33.33%"} -->
-        <div class="wp-block-column" style="flex-basis:33.33%">
-            <!-- wp:cover {"url":"<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp","alt":"<?php echo esc_html__( 'Abstract illustration featuring the theme\'s logo. Please replace this image with your own.', 'aegis' ); ?>","dimRatio":60,"overlayColor":"foreground","isUserOverlayColor":true,"focalPoint":{"x":0.26,"y":0.37},"minHeight":100,"minHeightUnit":"vh","contentPosition":"bottom center","layout":{"type":"constrained"}} -->
-            <div class="wp-block-cover has-custom-content-position is-position-bottom-center" style="min-height:100vh">
-                <span aria-hidden="true" class="wp-block-cover__background has-foreground-background-color has-background-dim-60 has-background-dim"></span>
-                <img class="wp-block-cover__image-background" alt="<?php echo esc_html__( 'Abstract illustration featuring the theme\'s logo. Please replace this image with your own.', 'aegis' ); ?>" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" style="object-position:26% 37%" data-object-fit="cover" data-object-position="26% 37%" />
-                <div class="wp-block-cover__inner-container">
-                    <!-- wp:group {"style":{"spacing":{"blockGap":"0","padding":{"right":"var:preset|spacing|30"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
-                    <div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--30)">
-                        <!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"fontSize":"tiny"} -->
-                        <p class="has-text-align-left has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">
-                            <?php echo esc_html_x( 'Tagline', 'Enter a brief and descriptive tagline here.', 'aegis' ); ?>
-                        </p>
-                        <!-- /wp:paragraph -->
+<!-- wp:group {"metadata":{"name":"04. Event Pattern","categories":["events"],"patternName":"aegis/event-04"},"align":"full","style":{"spacing":{"padding":{"right":"0","left":"0","top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}},"dimensions":{"minHeight":"100vh"}},"layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull" style="min-height:100vh;margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0"><!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"0","left":"0"}}}} -->
+<div class="wp-block-columns alignwide"><!-- wp:column {"width":"33.33%","style":{"spacing":{"padding":{"right":"0","left":"0"},"blockGap":"0"}}} -->
+<div class="wp-block-column" style="padding-right:0;padding-left:0;flex-basis:33.33%"><!-- wp:cover {"url":"https://aegis-rc1.local/wp-content/themes/aegis/assets/images/thumb_1200x1920_dark.webp","alt":"Abstract illustration featuring the theme\u0026#039;s logo. Please replace this image with your own.","dimRatio":70,"overlayColor":"contrast","isUserOverlayColor":true,"focalPoint":{"x":0.5,"y":0.5},"minHeight":100,"minHeightUnit":"vh","contentPosition":"bottom center","style":{"spacing":{"padding":{"right":"var:preset|spacing|20","left":"var:preset|spacing|20","top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-cover has-custom-content-position is-position-bottom-center" style="padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--20);min-height:100vh"><img class="wp-block-cover__image-background" alt="Abstract illustration featuring the theme&#039;s logo. Please replace this image with your own." src="https://aegis-rc1.local/wp-content/themes/aegis/assets/images/thumb_1200x1920_dark.webp" style="object-position:50% 50%" data-object-fit="cover" data-object-position="50% 50%"/><span aria-hidden="true" class="wp-block-cover__background has-contrast-background-color has-background-dim-70 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"style":{"spacing":{"blockGap":"0","padding":{"right":"var:preset|spacing|30"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--30)"><!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"500"}},"fontSize":"small"} -->
+<p class="has-text-align-left has-small-font-size" style="font-style:normal;font-weight:500;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('Upcoming Events', 'Section tagline for events', 'aegis'); ?></p>
+<!-- /wp:paragraph -->
 
-                        <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"right":"0px","left":"0px","top":"0px","bottom":"0px"},"padding":{"top":"0","bottom":"0"}},"typography":{"textTransform":"none"}},"fontSize":"gigantic"} -->
-                        <h3 class="wp-block-heading has-gigantic-font-size" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0;padding-bottom:0;text-transform:none">
-                            <?php echo esc_html_x( 'Heading', 'Enter a compelling headline for this section.', 'aegis' ); ?>
-                        </h3>
-                        <!-- /wp:heading -->
+<!-- wp:heading {"level":3,"style":{"typography":{"textTransform":"uppercase"},"spacing":{"margin":{"top":"0","bottom":"0","left":"0","right":"0"}}},"fontSize":"xx-large"} -->
+<h3 class="wp-block-heading has-xx-large-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase"><?php echo esc_html_x('Event', 'Section heading for events', 'aegis'); ?></h3>
+<!-- /wp:heading -->
 
-                        <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0"}}}} -->
-                        <p style="margin-top:0">
-                            <?php echo esc_html_x('Provide a concise description, up to 160 characters, summarizing the key of a specific event, or events.', 'Replace with a description of the section.', 'aegis'); ?>
-                        </p>
-                        <!-- /wp:paragraph -->
-                    </div>
-                    <!-- /wp:group -->
+<!-- wp:paragraph {"align":"left","className":"has-text-align-center","style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"0"}}}} -->
+<p class="has-text-align-left has-text-align-center" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:0"><?php echo esc_html__('Discover our upcoming events designed to connect, inspire, and engage our community. Stay tuned for exciting experiences and opportunities to participate.', 'aegis'); ?></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
 
-                    <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}}} -->
-                    <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50)">
-                        <!-- wp:button {"className":"is-style-outline-shadow"} -->
-                        <div class="wp-block-button is-style-outline-shadow"><a class="wp-block-button__link wp-element-button">
-                            <?php echo esc_html_x( 'Call to Action', 'Call-to-action button text', 'aegis' ); ?></a>
-                        </div>
-                        <!-- /wp:button -->
-                    </div>
-                    <!-- /wp:buttons -->
-                </div>
-            </div>
-            <!-- /wp:cover -->
-        </div>
-        <!-- /wp:column -->
+<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"blockGap":{"top":"var:preset|spacing|20","left":"var:preset|spacing|20"}}}} -->
+<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50)"><!-- wp:button {"backgroundColor":"contrast","className":"is-style-outline","style":{"border":{"radius":"0px"}}} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-contrast-background-color has-background wp-element-button" style="border-radius:0px">
+                            <?php echo esc_html_x('Call to Action', 'Event call-to-action button text', 'aegis'); ?></a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div></div>
+<!-- /wp:cover --></div>
+<!-- /wp:column -->
 
-        <!-- wp:column {"width":"33.33%"} -->
-        <div class="wp-block-column" style="flex-basis:33.33%">
-            <!-- wp:cover {"url":"<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp","alt":"<?php echo esc_html__( 'Abstract illustration featuring the theme\'s logo. Please replace this image with your own.', 'aegis' ); ?>","dimRatio":60,"overlayColor":"foreground","isUserOverlayColor":true,"focalPoint":{"x":0.26,"y":0.37},"minHeight":100,"minHeightUnit":"vh","contentPosition":"bottom center","layout":{"type":"constrained"}} -->
-            <div class="wp-block-cover has-custom-content-position is-position-bottom-center" style="min-height:100vh">
-                <span aria-hidden="true" class="wp-block-cover__background has-foreground-background-color has-background-dim-60 has-background-dim"></span>
-                <img class="wp-block-cover__image-background" alt="<?php echo esc_html__( 'Abstract illustration featuring the theme\'s logo. Please replace this image with your own.', 'aegis' ); ?>" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" style="object-position:26% 37%" data-object-fit="cover" data-object-position="26% 37%" />
-                <div class="wp-block-cover__inner-container">
-                    <!-- wp:group {"style":{"spacing":{"blockGap":"0","padding":{"right":"var:preset|spacing|30"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
-                    <div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--30)">
-                        <!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"fontSize":"tiny"} -->
-                        <p class="has-text-align-left has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">
-                            <?php echo esc_html_x( 'Tagline', 'Enter a brief and descriptive tagline here.', 'aegis' ); ?>
-                        </p>
-                        <!-- /wp:paragraph -->
+<!-- wp:column {"width":"33.33%","style":{"spacing":{"padding":{"right":"0","left":"0"},"blockGap":"0"}}} -->
+<div class="wp-block-column" style="padding-right:0;padding-left:0;flex-basis:33.33%"><!-- wp:cover {"url":"https://aegis-rc1.local/wp-content/themes/aegis/assets/images/thumb_1200x1920_dark.webp","alt":"Abstract illustration featuring the theme\u0026#039;s logo. Please replace this image with your own.","dimRatio":70,"overlayColor":"contrast","isUserOverlayColor":true,"focalPoint":{"x":0.5,"y":0.5},"minHeight":100,"minHeightUnit":"vh","contentPosition":"bottom center","style":{"spacing":{"padding":{"right":"var:preset|spacing|20","left":"var:preset|spacing|20","top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-cover has-custom-content-position is-position-bottom-center" style="padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--20);min-height:100vh"><img class="wp-block-cover__image-background" alt="Abstract illustration featuring the theme&#039;s logo. Please replace this image with your own." src="https://aegis-rc1.local/wp-content/themes/aegis/assets/images/thumb_1200x1920_dark.webp" style="object-position:50% 50%" data-object-fit="cover" data-object-position="50% 50%"/><span aria-hidden="true" class="wp-block-cover__background has-contrast-background-color has-background-dim-70 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"style":{"spacing":{"blockGap":"0","padding":{"right":"var:preset|spacing|30"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--30)"><!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"500"}},"fontSize":"small"} -->
+<p class="has-text-align-left has-small-font-size" style="font-style:normal;font-weight:500;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('Upcoming Events', 'Section tagline for events', 'aegis'); ?></p>
+<!-- /wp:paragraph -->
 
-                        <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"right":"0px","left":"0px","top":"0px","bottom":"0px"},"padding":{"top":"0","bottom":"0"}},"typography":{"textTransform":"none"}},"fontSize":"gigantic"} -->
-                        <h3 class="wp-block-heading has-gigantic-font-size" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0;padding-bottom:0;text-transform:none">
-                            <?php echo esc_html_x( 'Heading', 'Enter a compelling headline for this section.', 'aegis' ); ?>
-                        </h3>
-                        <!-- /wp:heading -->
+<!-- wp:heading {"level":3,"style":{"typography":{"textTransform":"uppercase"},"spacing":{"margin":{"top":"0","bottom":"0","left":"0","right":"0"}}},"fontSize":"xx-large"} -->
+<h3 class="wp-block-heading has-xx-large-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase"><?php echo esc_html_x('Event', 'Section heading for events', 'aegis'); ?></h3>
+<!-- /wp:heading -->
 
-                        <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0"}}}} -->
-                        <p style="margin-top:0">
-                            <?php echo esc_html_x('Provide a concise description, up to 160 characters, summarizing the key of a specific event, or events.', 'Replace with a description of the section.', 'aegis'); ?>
-                        </p>
-                        <!-- /wp:paragraph -->
-                    </div>
-                    <!-- /wp:group -->
+<!-- wp:paragraph {"align":"left","className":"has-text-align-center","style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"0"}}}} -->
+<p class="has-text-align-left has-text-align-center" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:0"><?php echo esc_html__('Discover our upcoming events designed to connect, inspire, and engage our community. Stay tuned for exciting experiences and opportunities to participate.', 'aegis'); ?></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
 
-                    <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}}} -->
-                    <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50)">
-                        <!-- wp:button {"className":"is-style-outline-shadow"} -->
-                        <div class="wp-block-button is-style-outline-shadow"><a class="wp-block-button__link wp-element-button">
-                            <?php echo esc_html_x( 'Call to Action', 'Call-to-action button text', 'aegis' ); ?></a>
-                        </div>
-                        <!-- /wp:button -->
-                    </div>
-                    <!-- /wp:buttons -->
-                </div>
-            </div>
-            <!-- /wp:cover -->
-        </div>
-        <!-- /wp:column -->
+<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"blockGap":{"top":"var:preset|spacing|20","left":"var:preset|spacing|20"}}}} -->
+<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50)"><!-- wp:button {"backgroundColor":"contrast","className":"is-style-outline","style":{"border":{"radius":"0px"}}} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-contrast-background-color has-background wp-element-button" style="border-radius:0px">
+                            <?php echo esc_html_x('Call to Action', 'Event call-to-action button text', 'aegis'); ?></a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div></div>
+<!-- /wp:cover --></div>
+<!-- /wp:column -->
 
-        <!-- wp:column {"width":"33.33%"} -->
-        <div class="wp-block-column" style="flex-basis:33.33%">
-            <!-- wp:cover {"url":"<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp","alt":"<?php echo esc_html__( 'Abstract illustration featuring the theme\'s logo. Please replace this image with your own.', 'aegis' ); ?>","dimRatio":60,"overlayColor":"foreground","isUserOverlayColor":true,"focalPoint":{"x":0.26,"y":0.37},"minHeight":100,"minHeightUnit":"vh","contentPosition":"bottom center","layout":{"type":"constrained"}} -->
-            <div class="wp-block-cover has-custom-content-position is-position-bottom-center" style="min-height:100vh">
-                <span aria-hidden="true" class="wp-block-cover__background has-foreground-background-color has-background-dim-60 has-background-dim"></span>
-                <img class="wp-block-cover__image-background" alt="<?php echo esc_html__( 'Abstract illustration featuring the theme\'s logo. Please replace this image with your own.', 'aegis' ); ?>" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/thumb_1200x1920_dark.webp" style="object-position:26% 37%" data-object-fit="cover" data-object-position="26% 37%" />
-                <div class="wp-block-cover__inner-container">
-                    <!-- wp:group {"style":{"spacing":{"blockGap":"0","padding":{"right":"var:preset|spacing|30"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
-                    <div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--30)">
-                        <!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"400"}},"fontSize":"tiny"} -->
-                        <p class="has-text-align-left has-tiny-font-size" style="font-style:normal;font-weight:400;letter-spacing:3px;text-transform:uppercase">
-                            <?php echo esc_html_x( 'Tagline', 'Enter a brief and descriptive tagline here.', 'aegis' ); ?>
-                        </p>
-                        <!-- /wp:paragraph -->
+<!-- wp:column {"width":"33.33%","style":{"spacing":{"padding":{"right":"0","left":"0"},"blockGap":"0"}}} -->
+<div class="wp-block-column" style="padding-right:0;padding-left:0;flex-basis:33.33%"><!-- wp:cover {"url":"https://aegis-rc1.local/wp-content/themes/aegis/assets/images/thumb_1200x1920_dark.webp","alt":"Abstract illustration featuring the theme\u0026#039;s logo. Please replace this image with your own.","dimRatio":70,"overlayColor":"contrast","isUserOverlayColor":true,"focalPoint":{"x":0.5,"y":0.5},"minHeight":100,"minHeightUnit":"vh","contentPosition":"bottom center","style":{"spacing":{"padding":{"right":"var:preset|spacing|20","left":"var:preset|spacing|20","top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-cover has-custom-content-position is-position-bottom-center" style="padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--20);min-height:100vh"><img class="wp-block-cover__image-background" alt="Abstract illustration featuring the theme&#039;s logo. Please replace this image with your own." src="https://aegis-rc1.local/wp-content/themes/aegis/assets/images/thumb_1200x1920_dark.webp" style="object-position:50% 50%" data-object-fit="cover" data-object-position="50% 50%"/><span aria-hidden="true" class="wp-block-cover__background has-contrast-background-color has-background-dim-70 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"style":{"spacing":{"blockGap":"0","padding":{"right":"var:preset|spacing|30"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--30)"><!-- wp:paragraph {"align":"left","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px","fontStyle":"normal","fontWeight":"500"}},"fontSize":"small"} -->
+<p class="has-text-align-left has-small-font-size" style="font-style:normal;font-weight:500;letter-spacing:3px;text-transform:uppercase"><?php echo esc_html_x('Upcoming Events', 'Section tagline for events', 'aegis'); ?></p>
+<!-- /wp:paragraph -->
 
-                        <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"right":"0px","left":"0px","top":"0px","bottom":"0px"},"padding":{"top":"0","bottom":"0"}},"typography":{"textTransform":"none"}},"fontSize":"gigantic"} -->
-                        <h3 class="wp-block-heading has-gigantic-font-size" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0;padding-bottom:0;text-transform:none">
-                            <?php echo esc_html_x( 'Heading', 'Enter a compelling headline for this section.', 'aegis' ); ?>
-                        </h3>
-                        <!-- /wp:heading -->
+<!-- wp:heading {"level":3,"style":{"typography":{"textTransform":"uppercase"},"spacing":{"margin":{"top":"0","bottom":"0","left":"0","right":"0"}}},"fontSize":"xx-large"} -->
+<h3 class="wp-block-heading has-xx-large-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-transform:uppercase"><?php echo esc_html_x('Event', 'Section heading for events', 'aegis'); ?></h3>
+<!-- /wp:heading -->
 
-                        <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0"}}}} -->
-                        <p style="margin-top:0">
-                            <?php echo esc_html_x('Provide a concise description, up to 160 characters, summarizing the key of a specific event, or events.', 'Replace with a description of the section.', 'aegis'); ?>
-                        </p>
-                        <!-- /wp:paragraph -->
-                    </div>
-                    <!-- /wp:group -->
+<!-- wp:paragraph {"align":"left","className":"has-text-align-center","style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"0"}}}} -->
+<p class="has-text-align-left has-text-align-center" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:0"><?php echo esc_html__('Discover our upcoming events designed to connect, inspire, and engage our community. Stay tuned for exciting experiences and opportunities to participate.', 'aegis'); ?></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
 
-                    <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}}} -->
-                    <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50)">
-                        <!-- wp:button {"className":"is-style-outline-shadow"} -->
-                        <div class="wp-block-button is-style-outline-shadow">
-                            <a class="wp-block-button__link wp-element-button">
-                                <?php echo esc_html_x( 'Call to Action', 'Call-to-action button text', 'aegis' ); ?>
-                            </a>
-                        </div>
-                        <!-- /wp:button -->
-                    </div>
-                    <!-- /wp:buttons -->
-                </div>
-            </div>
-            <!-- /wp:cover -->
-        </div>
-        <!-- /wp:column -->
-    </div>
-    <!-- /wp:columns -->
-</div>
+<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"blockGap":{"top":"var:preset|spacing|20","left":"var:preset|spacing|20"}}}} -->
+<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50)"><!-- wp:button {"backgroundColor":"contrast","className":"is-style-outline","style":{"border":{"radius":"0px"}}} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-contrast-background-color has-background wp-element-button" style="border-radius:0px">
+                            <?php echo esc_html_x('Call to Action', 'Event call-to-action button text', 'aegis'); ?></a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div></div>
+<!-- /wp:cover --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
 <!-- /wp:group -->
