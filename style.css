@@ -47,20 +47,20 @@ Aegis is distributed under the terms of the GNU GPL.
  * - Opera
  */
 @keyframes fadein {
-    from {
+	from {
 		opacity: 0;
 	}
-    to {
+	to {
 		opacity: 1;
 	}
 }
 
 body {
-    -webkit-animation: fadein 0.7s; /* Safari & Chrome */
-    -moz-animation: fadein 0.7s;    /* Firefox */
-    -ms-animation: fadein 0.7s;     /* IE */
-    -o-animation: fadein 0.7s;      /* Opera */
-    animation: fadein 0.7s;         /* Standard */
+	-webkit-animation: fadein 0.7s; /* Safari & Chrome */
+	-moz-animation: fadein 0.7s;    /* Firefox */
+	-ms-animation: fadein 0.7s;     /* IE */
+	-o-animation: fadein 0.7s;      /* Opera */
+	animation: fadein 0.7s;         /* Standard */
 }
 
 /*
@@ -97,16 +97,57 @@ a {
 		transparent calc(100% - var(--wp--custom--underline-thickness)),
 		currentColor var(--wp--custom--underline-thickness)
 	);
-    background-size: 0% 100%;
-    background-repeat: no-repeat;
-    background-position: bottom left;
-    transition: background-size 0.4s ease;
-    text-decoration: none;
+	background-size: 0% 100%;
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	transition: background-size 0.4s ease;
+	text-decoration: none;
 }
 
 a:hover,
 a:focus {
-    background-size: 100% 100%; /* Expands the underline on hover/focus */
+	background-size: 100% 100%; /* Expands the underline on hover/focus */
+}
+
+/* ------------------------------------------- */
+/* Core Calendar Block
+/* ------------------------------------------- */
+/*
+ * Uses global presets for colors and font sizes defined in theme.json.
+ * Ensure consistency across the site by leveraging CSS variables.
+ */
+.wp-block-calendar caption {
+	color: var(--wp--preset--color--background);
+	background-color: var(--wp--preset--color--foreground);
+	font-size: var(--wp--preset--font-size--medium);
+	font-weight: 500; /* Font weight not handled by theme.json */
+}
+
+.wp-block-calendar {
+	color: var(--wp--preset--color--foreground);
+	background-color: var(--wp--preset--color--background);
+}
+
+.wp-block-calendar table th {
+	background-color: var(--wp--preset--color--foreground);
+	color: var(--wp--preset--color--background);
+}
+
+.wp-block-calendar table td {
+	font-size: var(--wp--preset--font-size--small);
+}
+
+
+
+.wp-block-code {
+	background-color: var(--wp--preset--color--foreground);
+	color: var(--wp--preset--color--background);
+	font-size: var(--wp--preset--font-size--small);
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.6;
+	border-radius: 0;
+	padding: calc(var(--wp--preset--spacing--30) + 0.75rem);
 }
 
 /* ------------------------------------------- */
@@ -164,31 +205,31 @@ a:focus {
 /* ------------------------------------------- */
 .page-content p a,
 .page-content ul li a {
-  background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: bottom left;
-  padding-bottom: 3px;
-  text-decoration: none;
-  transition: all 0.4s ease,
-  text-decoration 0s ease;
+	background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	padding-bottom: 3px;
+	text-decoration: none;
+	transition: all 0.4s ease,
+		text-decoration 0s ease;
 }
 
 .page-content p a:hover,
 .page-content p a:focus,
 .page-content ul li a:hover,
 .page-content ul li a:focus {
-  background-size: 0;
+	background-size: 0;
 }
 
 .page-content ul li.wp-block-navigation-item a {
-  background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
-  background-size: 0;
-  background-repeat: no-repeat;
-  background-position: bottom left;
-  padding-bottom: 3px;
-  text-decoration: none;
-  transition: background-size 0.4s ease;
+	background-image: linear-gradient(transparent calc(100% - 2px), currentColor 5px);
+	background-size: 0;
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	padding-bottom: 3px;
+	text-decoration: none;
+	transition: background-size 0.4s ease;
   text-decoration 0s ease;
 }
 
@@ -220,7 +261,7 @@ a.custom-logo-link,
 a.wp-block-social-link-anchor,
 .wc-block-grid__products .wc-block-grid__product-image a,
 .wp-block-post-excerpt__more-link {
-    background-image: none !important;
+	background-image: none !important;
 }
 
 /* ------------------------------------------- */
@@ -229,79 +270,79 @@ a.wp-block-social-link-anchor,
 
 /* Desktop view (1024px to 1920) */
 @media (min-width: 1024px) and (max-width: 1279px) {
-    .is-style-show-on-desktop {
-        display: block;
-    }
-    .is-style-hide-on-desktop {
-        display: none;
-    }
+	.is-style-show-on-desktop {
+		display: block;
+	}
+	.is-style-hide-on-desktop {
+		display: none;
+	}
 }
 
 @media (min-width: 1280px) and (max-width: 1599px) {
-    .is-style-show-on-desktop {
-        display: block;
-    }
-    .is-style-hide-on-desktop {
-        display: none;
-    }
+	.is-style-show-on-desktop {
+		display: block;
+	}
+	.is-style-hide-on-desktop {
+		display: none;
+	}
 }
 
 @media (min-width: 1600px) and (max-width: 1919px) {
-    .is-style-show-on-desktop {
-        display: block;
-    }
-    .is-style-hide-on-desktop {
-        display: none;
-    }
+	.is-style-show-on-desktop {
+		display: block;
+	}
+	.is-style-hide-on-desktop {
+		display: none;
+	}
 }
 
 @media (min-width: 1920px) {
-    .is-style-show-on-desktop {
-        display: block;
-    }
-    .is-style-hide-on-desktop {
-        display: none;
-    }
+	.is-style-show-on-desktop {
+		display: block;
+	}
+	.is-style-hide-on-desktop {
+		display: none;
+	}
 }
 
 /* Tablet view (768px to 1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
-    .is-style-show-on-tablet {
-        display: block;
-    }
-    .is-style-hide-on-tablet {
-        display: none;
-    }
+	.is-style-show-on-tablet {
+		display: block;
+	}
+	.is-style-hide-on-tablet {
+		display: none;
+	}
 }
 
 /* Mobile view (up to 599px) */
 @media (max-width: 599px) {
-    .is-style-show-on-mobile {
-        display: block;
-    }
-    .is-style-hide-on-mobile {
-        display: none;
-    }
+	.is-style-show-on-mobile {
+		display: block;
+	}
+	.is-style-hide-on-mobile {
+		display: none;
+	}
 }
 
 /* Tablets in portrait mode (600px to 899px) */
 @media (min-width: 600px) and (max-width: 899px) {
-    .is-style-show-on-tablet-portrait {
-        display: block;
-    }
-    .is-style-hide-on-tablet-portrait {
-        display: none;
-    }
+	.is-style-show-on-tablet-portrait {
+		display: block;
+	}
+	.is-style-hide-on-tablet-portrait {
+		display: none;
+	}
 }
 
 /* Tablets in landscape mode (900px to 1023px) */
 @media (min-width: 900px) and (max-width: 1023px) {
-    .is-style-show-on-tablet-landscape {
-        display: block;
-    }
-    .is-style-hide-on-tablet-landscape {
-        display: none;
-    }
+	.is-style-show-on-tablet-landscape {
+		display: block;
+	}
+	.is-style-hide-on-tablet-landscape {
+		display: none;
+	}
 }
 
 /* ------------------------------------------- */
@@ -495,7 +536,7 @@ textarea {
 		font-size: 14px !important;
 	}
 
-    header .wc-block-mini-cart {
+	header .wc-block-mini-cart {
 		font-size: 10px !important;
 	}
 
@@ -599,7 +640,7 @@ textarea {
 		padding: 0;
 	}
 
-/* used to be additional */
+	/* used to be additional */
 	.header-hero.has-min-height {
 		min-height: 550px !important;
 	}/*remove*/
@@ -2309,42 +2350,42 @@ button.wp-block-button__link.wc-block-filter-submit-button.wc-block-components-f
 /* Cross-browser fade-in animation */
 /* Mozilla Firefox fade-in animation */
 @-moz-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 /* WebKit fade-in animation */
 @-webkit-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 /* Microsoft Edge fade-in animation */
 @-ms-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 /* Opera fade-in animation */
 @-o-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 /* ------------------------------------------- */
@@ -2352,10 +2393,10 @@ button.wp-block-button__link.wc-block-filter-submit-button.wc-block-components-f
 /* ------------------------------------------- */
 /* Fade-in Animation */
 @keyframes fadein {
-    from {
+	from {
 		opacity: 0;
 	}
-    to {
+	to {
 		opacity: 1;
 	}
 }
@@ -2384,10 +2425,10 @@ button.wp-block-button__link.wc-block-filter-submit-button.wc-block-components-f
 
 @media only screen and (max-width: 961px) {
 
-    /* Hide on Mobile Class */
-    .is-hidden-on-mobile {
-        display: none !important;
-    }
+	/* Hide on Mobile Class */
+	.is-hidden-on-mobile {
+		display: none !important;
+	}
 }
 /* ------------------------------------------- */
 /* End Beta 2

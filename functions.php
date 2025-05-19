@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file adds actions, filters, and functions to the theme.
  *
@@ -30,14 +31,15 @@
  * @return void
  */
 
- if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
 // Define VERSION constant for caching purposes
-define( 'AEGIS_VERSION', wp_get_theme()->get( 'Version' ) );
+define('AEGIS_VERSION', wp_get_theme()->get('Version'));
 
-function aegis_theme_support() {
+function aegis_theme_support()
+{
 
     // Enqueue Editor styles.
     // Adds a stylesheet for the block editor to match the theme's frontend styles.
@@ -51,9 +53,9 @@ function aegis_theme_support() {
 add_action('after_setup_theme', 'aegis_theme_support');
 
 // Disable the default WordPress block patterns to only show theme patterns.
-add_action( 'after_setup_theme', function() {
-    remove_theme_support( 'core-block-patterns' );
-} );
+add_action('after_setup_theme', function () {
+    remove_theme_support('core-block-patterns');
+});
 
 /**
  * Enqueue theme styles and scripts.
@@ -68,19 +70,20 @@ add_action( 'after_setup_theme', function() {
  * @since 1.0.0
  * @return void
  */
-function aegis_theme_styles() {
+function aegis_theme_styles()
+{
 
-	// Enqueue the main stylesheet for the theme.
-	// This function adds the main stylesheet (`style.css`) to the theme, ensuring it is loaded on the frontend.
-	wp_enqueue_style('aegis-global-style', get_template_directory_uri() . '/style.css', array(), wp_get_theme()->get('Version'));
+    // Enqueue the main stylesheet for the theme.
+    // This function adds the main stylesheet (`style.css`) to the theme, ensuring it is loaded on the frontend.
+    wp_enqueue_style('aegis-global-style', get_template_directory_uri() . '/style.css', array(), wp_get_theme()->get('Version'));
 
-	// Enqueue the global script.
-	// This function adds the global JavaScript file (`index.js`) to the theme, ensuring it is loaded on the frontend.
-	wp_enqueue_script('aegis-global-script', get_template_directory_uri() . '/assets/js/index.js', array(), wp_get_theme()->get('Version'), true);
+    // Enqueue the global script.
+    // This function adds the global JavaScript file (`index.js`) to the theme, ensuring it is loaded on the frontend.
+    wp_enqueue_script('aegis-global-script', get_template_directory_uri() . '/assets/js/index.js', array(), wp_get_theme()->get('Version'), true);
 
-	// Enqueue the animations script.
-	// This function adds the animations JavaScript file (`animations.js`) to the theme, ensuring it is loaded on the frontend.
-	wp_enqueue_script('aegis-animations-script', get_template_directory_uri() . '/assets/js/animations.js', array(), wp_get_theme()->get('Version'), true);
+    // Enqueue the animations script.
+    // This function adds the animations JavaScript file (`animations.js`) to the theme, ensuring it is loaded on the frontend.
+    wp_enqueue_script('aegis-animations-script', get_template_directory_uri() . '/assets/js/animations.js', array(), wp_get_theme()->get('Version'), true);
 }
 
 add_action('wp_enqueue_scripts', 'aegis_theme_styles');
@@ -99,100 +102,101 @@ add_action('wp_enqueue_scripts', 'aegis_theme_styles');
  * @since 1.0.0
  * @return void
  */
-function aegis_register_block_categories() {
+function aegis_register_block_categories()
+{
 
-        // Registers: About Pattern Category
-        register_block_pattern_category(
-            'about',
-            array(
-            'label'       => _x( 'About', 'Block pattern category', 'aegis' ),
-                'description' => __( 'A collection of About Patterns.', 'aegis' ),
-            )
-        );
+    // Registers: About Pattern Category
+    register_block_pattern_category(
+        'about',
+        array(
+            'label'       => _x('About', 'Block pattern category', 'aegis'),
+            'description' => __('A collection of About Patterns.', 'aegis'),
+        )
+    );
 
-        // Registers: Archives Pattern Category
-        register_block_pattern_category(
-            'archives',
-            array(
-            'label'       => _x( 'Archives', 'Block pattern category', 'aegis' ),
-                'description' => __( 'A collection of Archive Patterns.', 'aegis' ),
-            )
-        );
+    // Registers: Archives Pattern Category
+    register_block_pattern_category(
+        'archives',
+        array(
+            'label'       => _x('Archives', 'Block pattern category', 'aegis'),
+            'description' => __('A collection of Archive Patterns.', 'aegis'),
+        )
+    );
 
-        // Registers: Audio Pattern Category
-        register_block_pattern_category(
-            'audio',
-            array(
-            'label'       => _x( 'Audio', 'Block pattern category', 'aegis' ),
-                'description' => __( 'A collection of Audio Patterns.', 'aegis' ),
-            )
-        );
+    // Registers: Audio Pattern Category
+    register_block_pattern_category(
+        'audio',
+        array(
+            'label'       => _x('Audio', 'Block pattern category', 'aegis'),
+            'description' => __('A collection of Audio Patterns.', 'aegis'),
+        )
+    );
 
-        // Registers: Blog Pattern Category
-        register_block_pattern_category(
-            'blog',
-            array(
-            'label'       => _x( 'Blog', 'Block pattern category', 'aegis' ),
-                'description' => __( 'A collection of Blog Patterns.', 'aegis' ),
-            )
-        );
+    // Registers: Blog Pattern Category
+    register_block_pattern_category(
+        'blog',
+        array(
+            'label'       => _x('Blog', 'Block pattern category', 'aegis'),
+            'description' => __('A collection of Blog Patterns.', 'aegis'),
+        )
+    );
 
-        // Registers: eCommerce Pattern Category
-        register_block_pattern_category(
-            'ecommerce',
-            array(
-            'label'       => _x( 'eCommerce', 'Block pattern category', 'aegis' ),
-                'description' => __( 'A collection of eCommerce Patterns.', 'aegis' ),
-            )
-        );
+    // Registers: eCommerce Pattern Category
+    register_block_pattern_category(
+        'ecommerce',
+        array(
+            'label'       => _x('eCommerce', 'Block pattern category', 'aegis'),
+            'description' => __('A collection of eCommerce Patterns.', 'aegis'),
+        )
+    );
 
-        // Registers: Events Pattern Category
-        register_block_pattern_category(
-            'events',
-            array(
-            'label'       => _x( 'Events', 'Block pattern category', 'aegis' ),
-                'description' => __( 'A collection of Events Patterns.', 'aegis' ),
-            )
-        );
+    // Registers: Events Pattern Category
+    register_block_pattern_category(
+        'events',
+        array(
+            'label'       => _x('Events', 'Block pattern category', 'aegis'),
+            'description' => __('A collection of Events Patterns.', 'aegis'),
+        )
+    );
 
-        // Registers: FAQ Pattern Category
-        register_block_pattern_category(
-            'faq',
-            array(
-            'label'       => _x( 'FAQ', 'Block pattern category', 'aegis' ),
-                'description' => __( 'A collection of FAQ Patterns.', 'aegis' ),
-            )
-        );
+    // Registers: FAQ Pattern Category
+    register_block_pattern_category(
+        'faq',
+        array(
+            'label'       => _x('FAQ', 'Block pattern category', 'aegis'),
+            'description' => __('A collection of FAQ Patterns.', 'aegis'),
+        )
+    );
 
-        // Registers: Hero Pattern Category
-        register_block_pattern_category(
-            'hero',
-            array(
-            'label'       => _x( 'Hero', 'Block pattern category', 'aegis' ),
-                'description' => __( 'A collection of Hero Patterns.', 'aegis' ),
-            )
-        );
+    // Registers: Hero Pattern Category
+    register_block_pattern_category(
+        'hero',
+        array(
+            'label'       => _x('Hero', 'Block pattern category', 'aegis'),
+            'description' => __('A collection of Hero Patterns.', 'aegis'),
+        )
+    );
 
-        // Registers: Pricing Category
-        register_block_pattern_category(
-            'pricing',
-            array(
-            'label'       => _x( 'Pricing', 'Block pattern category', 'aegis' ),
-                'description' => __( 'A collection of Pricing Patterns.', 'aegis' ),
-            )
-        );
+    // Registers: Pricing Category
+    register_block_pattern_category(
+        'pricing',
+        array(
+            'label'       => _x('Pricing', 'Block pattern category', 'aegis'),
+            'description' => __('A collection of Pricing Patterns.', 'aegis'),
+        )
+    );
 
-        // Registers: Video Category
-        register_block_pattern_category(
-            'video',
-            array(
-                'label'       => _x( 'Video', 'Block pattern category', 'aegis' ),
-                'description' => __( 'A collection of Video Patterns.', 'aegis' ),
-            )
-        );
-    }
+    // Registers: Video Category
+    register_block_pattern_category(
+        'video',
+        array(
+            'label'       => _x('Video', 'Block pattern category', 'aegis'),
+            'description' => __('A collection of Video Patterns.', 'aegis'),
+        )
+    );
+}
 
-add_action( 'init', 'aegis_register_block_categories' );
+add_action('init', 'aegis_register_block_categories');
 
 /**
  * Register Custom Block Styles.
@@ -203,124 +207,125 @@ add_action( 'init', 'aegis_register_block_categories' );
  * @since 1.0.0
  * @return void
  */
-function aegis_register_block_styles() {
+function aegis_register_block_styles()
+{
     $block_styles = array(
         'core/button' => array(
             array(
                 'name'  => '3d-push',
-                'label' => esc_html__( '3D Push', 'aegis' ),
+                'label' => esc_html__('3D Push', 'aegis'),
             ),
             array(
                 'name'  => 'bubble-pop',
-                'label' => esc_html__( 'Bubble Pop', 'aegis' ),
+                'label' => esc_html__('Bubble Pop', 'aegis'),
             ),
             array(
                 'name'  => 'center-fill',
-                'label' => esc_html__( 'Center Fill', 'aegis' ),
+                'label' => esc_html__('Center Fill', 'aegis'),
             ),
             array(
                 'name'  => 'color-wipe',
-                'label' => esc_html__( 'Color Wipe', 'aegis' ),
+                'label' => esc_html__('Color Wipe', 'aegis'),
             ),
             array(
                 'name'  => 'dense-shadow',
-                'label' => esc_html__( 'Dense Shadow', 'aegis' ),
+                'label' => esc_html__('Dense Shadow', 'aegis'),
             ),
             array(
                 'name'  => 'outline-border',
-                'label' => esc_html__( 'Outline Border', 'aegis' ),
+                'label' => esc_html__('Outline Border', 'aegis'),
             ),
             array(
                 'name'  => 'outline-shadow',
-                'label' => esc_html__( 'Outline Shadow', 'aegis' ),
+                'label' => esc_html__('Outline Shadow', 'aegis'),
             ),
             array(
                 'name'  => 'soft-fade',
-                'label' => esc_html__( 'Soft Fade', 'aegis' ),
+                'label' => esc_html__('Soft Fade', 'aegis'),
             ),
             array(
                 'name'  => 'split-reveal',
-                'label' => esc_html__( 'Split Reveal', 'aegis' ),
+                'label' => esc_html__('Split Reveal', 'aegis'),
             ),
             array(
                 'name'  => 'underline-border',
-                'label' => esc_html__( 'Underline Border', 'aegis' ),
+                'label' => esc_html__('Underline Border', 'aegis'),
             ),
         ),
         'core/image' => array(
             array(
                 'name'  => 'color-overlay',
-                'label' => esc_html__( 'Color Overlay', 'aegis' ),
+                'label' => esc_html__('Color Overlay', 'aegis'),
             ),
             array(
                 'name'  => 'ease-out',
-                'label' => esc_html__( 'Ease Out', 'aegis' ),
+                'label' => esc_html__('Ease Out', 'aegis'),
             ),
             array(
                 'name'  => 'fade-scale',
-                'label' => esc_html__( 'Fade Scale', 'aegis' ),
+                'label' => esc_html__('Fade Scale', 'aegis'),
             ),
             array(
                 'name'  => 'flip-hover',
-                'label' => esc_html__( 'Flip Hover', 'aegis' ),
+                'label' => esc_html__('Flip Hover', 'aegis'),
             ),
             array(
                 'name'  => 'grayscale-hover',
-                'label' => esc_html__( 'Grayscale Hover', 'aegis' ),
+                'label' => esc_html__('Grayscale Hover', 'aegis'),
             ),
             array(
                 'name'  => 'reveal-hover',
-                'label' => esc_html__( 'Reveal Hover', 'aegis' ),
+                'label' => esc_html__('Reveal Hover', 'aegis'),
             ),
             array(
                 'name'  => 'rotate-hover',
-                'label' => esc_html__( 'Rotate Hover', 'aegis' ),
+                'label' => esc_html__('Rotate Hover', 'aegis'),
             ),
             array(
                 'name'  => 'shine-hover',
-                'label' => esc_html__( 'Shine Hover', 'aegis' ),
+                'label' => esc_html__('Shine Hover', 'aegis'),
             ),
             array(
                 'name'  => 'split-reveal',
-                'label' => esc_html__( 'Split Reveal', 'aegis' ),
+                'label' => esc_html__('Split Reveal', 'aegis'),
             ),
             array(
                 'name'  => 'zoom-hover',
-                'label' => esc_html__( 'Zoom Hover', 'aegis' ),
+                'label' => esc_html__('Zoom Hover', 'aegis'),
             ),
         ),
         'core/heading' => array(
             array(
                 'name'  => 'hide-underline',
-                'label' => esc_html__( 'Hide Underline', 'aegis' ),
+                'label' => esc_html__('Hide Underline', 'aegis'),
             ),
         ),
         'core/video' => array(
             array(
                 'name'  => 'dark-shadow',
-                'label' => esc_html__( 'Dark Shadow', 'aegis' ),
+                'label' => esc_html__('Dark Shadow', 'aegis'),
             ),
         ),
         'core/details' => array(
             array(
                 'name'  => 'block',
-                'label' => esc_html__( 'Block Style', 'aegis' ),
+                'label' => esc_html__('Block Style', 'aegis'),
             ),
         ),
         'core/navigation' => array(
             array(
                 'name'  => 'block',
-                'label' => esc_html__( 'Block Style', 'aegis' ),
+                'label' => esc_html__('Block Style', 'aegis'),
             ),
             array(
                 'name'  => 'mega-menu',
-                'label' => esc_html__( 'Mega Menu', 'aegis' ),
+                'label' => esc_html__('Mega Menu', 'aegis'),
             ),
         ),
     );
 
-    foreach ( $block_styles as $block_name => $styles ) {
-        foreach ( $styles as $style ) {
+    foreach ($block_styles as $block_name => $styles) {
+        foreach ($styles as $style) {
             register_block_style(
                 $block_name,
                 array(
@@ -332,7 +337,7 @@ function aegis_register_block_styles() {
     }
 }
 
-add_action( 'init', 'aegis_register_block_styles' );
+add_action('init', 'aegis_register_block_styles');
 
 /**
  * Register and enqueue block styles.
@@ -347,10 +352,11 @@ add_action( 'init', 'aegis_register_block_styles' );
  * @since 1.0.0
  * @return void
  */
-function aegis_enqueue_block_styles() {
+function aegis_enqueue_block_styles()
+{
     // Use the theme version for cache busting
-    $theme_version = wp_get_theme()->get( 'Version' );
-    
+    $theme_version = wp_get_theme()->get('Version');
+
     $block_styles = array(
         'button' => array(
             '3d-push',
@@ -391,17 +397,17 @@ function aegis_enqueue_block_styles() {
         )
     );
 
-    foreach ( $block_styles as $block => $styles ) {
-        foreach ( $styles as $style ) {
+    foreach ($block_styles as $block => $styles) {
+        foreach ($styles as $style) {
             $style_handle = "aegis-{$block}-{$style}";
             $style_path = "assets/css/core-{$block}-{$style}.css";
-            
+
             wp_enqueue_block_style(
                 "core/{$block}",
                 array(
                     'handle' => $style_handle,
-                    'src'    => get_parent_theme_file_uri( $style_path ),
-                    'path'   => get_parent_theme_file_path( $style_path ),
+                    'src'    => get_parent_theme_file_uri($style_path),
+                    'path'   => get_parent_theme_file_path($style_path),
                     'ver'    => $theme_version,
                 )
             );
@@ -417,7 +423,8 @@ add_action('init', 'aegis_enqueue_block_styles');
  * @since 1.0.0
  * @return bool True if WooCommerce is activated, false otherwise.
  */
-function aegis_is_woocommerce_activated() {
+function aegis_is_woocommerce_activated()
+{
     return class_exists('WooCommerce');
 }
 
@@ -427,14 +434,15 @@ function aegis_is_woocommerce_activated() {
  * @since 1.0.0
  * @return void
  */
-function aegis_include_woocommerce_support() {
-    if ( aegis_is_woocommerce_activated() ) {
+function aegis_include_woocommerce_support()
+{
+    if (aegis_is_woocommerce_activated()) {
 
         // Add theme support for WooCommerce features
-    add_theme_support( 'woocommerce' );
-    add_theme_support( 'wc-product-gallery-zoom' );
-    add_theme_support( 'wc-product-gallery-lightbox' );
-    add_theme_support( 'wc-product-gallery-slider' );
+        add_theme_support('woocommerce');
+        add_theme_support('wc-product-gallery-zoom');
+        add_theme_support('wc-product-gallery-lightbox');
+        add_theme_support('wc-product-gallery-slider');
 
         // Set WooCommerce image sizes
         add_theme_support('woocommerce', array(
@@ -443,3 +451,11 @@ function aegis_include_woocommerce_support() {
         ));
     }
 }
+
+/**
+ * Enqueue Dashicons for frontend use.
+ */
+function aegis_enqueue_dashicons() {
+    wp_enqueue_style( 'dashicons' );
+}
+add_action( 'wp_enqueue_scripts', 'aegis_enqueue_dashicons' );
