@@ -9,7 +9,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Composer dependencies
-/vendor/
+
 composer.lock
 
 # WordPress uploads and cache (if present)
