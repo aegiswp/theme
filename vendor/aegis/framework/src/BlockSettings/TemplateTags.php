@@ -183,7 +183,7 @@ class TemplateTags implements Renderable {
 	 * @param array $tags    Template tags.
 	 * @param ?int  $post_id Post ID.
 	 *
-	 * @hook  blockify_template_tags
+	 * @hook  aegis_template_tags
 	 *
 	 * @return array
 	 */
@@ -297,7 +297,7 @@ class TemplateTags implements Renderable {
 
 		if ( $post_id ) {
 			$tags['read_time'] = static function () use ( $post_id ): string {
-				$per_minute = apply_filters( 'blockify_words_per_minute', 200 );
+				$per_minute = apply_filters( 'aegis_words_per_minute', 200 );
 				$words      = str_word_count( strip_tags( get_post_field( 'post_content', $post_id ) ) );
 				$minutes    = floor( $words / $per_minute );
 
@@ -347,7 +347,7 @@ class TemplateTags implements Renderable {
 		 *
 		 * @return array
 		 */
-		return apply_filters( 'blockify_template_tags', $tags, $post_id );
+		return apply_filters( 'aegis_template_tags', $tags, $post_id );
 	}
 
 }
