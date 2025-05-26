@@ -169,7 +169,7 @@ class Icon implements Renderable {
 			}
 		}
 
-		$aria_label = $img->getAttribute( 'alt' ) ? $img->getAttribute( 'alt' ) : str_replace( '-', ' ', $name ) . __( ' icon', 'blockify' );
+		$aria_label = $img->getAttribute( 'alt' ) ? $img->getAttribute( 'alt' ) : str_replace( '-', ' ', $name ) . __( ' icon', 'aegis' );
 
 		$span->setAttribute( 'title', $attrs['title'] ?? $aria_label );
 
