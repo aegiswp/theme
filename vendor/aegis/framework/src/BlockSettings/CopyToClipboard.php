@@ -60,8 +60,8 @@ class CopyToClipboard implements Renderable, Scriptable {
 
 		$show_line_numbers = $block['attrs']['showLineNumbers'] ?? false;
 		$content           = trim( html_entity_decode( wp_strip_all_tags( $block['innerHTML'] ) ) );
-		$label             = esc_html__( 'Copy to clipboard', 'blockify' );
-		$copied            = esc_html__( 'Copied!', 'blockify' );
+		$label             = esc_html__( 'Copy to clipboard', 'aegis' );
+		$copied            = esc_html__( 'Copied!', 'aegis' );
 		$svg               = <<<SVG
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" fill="none">
   <path d="M12.9975 10.7499L11.7475 10.7499C10.6429 10.7499 9.74747 11.6453 9.74747 12.7499L9.74747 21.2499C9.74747 22.3544 10.6429 23.2499 11.7475 23.2499L20.2475 23.2499C21.352 23.2499 22.2475 22.3544 22.2475 21.2499L22.2475 12.7499C22.2475 11.6453 21.352 10.7499 20.2475 10.7499L18.9975 10.7499Z"></path>
