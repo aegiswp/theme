@@ -23,6 +23,7 @@ use function wp_add_inline_style;
 use function wp_dequeue_style;
 use function wp_enqueue_style;
 use function wp_register_style;
+use function add_editor_style;
 
 /**
  * Styles class.
