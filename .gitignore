@@ -123,3 +123,4 @@ inc/utility/string.php
 inc/utility/theme.php
 _theme
 vendor/composer/installed.json
+vendor/composer/installed.php
