@@ -2,39 +2,63 @@
 /**
  * Not Found Exception
  *
- * Defines the exception for missing dependencies in the dependency injection container.
+ * Defines the exception for missing dependencies in the dependency injection
+ * container of the Aegis Framework.
  *
  * Responsibilities:
- * - Handles errors when requested dependencies are not found in the container
+ * - Handles errors when requested dependencies are not found in the aegis
+ *   framework container
+ * - Ensures interoperability with other PSR-11 compatible containers and
+ *   libraries by implementing NotFoundExceptionInterface
  *
  * @package    Aegis\Container\Exceptions
  * @since      1.0.0
- * @author     Atmostfear Entertainment
+ * @author     @atmostfear-entertainment
  * @link       https://github.com/aegiswp/theme
  *
- * For developer documentation and onboarding. No logic changes in this doc update.
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Ensures strict type checking for all code in this file.
 declare( strict_types=1 );
 
+// Defines the namespace for the not found exception functionality within the Aegis Framework.
 namespace Aegis\Container\Exceptions;
 
+// Imports the base Exception class and the PSR-11 NotFoundExceptionInterface for use in the custom exception.
 use Exception;
 use Psr\Container\NotFoundExceptionInterface;
 use function __;
 use function sprintf;
-
 /**
- * Dependency Not Found Exception.
+ * Not Found Exception for the Aegis Dependency Injection Container.
+ *
+ * This exception is thrown when a requested dependency (service or parameter)
+ * could not be found in the container. It implements the
+ * {@link https://www.php-fig.org/psr/psr-11/ PSR-11 NotFoundExceptionInterface},
+ * ensuring compatibility with other PSR-11 compliant containers.
+ *
+ * @see Exception
+ * @see Psr\Container\NotFoundExceptionInterface
  *
  * @since 1.0.0
+ *
+ * @package Aegis\Container\Exceptions
  */
+// Declares the NotFoundException class, which extends the base Exception and implements the PSR-11 NotFoundExceptionInterface.
 class NotFoundException extends Exception implements NotFoundExceptionInterface {
 
 	/**
-	 * DependencyNotFoundException constructor.
+	 * Constructor for the NotFoundException.
 	 *
-	 * @param string $id Identifier of the entry to look for.
+	 * Initializes the exception with a formatted, translatable message indicating
+	 * which dependency was not found. It leverages WordPress's internationalization
+	 * functions to make the error message translation-ready.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $id The unique identifier of the dependency that could not be found in the container.
 	 *
 	 * @return void
 	 */
