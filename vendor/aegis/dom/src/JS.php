@@ -1,36 +1,38 @@
 <?php
 /**
- * JS Utilities
+ * JS Utility Class
  *
- * Provides utility functions for JavaScript string formatting and manipulation.
+ * Provides helper methods for formatting and manipulating JavaScript code
+ * within the Aegis Framework.
  *
  * Responsibilities:
- * - Formats and minifies inline JavaScript strings
- * - Provides helper methods for JavaScript code handling
+ * - Formats inline JavaScript for safer and cleaner output
+ * - Assists with JavaScript string and code manipulations for theme and plugin development
  *
  * @package    Aegis\Dom
  * @since      1.0.0
- * @author     Atmostfear Entertainment
+ * @author     @atmostfear-entertainment
  * @link       https://github.com/aegiswp/theme
  *
- * For developer documentation and onboarding. No logic changes in this doc update.
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for JS utilities.
 declare( strict_types=1 );
 
+// Declares the namespace for JS utilities within the Aegis Framework.
 namespace Aegis\Dom;
 
+// Imports PHP built-in functions and WordPress helpers used by the JS utility class.
 use function apply_filters;
 use function preg_replace;
 use function rtrim;
 use function str_replace;
 use function trim;
 
-/**
- * JS Utility.
- *
- * @since 1.0.0
- */
+// Implements a utility class for JavaScript manipulation and formatting.
+
 class JS {
 
     /**
