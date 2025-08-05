@@ -124,3 +124,4 @@ inc/utility/theme.php
 _theme
 vendor/composer/installed.json
 vendor/composer/installed.php
+parts/checkout-header.html
