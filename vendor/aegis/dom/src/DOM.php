@@ -1,23 +1,31 @@
 <?php
 /**
- * DOM Utilities
+ * DOM Utility Class
  *
- * Provides DOM utility functions for manipulating and parsing HTML/XML documents.
+ * Provides helper methods for working with the DOM, including parsing,
+ * manipulating, and formatting HTML and XML documents within the Aegis Framework.
  *
  * Responsibilities:
- * - Parses and formats HTML/XML strings
- * - Provides helper methods for DOM traversal and manipulation
+ * - Creates and formats DOMDocument objects from string input
+ * - Provides utilities for DOM traversal and manipulation
+ * - Assists with error handling and encoding for DOM operations
  *
  * @package    Aegis\Dom
  * @since      1.0.0
- * @author     Atmostfear Entertainment
+ * @author     @atmostfear-entertainment
  * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for DOM utilities.
 declare( strict_types=1 );
 
+// Declares the namespace for DOM utilities within the Aegis Framework.
 namespace Aegis\Dom;
 
+// Imports core PHP and WordPress classes, constants, and functions used by the DOM utility class.
 use DOMDocument;
 use DOMElement;
 use DOMXPath;
@@ -39,11 +47,8 @@ use const LIBXML_HTML_NODEFDTD;
 use const LIBXML_HTML_NOIMPLIED;
 use const XML_ELEMENT_NODE;
 
-/**
- * DOM utility.
- *
- * @since 1.0.0
- */
+// Implements a utility class for DOM parsing and manipulation.
+
 class DOM {
 
 	/**
