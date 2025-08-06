@@ -1,21 +1,29 @@
 <?php
 /**
- * SVG.php
+ * Svg Block Variation
  *
- * Handles the SVG block variation logic for the Aegis WordPress theme.
+ * Provides support for rendering SVG content within the Aegis Framework.
  *
- * @package   Aegis\Framework\BlockVariations
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * Responsibilities:
+ * - Handles the logic for displaying and manipulating SVG block content
+ * - Integrates with utility classes for DOM and CSS
+ *
+ * @package    Aegis\Framework\BlockVariations
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for block variations.
 declare( strict_types=1 );
 
+// Declares the namespace for block variations within the Aegis Framework.
 namespace Aegis\Framework\BlockVariations;
 
+// Imports utility classes and interfaces for DOM manipulation, CSS helpers, icon utilities, and renderable blocks.
 use Aegis\Framework\BlockSettings\Onclick;
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
@@ -33,54 +41,61 @@ use function str_contains;
 use function str_replace;
 use function trim;
 
+// Implements the Svg class to support SVG block rendering.
+
 /**
- * Svg class.
+ * Handles the "SVG" style variation for the core/image block.
  *
- * @since 1.0.0
+ * This class transforms an image block into a custom inline SVG. It has two
+ * rendering modes: direct injection of the SVG markup, and a currently-disabled
+ * mode that uses the SVG as a CSS mask for colorization.
+ *
+ * @package Aegis\Framework\BlockVariations
+ * @since   1.0.0
  */
 class Svg implements Renderable {
 
 	/**
-	 * Onclick instance.
+	 * The Onclick service instance.
 	 *
 	 * @var Onclick
 	 */
 	private Onclick $onclick;
 
 	/**
-	 * Constructor.
+	 * Svg constructor.
 	 *
-	 * @param Onclick $onclick Onclick instance.
+	 * @since 1.0.0
 	 *
-	 * @return void
+	 * @param Onclick $onclick The Onclick service instance.
 	 */
 	public function __construct( Onclick $onclick ) {
 		$this->onclick = $onclick;
 	}
 
 	/**
-	 * Render SVG block variation.
+	 * Renders the image block as a custom inline SVG.
+	 *
+	 * This method is hooked into the `render_block_core/image` filter. If it
+	 * finds the `is-style-svg` class and a `style.svgString` attribute, it
+	 * replaces the content of the block with the provided SVG markup.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string   $block_content Block html content.
-	 * @param array    $block         Block data.
-	 * @param WP_Block $instance      Block instance.
+	 * @param  string   $block_content The original block content.
+	 * @param  array    $block         The full block object.
+	 * @param  WP_Block $instance      The block instance.
 	 *
+	 * @hook   render_block_core/image 9
 	 *
-	 * @hook  render_block_core/image
-	 *
-	 * @return string
+	 * @return string The modified block content containing the SVG.
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
 		$attrs      = $block['attrs'] ?? [];
 		$svg_string = Icon::sanitize_svg( $attrs['style']['svgString'] ?? '' );
 
-		if ( ! $svg_string ) {
-			return $block_content;
-		}
-
-		if ( ! str_contains( $block_content, 'is-style-svg' ) ) {
+		// Only run if an SVG string is provided and the block has the correct style variation.
+		if ( ! $svg_string || ! str_contains( $block_content, 'is-style-svg' ) ) {
 			return $block_content;
 		}
 
@@ -94,43 +109,46 @@ class Svg implements Renderable {
 		$mask     = (bool) ( $attrs['style']['maskSvg'] ?? false );
 		$on_click = $attrs['onclick'] ?? '';
 
+		// The "mask" render path is currently disabled.
 		if ( $mask ) {
 			//return $this->render_mask( $img, $svg_string, $dom, $width, $height );
 		}
 
+		// Apply onclick attribute if it exists.
 		if ( $on_click ) {
 			( $link ?? $figure ?? $img )->setAttribute( 'onclick', $on_click );
 			$block_content = $dom->saveHTML();
 		}
 
+		// If there's already an SVG, don't re-render.
 		if ( $svg ) {
 			return $block_content;
 		}
 
+		// Remove the original `<img>` tag to make way for the new SVG.
 		if ( $img ) {
 			$img->parentNode->removeChild( $img );
 		}
 
+		// Create a new SVG element from the provided string.
 		$svg_dom     = DOM::create( $svg_string );
 		$svg_element = DOM::get_element( 'svg', $svg_dom );
-
 		if ( ! $svg_element ) {
 			return $block_content;
 		}
 
-		$imported = $dom->importNode( $svg_element, true );
-		$imported = DOM::node_to_element( $imported );
+		// Import the new SVG into the main document.
+		$imported = DOM::node_to_element( $dom->importNode( $svg_element, true ) );
 
+		// Apply width and height attributes.
 		if ( $width ) {
 			$imported->setAttribute( 'width', $width );
 		}
-
 		if ( $height ) {
 			$imported->setAttribute( 'height', $height );
 		}
 
-		( $link ?? $figure )->appendChild( $imported );
-
+		// Append the new SVG to the link if it exists, otherwise to the figure.
 		if ( $link ) {
 			$link->appendChild( $imported );
 		} else {
@@ -141,56 +159,52 @@ class Svg implements Renderable {
 	}
 
 	/**
-	 * Renders masked SVG.
+	 * Renders an SVG as a CSS mask on a `<span>` element.
 	 *
-	 * @param DOMElement  $img        Image element.
-	 * @param string      $svg_string SVG string.
-	 * @param DOMDocument $dom        DOM document.
-	 * @param string      $width      Image width.
-	 * @param string      $height     Image height.
+	 * @todo This method is currently unused as the call to it is commented out.
 	 *
-	 * @return string
+	 * This method allows an SVG to be "colored" by the `background-color` of
+	 * its parent element by using the SVG as a CSS mask.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param  DOMElement  $img        The original `<img>` element to be replaced.
+	 * @param  string      $svg_string The raw SVG markup.
+	 * @param  DOMDocument $dom        The main DOM document.
+	 * @param  string      $width      The desired width.
+	 * @param  string      $height     The desired height.
+	 *
+	 * @return string The HTML for the new `<span>` element with the SVG mask.
 	 */
 	public function render_mask( DOMElement $img, string $svg_string, DOMDocument $dom, string $width, string $height ): string {
-		$span    = DOM::change_tag_name( 'span', $img );
-		$styles  = CSS::string_to_array( $span->getAttribute( 'style' ) );
-		$encoded = rawurlencode(
-			str_replace(
-				'"',
-				"'",
-				trim( $svg_string )
-			)
-		);
+		$span   = DOM::change_tag_name( 'span', $img );
+		$styles = CSS::string_to_array( $span->getAttribute( 'style' ) );
 
+		// URL-encode the SVG and set it as the mask image.
+		$encoded                      = rawurlencode( str_replace( '"', "'", trim( $svg_string ) ) );
 		$styles['-webkit-mask-image'] = 'url("data:image/svg+xml;utf8,' . $encoded . '")';
 
+		// Apply width and height.
 		if ( $width ) {
-			$unit = Str::contains_any( $width, 'px', 'em', 'rem', 'vh', 'vw', '%' ) ? '' : 'px';
-
+			$unit            = Str::contains_any( $width, 'px', 'em', 'rem', 'vh', 'vw', '%' ) ? '' : 'px';
 			$styles['width'] = $width . $unit;
-
 			$span->removeAttribute( 'width' );
 		}
-
 		if ( $height ) {
-			$unit = Str::contains_any( $height, 'px', 'em', 'rem', 'vh', 'vw', '%' ) ? '' : 'px';
-
+			$unit             = Str::contains_any( $height, 'px', 'em', 'rem', 'vh', 'vw', '%' ) ? '' : 'px';
 			$styles['height'] = $height . $unit;
-
 			$span->removeAttribute( 'height' );
 		}
 
-		$alt = $img->getAttribute( 'alt' );
-
-		if ( $alt ) {
+		// Transfer alt text to an aria-label for accessibility.
+		if ( $alt = $img->getAttribute( 'alt' ) ) {
 			$span->setAttribute( 'aria-label', esc_attr( $alt ) );
 			$span->removeAttribute( 'alt' );
 		}
 
-		$classes = explode( ' ', $span->getAttribute( 'class' ) );
-
+		// Clean up and set final attributes.
+		$classes   = explode( ' ', $span->getAttribute( 'class' ) );
 		$classes[] = 'wp-block-image__svg';
-
 		$span->setAttribute( 'class', implode( ' ', $classes ) );
 		$span->setAttribute( 'role', 'img' );
 		$span->removeAttribute( 'style' );
