@@ -1,21 +1,29 @@
 <?php
 /**
- * Group.php
+ * Group Block
  *
- * Handles the group core block logic for the Aegis WordPress theme.
+ * Provides support for rendering group blocks within the Aegis Framework.
  *
- * @package   Aegis\Framework\CoreBlocks
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * Responsibilities:
+ * - Handles the logic for displaying and styling group block content
+ * - Integrates with utility classes for DOM and CSS
+ *
+ * @package    Aegis\Framework\CoreBlocks
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
 declare( strict_types=1 );
 
+// Declares the namespace for core blocks within the Aegis Framework.
 namespace Aegis\Framework\CoreBlocks;
 
+// Imports utility classes and interfaces for DOM manipulation, CSS helpers, and renderable blocks.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
@@ -26,43 +34,59 @@ use function explode;
 use function implode;
 use function in_array;
 
+// Implements the Group class to support group block rendering.
+
 /**
- * Group class.
+ * Handles the rendering of the core/group block.
  *
- * @since 1.0.0
+ * This class enhances the default group block by applying `minHeight`, custom
+ * spacing, and adding special accessibility and styling logic when the block's
+ * HTML tag is set to `<main>`.
+ *
+ * @package Aegis\Framework\CoreBlocks
+ * @since   1.0.0
  */
 class Group implements Renderable {
 
 	/**
-	 * Modifies front end HTML output of block.
+	 * Renders the group block with custom enhancements.
+	 *
+	 * This method is hooked into the `render_block_core/group` filter. It applies
+	 * `minHeight`, margin, and padding from block attributes. It also adds a `role`
+	 * attribute and reorders classes if the group block is using the `<main>` tag.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string   $block_content Block HTML.
-	 * @param array    $block         Block data.
-	 * @param WP_Block $instance      Block instance.
+	 * @param  string   $block_content The original block content.
+	 * @param  array    $block         The full block object.
+	 * @param  WP_Block $instance      The block instance.
 	 *
-	 * @hook  render_block_core/group
+	 * @hook   render_block_core/group
 	 *
-	 * @return string
+	 * @return string The modified block content.
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
 		$dom   = DOM::create( $block_content );
 		$first = DOM::get_element( '*', $dom );
 
+		// If the main wrapper element isn't found, return the original content.
 		if ( ! $first ) {
 			return $block_content;
 		}
 
-		if ( $block['attrs']['minHeight'] ?? null ) {
+		$attrs = $block['attrs'] ?? [];
+
+		// Apply minHeight from block attributes as an inline style.
+		if ( $min_height = $attrs['minHeight'] ?? null ) {
 			$first->setAttribute(
 				'style',
-				$first->getAttribute( 'style' ) . ';min-height:' . $block['attrs']['minHeight']
+				$first->getAttribute( 'style' ) . ';min-height:' . $min_height
 			);
 		}
 
-		$margin  = $block['attrs']['style']['spacing']['margin'] ?? [];
-		$padding = $block['attrs']['style']['spacing']['padding'] ?? [];
+		// Apply custom margin and padding from block attributes.
+		$margin  = $attrs['style']['spacing']['margin'] ?? [];
+		$padding = $attrs['style']['spacing']['padding'] ?? [];
 
 		$div_styles = CSS::string_to_array( $first->getAttribute( 'style' ) );
 		$div_styles = CSS::add_shorthand_property( $div_styles, 'margin', $margin );
@@ -72,14 +96,16 @@ class Group implements Renderable {
 			$first->setAttribute( 'style', CSS::array_to_string( $div_styles ) );
 		}
 
-		$tag = esc_attr( $block['attrs']['tagName'] ?? 'div' );
-
-		if ( $tag === 'main' ) {
+		// Special handling when the group block's tag is set to <main>.
+		$tag = esc_attr( $attrs['tagName'] ?? 'div' );
+		if ( 'main' === $tag ) {
+			// Add role="main" for better accessibility.
 			$first->setAttribute( 'role', $tag );
 
 			$classes = explode( ' ', $first->getAttribute( 'class' ) );
 
-			// Move `site-main` class to the start of the array.
+			// If the `site-main` class exists, ensure it's the first class in the list.
+			// This can be important for CSS specificity.
 			if ( in_array( 'site-main', $classes, true ) ) {
 				$classes = [
 					'site-main',
