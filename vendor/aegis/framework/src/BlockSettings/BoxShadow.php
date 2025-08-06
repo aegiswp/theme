@@ -1,21 +1,29 @@
 <?php
 /**
- * BoxShadow.php
+ * Box Shadow Block Setting
  *
- * Handles box shadow logic for the Aegis WordPress theme.
+ * Provides support for custom box shadow CSS effects on blocks within the Aegis Framework.
  *
- * @package   Aegis\Framework\BlockSettings
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * Responsibilities:
+ * - Handles the rendering of custom box shadow styles for block content
+ * - Integrates with the Renderable and Styleable interfaces for block output
+ *
+ * @package    Aegis\Framework\BlockSettings
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for block settings.
 declare( strict_types=1 );
 
+// Declares the namespace for block settings within the Aegis Framework.
 namespace Aegis\Framework\BlockSettings;
 
+// Imports interfaces and utility classes for asset management, DOM manipulation, and rendering.
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
 use Aegis\Dom\CSS;
@@ -28,159 +36,167 @@ use function in_array;
 use function str_contains;
 use function wp_get_global_settings;
 
+// Implements the BoxShadow class to support custom box shadow styling.
+
 /**
- * Shadow class.
+ * Handles the "Box Shadow" block setting.
  *
- * @since 1.0.0
+ * This class provides a comprehensive system for applying box-shadows to blocks.
+ * It supports presets defined in `theme.json` as well as custom values set in
+ * the block editor. It works by applying CSS classes and a suite of CSS custom
+ * properties to the block's wrapper element, and dynamically generating CSS
+ * for the presets.
+ *
+ * @package Aegis\Framework\BlockSettings
+ * @since   1.0.0
  */
 class BoxShadow implements Renderable, Styleable {
 
 	/**
-	 * Adds box shadow to blocks.
+	 * Applies box-shadow classes and styles to the block's wrapper element.
 	 *
-	 * @param string   $block_content The block content.
-	 * @param array    $block         The block.
-	 * @param WP_Block $instance      The block instance.
+	 * This method is hooked into the generic `render_block` filter. It handles:
+	 * - Applying classes for shadow presets (e.g., `has-shadow-preset-name`).
+	 * - A special case for `core/button` to apply shadows to the inner `<a>` tag.
+	 * - Setting a suite of CSS custom properties for custom shadow values (e.g.,
+	 *   `--wp--custom--box-shadow--x`, `--wp--custom--box-shadow--hover--color`).
+	 * - Converting custom shadow colors to CSS variables if they match a theme palette color.
 	 *
-	 * @hook render_block
+	 * @since 1.0.0
 	 *
-	 * @return string
+	 * @param  string   $block_content The original block content.
+	 * @param  array    $block         The full block object.
+	 * @param  WP_Block $instance      The block instance.
+	 *
+	 * @hook   render_block 13
+	 *
+	 * @return string The modified block content.
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$nested_element_blocks = [
-			'core/button',
-		];
+		$attrs         = $block['attrs'] ?? [];
+		$shadow_preset = $attrs['shadowPreset'] ?? null;
+		$hover_preset  = $attrs['shadowPresetHover'] ?? null;
 
-		$shadow_preset = $block['attrs']['shadowPreset'] ?? null;
-		$hover_preset  = $block['attrs']['shadowPresetHover'] ?? null;
-
+		// --- Preset Class Application ---
 		if ( $shadow_preset ) {
-
-			if ( in_array( $block['blockName'], $nested_element_blocks, true ) ) {
+			// Special handling for blocks like core/button where the shadow should
+			// be applied to a nested element, not the main wrapper.
+			if ( in_array( $block['blockName'], [ 'core/button' ], true ) ) {
 				$dom    = DOM::create( $block_content );
 				$first  = DOM::get_element( '*', $dom );
 				$nested = DOM::get_element( '*', $first );
 
-				if ( ! $first || ! $nested ) {
-					return $block_content;
-				}
+				if ( $first && $nested ) {
+					$first_classes  = explode( ' ', $first->getAttribute( 'class' ) );
+					$nested_classes = explode( ' ', $nested->getAttribute( 'class' ) );
 
-				$first_classes  = explode( ' ', $first->getAttribute( 'class' ) );
-				$nested_classes = explode( ' ', $nested->getAttribute( 'class' ) );
-
-				foreach ( $first_classes as $index => $class ) {
-					$exploded = explode( '-', $class );
-					$has      = 'has' === ( $exploded[0] ?? null );
-					$shadow   = in_array( 'shadow', [ $exploded[1] ?? '', $exploded[2] ?? '' ], true );
-
-					if ( $has && $shadow ) {
-						unset( $first_classes[ $index ] );
-						$nested_classes[] = $class;
+					// Find shadow-related classes on the outer wrapper and move them to the inner element.
+					foreach ( $first_classes as $index => $class ) {
+						$exploded = explode( '-', $class );
+						if ( 'has' === ( $exploded[0] ?? null ) && in_array( 'shadow', [ $exploded[1] ?? '', $exploded[2] ?? '' ], true ) ) {
+							unset( $first_classes[ $index ] );
+							$nested_classes[] = $class;
+						}
 					}
+					$first->setAttribute( 'class', implode( ' ', $first_classes ) );
+					$nested->setAttribute( 'class', implode( ' ', $nested_classes ) );
+					$block_content = $dom->saveHTML();
 				}
+			}
+		}
 
-				$first->setAttribute( 'class', implode( ' ', $first_classes ) );
-				$nested->setAttribute( 'class', implode( ' ', $nested_classes ) );
-
+		// If there's only a hover preset, ensure the `has-shadow-hover` class is added.
+		if ( $hover_preset && ! $shadow_preset ) {
+			$dom       = DOM::create( $block_content );
+			$first     = DOM::get_element( '*', $dom );
+			if ( $first ) {
+				$classes   = explode( ' ', $first->getAttribute( 'class' ) );
+				$classes   = array_diff( $classes, [ 'has-shadow' ] );
+				$classes[] = 'has-shadow-hover';
+				$first->setAttribute( 'class', implode( ' ', $classes ) );
 				$block_content = $dom->saveHTML();
 			}
 		}
 
-		if ( $hover_preset && ! $shadow_preset ) {
-			$dom       = DOM::create( $block_content );
-			$first     = DOM::get_element( '*', $dom );
-			$classes   = explode( ' ', $first->getAttribute( 'class' ) );
-			$classes   = array_diff( $classes, [ 'has-shadow' ] );
-			$classes[] = 'has-shadow-hover';
-
-			$first->setAttribute( 'class', implode( ' ', $classes ) );
-
-			$block_content = $dom->saveHTML();
-		}
-
-		$custom_shadow = $block['attrs']['style']['boxShadow'] ?? null;
-
+		// --- Custom Shadow CSS Variable Application ---
+		$custom_shadow = $attrs['style']['boxShadow'] ?? null;
 		if ( ! $custom_shadow ) {
 			return $block_content;
 		}
 
 		$dom   = DOM::create( $block_content );
 		$first = DOM::get_element( '*', $dom );
-
 		if ( ! $first ) {
 			return $block_content;
 		}
 
+		// Add a general class to activate custom shadow styling.
 		$first_classes = explode( ' ', $first->getAttribute( 'class' ) );
-
 		if ( ! in_array( 'has-box-shadow', $first_classes, true ) ) {
 			$first_classes[] = 'has-box-shadow';
 		}
-
 		$first->setAttribute( 'class', implode( ' ', $first_classes ) );
 
 		$styles = CSS::string_to_array( $first->getAttribute( 'style' ) );
 
-		$inset       = $custom_shadow['inset'] ?? null;
-		$inset_hover = $custom_shadow['hover']['inset'] ?? null;
-
-		if ( $inset ) {
+		// Set inset properties for normal and hover states.
+		if ( $custom_shadow['inset'] ?? null ) {
 			$styles['--wp--custom--box-shadow--inset'] = 'inset';
 		}
-
-		if ( $inset_hover ) {
+		if ( $custom_shadow['hover']['inset'] ?? null ) {
 			$styles['--wp--custom--box-shadow--hover--inset'] = 'inset';
 		}
 
+		// Set dimensional properties (x, y, blur, spread) for normal and hover states.
 		foreach ( [ 'x', 'y', 'blur', 'spread' ] as $property ) {
-
 			if ( $custom_shadow[ $property ] ?? '' ) {
 				$styles[ '--wp--custom--box-shadow--' . $property ] = esc_attr( $custom_shadow[ $property ] ) . 'px';
 			}
-
 			if ( $custom_shadow['hover'][ $property ] ?? '' ) {
 				$styles[ '--wp--custom--box-shadow--hover--' . $property ] = esc_attr( $custom_shadow['hover'][ $property ] ) . 'px';
 			}
-
 		}
 
+		// Set color properties, converting palette colors to CSS variables.
 		$color       = $custom_shadow['color'] ?? null;
 		$hover_color = $custom_shadow['hover']['color'] ?? null;
 		$palette     = wp_get_global_settings()['color']['palette']['theme'] ?? [];
-
 		foreach ( $palette as $theme_color ) {
 			if ( $theme_color['color'] === $color ) {
 				$styles['--wp--custom--box-shadow--color'] = "var(--wp--preset--color--{$theme_color['slug']})";
 			}
-
 			if ( $theme_color['color'] === $hover_color ) {
 				$styles['--wp--custom--box-shadow--hover--color'] = "var(--wp--preset--color--{$theme_color['slug']})";
 			}
 		}
 
 		$first->setAttribute( 'style', CSS::array_to_string( $styles ) );
-
 		return $dom->saveHTML();
 	}
 
 	/**
-	 * Adds box shadow custom properties.
+	 * Registers the dynamic CSS generation for box-shadow presets.
 	 *
-	 * @param Styles $styles The styles.
-	 *
-	 * @return void
+	 * @since 1.0.0
+	 * @param Styles $styles The Styles service instance.
 	 */
 	public function styles( Styles $styles ): void {
 		$styles->add_callback( [ $this, 'get_inline_css' ] );
 	}
 
 	/**
-	 * Gets inline CSS.
+	 * Generates dynamic CSS for box-shadow presets from global settings.
 	 *
-	 * @param string $template_html The template HTML.
-	 * @param bool   $load_all      Whether to load all.
+	 * This function reads the shadow presets from `theme.json` and generates
+	 * CSS custom properties for their hover states, but only for presets that
+	 * are actually used on the current page.
 	 *
-	 * @return string
+	 * @since 1.0.0
+	 *
+	 * @param  string $template_html The HTML content of the current template.
+	 * @param  bool   $load_all      Whether to load all styles regardless of content.
+	 *
+	 * @return string The dynamically generated CSS string.
 	 */
 	public function get_inline_css( string $template_html, bool $load_all ): string {
 		$settings = wp_get_global_settings();
@@ -190,11 +206,11 @@ class BoxShadow implements Renderable, Styleable {
 		foreach ( $presets as $preset ) {
 			$slug   = $preset['slug'] ?? null;
 			$shadow = $preset['shadow'] ?? null;
-
 			if ( ! $slug || ! $shadow ) {
 				continue;
 			}
 
+			// Only create the CSS variable if the preset is used on the page.
 			if ( ! $load_all && ! str_contains( $template_html, "has-{$slug}" ) ) {
 				continue;
 			}
@@ -203,7 +219,6 @@ class BoxShadow implements Renderable, Styleable {
 		}
 
 		$css = '';
-
 		if ( ! empty( $style ) ) {
 			$css = 'body{' . CSS::array_to_string( $style ) . '}';
 		}
