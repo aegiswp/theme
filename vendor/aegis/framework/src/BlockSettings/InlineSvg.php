@@ -1,21 +1,29 @@
 <?php
 /**
- * InlineSvg.php
+ * Inline SVG Block Setting
  *
- * Handles inline SVG logic for the Aegis WordPress theme.
+ * Provides support for rendering inline SVG icons and assets within the Aegis Framework.
  *
- * @package   Aegis\Framework\BlockSettings
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * Responsibilities:
+ * - Handles the logic for embedding SVG content directly into block output
+ * - Integrates with the Renderable interface for block output
+ *
+ * @package    Aegis\Framework\BlockSettings
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for block settings.
 declare( strict_types=1 );
 
+// Declares the namespace for block settings within the Aegis Framework.
 namespace Aegis\Framework\BlockSettings;
 
+// Imports utility classes and interfaces for DOM manipulation, SVG handling, and renderable blocks.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
@@ -38,89 +46,101 @@ use function str_replace;
 use function trim;
 use function urldecode;
 
+// Implements the InlineSvg class to support inline SVG rendering for blocks.
+
 /**
- * InlineSvg class.
+ * Handles two different methods for inlining SVG images into block content.
  *
- * @since 1.0.0
+ * This class provides two distinct functionalities, both hooked into `render_block`:
+ * 1. `render()`: Converts `<img>` tags that use an SVG as a CSS mask into
+ *    raw, inline `<svg>` elements. This is primarily for colorizing icons.
+ * 2. `render_inline_svg()`: Replaces `<img>` tags that have a `.svg` source file
+ *    with the actual content of that file, allowing the SVG to be styled with CSS.
+ *
+ * @package Aegis\Framework\BlockSettings
+ * @since   1.0.0
  */
 class InlineSvg implements Renderable {
 
 	/**
-	 * Renders inline SVGs in rich text content.
+	 * Replaces CSS-masked `<img>` tags with inline `<svg>` elements.
+	 *
+	 * This method scans block content for `<img>` tags with the `has-inline-svg`
+	 * class. If an image uses a data URI SVG as a `-webkit-mask-image`, this
+	 * method extracts the SVG code, decodes it, and replaces the `<img>` tag
+	 * with the raw `<svg>` markup. This allows the SVG to be colored by CSS
+	 * using `fill: currentColor`.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string   $block_content Block html content.
-	 * @param array    $block         Block data.
-	 * @param WP_Block $instance      Block instance.
+	 * @param  string   $block_content The original block content.
+	 * @param  array    $block         The full block object.
+	 * @param  WP_Block $instance      The block instance.
 	 *
-	 * @hook  render_block
+	 * @hook   render_block
 	 *
-	 * @return string
+	 * @return string The modified block content with the `<img>` replaced by an `<svg>`.
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
+		// As a performance optimization, only parse the DOM if the class is present.
 		if ( ! str_contains( $block_content, 'has-inline-svg' ) ) {
 			return $block_content;
 		}
 
-		$dom   = DOM::create( $block_content );
-		$first = DOM::get_element( '*', $dom );
-
-		if ( ! $first ) {
+		$dom = DOM::create( $block_content );
+		if ( ! DOM::get_element( '*', $dom ) ) {
 			return $block_content;
 		}
 
 		$images = $dom->getElementsByTagName( 'img' );
-
 		if ( ! $images->length ) {
 			return $block_content;
 		}
 
-		foreach ( $images as $index => $img ) {
+		// Iterate through all images in the block.
+		foreach ( $images as $img ) {
+			// Check for the CSS mask style.
 			$style = CSS::string_to_array( $img->getAttribute( 'style' ) );
 			$mask  = $style['-webkit-mask-image'] ?? '';
-
 			if ( ! $mask ) {
 				continue;
 			}
 
-			$svg_string  = str_replace( [ "url('data:image/svg+xml;utf8,", "')" ], [ '', '' ], $mask );
+			// Extract the raw SVG from the data URI string.
+			$svg_string  = str_replace( [ "url('data:image/svg+xml;utf8,", "')" ], '', $mask );
 			$svg_string  = urldecode( $svg_string );
 			$svg_dom     = DOM::create( $svg_string );
 			$svg_element = DOM::get_element( 'svg', $svg_dom );
-
 			if ( ! $svg_element ) {
-				return $block_content;
+				continue;
 			}
 
-			$imported = $dom->importNode( $svg_element, true );
-			$imported = DOM::node_to_element( $imported );
+			// Create a new <svg> element in the main document.
+			$imported = DOM::node_to_element( $dom->importNode( $svg_element, true ) );
 			$imported->removeAttribute( 'height' );
 			$imported->removeAttribute( 'width' );
 
+			// Transfer all attributes from the original <img> to the new <svg>,
+			// except for the -webkit-mask-image style.
 			foreach ( $img->attributes as $attribute ) {
-				if ( $attribute->name === 'style' ) {
-					$style = CSS::string_to_array( $img->getAttribute( 'style' ) );
+				if ( 'style' === $attribute->name ) {
 					unset( $style['-webkit-mask-image'] );
 					$imported->setAttribute( 'style', CSS::array_to_string( $style ) );
 					continue;
 				}
-
-				$imported->setAttribute(
-					esc_attr( $attribute->name ),
-					esc_attr( $attribute->value )
-				);
+				$imported->setAttribute( esc_attr( $attribute->name ), esc_attr( $attribute->value ) );
 			}
 
+			// Set fill to currentColor to allow CSS color control.
 			$imported->setAttribute( 'fill', 'currentColor' );
 
-			$classes = explode( ' ', $img->getAttribute( 'class' ) );
-			$classes = array_diff( $classes, [ 'has-inline-svg' ] );
-
+			// Transfer classes.
+			$classes   = explode( ' ', $img->getAttribute( 'class' ) );
+			$classes   = array_diff( $classes, [ 'has-inline-svg' ] );
 			$classes[] = 'inline-svg';
-
 			$imported->setAttribute( 'class', implode( ' ', $classes ) . ' ' . $svg_element->getAttribute( 'class' ) );
 
+			// Replace the <img> tag with the new <svg> tag in the block content.
 			$block_content = str_replace(
 				$dom->saveHTML( $img ),
 				$dom->saveHTML( $imported ),
@@ -132,114 +152,89 @@ class InlineSvg implements Renderable {
 	}
 
 	/**
-	 * Converts image asset to inline SVG.
+	 * Replaces `<img>` tags that link to `.svg` files with inline `<svg>` markup.
+	 *
+	 * This method targets specific core blocks. If it finds an `<img>` tag with a
+	 * `.svg` source, it reads the content of the SVG file from the theme directory,
+	 * sanitizes it, and replaces the `<img>` tag with the raw `<svg>` content.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string   $block_content Block HTML.
-	 * @param array    $block         Block data.
-	 * @param WP_Block $instance      Block instance.
+	 * @param  string   $block_content The original block content.
+	 * @param  array    $block         The full block object.
+	 * @param  WP_Block $instance      The block instance.
 	 *
-	 * @hook  render_block
+	 * @hook   render_block
 	 *
-	 * @return string
+	 * @return string The modified block content with the `<img>` replaced by an `<svg>`.
 	 */
 	public function render_inline_svg( string $block_content, array $block, WP_Block $instance ): string {
-		$blocks = [
-			'core/button',
-			'core/image',
-			'core/site-logo',
-			'core/post-featured-image',
-		];
+		$blocks_to_check = [ 'core/button', 'core/image', 'core/site-logo', 'core/post-featured-image' ];
+		$name            = $block['blockName'] ?? '';
 
-		$name = $block['blockName'] ?? '';
-
-		if ( ! in_array( $name, $blocks, true ) ) {
+		// Only run on specific blocks and only if they contain '.svg'.
+		if ( ! in_array( $name, $blocks_to_check, true ) || ! str_contains( $block_content, '.svg' ) ) {
 			return $block_content;
 		}
 
-		if ( ! str_contains( $block_content, '.svg' ) ) {
-			return $block_content;
-		}
-
+		// Find the <img> element, which may be nested.
 		$attrs  = $block['attrs'] ?? [];
 		$dom    = DOM::create( $block_content );
-		$div    = DOM::get_element( 'div', $dom );
-		$figure = DOM::get_element( 'figure', $dom );
-		$first  = $div ?? $figure ?? null;
-		$link   = DOM::get_element( 'a', $first );
-
-		if ( ! $link ) {
-			$link = DOM::get_element( 'button', $first );
-		}
-
-		$img = DOM::get_element( 'img', $link ?? $first );
-
+		$first  = DOM::get_element( '*', $dom );
+		$link   = DOM::get_element( 'a', $first ) ?? DOM::get_element( 'button', $first );
+		$img    = DOM::get_element( 'img', $link ?? $first );
 		if ( ! $img ) {
 			return $block_content;
 		}
 
-		$file = str_replace(
-			content_url(),
-			dirname( get_template_directory(), 2 ),
-			$img->getAttribute( 'src' )
-		);
-
+		// Construct the absolute server path to the SVG file.
+		$file = str_replace( content_url(), dirname( get_template_directory(), 2 ), $img->getAttribute( 'src' ) );
 		if ( ! file_exists( $file ) ) {
 			return $block_content;
 		}
 
+		// Read and sanitize the SVG file content.
 		$html    = Icon::sanitize_svg( file_get_contents( $file ) );
 		$svg_dom = DOM::create( $html );
-
 		if ( ! property_exists( $svg_dom, 'documentElement' ) ) {
 			return $block_content;
 		}
 
+		// Create a new <svg> element in the main document.
 		$svg = $dom->importNode( $svg_dom->documentElement, true );
-
 		if ( ! method_exists( $svg, 'setAttribute' ) ) {
 			return $block_content;
 		}
 
+		// Transfer width, height, and alt attributes from the <img> to the <svg>.
 		$img_styles   = DOM::get_styles( $img );
-		$width_style  = $img_styles['width'] ?? null;
-		$height_style = $img_styles['height'] ?? null;
-		$width        = $width_style ?? $attrs['width'] ?? $img->getAttribute( 'width' ) ?? '';
-		$height       = $height_style ?? $attrs['height'] ?? $img->getAttribute( 'height' ) ?? '';
+		$width        = $img_styles['width'] ?? $attrs['width'] ?? $img->getAttribute( 'width' ) ?? '';
+		$height       = $img_styles['height'] ?? $attrs['height'] ?? $img->getAttribute( 'height' ) ?? '';
 		$alt          = $attrs['alt'] ?? $img->getAttribute( 'alt' ) ?? '';
 
+		// Special case for buttons.
 		if ( 'core/button' === $name && ! $height ) {
 			$height = $width;
 		}
 
 		if ( $width ) {
-			$svg->setAttribute(
-				'width',
-				trim( str_replace( 'px', '', (string) $width ) )
-			);
+			$svg->setAttribute( 'width', trim( str_replace( 'px', '', (string) $width ) ) );
 		}
-
 		if ( $height ) {
-			$svg->setAttribute(
-				'height',
-				trim( str_replace( 'px', '', (string) $height ) )
-			);
+			$svg->setAttribute( 'height', trim( str_replace( 'px', '', (string) $height ) ) );
 		}
-
 		if ( $alt ) {
 			$svg->setAttribute( 'aria-label', $alt );
 		}
 
+		// Transfer the class attribute.
 		$svg->setAttribute( 'class', $img->getAttribute( 'class' ) );
 
+		// Replace the <img> with the new <svg> and add a helper class.
 		( $link ?? $first )->removeChild( $img );
 		( $link ?? $first )->appendChild( $svg );
-
-		$first_classes = explode( ' ', $first->getAttribute( 'class' ) );
-
+		$first_classes   = explode( ' ', $first->getAttribute( 'class' ) );
 		$first_classes[] = 'has-inlined-svg';
-
 		$first->setAttribute( 'class', implode( ' ', $first_classes ) );
 
 		return $dom->saveHTML();
