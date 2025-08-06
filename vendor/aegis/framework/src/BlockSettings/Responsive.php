@@ -1,21 +1,29 @@
 <?php
 /**
- * Responsive.php
+ * Responsive Block Setting
  *
- * Handles responsive settings and logic for the Aegis WordPress theme.
+ * Provides support for responsive settings and controls for blocks within the Aegis Framework.
  *
- * @package   Aegis\Framework\BlockSettings
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * Responsibilities:
+ * - Handles the logic for rendering responsive styles and scripts for block content
+ * - Integrates with the Renderable, Scriptable, and Styleable interfaces for block output
+ *
+ * @package    Aegis\Framework\BlockSettings
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for block settings.
 declare( strict_types=1 );
 
+// Declares the namespace for block settings within the Aegis Framework.
 namespace Aegis\Framework\BlockSettings;
 
+// Imports utility classes and interfaces for DOM manipulation, asset management, and responsive controls.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\InlineAssets\Scriptable;
@@ -31,11 +39,8 @@ use function sprintf;
 use function str_contains;
 use function str_replace;
 
-/**
- * Responsive class.
- *
- * @since 1.0.0
- */
+// Implements the Responsive class to support responsive settings and controls for blocks.
+
 class Responsive implements Renderable, Scriptable, Styleable {
 
 	public const SETTINGS = [
@@ -353,7 +358,7 @@ class Responsive implements Renderable, Scriptable, Styleable {
 	 * @param array    $block         Block data.
 	 * @param WP_Block $instance      Block instance.
 	 *
-	 * @hook  render_block
+	 * @hook  render_block 11
 	 *
 	 * @return string
 	 */
