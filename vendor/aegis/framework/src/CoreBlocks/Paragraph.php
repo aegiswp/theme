@@ -67,7 +67,7 @@ class Paragraph implements Renderable {
 		$dom = DOM::create( $block_content );
 		$p   = DOM::get_element( 'p', $dom );
 
-		// If the <p> element isn't found, return the original content.
+		// If the <p> element is not found, return the original content.
 		if ( ! $p ) {
 			return $block_content;
 		}
