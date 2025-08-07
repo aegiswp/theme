@@ -57,7 +57,7 @@ class Heading implements Renderable {
 	 * Renders the heading block with custom enhancements.
 	 *
 	 * This method is hooked into the `render_block_core/heading` filter. It
-	 * applies custom spacing, generates a sanitized ID if one doesn't exist,
+	 * applies custom spacing, generates a sanitized ID if one does not exist,
 	 * and replaces the default "Search Results" title with a more specific one.
 	 *
 	 * @since 1.0.0
