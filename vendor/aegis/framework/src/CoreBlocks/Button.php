@@ -213,7 +213,7 @@ class Button implements Renderable {
 			$href = $link->getAttribute( 'href' );
 			if ( ! $href ) {
 				$on_click = $attrs['onclick'] ?? null;
-				// If there's an onclick action, make it a JS void link. Otherwise, a simple hash.
+				// If there is an onclick action, make it a JS void link. Otherwise, a simple hash.
 				$link->setAttribute( 'href', $on_click ? 'javascript:void(0)' : '#' );
 			}
 		}
@@ -224,7 +224,7 @@ class Button implements Renderable {
 			$link->setAttribute( 'aria-label', esc_html( $aria_label ) );
 		}
 
-		// If the element doesn't have a meaningful link, convert it to a <button> tag for semantics.
+		// If the element does not have a meaningful link, convert it to a <button> tag for semantics.
 		$href = $link->getAttribute( 'href' );
 		if ( ! $href || '#' === $href || 'javascript:void(0)' === $href ) {
 			$button        = DOM::change_tag_name( 'button', $link );
