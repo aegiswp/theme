@@ -69,7 +69,7 @@ class Calendar implements Renderable {
 		$div   = DOM::get_element( 'div', $dom );
 		$table = DOM::get_element( 'table', $div );
 
-		// If there's no table element, there's nothing to fix.
+		// If there is no table element, there is nothing to fix.
 		if ( ! $table ) {
 			return $block_content;
 		}
