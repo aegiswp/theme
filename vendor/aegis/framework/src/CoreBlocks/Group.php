@@ -69,7 +69,7 @@ class Group implements Renderable {
 		$dom   = DOM::create( $block_content );
 		$first = DOM::get_element( '*', $dom );
 
-		// If the main wrapper element isn't found, return the original content.
+		// If the main wrapper element is not found, return the original content.
 		if ( ! $first ) {
 			return $block_content;
 		}
@@ -104,7 +104,7 @@ class Group implements Renderable {
 
 			$classes = explode( ' ', $first->getAttribute( 'class' ) );
 
-			// If the `site-main` class exists, ensure it's the first class in the list.
+			// If the `site-main` class exists, ensure it is the first class in the list.
 			// This can be important for CSS specificity.
 			if ( in_array( 'site-main', $classes, true ) ) {
 				$classes = [
