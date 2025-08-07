@@ -65,7 +65,7 @@ class Cover implements Renderable {
 		$dom = DOM::create( $block_content );
 		$div = DOM::get_element( 'div', $dom );
 
-		// If the main wrapper div isn't found, return the original content.
+		// If the main wrapper div is not found, return the original content.
 		if ( ! $div ) {
 			return $block_content;
 		}
