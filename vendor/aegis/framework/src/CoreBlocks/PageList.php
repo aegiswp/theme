@@ -71,7 +71,7 @@ class PageList implements Renderable {
 		$dom = DOM::create( $block_content );
 		$ul  = DOM::get_element( 'ul', $dom );
 
-		// If the <ul> element isn't found, return the original content.
+		// If the <ul> element is not found, return the original content.
 		if ( ! $ul ) {
 			return $block_content;
 		}
