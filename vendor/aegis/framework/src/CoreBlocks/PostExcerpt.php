@@ -82,8 +82,8 @@ class PostExcerpt implements Renderable {
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
 		// --- Conditional Rendering ---
-		// On singular pages, if there's no manually written excerpt, the block should
-		// render nothing to avoid showing the full post content. This doesn't apply
+		// On singular pages, if there is no manually written excerpt, the block should
+		// render nothing to avoid showing the full post content. This does not apply
 		// when inside a Query Loop (post-template).
 		$query_post_id   = $instance->context['postId'] ?? false;
 		$custom_excerpt  = get_post_field( 'post_excerpt', $query_post_id ?? get_the_ID() );
