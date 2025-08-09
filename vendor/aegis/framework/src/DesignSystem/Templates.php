@@ -1,21 +1,29 @@
 <?php
 /**
- * Templates.php
+ * Templates Component
  *
- * Handles template hierarchy and logic for the Aegis WordPress theme.
+ * Provides support for customizing and extending the template hierarchy in the Aegis Framework.
  *
- * @package   Aegis\Framework\DesignSystem
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * Responsibilities:
+ * - Updates and customizes template hierarchy for search and archive pages
+ * - Integrates with the block editor and WordPress template system
+ *
+ * @package    Aegis\Framework\DesignSystem
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
 declare( strict_types=1 );
 
+// Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
 
+// Imports WordPress classes and helpers for template management and file system access.
 use WP_Block_Template;
 use function array_unshift;
 use function class_exists;
@@ -30,11 +38,8 @@ use function is_post_type_archive;
 use function is_search;
 use function str_contains;
 
-/**
- * Templates extension.
- *
- * @since 1.0.0
- */
+// Implements the Templates class to support template hierarchy customization for the design system.
+
 class Templates {
 
 	/**
@@ -82,6 +87,7 @@ class Templates {
 		}
 
 		$woocommerce = class_exists( 'WooCommerce' );
+		$edd         = class_exists( 'Easy_Digital_Downloads' );
 		$template    = get_template();
 		$stylesheet  = get_stylesheet();
 
@@ -97,6 +103,9 @@ class Templates {
 				unset( $query_result[ $index ] );
 			}
 
+			if ( ! $edd && str_contains( $slug, 'download' ) ) {
+				unset( $query_result[ $index ] );
+			}
 		}
 
 		return $query_result;
