@@ -1,21 +1,29 @@
 <?php
 /**
- * WooCommerce.php
+ * WooCommerce Integration Component
  *
- * Handles WooCommerce integration for the Aegis WordPress theme.
+ * Provides support for integrating WooCommerce plugin compatibility in the Aegis Framework.
  *
- * @package   Aegis\Framework\Integrations
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * Responsibilities:
+ * - Checks for WooCommerce plugin presence and conditionally registers hooks
+ * - Integrates with the Aegis container and hook system
+ *
+ * @package    Aegis\Framework\Integrations
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for integration components.
 declare( strict_types=1 );
 
+// Declares the namespace for integration components within the Aegis Framework.
 namespace Aegis\Framework\Integrations;
 
+// Imports interfaces, registry, and helpers for conditional logic and hook management.
 use Aegis\Container\Interfaces\Conditional;
 use WP_Block_Patterns_Registry;
 use function add_action;
@@ -23,11 +31,8 @@ use function class_exists;
 use function remove_action;
 use function str_contains;
 
-/**
- * WooCommerce integration.
- *
- * @since 1.0.0
- */
+// Implements the WooCommerce integration class for the design system.
+
 class WooCommerce implements Conditional {
 
 	/**
