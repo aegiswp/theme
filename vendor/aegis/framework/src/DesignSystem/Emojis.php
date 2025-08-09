@@ -1,30 +1,33 @@
 <?php
 /**
- * Emojis.php
+ * Emojis Extension Component
  *
- * Handles emoji-related logic for the Aegis WordPress theme.
+ * Provides support for disabling default WordPress emoji scripts and styles in the Aegis Framework.
  *
- * @package   Aegis\Framework\DesignSystem
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * Responsibilities:
+ * - Removes emoji scripts and styles from the frontend and editor
+ *
+ * @package    Aegis\Framework\DesignSystem
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
 declare( strict_types=1 );
 
+// Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
 
-/**
- * Emojis extension.
- *
- * @since 1.0.0
- */
+// Implements the Emojis class to support disabling emoji scripts and styles in the design system.
+
 class Emojis {
 
 	/**
-	 * Removes emoji scripts and styles from the editor and frontend.
+	 * Adds editor only styles.
 	 *
 	 * @since 1.0.0
 	 *
@@ -36,5 +39,4 @@ class Emojis {
 		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 		remove_action( 'wp_print_styles', 'print_emoji_styles' );
 	}
-
 }
