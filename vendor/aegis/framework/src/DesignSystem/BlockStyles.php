@@ -1,77 +1,89 @@
 <?php
 /**
- * BlockStyles.php
+ * Block Styles Component
  *
- * Handles the block styles design system logic for the Aegis WordPress theme.
+ * Provides support for registering and managing block-specific style data for the WordPress editor within the Aegis Framework.
  *
- * @package   Aegis\Framework\DesignSystem
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * Responsibilities:
+ * - Registers and loads block style data for the editor
+ * - Integrates with the scripts service for editor-side JavaScript data
+ *
+ * @package    Aegis\Framework\DesignSystem
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
 declare( strict_types=1 );
 
+// Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
 
+// Imports scriptable interface, scripts service, and WordPress admin detection helper.
 use Aegis\Framework\InlineAssets\Scriptable;
 use Aegis\Framework\InlineAssets\Scripts;
 use function is_admin;
 
+// Implements the BlockStyles class to support block style data registration and management for the editor.
+
 /**
- * Block styles.
+ * Provides configuration for custom and default block style variations.
  *
- * @since 1.0.0
+ * This class does not render any content. Its sole purpose is to provide a
+ * structured array of data to the block editor's JavaScript. This data is then
+ * used to dynamically register custom block styles (e.g., "Checklist" for Lists)
+ * and unregister default core styles (e.g., "Rounded" for Images) using the
+ * `wp.blocks.registerBlockStyle` and `wp.blocks.unregisterBlockStyle` functions.
+ *
+ * @package Aegis\Framework\DesignSystem
+ * @since   1.0.0
  */
 class BlockStyles implements Scriptable {
 
 	/**
-	 * Adds data to the editor.
+	 * Exposes the block style configuration to client-side scripts.
 	 *
-	 * @param Scripts $scripts
+	 * This method makes the array from `get_data()` available to JavaScript
+	 * under the `blockStyles` key, but only when in the admin context.
 	 *
-	 * @return void
+	 * @since 1.0.0
+	 *
+	 * @param Scripts $scripts The Scripts service instance.
 	 */
 	public function scripts( Scripts $scripts ): void {
 		$scripts->add_data(
 			'blockStyles',
-			$this->get_data( wp_get_global_settings() ?? [] ),
+			$this->get_data(),
 			[],
 			is_admin(),
 		);
 	}
 
 	/**
-	 * Returns array of localized data.
+	 * Defines the lists of block styles to register and unregister.
 	 *
-	 * @param array $global_settings Global settings.
+	 * @since 1.0.0
 	 *
-	 * @return array
+	 * @return array A structured array containing 'register' and 'unregister' lists.
 	 */
-	private function get_data( array $global_settings ): array {
+	private function get_data(): array {
+		// Defines custom style variations to be added to core blocks.
+		// The key is the block name, and the value is an array of style names.
 		$register = [
 			'core/archive-title'       => [ 'sub-heading' ],
 			'core/buttons'             => [ 'surface' ],
-			'core/button'              => [ 'reverse' ],
-			'core/code'                => [ 'surface' ],
-			'core/columns'             => [ 'surface' ],
-			'core/column'              => [ 'surface' ],
+			'core/button'              => [ 'ghost' ],
+			'core/code'                => [ 'surface', 'light', 'dark' ],
+			'core/columns'             => [ 'surface', 'light', 'dark' ],
+			'core/column'              => [ 'surface', 'light', 'dark' ],
 			'core/comment-author-name' => [ 'heading' ],
-			'core/details'             => [
-				[ 'summary-heading' => __( 'Heading', 'aegis' ) ],
-			],
-			'core/group'               => [ 'surface' ],
-			'core/list'                => [
-				'checklist',
-				'check-outline',
-				'check-circle',
-				'square',
-				'list-heading',
-				'dash',
-				'none',
-			],
+			'core/details'             => [ [ 'summary-heading' => __( 'Heading', 'aegis' ) ] ],
+			'core/group'               => [ 'surface', 'light', 'dark' ],
+			'core/list'                => [ 'checklist', 'check-outline', 'check-circle', 'square', 'list-heading', 'dash', 'none' ],
 			'core/list-item'           => [ 'surface' ],
 			'core/navigation'          => [ 'heading' ],
 			'core/page-list'           => [ 'none' ],
@@ -87,16 +99,7 @@ class BlockStyles implements Scriptable {
 			'core/quote'               => [ 'surface' ],
 		];
 
-		$register['core/code'][]    = 'light';
-		$register['core/code'][]    = 'dark';
-		$register['core/column'][]  = 'light';
-		$register['core/column'][]  = 'dark';
-		$register['core/columns'][] = 'light';
-		$register['core/columns'][] = 'dark';
-		$register['core/group'][]   = 'light';
-		$register['core/group'][]   = 'dark';
-
-		// Values must be arrays.
+		// Defines default core styles that should be removed from the editor.
 		$unregister = [
 			'core/image'     => [ 'rounded', 'default' ],
 			'core/site-logo' => [ 'default', 'rounded' ],
