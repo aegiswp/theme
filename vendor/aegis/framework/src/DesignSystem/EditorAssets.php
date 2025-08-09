@@ -1,21 +1,29 @@
 <?php
 /**
- * EditorAssets.php
+ * Editor Assets Component
  *
- * Handles editor assets (scripts and styles) for the Aegis WordPress theme.
+ * Provides support for registering and managing editor scripts and styles for the Aegis Framework block editor experience.
  *
- * @package   Aegis\Framework\DesignSystem
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * Responsibilities:
+ * - Registers and enqueues editor scripts and styles
+ * - Integrates with the scripts and styles services for backend delivery
+ *
+ * @package    Aegis\Framework\DesignSystem
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
 declare( strict_types=1 );
 
+// Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
 
+// Imports scripts and styles services, debug utilities, and WordPress helpers for asset management.
 use Aegis\Framework\InlineAssets\Scripts;
 use Aegis\Framework\InlineAssets\Styles;
 use Aegis\Utilities\Debug;
@@ -34,11 +42,8 @@ use function wp_localize_script;
 use function wp_register_script;
 use function wp_register_style;
 
-/**
- * EditorScripts class.
- *
- * @since 1.0.0
- */
+// Implements the EditorAssets class to support editor asset management for the design system.
+
 class EditorAssets {
 
 	/**
@@ -73,7 +78,7 @@ class EditorAssets {
 	/**
 	 * Enqueue editor scripts.
 	 *
-	 * @hook enqueue_block_editor_assets
+	 * @hook enqueue_block_editor_assets 11
 	 *
 	 * @return void
 	 */
@@ -127,7 +132,7 @@ class EditorAssets {
 	/**
 	 * Enqueue editor styles.
 	 *
-	 * @hook enqueue_block_assets
+	 * @hook enqueue_block_assets 11
 	 *
 	 * @return void
 	 */
