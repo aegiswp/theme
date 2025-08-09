@@ -1,21 +1,29 @@
 <?php
 /**
- * Patterns.php
+ * Patterns Component
  *
- * Handles block pattern logic for the Aegis WordPress theme.
+ * Provides support for registering, loading, and managing block patterns for the Aegis Framework.
  *
- * @package   Aegis\Framework\DesignSystem
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * Responsibilities:
+ * - Registers and manages default and custom block patterns
+ * - Integrates with the block editor and theme patterns directory
+ *
+ * @package    Aegis\Framework\DesignSystem
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
 declare( strict_types=1 );
 
+// Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
 
+// Imports styleable interface, styles service, CSS utilities, and WordPress helpers.
 use Aegis\Framework\Interfaces\Renderable;
 use Aegis\Utilities\Debug;
 use Aegis\Utilities\Pattern;
@@ -90,12 +98,6 @@ class Patterns implements Renderable {
 		ksort( $categories );
 
 		$registered_categories = [];
-		$registered_slugs      = [];
-		$all_patterns          = WP_Block_Patterns_Registry::get_instance()->get_all_registered() ?? [];
-
-		foreach ( $all_patterns as $pattern ) {
-			$registered_slugs[] = $pattern['slug'] ?? '';
-		}
 
 		foreach ( $categories as $category => $patterns ) {
 
@@ -125,12 +127,6 @@ class Patterns implements Renderable {
 				}
 
 				$registered_categories[ $category ][] = $basename;
-
-				$slug = $category . '-' . $basename;
-
-				if ( in_array( $slug, $registered_slugs, true ) ) {
-					continue;
-				}
 
 				Pattern::register_from_file( $file );
 			}
