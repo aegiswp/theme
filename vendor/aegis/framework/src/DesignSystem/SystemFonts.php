@@ -1,31 +1,36 @@
 <?php
 /**
- * SystemFonts.php
+ * System Fonts Component
  *
- * Handles system font stack logic for the Aegis WordPress theme.
+ * Provides support for adding and managing system font stacks in the Aegis Framework.
  *
- * @package   Aegis\Framework\DesignSystem
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * Responsibilities:
+ * - Adds system font stacks to the theme JSON configuration
+ * - Integrates with the block editor and theme typography settings
+ *
+ * @package    Aegis\Framework\DesignSystem
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
 declare( strict_types=1 );
 
+// Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
 
+// Imports WordPress helpers for filters, arrays, and file system access.
 use function apply_filters;
 use function array_merge;
 use function get_template_directory;
 use function is_readable;
 
-/**
- * System fonts.
- *
- * @since 1.0.0
- */
+// Implements the SystemFonts class to support system font stack management for the design system.
+
 class SystemFonts {
 
 	/**
