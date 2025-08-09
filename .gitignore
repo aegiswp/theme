@@ -125,3 +125,4 @@ _theme
 vendor/composer/installed.json
 vendor/composer/installed.php
 parts/checkout-header.html
+vendor/aegis/framework/src/Integrations/LemonSqueezy.php
