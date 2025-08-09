@@ -1,32 +1,37 @@
 <?php
 /**
- * Layout.php
+ * Layout Component
  *
- * Handles layout logic for the Aegis WordPress theme.
+ * Provides support for adjusting layout size units and editor layout compatibility in the Aegis Framework.
  *
- * @package   Aegis\Framework\DesignSystem
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * Responsibilities:
+ * - Adjusts layout size units for the editor
+ * - Integrates with the block editor and theme JSON
+ *
+ * @package    Aegis\Framework\DesignSystem
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
 declare( strict_types=1 );
 
+// Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
 
+// Imports scriptable interface, scripts service, and WordPress helpers for array and string manipulation.
 use Aegis\Framework\InlineAssets\Scriptable;
 use Aegis\Framework\InlineAssets\Scripts;
 use function array_merge;
 use function is_admin;
 use function str_replace;
 
-/**
- * Layout.
- *
- * @since 1.0.0
- */
+// Implements the Layout class to support layout adjustments for the design system.
+
 class Layout implements Scriptable {
 
 	/**
