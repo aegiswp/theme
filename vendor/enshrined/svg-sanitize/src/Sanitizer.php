@@ -1,24 +1,4 @@
 <?php
-/**
- * SVG Sanitizer Main Class
- *
- * This file is used by the SVG-Sanitize library (enshrined/svg-sanitize) as the primary class for sanitizing SVG documents.
- *
- * Purpose:
- * - Provides the main interface and logic for cleaning and validating SVG markup.
- * - Used by the Aegis theme as part of its SVG sanitization process.
- *
- * @package    enshrined/svg-sanitize
- * @since      1.0.0
- * @author     enshrined
- * @link       https://github.com/darylldoyle/svg-sanitizer
- *
- * IMPORTANT:
- * - This file is part of a third-party library and may be overwritten on library updates.
- * - For custom sanitizer changes, fork the library or use hooks/filters provided by the Aegis theme or WordPress.
- *
- * For developer documentation and onboarding. No logic or sanitizer changes in this doc update.
- */
 namespace enshrined\svgSanitize;
 
 use enshrined\svgSanitize\data\AllowedAttributes;
@@ -248,7 +228,7 @@ class Sanitizer
 
         $loaded = $this->xmlDocument->loadXML($dirty, $this->getAllowHugeFiles() ? LIBXML_PARSEHUGE : 0);
 
-        // If we couldn't parse the XML then we go no further. Reset and return false
+        // If we could not parse the XML then we go no further. Reset and return false
         if (!$loaded) {
             $this->resetAfter();
             return false;
@@ -335,8 +315,8 @@ class Sanitizer
             /**
              * If the element has exceeded the nesting limit, we should remove it.
              *
-             * As it's only <use> elements that cause us issues with nesting DOS attacks
-             * we should check what the element is before removing it. For now we'll only
+             * As it has only <use> elements that cause us issues with nesting DOS attacks
+             * we should check what the element is before removing it. For now we will only
              * remove <use> elements.
              */
             if (in_array($currentElement, $elementsToRemove) && 'use' === $currentElement->nodeName) {
@@ -431,8 +411,8 @@ class Sanitizer
             }
 
             /**
-             * This is used for when a namespace isn't imported properly.
-             * Such as xlink:href when the xlink namespace isn't imported.
+             * This is used for when a namespace is not imported properly.
+             * Such as xlink:href when the xlink namespace is not imported.
              * We have to do this as the link is still ran in this case.
              */
             if (false !== strpos($attrName, 'href')) {
@@ -700,7 +680,7 @@ class Sanitizer
         if ($currentElement instanceof \DOMCdataSection) {
             $textNode = $currentElement->ownerDocument->createTextNode($currentElement->nodeValue);
             $currentElement->parentNode->replaceChild($textNode, $currentElement);
-        // If the element doesn't have a tagname, remove it and continue with next iteration
+        // If the element does not have a tagname, remove it and continue with next iteration
         } elseif (!$currentElement instanceof \DOMElement && !$currentElement instanceof \DOMText) {
             $currentElement->parentNode->removeChild($currentElement);
             $this->xmlIssues[] = array(
