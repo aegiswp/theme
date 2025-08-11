@@ -1,23 +1,29 @@
 <?php
 /**
- * Block.php
+ * Aegis Block Utilities
  *
- * Utility class for block-related operations in the Aegis WordPress theme.
+ * Provides utility functions for working with WordPress blocks in the Aegis Framework.
  *
- * Provides static methods for searching and manipulating WordPress blocks.
+ * Responsibilities:
+ * - Offers helper methods for searching, parsing, and rendering blocks
+ * - Ensures consistency and reusability of block logic across the framework
  *
- * @package   Aegis\Utilities
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * @package    Aegis\Utilities
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
 declare( strict_types=1 );
 
+// Declares the namespace for utility classes within the Aegis Framework.
 namespace Aegis\Utilities;
 
+// Imports DOM utilities, WordPress core classes, and helper functions for block operations.
 use Aegis\Dom\CSS;
 use WP;
 use function implode;
@@ -28,11 +34,8 @@ use function serialize_block;
 use function str_contains;
 use function strip_core_block_namespace;
 
-/**
- * Block utility.
- *
- * @since 1.0.0
- */
+// Implements the Aegis block utility class for reusable block operations.
+
 class Block {
 
 	/**
