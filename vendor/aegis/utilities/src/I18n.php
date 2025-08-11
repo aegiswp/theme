@@ -1,31 +1,34 @@
 <?php
 /**
- * I18n.php
+ * Aegis Internationalization Utilities
  *
- * Utility class for internationalization in the Aegis WordPress theme.
+ * Provides utility functions for loading plugin and theme translations in the Aegis Framework.
  *
- * Handles loading of the plugin/theme textdomain for translations.
+ * Responsibilities:
+ * - Offers helper methods for loading text domains and managing localization
+ * - Ensures consistency and reusability of i18n logic across the framework
  *
- * @package   Aegis\Utilities
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * @package    Aegis\Utilities
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment, @alexdeborba
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
 declare( strict_types=1 );
 
+// Declares the namespace for utility classes within the Aegis Framework.
 namespace Aegis\Utilities;
 
+// Imports data utility class and WordPress core function for i18n operations.
 use Aegis\Utilities\Data;
 use function load_plugin_textdomain;
 
-/**
- * Class I18n.
- *
- * @since 1.0.0
- */
+// Implements the Aegis i18n utility class for reusable internationalization operations.
+
 class I18n {
 
 	private Data $plugin;
@@ -59,5 +62,4 @@ class I18n {
 			$this->plugin->dir . $this->plugin->domain_path
 		);
 	}
-
 }
