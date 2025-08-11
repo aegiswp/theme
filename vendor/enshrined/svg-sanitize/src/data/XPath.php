@@ -1,24 +1,4 @@
 <?php
-/**
- * SVG XPath Utility
- *
- * This file is used by the SVG-Sanitize library (enshrined/svg-sanitize) to provide XPath expressions and utilities for SVG sanitization.
- *
- * Purpose:
- * - Defines and manages XPath queries used for filtering and validating SVG content.
- * - Used by the Aegis theme as part of its SVG sanitization process.
- *
- * @package    enshrined/svg-sanitize
- * @since      1.0.0
- * @author     enshrined
- * @link       https://github.com/darylldoyle/svg-sanitizer
- *
- * IMPORTANT:
- * - This file is part of a third-party library and may be overwritten on library updates.
- * - For custom XPath changes, fork the library or use hooks/filters provided by the Aegis theme or WordPress.
- *
- * For developer documentation and onboarding. No logic or XPath changes in this doc update.
- */
 namespace enshrined\svgSanitize\data;
 
 class XPath extends \DOMXPath
