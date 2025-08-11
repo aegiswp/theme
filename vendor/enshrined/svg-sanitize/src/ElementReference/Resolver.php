@@ -1,24 +1,4 @@
 <?php
-/**
- * SVG Element Reference Resolver
- *
- * This file is used by the SVG-Sanitize library (enshrined/svg-sanitize) to resolve element references for SVG sanitization.
- *
- * Purpose:
- * - Provides logic for resolving and validating element references within SVG documents.
- * - Used by the Aegis theme as part of its SVG sanitization process.
- *
- * @package    enshrined/svg-sanitize
- * @since      1.0.0
- * @author     enshrined
- * @link       https://github.com/darylldoyle/svg-sanitizer
- *
- * IMPORTANT:
- * - This file is part of a third-party library and may be overwritten on library updates.
- * - For custom resolver changes, fork the library or use hooks/filters provided by the Aegis theme or WordPress.
- *
- * For developer documentation and onboarding. No logic or resolver changes in this doc update.
- */
 namespace enshrined\svgSanitize\ElementReference;
 
 use enshrined\svgSanitize\data\XPath;
