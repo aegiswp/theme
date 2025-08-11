@@ -2,26 +2,34 @@
 /**
  * Icon Utilities
  *
- * Provides utility functions and classes for SVG icon management, sanitization, and REST API integration.
+ * Provides a comprehensive suite of static methods for managing, sanitizing, and
+ * delivering SVG icons within the Aegis theme environment. This class handles
+ * everything from discovering icon sets in the theme's directory structure to
+ * exposing them via a secure REST API endpoint.
  *
  * Responsibilities:
- * - Loads and sanitizes SVG icons from the filesystem
- * - Exposes icon management endpoints via the WordPress REST API
- * - Integrates with DOM and CSS utilities for icon manipulation
- * - Ensures security and proper permissions for icon access
+ * - Dynamically discovers and registers SVG icon sets from predefined directories.
+ * - Provides a REST API endpoint for fetching icon data, supporting client-side UIs.
+ * - Sanitizes SVG code to prevent XSS vulnerabilities using the `enshrined/svg-sanitize` library.
+ * - Generates SVG markup with appropriate ARIA attributes for accessibility.
+ * - Caches retrieved icons to optimize performance.
  *
  * @package    Aegis\Icons
  * @since      1.0.0
- * @author     Atmostfear Entertainment
+ * @author     @atmostfear-entertainment
  * @link       https://github.com/aegiswp/theme
  *
- * For developer documentation and onboarding. No logic changes in this doc update.
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file.
 declare( strict_types=1 );
 
+// Declares the namespace for the Aegis icon utilities.
 namespace Aegis\Icons;
 
+// Imports external classes and WordPress functions for icon management.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Utilities\Str;
@@ -51,21 +59,42 @@ use function trim;
 use function uniqid;
 use const GLOB_ONLYDIR;
 
+// Provides static methods for SVG icon management, sanitization, and REST API integration.
+
 /**
- * Icon utility class.
+ * Manages SVG icons for the Aegis theme.
  *
- * @since 1.0.0
+ * This utility class provides a centralized system for handling SVG icons. It
+ * automatically discovers icon sets, provides methods to retrieve and sanitize
+ * individual SVGs, and exposes all icons through a WordPress REST API endpoint.
+ * All methods are static, so no instantiation is required.
+ *
+ * @package Aegis\Icons
+ * @since   1.0.0
  */
 class Icon {
 
+	/**
+	 * The filter hook name used to modify the list of icon sets.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var   string
+	 */
 	const FILTER = 'aegis_icon_sets';
 
 	/**
-	 * Returns array of all icon sets and their directory path.
+	 * Discovers and returns all available icon sets.
 	 *
-	 * @since 0.9.10
+	 * This method scans the parent theme, child theme, and the plugin's own
+	 * `public/icons` directory to find icon set subdirectories. It also checks for
+	 * a theme option (`aegis['iconSets']`) that may define a specific list of sets
+	 * to use. The results are passed through a filter to allow for customization.
 	 *
-	 * @return array <string, string>
+	 * @since  1.0.0
+	 *
+	 * @return array<string, string> An associative array where keys are icon set slugs
+	 *                               and values are their absolute directory paths.
 	 */
 	public static function get_icon_sets(): array {
 		$utility_dir    = dirname( __DIR__ ) . '/public/icons/';
@@ -128,16 +157,24 @@ class Icon {
 	}
 
 	/**
-	 * Returns svg string for given icon.
+	 * Retrieves and sanitizes the SVG markup for a specific icon.
 	 *
-	 * @since 1.0.0
+	 * This method fetches an SVG file from the specified set, sanitizes it to
+	 * prevent security issues, and adds necessary attributes for accessibility and
+	 * styling. It includes an in-memory static cache to avoid redundant file
+	 * operations and processing for the same icon within a single request.
 	 *
-	 * @param string          $set   Icon set.
-	 * @param string          $name  Icon name.
-	 * @param string|int|null $size  Icon size.
-	 * @param ?string         $title Icon title.
+	 * @since  1.0.0
 	 *
-	 * @return string
+	 * @param  string          $set   The slug of the icon set (e.g., 'social').
+	 * @param  string          $name  The filename of the icon without the .svg extension.
+	 * @param  string|int|null $size  Optional. The desired size for the icon, which sets
+	 *                                its width and height attributes.
+	 * @param  ?string         $title Optional. A title for the SVG, used for the `<title>`
+	 *                                element for accessibility. Defaults to an empty string.
+	 *
+	 * @return string                 The sanitized, complete SVG markup, or an empty string
+	 *                                if the icon is not found.
 	 */
 	public static function get_svg( string $set, string $name, $size = null, ?string $title = '' ): string {
 		$set = strtolower( $set );
@@ -222,12 +259,16 @@ class Icon {
 	}
 
 	/**
-	 * Registers icon REST endpoint.
+	 * Registers the REST API endpoint for accessing icon data.
 	 *
-	 * @since 1.0.0
+	 * This sets up a `GET` endpoint that allows authenticated users with the
+	 * `edit_posts` capability to fetch a list of all icons or icons from a
+	 * specific set. The endpoint is only registered once per namespace.
 	 *
-	 * @param string $namespace Route namespace.
-	 * @param string $route     Route path.
+	 * @since  1.0.0
+	 *
+	 * @param  string $namespace The REST API namespace (e.g., 'aegis/v1').
+	 * @param  string $route     The specific route for the icons endpoint.
 	 *
 	 * @return void
 	 */
@@ -265,12 +306,16 @@ class Icon {
 	}
 
 	/**
-	 * Registers icon set.
+	 * Registers a new icon set programmatically.
 	 *
-	 * @since 1.0.0
+	 * This method provides a way for other parts of the theme or plugins to add
+	 * a new icon set by hooking into the `aegis_icon_sets` filter. It's a simple
+	 * wrapper around `add_filter`.
 	 *
-	 * @param string $name Icon set name.
-	 * @param string $path Icon set path.
+	 * @since  1.0.0
+	 *
+	 * @param  string $name The slug for the new icon set.
+	 * @param  string $path The absolute path to the directory containing the SVGs.
 	 *
 	 * @return void
 	 */
@@ -282,13 +327,18 @@ class Icon {
 	}
 
 	/**
-	 * Returns placeholder icon dom element.
+	 * Generates a generic placeholder icon as a DOMElement.
 	 *
-	 * @since 1.0.0
+	 * This creates a default SVG placeholder, commonly used for images that are
+	 * loading or missing. The generated SVG is filterable via `aegis_placeholder_svg`
+	 * and is returned as a `DOMElement` ready to be imported into another `DOMDocument`.
 	 *
-	 * @param DOMDocument $dom DOM document.
+	 * @since  1.0.0
 	 *
-	 * @return DOMElement
+	 * @param  DOMDocument $dom The `DOMDocument` instance to which the new element
+	 *                        will belong.
+	 *
+	 * @return DOMElement     The generated placeholder icon as a `DOMElement`.
 	 */
 	public static function get_placeholder( DOMDocument $dom ): DOMElement {
 		$svg_title = esc_html__( 'Image placeholder', 'aegis' );
@@ -329,13 +379,17 @@ HTML;
 	}
 
 	/**
-	 * Returns icon data for rest endpoint
+	 * Gathers and returns icon data for the REST API endpoint.
 	 *
-	 * @since 1.0.0
+	 * This method compiles a structured array of all available icons, grouped by set.
+	 * It can return all icon data, just the data for a specific set, or a list of
+	 * available set names, depending on the request parameters.
 	 *
-	 * @param ?WP_REST_Request $request Request object.
+	 * @since  1.0.0
 	 *
-	 * @return mixed array|string
+	 * @param  ?WP_REST_Request $request The incoming REST request object. Can be null if called directly.
+	 *
+	 * @return array<string, mixed>|string[] The icon data, which varies based on request parameters.
 	 */
 	public static function get_icon_data( ?WP_REST_Request $request ) {
 		$icon_data = [];
@@ -365,13 +419,18 @@ HTML;
 	}
 
 	/**
-	 * Sanitizes SVG string.
+	 * Cleans and sanitizes an SVG string for safe output.
 	 *
-	 * @since 1.0.0
+	 * This method performs several operations to secure and optimize the SVG markup:
+	 * 1. Uses `enshrined/svg-sanitize` to remove malicious code if the library is available.
+	 * 2. Strips XML comments and unnecessary whitespace.
+	 * 3. Normalizes the `viewBox` attribute casing.
 	 *
-	 * @param string $svg SVG string.
+	 * @since  1.0.0
 	 *
-	 * @return string
+	 * @param  string $svg The raw SVG markup to be sanitized.
+	 *
+	 * @return string      The sanitized and trimmed SVG markup.
 	 */
 	public static function sanitize_svg( string $svg ): string {
 
