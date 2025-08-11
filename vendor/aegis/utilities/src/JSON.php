@@ -1,33 +1,36 @@
 <?php
 /**
- * JSON.php
+ * Aegis JSON Utilities
  *
- * Utility class for JSON-related operations in the Aegis WordPress theme.
+ * Provides utility functions for working with JSON data and CSS custom properties in the Aegis Framework.
  *
- * Provides static methods for handling theme JSON and CSS custom properties.
+ * Responsibilities:
+ * - Offers helper methods for extracting and formatting custom properties from settings arrays
+ * - Ensures consistency and reusability of JSON logic across the framework
  *
- * @package   Aegis\Utilities
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * @package    Aegis\Utilities
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
 declare( strict_types=1 );
 
+// Declares the namespace for utility classes within the Aegis Framework.
 namespace Aegis\Utilities;
 
+// Imports WordPress and PHP helper functions for JSON and string operations.
 use function _wp_to_kebab_case;
 use function is_array;
 use function str_replace;
 use function strtolower;
 
-/**
- * JSON utility.
- *
- * @since 1.0.0
- */
+// Implements the Aegis JSON utility class for reusable JSON operations.
+
 class JSON {
 
 	/**
@@ -49,7 +52,7 @@ class JSON {
 	 *
 	 * @see   WP_Theme_JSON::compute_theme_vars()
 	 *
-	 * @since 1.0.0
+	 * @since 5.8.0
 	 *
 	 * @param array $custom_values Settings to process.
 	 *
@@ -76,7 +79,7 @@ class JSON {
 	 *
 	 * This is thought to be useful to generate
 	 * CSS Custom Properties from a tree,
-	 * although there is nothing in the implementation
+	 * although there's nothing in the implementation
 	 * of this function that requires that format.
 	 *
 	 * For example, assuming the given prefix is '--wp'
@@ -100,7 +103,7 @@ class JSON {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array  $tree   Input tree to flatten.
+	 * @param array  $tree   Input tree to process.
 	 * @param string $prefix Optional. Prefix to prepend to each variable. Default
 	 *                       empty string.
 	 * @param string $token  Optional. Token to use between levels. Default '--'.
