@@ -1,23 +1,29 @@
 <?php
 /**
- * Color.php
+ * Aegis Color Utilities
  *
- * Utility class for color operations in the Aegis WordPress theme.
+ * Provides utility functions for working with color values and color-related logic in the Aegis Framework.
  *
- * Provides static methods for handling color values and system colors.
+ * Responsibilities:
+ * - Offers helper methods for retrieving and managing color constants
+ * - Ensures consistency and reusability of color logic across the framework
  *
- * @package   Aegis\Utilities
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * @package    Aegis\Utilities
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
 declare( strict_types=1 );
 
+// Declares the namespace for utility classes within the Aegis Framework.
 namespace Aegis\Utilities;
 
+// Imports standard classes and WordPress helper functions for color operations.
 use stdClass;
 use function _wp_to_kebab_case;
 use function array_replace;
@@ -28,6 +34,7 @@ use function get_template_directory;
 use function wp_get_global_settings;
 use function wp_json_file_decode;
 
+// Implements the Aegis color utility class for reusable color operations.
 class Color {
 
 	const SYSTEM_COLORS = [
@@ -212,5 +219,45 @@ class Color {
 		}
 
 		return $color_values;
+	}
+
+	/**
+	 * Returns replacements for deprecated colors.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $settings Global settings.
+	 *
+	 * @return array
+	 */
+	public static function get_replacement_colors( array $settings = [] ): array {
+		return array_replace(
+			[
+				'primary-darker'    => 'primary-900',
+				'primary-dark'      => 'primary-700',
+				'primary'           => 'primary-500',
+				'primary-light'     => 'primary-300',
+				'primary-lighter'   => 'primary-100',
+				'secondary-darker'  => 'primary-900',
+				'secondary-dark'    => 'primary-700',
+				'secondary'         => 'primary-600',
+				'secondary-light'   => 'primary-300',
+				'secondary-lighter' => 'primary-100',
+				'contrast'          => 'neutral-950',
+				'foreground'        => 'neutral-900',
+				'heading'           => 'neutral-800',
+				'body'              => 'neutral-600',
+				'neutral'           => 'neutral-500',
+				'outline'           => 'neutral-200',
+				'surface'           => 'neutral-100',
+				'lighten'           => 'neutral-50',
+				'background'        => 'neutral-0',
+				'base'              => 'neutral-0',
+				'success'           => 'success-500',
+				'warning'           => 'warning-500',
+				'error'             => 'error-500',
+			],
+			$settings['custom']['deprecatedColors'] ?? []
+		);
 	}
 }
