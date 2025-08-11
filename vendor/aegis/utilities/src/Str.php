@@ -1,23 +1,29 @@
 <?php
 /**
- * Str.php
+ * Aegis String Utilities
  *
- * Utility class for string operations in the Aegis WordPress theme.
+ * Provides utility functions for working with strings in the Aegis Framework.
  *
- * Provides static methods for common string manipulations and checks.
+ * Responsibilities:
+ * - Offers helper methods for searching, formatting, and manipulating strings
+ * - Ensures consistency and reusability of string logic across the framework
  *
- * @package   Aegis\Utilities
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * @package    Aegis\Utilities
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
 declare( strict_types=1 );
 
+// Declares the namespace for utility classes within the Aegis Framework.
 namespace Aegis\Utilities;
 
+// Imports PHP and WordPress helper functions and constants for string operations.
 use function _deprecated_function;
 use function capital_P_dangit;
 use function implode;
@@ -33,17 +39,14 @@ use function ucwords;
 use const DIRECTORY_SEPARATOR;
 use const PHP_EOL;
 
-/**
- * String utility.
- *
- * @since 1.0.0
- */
+// Implements the Aegis string utility class for reusable string operations.
+
 class Str {
 
 	/**
 	 * Checks if any of the given needles are in the haystack.
 	 *
-	 * @since 0.9.10
+	 * @since 1.0.0
 	 *
 	 * @param string $haystack   The string to search.
 	 * @param mixed  ...$needles The strings to search for.
@@ -264,6 +267,9 @@ class Str {
 	/**
 	 * Removes leading forward slashes and backslashes if they exist.
 	 *
+	 * The primary use of this is for paths and thus should be used for paths. It is
+	 * not restricted to paths and offers no specific path support.
+	 *
 	 * @param string $string What to remove the leading slashes from.
 	 *
 	 * @return string String without the leading slashes.
@@ -271,5 +277,4 @@ class Str {
 	public static function unleadingslashit( string $string ): string {
 		return ltrim( $string, '/\\' );
 	}
-
 }
