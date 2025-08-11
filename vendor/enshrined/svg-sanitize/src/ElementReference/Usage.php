@@ -1,24 +1,4 @@
 <?php
-/**
- * SVG Element Reference Usage
- *
- * This file is used by the SVG-Sanitize library (enshrined/svg-sanitize) to represent element reference usage for SVG sanitization.
- *
- * Purpose:
- * - Encapsulates logic for tracking and managing usage counts of SVG element references.
- * - Used by the Aegis theme as part of its SVG sanitization process.
- *
- * @package    enshrined/svg-sanitize
- * @since      1.0.0
- * @author     enshrined
- * @link       https://github.com/darylldoyle/svg-sanitizer
- *
- * IMPORTANT:
- * - This file is part of a third-party library and may be overwritten on library updates.
- * - For custom usage changes, fork the library or use hooks/filters provided by the Aegis theme or WordPress.
- *
- * For developer documentation and onboarding. No logic or usage changes in this doc update.
- */
 namespace enshrined\svgSanitize\ElementReference;
 
 class Usage
