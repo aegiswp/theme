@@ -1,32 +1,35 @@
 <?php
 /**
- * Arr.php
+ * Aegis Array Utilities
  *
- * Utility class for array operations in the Aegis WordPress theme.
+ * Provides utility functions for array operations within the Aegis Framework.
  *
- * Provides static methods for common array checks and manipulations.
+ * Responsibilities:
+ * - Offers helper methods for common array checks and manipulations
+ * - Ensures consistency and reusability of array logic across the framework
  *
- * @package   Aegis\Utilities
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * @package    Aegis\Utilities
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
 declare( strict_types=1 );
 
+// Declares the namespace for utility classes within the Aegis Framework.
 namespace Aegis\Utilities;
 
+// Imports native PHP array and type-checking functions for utility logic.
 use function in_array;
 use function is_array;
 use function is_string;
 
-/**
- * Class Arr
- *
- * @since 1.0.0
- */
+// Implements the Aegis array utility class for reusable array operations.
+
 class Arr {
 
 	/**
