@@ -1,28 +1,5 @@
 #!/usr/bin/env php
 <?php
-/**
- * SVG Scanner CLI Utility
- *
- * This script is provided by the SVG-Sanitize library (enshrined/svg-sanitize) as a command-line tool for scanning SVG files for issues.
- *
- * Purpose:
- * - Scans SVG files specified on the command line and outputs a JSON report of any issues found.
- * - Used by the Aegis theme as a developer utility for validating SVG content.
- *
- * Usage:
- *   php svg-scanner.php <svg-file1> <svg-file2> ...
- *
- * @package    enshrined/svg-sanitize
- * @since      1.0.0
- * @author     enshrined
- * @link       https://github.com/darylldoyle/svg-sanitizer
- *
- * IMPORTANT:
- * - This file is part of a third-party library and may be overwritten on library updates.
- * - For custom scanner changes, fork the library or use hooks/filters provided by the Aegis theme or WordPress.
- *
- * For developer documentation and onboarding. No logic or script changes in this doc update.
- */
 
 /*
  * Simple program that uses svg-sanitizer
