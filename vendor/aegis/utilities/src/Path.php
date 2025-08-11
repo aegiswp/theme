@@ -1,23 +1,29 @@
 <?php
 /**
- * Path.php
+ * Aegis Path Utilities
  *
- * Utility class for path operations in the Aegis WordPress theme.
+ * Provides utility functions for working with file and directory paths in the Aegis Framework.
  *
- * Provides static methods for manipulating and resolving file and directory paths.
+ * Responsibilities:
+ * - Offers helper methods for resolving, normalizing, and checking paths
+ * - Ensures consistency and reusability of path logic across the framework
  *
- * @package   Aegis\Utilities
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * @package    Aegis\Utilities
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
 declare( strict_types=1 );
 
+// Declares the namespace for utility classes within the Aegis Framework.
 namespace Aegis\Utilities;
 
+// Imports PHP helper functions for path operations.
 use function array_slice;
 use function content_url;
 use function dirname;
@@ -29,6 +35,9 @@ use function untrailingslashit;
 use const DIRECTORY_SEPARATOR;
 
 /**
+ * Aegis Path class.
+ *
+ * Provides utility methods for working with file and directory paths in the Aegis Framework.
  * Package class.
  *
  * @since 1.0.0
