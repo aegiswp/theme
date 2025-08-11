@@ -1,24 +1,4 @@
 <?php
-/**
- * SVG Helper Utility
- *
- * This file is used by the SVG-Sanitize library (enshrined/svg-sanitize) to provide helper methods for SVG sanitization.
- *
- * Purpose:
- * - Provides static utility functions for handling SVG elements and references.
- * - Used by the Aegis theme as part of its SVG sanitization process.
- *
- * @package    enshrined/svg-sanitize
- * @since      1.0.0
- * @author     enshrined
- * @link       https://github.com/darylldoyle/svg-sanitizer
- *
- * IMPORTANT:
- * - This file is part of a third-party library and may be overwritten on library updates.
- * - For custom helper changes, fork the library or use hooks/filters provided by the Aegis theme or WordPress.
- *
- * For developer documentation and onboarding. No logic or helper changes in this doc update.
- */
 namespace enshrined\svgSanitize;
 
 class Helper
