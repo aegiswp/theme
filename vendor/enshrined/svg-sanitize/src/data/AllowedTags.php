@@ -1,24 +1,4 @@
 <?php
-/**
- * Allowed SVG Tags List
- *
- * This file is used by the SVG-Sanitize library (enshrined/svg-sanitize) as the definitive list of allowed SVG tags for sanitization.
- *
- * Purpose:
- * - Defines which SVG and HTML tags are permitted to ensure safe and standards-compliant SVG usage.
- * - Used by the Aegis theme as part of its SVG sanitization process.
- *
- * @package    enshrined/svg-sanitize
- * @since      1.0.0
- * @author     enshrined
- * @link       https://github.com/darylldoyle/svg-sanitizer
- *
- * IMPORTANT:
- * - This file is part of a third-party library and may be overwritten on library updates.
- * - For custom tag changes, fork the library or use hooks/filters provided by the Aegis theme or WordPress.
- *
- * For developer documentation and onboarding. No logic or data changes in this doc update.
- */
 namespace enshrined\svgSanitize\data;
 
 /**
