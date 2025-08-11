@@ -1,23 +1,29 @@
 <?php
 /**
- * Pattern.php
+ * Aegis Pattern Utilities
  *
- * Utility class for block pattern operations in the Aegis WordPress theme.
+ * Provides utility functions for registering and managing block patterns in the Aegis Framework.
  *
- * Provides static methods for parsing and registering block patterns from PHP files.
+ * Responsibilities:
+ * - Offers helper methods for parsing, registering, and managing block patterns
+ * - Ensures consistency and reusability of pattern logic across the framework
  *
- * @package   Aegis\Utilities
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * @package    Aegis\Utilities
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
 declare( strict_types=1 );
 
+// Declares the namespace for utility classes within the Aegis Framework.
 namespace Aegis\Utilities;
 
+// Imports WordPress and PHP helper functions for pattern operations.
 use function _cleanup_header_comment;
 use function explode;
 use function get_file_data;
@@ -39,11 +45,8 @@ use function strtoupper;
 use function ucwords;
 use function wp_get_global_settings;
 
-/**
- * Pattern utility.
- *
- * @since 1.0.0
- */
+// Implements the Aegis pattern utility class for reusable pattern operations.
+
 class Pattern {
 
 	/**
@@ -99,6 +102,7 @@ class Pattern {
 			'slug'        => 'Slug',
 			'block_types' => 'Block Types',
 			'inserter'    => 'Inserter',
+			'ID'          => 'ID',
 			'theme'       => 'Theme',
 		];
 
@@ -167,6 +171,7 @@ class Pattern {
 			'categories'  => [ ...$categories ],
 			'description' => $headers['description'] ?? '',
 			'blockTypes'  => explode( ',', $headers['block_types'] ?? [] ),
+			'ID'          => $headers['ID'] ?? null,
 			'theme'       => $theme,
 		];
 
@@ -176,5 +181,4 @@ class Pattern {
 
 		return $pattern;
 	}
-
 }
