@@ -1,23 +1,29 @@
 <?php
 /**
- * Debug.php
+ * Aegis Debug Utilities
  *
- * Utility class for debugging operations in the Aegis WordPress theme.
+ * Provides utility functions for debugging and logging in the Aegis Framework.
  *
- * Provides static methods for checking debug status and logging data.
+ * Responsibilities:
+ * - Offers helper methods for checking debug mode and logging data
+ * - Ensures consistency and reusability of debug logic across the framework
  *
- * @package   Aegis\Utilities
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * @package    Aegis\Utilities
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
 declare( strict_types=1 );
 
+// Declares the namespace for utility classes within the Aegis Framework.
 namespace Aegis\Utilities;
 
+// Imports WordPress core functions and constants for debug operations.
 use function add_action;
 use function debug_backtrace;
 use function defined;
@@ -25,11 +31,8 @@ use function json_encode;
 use const SCRIPT_DEBUG;
 use const WP_DEBUG;
 
-/**
- * Class Debug.
- *
- * @since 1.0.0
- */
+// Implements the Aegis debug utility class for reusable debug operations.
+
 class Debug {
 
 	/**
@@ -103,5 +106,4 @@ class Debug {
 
 		echo '</script>';
 	}
-
 }
