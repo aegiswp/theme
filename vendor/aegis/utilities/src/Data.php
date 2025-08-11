@@ -1,23 +1,29 @@
 <?php
 /**
- * Data.php
+ * Aegis Data Utilities
  *
- * Data object for the Aegis WordPress theme.
+ * Provides utility functions and objects for managing theme and plugin data in the Aegis Framework.
  *
- * Provides properties and methods for theme/plugin metadata and information.
+ * Responsibilities:
+ * - Offers helper methods for retrieving and storing metadata about plugins and themes
+ * - Ensures consistency and reusability of data logic across the framework
  *
- * @package   Aegis\Utilities
- * @author    Atmostfear Entertainment
- * @copyright Copyright (c) 2025
- * @license   GPL-2.0-or-later
- * @link      https://github.com/aegiswp/theme
- * @since     1.0.0
+ * @package    Aegis\Utilities
+ * @since      1.0.0
+ * @author     @atmostfear-entertainment
+ * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
 declare( strict_types=1 );
 
+// Declares the namespace for utility classes within the Aegis Framework.
 namespace Aegis\Utilities;
 
+// Imports WordPress theme classes and helper functions for data operations.
 use WP_Theme;
 use function basename;
 use function dirname;
@@ -31,11 +37,8 @@ use function strip_tags;
 use function trailingslashit;
 use function wp_get_theme;
 
-/**
- * Data object.
- *
- * @since 1.0.0
- */
+// Implements the Aegis data utility class for reusable data operations.
+
 class Data {
 
 	public string $file        = '';
