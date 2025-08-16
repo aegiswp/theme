@@ -1,0 +1,111 @@
+<?php return array(
+    'root' => array(
+        'name' => 'aegis/aegis',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '024df0a81e4acea209b0c3769e9aafc1be8fba9b',
+        'type' => 'wordpress-theme',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => false,
+    ),
+    'versions' => array(
+        'aegis/aegis' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '024df0a81e4acea209b0c3769e9aafc1be8fba9b',
+            'type' => 'wordpress-theme',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'aegis/container' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '5df69be1b79240ad17cacede6c141bceb77ba864',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../aegis/container',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'dev_requirement' => false,
+        ),
+        'aegis/dom' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '900eaaedfc1c21887b2775eb5673c21f8af9f6ab',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../aegis/dom',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'dev_requirement' => false,
+        ),
+        'aegis/framework' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'e3f0f796bce622785598d30dbb6bf38f142c50f8',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../aegis/framework',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'dev_requirement' => false,
+        ),
+        'aegis/hooks' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'd09514b4e6ef63c729665d03b17efe8b510f38e3',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../aegis/hooks',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'dev_requirement' => false,
+        ),
+        'aegis/icons' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '1f19ef9fc75e045007a02a27962a36484aaf22b6',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../aegis/icons',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'dev_requirement' => false,
+        ),
+        'aegis/utilities' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '23d4829e0b0674094c9b394f5cdde1b69d1a0285',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../aegis/utilities',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'dev_requirement' => false,
+        ),
+        'enshrined/svg-sanitize' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '6a2c069dab3843ca4d887ff09c972fc7033888d0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../enshrined/svg-sanitize',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'dev_requirement' => false,
+        ),
+        'psr/container' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '707984727bd5b2b670e59559d3ed2500240cf875',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../psr/container',
+            'aliases' => array(
+                0 => '2.0.x-dev',
+            ),
+            'dev_requirement' => false,
+        ),
+    ),
+);
