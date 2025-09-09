@@ -12,14 +12,14 @@
  *
  * @package    Aegis\Dom
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for DOM utilities.
+// Ensures strict type checking for all code in this file.
 declare( strict_types=1 );
 
 // Declares the namespace for DOM utilities within the Aegis Framework.
