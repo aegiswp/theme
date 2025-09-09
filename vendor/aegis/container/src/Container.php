@@ -12,7 +12,7 @@
  *
  * @package    Aegis\Container
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -62,7 +62,7 @@ class Container implements ContainerInterface {
 	 *
 	 * This method retrieves a previously resolved service instance from the container.
 	 * It adheres to the PSR-11 standard by not attempting to resolve the service
-	 * if it's not already present.
+	 * if it is not already present.
 	 *
 	 * @param string $id Identifier of the entry to look for (e.g., a fully qualified class name).
 	 *
@@ -109,7 +109,7 @@ class Container implements ContainerInterface {
 			return $this->instances[ $id ];
 		}
 
-		// If the identifier is a callable, it's a factory. Resolve it by calling it.
+		// If the identifier is a callable, it is a factory. Resolve it by calling it.
 		if ( isset( $this->instances[ $id ] ) && is_callable( $this->instances[ $id ] ) ) {
 			return ( $this->instances[ $id ] )();
 		}
@@ -154,7 +154,7 @@ class Container implements ContainerInterface {
 				$parameters   = $constructor->getParameters();
 				$dependencies = $this->resolve_parameters( $parameters );
 				$instance     = $reflector->newInstanceArgs( $dependencies );
-			// If there's no constructor, simply create a new instance without arguments.
+			// If there is no constructor, simply create a new instance without arguments.
 			} else {
 				$instance = $reflector->newInstance();
 			}
