@@ -41,6 +41,41 @@ body:
       description: Add screenshots to help explain your problem (if applicable).
     validations:
       required: false
+
+  - type: group
+    id: environment
+    attributes:
+      label: WordPress Environment
+    body:
+      - type: input
+        id: wp-version
+        attributes:
+          label: WordPress Version
+          description: What version of WordPress are you running?
+        validations:
+          required: true
+      - type: input
+        id: php-version
+        attributes:
+          label: PHP Version
+          description: What version of PHP are you running?
+        validations:
+          required: true
+      - type: input
+        id: theme-version
+        attributes:
+          label: Theme Version
+          description: What version of the Aegis theme are you using?
+        validations:
+          required: true
+      - type: textarea
+        id: active-plugins
+        attributes:
+          label: Active Plugins
+          description: Please provide a list of all active plugins.
+        validations:
+          required: false
+
   - type: input
     id: desktop
     attributes:
