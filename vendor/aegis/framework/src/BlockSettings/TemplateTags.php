@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\BlockSettings
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -153,7 +153,7 @@ class TemplateTags implements Renderable {
 			$tag         = strtolower( $tag );
 			$replacement = '';
 
-			// Don't replace shortcodes.
+			// Do not replace shortcodes.
 			if ( shortcode_exists( $tag ) ) {
 				continue;
 			}
