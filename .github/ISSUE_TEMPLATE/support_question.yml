@@ -30,6 +30,41 @@ body:
       description: If applicable, link to docs, forum posts, or other resources you've reviewed.
     validations:
       required: false
+
+  - type: group
+    id: wordpress-environment
+    attributes:
+      label: WordPress Environment
+    body:
+      - type: input
+        id: wp-version
+        attributes:
+          label: WordPress Version
+          description: What version of WordPress are you running?
+        validations:
+          required: false
+      - type: input
+        id: php-version
+        attributes:
+          label: PHP Version
+          description: What version of PHP are you running?
+        validations:
+          required: false
+      - type: input
+        id: theme-version
+        attributes:
+          label: Theme Version
+          description: What version of the Aegis theme are you using?
+        validations:
+          required: false
+      - type: textarea
+        id: active-plugins
+        attributes:
+          label: Active Plugins
+          description: Please provide a list of all active plugins.
+        validations:
+          required: false
+
   - type: textarea
     id: context
     attributes:
