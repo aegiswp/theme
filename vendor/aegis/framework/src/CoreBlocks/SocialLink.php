@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\CoreBlocks
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -33,100 +33,90 @@ use function esc_attr;
 
 // Implements the SocialLink class to support social link block rendering.
 
-/**
- * Handles the rendering of the core/social-link block.
- *
- * This class customizes individual social links by applying text color and
- * replacing the default Slack icon with a custom version.
- *
- * @package Aegis\Framework\CoreBlocks
- * @since   1.0.0
- */
 class SocialLink implements Renderable {
 
 	/**
-	 * Renders the social-link block with custom enhancements.
-	 *
-	 * This method is hooked into the `render_block_core/social-link` filter.
-	 * It applies a custom text color and, if the service is Slack, it replaces
-	 * the default WordPress icon with a custom SVG.
+	 * Modifies front end HTML output of block.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param  string   $block_content The original block content.
-	 * @param  array    $block         The full block object.
-	 * @param  WP_Block $instance      The block instance.
+	 * @param string   $block_content Block HTML.
+	 * @param array    $block         Block data.
+	 * @param WP_Block $instance      Block instance.
 	 *
-	 * @hook   render_block_core/social-link
+	 * @hook  render_block_core/social-link
 	 *
-	 * @return string The modified block content.
+	 * @return string
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$attrs     = $block['attrs'] ?? [];
-		$textColor = esc_attr( $attrs['textColor'] ?? '' );
+		$textColor = esc_attr( $block['attrs']['textColor'] ?? '' );
 
-		// Apply custom text color from block attributes.
 		if ( $textColor ) {
 			$dom       = DOM::create( $block_content );
 			$list_item = DOM::get_element( 'li', $dom );
 
-			if ( $list_item ) {
-				$styles          = CSS::string_to_array( $list_item->getAttribute( 'style' ) );
-				$styles['color'] = "var(--wp--preset--color--$textColor)";
-				$list_item->setAttribute( 'style', CSS::array_to_string( $styles ) );
-
-				$classes   = explode( ' ', $list_item->getAttribute( 'class' ) );
-				$classes[] = 'has-text-color';
-				$list_item->setAttribute( 'class', implode( ' ', $classes ) );
-
-				$block_content = $dom->saveHTML();
+			if ( ! $list_item ) {
+				return $block_content;
 			}
+
+			$styles          = CSS::string_to_array( $list_item->getAttribute( 'style' ) );
+			$styles['color'] = "var(--wp--preset--color--$textColor)";
+
+			$list_item->setAttribute( 'style', CSS::array_to_string( $styles ) );
+
+			$classes = explode( ' ', $list_item->getAttribute( 'class' ) );
+
+			$classes[] = 'has-text-color';
+
+			$list_item->setAttribute( 'class', implode( ' ', $classes ) );
+
+			$block_content = $dom->saveHTML();
 		}
 
-		// If the social link is for Slack, replace the default icon with a custom one.
-		$service = $attrs['service'] ?? null;
-		if ( 'slack' === $service ) {
+		$service = $block['attrs']['service'] ?? null;
+
+		if ( $service === 'slack' ) {
 			$dom         = DOM::create( $block_content );
 			$li          = DOM::get_element( 'li', $dom );
 			$a           = DOM::get_element( 'a', $li );
 			$default_svg = DOM::get_element( 'svg', $a );
 
-			if ( $default_svg ) {
-				// @todo New svg location.
-				$svg_dom  = DOM::create( Icon::get_svg( 'social', 'slack' ) );
-				$svg      = DOM::get_element( 'svg', $svg_dom );
-				$imported = $dom->importNode( $svg, true );
-
-				// Set standard attributes for the new SVG.
-				$imported->setAttribute( 'fill', 'currentColor' );
-				$imported->setAttribute( 'width', '24' );
-				$imported->setAttribute( 'height', '24' );
-				$imported->setAttribute( 'aria-hidden', 'true' );
-				$imported->setAttribute( 'focusable', 'false' );
-				$imported->setAttribute( 'role', 'img' );
-
-				// Replace the old SVG with the new one.
-				$a->appendChild( $imported );
-				$a->removeChild( $default_svg );
-
-				$block_content = $dom->saveHTML( $li );
+			if ( ! $default_svg ) {
+				return $block_content;
 			}
+
+			// TODO: New svg location.
+			$svg_dom = DOM::create( Icon::get_svg( 'social', 'slack' ) );
+			$svg     = DOM::get_element( 'svg', $svg_dom );
+
+			$svg->setAttribute( 'fill', 'currentColor' );
+			$svg->setAttribute( 'width', '24' );
+			$svg->setAttribute( 'height', '24' );
+			$svg->setAttribute( 'aria-hidden', 'true' );
+			$svg->setAttribute( 'focusable', 'false' );
+			$svg->setAttribute( 'role', 'img' );
+
+			$imported = $dom->importNode( $svg, true );
+
+			$a->appendChild( $imported );
+			$a->removeChild( $default_svg );
+
+			$block_content = $dom->saveHTML( $li );
 		}
 
-		// This logic seems to re-apply a '#' href if it is already set.
-		// It might be a defensive measure against other filters stripping the attribute.
-		$url = $attrs['url'] ?? null;
-		if ( '#' === $url ) {
+		$url = $block['attrs']['url'] ?? null;
+
+		if ( $url === '#' ) {
 			$dom = DOM::create( $block_content );
 			$li  = DOM::get_element( 'li', $dom );
 			$a   = DOM::get_element( 'a', $li );
 
-			if ( $a ) {
-				$a->setAttribute( 'href', '#' );
-				$block_content = $dom->saveHTML( $li );
-			}
+			$a->setAttribute( 'href', '#' );
+
+			$block_content = $dom->saveHTML( $li );
 		}
 
 		return $block_content;
 	}
+
 }
