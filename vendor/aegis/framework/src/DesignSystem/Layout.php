@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\DesignSystem
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -52,8 +52,8 @@ class Layout implements Scriptable {
 
 		$default      = $theme_json->get_data();
 		$new          = [];
-		$content_size = $default['settings']['layout']['contentSize'] ?? 'min(calc(100dvw - var(--wp--preset--spacing--xl,2rem)), 720px)';
-		$wide_size    = $default['settings']['layout']['wideSize'] ?? 'min(calc(100dvw - var(--wp--preset--spacing--xl,2rem)), 1200px)';
+		$content_size = $default['settings']['layout']['contentSize'] ?? 'min(calc(100dvw - var(--wp--preset--spacing--lg,2rem) * 2), 950px)';
+		$wide_size    = $default['settings']['layout']['wideSize'] ?? 'min(calc(100vw - var(--wp--preset--spacing--lg,2rem) * 2), 1440px)';
 
 		$new['settings']['layout']['contentSize'] = str_replace( '100%', '100dvw', $content_size );
 		$new['settings']['layout']['wideSize']    = str_replace( '100%', '100dvw', $wide_size );
@@ -77,4 +77,5 @@ class Layout implements Scriptable {
 			[ 'has-header-height' ]
 		);
 	}
+
 }
