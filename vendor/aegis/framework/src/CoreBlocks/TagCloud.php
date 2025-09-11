@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\CoreBlocks
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -32,37 +32,20 @@ use function implode;
 
 // Implements the TagCloud class to support tag cloud block rendering.
 
-/**
- * Handles the rendering of the core/tag-cloud block.
- *
- * This class customizes the tag cloud block by applying a font size based on
- * the block's `smallestFontSize` and `largestFontSize` attributes.
- *
- * @package Aegis\Framework\CoreBlocks
- * @since   1.0.0
- */
 class TagCloud implements Renderable {
 
 	/**
-	 * Renders the tag cloud block with a custom font size.
-	 *
-	 * This method is hooked into the `render_block_core/tag-cloud` filter. It
-	 * takes the `smallestFontSize` and `largestFontSize` attributes and uses them
-	 * to set a single font size on the wrapper element.
-	 *
-	 * Note: The use of `max()` means the font size for the entire block will be
-	 * set to whichever of the two values is larger, effectively making all tags
-	 * the same size rather than a range.
+	 * Modifies front end HTML output of block.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param  string   $block_content The original block content.
-	 * @param  array    $block         The full block object.
-	 * @param  WP_Block $instance      The block instance.
+	 * @param string   $block_content Block HTML.
+	 * @param array    $block         Block data.
+	 * @param WP_Block $instance      Block instance.
 	 *
-	 * @hook   render_block_core/tag-cloud
+	 * @hook  render_block_core/tag-cloud
 	 *
-	 * @return string The modified block content.
+	 * @return string
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
 		$smallest  = esc_attr( $block['attrs']['smallestFontSize'] ?? '1em' );
@@ -70,20 +53,18 @@ class TagCloud implements Renderable {
 		$dom       = DOM::create( $block_content );
 		$paragraph = DOM::get_element( 'p', $dom );
 
-		if ( ! $paragraph ) {
-			return $block_content;
-		}
-
-		// Prepend a `font-size` style to the existing inline styles.
-		// The use of `max()` will set the font size to the larger of the two values.
 		$paragraph->setAttribute(
 			'style',
-			implode( ';', [
-				'font-size:max(' . $smallest . ',' . $largest . ')',
-				$paragraph->getAttribute( 'style' ),
-			] )
+			implode(
+				';',
+				[
+					'font-size:max(' . $smallest . ',' . $largest . ')',
+					$paragraph->getAttribute( 'style' ),
+				]
+			)
 		);
 
 		return $dom->saveHTML();
 	}
+
 }
