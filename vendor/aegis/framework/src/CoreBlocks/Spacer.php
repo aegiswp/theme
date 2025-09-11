@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\CoreBlocks
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -31,34 +31,20 @@ use WP_Block;
 
 // Implements the Spacer class to support spacer block rendering.
 
-/**
- * Handles the rendering of the core/spacer block.
- *
- * This class enhances the default spacer block by applying custom margin values
- * and handling potential conflicts between legacy and responsive width settings.
- *
- * @package Aegis\Framework\CoreBlocks
- * @since   1.0.0
- */
 class Spacer implements Renderable {
 
 	/**
-	 * Renders the spacer block with custom enhancements.
-	 *
-	 * This method is hooked into the `render_block_core/spacer` filter. It
-	 * applies custom margins and also includes logic to remove the legacy `width`
-	 * style if a modern responsive width setting is also present, preventing
-	 * style conflicts.
+	 * Modifies front end HTML output of block.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param  string   $block_content The original block content.
-	 * @param  array    $block         The full block object.
-	 * @param  WP_Block $instance      The block instance.
+	 * @param string   $block_content Block HTML.
+	 * @param array    $block         Block data.
+	 * @param WP_Block $instance      Block instance.
 	 *
-	 * @hook   render_block_core/spacer 11
+	 * @hook  render_block_core/spacer 11
 	 *
-	 * @return string The modified block content.
+	 * @return string
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
 		$dom = DOM::create( $block_content );
@@ -68,23 +54,21 @@ class Spacer implements Renderable {
 			return $block_content;
 		}
 
-		$attrs      = $block['attrs'] ?? [];
 		$div_styles = CSS::string_to_array( $div->getAttribute( 'style' ) );
 
-		// Apply custom margins from block attributes.
-		$margin     = $attrs['style']['spacing']['margin'] ?? '';
+		$margin     = $block['attrs']['style']['spacing']['margin'] ?? '';
 		$div_styles = CSS::add_shorthand_property( $div_styles, 'margin', $margin );
 
-		// If a responsive width is set, unset the legacy width attribute to prevent conflicts.
-		// The responsive width is likely applied via a separate class or mechanism.
-		$width            = $attrs['width'] ?? '';
-		$responsive_width = $attrs['style']['width']['all'] ?? '';
+		$width            = $block['attrs']['width'] ?? '';
+		$responsive_width = $block['attrs']['style']['width']['all'] ?? '';
+
 		if ( $width && $responsive_width ) {
-			unset( $div_styles['width'] );
+			unset ( $div_styles['width'] );
 		}
 
 		$div->setAttribute( 'style', CSS::array_to_string( $div_styles ) );
 
 		return $dom->saveHTML();
 	}
+
 }
