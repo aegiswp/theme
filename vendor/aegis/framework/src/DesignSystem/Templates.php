@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\DesignSystem
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -87,7 +87,6 @@ class Templates {
 		}
 
 		$woocommerce = class_exists( 'WooCommerce' );
-		$edd         = class_exists( 'Easy_Digital_Downloads' );
 		$template    = get_template();
 		$stylesheet  = get_stylesheet();
 
@@ -100,10 +99,6 @@ class Templates {
 			}
 
 			if ( ! $woocommerce && str_contains( $slug, 'product' ) ) {
-				unset( $query_result[ $index ] );
-			}
-
-			if ( ! $edd && str_contains( $slug, 'download' ) ) {
 				unset( $query_result[ $index ] );
 			}
 		}
