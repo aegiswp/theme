@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\CoreBlocks
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -213,7 +213,7 @@ class Button implements Renderable {
 			$href = $link->getAttribute( 'href' );
 			if ( ! $href ) {
 				$on_click = $attrs['onclick'] ?? null;
-				// If there is an onclick action, make it a JS void link. Otherwise, a simple hash.
+				// If there's an onclick action, make it a JS void link. Otherwise, a simple hash.
 				$link->setAttribute( 'href', $on_click ? 'javascript:void(0)' : '#' );
 			}
 		}
@@ -438,4 +438,5 @@ class Button implements Renderable {
 
 		return $block_content;
 	}
+
 }
