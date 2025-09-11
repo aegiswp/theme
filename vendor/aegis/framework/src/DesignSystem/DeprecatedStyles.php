@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\DesignSystem
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -35,39 +35,30 @@ use function wp_json_file_decode;
 
 // Implements the DeprecatedStyles class to support backward compatibility for deprecated styles.
 
-/**
- * Handles backward compatibility for deprecated theme styles.
- *
- * This class is a compatibility layer that loads CSS custom properties for
- * deprecated color and typography presets from older theme versions, ensuring
- * that sites built with those versions continue to look correct after an update.
- *
- * @package Aegis\Framework\DesignSystem
- * @since   1.0.0
- */
 class DeprecatedStyles implements Styleable {
 
 	/**
-	 * Gathers all deprecated styles and adds them to the inline style queue.
+	 * Styles.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param Styles $styles The Styles service instance.
+	 * @param Styles $styles Styles.
+	 *
+	 * @return void
 	 */
 	public function styles( Styles $styles ): void {
 		$css = CSS::array_to_string( $this->get_deprecated_color_palette() );
 		$css .= CSS::array_to_string( $this->get_deprecated_typography() );
 
-		// Only add the style block if there are any deprecated styles to add.
 		$styles->add_string( "body{{$css}}", [], ! empty( $css ) );
 	}
 
 	/**
-	 * Generates CSS variables for a hard-coded list of deprecated colors.
+	 * Adds deprecated color palette to inline styles.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @return array An associative array of CSS custom properties for deprecated colors.
+	 * @return array
 	 */
 	private function get_deprecated_color_palette(): array {
 		$colors = Color::get_deprecated_colors();
@@ -83,37 +74,32 @@ class DeprecatedStyles implements Styleable {
 	}
 
 	/**
-	 * Generates CSS variables for deprecated font sizes found in `theme.json`.
-	 *
-	 * This method contains complex logic to detect if a site might be using
-	 * deprecated font sizes. It manually parses `theme.json` and compares its
-	 * font size presets with those currently registered by WordPress. If it
-	 * finds any that are no longer registered, it creates CSS variables for
-	 * them to ensure backward compatibility.
+	 * Adds deprecated typography to inline styles.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @return array An associative array of CSS custom properties for deprecated font sizes.
+	 * @return array
 	 */
 	private function get_deprecated_typography(): array {
 		$global_settings = wp_get_global_settings();
 		$font_sizes      = $global_settings['typography']['fontSizes']['theme'] ?? [];
-		$styles          = [];
+
+		$styles = [];
 
 		if ( ! $font_sizes ) {
 			return $styles;
 		}
 
-		// The check for a font size with slug '81' acts as a trigger. If this
-		// specific deprecated slug is found, the theme assumes it needs to
-		// load all other potentially deprecated font sizes.
 		$has_deprecated = false;
 		$slugs          = [];
+
 		foreach ( $font_sizes as $font_size ) {
 			$slug = $font_size['slug'] ?? '';
-			if ( '81' === $slug ) {
+
+			if ( $slug === '81' ) {
 				$has_deprecated = true;
 			}
+
 			$slugs[ $slug ] = $font_size;
 		}
 
@@ -121,28 +107,30 @@ class DeprecatedStyles implements Styleable {
 			return $styles;
 		}
 
-		// Manually read the theme.json file to get all defined font sizes.
 		$theme_json_file = get_template_directory() . '/theme.json';
+
 		if ( ! file_exists( $theme_json_file ) ) {
 			return $styles;
 		}
+
 		$theme_json            = wp_json_file_decode( $theme_json_file );
 		$theme_json_font_sizes = (array) ( $theme_json->settings->typography->fontSizes ?? [] );
+
 		if ( ! $theme_json_font_sizes ) {
 			return $styles;
 		}
 
-		// Compare the font sizes from theme.json with the ones WordPress has registered.
 		foreach ( $theme_json_font_sizes as $font_size ) {
 			$slug = $font_size->slug ?? '';
-			// If a font size from theme.json is NOT in the registered list, it's deprecated.
+
 			if ( isset( $slugs[ $slug ] ) ) {
 				continue;
 			}
-			// Create a CSS variable for the deprecated font size.
+
 			$styles["--wp--preset--font-size--{$slug}"] = $font_size->size ?? '';
 		}
 
 		return $styles;
 	}
+
 }
