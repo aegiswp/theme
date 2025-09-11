@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\DesignSystem
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -23,7 +23,7 @@ declare( strict_types=1 );
 // Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
 
-// Imports styleable interface, styles service, CSS utilities, and WordPress helpers.
+// Imports the Renderable interface, Debug and Pattern utilities, WordPress block components, and various helper functions.
 use Aegis\Framework\Interfaces\Renderable;
 use Aegis\Utilities\Debug;
 use Aegis\Utilities\Pattern;
@@ -201,4 +201,5 @@ HTML;
 
 		return array_unique( $category_dirs );
 	}
+
 }
