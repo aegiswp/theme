@@ -1,0 +1,55 @@
+name: Accessibility Check
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  accessibility-check:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: wordpress
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install pa11y-ci
+        run: npm install -g pa11y-ci
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: wp-cli
+
+      - name: Set up WordPress
+        run: |
+          wp core download
+          wp config create --dbname=wordpress --dbuser=root --dbpass=root --dbhost=127.0.0.1 --force
+          wp db create
+          wp core install --url=http://localhost:8080 --title="Aegis Test" --admin_user=admin --admin_password=password --admin_email=info@example.com --skip-email
+          wp theme activate .
+
+      - name: Start PHP server
+        run: php -S localhost:8080 -t . > /dev/null 2>&1 &
+
+      - name: Wait for server to start
+        run: sleep 10
+
+      - name: Run accessibility scan
+        run: pa11y-ci --threshold 5 http://localhost:8080/
