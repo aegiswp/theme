@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\CoreBlocks
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -41,61 +41,39 @@ use function wp_strip_all_tags;
 
 // Implements the PostTitle class to support post title block rendering.
 
-/**
- * Handles the rendering of the core/post-title block.
- *
- * This class enhances the default post title block by ensuring it displays the
- * correct title on the main blog page and by automatically generating a valid
- * `id` attribute for anchor linking.
- *
- * @package Aegis\Framework\CoreBlocks
- * @since   1.0.0
- */
 class PostTitle implements Renderable {
 
 	/**
-	 * Renders the post-title block with custom enhancements.
-	 *
-	 * This method is hooked into the `render_block_core/post-title` filter. It
-	 * corrects the title on the main "Posts page" and ensures the heading tag
-	 * always has a sanitized `id` attribute.
+	 * Modifies front end HTML output of block.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param  string   $block_content The original block content.
-	 * @param  array    $block         The full block object.
-	 * @param  WP_Block $instance      The block instance.
+	 * @param string   $block_content Block HTML.
+	 * @param array    $block         Block data.
+	 * @param WP_Block $instance      Block instance.
 	 *
-	 * @hook   render_block_core/post-title
+	 * @hook  render_block_core/post-title
 	 *
-	 * @return string The modified block content.
+	 * @return string
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		// --- Blog Page Title Correction ---
-		// If we are on the main blog index page (is_home()), the post title block
-		// often incorrectly shows the title of the first post. This logic corrects it.
 		if ( is_home() && str_contains( $block_content, '<h1' ) ) {
 			$text           = wp_strip_all_tags( $block_content );
 			$page_for_posts = get_post( get_option( 'page_for_posts' ) );
 
-			// Use the title of the page assigned as the "Posts page" in settings.
 			if ( $page_for_posts->post_type === 'page' ) {
 				$title = esc_html( $page_for_posts->post_title );
 			} else {
-				// Fallback to a generic title if no page is set.
 				$title = esc_html__( 'Latest Posts', 'aegis' );
 			}
 
 			$block_content = str_replace( $text, $title, $block_content );
 		}
 
-		// --- Automatic ID Generation ---
 		$tag     = 'h' . intval( $block['attrs']['level'] ?? 2 );
 		$dom     = DOM::create( $block_content );
 		$heading = DOM::get_element( $tag, $dom );
 
-		// Ensure the heading tag has an ID for anchor links.
-		// It prioritizes a custom anchor from attributes, otherwise creates one from the text.
 		if ( $heading instanceof DOMElement ) {
 			$heading->setAttribute(
 				'id',
@@ -105,4 +83,5 @@ class PostTitle implements Renderable {
 
 		return $dom->saveHTML();
 	}
+
 }
