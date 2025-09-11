@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\CoreBlocks
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -66,7 +66,7 @@ class PostCommentsForm implements Renderable {
 		$div = DOM::get_element( 'div', $dom );
 		$h3  = DOM::get_element( 'h3', $div );
 
-		// If the default <h3> title isn't found, do nothing.
+		// If the default <h3> title is not found, do nothing.
 		if ( ! $h3 ) {
 			return $block_content;
 		}
@@ -107,4 +107,5 @@ class PostCommentsForm implements Renderable {
 
 		return $args;
 	}
+
 }
