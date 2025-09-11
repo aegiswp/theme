@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\CoreBlocks
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -83,7 +83,7 @@ class PostTemplate implements Renderable {
 			}
 		}
 
-		// If a block gap is set and the layout is NOT grid (e.g., flex or default),
+		// If a block gap is set and the layout is not a grid (e.g., flex or default),
 		// apply flexbox styles to make the gap work.
 		if ( ! is_null( $block_gap ) && 'grid' !== $layout ) {
 			$dom   = DOM::create( $block_content );
@@ -101,4 +101,5 @@ class PostTemplate implements Renderable {
 
 		return $block_content;
 	}
+
 }
