@@ -1,5 +1,5 @@
 <!--
-Thank you for contributing to the Aegis Theme!
+Thank you for contributing to the Aegis WordPress Block Theme!
 
 Please provide a clear and concise description of the changes you are proposing.
 -->
