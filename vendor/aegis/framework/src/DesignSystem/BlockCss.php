@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\DesignSystem
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -39,28 +39,17 @@ use function wp_enqueue_block_style;
 
 // Implements the BlockCss class to support block-level CSS registration and management.
 
-/**
- * Handles the loading of custom CSS for core WordPress blocks.
- *
- * This class uses two different strategies to load stylesheets that augment or
- * override the default styles for core blocks:
- * 1. For the front-end, it injects the CSS inline for performance.
- * 2. For the block editor, it properly enqueues the stylesheets for compatibility.
- *
- * @package Aegis\Framework\DesignSystem
- * @since   1.0.0
- */
 class BlockCss {
 
 	/**
-	 * The filesystem path to the CSS directory.
+	 * CSS dir.
 	 *
 	 * @var string
 	 */
 	private string $css_dir;
 
 	/**
-	 * The URL to the CSS directory.
+	 * CSS URL.
 	 *
 	 * @var string
 	 */
@@ -69,11 +58,11 @@ class BlockCss {
 	/**
 	 * BlockCss constructor.
 	 *
-	 * Injects the Styles service to get the CSS directory path and URL.
-	 *
 	 * @since 1.0.0
 	 *
-	 * @param Styles $styles The Styles service instance.
+	 * @param Styles $styles Package config.
+	 *
+	 * @return void
 	 */
 	public function __construct( Styles $styles ) {
 		$this->css_dir = $styles->dir;
@@ -81,17 +70,15 @@ class BlockCss {
 	}
 
 	/**
-	 * Injects custom block styles inline on the front-end.
+	 * Adds conditional block styles on front end.
 	 *
-	 * This method hooks into WordPress's style queue. For every core block
-	 * stylesheet that WordPress is already loading on the page (e.g., `wp-block-paragraph`),
-	 * it checks if a corresponding custom CSS file exists in the theme. If it does,
-	 * it adds the custom CSS inline. This is more performant than enqueuing many
-	 * small, separate CSS files.
+	 * Uses wp_add_inline_style instead of wp_enqueue_block_style for less output.
 	 *
 	 * @since 1.0.0
 	 *
 	 * @hook  enqueue_block_assets 11
+	 *
+	 * @return void
 	 */
 	public function add_block_styles(): void {
 		if ( is_admin() ) {
@@ -99,6 +86,7 @@ class BlockCss {
 		}
 
 		global $wp_styles;
+
 		if ( ! is_a( $wp_styles, 'WP_Styles' ) ) {
 			return;
 		}
@@ -106,52 +94,47 @@ class BlockCss {
 		$dir     = $this->css_dir . 'core-blocks/';
 		$handles = array_flip( $wp_styles->queue );
 
-		// Go through all registered stylesheets.
 		foreach ( $wp_styles->registered as $handle => $style ) {
-			// Skip if the style is not in the current page's queue.
 			if ( ! isset( $handles[ $handle ] ) ) {
 				continue;
 			}
-			// Skip if it is not a core block stylesheet.
+
 			if ( ! str_starts_with( $handle, 'wp-block-' ) ) {
 				continue;
 			}
 
-			// Check if a corresponding custom stylesheet exists in the theme.
 			$slug = str_replace( 'wp-block-', '', $handle );
 			$file = $dir . $slug . '.css';
+
 			if ( ! file_exists( $file ) ) {
 				continue;
 			}
 
-			// If it exists, get its content and add it inline to the existing handle.
 			$css = trim( file_get_contents( $file ) );
-			$css = preg_replace( '/^[\pZ\pC]+|[\pZ\pC]+$/u', '', $css ); // Remove invisible characters.
+
+			// Remove zero width spaces and other invisible characters.
+			$css = preg_replace( '/^[\pZ\pC]+|[\pZ\pC]+$/u', '', $css );
+
 			wp_add_inline_style( $handle, $css );
 		}
 	}
 
 	/**
-	 * Enqueues custom block styles in the block editor.
+	 * Adds conditional block styles in editor.
 	 *
-	 * This method scans the theme's `core-blocks` directory and registers each
-	 * found stylesheet with its corresponding core block (e.g., `core/paragraph`).
-	 * This ensures that the custom styles are correctly loaded and applied within
-	 * the editor, providing an accurate preview.
-	 *
-	 * @since 1.0.0
+	 * This is required for block styles to work on Windows.
 	 *
 	 * @hook after_setup_theme
+	 *
+	 * @return void
 	 */
 	public function add_editor_block_styles(): void {
 		if ( ! is_admin() ) {
 			return;
 		}
 
-		// Get all CSS files in the core-blocks directory.
 		$files = glob( $this->css_dir . 'core-blocks/*.css' );
 
-		// For each file, register it with the corresponding core block.
 		foreach ( $files as $file ) {
 			$basename = basename( $file );
 			$slug     = basename( $file, '.css' );
@@ -169,4 +152,5 @@ class BlockCss {
 			);
 		}
 	}
+
 }
