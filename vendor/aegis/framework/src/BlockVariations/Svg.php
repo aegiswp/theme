@@ -10,14 +10,14 @@
  *
  * @package    Aegis\Framework\BlockVariations
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for block variations.
+// Enforces strict type checking for all code in this file, ensuring type safety for blocks variations.
 declare( strict_types=1 );
 
 // Declares the namespace for block variations within the Aegis Framework.
@@ -120,7 +120,7 @@ class Svg implements Renderable {
 			$block_content = $dom->saveHTML();
 		}
 
-		// If there's already an SVG, don't re-render.
+		// If there is already an SVG, do not re-render.
 		if ( $svg ) {
 			return $block_content;
 		}
