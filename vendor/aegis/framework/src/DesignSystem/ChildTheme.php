@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\DesignSystem
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -35,45 +35,33 @@ use function trim;
 
 // Implements the ChildTheme class to support loading and managing child theme styles.
 
-/**
- * Handles the loading of a child theme's `style.css` file.
- *
- * In a departure from the standard WordPress approach of enqueuing the child
- * theme's stylesheet as a separate file, this class reads the content of the
- * `style.css`, strips the header comment, and adds the raw CSS to the theme's
- * inline style manager. This is done for performance to reduce HTTP requests.
- *
- * @package Aegis\Framework\DesignSystem
- * @since   1.0.0
- */
 class ChildTheme implements Styleable {
 
 	/**
-	 * Reads the child theme's `style.css` and adds it to the inline style queue.
-	 *
-	 * This method checks for the existence of a `style.css` in the active
-	 * theme's directory. If found, it reads the file, removes the WordPress
-	 * stylesheet header, and passes the remaining CSS to the Styles service.
+	 * Adds child theme style.css to inline styles.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param Styles $styles The Styles service instance.
+	 * @param Styles $styles Styles service.
+	 *
+	 * @return void
 	 */
 	public function styles( Styles $styles ): void {
-		$child_stylesheet = get_stylesheet_directory() . '/style.css';
+		$child       = get_stylesheet_directory() . '/style.css';
+		$file_exists = file_exists( $child );
 
-		// Only proceed if a child theme's style.css exists.
-		if ( ! file_exists( $child_stylesheet ) ) {
+		if ( ! $file_exists ) {
 			return;
 		}
 
-		$content = trim( file_get_contents( $child_stylesheet ) );
+		$content = trim( file_get_contents( $child ) );
+		$css     = str_replace(
+			Str::between( '/**', '*/', $content ),
+			'',
+			$content
+		);
 
-		// Find and remove the WordPress stylesheet header comment block (/** ... */).
-		$header  = Str::between( '/**', '*/', $content );
-		$css     = str_replace( $header, '', $content );
-
-		// Add the cleaned CSS to the inline style manager.
 		$styles->add_string( $css );
 	}
+
 }
