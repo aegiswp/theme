@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\CoreBlocks
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -37,35 +37,20 @@ use function wp_enqueue_style;
 
 // Implements the Video class to support video block rendering.
 
-/**
- * Handles the rendering and functionality of the core/video block.
- *
- * This class customizes the video block to make it responsive and to handle
- * custom background colors more flexibly. It uses a combination of a render
- * filter, a script enqueueing action, and a theme support hook to achieve this.
- *
- * @package Aegis\Framework\CoreBlocks
- * @since   1.0.0
- */
 class Video implements Renderable {
 
 	/**
-	 * Renders the video block with custom styles and enqueues player scripts.
-	 *
-	 * This method is hooked into the `render_block_core/video` filter. It moves
-	 * any background color styles into a CSS custom property for better theme
-	 * control. It also ensures that the necessary scripts and styles for the
-	 * responsive video player are enqueued exactly once per page load.
+	 * Modifies front end HTML output of block.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param  string   $block_content The original block content.
-	 * @param  array    $block         The full block object.
-	 * @param  WP_Block $instance      The block instance.
+	 * @param string   $block_content Block HTML.
+	 * @param array    $block         Block data.
+	 * @param WP_Block $instance      Block instance.
 	 *
-	 * @hook   render_block_core/video 11
+	 * @hook  render_block_core/video 11
 	 *
-	 * @return string The modified block content.
+	 * @return string
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
 		$dom    = DOM::create( $block_content );
@@ -75,36 +60,36 @@ class Video implements Renderable {
 			return $block_content;
 		}
 
-		// Move the background color to a CSS custom property for more flexible styling.
 		$styles     = CSS::string_to_array( $figure->getAttribute( 'style' ) );
 		$background = $styles['background'] ?? $styles['background-color'] ?? '';
+
 		if ( $background ) {
 			$styles['--wp--custom--video--background'] = esc_attr( $background );
+
 			unset( $styles['background'], $styles['background-color'] );
 		}
+
 		$figure->setAttribute( 'style', CSS::array_to_string( $styles ) );
 
 		$block_content = $dom->saveHTML();
 
-		// Use a static flag to ensure the scripts are only enqueued once per page load,
-		// even if multiple video blocks are present.
 		static $is_enqueued = false;
+
 		if ( ! $is_enqueued ) {
 			add_action( 'wp_enqueue_scripts', [ $this, 'video_scripts_styles' ] );
-			$is_enqueued = true;
 		}
+
+		$is_enqueued = true;
 
 		return $block_content;
 	}
 
 	/**
-	 * Enqueues and initializes the WordPress media player.
-	 *
-	 * This method loads the `wp-mediaelement` library and adds an inline script
-	 * to initialize the player on all `<video>` elements, forcing them to be
-	 * responsive by setting their width and height to 100%.
+	 * Enqueue media element scripts and styles.
 	 *
 	 * @since 1.0.0
+	 *
+	 * @return void
 	 */
 	public function video_scripts_styles(): void {
 		$js = <<<JS
@@ -128,16 +113,16 @@ class Video implements Renderable {
 	}
 
 	/**
-	 * Adds theme support for responsive embeds.
-	 *
-	 * This ensures that WordPress's core responsive embed wrappers are applied,
-	 * which is a prerequisite for some responsive video behaviors.
+	 * Handles theme supports.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @hook   after_setup_theme
+	 * @hook  after_setup_theme
+	 *
+	 * @return void
 	 */
 	public function theme_supports(): void {
 		add_theme_support( 'responsive-embeds' );
 	}
+
 }
