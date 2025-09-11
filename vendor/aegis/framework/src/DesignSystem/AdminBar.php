@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\DesignSystem
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -30,27 +30,16 @@ use function is_admin_bar_showing;
 
 // Implements the AdminBar class to support admin bar rendering and asset management.
 
-/**
- * Customizes the WordPress Admin Bar.
- *
- * This class disables the default styling for the WordPress admin bar and
- * enqueues a custom stylesheet, allowing the theme to have full control over
- * the admin bar's appearance.
- *
- * @package Aegis\Framework\DesignSystem
- * @since   1.0.0
- */
 class AdminBar implements Styleable {
 
 	/**
-	 * Conditionally enqueues the custom stylesheet for the admin bar.
-	 *
-	 * This method ensures that the `admin-bar.css` file is only loaded on pages
-	 * where the admin bar is actually being displayed.
+	 * Registers service with access to provider.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param Styles $styles The Styles service instance.
+	 * @param Styles $styles Styles service.
+	 *
+	 * @return void
 	 */
 	public function styles( Styles $styles ): void {
 		$styles->add_file(
@@ -61,21 +50,18 @@ class AdminBar implements Styleable {
 	}
 
 	/**
-	 * Removes the default inline styles for the admin bar.
-	 *
-	 * This method hooks into `after_setup_theme` to unhook the default WordPress
-	 * function that prints the admin bar's CSS to the page header. This prevents
-	 * default styles from conflicting with the theme's custom stylesheet.
+	 * Removes the default callback for the admin bar.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @hook   after_setup_theme
+	 * @hook  after_setup_theme
+	 *
+	 * @return void
 	 */
 	public function remove_default_callback() {
-		// By passing `__return_false` as the callback, we effectively disable
-		// the default `_admin_bar_bump_cb` function.
 		add_theme_support( 'admin-bar', [
 			'callback' => '__return_false',
 		] );
 	}
+
 }
