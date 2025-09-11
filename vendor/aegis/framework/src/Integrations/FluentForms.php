@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\Integrations
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  */
 
@@ -70,7 +70,8 @@ class FluentForms implements Conditional, Styleable {
 	 * @return void
 	 */
 	public function remove_default_styles() {
-		// Uncomment to disable Fluent Forms default styles
+		// Disables Fluent Forms default styles
 		add_filter( 'fluentform_load_default_public', '__return_false' );
 	}
+
 }
