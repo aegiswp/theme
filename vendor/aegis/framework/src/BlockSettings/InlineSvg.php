@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\BlockSettings
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -194,7 +194,13 @@ class InlineSvg implements Renderable {
 		}
 
 		// Read and sanitize the SVG file content.
-		$html    = Icon::sanitize_svg( file_get_contents( $file ) );
+		$svg_content = file_get_contents( $file );
+
+		if ( false === $svg_content ) {
+			return $block_content;
+		}
+
+		$html    = Icon::sanitize_svg( $svg_content );
 		$svg_dom = DOM::create( $html );
 		if ( ! property_exists( $svg_dom, 'documentElement' ) ) {
 			return $block_content;
