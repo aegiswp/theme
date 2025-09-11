@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\BlockSettings
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -103,18 +103,18 @@ class Placeholder implements Renderable, Styleable {
 			return $block_content;
 		}
 
-		// Don't run if an image ID, icon, or custom SVG is already set.
+		// Do not run if an image ID, icon, or custom SVG is already set.
 		$attrs = $block['attrs'] ?? [];
 		if ( ( $attrs['id'] ?? '' ) || ( ( $attrs['iconSet'] ?? '' ) && ( $attrs['iconName'] ?? '' ) ) || ( $attrs['iconSvgString'] ?? '' ) || ( $attrs['style']['svgString'] ?? '' ) ) {
 			return $block_content;
 		}
 
-		// Don't run if placeholders are explicitly disabled.
+		// Do not run if placeholders are explicitly disabled.
 		if ( false === ( $attrs['usePlaceholder'] ?? true ) || 'none' === ( $attrs['usePlaceholder'] ?? '' ) ) {
 			return $block_content;
 		}
 
-		// Don't run on blocks that are already styled as icons or SVGs.
+		// Do not run on blocks that are already styled as icons or SVGs.
 		if ( Str::contains_any( $block_content, 'is-style-icon', 'is-style-svg' ) ) {
 			return $block_content;
 		}
