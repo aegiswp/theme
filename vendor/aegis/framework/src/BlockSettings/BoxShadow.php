@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\BlockSettings
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -105,7 +105,7 @@ class BoxShadow implements Renderable, Styleable {
 			}
 		}
 
-		// If there's only a hover preset, ensure the `has-shadow-hover` class is added.
+		// If there is only a hover preset, ensure the `has-shadow-hover` class is added.
 		if ( $hover_preset && ! $shadow_preset ) {
 			$dom       = DOM::create( $block_content );
 			$first     = DOM::get_element( '*', $dom );
@@ -225,4 +225,5 @@ class BoxShadow implements Renderable, Styleable {
 
 		return $css;
 	}
+
 }
