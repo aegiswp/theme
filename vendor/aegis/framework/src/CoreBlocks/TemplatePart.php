@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\CoreBlocks
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -32,35 +32,20 @@ use function esc_attr;
 
 // Implements the TemplatePart class to support template part block rendering.
 
-/**
- * Handles the rendering of the core/template-part block.
- *
- * This class enhances template parts by applying custom color and gradient
- * styles, and by adding appropriate ARIA roles for landmark regions like
- * headers and footers to improve accessibility.
- *
- * @package Aegis\Framework\CoreBlocks
- * @since   1.0.0
- */
 class TemplatePart implements Renderable {
 
 	/**
-	 * Renders the template-part block with custom styles and ARIA roles.
-	 *
-	 * This method is hooked into the `render_block_core/template-part` filter.
-	 * It applies background colors, gradients, and text colors from block
-	 * attributes, and adds `role` attributes for `header`, `main`, and `footer`
-	 * template parts.
+	 * Modifies the template part block.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param  string   $block_content The original block content.
-	 * @param  array    $block         The full block object.
-	 * @param  WP_Block $instance      The block instance.
+	 * @param string   $block_content Block HTML.
+	 * @param array    $block         Block data.
+	 * @param WP_Block $instance      Block instance.
 	 *
-	 * @hook   render_block_core/template-part
+	 * @hook  render_block_core/template-part
 	 *
-	 * @return string The modified block content.
+	 * @return string
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
 		$dom   = DOM::create( $block_content );
@@ -74,51 +59,51 @@ class TemplatePart implements Renderable {
 		$styles = CSS::string_to_array( $first->getAttribute( 'style' ) );
 		$color  = $attrs['style']['color'] ?? [];
 
-		// --- Color and Gradient Application ---
-		// Apply background color from either a custom value or a theme preset.
 		if ( isset( $color['background'] ) ) {
 			$styles['background'] = esc_attr( $color['background'] );
 		}
+
 		if ( isset( $attrs['backgroundColor'] ) ) {
 			$styles['background'] = 'var(--wp--preset--color--' . esc_attr( $attrs['backgroundColor'] ) . ')';
 		}
 
-		// Apply background gradient from either a custom value or a theme preset.
 		if ( isset( $color['gradient'] ) ) {
 			$styles['background'] = esc_attr( $color['gradient'] );
 		}
+
 		if ( isset( $attrs['gradient'] ) ) {
 			$styles['background'] = 'var(--wp--preset--gradient--' . esc_attr( $attrs['gradient'] ) . ')';
 		}
 
-		// Apply text color from either a custom value or a theme preset.
 		if ( isset( $color['text'] ) ) {
 			$styles['color'] = esc_attr( $color['text'] );
 		}
+
 		if ( isset( $attrs['textColor'] ) ) {
 			$styles['color'] = 'var(--wp--preset--color--' . esc_attr( $attrs['textColor'] ) . ')';
 		}
 
-		$styles_string = CSS::array_to_string( $styles );
-		if ( $styles_string ) {
-			$first->setAttribute( 'style', $styles_string );
+		$styles = CSS::array_to_string( $styles );
+
+		if ( $styles ) {
+			$first->setAttribute( 'style', $styles );
 		} else {
 			$first->removeAttribute( 'style' );
 		}
 
-		// --- ARIA Role Application ---
-		// Add landmark roles for better accessibility based on the template part's slug.
-		$slug = $attrs['slug'] ?? '';
-		if ( 'header' === $slug ) {
+		if ( $block['attrs']['slug'] === 'header' ) {
 			$first->setAttribute( 'role', 'banner' );
 		}
-		if ( 'main' === $slug ) {
+
+		if ( $block['attrs']['slug'] === 'main' ) {
 			$first->setAttribute( 'role', 'main' );
 		}
-		if ( 'footer' === $slug ) {
+
+		if ( $block['attrs']['slug'] === 'footer' ) {
 			$first->setAttribute( 'role', 'contentinfo' );
 		}
 
 		return $dom->saveHTML();
 	}
+
 }
