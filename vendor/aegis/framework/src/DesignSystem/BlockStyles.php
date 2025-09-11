@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\DesignSystem
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -30,60 +30,53 @@ use function is_admin;
 
 // Implements the BlockStyles class to support block style data registration and management for the editor.
 
-/**
- * Provides configuration for custom and default block style variations.
- *
- * This class does not render any content. Its sole purpose is to provide a
- * structured array of data to the block editor's JavaScript. This data is then
- * used to dynamically register custom block styles (e.g., "Checklist" for Lists)
- * and unregister default core styles (e.g., "Rounded" for Images) using the
- * `wp.blocks.registerBlockStyle` and `wp.blocks.unregisterBlockStyle` functions.
- *
- * @package Aegis\Framework\DesignSystem
- * @since   1.0.0
- */
 class BlockStyles implements Scriptable {
 
 	/**
-	 * Exposes the block style configuration to client-side scripts.
+	 * Adds data to the editor.
 	 *
-	 * This method makes the array from `get_data()` available to JavaScript
-	 * under the `blockStyles` key, but only when in the admin context.
+	 * @param Scripts $scripts
 	 *
-	 * @since 1.0.0
-	 *
-	 * @param Scripts $scripts The Scripts service instance.
+	 * @return void
 	 */
 	public function scripts( Scripts $scripts ): void {
 		$scripts->add_data(
 			'blockStyles',
-			$this->get_data(),
+			$this->get_data( wp_get_global_settings() ?? [] ),
 			[],
 			is_admin(),
 		);
 	}
 
 	/**
-	 * Defines the lists of block styles to register and unregister.
+	 * Returns array of localized data.
 	 *
-	 * @since 1.0.0
+	 * @param array $global_settings Global settings.
 	 *
-	 * @return array A structured array containing 'register' and 'unregister' lists.
+	 * @return array
 	 */
-	private function get_data(): array {
-		// Defines custom style variations to be added to core blocks.
-		// The key is the block name, and the value is an array of style names.
+	private function get_data( array $global_settings ): array {
 		$register = [
 			'core/archive-title'       => [ 'sub-heading' ],
 			'core/buttons'             => [ 'surface' ],
 			'core/button'              => [ 'ghost' ],
-			'core/code'                => [ 'surface', 'light', 'dark' ],
-			'core/columns'             => [ 'surface', 'light', 'dark' ],
-			'core/column'              => [ 'surface', 'light', 'dark' ],
+			'core/code'                => [ 'surface' ],
+			'core/columns'             => [ 'surface' ],
+			'core/column'              => [ 'surface' ],
 			'core/comment-author-name' => [ 'heading' ],
-			'core/details'             => [ [ 'summary-heading' => __( 'Heading', 'aegis' ) ] ],
-			'core/group'               => [ 'surface', 'light', 'dark' ],
-			'core/list'                => [ 'checklist', 'check-outline', 'check-circle', 'square', 'list-heading', 'dash', 'none' ],
+			'core/details'             => [
+				[ 'summary-heading' => __( 'Heading', 'aegis' ) ],
+			],
+			'core/group'               => [ 'surface' ],
+			'core/list'                => [
+				'checklist',
+				'check-outline',
+				'check-circle',
+				'square',
+				'list-heading',
+				'dash',
+				'none',
+			],
 			'core/list-item'           => [ 'surface' ],
 			'core/navigation'          => [ 'heading' ],
 			'core/page-list'           => [ 'none' ],
@@ -99,7 +92,16 @@ class BlockStyles implements Scriptable {
 			'core/quote'               => [ 'surface' ],
 		];
 
-		// Defines default core styles that should be removed from the editor.
+		$register['core/code'][]    = 'light';
+		$register['core/code'][]    = 'dark';
+		$register['core/column'][]  = 'light';
+		$register['core/column'][]  = 'dark';
+		$register['core/columns'][] = 'light';
+		$register['core/columns'][] = 'dark';
+		$register['core/group'][]   = 'light';
+		$register['core/group'][]   = 'dark';
+
+		// Values must be arrays.
 		$unregister = [
 			'core/image'     => [ 'rounded', 'default' ],
 			'core/site-logo' => [ 'default', 'rounded' ],
@@ -111,4 +113,5 @@ class BlockStyles implements Scriptable {
 			'unregister' => $unregister,
 		];
 	}
+
 }
