@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Utilities
  * @since      1.0.0
- * @author     @atmostfear-entertainment, @alexdeborba
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
