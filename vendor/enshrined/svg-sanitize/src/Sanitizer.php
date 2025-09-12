@@ -273,7 +273,7 @@ class Sanitizer
             $this->xmlLoaderValue = libxml_disable_entity_loader(true);
         }
 
-        // Suppress the errors because we don't really have to worry about formation before cleansing.
+        // Suppress the errors because we do not really have to worry about formation before cleansing.
         // See reset in resetAfter().
         $this->xmlErrorHandlerPreviousValue = libxml_use_internal_errors(true);
 
@@ -306,7 +306,7 @@ class Sanitizer
     protected function startClean(\DOMNodeList $elements, array $elementsToRemove)
     {
         // loop through all elements
-        // we do this backwards so we don't skip anything if we delete a node
+        // we do this backwards so we do not skip anything if we delete a node
         // see comments at: http://php.net/manual/en/class.domnamednodemap.php
         for ($i = $elements->length - 1; $i >= 0; $i--) {
             /** @var \DOMElement $currentElement */
@@ -329,7 +329,7 @@ class Sanitizer
             }
 
             if ($currentElement instanceof \DOMElement) {
-                // If the tag isn't in the whitelist, remove it and continue with next iteration
+                // If the tag is not in the whitelist, remove it and continue with next iteration
                 if (!in_array(strtolower($currentElement->tagName), $this->allowedTags)) {
                     $currentElement->parentNode->removeChild($currentElement);
                     $this->xmlIssues[] = array(
