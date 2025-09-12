@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Framework\Interfaces
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -26,33 +26,19 @@ namespace Aegis\Framework\Interfaces;
 // Imports the WP_Block class for block instance typing.
 use WP_Block;
 
-/**
- * Defines a contract for classes that render WordPress blocks.
- *
- * This interface is designed to be used by classes that are responsible for
- * outputting the final HTML of a WordPress block. Its `render` method signature
- * matches the arguments provided by the `render_block` filter, allowing for a
- * standardized, object-oriented approach to block rendering logic.
- *
- * @package Aegis\Framework\Interfaces
- * @since   1.0.0
- */
+// Declares the Renderable interface for standardizing renderable objects in the framework.
 interface Renderable {
 
 	/**
-	 * Renders a WordPress block.
-	 *
-	 * This method is intended to be used as a callback for the `render_block`
-	 * WordPress filter. It receives the block's content and context, and should
-	 * return the final, modified HTML for the block.
+	 * Render the object.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string   $block_content The original, pre-rendered content of the block.
-	 * @param array    $block         The full block object, including its name, attributes, and inner blocks.
-	 * @param WP_Block $instance      The block instance, providing access to block properties and methods.
+	 * @param string   $block_content The block content.
+	 * @param array    $block         The full block, including name and attributes.
+	 * @param WP_Block $instance      The block instance.
 	 *
-	 * @return string The modified block content.
+	 * @return string
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string;
 
