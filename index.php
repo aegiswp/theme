@@ -1,20 +1,12 @@
 <?php
 /**
- * Main Template File
+ * Main Index File
  *
- * This file is required by WordPress for theme validation, but it does not
- * output any content in a block theme like Aegis. All templating is handled
- * by HTML files in the `templates` and `parts` directories.
+ * This file is intentionally left blank. As a block-based theme, Aegis uses the
+ * `templates/index.html` file as its main template.
  *
- * Responsibilities:
- * - Fulfill the WordPress requirement for an `index.php` file.
- * - Remain empty to ensure that block templates take precedence.
+ * This file is required for theme validation and to prevent directory browsing.
  *
- * @package    Aegis
- * @since      1.0.0
- * @author     @atmostfear-entertainment
- * @link       https://github.com/aegiswp/theme
- *
- * For more context on why this file is necessary but empty, see the related
- * WordPress core ticket: https://core.trac.wordpress.org/ticket/54272.
+ * @package Aegis
+ * @since 1.0.0
  */
