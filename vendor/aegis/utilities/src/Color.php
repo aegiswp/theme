@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Utilities
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -233,29 +233,16 @@ class Color {
 	public static function get_replacement_colors( array $settings = [] ): array {
 		return array_replace(
 			[
-				'primary-darker'    => 'primary-900',
-				'primary-dark'      => 'primary-700',
-				'primary'           => 'primary-500',
-				'primary-light'     => 'primary-300',
-				'primary-lighter'   => 'primary-100',
-				'secondary-darker'  => 'primary-900',
-				'secondary-dark'    => 'primary-700',
-				'secondary'         => 'primary-600',
-				'secondary-light'   => 'primary-300',
-				'secondary-lighter' => 'primary-100',
-				'contrast'          => 'neutral-950',
-				'foreground'        => 'neutral-900',
-				'heading'           => 'neutral-800',
-				'body'              => 'neutral-600',
-				'neutral'           => 'neutral-500',
-				'outline'           => 'neutral-200',
-				'surface'           => 'neutral-100',
-				'lighten'           => 'neutral-50',
 				'background'        => 'neutral-0',
 				'base'              => 'neutral-0',
-				'success'           => 'success-500',
-				'warning'           => 'warning-500',
-				'error'             => 'error-500',
+				'contrast'          => 'neutral-800',
+				'foreground'        => 'neutral-800',
+				'primary'           => 'primary-900',
+				'secondary'         => 'primary-600',
+				'tertiary'          => 'primary-100',
+                'quaternary'        => 'primary-300',
+                'quinary'           => 'primary-200',
+                'senary'            => 'primary-300',
 			],
 			$settings['custom']['deprecatedColors'] ?? []
 		);
