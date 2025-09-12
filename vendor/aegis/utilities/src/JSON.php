@@ -10,7 +10,7 @@
  *
  * @package    Aegis\Utilities
  * @since      1.0.0
- * @author     @atmostfear-entertainment
+ * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
  * For developer documentation and onboarding. No logic changes in this
@@ -79,7 +79,7 @@ class JSON {
 	 *
 	 * This is thought to be useful to generate
 	 * CSS Custom Properties from a tree,
-	 * although there's nothing in the implementation
+	 * although there is nothing in the implementation
 	 * of this function that requires that format.
 	 *
 	 * For example, assuming the given prefix is '--wp'
@@ -101,7 +101,7 @@ class JSON {
 	 *
 	 * @see   WP_Theme_JSON::flatten_tree()
 	 *
-	 * @since 1.0.0
+	 * @since 5.8.0
 	 *
 	 * @param array  $tree   Input tree to process.
 	 * @param string $prefix Optional. Prefix to prepend to each variable. Default
