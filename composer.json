@@ -31,9 +31,7 @@
 	},
 	"scripts": {
 		"format": "phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
-		"lint": "phpcs --standard=phpcs.xml.dist",
-		"standards:check": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
-		"standards:fix": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
+		"lint": "phpcs --standard=phpcs.xml.dist"
 	},
 	"version": "1.0.0-rc.1"
 }
