@@ -8,7 +8,7 @@ module.exports = {
         new BrowserSyncPlugin({
             host: 'localhost',
             port: 8882,
-            proxy: 'https://localhost:8881', // Replace with your Local WP site URL
+            proxy: 'http://localhost:8881', // Replace with your Local WP site URL
             files: [
                 './**/*.php',
                 './**/*.css',
@@ -19,4 +19,4 @@ module.exports = {
             open: false // Prevents opening a new browser window automatically
         })
     ]
-}; 
+};
