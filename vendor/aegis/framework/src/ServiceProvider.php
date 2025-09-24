@@ -136,6 +136,34 @@ class ServiceProvider implements Registerable {
 	private string $file;
 
 	/**
+	 * Scriptable services.
+	 *
+	 * @var Scriptable[]
+	 */
+	private array $scriptable = [];
+
+	/**
+	 * Styleable services.
+	 *
+	 * @var Styleable[]
+	 */
+	private array $styleable = [];
+
+	/**
+	 * Scripts service.
+	 *
+	 * @var ?Scripts
+	 */
+	private ?Scripts $scripts = null;
+
+	/**
+	 * Styles service.
+	 *
+	 * @var ?Styles
+	 */
+	private ?Styles $styles = null;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param string $file Main plugin or theme file.
@@ -154,8 +182,8 @@ class ServiceProvider implements Registerable {
 	 * @return void
 	 */
 	public function register( Container $container ): void {
-		$scripts = $container->make( Scripts::class, $this->file );
-		$styles  = $container->make( Styles::class, $this->file );
+		$this->scripts = $container->make( Scripts::class, $this->file );
+		$this->styles  = $container->make( Styles::class, $this->file );
 
 		foreach ( $this->services as $id ) {
 			$service = $container->make( $id );
@@ -165,16 +193,33 @@ class ServiceProvider implements Registerable {
 			}
 
 			if ( $service instanceof Scriptable ) {
-				$service->scripts( $scripts );
+				$this->scriptable[] = $service;
 			}
 
 			if ( $service instanceof Styleable ) {
-				$service->styles( $styles );
+				$this->styleable[] = $service;
 			}
 		}
 
-		Hook::annotations( $scripts );
-		Hook::annotations( $styles );
+		add_action( 'init', [ $this, 'register_assets' ] );
+
+		Hook::annotations( $this->scripts );
+		Hook::annotations( $this->styles );
+	}
+
+	/**
+	 * Registers the scriptable and styleable services on the init hook.
+	 *
+	 * @return void
+	 */
+	public function register_assets(): void {
+		foreach ( $this->scriptable as $service ) {
+			$service->scripts( $this->scripts );
+		}
+
+		foreach ( $this->styleable as $service ) {
+			$service->styles( $this->styles );
+		}
 	}
 
 }
