@@ -35,11 +35,11 @@
 					<!-- wp:column {"width":""} -->
 					<div class="wp-block-column">
 						<!-- wp:heading {"level":3,"fontSize":"medium"} -->
-						<h3 class="wp-block-heading has-medium-font-size"><?php echo esc_html_e('Shipping Included', 'aegis'); ?></h3>
+						<h3 class="wp-block-heading has-medium-font-size"><?php esc_html_e('Shipping Included', 'aegis'); ?></h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"tiny"} -->
-						<p class="has-tiny-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php echo esc_html_e('[Offer based on order value.]', 'aegis'); ?></p>
+						<p class="has-tiny-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php esc_html_e('[Offer based on order value.]', 'aegis'); ?></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
@@ -63,11 +63,11 @@
 					<!-- wp:column {"width":""} -->
 					<div class="wp-block-column">
 						<!-- wp:heading {"level":3,"fontSize":"medium"} -->
-						<h3 class="wp-block-heading has-medium-font-size"><?php echo esc_html_e('Returns Guarantee', 'aegis'); ?></h3>
+						<h3 class="wp-block-heading has-medium-font-size"><?php esc_html_e('Returns Guarantee', 'aegis'); ?></h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"tiny"} -->
-						<p class="has-tiny-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php echo esc_html_e('[Time frame for returns.]', 'aegis'); ?></p>
+						<p class="has-tiny-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php esc_html_e('[Time frame for returns.]', 'aegis'); ?></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
@@ -91,11 +91,11 @@
 					<!-- wp:column {"width":""} -->
 					<div class="wp-block-column">
 						<!-- wp:heading {"level":3,"fontSize":"medium"} -->
-						<h3 class="wp-block-heading has-medium-font-size"><?php echo esc_html_e('Online Assistance', 'aegis'); ?></h3>
+						<h3 class="wp-block-heading has-medium-font-size"><?php esc_html_e('Online Assistance', 'aegis'); ?></h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"tiny"} -->
-						<p class="has-tiny-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php echo esc_html_e('[Service or operation hours.]', 'aegis'); ?></p>
+						<p class="has-tiny-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php esc_html_e('[Service or operation hours.]', 'aegis'); ?></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
@@ -119,11 +119,11 @@
 					<!-- wp:column {"width":""} -->
 					<div class="wp-block-column">
 						<!-- wp:heading {"level":3,"fontSize":"medium"} -->
-						<h3 class="wp-block-heading has-medium-font-size"><?php echo esc_html_e('Secure Checkout', 'aegis'); ?></h3>
+						<h3 class="wp-block-heading has-medium-font-size"><?php esc_html_e('Secure Checkout', 'aegis'); ?></h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"tiny"} -->
-						<p class="has-tiny-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php echo esc_html_e('[Diverse payment methods.]', 'aegis'); ?></p>
+						<p class="has-tiny-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php esc_html_e('[Diverse payment methods.]', 'aegis'); ?></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
@@ -145,7 +145,7 @@
 				<!-- wp:site-title {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}},"typography":{"lineHeight":"1"}},"textColor":"intrace-","fontSize":"extra-large"} /-->
 
 				<!-- wp:paragraph {"textColor":"intrace-body-text","fontSize":"small"} -->
-				<p class="has-intrace-body-text-color has-text-color has-small-font-size"><?php echo esc_html_e('[Paragraph (95 characters): Briefly describe the mission, vision, or unique selling proposition.]', 'aegis'); ?></p>
+				<p class="has-intrace-body-text-color has-text-color has-small-font-size"><?php esc_html_e('[Paragraph (95 characters): Briefly describe the mission, vision, or unique selling proposition.]', 'aegis'); ?></p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:social-links {"iconColor":"foreground","iconColorValue":"#1c1c1e","size":"has-small-icon-size","style":{"spacing":{"blockGap":"20px","margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"className":"is-style-logos-only"} -->
@@ -169,19 +169,19 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0"}}},"fontSize":"tiny"} -->
-				<p class="has-tiny-font-size" style="margin-top:0"><a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
+				<p class="has-tiny-font-size" style="margin-top:0"><a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"tiny"} -->
-				<p class="has-tiny-font-size" style="margin-top:10px"><a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
+				<p class="has-tiny-font-size" style="margin-top:10px"><a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"tiny"} -->
-				<p class="has-tiny-font-size" style="margin-top:10px"><a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
+				<p class="has-tiny-font-size" style="margin-top:10px"><a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"tiny"} -->
-				<p class="has-tiny-font-size" style="margin-top:10px"><a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
+				<p class="has-tiny-font-size" style="margin-top:10px"><a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:column -->
@@ -193,19 +193,19 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0"}}},"fontSize":"tiny"} -->
-				<p class="has-tiny-font-size" style="margin-top:0"><a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
+				<p class="has-tiny-font-size" style="margin-top:0"><a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"tiny"} -->
-				<p class="has-tiny-font-size" style="margin-top:10px"><a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
+				<p class="has-tiny-font-size" style="margin-top:10px"><a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"tiny"} -->
-				<p class="has-tiny-font-size" style="margin-top:10px"><a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
+				<p class="has-tiny-font-size" style="margin-top:10px"><a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"tiny"} -->
-				<p class="has-tiny-font-size" style="margin-top:10px"><a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
+				<p class="has-tiny-font-size" style="margin-top:10px"><a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:column -->
@@ -252,7 +252,7 @@
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph {"align":"right","className":"is-style-default","fontSize":"tiny"} -->
-			<p class="has-text-align-right is-style-default has-tiny-font-size"><a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a> · <a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a> · <a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
+			<p class="has-text-align-right is-style-default has-tiny-font-size"><a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a> · <a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a> · <a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->
