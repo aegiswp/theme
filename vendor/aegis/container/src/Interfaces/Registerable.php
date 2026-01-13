@@ -7,7 +7,7 @@
  *
  * Responsibilities:
  * - Requires implementing classes to provide a register method for
- *   registering themselves with the aegis container
+ *   registering themselves with the Aegis container
  * - Facilitates modular and explicit service registration
  *
  * @package    Aegis\Container\Interfaces
@@ -20,7 +20,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Defines the namespace for registerable interfaces within the Aegis Framework.
 namespace Aegis\Container\Interfaces;
@@ -39,7 +39,8 @@ use Aegis\Container\Container;
  * @since   1.0.0
  */
 // Declares the Registerable interface for service registration.
-interface Registerable {
+interface Registerable
+{
 
 	/**
 	 * Registers services with the dependency injection container.
@@ -54,5 +55,5 @@ interface Registerable {
 	 *
 	 * @return void
 	 */
-	public function register( Container $container ): void;
+	public function register(Container $container): void;
 }
