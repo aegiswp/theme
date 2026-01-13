@@ -20,7 +20,7 @@
  */
 
 // Ensures strict type checking for all code in this file.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for DOM utilities within the Aegis Framework.
 namespace Aegis\Dom;
@@ -49,7 +49,8 @@ use const XML_ELEMENT_NODE;
 
 // Implements a utility class for DOM parsing and manipulation.
 
-class DOM {
+class DOM
+{
 
 	/**
 	 * Returns a formatted DOMDocument object from a given string.
@@ -60,31 +61,32 @@ class DOM {
 	 *
 	 * @return DOMDocument
 	 */
-	public static function create( string $html ): DOMDocument {
+	public static function create(string $html): DOMDocument
+	{
 		$dom = new DOMDocument();
 
-		if ( ! $html ) {
+		if (!$html) {
 			return $dom;
 		}
 
 		$dom->preserveWhiteSpace = false;
-		$dom->formatOutput       = true;
+		$dom->formatOutput = true;
 
 		// Setting libxml options with bitwise operator.
 		$options = 0;
-		$options |= defined( 'LIBXML_HTML_NOIMPLIED' ) ? LIBXML_HTML_NOIMPLIED : 0;
-		$options |= defined( 'LIBXML_HTML_NODEFDTD' ) ? LIBXML_HTML_NODEFDTD : 0;
+		$options |= defined('LIBXML_HTML_NOIMPLIED') ? LIBXML_HTML_NOIMPLIED : 0;
+		$options |= defined('LIBXML_HTML_NODEFDTD') ? LIBXML_HTML_NODEFDTD : 0;
 
 		// @see https://stackoverflow.com/questions/13280200/convert-unicode-to-html-entities-hex.
 		// @todo Check if all DOMs need this.
-		$html = static::convert_unicode_to_html_entities( $html );
+		$html = static::convert_unicode_to_html_entities($html);
 
-		libxml_use_internal_errors( true );
+		libxml_use_internal_errors(true);
 
-		$dom->loadHTML( $html, $options );
+		$dom->loadHTML($html, $options);
 
 		libxml_clear_errors();
-		libxml_use_internal_errors( false );
+		libxml_use_internal_errors(false);
 
 		return $dom;
 	}
@@ -100,18 +102,19 @@ class DOM {
 	 *
 	 * @return ?DOMElement
 	 */
-	public static function get_element( string $tag, $dom_or_element, int $index = 0 ): ?DOMElement {
-		if ( ! is_a( $dom_or_element, DOMDocument::class ) && ! is_a( $dom_or_element, DOMElement::class ) ) {
+	public static function get_element(string $tag, $dom_or_element, int $index = 0): ?DOMElement
+	{
+		if (!is_a($dom_or_element, DOMDocument::class) && !is_a($dom_or_element, DOMElement::class)) {
 			return null;
 		}
 
-		$element = $dom_or_element->getElementsByTagName( $tag )->item( $index );
+		$element = $dom_or_element->getElementsByTagName($tag)->item($index);
 
-		if ( ! $element ) {
+		if (!$element) {
 			return null;
 		}
 
-		return self::node_to_element( $element );
+		return self::node_to_element($element);
 	}
 
 	/**
@@ -123,8 +126,9 @@ class DOM {
 	 *
 	 * @return ?DOMElement
 	 */
-	public static function node_to_element( $node ): ?DOMElement {
-		if ( $node && $node->nodeType === XML_ELEMENT_NODE ) {
+	public static function node_to_element($node): ?DOMElement
+	{
+		if ($node && $node->nodeType === XML_ELEMENT_NODE) {
 			/* @var DOMElement $node DOM Element node */
 			return $node;
 		}
@@ -142,33 +146,34 @@ class DOM {
 	 *
 	 * @return ?DOMElement
 	 */
-	public static function change_tag_name( string $name, DOMElement $element ): ?DOMElement {
-		if ( ! $element->ownerDocument ) {
+	public static function change_tag_name(string $name, DOMElement $element): ?DOMElement
+	{
+		if (!$element->ownerDocument) {
 			return null;
 		}
 
 		$child_nodes = [];
 
-		foreach ( $element->childNodes as $child ) {
+		foreach ($element->childNodes as $child) {
 			$child_nodes[] = $child;
 		}
 
-		$new_element = $element->ownerDocument->createElement( $name );
+		$new_element = $element->ownerDocument->createElement($name);
 
-		foreach ( $child_nodes as $child ) {
-			$child2 = $element->ownerDocument->importNode( $child, true );
-			$new_element->appendChild( $child2 );
+		foreach ($child_nodes as $child) {
+			$child2 = $element->ownerDocument->importNode($child, true);
+			$new_element->appendChild($child2);
 		}
 
-		foreach ( $element->attributes as $attr_node ) {
-			$attr_name  = $attr_node->nodeName;
+		foreach ($element->attributes as $attr_node) {
+			$attr_name = $attr_node->nodeName;
 			$attr_value = $attr_node->nodeValue;
 
-			$new_element->setAttribute( $attr_name, $attr_value );
+			$new_element->setAttribute($attr_name, $attr_value);
 		}
 
-		if ( $element->parentNode ) {
-			$element->parentNode->replaceChild( $new_element, $element );
+		if ($element->parentNode) {
+			$element->parentNode->replaceChild($new_element, $element);
 		}
 
 		return $new_element;
@@ -185,15 +190,16 @@ class DOM {
 	 *
 	 * @return array
 	 */
-	public static function get_elements_by_class_name( string $class_name, DOMDocument $dom, string $tag = '*' ): array {
-		$xpath    = new DOMXPath( $dom );
-		$query    = sprintf( "//%s[contains(concat(' ', normalize-space(@class), ' '), ' %s ')]", $tag, $class_name );
-		$nodes    = $xpath->query( $query );
+	public static function get_elements_by_class_name(string $class_name, DOMDocument $dom, string $tag = '*'): array
+	{
+		$xpath = new DOMXPath($dom);
+		$query = sprintf("//%s[contains(concat(' ', normalize-space(@class), ' '), ' %s ')]", $tag, $class_name);
+		$nodes = $xpath->query($query);
 		$elements = [];
 
-		if ( $nodes !== false ) {
-			foreach ( $nodes as $node ) {
-				if ( $node instanceof DOMElement ) {
+		if ($nodes !== false) {
+			foreach ($nodes as $node) {
+				if ($node instanceof DOMElement) {
 					$elements[] = $node;
 				}
 			}
@@ -212,20 +218,21 @@ class DOM {
 	 *
 	 * @return ?DOMElement
 	 */
-	public static function create_element( string $tag, DOMDocument $dom ): ?DOMElement {
+	public static function create_element(string $tag, DOMDocument $dom): ?DOMElement
+	{
 		$element = null;
 
 		try {
-			$element = $dom->createElement( $tag );
-		} catch ( Exception $e ) {
-			new WP_Error( 'invalid_dom_tag', $e->getMessage() );
+			$element = $dom->createElement($tag);
+		} catch (Exception $e) {
+			new WP_Error('invalid_dom_tag', $e->getMessage());
 		}
 
-		if ( is_null( $element ) ) {
+		if (is_null($element)) {
 			return null;
 		}
 
-		return self::node_to_element( $element );
+		return self::node_to_element($element);
 	}
 
 	/**
@@ -238,7 +245,8 @@ class DOM {
 	 *
 	 * @return void
 	 */
-	public static function add_classes( DOMElement $element, array $classes ): void {
+	public static function add_classes(DOMElement $element, array $classes): void
+	{
 		$element->setAttribute(
 			'class',
 			trim(
@@ -246,7 +254,7 @@ class DOM {
 					' ',
 					array_unique(
 						array_merge(
-							self::get_classes( $element ),
+							self::get_classes($element),
 							$classes
 						)
 					)
@@ -264,10 +272,11 @@ class DOM {
 	 *
 	 * @return array
 	 */
-	public static function get_classes( DOMElement $element ): array {
-		$classes = explode( ' ', $element->getAttribute( 'class' ) );
+	public static function get_classes(DOMElement $element): array
+	{
+		$classes = explode(' ', $element->getAttribute('class'));
 
-		return array_filter( $classes );
+		return array_filter($classes);
 	}
 
 	/**
@@ -280,12 +289,13 @@ class DOM {
 	 *
 	 * @return void
 	 */
-	public static function add_styles( DOMElement $element, array $styles ): void {
+	public static function add_styles(DOMElement $element, array $styles): void
+	{
 		$element->setAttribute(
 			'style',
 			CSS::array_to_string(
 				array_merge(
-					self::get_styles( $element ),
+					self::get_styles($element),
 					$styles
 				)
 			)
@@ -301,8 +311,9 @@ class DOM {
 	 *
 	 * @return array
 	 */
-	public static function get_styles( DOMElement $element ): array {
-		return CSS::string_to_array( $element->getAttribute( 'style' ) );
+	public static function get_styles(DOMElement $element): array
+	{
+		return CSS::string_to_array($element->getAttribute('style'));
 	}
 
 	/**
@@ -316,18 +327,19 @@ class DOM {
 	 *
 	 * @return DOMElement[]
 	 */
-	public static function get_elements_by_content( DOMDocument $dom, string $text, string $tag = '*' ): array {
-		$xpath    = new DOMXPath( $dom );
-		$query    = sprintf( "//%s[contains(., '%s')]", $tag, addslashes( $text ) );
-		$nodes    = $xpath->query( $query );
+	public static function get_elements_by_content(DOMDocument $dom, string $text, string $tag = '*'): array
+	{
+		$xpath = new DOMXPath($dom);
+		$query = sprintf("//%s[contains(., '%s')]", $tag, addslashes($text));
+		$nodes = $xpath->query($query);
 		$elements = [];
 
-		if ( ! $nodes ) {
+		if (!$nodes) {
 			return $elements;
 		}
 
-		foreach ( $nodes as $node ) {
-			if ( $node instanceof DOMElement ) {
+		foreach ($nodes as $node) {
+			if ($node instanceof DOMElement) {
 				$elements[] = $node;
 			}
 		}
@@ -344,10 +356,11 @@ class DOM {
 	 *
 	 * @return string
 	 */
-	private static function convert_unicode_to_html_entities( string $html ): string {
+	private static function convert_unicode_to_html_entities(string $html): string
+	{
 		return preg_replace_callback(
 			'/[\x{80}-\x{10FFFF}]/u',
-			static fn( array $matches ): string => sprintf(
+			static fn(array $matches): string => sprintf(
 				'&#x%s;',
 				ltrim(
 					strtoupper(
@@ -355,7 +368,7 @@ class DOM {
 							iconv(
 								'UTF-8',
 								'UCS-4',
-								current( $matches )
+								current($matches)
 							)
 						)
 					),
