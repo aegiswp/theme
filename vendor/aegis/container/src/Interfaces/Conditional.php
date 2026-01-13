@@ -20,7 +20,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Defines the namespace for conditional interfaces within the Aegis Framework.
 namespace Aegis\Container\Interfaces;
@@ -37,7 +37,8 @@ namespace Aegis\Container\Interfaces;
  * @since   1.0.0
  */
 // Declares the Conditional interface for conditional service registration.
-interface Conditional {
+interface Conditional
+{
 
 	/**
 	 * Determines if the service should be registered.
