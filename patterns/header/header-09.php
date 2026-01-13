@@ -104,7 +104,7 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"align":"center"} -->
-				<p class="has-text-align-center"><?php echo esc_html_e('[About Content (333 chars): Provide a detailed overview of a specific topic, product, or service.]', 'aegis'); ?></p>
+				<p class="has-text-align-center"><?php esc_html_e('[About Content (333 chars): Provide a detailed overview of a specific topic, product, or service.]', 'aegis'); ?></p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->

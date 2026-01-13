@@ -66,7 +66,7 @@
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph {"align":"right","fontSize":"tiny"} -->
-			<p class="has-text-align-right has-tiny-font-size"><a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a> · <a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a> · <a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
+			<p class="has-text-align-right has-tiny-font-size"><a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a> · <a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a> · <a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->
