@@ -19,7 +19,7 @@
  */
 
 // Ensures strict type checking for all code in this file.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for JS utilities within the Aegis Framework.
 namespace Aegis\Dom;
@@ -33,7 +33,8 @@ use function trim;
 
 // Implements a utility class for JavaScript manipulation and formatting.
 
-class JS {
+class JS
+{
 
     /**
      * Formats inline JS.
@@ -44,22 +45,26 @@ class JS {
      *
      * @return string
      */
-    public static function format_inline_js( string $js ): string {
+    public static function format_inline_js(string $js): string
+    {
 
         // Correct double quotes to single quotes.
-        $js = str_replace( '"', "'", $js );
+        $js = str_replace('"', "'", $js);
 
         // Trim trailing semicolon.
-        $js = trim( rtrim( $js, ';' ) );
+        $js = trim(rtrim($js, ';'));
 
         // Remove whitespace.
-        $js = preg_replace( '/\s+/', ' ', $js );
+        $js = preg_replace('/\s+/', ' ', $js);
 
         // Remove zero width spaces and other invisible characters.
-        $js = preg_replace( '/^[\pZ\pC]+|[\pZ\pC]+$/u', '', $js );
+        $js = preg_replace('/^[\pZ\pC]+|[\pZ\pC]+$/u', '', $js);
 
         // Replace line breaks.
-        $js = str_replace( [ "\r", "\n", PHP_EOL, ], '', $js
+        $js = str_replace(
+            ["\r", "\n", PHP_EOL,],
+            '',
+            $js
         );
 
         /**
@@ -67,7 +72,7 @@ class JS {
          *
          * @var string $js Formatted JS.
          */
-        $js = apply_filters( 'aegis_format_inline_js', $js );
+        $js = apply_filters('aegis_format_inline_js', $js);
 
         return $js;
     }
