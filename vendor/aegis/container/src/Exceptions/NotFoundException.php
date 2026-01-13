@@ -6,8 +6,8 @@
  * container of the Aegis Framework.
  *
  * Responsibilities:
- * - Handles errors when requested dependencies are not found in the aegis
- *   framework container
+ * - Handles errors when requested dependencies are not found in the Aegis
+ *   Framework container
  * - Ensures interoperability with other PSR-11 compatible containers and
  *   libraries by implementing NotFoundExceptionInterface
  *
@@ -21,7 +21,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Defines the namespace for the not found exception functionality within the Aegis Framework.
 namespace Aegis\Container\Exceptions;
@@ -47,7 +47,8 @@ use function sprintf;
  * @package Aegis\Container\Exceptions
  */
 // Declares the NotFoundException class, which extends the base Exception and implements the PSR-11 NotFoundExceptionInterface.
-class NotFoundException extends Exception implements NotFoundExceptionInterface {
+class NotFoundException extends Exception implements NotFoundExceptionInterface
+{
 
 	/**
 	 * Constructor for the NotFoundException.
@@ -62,11 +63,13 @@ class NotFoundException extends Exception implements NotFoundExceptionInterface 
 	 *
 	 * @return void
 	 */
-	public function __construct( string $id ) {
+	public function __construct(string $id)
+	{
 
 		/* translators: %s: Dependency ID */
-		$message = __( '%s not found.', 'aegis' );
+		$message = __('%s not found.', 'aegis');
 
-		parent::__construct( sprintf( $message, $id ) );
+		parent::__construct(sprintf($message, $id));
 	}
+
 }
