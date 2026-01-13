@@ -19,7 +19,7 @@
  */
 
 // Ensures strict type checking for all code in this file.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for CSS utilities within the Aegis Framework.
 namespace Aegis\Dom;
@@ -44,7 +44,8 @@ use function wp_list_pluck;
 
 // Implements a utility class for CSS manipulation and formatting.
 
-class CSS {
+class CSS
+{
 
 	/**
 	 * Converts an associative array of CSS rules into a valid CSS string.
@@ -58,20 +59,21 @@ class CSS {
 	 *
 	 * @return string The formatted CSS string for use in HTML or stylesheet output.
 	 */
-	public static function array_to_string( array $styles, bool $trim = false ): string {
+	public static function array_to_string(array $styles, bool $trim = false): string
+	{
 		$css = '';
 
-		foreach ( $styles as $property => $value ) {
-			if ( is_null( $value ) || is_array( $value ) ) {
+		foreach ($styles as $property => $value) {
+			if (is_null($value) || is_array($value)) {
 				continue;
 			}
 
-			$value     = self::format_custom_property( (string) $value );
-			$semicolon = $trim && $property === array_key_last( $styles ) ? '' : ';';
-			$css       .= $property . ':' . $value . $semicolon;
+			$value = self::format_custom_property((string) $value);
+			$semicolon = $trim && $property === array_key_last($styles) ? '' : ';';
+			$css .= $property . ':' . $value . $semicolon;
 		}
 
-		return rtrim( $css, ';' );
+		return rtrim($css, ';');
 	}
 
 	/**
@@ -83,15 +85,16 @@ class CSS {
 	 *
 	 * @return ?string
 	 */
-	public static function format_custom_property( ?string $custom_property ): ?string {
-		if ( ! $custom_property ) {
+	public static function format_custom_property(?string $custom_property): ?string
+	{
+		if (!$custom_property) {
 			return $custom_property;
 		}
 
-		if ( str_contains( $custom_property, 'var:' ) ) {
+		if (str_contains($custom_property, 'var:')) {
 			return str_replace(
-				[ 'var:', '|', ],
-				[ 'var(--wp--', '--', ],
+				['var:', '|',],
+				['var(--wp--', '--',],
 				$custom_property . ')'
 			);
 		}
@@ -99,33 +102,33 @@ class CSS {
 		static $global_settings = null;
 		static $theme_json = null;
 
-		if ( is_null( $global_settings ) ) {
-			$global_settings = function_exists( 'wp_get_global_settings' ) ? wp_get_global_settings() : [];
+		if (is_null($global_settings)) {
+			$global_settings = function_exists('wp_get_global_settings') ? wp_get_global_settings() : [];
 		}
 
-		if ( ! $global_settings ) {
+		if (!$global_settings) {
 			return $custom_property;
 		}
 
-		if ( is_null( $theme_json ) ) {
+		if (is_null($theme_json)) {
 			$theme_json_file = get_template_directory() . '/theme.json';
-			$theme_json      = [];
+			$theme_json = [];
 
-			if ( file_exists( $theme_json_file ) ) {
-				$theme_json = wp_json_file_decode( $theme_json_file );
+			if (file_exists($theme_json_file)) {
+				$theme_json = wp_json_file_decode($theme_json_file);
 			}
 		}
 
-		if ( ! $theme_json ) {
+		if (!$theme_json) {
 			return $custom_property;
 		}
 
-		if ( ! isset( $global_settings['color']['palette']['theme'] ) && ! isset( $theme_json->settings->color->palette ) ) {
+		if (!isset($global_settings['color']['palette']['theme']) && !isset($theme_json->settings->color->palette)) {
 			return $custom_property;
 		}
 
 		$colors = array_merge(
-			(array) ( $global_settings['color']['palette']['theme'] ?? [] ),
+			(array) ($global_settings['color']['palette']['theme'] ?? []),
 			(array) $theme_json->settings->color->palette
 		);
 
@@ -139,18 +142,18 @@ class CSS {
 			'unset',
 		];
 
-		if ( in_array( $custom_property, $system_colors, true ) ) {
-			if ( $custom_property === 'current' ) {
+		if (in_array($custom_property, $system_colors, true)) {
+			if ($custom_property === 'current') {
 				return 'currentcolor';
 			}
 		}
 
 		$color_slugs = array_diff(
-			wp_list_pluck( $colors, 'slug' ),
+			wp_list_pluck($colors, 'slug'),
 			$system_colors
 		);
 
-		if ( in_array( $custom_property, $color_slugs, true ) ) {
+		if (in_array($custom_property, $color_slugs, true)) {
 			return "var(--wp--preset--color--{$custom_property})";
 		}
 
@@ -166,27 +169,28 @@ class CSS {
 	 *
 	 * @return array
 	 */
-	public static function string_to_array( string $css ): array {
+	public static function string_to_array(string $css): array
+	{
 		$array = [];
 
 		// Prevent svg url strings from being split.
-		$css = str_replace( 'xml;', 'xml$', $css );
+		$css = str_replace('xml;', 'xml$', $css);
 
-		$elements = explode( ';', $css );
+		$elements = explode(';', $css);
 
-		foreach ( $elements as $element ) {
-			$parts = explode( ':', $element, 2 );
+		foreach ($elements as $element) {
+			$parts = explode(':', $element, 2);
 
-			if ( isset( $parts[1] ) ) {
+			if (isset($parts[1])) {
 				$property = $parts[0];
-				$value    = $parts[1];
+				$value = $parts[1];
 
-				if ( $value !== '' && $value !== 'null' ) {
-					$value = str_replace( 'xml$', 'xml;', $value );
-					$value = self::format_custom_property( (string) $value );
+				if ($value !== '' && $value !== 'null') {
+					$value = str_replace('xml$', 'xml;', $value);
+					$value = self::format_custom_property((string) $value);
 
-					if ( $value ) {
-						$array[ $property ] = $value;
+					if ($value) {
+						$array[$property] = $value;
 					}
 				}
 			}
@@ -204,57 +208,58 @@ class CSS {
 	 *
 	 * @return array
 	 */
-	public static function add_shorthand_property( array $styles, string $property, $values ): array {
-		if ( empty( $values ) || isset( $styles[ $property ] ) ) {
+	public static function add_shorthand_property(array $styles, string $property, $values): array
+	{
+		if (empty($values) || isset($styles[$property])) {
 			return $styles;
 		}
 
-		if ( is_string( $values ) ) {
-			$styles[ $property ] = self::format_custom_property( $values );
+		if (is_string($values)) {
+			$styles[$property] = self::format_custom_property($values);
 
 			return $styles;
 		}
 
-		$sides = [ 'top', 'right', 'bottom', 'left' ];
+		$sides = ['top', 'right', 'bottom', 'left'];
 
-		if ( count( $values ) === 1 ) {
-			foreach ( $values as $side => $value ) {
-				if ( ! in_array( $side, $sides, true ) ) {
+		if (count($values) === 1) {
+			foreach ($values as $side => $value) {
+				if (!in_array($side, $sides, true)) {
 					continue;
 				}
 
-				$styles[ $property . '-' . $side ] = self::format_custom_property( $value );
+				$styles[$property . '-' . $side] = self::format_custom_property($value);
 			}
 
 			return $styles;
 		}
 
-		$has_top    = isset( $values['top'] );
-		$has_right  = isset( $values['right'] );
-		$has_bottom = isset( $values['bottom'] );
-		$has_left   = isset( $values['left'] );
+		$has_top = isset($values['top']);
+		$has_right = isset($values['right']);
+		$has_bottom = isset($values['bottom']);
+		$has_left = isset($values['left']);
 
-		if ( ! $has_top && ! $has_right && ! $has_bottom && ! $has_left ) {
+		if (!$has_top && !$has_right && !$has_bottom && !$has_left) {
 			return $styles;
 		}
 
-		$top    = self::format_custom_property( $values['top'] ?? '0' );
-		$right  = self::format_custom_property( $values['right'] ?? '0' );
-		$bottom = self::format_custom_property( $values['bottom'] ?? '0' );
-		$left   = self::format_custom_property( $values['left'] ?? '0' );
+		$top = self::format_custom_property($values['top'] ?? '0');
+		$right = self::format_custom_property($values['right'] ?? '0');
+		$bottom = self::format_custom_property($values['bottom'] ?? '0');
+		$left = self::format_custom_property($values['left'] ?? '0');
 
-		unset( $styles[ $property . '-top' ] );
-		unset( $styles[ $property . '-right' ] );
-		unset( $styles[ $property . '-bottom' ] );
-		unset( $styles[ $property . '-left' ] );
+		unset($styles[$property . '-top']);
+		unset($styles[$property . '-right']);
+		unset($styles[$property . '-bottom']);
+		unset($styles[$property . '-left']);
 
-		if ( $top === $right && $right === $bottom && $bottom === $left ) {
-			$styles[ $property ] = self::format_custom_property( $top );
+		if ($top === $right && $right === $bottom && $bottom === $left) {
+			$styles[$property] = self::format_custom_property($top);
 		} else {
-			if ( $top === $bottom && $left === $right ) {
-				$styles[ $property ] = "$top $right";
+			if ($top === $bottom && $left === $right) {
+				$styles[$property] = "$top $right";
 			} else {
-				$styles[ $property ] = "$top $right $bottom $left";
+				$styles[$property] = "$top $right $bottom $left";
 			}
 		}
 
@@ -274,39 +279,40 @@ class CSS {
 	 *
 	 * @return string Minified CSS
 	 */
-	public static function minify( string $css ): string {
+	public static function minify(string $css): string
+	{
 
 		// Normalize whitespace.
-		$css = preg_replace( '/\s+/', ' ', $css );
+		$css = preg_replace('/\s+/', ' ', $css);
 
 		// Remove spaces before and after comment.
-		$css = preg_replace( '/(\s+)(\/\*(.*?)\*\/)(\s+)/', '$2', $css );
+		$css = preg_replace('/(\s+)(\/\*(.*?)\*\/)(\s+)/', '$2', $css);
 
-		// Remove comment blocks, everything between /* and */, unless.
+		// Remove comment blocks, everything between /* and */, unless
 		// preserved with /*! ... */ or /** ... */.
-		$css = preg_replace( '~/\*(?![!|*])(.*?)\*/~', '', $css );
+		$css = preg_replace('~/\*(?![!|*])(.*?)\*/~', '', $css);
 
 		// Remove ; before }.
-		$css = preg_replace( '/;(?=\s*})/', '', $css );
+		$css = preg_replace('/;(?=\s*})/', '', $css);
 
 		// Remove space after , : ; { } */ >.
-		$css = preg_replace( '/(,|:|;|\{|}|\*\/|>) /', '$1', $css );
+		$css = preg_replace('/(,|:|;|\{|}|\*\/|>) /', '$1', $css);
 
 		// Remove space before , ; { } ( ) >.
-		$css = preg_replace( '/ ([,;{}()>])/', '$1', $css );
+		$css = preg_replace('/ ([,;{}()>])/', '$1', $css);
 
 		// Strips leading 0 on decimal values (converts 0.5px into .5px).
-		$css = preg_replace( '/([: ])0\.([0-9]+)(%|em|ex|px|in|cm|mm|pt|pc)/i', '${1}.${2}${3}', $css );
+		$css = preg_replace('/([: ])0\.([0-9]+)(%|em|ex|px|in|cm|mm|pt|pc)/i', '${1}.${2}${3}', $css);
 
 		// Strips units if value is 0 (converts 0px to 0).
-		$css = preg_replace( '/([: ])(\.?)0(%|em|ex|px|in|cm|mm|pt|pc)/i', '${1}0', $css );
+		$css = preg_replace('/([: ])(\.?)0(%|em|ex|px|in|cm|mm|pt|pc)/i', '${1}0', $css);
 
 		// Converts all zeros value into shorthand.
-		$css = preg_replace( '/0 0 0 0/', '0', $css );
+		$css = preg_replace('/0 0 0 0/', '0', $css);
 
 		// Shorten 6-character hex color codes to 3-character where possible.
-		$css = preg_replace( '/#([a-f0-9])\\1([a-f0-9])\\2([a-f0-9])\\3/i', '#\1\2\3', $css );
+		$css = preg_replace('/#([a-f0-9])\\1([a-f0-9])\\2([a-f0-9])\\3/i', '#\1\2\3', $css);
 
-		return trim( $css );
+		return trim($css);
 	}
 }
