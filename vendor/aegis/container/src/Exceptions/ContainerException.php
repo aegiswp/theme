@@ -6,7 +6,7 @@
  * container of the Aegis Framework.
  *
  * Responsibilities:
- * - Represents errors encountered within the aegis framework container
+ * - Represents errors encountered within the Aegis Framework container
  * - Ensures interoperability with other PSR-11 compatible containers
  *   and libraries by implementing ContainerExceptionInterface
  *
@@ -20,7 +20,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Defines the namespace for the container exception functionality within the Aegis Framework.
 namespace Aegis\Container\Exceptions;
@@ -32,7 +32,7 @@ use Psr\Container\ContainerExceptionInterface;
 /**
  * Container Exception for the Aegis Dependency Injection Container.
  *
- * This exception is thrown when an error occurs within the aegis container. It implements the
+ * This exception is thrown when an error occurs within the Aegis Framework container. It implements the
  * {@link https://www.php-fig.org/psr/psr-11/ PSR-11 ContainerExceptionInterface}, allowing interoperability with
  * other PSR-11 compatible containers and libraries.
  *
@@ -44,7 +44,8 @@ use Psr\Container\ContainerExceptionInterface;
  * @package Aegis\Container\Exceptions
  */
 // Declares the ContainerException class, which extends the base Exception and implements the PSR-11 ContainerExceptionInterface.
-class ContainerException extends Exception implements ContainerExceptionInterface {
+class ContainerException extends Exception implements ContainerExceptionInterface
+{
 
 	/**
 	 * Constructor for the ContainerException.
@@ -58,7 +59,9 @@ class ContainerException extends Exception implements ContainerExceptionInterfac
 	 *
 	 * @return void
 	 */
-	public function __construct( string $message, ?int $code = 0, ?Exception $previous = null ) {
-		parent::__construct( $message, $code, $previous );
+	public function __construct(string $message, ?int $code = 0, ?Exception $previous = null)
+	{
+		parent::__construct($message, $code, $previous);
 	}
+
 }
