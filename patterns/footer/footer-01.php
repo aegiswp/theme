@@ -35,11 +35,11 @@
 					<!-- wp:column {"width":""} -->
 					<div class="wp-block-column">
 						<!-- wp:heading {"level":3,"fontSize":"medium"} -->
-						<h3 class="wp-block-heading has-medium-font-size"><?php echo esc_html_e('Shipping Included', 'aegis'); ?></h3>
+						<h3 class="wp-block-heading has-medium-font-size"><?php esc_html_e('Shipping Included', 'aegis'); ?></h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"tiny"} -->
-						<p class="has-tiny-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php echo esc_html_e('[Offer based on order value.]', 'aegis'); ?></p>
+						<p class="has-tiny-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php esc_html_e('[Offer based on order value.]', 'aegis'); ?></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
@@ -63,11 +63,11 @@
 					<!-- wp:column {"width":""} -->
 					<div class="wp-block-column">
 						<!-- wp:heading {"level":3,"fontSize":"medium"} -->
-						<h3 class="wp-block-heading has-medium-font-size"><?php echo esc_html_e('Returns Guarantee', 'aegis'); ?></h3>
+						<h3 class="wp-block-heading has-medium-font-size"><?php esc_html_e('Returns Guarantee', 'aegis'); ?></h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"tiny"} -->
-						<p class="has-tiny-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php echo esc_html_e('[Time frame for returns.]', 'aegis'); ?></p>
+						<p class="has-tiny-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php esc_html_e('[Time frame for returns.]', 'aegis'); ?></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
@@ -91,11 +91,11 @@
 					<!-- wp:column {"width":""} -->
 					<div class="wp-block-column">
 						<!-- wp:heading {"level":3,"fontSize":"medium"} -->
-						<h3 class="wp-block-heading has-medium-font-size"><?php echo esc_html_e('Online Assistance', 'aegis'); ?></h3>
+						<h3 class="wp-block-heading has-medium-font-size"><?php esc_html_e('Online Assistance', 'aegis'); ?></h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"tiny"} -->
-						<p class="has-tiny-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php echo esc_html_e('[Service or operation hours.]', 'aegis'); ?></p>
+						<p class="has-tiny-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php esc_html_e('[Service or operation hours.]', 'aegis'); ?></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
@@ -119,11 +119,11 @@
 					<!-- wp:column {"width":""} -->
 					<div class="wp-block-column">
 						<!-- wp:heading {"level":3,"fontSize":"medium"} -->
-						<h3 class="wp-block-heading has-medium-font-size"><?php echo esc_html_e('Secure Checkout', 'aegis'); ?></h3>
+						<h3 class="wp-block-heading has-medium-font-size"><?php esc_html_e('Secure Checkout', 'aegis'); ?></h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"fontSize":"tiny"} -->
-						<p class="has-tiny-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php echo esc_html_e('[Diverse payment methods.]', 'aegis'); ?></p>
+						<p class="has-tiny-font-size" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0"><?php esc_html_e('[Diverse payment methods.]', 'aegis'); ?></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
@@ -149,7 +149,7 @@
 						<!-- wp:site-logo {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} /-->
 
 						<!-- wp:paragraph {"textColor":"intrace-body-text","fontSize":"small"} -->
-						<p class="has-intrace-body-text-color has-text-color has-small-font-size"><?php echo esc_html_e('[Paragraph (95 characters): Briefly describe the mission, vision, or unique selling proposition.]', 'aegis'); ?></p>
+						<p class="has-intrace-body-text-color has-text-color has-small-font-size"><?php esc_html_e('[Paragraph (95 characters): Briefly describe the mission, vision, or unique selling proposition.]', 'aegis'); ?></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
@@ -161,19 +161,19 @@
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"12px"}}},"fontSize":"small"} -->
-						<p class="has-small-font-size" style="margin-top:12px"><a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
+						<p class="has-small-font-size" style="margin-top:12px"><a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"small"} -->
-						<p class="has-small-font-size" style="margin-top:10px"><a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
+						<p class="has-small-font-size" style="margin-top:10px"><a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"small"} -->
-						<p class="has-small-font-size" style="margin-top:10px"><a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
+						<p class="has-small-font-size" style="margin-top:10px"><a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"small"} -->
-						<p class="has-small-font-size" style="margin-top:10px"><a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
+						<p class="has-small-font-size" style="margin-top:10px"><a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
@@ -185,19 +185,19 @@
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"12px"}}},"fontSize":"small"} -->
-						<p class="has-small-font-size" style="margin-top:12px"><a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
+						<p class="has-small-font-size" style="margin-top:12px"><a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"small"} -->
-						<p class="has-small-font-size" style="margin-top:10px"><a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
+						<p class="has-small-font-size" style="margin-top:10px"><a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"small"} -->
-						<p class="has-small-font-size" style="margin-top:10px"><a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
+						<p class="has-small-font-size" style="margin-top:10px"><a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"10px"}}},"fontSize":"small"} -->
-						<p class="has-small-font-size" style="margin-top:10px"><a href="#"><?php echo esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
+						<p class="has-small-font-size" style="margin-top:10px"><a href="#"><?php esc_html_e('[Menu Item]', 'aegis'); ?></a></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
@@ -205,11 +205,11 @@
 					<!-- wp:column {"verticalAlignment":"top","width":"40%","style":{"spacing":{"padding":{"left":"var:preset|spacing|30","top":"0","right":"0","bottom":"var:preset|spacing|30"},"blockGap":"0"}},"className":"is-style-hide-mobile"} -->
 					<div class="wp-block-column is-vertically-aligned-top is-style-hide-mobile" style="padding-top:0;padding-right:0;padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30);flex-basis:40%">
 						<!-- wp:heading {"level":4,"style":{"spacing":{"margin":{"bottom":"20px"}}}} -->
-						<h4 class="wp-block-heading" style="margin-bottom:20px"><?php echo esc_html_e('[Title (21 characters): Section focus.]', 'aegis'); ?></h4>
+						<h4 class="wp-block-heading" style="margin-bottom:20px"><?php esc_html_e('[Title (21 characters): Section focus.]', 'aegis'); ?></h4>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"fontSize":"small"} -->
-						<p class="has-small-font-size"><?php echo esc_html_e('[Shop Highlight (124 characters): Promote new arrivals, featured collections, or seasonal favorites.]', 'aegis'); ?></p>
+						<p class="has-small-font-size"><?php esc_html_e('[Shop Highlight (124 characters): Promote new arrivals, featured collections, or seasonal favorites.]', 'aegis'); ?></p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
@@ -240,7 +240,7 @@
 						<!-- wp:group {"style":{"spacing":{"padding":{"right":"0","left":"0"},"blockGap":"5px"}},"layout":{"type":"flex","orientation":"horizontal","justifyContent":"left","verticalAlignment":"top"},"fontSize":"tiny"} -->
 						<div class="wp-block-group has-tiny-font-size" style="padding-right:0;padding-left:0">
 							<!-- wp:paragraph {"style":{"spacing":{"margin":{"right":"0","left":"0"},"padding":{"top":"0","bottom":"0"}}}} -->
-							<p style="margin-right:0;margin-left:0;padding-top:0;padding-bottom:0"><?php esc_html_e( '&copy;', 'aegis' ); ?> <?php echo date("Y"); ?> <?php echo esc_html_e('by', 'aegis'); ?></p>
+							<p style="margin-right:0;margin-left:0;padding-top:0;padding-bottom:0"><?php esc_html_e( '&copy;', 'aegis' ); ?> <?php echo date("Y"); ?> <?php esc_html_e('by', 'aegis'); ?></p>
 							<!-- /wp:paragraph -->
 
 							<!-- wp:site-title {"level":0,"style":{"spacing":{"padding":{"right":"0","left":"0","top":"0","bottom":"0"},"margin":{"right":"0","left":"0"}}}} /-->
