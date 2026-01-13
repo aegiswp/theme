@@ -20,7 +20,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety throughout the container implementation.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for the Aegis dependency injection container, organizing related classes and interfaces.
 namespace Aegis\Container;
@@ -39,7 +39,8 @@ use function uniqid;
 use Aegis\Utilities\Debug;
 
 // Implements the main Aegis dependency injection container, providing auto-wiring and PSR-11 compatibility.
-class Container implements ContainerInterface {
+class Container implements ContainerInterface
+{
 
 	/**
 	 * Holds all resolved service instances, keyed by their identifier.
@@ -68,12 +69,13 @@ class Container implements ContainerInterface {
 	 *
 	 * @return mixed The resolved service instance, or null if the service is not found.
 	 */
-	public function get( string $id ) {
-		if ( ! $this->has( $id ) ) {
-			$this->log( "Class {$id} not found in container." );
+	public function get(string $id)
+	{
+		if (!$this->has($id)) {
+			$this->log("Class {$id} not found in container.");
 		}
 
-		return $this->instances[ $id ] ?? null;
+		return $this->instances[$id] ?? null;
 	}
 
 	/**
@@ -86,8 +88,9 @@ class Container implements ContainerInterface {
 	 *
 	 * @return bool True if the service instance exists in the container, false otherwise.
 	 */
-	public function has( string $id ): bool {
-		return isset( $this->instances[ $id ] );
+	public function has(string $id): bool
+	{
+		return isset($this->instances[$id]);
 	}
 
 	/**
@@ -103,41 +106,42 @@ class Container implements ContainerInterface {
 	 *
 	 * @return mixed The resolved service instance, or null if resolution fails.
 	 */
-	public function make( string $id, ...$args ) {
+	public function make(string $id, ...$args)
+	{
 		// If an instance of the service already exists, return it immediately.
-		if ( $this->has( $id ) && is_object( $this->instances[ $id ] ) ) {
-			return $this->instances[ $id ];
+		if ($this->has($id) && is_object($this->instances[$id])) {
+			return $this->instances[$id];
 		}
 
 		// If the identifier is a callable, it is a factory. Resolve it by calling it.
-		if ( isset( $this->instances[ $id ] ) && is_callable( $this->instances[ $id ] ) ) {
-			return ( $this->instances[ $id ] )();
+		if (isset($this->instances[$id]) && is_callable($this->instances[$id])) {
+			return ($this->instances[$id])();
 		}
 
 		// Use Reflection to inspect the class and its dependencies.
 		try {
-			$reflector = new ReflectionClass( $id );
-		} catch ( ReflectionException $e ) {
-			$this->log( "Class to resolve '{$id}' does not exist.", $e );
+			$reflector = new ReflectionClass($id);
+		} catch (ReflectionException $e) {
+			$this->log("Class to resolve '{$id}' does not exist.", $e);
 			return null;
 		}
 
 		// A class must be instantiable to be resolved.
-		if ( ! $reflector->isInstantiable() ) {
-			$this->log( "Class '{$id}' is not instantiable." );
+		if (!$reflector->isInstantiable()) {
+			$this->log("Class '{$id}' is not instantiable.");
 			return null;
 		}
 
 		// Check if the class implements the Conditional interface. If so, run the check.
 		// This allows a service to control its own registration based on runtime conditions.
-		if ( $reflector->implementsInterface( 'Aegis\Container\Interfaces\Conditional' ) ) {
+		if ($reflector->implementsInterface('Aegis\Container\Interfaces\Conditional')) {
 			try {
-				if ( ! $id::condition() ) {
-					$this->log( "Conditional check failed for '{$id}'. Service not registered." );
+				if (!$id::condition()) {
+					$this->log("Conditional check failed for '{$id}'. Service not registered.");
 					return null;
 				}
-			} catch ( ReflectionException $e ) {
-				$this->log( "Cannot invoke condition method for '{$id}'.", $e );
+			} catch (ReflectionException $e) {
+				$this->log("Cannot invoke condition method for '{$id}'.", $e);
 				return null;
 			}
 		}
@@ -147,30 +151,30 @@ class Container implements ContainerInterface {
 
 		try {
 			// If arguments were passed directly to make(), use them to create the instance.
-			if ( ! empty( $args ) ) {
-				$instance = $reflector->newInstanceArgs( $args );
-			// If there is a constructor, resolve its parameters (dependencies) recursively.
-			} elseif ( $constructor ) {
-				$parameters   = $constructor->getParameters();
-				$dependencies = $this->resolve_parameters( $parameters );
-				$instance     = $reflector->newInstanceArgs( $dependencies );
-			// If there is no constructor, simply create a new instance without arguments.
+			if (!empty($args)) {
+				$instance = $reflector->newInstanceArgs($args);
+				// If there is a constructor, resolve its parameters (dependencies) recursively.
+			} elseif ($constructor) {
+				$parameters = $constructor->getParameters();
+				$dependencies = $this->resolve_parameters($parameters);
+				$instance = $reflector->newInstanceArgs($dependencies);
+				// If there is no constructor, simply create a new instance without arguments.
 			} else {
 				$instance = $reflector->newInstance();
 			}
-		} catch ( ReflectionException | ContainerException $e ) {
-			$this->log( "Cannot instantiate class '{$id}'.", $e );
+		} catch (ReflectionException | ContainerException $e) {
+			$this->log("Cannot instantiate class '{$id}'.", $e);
 			return null;
 		}
 
 		// Ensure the instantiation resulted in a valid object.
-		if ( ! is_object( $instance ) ) {
-			$this->log( "Instantiation of '{$id}' did not result in an object." );
+		if (!is_object($instance)) {
+			$this->log("Instantiation of '{$id}' did not result in an object.");
 			return null;
 		}
 
 		// Store the newly created instance for future retrievals and return it.
-		$this->instances[ $id ] = $instance;
+		$this->instances[$id] = $instance;
 
 		return $instance;
 	}
@@ -188,30 +192,31 @@ class Container implements ContainerInterface {
 	 *
 	 * @return array An array of resolved dependency instances.
 	 */
-	private function resolve_parameters( array $parameters ): array {
+	private function resolve_parameters(array $parameters): array
+	{
 		$dependencies = [];
 
-		foreach ( $parameters as $parameter ) {
+		foreach ($parameters as $parameter) {
 			// Get the type hint for the parameter.
 			$type = $parameter->getType();
 
 			// If the parameter has no type hint or is a built-in type (e.g., string, int),
 			// we cannot auto-wire it unless it has a default value.
-			if ( ! $type || $type->isBuiltin() ) {
-				if ( $parameter->isDefaultValueAvailable() ) {
+			if (!$type || $type->isBuiltin()) {
+				if ($parameter->isDefaultValueAvailable()) {
 					// If a default value is available, use it.
 					$dependencies[] = $parameter->getDefaultValue();
 				} else {
 					// Otherwise, we cannot resolve this primitive type and must throw an exception.
-					$type_name  = $type ? $type->getName() : 'mixed';
+					$type_name = $type ? $type->getName() : 'mixed';
 					$class_name = $parameter->getDeclaringClass()->getName();
 
 					// TODO: Add support for autowiring primitive types via configuration.
-					throw new ContainerException( "Cannot auto-resolve primitive parameter '{$parameter->getName()}' of type '{$type_name}' for class '{$class_name}'. Please provide it manually." );
+					throw new ContainerException("Cannot auto-resolve primitive parameter '{$parameter->getName()}' of type '{$type_name}' for class '{$class_name}'. Please provide it manually.");
 				}
 			} else {
 				// If the parameter is a class, recursively resolve it from the container.
-				$dependencies[] = $this->make( $type->getName() );
+				$dependencies[] = $this->make($type->getName());
 			}
 		}
 
@@ -229,12 +234,13 @@ class Container implements ContainerInterface {
 	 *
 	 * @return void
 	 */
-	private function log( string $message, $exception = null ): void {
-		$id               = uniqid( static::class );
-		$this->log[ $id ] = [ $message, $exception ];
+	private function log(string $message, $exception = null): void
+	{
+		$id = uniqid(static::class);
+		$this->log[$id] = [$message, $exception];
 
-		if ( Debug::is_enabled() ) {
-			Debug::console_log( $this->log[ $id ] );
+		if (Debug::is_enabled()) {
+			Debug::console_log($this->log[$id]);
 		}
 	}
 }
