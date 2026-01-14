@@ -20,7 +20,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for block settings.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for block settings within the Aegis Framework.
 namespace Aegis\Framework\BlockSettings;
@@ -59,7 +59,8 @@ use function str_contains;
  * @package Aegis\Framework\BlockSettings
  * @since   1.0.0
  */
-class Animation implements Renderable, Styleable, Scriptable {
+class Animation implements Renderable, Styleable, Scriptable
+{
 
 	/**
 	 * The directory path to the theme's CSS files.
@@ -77,7 +78,8 @@ class Animation implements Renderable, Styleable, Scriptable {
 	 * @since 1.0.0
 	 * @param Styles $styles The Styles service instance.
 	 */
-	public function __construct( Styles $styles ) {
+	public function __construct(Styles $styles)
+	{
 		$this->css_dir = $styles->dir;
 	}
 
@@ -99,63 +101,64 @@ class Animation implements Renderable, Styleable, Scriptable {
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$attrs     = $block['attrs'] ?? [];
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		$attrs = $block['attrs'] ?? [];
 		$animation = $attrs['animation'] ?? [];
 
-		if ( empty( $animation ) ) {
+		if (empty($animation)) {
 			return $block_content;
 		}
 
-		$dom   = DOM::create( $block_content );
-		$first = DOM::get_element( '*', $dom );
-		if ( ! $first ) {
+		$dom = DOM::create($block_content);
+		$first = DOM::get_element('*', $dom);
+		if (!$first) {
 			return $block_content;
 		}
 
-		$classes = array_unique( explode( ' ', $first->getAttribute( 'class' ) ) );
-		$styles  = CSS::string_to_array( $first->getAttribute( 'style' ) );
+		$classes = array_unique(explode(' ', $first->getAttribute('class')));
+		$styles = CSS::string_to_array($first->getAttribute('style'));
 
 		// --- Animation Type Handling ---
-		$infinite = ( '-1' === ( $animation['iterationCount'] ?? null ) ) || ( 'infinite' === ( $animation['event'] ?? null ) );
-		unset( $styles['animation-play-state'] );
+		$infinite = ('-1' === ($animation['iterationCount'] ?? null)) || ('infinite' === ($animation['event'] ?? null));
+		unset($styles['animation-play-state']);
 
 		// For infinite animations, set the iteration count directly.
-		if ( $infinite ) {
-			unset( $styles['--animation-event'] );
+		if ($infinite) {
+			unset($styles['--animation-event']);
 			$styles['animation-iteration-count'] = 'infinite';
 		} else {
 			// For standard animations, set the name as a CSS variable for the JS to use.
-			unset( $styles['animation-name'] );
-			$styles['--animation-name'] = esc_attr( $animation['name'] ?? '' );
+			unset($styles['animation-name']);
+			$styles['--animation-name'] = esc_attr($animation['name'] ?? '');
 		}
 
 		// --- Scroll-triggered Animation Logic ---
-		if ( 'scroll' === ( $animation['event'] ?? '' ) ) {
+		if ('scroll' === ($animation['event'] ?? '')) {
 			$classes[] = 'animate';
 			$classes[] = 'has-scroll-animation';
-			$classes   = array_diff( $classes, [ 'has-animation' ] );
+			$classes = array_diff($classes, ['has-animation']);
 
 			// Use the --scroll CSS variable (provided by scroll.js) to drive the animation delay.
-			$styles['animation-delay']      = 'calc(var(--scroll) * -1s)';
+			$styles['animation-delay'] = 'calc(var(--scroll) * -1s)';
 			$styles['animation-play-state'] = 'paused';
-			$styles['animation-duration']   = '1s';
-			$styles['animation-fill-mode']  = 'both';
-			unset( $styles['--animation-event'] );
+			$styles['animation-duration'] = '1s';
+			$styles['animation-fill-mode'] = 'both';
+			unset($styles['--animation-event']);
 
 			// Set the trigger offset for the scroll animation.
 			$offset = $animation['offset'] ?? '0';
-			if ( '0' === $offset ) {
+			if ('0' === $offset) {
 				$offset = '0.01'; // Avoid a true zero value.
 			}
-			$first->setAttribute( 'data-offset', esc_attr( $offset ) );
+			$first->setAttribute('data-offset', esc_attr($offset));
 		}
 
 		// Apply the final classes and styles.
-		if ( $styles ) {
-			$first->setAttribute( 'style', CSS::array_to_string( $styles ) );
+		if ($styles) {
+			$first->setAttribute('style', CSS::array_to_string($styles));
 		}
-		$first->setAttribute( 'class', implode( ' ', $classes ) );
+		$first->setAttribute('class', implode(' ', $classes));
 
 		return $dom->saveHTML();
 	}
@@ -166,8 +169,9 @@ class Animation implements Renderable, Styleable, Scriptable {
 	 * @since 1.0.0
 	 * @param Styles $styles The Styles service instance.
 	 */
-	public function styles( Styles $styles ): void {
-		$styles->add_callback( [ $this, 'get_animation_styles' ] );
+	public function styles(Styles $styles): void
+	{
+		$styles->add_callback([$this, 'get_animation_styles']);
 	}
 
 	/**
@@ -176,20 +180,21 @@ class Animation implements Renderable, Styleable, Scriptable {
 	 * @since 1.0.0
 	 * @param Scripts $scripts The Scripts service instance.
 	 */
-	public function scripts( Scripts $scripts ): void {
+	public function scripts(Scripts $scripts): void
+	{
 		// Make the list of available animation names available to the client-side scripts.
 		$scripts->add_data(
 			'animations',
-			array_keys( $this->get_animations() ),
+			array_keys($this->get_animations()),
 			[],
 			is_admin()
 		);
 
 		// Conditionally load JS files based on classes/attributes found in the page content.
-		$scripts->add_file( 'animation.js', [ 'has-animation', 'has-scroll-animation' ] );
-		$scripts->add_file( 'scroll.js', [ 'animation-event:scroll', 'has-scroll-animation' ] );
-		$scripts->add_file( 'packery.js', [ 'packery' ] );
-		$scripts->add_file( 'typewriter.js', [ 'has-typewriter-animation' ] );
+		$scripts->add_file('animation.js', ['has-animation', 'has-scroll-animation']);
+		$scripts->add_file('scroll.js', ['animation-event:scroll', 'has-scroll-animation']);
+		$scripts->add_file('packery.js', ['packery']);
+		$scripts->add_file('typewriter.js', ['has-typewriter-animation']);
 	}
 
 	/**
@@ -206,14 +211,15 @@ class Animation implements Renderable, Styleable, Scriptable {
 	 *
 	 * @return string The dynamically generated CSS string of `@keyframes`.
 	 */
-	public function get_animation_styles( string $template_html, bool $load_all ): string {
+	public function get_animation_styles(string $template_html, bool $load_all): string
+	{
 		$animations = $this->get_animations();
-		$css        = '';
+		$css = '';
 
 		// Find which animations are used on the page and build the CSS string.
-		foreach ( $animations as $name => $animation ) {
-			if ( $load_all || str_contains( $template_html, "animation-name:{$name}" ) ) {
-				$css .= "@keyframes $name" . trim( $animation );
+		foreach ($animations as $name => $animation) {
+			if ($load_all || str_contains($template_html, "animation-name:{$name}")) {
+				$css .= "@keyframes $name" . trim($animation);
 			}
 		}
 
@@ -231,24 +237,24 @@ class Animation implements Renderable, Styleable, Scriptable {
 	 *
 	 * @return array An associative array of animation names and their CSS content.
 	 */
-	private function get_animations(): array {
+	private function get_animations(): array
+	{
 		$file = $this->css_dir . 'block-extensions/animations.css';
-		if ( ! file_exists( $file ) ) {
+		if (!file_exists($file)) {
 			return [];
 		}
 
 		// Split the file content into individual @keyframes blocks.
-		$parts      = explode( '@keyframes', file_get_contents( $file ) );
+		$parts = explode('@keyframes', file_get_contents($file));
 		$animations = [];
-		unset( $parts[0] );
+		unset($parts[0]);
 
 		// Extract the name and body of each animation.
-		foreach ( $parts as $animation ) {
-			$name                 = trim( explode( '{', $animation )[0] ?? '' );
-			$animations[ $name ] = trim( str_replace( $name, '', $animation ) );
+		foreach ($parts as $animation) {
+			$name = trim(explode('{', $animation)[0] ?? '');
+			$animations[$name] = trim(str_replace($name, '', $animation));
 		}
 
 		return $animations;
 	}
-	
 }
