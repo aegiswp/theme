@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for block settings.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for block settings within the Aegis Framework.
 namespace Aegis\Framework\BlockSettings;
@@ -42,7 +42,8 @@ use function str_replace;
  * @package Aegis\Framework\BlockSettings
  * @since   1.0.0
  */
-class BackdropBlur implements Renderable {
+class BackdropBlur implements Renderable
+{
 
 	/**
 	 * Renders the block with a backdrop-filter blur effect.
@@ -61,40 +62,41 @@ class BackdropBlur implements Renderable {
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$blur = (string) ( $block['attrs']['style']['filter']['blur'] ?? '' );
-		$use_backdrop = (string) ( $block['attrs']['style']['filter']['backdrop'] ?? '' );
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		$blur = (string) ($block['attrs']['style']['filter']['blur'] ?? '');
+		$use_backdrop = (string) ($block['attrs']['style']['filter']['backdrop'] ?? '');
 
 		// Only proceed if both blur and backdrop attributes are set.
-		if ( ! $blur || ! $use_backdrop ) {
+		if (!$blur || !$use_backdrop) {
 			return $block_content;
 		}
 
 		// The core/navigation block has its own, more complex filter handling, so we exclude it here.
-		if ( 'core/navigation' === ( $block['blockName'] ?? '' ) ) {
+		if ('core/navigation' === ($block['blockName'] ?? '')) {
 			return $block_content;
 		}
 
-		$dom   = DOM::create( $block_content );
-		$first = DOM::get_element( '*', $dom );
+		$dom = DOM::create($block_content);
+		$first = DOM::get_element('*', $dom);
 
-		if ( ! $first ) {
+		if (!$first) {
 			return $block_content;
 		}
 
-		$styles = CSS::string_to_array( $first->getAttribute( 'style' ) );
+		$styles = CSS::string_to_array($first->getAttribute('style'));
 
 		// Construct the blur value and apply it with the necessary vendor prefix.
 		$backdrop_blur = 'blur(' . $blur . 'px)';
-		unset( $styles['backdrop-filter'], $styles['-webkit-backdrop-filter'] );
-		$styles['backdrop-filter']         = $backdrop_blur;
+		unset($styles['backdrop-filter'], $styles['-webkit-backdrop-filter']);
+		$styles['backdrop-filter'] = $backdrop_blur;
 		$styles['-webkit-backdrop-filter'] = $backdrop_blur;
 
 		// This seems intended to remove an opacity filter if it was also applied,
 		// as it might conflict with the backdrop-filter effect.
-		$opacity = (int) ( $block['attrs']['style']['filter']['opacity'] ?? '' );
-		if ( $opacity ) {
-			if ( $existing_filter = $styles['filter'] ?? '' ) {
+		$opacity = (int) ($block['attrs']['style']['filter']['opacity'] ?? '');
+		if ($opacity) {
+			if ($existing_filter = $styles['filter'] ?? '') {
 				$styles['filter'] = str_replace(
 					' opacity(' . $opacity . '%)',
 					'',
@@ -103,9 +105,8 @@ class BackdropBlur implements Renderable {
 			}
 		}
 
-		$first->setAttribute( 'style', CSS::array_to_string( $styles ) );
+		$first->setAttribute('style', CSS::array_to_string($styles));
 
 		return $dom->saveHTML();
 	}
-	
 }
