@@ -265,5 +265,4 @@ trait AssetsTrait {
 
 		return $assets;
 	}
-
 }
