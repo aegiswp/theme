@@ -73,5 +73,4 @@ class FluentForms implements Conditional, Styleable {
 		// Disables Fluent Forms default styles
 		add_filter( 'fluentform_load_default_public', '__return_false' );
 	}
-
 }
