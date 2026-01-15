@@ -109,5 +109,4 @@ class SystemFonts {
 
 		return apply_filters( 'aegis_system_fonts', $fonts );
 	}
-
 }
