@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for design system components.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
@@ -31,7 +31,8 @@ use function wp_register_script;
 
 // Implements the BlockScripts class to support block-level script registration and management.
 
-class BlockScripts {
+class BlockScripts
+{
 
 	/**
 	 * The scripts instance
@@ -49,7 +50,8 @@ class BlockScripts {
 	 *
 	 * @return void
 	 */
-	public function __construct( Scripts $scripts ) {
+	public function __construct(Scripts $scripts)
+	{
 		$this->scripts = $scripts;
 	}
 
@@ -62,23 +64,24 @@ class BlockScripts {
 	 *
 	 * @return void
 	 */
-	public function register(): void {
+	public function register(): void
+	{
 		global $template_html;
 
 		$scripts = [
-			'packery'           => 'packery',
-			'splide'            => 'splide',
+			'packery' => 'packery',
+			'splide' => 'splide',
 			'splide-autoscroll' => 'data-type="marquee"',
 		];
 
-		foreach ( $scripts as $handle => $strings ) {
-			if ( ! str_contains( $template_html ?? '', $strings ) ) {
+		foreach ($scripts as $handle => $strings) {
+			if (!str_contains($template_html ?? '', $strings)) {
 				continue;
 			}
 
 			$asset_file = $this->scripts->dir . $handle . '.asset.php';
 
-			if ( ! file_exists( $asset_file ) ) {
+			if (!file_exists($asset_file)) {
 				continue;
 			}
 
@@ -88,12 +91,11 @@ class BlockScripts {
 				$handle,
 				$this->scripts->url . $handle . '.js',
 				$asset['dependencies'] ?? [],
-				$asset['version'] ?? ( Debug::is_enabled() ? time() : '1.0.0' ),
+				$asset['version'] ?? (Debug::is_enabled() ? time() : '1.0.0'),
 				true
 			);
 
-			wp_enqueue_script( $handle );
+			wp_enqueue_script($handle);
 		}
 	}
-
 }
