@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for core blocks within the Aegis Framework.
 namespace Aegis\Framework\CoreBlocks;
@@ -30,7 +30,8 @@ use function str_replace;
 
 // Implements the Shortcode class to support shortcode block rendering.
 
-class Shortcode implements Renderable {
+class Shortcode implements Renderable
+{
 
 	/**
 	 * Fix shortcode block empty paragraph tags.
@@ -43,8 +44,9 @@ class Shortcode implements Renderable {
 	 *
 	 * @return string
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		return str_replace( [ '<p>', '</p>' ], '', $block_content );
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		return str_replace(['<p>', '</p>'], '', $block_content);
 	}
 
 	/**
@@ -56,8 +58,8 @@ class Shortcode implements Renderable {
 	 *
 	 * @return string
 	 */
-	public function render_block_shortcode( string $block_content ): string {
-		return do_shortcode( $block_content );
+	public function render_block_shortcode(string $block_content): string
+	{
+		return do_shortcode($block_content);
 	}
-
 }
