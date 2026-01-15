@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for block settings.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for block settings within the Aegis Framework.
 namespace Aegis\Framework\BlockSettings;
@@ -44,7 +44,8 @@ use function trim;
  * @package Aegis\Framework\BlockSettings
  * @since   1.0.0
  */
-class Onclick implements Renderable {
+class Onclick implements Renderable
+{
 
 	/**
 	 * The TemplateTags service instance.
@@ -62,7 +63,8 @@ class Onclick implements Renderable {
 	 *
 	 * @param TemplateTags $template_tags The TemplateTags service instance.
 	 */
-	public function __construct( TemplateTags $template_tags ) {
+	public function __construct(TemplateTags $template_tags)
+	{
 		$this->template_tags = $template_tags;
 	}
 
@@ -84,31 +86,32 @@ class Onclick implements Renderable {
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$js = trim( strval( $block['attrs']['onclick'] ?? '' ) );
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		$js = trim(strval($block['attrs']['onclick'] ?? ''));
 
-		if ( ! $js ) {
+		if (!$js) {
 			return $block_content;
 		}
 
 		// First, process the JS string for any dynamic template tags (e.g., `{post_title}`).
-		$js       = $this->template_tags->render( $js, $block, $instance );
-		$on_click = JS::format_inline_js( $js );
-		$link     = null;
-		$name     = $block['blockName'] ?? '';
+		$js = $this->template_tags->render($js, $block, $instance);
+		$on_click = JS::format_inline_js($js);
+		$link = null;
+		$name = $block['blockName'] ?? '';
 
 		// --- Apply onclick to Groups and Buttons ---
-		if ( $on_click && $block_content ) {
-			$dom  = DOM::create( $block_content );
-			$div  = DOM::get_element( 'div', $dom );
-			$link = DOM::get_element( 'a', $div );
+		if ($on_click && $block_content) {
+			$dom = DOM::create($block_content);
+			$div = DOM::get_element('div', $dom);
+			$link = DOM::get_element('a', $div);
 
 			// For core/button blocks, apply the onclick to the inner link.
-			if ( $link && 'core/button' === $name ) {
-				$link->setAttribute( 'onclick', $on_click );
-			} elseif ( $div ) {
+			if ($link && 'core/button' === $name) {
+				$link->setAttribute('onclick', $on_click);
+			} elseif ($div) {
 				// For other blocks, apply it to the main wrapper div.
-				$div->setAttribute( 'onclick', $on_click );
+				$div->setAttribute('onclick', $on_click);
 			}
 
 			$block_content = $dom->saveHTML();
@@ -116,14 +119,14 @@ class Onclick implements Renderable {
 
 		// --- Apply onclick to Images ---
 		// This is a separate check for blocks that might be just an image.
-		if ( $on_click && $block_content && null === $link ) {
-			$dom    = DOM::create( $block_content );
-			$figure = DOM::get_element( 'figure', $dom );
-			$img    = DOM::get_element( 'img', $figure );
+		if ($on_click && $block_content && null === $link) {
+			$dom = DOM::create($block_content);
+			$figure = DOM::get_element('figure', $dom);
+			$img = DOM::get_element('img', $figure);
 
 			// Excludes the post-featured-image block.
-			if ( $img && ! str_contains( $figure->getAttribute( 'class' ), 'wp-block-post-featured-image' ) ) {
-				$img->setAttribute( 'onclick', $on_click );
+			if ($img && !str_contains($figure->getAttribute('class'), 'wp-block-post-featured-image')) {
+				$img->setAttribute('onclick', $on_click);
 			}
 
 			$block_content = $dom->saveHTML();
@@ -131,5 +134,4 @@ class Onclick implements Renderable {
 
 		return $block_content;
 	}
-
 }
