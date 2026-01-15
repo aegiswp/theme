@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for core blocks within the Aegis Framework.
 namespace Aegis\Framework\CoreBlocks;
@@ -32,7 +32,8 @@ use function str_contains;
 
 // Implements the QueryPagination class to support query pagination block rendering.
 
-class QueryPagination implements Renderable {
+class QueryPagination implements Renderable
+{
 
 	/**
 	 * Modifies front end HTML output of block.
@@ -47,40 +48,40 @@ class QueryPagination implements Renderable {
 	 *
 	 * @return string
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$dom = DOM::create( $block_content );
-		$nav = DOM::get_element( 'nav', $dom );
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		$dom = DOM::create($block_content);
+		$nav = DOM::get_element('nav', $dom);
 
-		if ( ! $nav ) {
+		if (!$nav) {
 			return $block_content;
 		}
 
-		$styles  = CSS::string_to_array( $nav->getAttribute( 'style' ) );
-		$margin  = $block['attrs']['style']['spacing']['margin'] ?? null;
+		$styles = CSS::string_to_array($nav->getAttribute('style'));
+		$margin = $block['attrs']['style']['spacing']['margin'] ?? null;
 		$padding = $block['attrs']['style']['spacing']['padding'] ?? null;
-		$styles  = CSS::add_shorthand_property( $styles, 'margin', $margin );
-		$styles  = CSS::add_shorthand_property( $styles, 'padding', $padding );
+		$styles = CSS::add_shorthand_property($styles, 'margin', $margin);
+		$styles = CSS::add_shorthand_property($styles, 'padding', $padding);
 
-		foreach ( $styles as $key => $value ) {
-			if ( ! $value ) {
+		foreach ($styles as $key => $value) {
+			if (!$value) {
 				continue;
 			}
 
 			// TODO: Which properties need formatting?
-			if ( str_contains( $value, 'var:' ) ) {
-				$styles[ $key ] = CSS::format_custom_property( $value );
+			if (str_contains($value, 'var:')) {
+				$styles[$key] = CSS::format_custom_property($value);
 			}
 		}
 
 		$border_radius = $block['attrs']['style']['border']['radius'] ?? null;
 
-		if ( $border_radius ) {
+		if ($border_radius) {
 			$styles['border-radius'] = $border_radius;
 		}
 
-		$nav->setAttribute( 'style', CSS::array_to_string( $styles ) );
+		$nav->setAttribute('style', CSS::array_to_string($styles));
 
 		return $dom->saveHTML();
 	}
-
 }
