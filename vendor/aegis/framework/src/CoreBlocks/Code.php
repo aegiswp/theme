@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for core blocks within the Aegis Framework.
 namespace Aegis\Framework\CoreBlocks;
@@ -40,7 +40,8 @@ use WP_Block;
  * @package Aegis\Framework\CoreBlocks
  * @since   1.0.0
  */
-class Code implements Renderable {
+class Code implements Renderable
+{
 
 	/**
 	 * Renders the code block with custom margins.
@@ -58,22 +59,23 @@ class Code implements Renderable {
 	 *
 	 * @return string The modified block content with custom margins applied.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$attrs  = $block['attrs'] ?? [];
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		$attrs = $block['attrs'] ?? [];
 		$margin = $attrs['style']['spacing']['margin'] ?? null;
 
 		// Only modify the block if there are custom margin values.
-		if ( $margin ) {
+		if ($margin) {
 			// Create a DOM object from the block content.
-			$dom = DOM::create( $block_content );
-			$pre = DOM::get_element( 'pre', $dom );
+			$dom = DOM::create($block_content);
+			$pre = DOM::get_element('pre', $dom);
 
 			// If the <pre> element is found, apply the margin styles.
-			if ( $pre ) {
-				$pre_styles = CSS::string_to_array( $pre->getAttribute( 'style' ) );
-				$pre_styles = CSS::add_shorthand_property( $pre_styles, 'margin', $margin );
+			if ($pre) {
+				$pre_styles = CSS::string_to_array($pre->getAttribute('style'));
+				$pre_styles = CSS::add_shorthand_property($pre_styles, 'margin', $margin);
 
-				$pre->setAttribute( 'style', CSS::array_to_string( $pre_styles ) );
+				$pre->setAttribute('style', CSS::array_to_string($pre_styles));
 
 				// Save the modified HTML back to the block_content variable.
 				$block_content = $dom->saveHTML();
@@ -82,5 +84,4 @@ class Code implements Renderable {
 
 		return $block_content;
 	}
-
 }
