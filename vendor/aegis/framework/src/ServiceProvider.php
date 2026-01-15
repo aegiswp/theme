@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for the service provider.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for the core of the Aegis Framework.
 namespace Aegis\Framework;
@@ -35,7 +35,8 @@ use function is_object;
 
 // Implements the Aegis Framework service provider for dependency registration and management.
 
-class ServiceProvider implements Registerable {
+class ServiceProvider implements Registerable
+{
 
 	/**
 	 * Services.
@@ -116,7 +117,6 @@ class ServiceProvider implements Registerable {
 		DesignSystem\ConicGradient::class,
 		DesignSystem\CustomProperties::class,
 		DesignSystem\DarkMode::class,
-		DesignSystem\DeprecatedStyles::class,
 		DesignSystem\Emojis::class,
 		DesignSystem\EditorAssets::class,
 		DesignSystem\Layout::class,
@@ -136,41 +136,14 @@ class ServiceProvider implements Registerable {
 	private string $file;
 
 	/**
-	 * Scriptable services.
-	 *
-	 * @var Scriptable[]
-	 */
-	private array $scriptable = [];
-
-	/**
-	 * Styleable services.
-	 *
-	 * @var Styleable[]
-	 */
-	private array $styleable = [];
-
-	/**
-	 * Scripts service.
-	 *
-	 * @var ?Scripts
-	 */
-	private ?Scripts $scripts = null;
-
-	/**
-	 * Styles service.
-	 *
-	 * @var ?Styles
-	 */
-	private ?Styles $styles = null;
-
-	/**
 	 * Constructor.
 	 *
 	 * @param string $file Main plugin or theme file.
 	 *
 	 * @return void
 	 */
-	public function __construct( string $file ) {
+	public function __construct(string $file)
+	{
 		$this->file = $file;
 	}
 
@@ -181,45 +154,28 @@ class ServiceProvider implements Registerable {
 	 *
 	 * @return void
 	 */
-	public function register( Container $container ): void {
-		$this->scripts = $container->make( Scripts::class, $this->file );
-		$this->styles  = $container->make( Styles::class, $this->file );
+	public function register(Container $container): void
+	{
+		$scripts = $container->make(Scripts::class, $this->file);
+		$styles = $container->make(Styles::class, $this->file);
 
-		foreach ( $this->services as $id ) {
-			$service = $container->make( $id );
+		foreach ($this->services as $id) {
+			$service = $container->make($id);
 
-			if ( is_object( $service ) ) {
-				Hook::annotations( $service );
+			if (is_object($service)) {
+				Hook::annotations($service);
 			}
 
-			if ( $service instanceof Scriptable ) {
-				$this->scriptable[] = $service;
+			if ($service instanceof Scriptable) {
+				$service->scripts($scripts);
 			}
 
-			if ( $service instanceof Styleable ) {
-				$this->styleable[] = $service;
+			if ($service instanceof Styleable) {
+				$service->styles($styles);
 			}
 		}
 
-		add_action( 'init', [ $this, 'register_assets' ] );
-
-		Hook::annotations( $this->scripts );
-		Hook::annotations( $this->styles );
+		Hook::annotations($scripts);
+		Hook::annotations($styles);
 	}
-
-	/**
-	 * Registers the scriptable and styleable services on the init hook.
-	 *
-	 * @return void
-	 */
-	public function register_assets(): void {
-		foreach ( $this->scriptable as $service ) {
-			$service->scripts( $this->scripts );
-		}
-
-		foreach ( $this->styleable as $service ) {
-			$service->styles( $this->styles );
-		}
-	}
-
 }
