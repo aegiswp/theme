@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for blocks variations.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for block variations within the Aegis Framework.
 namespace Aegis\Framework\BlockVariations;
@@ -55,7 +55,8 @@ use function wp_list_pluck;
  * @package Aegis\Framework\BlockVariations
  * @since   1.0.0
  */
-class Icon implements Renderable {
+class Icon implements Renderable
+{
 
 	/**
 	 * The Responsive settings handler.
@@ -71,7 +72,8 @@ class Icon implements Renderable {
 	 *
 	 * @param Responsive $responsive The Responsive settings handler instance.
 	 */
-	public function __construct( Responsive $responsive ) {
+	public function __construct(Responsive $responsive)
+	{
 		$this->responsive = $responsive;
 	}
 
@@ -91,115 +93,116 @@ class Icon implements Renderable {
 	 *
 	 * @return string The modified block content containing the icon.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$attrs      = $block['attrs'] ?? [];
-		$set        = $attrs['iconSet'] ?? null;
-		$name       = $attrs['iconName'] ?? null;
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		$attrs = $block['attrs'] ?? [];
+		$set = $attrs['iconSet'] ?? null;
+		$name = $attrs['iconName'] ?? null;
 		$svg_string = $attrs['iconSvgString'] ?? null;
-		$has_icon   = ( ( $set && $name ) || $svg_string );
+		$has_icon = (($set && $name) || $svg_string);
 
-		if ( ! $has_icon ) {
+		if (!$has_icon) {
 			return $block_content;
 		}
 
 		// --- Special "All Icons" Gallery Mode ---
 		// If the block has the `all-icons` class, render a grid of all available icons in the set.
 		$classes = $attrs['className'] ?? '';
-		if ( str_contains( $classes, 'all-icons' ) ) {
-			return $this->render_all_icons( $set ?? 'wordpress' );
+		if (str_contains($classes, 'all-icons')) {
+			return $this->render_all_icons($set ?? 'wordpress');
 		}
 
 		// --- DOM Preparation ---
 		// If the block content is empty, create a default wrapper.
-		$block_content = ! $block_content ? '<figure class="wp-block-image is-style-icon"><img src="" alt=""/></figure>' : $block_content;
-		$dom           = DOM::create( $block_content );
-		$figure        = DOM::get_element( 'figure', $dom );
-		$img           = DOM::get_element( 'img', $figure );
-		if ( ! $figure || ! $img ) {
+		$block_content = !$block_content ? '<figure class="wp-block-image is-style-icon"><img src="" alt=""/></figure>' : $block_content;
+		$dom = DOM::create($block_content);
+		$figure = DOM::get_element('figure', $dom);
+		$img = DOM::get_element('img', $figure);
+		if (!$figure || !$img) {
 			return $block_content;
 		}
 
 		// --- DOM Reconstruction ---
 		// Transform the `<img>` tag into a `<span>` which will act as the icon wrapper.
-		$span            = DOM::change_tag_name( 'span', $img );
-		$gradient        = $attrs['gradient'] ?? null;
-		$animation       = $attrs['animation'] ?? null;
-		$span_classes    = [ 'wp-block-image__icon' ];
-		$figure_classes  = array_merge( DOM::get_classes( $figure ), explode( ' ', $classes ) );
+		$span = DOM::change_tag_name('span', $img);
+		$gradient = $attrs['gradient'] ?? null;
+		$animation = $attrs['animation'] ?? null;
+		$span_classes = ['wp-block-image__icon'];
+		$figure_classes = array_merge(DOM::get_classes($figure), explode(' ', $classes));
 
-		if ( $gradient ) {
+		if ($gradient) {
 			$span_classes[] = 'has-gradient';
 		}
-		if ( $animation ) {
+		if ($animation) {
 			$figure_classes[] = 'has-animation';
 		}
 
 		// --- Style and Class Transfer ---
 		// This complex logic moves styles from the outer <figure> to the inner <span>
 		// to ensure they are applied directly to the icon, not its container.
-		$figure_styles = CSS::string_to_array( $figure->getAttribute( 'style' ) );
-		$span_styles   = CSS::string_to_array( $span->getAttribute( 'style' ) );
-		$properties    = wp_list_pluck( array_values( Responsive::SETTINGS ), 'property' );
+		$figure_styles = CSS::string_to_array($figure->getAttribute('style'));
+		$span_styles = CSS::string_to_array($span->getAttribute('style'));
+		$properties = wp_list_pluck(array_values(Responsive::SETTINGS), 'property');
 
 		// Move all non-layout styles from the figure to the span.
-		foreach ( $figure_styles as $key => $value ) {
-			if ( in_array( $key, $properties, true ) || in_array( '--' . $key, $properties, true ) || str_contains( $key, 'margin' ) ) {
+		foreach ($figure_styles as $key => $value) {
+			if (in_array($key, $properties, true) || in_array('--' . $key, $properties, true) || str_contains($key, 'margin')) {
 				continue;
 			}
-			$span_styles[ $key ] = $value;
-			unset( $figure_styles[ $key ] );
+			$span_styles[$key] = $value;
+			unset($figure_styles[$key]);
 		}
 
 		// --- Icon Rendering (Gradient Mask vs. Inline SVG) ---
-		$svg = $svg_string ?? IconUtility::get_svg( $set ?? 'wordpress', $name ?? 'star-empty', $attrs['iconSize'] ?? null );
-		if ( $gradient && $svg ) {
+		$svg = $svg_string ?? IconUtility::get_svg($set ?? 'wordpress', $name ?? 'star-empty', $attrs['iconSize'] ?? null);
+		if ($gradient && $svg) {
 			// For gradients, use the SVG as a CSS mask.
 			$span_styles['--wp--custom--icon--url'] = 'url(\'data:image/svg+xml;utf8,' . $svg . '\')';
 		} else {
-			unset( $span_styles['--wp--custom--icon--url'] );
+			unset($span_styles['--wp--custom--icon--url']);
 			// For solid colors, inject the SVG markup directly.
-			if ( $svg ) {
-				$icon_dom      = DOM::create( $svg );
-				$imported_icon = $dom->importNode( $icon_dom->firstChild, true );
-				$span->appendChild( $imported_icon );
+			if ($svg) {
+				$icon_dom = DOM::create($svg);
+				$imported_icon = $dom->importNode($icon_dom->firstChild, true);
+				$span->appendChild($imported_icon);
 			}
 		}
 
 		// --- Attribute and Style Application ---
 		// Apply icon size.
-		if ( $size = $attrs['iconSize'] ?? null ) {
+		if ($size = $attrs['iconSize'] ?? null) {
 			$span_styles['--wp--custom--icon--size'] = $size;
 		} else {
-			unset( $span_styles['--wp--custom--icon--size'] );
+			unset($span_styles['--wp--custom--icon--size']);
 		}
 
 		// Apply text color, with a fallback from primary to neutral colors.
-		if ( $text_color = $attrs['textColor'] ?? null ) {
+		if ($text_color = $attrs['textColor'] ?? null) {
 			$global_settings = wp_get_global_settings();
-			$color_slugs     = wp_list_pluck( $global_settings['color']['palette']['theme'] ?? [], 'slug' );
-			$has_primary     = false;
-			foreach ( $color_slugs as $slug ) {
-				if ( str_contains( $slug, 'primary-' ) ) {
+			$color_slugs = wp_list_pluck($global_settings['color']['palette']['theme'] ?? [], 'slug');
+			$has_primary = false;
+			foreach ($color_slugs as $slug) {
+				if (str_contains($slug, 'primary-')) {
 					$has_primary = true;
 					break;
 				}
 			}
-			if ( ! $has_primary && str_contains( $text_color, 'primary-' ) ) {
-				$text_color = str_replace( 'primary-', 'neutral-', $text_color );
+			if (!$has_primary && str_contains($text_color, 'primary-')) {
+				$text_color = str_replace('primary-', 'neutral-', $text_color);
 			}
 			$span_styles['--wp--custom--icon--color'] = "var(--wp--preset--color--{$text_color})";
-			$span_classes = array_diff( $span_classes, [ "has-{$text_color}-color" ] );
+			$span_classes = array_diff($span_classes, ["has-{$text_color}-color"]);
 		}
-		if ( $custom_text_color = $attrs['style']['color']['text'] ?? null ) {
+		if ($custom_text_color = $attrs['style']['color']['text'] ?? null) {
 			$figure_styles['--wp--custom--icon--color'] = $custom_text_color;
 		}
 
 		// Apply background color and gradient.
-		if ( $background_color = $attrs['backgroundColor'] ?? null ) {
+		if ($background_color = $attrs['backgroundColor'] ?? null) {
 			// ... (background color logic as before)
 		}
-		if ( $gradient ) {
-			if ( ( $attrs['textColor'] ?? null ) || ( $attrs['style']['color']['text'] ?? null ) ) {
+		if ($gradient) {
+			if (($attrs['textColor'] ?? null) || ($attrs['style']['color']['text'] ?? null)) {
 				$figure_styles['--wp--custom--icon--background'] = "var(--wp--preset--gradient--$gradient)";
 			} else {
 				$figure_styles['--wp--custom--icon--color'] = "var(--wp--preset--gradient--$gradient)";
@@ -211,31 +214,31 @@ class Icon implements Renderable {
 
 		// --- Final Assembly ---
 		// Set all calculated classes and styles.
-		$figure->setAttribute( 'class', implode( ' ', array_unique( $figure_classes ) ) );
-		$span->setAttribute( 'class', implode( ' ', array_unique( $span_classes ) ) );
-		$figure->setAttribute( 'style', CSS::array_to_string( $figure_styles ) );
-		$span->setAttribute( 'style', CSS::array_to_string( $span_styles ) );
+		$figure->setAttribute('class', implode(' ', array_unique($figure_classes)));
+		$span->setAttribute('class', implode(' ', array_unique($span_classes)));
+		$figure->setAttribute('style', CSS::array_to_string($figure_styles));
+		$span->setAttribute('style', CSS::array_to_string($span_styles));
 
 		// Set accessibility attributes.
-		$aria_label = $img->getAttribute( 'alt' ) ?: str_replace( '-', ' ', $name ) . __( ' icon', 'aegis' );
-		$span->setAttribute( 'title', $attrs['title'] ?? $aria_label );
-		if ( ! ( $attrs['title'] ?? null ) || ! $aria_label ) {
-			$span->setAttribute( 'role', 'img' );
+		$aria_label = $img->getAttribute('alt') ?: str_replace('-', ' ', $name) . __(' icon', 'aegis');
+		$span->setAttribute('title', $attrs['title'] ?? $aria_label);
+		if (!($attrs['title'] ?? null) || !$aria_label) {
+			$span->setAttribute('role', 'img');
 		}
-		$span->removeAttribute( 'src' );
-		$span->removeAttribute( 'alt' );
+		$span->removeAttribute('src');
+		$span->removeAttribute('alt');
 
 		// Place the icon span inside the link if it exists, otherwise in the figure.
-		if ( $link = DOM::get_element( 'a', $figure ) ) {
-			$link->appendChild( $span );
+		if ($link = DOM::get_element('a', $figure)) {
+			$link->appendChild($span);
 		} else {
-			$figure->appendChild( $span );
+			$figure->appendChild($span);
 		}
 
 		// Apply responsive classes and styles to the final structure.
 		$block_content = $dom->saveHTML();
-		$block_content = $this->responsive->add_responsive_classes( $block_content, $block, Responsive::SETTINGS );
-		$block_content = $this->responsive->add_responsive_styles( $block_content, $block, Responsive::SETTINGS );
+		$block_content = $this->responsive->add_responsive_classes($block_content, $block, Responsive::SETTINGS);
+		$block_content = $this->responsive->add_responsive_styles($block_content, $block, Responsive::SETTINGS);
 
 		return $block_content;
 	}
@@ -249,7 +252,8 @@ class Icon implements Renderable {
 	 * @since 1.0.0
 	 * @hook  after_setup_theme
 	 */
-	public function register_rest_route(): void {
+	public function register_rest_route(): void
+	{
 		IconUtility::register_rest_route();
 	}
 
@@ -266,46 +270,46 @@ class Icon implements Renderable {
 	 *
 	 * @return string The HTML for the rendered grid of icons.
 	 */
-	private function render_all_icons( string $set = 'wordpress' ): string {
-		$icons        = IconUtility::get_icon_data( null )[ $set ] ?? [];
+	private function render_all_icons(string $set = 'wordpress'): string
+	{
+		$icons = IconUtility::get_icon_data(null)[$set] ?? [];
 		$inner_blocks = [];
-		$limit        = 300; // Limit the number of icons to prevent performance issues.
+		$limit = 300; // Limit the number of icons to prevent performance issues.
 
-		foreach ( $icons as $icon => $svg ) {
-			if ( $limit-- <= 0 ) {
+		foreach ($icons as $icon => $svg) {
+			if ($limit-- <= 0) {
 				break;
 			}
 			// Create the attributes for an individual icon block.
 			$inner_blocks[] = [
 				'blockName' => 'core/image',
-				'attrs'     => [
-					'className'     => 'is-style-icon',
-					'iconSet'       => $set,
-					'iconName'      => $icon,
+				'attrs' => [
+					'className' => 'is-style-icon',
+					'iconSet' => $set,
+					'iconName' => $icon,
 					'iconSvgString' => $svg,
-					'iconSize'      => '1em',
+					'iconSize' => '1em',
 				],
 			];
 		}
 
 		// Create the attributes for the parent group block that will contain the grid.
 		$block = [
-			'blockName'   => 'core/group',
-			'attrs'       => [
-				'style'     => [
-					'spacing'             => [ 'blockGap' => 'var(--wp--preset--spacing--sm)' ],
-					'display'             => [ 'all' => 'grid' ],
-					'gridTemplateColumns' => [ 'all' => 'repeat(auto-fill, minmax(1.5em, 1fr))' ],
+			'blockName' => 'core/group',
+			'attrs' => [
+				'style' => [
+					'spacing' => ['blockGap' => 'var(--wp--preset--spacing--sm)'],
+					'display' => ['all' => 'grid'],
+					'gridTemplateColumns' => ['all' => 'repeat(auto-fill, minmax(1.5em, 1fr))'],
 				],
-				'fontSize'  => '24',
+				'fontSize' => '24',
 				'textColor' => 'heading',
-				'layout'    => [ 'type' => 'flex', 'orientation' => 'grid' ],
+				'layout' => ['type' => 'flex', 'orientation' => 'grid'],
 			],
 			'innerBlocks' => $inner_blocks,
 		];
 
 		// Render the dynamically constructed group block.
-		return do_blocks( Block::get_html( $block ) );
+		return do_blocks(Block::get_html($block));
 	}
-
 }
