@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for core blocks within the Aegis Framework.
 namespace Aegis\Framework\CoreBlocks;
@@ -39,7 +39,8 @@ use function sanitize_title;
 
 // Implements the TableOfContents class to support table of contents block rendering.
 
-class TableOfContents implements Renderable, Conditional {
+class TableOfContents implements Renderable, Conditional
+{
 
 	/**
 	 * Condition.
@@ -48,8 +49,9 @@ class TableOfContents implements Renderable, Conditional {
 	 *
 	 * @return bool
 	 */
-	public static function condition(): bool {
-		return ! is_admin();
+	public static function condition(): bool
+	{
+		return !is_admin();
 	}
 
 	/**
@@ -63,84 +65,88 @@ class TableOfContents implements Renderable, Conditional {
 	 *
 	 * @return string
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
 		$headings = $block['attrs']['headings'] ?? [];
-		$sidebar  = false;
+		$sidebar = false;
 
-		foreach ( $headings as $heading ) {
+		foreach ($headings as $heading) {
 			$content = $heading['content'] ?? '';
 
-			if ( in_array(
-				$content,
-				[
-					esc_html__( 'Table of Contents', 'aegis' ),
-					esc_html__( 'Contents', 'aegis' ),
-					esc_html__( 'Table of contents', 'aegis' ),
-				],
-				true
-			) ) {
+			if (
+				in_array(
+					$content,
+					[
+						esc_html__('Table of Contents', 'aegis'),
+						esc_html__('Contents', 'aegis'),
+						esc_html__('Table of contents', 'aegis'),
+					],
+					true
+				)
+			) {
 				$sidebar = true;
 			}
 		}
 
-		if ( $sidebar ) {
+		if ($sidebar) {
 			$content_headings = [
 				get_the_title(),
 			];
-			$content_dom      = DOM::create( do_blocks( get_the_content() ) );
+			$content_dom = DOM::create(do_blocks(get_the_content()));
 
-			foreach ( $content_dom->getElementsByTagName( '*' ) as $element ) {
-				if ( in_array(
-					$element->tagName,
-					[ 'h2', 'h3', 'h4', 'h5', 'h6' ],
-					true
-				) ) {
+			foreach ($content_dom->getElementsByTagName('*') as $element) {
+				if (
+					in_array(
+						$element->tagName,
+						['h2', 'h3', 'h4', 'h5', 'h6'],
+						true
+					)
+				) {
 					$content_headings[] = $element->textContent;
 				}
 			}
 
-			$dom = DOM::create( $block_content );
-			$nav = DOM::get_element( 'nav', $dom );
+			$dom = DOM::create($block_content);
+			$nav = DOM::get_element('nav', $dom);
 
-			if ( ! $nav ) {
+			if (!$nav) {
 				return $block_content;
 			}
 
-			$nav->removeChild( $nav->firstChild );
+			$nav->removeChild($nav->firstChild);
 
-			$ol = DOM::create_element( 'ol', $dom );
+			$ol = DOM::create_element('ol', $dom);
 
-			$nav->appendChild( $ol );
+			$nav->appendChild($ol);
 
-			foreach ( $content_headings as $content_heading ) {
-				$link = DOM::create_element( 'a', $dom );
+			foreach ($content_headings as $content_heading) {
+				$link = DOM::create_element('a', $dom);
 
-				$link->setAttribute( 'href', '#' . sanitize_title( $content_heading ) );
+				$link->setAttribute('href', '#' . sanitize_title($content_heading));
 
 				$link->textContent = $content_heading;
 
-				$li = DOM::create_element( 'li', $dom );
+				$li = DOM::create_element('li', $dom);
 
-				$li->appendChild( $link );
-				$ol->appendChild( $li );
+				$li->appendChild($link);
+				$ol->appendChild($li);
 			}
 
-			$nav_styles = CSS::string_to_array( $nav->getAttribute( 'style' ) );
+			$nav_styles = CSS::string_to_array($nav->getAttribute('style'));
 
 			$gap = $block['attrs']['style']['spacing']['blockGap'] ?? null;
 
-			if ( $gap ) {
-				$nav_styles['gap'] = CSS::format_custom_property( $gap );
+			if ($gap) {
+				$nav_styles['gap'] = CSS::format_custom_property($gap);
 			}
 
-			$ol->setAttribute( 'style', CSS::array_to_string( $nav_styles ) );
+			$ol->setAttribute('style', CSS::array_to_string($nav_styles));
 
-			$nav->removeAttribute( 'style' );
+			$nav->removeAttribute('style');
 
 			$block_content = $dom->saveHTML();
 		}
 
 		return $block_content;
 	}
-
 }
