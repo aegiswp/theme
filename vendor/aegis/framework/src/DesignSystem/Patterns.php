@@ -201,5 +201,4 @@ HTML;
 
 		return array_unique( $category_dirs );
 	}
-
 }
