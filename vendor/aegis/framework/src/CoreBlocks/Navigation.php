@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for core blocks within the Aegis Framework.
 namespace Aegis\Framework\CoreBlocks;
@@ -55,7 +55,8 @@ use function wp_list_pluck;
  * @package Aegis\Framework\CoreBlocks
  * @since   1.0.0
  */
-class Navigation implements Renderable, Styleable {
+class Navigation implements Renderable, Styleable
+{
 
 	/**
 	 * Renders the navigation block with numerous enhancements.
@@ -77,105 +78,106 @@ class Navigation implements Renderable, Styleable {
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
 		// Pre-emptive fix for invalid root-relative URLs.
-		$block_content = str_replace( 'http://./', './', $block_content );
+		$block_content = str_replace('http://./', './', $block_content);
 
-		$dom = DOM::create( $block_content );
-		$nav = DOM::get_element( 'nav', $dom );
+		$dom = DOM::create($block_content);
+		$nav = DOM::get_element('nav', $dom);
 
-		if ( ! $nav ) {
+		if (!$nav) {
 			return $block_content;
 		}
 
-		$styles       = DOM::get_styles( $nav );
-		$classes      = DOM::get_classes( $nav );
-		$attrs        = $block['attrs'] ?? [];
+		$styles = DOM::get_styles($nav);
+		$classes = DOM::get_classes($nav);
+		$attrs = $block['attrs'] ?? [];
 		$overlay_menu = $attrs['overlayMenu'] ?? $attrs['icon'] ?? true;
 
 		// --- CSS Filter and Backdrop Filter ---
 		$filter = $attrs['style']['filter'] ?? null;
-		if ( ! empty( $filter ) ) {
+		if (!empty($filter)) {
 			$filter_value = '';
-			foreach ( $filter as $property => $value ) {
-				if ( 'backdrop' === $property ) {
+			foreach ($filter as $property => $value) {
+				if ('backdrop' === $property) {
 					continue;
 				}
-				$value = CSS::format_custom_property( $value ) . 'px';
+				$value = CSS::format_custom_property($value) . 'px';
 				$filter_value .= "$property($value) ";
 			}
-			$styles['--wp--custom--nav--filter'] = trim( $filter_value );
+			$styles['--wp--custom--nav--filter'] = trim($filter_value);
 
-			if ( $filter['backdrop'] ?? null ) {
+			if ($filter['backdrop'] ?? null) {
 				$classes[] = 'has-backdrop-filter';
 			}
 
-			DOM::add_classes( $nav, $classes );
+			DOM::add_classes($nav, $classes);
 		}
 
 		// --- Overlay Menu Background Color ---
-		if ( $overlay_menu ) {
+		if ($overlay_menu) {
 			$overlay_background_color = $attrs['overlayBackgroundColor'] ?? $attrs['customOverlayBackgroundColor'] ?? '';
-			$global_settings          = wp_get_global_settings();
-			$color_slugs              = wp_list_pluck( $global_settings['color']['palette']['theme'] ?? [], 'slug' );
-			$color_values             = wp_list_pluck( $global_settings['color']['palette']['theme'] ?? [], 'color' );
+			$global_settings = wp_get_global_settings();
+			$color_slugs = wp_list_pluck($global_settings['color']['palette']['theme'] ?? [], 'slug');
+			$color_values = wp_list_pluck($global_settings['color']['palette']['theme'] ?? [], 'color');
 
 			// Handle 'white' as a special case, mapping it to a theme color slug if available.
-			if ( 'white' === $overlay_background_color && in_array( '#ffffff', $color_values, true ) ) {
-				$index = array_search( '#ffffff', $color_values, true );
-				if ( $index ) {
-					$overlay_background_color = $color_slugs[ $index ] ?? '';
+			if ('white' === $overlay_background_color && in_array('#f6f5f2', $color_values, true)) {
+				$index = array_search('#f6f5f2', $color_values, true);
+				if ($index) {
+					$overlay_background_color = $color_slugs[$index] ?? '';
 				}
 			}
 
 			// Convert color slug to a CSS variable.
-			if ( in_array( $overlay_background_color, $color_slugs, true ) ) {
+			if (in_array($overlay_background_color, $color_slugs, true)) {
 				$overlay_background_color = "var(--wp--preset--color--{$overlay_background_color})";
 			}
 
-			if ( $overlay_background_color ) {
-				$styles['--wp--custom--nav--background-color'] = CSS::format_custom_property( $overlay_background_color );
+			if ($overlay_background_color) {
+				$styles['--wp--custom--nav--background-color'] = CSS::format_custom_property($overlay_background_color);
 			}
 		}
 
 		// --- Custom Spacing ---
 		$spacing = $attrs['style']['spacing'] ?? null;
-		if ( $spacing ) {
+		if ($spacing) {
 			$padding = $spacing['padding'] ?? null;
-			unset( $spacing['padding'] );
+			unset($spacing['padding']);
 
-			foreach ( array_keys( $spacing ) as $attribute ) {
+			foreach (array_keys($spacing) as $attribute) {
 				$prop = 'blockGap' === $attribute ? 'gap' : $attribute;
-				if ( is_string( $spacing[ $attribute ] ) ) {
-					$styles[ $prop ] = CSS::format_custom_property( $spacing[ $attribute ] );
+				if (is_string($spacing[$attribute])) {
+					$styles[$prop] = CSS::format_custom_property($spacing[$attribute]);
 				}
-				if ( is_array( $spacing[ $attribute ] ) ) {
-					foreach ( array_keys( $spacing[ $attribute ] ) as $side ) {
-						$styles["$prop-$side"] = CSS::format_custom_property( $spacing[ $attribute ][ $side ] );
+				if (is_array($spacing[$attribute])) {
+					foreach (array_keys($spacing[$attribute]) as $side) {
+						$styles["$prop-$side"] = CSS::format_custom_property($spacing[$attribute][$side]);
 					}
 				}
 			}
 
-			if ( $padding ) {
-				$padding_top    = CSS::format_custom_property( $padding['top'] ?? '' );
-				$padding_bottom = CSS::format_custom_property( $padding['bottom'] ?? '' );
+			if ($padding) {
+				$padding_top = CSS::format_custom_property($padding['top'] ?? '');
+				$padding_bottom = CSS::format_custom_property($padding['bottom'] ?? '');
 				$styles['--wp--custom--nav--padding'] = $padding_top ?: $padding_bottom;
 			}
 		}
 
-		DOM::add_styles( $nav, $styles );
+		DOM::add_styles($nav, $styles);
 
 		// --- Submenu Toggle DOM Correction ---
 		// Find all submenu toggle buttons and move the label span inside the button
 		// for better accessibility and easier styling.
-		$buttons = DOM::get_elements_by_class_name( 'wp-block-navigation-submenu__toggle', $dom );
-		foreach ( $buttons as $button ) {
+		$buttons = DOM::get_elements_by_class_name('wp-block-navigation-submenu__toggle', $dom);
+		foreach ($buttons as $button) {
 			$span = $button->nextSibling;
-			if ( ! $span || 'span' !== $span->tagName ) {
+			if (!$span || 'span' !== $span->tagName) {
 				continue;
 			}
-			$span->parentNode->removeChild( $span );
-			$button->appendChild( $span );
+			$span->parentNode->removeChild($span);
+			$button->appendChild($span);
 		}
 
 		return $dom->saveHTML();
@@ -191,9 +193,10 @@ class Navigation implements Renderable, Styleable {
 	 *
 	 * @param Styles $styles The style manager instance.
 	 */
-	public function styles( Styles $styles ): void {
-		$styles->add_file( 'core-blocks/navigation.css', [ 'wp-block-navigation__submenu-container' ] );
-		$styles->add_callback( [ $this, 'get_submenu_styles' ] );
+	public function styles(Styles $styles): void
+	{
+		$styles->add_file('core-blocks/navigation.css', ['wp-block-navigation__submenu-container']);
+		$styles->add_callback([$this, 'get_submenu_styles']);
 	}
 
 	/**
@@ -211,46 +214,46 @@ class Navigation implements Renderable, Styleable {
 	 *
 	 * @return string The generated CSS string, or an empty string if not needed.
 	 */
-	public function get_submenu_styles( string $template_html, bool $load_all ): string {
+	public function get_submenu_styles(string $template_html, bool $load_all): string
+	{
 		// Only generate styles if a submenu is present in the current template.
-		if ( ! $load_all && ! str_contains( $template_html, 'wp-block-navigation__submenu-container' ) ) {
+		if (!$load_all && !str_contains($template_html, 'wp-block-navigation__submenu-container')) {
 			return '';
 		}
 
 		// Retrieve border settings from global styles (theme.json).
 		$global_styles = wp_get_global_styles();
-		$border        = $global_styles['blocks']['core/navigation-submenu']['border'] ?? [];
-		$styles        = [];
+		$border = $global_styles['blocks']['core/navigation-submenu']['border'] ?? [];
+		$styles = [];
 
 		// Construct border styles for each side.
-		foreach ( [ 'top', 'right', 'bottom', 'left' ] as $side ) {
-			if ( ! isset( $border[ $side ] ) ) {
+		foreach (['top', 'right', 'bottom', 'left'] as $side) {
+			if (!isset($border[$side])) {
 				continue;
 			}
-			if ( $border[ $side ]['width'] ?? '' ) {
-				$styles["border-$side-width"] = $border[ $side ]['width'];
+			if ($border[$side]['width'] ?? '') {
+				$styles["border-$side-width"] = $border[$side]['width'];
 			}
-			if ( $border[ $side ]['style'] ?? '' ) {
-				$styles["border-$side-style"] = $border[ $side ]['style'];
+			if ($border[$side]['style'] ?? '') {
+				$styles["border-$side-style"] = $border[$side]['style'];
 			}
-			if ( $border[ $side ]['color'] ?? '' ) {
-				$styles["border-$side-color"] = CSS::format_custom_property( $border[ $side ]['color'] );
+			if ($border[$side]['color'] ?? '') {
+				$styles["border-$side-color"] = CSS::format_custom_property($border[$side]['color']);
 			}
 		}
 
 		// Add border-radius.
 		$radius = $border['radius'] ?? null;
-		if ( $radius ) {
-			$styles['border-radius'] = CSS::format_custom_property( $radius );
+		if ($radius) {
+			$styles['border-radius'] = CSS::format_custom_property($radius);
 		}
 
 		// Build the final CSS rule.
 		$css = '';
-		if ( $styles ) {
-			$css = '.wp-block-navigation-submenu{border:0}.wp-block-navigation .wp-block-navigation-item .wp-block-navigation__submenu-container{' . CSS::array_to_string( $styles ) . '}';
+		if ($styles) {
+			$css = '.wp-block-navigation-submenu{border:0}.wp-block-navigation .wp-block-navigation-item .wp-block-navigation__submenu-container{' . CSS::array_to_string($styles) . '}';
 		}
 
 		return $css;
 	}
-
 }
