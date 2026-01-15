@@ -1,4 +1,3 @@
-
 <?php return array(
     'root' => array(
         'name' => 'aegis/aegis',
@@ -23,7 +22,7 @@
         'aegis/container' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '3e6f52fecbf3c79d27bfcc1e437a163b33327bc0',
+            'reference' => '5df69be1b79240ad17cacede6c141bceb77ba864',
             'type' => 'library',
             'install_path' => __DIR__ . '/../aegis/container',
             'aliases' => array(
@@ -34,7 +33,7 @@
         'aegis/dom' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '766e07f5534a0d203b6d9a7e2ab1aad1b5aa16d1',
+            'reference' => '900eaaedfc1c21887b2775eb5673c21f8af9f6ab',
             'type' => 'library',
             'install_path' => __DIR__ . '/../aegis/dom',
             'aliases' => array(
@@ -45,7 +44,7 @@
         'aegis/framework' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '2481935b16f04dea711782a2df3bbae306d5bec1',
+            'reference' => 'e3f0f796bce622785598d30dbb6bf38f142c50f8',
             'type' => 'library',
             'install_path' => __DIR__ . '/../aegis/framework',
             'aliases' => array(
@@ -56,7 +55,7 @@
         'aegis/hooks' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '67bc069a6c2ab87196b4b77eec6b4c610f9615f6',
+            'reference' => 'd09514b4e6ef63c729665d03b17efe8b510f38e3',
             'type' => 'library',
             'install_path' => __DIR__ . '/../aegis/hooks',
             'aliases' => array(
@@ -67,7 +66,7 @@
         'aegis/icons' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '7862c66a73000cdd0126fbc241e7ac17b3ea0f49',
+            'reference' => '1f19ef9fc75e045007a02a27962a36484aaf22b6',
             'type' => 'library',
             'install_path' => __DIR__ . '/../aegis/icons',
             'aliases' => array(
@@ -78,7 +77,7 @@
         'aegis/utilities' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '48c749dbfa4b03ab3e95492d7688a893a081cd81',
+            'reference' => '23d4829e0b0674094c9b394f5cdde1b69d1a0285',
             'type' => 'library',
             'install_path' => __DIR__ . '/../aegis/utilities',
             'aliases' => array(
@@ -89,7 +88,7 @@
         'enshrined/svg-sanitize' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'c1ad90f6a3819ec40fb98fff0193f14fdeab35c8',
+            'reference' => '6a2c069dab3843ca4d887ff09c972fc7033888d0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../enshrined/svg-sanitize',
             'aliases' => array(
