@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for design system components.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
@@ -32,7 +32,8 @@ use function str_replace;
 
 // Implements the Layout class to support layout adjustments for the design system.
 
-class Layout implements Scriptable {
+class Layout implements Scriptable
+{
 
 	/**
 	 * Changes layout size unit from vw to % in editor.
@@ -45,23 +46,24 @@ class Layout implements Scriptable {
 	 *
 	 * @return mixed
 	 */
-	public function fix_editor_layout_sizes( $theme_json ) {
-		if ( is_admin() ) {
+	public function fix_editor_layout_sizes($theme_json)
+	{
+		if (is_admin()) {
 			return $theme_json;
 		}
 
-		$default      = $theme_json->get_data();
-		$new          = [];
-		$content_size = $default['settings']['layout']['contentSize'] ?? 'min(calc(100dvw - var(--wp--preset--spacing--lg,2rem) * 2), 950px)';
-		$wide_size    = $default['settings']['layout']['wideSize'] ?? 'min(calc(100vw - var(--wp--preset--spacing--lg,2rem) * 2), 1440px)';
+		$default = $theme_json->get_data();
+		$new = [];
+		$content_size = $default['settings']['layout']['contentSize'] ?? 'min(calc(100dvw - var(--wp--preset--spacing--xl,2rem)), 720px)';
+		$wide_size = $default['settings']['layout']['wideSize'] ?? 'min(calc(100dvw - var(--wp--preset--spacing--xl,2rem)), 1200px)';
 
-		$new['settings']['layout']['contentSize'] = str_replace( '100%', '100dvw', $content_size );
-		$new['settings']['layout']['wideSize']    = str_replace( '100%', '100dvw', $wide_size );
+		$new['settings']['layout']['contentSize'] = str_replace('100%', '100dvw', $content_size);
+		$new['settings']['layout']['wideSize'] = str_replace('100%', '100dvw', $wide_size);
 
-		$theme_json->update_with( array_merge(
+		$theme_json->update_with(array_merge(
 			$default,
 			$new
-		) );
+		));
 
 		return $theme_json;
 	}
@@ -71,11 +73,11 @@ class Layout implements Scriptable {
 	 *
 	 * @since 1.0.0
 	 */
-	public function scripts( Scripts $scripts ): void {
+	public function scripts(Scripts $scripts): void
+	{
 		$scripts->add_file(
 			'header-height.js',
-			[ 'has-header-height' ]
+			['has-header-height']
 		);
 	}
-
 }
