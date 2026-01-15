@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for block settings.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for block settings within the Aegis Framework.
 namespace Aegis\Framework\BlockSettings;
@@ -50,7 +50,8 @@ use function wp_get_global_settings;
  * @package Aegis\Framework\BlockSettings
  * @since   1.0.0
  */
-class BoxShadow implements Renderable, Styleable {
+class BoxShadow implements Renderable, Styleable
+{
 
 	/**
 	 * Applies box-shadow classes and styles to the block's wrapper element.
@@ -72,105 +73,106 @@ class BoxShadow implements Renderable, Styleable {
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$attrs         = $block['attrs'] ?? [];
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		$attrs = $block['attrs'] ?? [];
 		$shadow_preset = $attrs['shadowPreset'] ?? null;
-		$hover_preset  = $attrs['shadowPresetHover'] ?? null;
+		$hover_preset = $attrs['shadowPresetHover'] ?? null;
 
 		// --- Preset Class Application ---
-		if ( $shadow_preset ) {
+		if ($shadow_preset) {
 			// Special handling for blocks like core/button where the shadow should
 			// be applied to a nested element, not the main wrapper.
-			if ( in_array( $block['blockName'], [ 'core/button' ], true ) ) {
-				$dom    = DOM::create( $block_content );
-				$first  = DOM::get_element( '*', $dom );
-				$nested = DOM::get_element( '*', $first );
+			if (in_array($block['blockName'], ['core/button'], true)) {
+				$dom = DOM::create($block_content);
+				$first = DOM::get_element('*', $dom);
+				$nested = DOM::get_element('*', $first);
 
-				if ( $first && $nested ) {
-					$first_classes  = explode( ' ', $first->getAttribute( 'class' ) );
-					$nested_classes = explode( ' ', $nested->getAttribute( 'class' ) );
+				if ($first && $nested) {
+					$first_classes = explode(' ', $first->getAttribute('class'));
+					$nested_classes = explode(' ', $nested->getAttribute('class'));
 
 					// Find shadow-related classes on the outer wrapper and move them to the inner element.
-					foreach ( $first_classes as $index => $class ) {
-						$exploded = explode( '-', $class );
-						if ( 'has' === ( $exploded[0] ?? null ) && in_array( 'shadow', [ $exploded[1] ?? '', $exploded[2] ?? '' ], true ) ) {
-							unset( $first_classes[ $index ] );
+					foreach ($first_classes as $index => $class) {
+						$exploded = explode('-', $class);
+						if ('has' === ($exploded[0] ?? null) && in_array('shadow', [$exploded[1] ?? '', $exploded[2] ?? ''], true)) {
+							unset($first_classes[$index]);
 							$nested_classes[] = $class;
 						}
 					}
-					$first->setAttribute( 'class', implode( ' ', $first_classes ) );
-					$nested->setAttribute( 'class', implode( ' ', $nested_classes ) );
+					$first->setAttribute('class', implode(' ', $first_classes));
+					$nested->setAttribute('class', implode(' ', $nested_classes));
 					$block_content = $dom->saveHTML();
 				}
 			}
 		}
 
 		// If there is only a hover preset, ensure the `has-shadow-hover` class is added.
-		if ( $hover_preset && ! $shadow_preset ) {
-			$dom       = DOM::create( $block_content );
-			$first     = DOM::get_element( '*', $dom );
-			if ( $first ) {
-				$classes   = explode( ' ', $first->getAttribute( 'class' ) );
-				$classes   = array_diff( $classes, [ 'has-shadow' ] );
+		if ($hover_preset && !$shadow_preset) {
+			$dom = DOM::create($block_content);
+			$first = DOM::get_element('*', $dom);
+			if ($first) {
+				$classes = explode(' ', $first->getAttribute('class'));
+				$classes = array_diff($classes, ['has-shadow']);
 				$classes[] = 'has-shadow-hover';
-				$first->setAttribute( 'class', implode( ' ', $classes ) );
+				$first->setAttribute('class', implode(' ', $classes));
 				$block_content = $dom->saveHTML();
 			}
 		}
 
 		// --- Custom Shadow CSS Variable Application ---
 		$custom_shadow = $attrs['style']['boxShadow'] ?? null;
-		if ( ! $custom_shadow ) {
+		if (!$custom_shadow) {
 			return $block_content;
 		}
 
-		$dom   = DOM::create( $block_content );
-		$first = DOM::get_element( '*', $dom );
-		if ( ! $first ) {
+		$dom = DOM::create($block_content);
+		$first = DOM::get_element('*', $dom);
+		if (!$first) {
 			return $block_content;
 		}
 
 		// Add a general class to activate custom shadow styling.
-		$first_classes = explode( ' ', $first->getAttribute( 'class' ) );
-		if ( ! in_array( 'has-box-shadow', $first_classes, true ) ) {
+		$first_classes = explode(' ', $first->getAttribute('class'));
+		if (!in_array('has-box-shadow', $first_classes, true)) {
 			$first_classes[] = 'has-box-shadow';
 		}
-		$first->setAttribute( 'class', implode( ' ', $first_classes ) );
+		$first->setAttribute('class', implode(' ', $first_classes));
 
-		$styles = CSS::string_to_array( $first->getAttribute( 'style' ) );
+		$styles = CSS::string_to_array($first->getAttribute('style'));
 
 		// Set inset properties for normal and hover states.
-		if ( $custom_shadow['inset'] ?? null ) {
+		if ($custom_shadow['inset'] ?? null) {
 			$styles['--wp--custom--box-shadow--inset'] = 'inset';
 		}
-		if ( $custom_shadow['hover']['inset'] ?? null ) {
+		if ($custom_shadow['hover']['inset'] ?? null) {
 			$styles['--wp--custom--box-shadow--hover--inset'] = 'inset';
 		}
 
 		// Set dimensional properties (x, y, blur, spread) for normal and hover states.
-		foreach ( [ 'x', 'y', 'blur', 'spread' ] as $property ) {
-			if ( $custom_shadow[ $property ] ?? '' ) {
-				$styles[ '--wp--custom--box-shadow--' . $property ] = esc_attr( $custom_shadow[ $property ] ) . 'px';
+		foreach (['x', 'y', 'blur', 'spread'] as $property) {
+			if ($custom_shadow[$property] ?? '') {
+				$styles['--wp--custom--box-shadow--' . $property] = esc_attr($custom_shadow[$property]) . 'px';
 			}
-			if ( $custom_shadow['hover'][ $property ] ?? '' ) {
-				$styles[ '--wp--custom--box-shadow--hover--' . $property ] = esc_attr( $custom_shadow['hover'][ $property ] ) . 'px';
+			if ($custom_shadow['hover'][$property] ?? '') {
+				$styles['--wp--custom--box-shadow--hover--' . $property] = esc_attr($custom_shadow['hover'][$property]) . 'px';
 			}
 		}
 
 		// Set color properties, converting palette colors to CSS variables.
-		$color       = $custom_shadow['color'] ?? null;
+		$color = $custom_shadow['color'] ?? null;
 		$hover_color = $custom_shadow['hover']['color'] ?? null;
-		$palette     = wp_get_global_settings()['color']['palette']['theme'] ?? [];
-		foreach ( $palette as $theme_color ) {
-			if ( $theme_color['color'] === $color ) {
+		$palette = wp_get_global_settings()['color']['palette']['theme'] ?? [];
+		foreach ($palette as $theme_color) {
+			if ($theme_color['color'] === $color) {
 				$styles['--wp--custom--box-shadow--color'] = "var(--wp--preset--color--{$theme_color['slug']})";
 			}
-			if ( $theme_color['color'] === $hover_color ) {
+			if ($theme_color['color'] === $hover_color) {
 				$styles['--wp--custom--box-shadow--hover--color'] = "var(--wp--preset--color--{$theme_color['slug']})";
 			}
 		}
 
-		$first->setAttribute( 'style', CSS::array_to_string( $styles ) );
+		$first->setAttribute('style', CSS::array_to_string($styles));
 		return $dom->saveHTML();
 	}
 
@@ -180,8 +182,9 @@ class BoxShadow implements Renderable, Styleable {
 	 * @since 1.0.0
 	 * @param Styles $styles The Styles service instance.
 	 */
-	public function styles( Styles $styles ): void {
-		$styles->add_callback( [ $this, 'get_inline_css' ] );
+	public function styles(Styles $styles): void
+	{
+		$styles->add_callback([$this, 'get_inline_css']);
 	}
 
 	/**
@@ -198,32 +201,32 @@ class BoxShadow implements Renderable, Styleable {
 	 *
 	 * @return string The dynamically generated CSS string.
 	 */
-	public function get_inline_css( string $template_html, bool $load_all ): string {
+	public function get_inline_css(string $template_html, bool $load_all): string
+	{
 		$settings = wp_get_global_settings();
-		$presets  = $settings['shadow']['presets']['theme'] ?? [];
-		$style    = [];
+		$presets = $settings['shadow']['presets']['theme'] ?? [];
+		$style = [];
 
-		foreach ( $presets as $preset ) {
-			$slug   = $preset['slug'] ?? null;
+		foreach ($presets as $preset) {
+			$slug = $preset['slug'] ?? null;
 			$shadow = $preset['shadow'] ?? null;
-			if ( ! $slug || ! $shadow ) {
+			if (!$slug || !$shadow) {
 				continue;
 			}
 
 			// Only create the CSS variable if the preset is used on the page.
-			if ( ! $load_all && ! str_contains( $template_html, "has-{$slug}" ) ) {
+			if (!$load_all && !str_contains($template_html, "has-{$slug}")) {
 				continue;
 			}
 
-			$style[ '--wp--preset--shadow--' . $slug . '--hover' ] = esc_attr( $preset['shadow'] );
+			$style['--wp--preset--shadow--' . $slug . '--hover'] = esc_attr($preset['shadow']);
 		}
 
 		$css = '';
-		if ( ! empty( $style ) ) {
-			$css = 'body{' . CSS::array_to_string( $style ) . '}';
+		if (!empty($style)) {
+			$css = 'body{' . CSS::array_to_string($style) . '}';
 		}
 
 		return $css;
 	}
-
 }
