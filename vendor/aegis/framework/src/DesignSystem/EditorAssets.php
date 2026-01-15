@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for design system components.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
@@ -44,7 +44,8 @@ use function wp_register_style;
 
 // Implements the EditorAssets class to support editor asset management for the design system.
 
-class EditorAssets {
+class EditorAssets
+{
 
 	/**
 	 * Scripts instance.
@@ -70,9 +71,10 @@ class EditorAssets {
 	 *
 	 * @return void
 	 */
-	public function __construct( Scripts $scripts, Styles $styles ) {
+	public function __construct(Scripts $scripts, Styles $styles)
+	{
 		$this->scripts = $scripts;
-		$this->styles  = $styles;
+		$this->styles = $styles;
 	}
 
 	/**
@@ -82,35 +84,36 @@ class EditorAssets {
 	 *
 	 * @return void
 	 */
-	public function enqueue_scripts(): void {
-		if ( ! is_admin() ) {
+	public function enqueue_scripts(): void
+	{
+		if (!is_admin()) {
 			return;
 		}
 
 		$asset_file = $this->scripts->dir . 'editor.asset.php';
 
-		if ( ! file_exists( $asset_file ) ) {
+		if (!file_exists($asset_file)) {
 			return;
 		}
 
-		$asset  = require $asset_file;
+		$asset = require $asset_file;
 		$handle = $this->scripts->handle . '-editor';
 
 		wp_register_script(
 			$handle,
 			$this->scripts->url . 'editor.js',
 			$asset['dependencies'] ?? [],
-			$asset['version'] ?? ( Debug::is_enabled() ? time() : '1.0.0' ),
+			$asset['version'] ?? (Debug::is_enabled() ? time() : '1.0.0'),
 			true
 		);
 
-		wp_enqueue_script( $handle );
+		wp_enqueue_script($handle);
 
 		$global_settings = wp_get_global_settings();
 
 		$default = [
-			'siteUrl'          => esc_url( get_home_url() ),
-			'adminUrl'         => esc_url( get_admin_url() ),
+			'siteUrl' => esc_url(get_home_url()),
+			'adminUrl' => esc_url(get_admin_url()),
 			'defaultGradients' => $global_settings['color']['gradients']['default'] ?? [],
 		];
 
@@ -118,7 +121,7 @@ class EditorAssets {
 			'aegis_editor_data',
 			array_merge(
 				$default,
-				$this->scripts->get_data( '', true )
+				$this->scripts->get_data('', true)
 			)
 		);
 
@@ -136,14 +139,15 @@ class EditorAssets {
 	 *
 	 * @return void
 	 */
-	public function enqueue_styles(): void {
-		if ( ! is_admin() ) {
+	public function enqueue_styles(): void
+	{
+		if (!is_admin()) {
 			return;
 		}
 
 		$handle = $this->styles->handle . '-editor';
 
-		wp_dequeue_style( 'wp-block-library-theme' );
+		wp_dequeue_style('wp-block-library-theme');
 
 		wp_register_style(
 			$handle,
@@ -152,11 +156,10 @@ class EditorAssets {
 			Debug::is_enabled() ? time() : '1.0.0'
 		);
 
-		wp_enqueue_style( $handle );
+		wp_enqueue_style($handle);
 
 		wp_enqueue_style(
 			'wp-codemirror'
 		);
 	}
-
 }
