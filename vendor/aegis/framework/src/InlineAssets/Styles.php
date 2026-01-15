@@ -112,5 +112,4 @@ class Styles implements Inlinable {
 
 		return $response;
 	}
-
 }
