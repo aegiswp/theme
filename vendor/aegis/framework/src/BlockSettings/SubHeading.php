@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for block settings.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for block settings within the Aegis Framework.
 namespace Aegis\Framework\BlockSettings;
@@ -42,7 +42,8 @@ use function wp_get_global_settings;
  * @package Aegis\Framework\BlockSettings
  * @since   1.0.0
  */
-class SubHeading implements Renderable {
+class SubHeading implements Renderable
+{
 
 	/**
 	 * Adds a helper class to sub-heading blocks when a gradient is set.
@@ -63,25 +64,25 @@ class SubHeading implements Renderable {
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
 		$class_names = $block['attrs']['className'] ?? '';
 
 		// Only act on blocks with the sub-heading style.
-		if ( ! str_contains( $class_names, 'is-style-sub-heading' ) ) {
+		if (!str_contains($class_names, 'is-style-sub-heading')) {
 			return $block_content;
 		}
 
 		// Check the global settings (from theme.json) for a gradient background.
 		$global_settings = wp_get_global_settings();
-		$background      = $global_settings['custom']['subHeading']['background'] ?? '';
+		$background = $global_settings['custom']['subHeading']['background'] ?? '';
 
 		// If there is no gradient background defined, do nothing.
-		if ( ! str_contains( $background, 'gradient' ) ) {
+		if (!str_contains($background, 'gradient')) {
 			return $block_content;
 		}
 
 		// Add the helper class to activate the CSS for the text gradient effect.
-		return str_replace( 'is-style-sub-heading', 'is-style-sub-heading has-text-gradient-background', $block_content );
+		return str_replace('is-style-sub-heading', 'is-style-sub-heading has-text-gradient-background', $block_content);
 	}
-
 }
