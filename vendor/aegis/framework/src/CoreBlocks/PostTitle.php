@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for core blocks within the Aegis Framework.
 namespace Aegis\Framework\CoreBlocks;
@@ -41,7 +41,8 @@ use function wp_strip_all_tags;
 
 // Implements the PostTitle class to support post title block rendering.
 
-class PostTitle implements Renderable {
+class PostTitle implements Renderable
+{
 
 	/**
 	 * Modifies front end HTML output of block.
@@ -56,32 +57,32 @@ class PostTitle implements Renderable {
 	 *
 	 * @return string
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		if ( is_home() && str_contains( $block_content, '<h1' ) ) {
-			$text           = wp_strip_all_tags( $block_content );
-			$page_for_posts = get_post( get_option( 'page_for_posts' ) );
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		if (is_home() && str_contains($block_content, '<h1')) {
+			$text = wp_strip_all_tags($block_content);
+			$page_for_posts = get_post(get_option('page_for_posts'));
 
-			if ( $page_for_posts->post_type === 'page' ) {
-				$title = esc_html( $page_for_posts->post_title );
+			if ($page_for_posts->post_type === 'page') {
+				$title = esc_html($page_for_posts->post_title);
 			} else {
-				$title = esc_html__( 'Latest Posts', 'aegis' );
+				$title = esc_html__('Latest Posts', 'aegis');
 			}
 
-			$block_content = str_replace( $text, $title, $block_content );
+			$block_content = str_replace($text, $title, $block_content);
 		}
 
-		$tag     = 'h' . intval( $block['attrs']['level'] ?? 2 );
-		$dom     = DOM::create( $block_content );
-		$heading = DOM::get_element( $tag, $dom );
+		$tag = 'h' . intval($block['attrs']['level'] ?? 2);
+		$dom = DOM::create($block_content);
+		$heading = DOM::get_element($tag, $dom);
 
-		if ( $heading instanceof DOMElement ) {
+		if ($heading instanceof DOMElement) {
 			$heading->setAttribute(
 				'id',
-				sanitize_title_with_dashes( $block['attrs']['anchor'] ?? $heading->textContent )
+				sanitize_title_with_dashes($block['attrs']['anchor'] ?? $heading->textContent)
 			);
 		}
 
 		return $dom->saveHTML();
 	}
-
 }
