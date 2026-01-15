@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for design system components.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
@@ -30,7 +30,8 @@ use function is_admin_bar_showing;
 
 // Implements the AdminBar class to support admin bar rendering and asset management.
 
-class AdminBar implements Styleable {
+class AdminBar implements Styleable
+{
 
 	/**
 	 * Registers service with access to provider.
@@ -41,7 +42,8 @@ class AdminBar implements Styleable {
 	 *
 	 * @return void
 	 */
-	public function styles( Styles $styles ): void {
+	public function styles(Styles $styles): void
+	{
 		$styles->add_file(
 			'components/admin-bar.css',
 			[],
@@ -58,10 +60,10 @@ class AdminBar implements Styleable {
 	 *
 	 * @return void
 	 */
-	public function remove_default_callback() {
-		add_theme_support( 'admin-bar', [
+	public function remove_default_callback()
+	{
+		add_theme_support('admin-bar', [
 			'callback' => '__return_false',
-		] );
+		]);
 	}
-
 }
