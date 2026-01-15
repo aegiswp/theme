@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for blocks variations.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for block variations within the Aegis Framework.
 namespace Aegis\Framework\BlockVariations;
@@ -45,7 +45,8 @@ use function trim;
  * @package Aegis\Framework\BlockVariations
  * @since   1.0.0
  */
-class Counter implements Renderable, Scriptable {
+class Counter implements Renderable, Scriptable
+{
 
 	/**
 	 * Renders the paragraph block with data attributes for the counter animation.
@@ -65,27 +66,28 @@ class Counter implements Renderable, Scriptable {
 	 *
 	 * @return string The modified block content with data attributes.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
 		$counter = $block['attrs']['style']['counter'] ?? '';
 
-		if ( ! $counter ) {
+		if (!$counter) {
 			return $block_content;
 		}
 
-		$dom = DOM::create( $block_content );
-		$p   = DOM::get_element( 'p', $dom );
+		$dom = DOM::create($block_content);
+		$p = DOM::get_element('p', $dom);
 
-		if ( ! $p ) {
+		if (!$p) {
 			return $block_content;
 		}
 
 		// Loop through the counter settings and apply them as data attributes.
-		foreach ( $counter as $attribute => $value ) {
-			$p->setAttribute( "data-$attribute", esc_attr( $value ) );
+		foreach ($counter as $attribute => $value) {
+			$p->setAttribute("data-$attribute", esc_attr($value));
 		}
 
 		// Ensure the text content is trimmed and properly escaped.
-		$p->textContent = esc_html( trim( $p->textContent ) );
+		$p->textContent = esc_html(trim($p->textContent));
 
 		return $dom->saveHTML();
 	}
@@ -101,8 +103,8 @@ class Counter implements Renderable, Scriptable {
 	 *
 	 * @param Scripts $scripts The Scripts service instance.
 	 */
-	public function scripts( Scripts $scripts ): void {
-		$scripts->add_file( 'counter.js', [ 'is-style-counter' ] );
+	public function scripts(Scripts $scripts): void
+	{
+		$scripts->add_file('counter.js', ['is-style-counter']);
 	}
-
 }
