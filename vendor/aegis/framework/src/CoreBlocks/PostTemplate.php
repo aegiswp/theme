@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for core blocks within the Aegis Framework.
 namespace Aegis\Framework\CoreBlocks;
@@ -43,7 +43,8 @@ use function is_null;
  * @package Aegis\Framework\CoreBlocks
  * @since   1.0.0
  */
-class PostTemplate implements Renderable {
+class PostTemplate implements Renderable
+{
 
 	/**
 	 * Renders the post-template block with custom layout styles.
@@ -63,43 +64,43 @@ class PostTemplate implements Renderable {
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$attrs     = $block['attrs'] ?? [];
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		$attrs = $block['attrs'] ?? [];
 		$block_gap = $attrs['style']['spacing']['blockGap'] ?? null;
-		$layout    = $attrs['layout']['type'] ?? null;
-		$columns   = $attrs['layout']['columnCount'] ?? null;
+		$layout = $attrs['layout']['type'] ?? null;
+		$columns = $attrs['layout']['columnCount'] ?? null;
 
 		// If a column count is specified (typically for grid layouts),
 		// apply it as a CSS custom property for the theme's CSS to use.
-		if ( $columns ) {
-			$dom   = DOM::create( $block_content );
-			$first = DOM::get_element( '*', $dom );
+		if ($columns) {
+			$dom = DOM::create($block_content);
+			$first = DOM::get_element('*', $dom);
 
-			if ( $first ) {
-				$first_styles              = CSS::string_to_array( $first->getAttribute( 'style' ) );
+			if ($first) {
+				$first_styles = CSS::string_to_array($first->getAttribute('style'));
 				$first_styles['--columns'] = $columns;
-				$first->setAttribute( 'style', CSS::array_to_string( $first_styles ) );
+				$first->setAttribute('style', CSS::array_to_string($first_styles));
 				$block_content = $dom->saveHTML();
 			}
 		}
 
 		// If a block gap is set and the layout is not a grid (e.g., flex or default),
 		// apply flexbox styles to make the gap work.
-		if ( ! is_null( $block_gap ) && 'grid' !== $layout ) {
-			$dom   = DOM::create( $block_content );
-			$first = DOM::get_element( '*', $dom );
+		if (!is_null($block_gap) && 'grid' !== $layout) {
+			$dom = DOM::create($block_content);
+			$first = DOM::get_element('*', $dom);
 
-			if ( $first ) {
-				$first_styles              = CSS::string_to_array( $first->getAttribute( 'style' ) );
-				$first_styles['gap']       = CSS::format_custom_property( $block_gap );
-				$first_styles['display']   = 'flex';
+			if ($first) {
+				$first_styles = CSS::string_to_array($first->getAttribute('style'));
+				$first_styles['gap'] = CSS::format_custom_property($block_gap);
+				$first_styles['display'] = 'flex';
 				$first_styles['flex-wrap'] = 'wrap';
-				$first->setAttribute( 'style', CSS::array_to_string( $first_styles ) );
+				$first->setAttribute('style', CSS::array_to_string($first_styles));
 				$block_content = $dom->saveHTML();
 			}
 		}
 
 		return $block_content;
 	}
-
 }
