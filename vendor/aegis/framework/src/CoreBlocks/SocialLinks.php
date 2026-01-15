@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for core blocks within the Aegis Framework.
 namespace Aegis\Framework\CoreBlocks;
@@ -35,7 +35,8 @@ use function wp_get_global_settings;
 
 // Implements the SocialLinks class to support social links block rendering.
 
-class SocialLinks implements Renderable {
+class SocialLinks implements Renderable
+{
 
 	/**
 	 * Modifies front end HTML output of block.
@@ -50,51 +51,51 @@ class SocialLinks implements Renderable {
 	 *
 	 * @return string
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$dom = DOM::create( $block_content );
-		$ul  = DOM::get_element( 'ul', $dom );
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		$dom = DOM::create($block_content);
+		$ul = DOM::get_element('ul', $dom);
 
-		if ( ! $ul || ! $ul->hasChildNodes() ) {
+		if (!$ul || !$ul->hasChildNodes()) {
 			return $block_content;
 		}
 
 		$global_settings = wp_get_global_settings();
-		$color_palette   = $global_settings['color']['palette']['theme'] ?? [];
+		$color_palette = $global_settings['color']['palette']['theme'] ?? [];
 
-		foreach ( $ul->childNodes as $child ) {
-			if ( ! $child instanceof DOMElement ) {
+		foreach ($ul->childNodes as $child) {
+			if (!$child instanceof DOMElement) {
 				continue;
 			}
 
-			if ( $child->nodeName === 'li' ) {
-				$styles = CSS::string_to_array( $child->getAttribute( 'style' ) );
+			if ($child->nodeName === 'li') {
+				$styles = CSS::string_to_array($child->getAttribute('style'));
 
-				if ( ! ( $styles['color'] ?? null ) ) {
+				if (!($styles['color'] ?? null)) {
 					continue;
 				}
 
-				foreach ( $color_palette as $color ) {
+				foreach ($color_palette as $color) {
 					$hex = $color['color'] ?? '';
 
-					if ( trim( $styles['color'] ) === trim( $hex ) ) {
-						$slug = esc_attr( $color['slug'] ?? '' );
+					if (trim($styles['color']) === trim($hex)) {
+						$slug = esc_attr($color['slug'] ?? '');
 
-						if ( ! $slug ) {
+						if (!$slug) {
 							continue;
 						}
 
 						$styles['color'] = "var(--wp--preset--color--$slug)";
-						$child->setAttribute( 'style', CSS::array_to_string( $styles ) );
+						$child->setAttribute('style', CSS::array_to_string($styles));
 
 						break;
 					}
 				}
 
-				$child->setAttribute( 'style', CSS::array_to_string( $styles ) );
+				$child->setAttribute('style', CSS::array_to_string($styles));
 			}
 		}
 
 		return $dom->saveHTML();
 	}
-
 }
