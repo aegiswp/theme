@@ -220,6 +220,4 @@ class Color {
 
 		return $color_values;
 	}
-
-
 }
