@@ -106,5 +106,4 @@ class Hook {
 
 		return $annotations;
 	}
-
 }
