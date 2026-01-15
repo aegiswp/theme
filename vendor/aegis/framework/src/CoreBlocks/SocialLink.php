@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for core blocks within the Aegis Framework.
 namespace Aegis\Framework\CoreBlocks;
@@ -33,7 +33,8 @@ use function esc_attr;
 
 // Implements the SocialLink class to support social link block rendering.
 
-class SocialLink implements Renderable {
+class SocialLink implements Renderable
+{
 
 	/**
 	 * Modifies front end HTML output of block.
@@ -48,75 +49,75 @@ class SocialLink implements Renderable {
 	 *
 	 * @return string
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$textColor = esc_attr( $block['attrs']['textColor'] ?? '' );
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		$textColor = esc_attr($block['attrs']['textColor'] ?? '');
 
-		if ( $textColor ) {
-			$dom       = DOM::create( $block_content );
-			$list_item = DOM::get_element( 'li', $dom );
+		if ($textColor) {
+			$dom = DOM::create($block_content);
+			$list_item = DOM::get_element('li', $dom);
 
-			if ( ! $list_item ) {
+			if (!$list_item) {
 				return $block_content;
 			}
 
-			$styles          = CSS::string_to_array( $list_item->getAttribute( 'style' ) );
+			$styles = CSS::string_to_array($list_item->getAttribute('style'));
 			$styles['color'] = "var(--wp--preset--color--$textColor)";
 
-			$list_item->setAttribute( 'style', CSS::array_to_string( $styles ) );
+			$list_item->setAttribute('style', CSS::array_to_string($styles));
 
-			$classes = explode( ' ', $list_item->getAttribute( 'class' ) );
+			$classes = explode(' ', $list_item->getAttribute('class'));
 
 			$classes[] = 'has-text-color';
 
-			$list_item->setAttribute( 'class', implode( ' ', $classes ) );
+			$list_item->setAttribute('class', implode(' ', $classes));
 
 			$block_content = $dom->saveHTML();
 		}
 
 		$service = $block['attrs']['service'] ?? null;
 
-		if ( $service === 'slack' ) {
-			$dom         = DOM::create( $block_content );
-			$li          = DOM::get_element( 'li', $dom );
-			$a           = DOM::get_element( 'a', $li );
-			$default_svg = DOM::get_element( 'svg', $a );
+		if ($service === 'slack') {
+			$dom = DOM::create($block_content);
+			$li = DOM::get_element('li', $dom);
+			$a = DOM::get_element('a', $li);
+			$default_svg = DOM::get_element('svg', $a);
 
-			if ( ! $default_svg ) {
+			if (!$default_svg) {
 				return $block_content;
 			}
 
-			// TODO: New svg location.
-			$svg_dom = DOM::create( Icon::get_svg( 'social', 'slack' ) );
-			$svg     = DOM::get_element( 'svg', $svg_dom );
+			// SVG location.
+			$svg_dom = DOM::create(Icon::get_svg('social', 'slack'));
+			$svg = DOM::get_element('svg', $svg_dom);
 
-			$svg->setAttribute( 'fill', 'currentColor' );
-			$svg->setAttribute( 'width', '24' );
-			$svg->setAttribute( 'height', '24' );
-			$svg->setAttribute( 'aria-hidden', 'true' );
-			$svg->setAttribute( 'focusable', 'false' );
-			$svg->setAttribute( 'role', 'img' );
+			$svg->setAttribute('fill', 'currentColor');
+			$svg->setAttribute('width', '24');
+			$svg->setAttribute('height', '24');
+			$svg->setAttribute('aria-hidden', 'true');
+			$svg->setAttribute('focusable', 'false');
+			$svg->setAttribute('role', 'img');
 
-			$imported = $dom->importNode( $svg, true );
+			$imported = $dom->importNode($svg, true);
 
-			$a->appendChild( $imported );
-			$a->removeChild( $default_svg );
+			$a->appendChild($imported);
+			$a->removeChild($default_svg);
 
-			$block_content = $dom->saveHTML( $li );
+			$block_content = $dom->saveHTML($li);
 		}
 
 		$url = $block['attrs']['url'] ?? null;
 
-		if ( $url === '#' ) {
-			$dom = DOM::create( $block_content );
-			$li  = DOM::get_element( 'li', $dom );
-			$a   = DOM::get_element( 'a', $li );
+		if ($url === '#') {
+			$dom = DOM::create($block_content);
+			$li = DOM::get_element('li', $dom);
+			$a = DOM::get_element('a', $li);
 
-			$a->setAttribute( 'href', '#' );
+			$a->setAttribute('href', '#');
 
-			$block_content = $dom->saveHTML( $li );
+			$block_content = $dom->saveHTML($li);
 		}
 
 		return $block_content;
 	}
-
 }
