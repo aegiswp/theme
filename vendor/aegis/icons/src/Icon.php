@@ -18,21 +18,29 @@
  * For developer documentation and onboarding. No logic changes in this doc update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for icon utilities.
+// Enforces strict type checking for all code in this file, ensuring type safety for icon functions.
 declare( strict_types=1 );
 
-// Declares the namespace for icon utilities within the Aegis Framework.
+// Declares the namespace for icon classes within the Aegis Framework.
 namespace Aegis\Icons;
 
-// Imports necessary classes and functions for icon management, DOM manipulation, and REST API integration.
+// Imports Aegis framework utilities for DOM, CSS, and string manipulation.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Utilities\Str;
+
+// Imports core PHP classes for DOM manipulation.
 use DOMDocument;
 use DOMElement;
+
+// Imports the third-party SVG sanitizer library.
 use enshrined\svgSanitize\Sanitizer;
+
+// Imports WordPress classes for creating REST API endpoints.
 use WP_REST_Request;
 use WP_REST_Server;
+
+// Imports WordPress and PHP functions for file operations, security, and REST API.
 use function add_action;
 use function add_filter;
 use function apply_filters;
@@ -52,6 +60,8 @@ use function str_replace;
 use function strtolower;
 use function trim;
 use function uniqid;
+
+// Imports PHP constants for file globbing.
 use const GLOB_ONLYDIR;
 
 /**
@@ -59,7 +69,6 @@ use const GLOB_ONLYDIR;
  *
  * @since 1.0.0
  */
-// Implements the Aegis icon utility class for SVG management and REST API integration.
 class Icon {
 
 	const FILTER = 'aegis_icon_sets';
@@ -67,7 +76,7 @@ class Icon {
 	/**
 	 * Returns array of all icon sets and their directory path.
 	 *
-	 * @since 0.9.10
+	 * @since 1.0.0
 	 *
 	 * @return array <string, string>
 	 */
@@ -132,7 +141,7 @@ class Icon {
 	}
 
 	/**
-	 * Returns svg string for given icon.
+	 * Returns SVG string for given icon.
 	 *
 	 * @since 1.0.0
 	 *
