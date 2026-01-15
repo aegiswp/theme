@@ -18,14 +18,15 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for inline asset management.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for inline assets components within the Aegis Framework.
 namespace Aegis\Framework\InlineAssets;
 
 // Declares the Inlinable interface for asset management in the design system.
 
-interface Inlinable {
+interface Inlinable
+{
 
 	/**
 	 * Inline asset constructor.
@@ -34,7 +35,7 @@ interface Inlinable {
 	 *
 	 * @return void
 	 */
-	public function __construct( string $file );
+	public function __construct(string $file);
 
 	/**
 	 * Register inline styles from file.
@@ -47,7 +48,7 @@ interface Inlinable {
 	 *
 	 * @return self
 	 */
-	public function add_file( string $file, array $strings = [], bool $condition = true ): self;
+	public function add_file(string $file, array $strings = [], bool $condition = true): self;
 
 	/**
 	 * Register inline styles from callback.
@@ -58,7 +59,7 @@ interface Inlinable {
 	 *
 	 * @return self
 	 */
-	public function add_callback( callable $callback ): self;
+	public function add_callback(callable $callback): self;
 
 	/**
 	 * Register inline styles from string.
@@ -70,7 +71,7 @@ interface Inlinable {
 	 *
 	 * @return self
 	 */
-	public function add_string( string $string, array $strings = [] ): self;
+	public function add_string(string $string, array $strings = []): self;
 
 	/**
 	 * Enqueue inline assets.
