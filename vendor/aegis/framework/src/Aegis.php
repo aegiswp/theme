@@ -56,5 +56,4 @@ if ( ! class_exists( 'Aegis' ) ) {
 			}
 		}
 	}
-
 }
