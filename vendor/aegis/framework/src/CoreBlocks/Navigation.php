@@ -123,8 +123,8 @@ class Navigation implements Renderable, Styleable
 			$color_values = wp_list_pluck($global_settings['color']['palette']['theme'] ?? [], 'color');
 
 			// Handle 'white' as a special case, mapping it to a theme color slug if available.
-			if ('white' === $overlay_background_color && in_array('#f6f5f2', $color_values, true)) {
-				$index = array_search('#f6f5f2', $color_values, true);
+			if ('white' === $overlay_background_color && in_array('#f8f9fa', $color_values, true)) {
+				$index = array_search('#f8f9fa', $color_values, true);
 				if ($index) {
 					$overlay_background_color = $color_slugs[$index] ?? '';
 				}
