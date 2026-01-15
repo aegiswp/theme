@@ -100,7 +100,7 @@ return array(
     'Aegis\\Framework\\InlineAssets\\Scripts' => $vendorDir . '/aegis/framework/src/InlineAssets/Scripts.php',
     'Aegis\\Framework\\InlineAssets\\Styleable' => $vendorDir . '/aegis/framework/src/InlineAssets/Styleable.php',
     'Aegis\\Framework\\InlineAssets\\Styles' => $vendorDir . '/aegis/framework/src/InlineAssets/Styles.php',
-    'Aegis\\Framework\\Integrations\\GravityForms' => $vendorDir . '/aegis/framework/src/Integrations/FluentForms.php',
+    'Aegis\\Framework\\Integrations\\FluentForms' => $vendorDir . '/aegis/framework/src/Integrations/FluentForms.php',
     'Aegis\\Framework\\Integrations\\SyntaxHighlightingCodeBlock' => $vendorDir . '/aegis/framework/src/Integrations/SyntaxHighlightingCodeBlock.php',
     'Aegis\\Framework\\Integrations\\WooCommerce' => $vendorDir . '/aegis/framework/src/Integrations/WooCommerce.php',
     'Aegis\\Framework\\Interfaces\\Renderable' => $vendorDir . '/aegis/framework/src/Interfaces/Renderable.php',
