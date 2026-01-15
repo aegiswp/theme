@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for blocks variations.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for block variations within the Aegis Framework.
 namespace Aegis\Framework\BlockVariations;
@@ -41,7 +41,8 @@ use function str_contains;
  * @package Aegis\Framework\BlockVariations
  * @since   1.0.0
  */
-class Newsletter implements Renderable {
+class Newsletter implements Renderable
+{
 
 	/**
 	 * Renders the search block as a newsletter signup form.
@@ -61,38 +62,38 @@ class Newsletter implements Renderable {
 	 *
 	 * @return string The modified block content, now structured as a newsletter form.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$attrs      = $block['attrs'] ?? [];
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		$attrs = $block['attrs'] ?? [];
 		$class_name = $attrs['className'] ?? '';
 
 		// Only run on blocks with the "newsletter" style variation.
-		if ( ! str_contains( $class_name, 'is-style-newsletter' ) ) {
+		if (!str_contains($class_name, 'is-style-newsletter')) {
 			return $block_content;
 		}
 
-		$dom   = DOM::create( $block_content );
-		$form  = DOM::get_element( 'form', $dom );
-		$div   = DOM::get_element( 'div', $form );
-		$input = DOM::get_element( 'input', ( $div ?? $form ) );
+		$dom = DOM::create($block_content);
+		$form = DOM::get_element('form', $dom);
+		$div = DOM::get_element('div', $form);
+		$input = DOM::get_element('input', ($div ?? $form));
 
-		if ( ! $form || ! $input ) {
+		if (!$form || !$input) {
 			return $block_content;
 		}
 
 		// --- Repurpose the form for JavaScript handling ---
 		// Remove standard form attributes.
-		$form->removeAttribute( 'action' );
-		$form->removeAttribute( 'method' );
-		$form->removeAttribute( 'role' );
+		$form->removeAttribute('action');
+		$form->removeAttribute('method');
+		$form->removeAttribute('role');
 
 		// Prevent the form from submitting via a page reload.
-		$form->setAttribute( 'onsubmit', 'event.preventDefault();' );
+		$form->setAttribute('onsubmit', 'event.preventDefault();');
 
 		// Change the input to a standard text field named "newsletter".
-		$input->setAttribute( 'type', 'text' );
-		$input->setAttribute( 'name', 'newsletter' );
+		$input->setAttribute('type', 'text');
+		$input->setAttribute('name', 'newsletter');
 
 		return $dom->saveHTML();
 	}
-
 }
