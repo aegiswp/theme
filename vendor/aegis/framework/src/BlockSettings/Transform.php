@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for block settings.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for block settings within the Aegis Framework.
 namespace Aegis\Framework\BlockSettings;
@@ -43,7 +43,8 @@ use function trim;
  * @package Aegis\Framework\BlockSettings
  * @since   1.0.0
  */
-class Transform implements Renderable {
+class Transform implements Renderable
+{
 
 	/**
 	 * A map of CSS transform functions to their required units.
@@ -52,15 +53,15 @@ class Transform implements Renderable {
 	 * @since 1.0.0
 	 */
 	private const UNITS = [
-		'rotate'     => 'deg',
-		'rotateX'    => 'deg',
-		'rotateY'    => 'deg',
-		'scale'      => '',
-		'scaleX'     => '',
-		'scaleY'     => '',
-		'skew'       => 'deg',
-		'skewX'      => 'deg',
-		'skewY'      => 'deg',
+		'rotate' => 'deg',
+		'rotateX' => 'deg',
+		'rotateY' => 'deg',
+		'scale' => '',
+		'scaleX' => '',
+		'scaleY' => '',
+		'skew' => 'deg',
+		'skewX' => 'deg',
+		'skewY' => 'deg',
 		'translateX' => '',
 		'translateY' => '',
 		'translateZ' => '',
@@ -82,52 +83,52 @@ class Transform implements Renderable {
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$attrs           = $block['attrs'] ?? [];
-		$transform       = $attrs['style']['transform'] ?? null;
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		$attrs = $block['attrs'] ?? [];
+		$transform = $attrs['style']['transform'] ?? null;
 		$transform_hover = $attrs['style']['transformHover'] ?? null;
 
 		// If there are no transform settings, do nothing.
-		if ( ! $transform && ! $transform_hover ) {
+		if (!$transform && !$transform_hover) {
 			return $block_content;
 		}
 
-		$dom   = DOM::create( $block_content );
-		$first = DOM::get_element( '*', $dom );
-		if ( ! $first ) {
+		$dom = DOM::create($block_content);
+		$first = DOM::get_element('*', $dom);
+		if (!$first) {
 			return $block_content;
 		}
 
 		// Add a helper class to the block to activate the transform styles.
-		$classes   = DOM::get_classes( $first );
+		$classes = DOM::get_classes($first);
 		$classes[] = 'has-transform';
-		DOM::add_classes( $first, $classes );
+		DOM::add_classes($first, $classes);
 
-		$styles = DOM::get_styles( $first );
+		$styles = DOM::get_styles($first);
 
 		// Build the --transform CSS variable from the array of transform functions.
-		if ( is_array( $transform ) ) {
+		if (is_array($transform)) {
 			$transform_value = '';
-			foreach ( $transform as $key => $value ) {
-				$unit = self::UNITS[ $key ] ?? '';
+			foreach ($transform as $key => $value) {
+				$unit = self::UNITS[$key] ?? '';
 				$transform_value .= "{$key}({$value}{$unit}) ";
 			}
-			$styles['--transform'] = trim( $transform_value );
+			$styles['--transform'] = trim($transform_value);
 		}
 
 		// Build the --transform-hover CSS variable.
-		if ( is_array( $transform_hover ) ) {
+		if (is_array($transform_hover)) {
 			$transform_hover_value = '';
-			foreach ( $transform_hover as $key => $value ) {
-				$unit = self::UNITS[ $key ] ?? '';
+			foreach ($transform_hover as $key => $value) {
+				$unit = self::UNITS[$key] ?? '';
 				$transform_hover_value .= "{$key}({$value}{$unit}) ";
 			}
-			$styles['--transform-hover'] = trim( $transform_hover_value );
+			$styles['--transform-hover'] = trim($transform_hover_value);
 		}
 
-		DOM::add_styles( $first, $styles );
+		DOM::add_styles($first, $styles);
 
 		return $dom->saveHTML();
 	}
-
 }
