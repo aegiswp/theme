@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for core blocks within the Aegis Framework.
 namespace Aegis\Framework\CoreBlocks;
@@ -46,7 +46,8 @@ use function in_array;
  * @package Aegis\Framework\CoreBlocks
  * @since   1.0.0
  */
-class Group implements Renderable {
+class Group implements Renderable
+{
 
 	/**
 	 * Renders the group block with custom enhancements.
@@ -65,58 +66,58 @@ class Group implements Renderable {
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$dom   = DOM::create( $block_content );
-		$first = DOM::get_element( '*', $dom );
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		$dom = DOM::create($block_content);
+		$first = DOM::get_element('*', $dom);
 
 		// If the main wrapper element is not found, return the original content.
-		if ( ! $first ) {
+		if (!$first) {
 			return $block_content;
 		}
 
 		$attrs = $block['attrs'] ?? [];
 
 		// Apply minHeight from block attributes as an inline style.
-		if ( $min_height = $attrs['minHeight'] ?? null ) {
+		if ($min_height = $attrs['minHeight'] ?? null) {
 			$first->setAttribute(
 				'style',
-				$first->getAttribute( 'style' ) . ';min-height:' . $min_height
+				$first->getAttribute('style') . ';min-height:' . $min_height
 			);
 		}
 
 		// Apply custom margin and padding from block attributes.
-		$margin  = $attrs['style']['spacing']['margin'] ?? [];
+		$margin = $attrs['style']['spacing']['margin'] ?? [];
 		$padding = $attrs['style']['spacing']['padding'] ?? [];
 
-		$div_styles = CSS::string_to_array( $first->getAttribute( 'style' ) );
-		$div_styles = CSS::add_shorthand_property( $div_styles, 'margin', $margin );
-		$div_styles = CSS::add_shorthand_property( $div_styles, 'padding', $padding );
+		$div_styles = CSS::string_to_array($first->getAttribute('style'));
+		$div_styles = CSS::add_shorthand_property($div_styles, 'margin', $margin);
+		$div_styles = CSS::add_shorthand_property($div_styles, 'padding', $padding);
 
-		if ( $div_styles ) {
-			$first->setAttribute( 'style', CSS::array_to_string( $div_styles ) );
+		if ($div_styles) {
+			$first->setAttribute('style', CSS::array_to_string($div_styles));
 		}
 
 		// Special handling when the group block's tag is set to <main>.
-		$tag = esc_attr( $attrs['tagName'] ?? 'div' );
-		if ( 'main' === $tag ) {
+		$tag = esc_attr($attrs['tagName'] ?? 'div');
+		if ('main' === $tag) {
 			// Add role="main" for better accessibility.
-			$first->setAttribute( 'role', $tag );
+			$first->setAttribute('role', $tag);
 
-			$classes = explode( ' ', $first->getAttribute( 'class' ) );
+			$classes = explode(' ', $first->getAttribute('class'));
 
 			// If the `site-main` class exists, ensure it is the first class in the list.
 			// This can be important for CSS specificity.
-			if ( in_array( 'site-main', $classes, true ) ) {
+			if (in_array('site-main', $classes, true)) {
 				$classes = [
 					'site-main',
-					...( array_diff( $classes, [ 'site-main' ] ) ),
+					...(array_diff($classes, ['site-main'])),
 				];
 			}
 
-			$first->setAttribute( 'class', implode( ' ', $classes ) );
+			$first->setAttribute('class', implode(' ', $classes));
 		}
 
 		return $dom->saveHTML();
 	}
-
 }
