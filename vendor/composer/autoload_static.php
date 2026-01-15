@@ -6,62 +6,62 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitbb2b041c8729e310010fb8540dd43d49
 {
-    public static $prefixLengthsPsr4 = array (
-        'e' => 
-        array (
-            'enshrined\\svgSanitize\\' => 22,
-        ),
-        'P' => 
-        array (
-            'Psr\\Container\\' => 14,
-        ),
-        'B' => 
-        array (
-            'Aegis\\Utilities\\' => 19,
-            'Aegis\\Icons\\' => 15,
-            'Aegis\\Hooks\\' => 15,
-            'Aegis\\Framework\\' => 19,
-            'Aegis\\Dom\\' => 13,
-            'Aegis\\Container\\' => 19,
-        ),
+    public static $prefixLengthsPsr4 = array(
+        'e' =>
+            array(
+                'enshrined\\svgSanitize\\' => 22,
+            ),
+        'P' =>
+            array(
+                'Psr\\Container\\' => 14,
+            ),
+        'B' =>
+            array(
+                'Aegis\\Utilities\\' => 19,
+                'Aegis\\Icons\\' => 15,
+                'Aegis\\Hooks\\' => 15,
+                'Aegis\\Framework\\' => 19,
+                'Aegis\\Dom\\' => 13,
+                'Aegis\\Container\\' => 19,
+            ),
     );
 
-    public static $prefixDirsPsr4 = array (
-        'enshrined\\svgSanitize\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/enshrined/svg-sanitize/src',
-        ),
-        'Psr\\Container\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/container/src',
-        ),
-        'Aegis\\Utilities\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/aegis/utilities/src',
-        ),
-        'Aegis\\Icons\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/aegis/icons/src',
-        ),
-        'Aegis\\Hooks\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/aegis/hooks/src',
-        ),
-        'Aegis\\Framework\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/aegis/framework/src',
-        ),
-        'Aegis\\Dom\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/aegis/dom/src',
-        ),
-        'Aegis\\Container\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/aegis/container/src',
-        ),
+    public static $prefixDirsPsr4 = array(
+        'enshrined\\svgSanitize\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/enshrined/svg-sanitize/src',
+            ),
+        'Psr\\Container\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/psr/container/src',
+            ),
+        'Aegis\\Utilities\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/aegis/utilities/src',
+            ),
+        'Aegis\\Icons\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/aegis/icons/src',
+            ),
+        'Aegis\\Hooks\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/aegis/hooks/src',
+            ),
+        'Aegis\\Framework\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/aegis/framework/src',
+            ),
+        'Aegis\\Dom\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/aegis/dom/src',
+            ),
+        'Aegis\\Container\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/aegis/container/src',
+            ),
     );
 
-    public static $classMap = array (
+    public static $classMap = array(
         'Aegis' => __DIR__ . '/..' . '/aegis/framework/src/Aegis.php',
         'Aegis\\Container\\Container' => __DIR__ . '/..' . '/aegis/container/src/Container.php',
         'Aegis\\Container\\Exceptions\\ContainerException' => __DIR__ . '/..' . '/aegis/container/src/Exceptions/ContainerException.php',
