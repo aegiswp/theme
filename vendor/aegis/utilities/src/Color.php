@@ -221,30 +221,5 @@ class Color {
 		return $color_values;
 	}
 
-	/**
-	 * Returns replacements for deprecated colors.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param array $settings Global settings.
-	 *
-	 * @return array
-	 */
-	public static function get_replacement_colors( array $settings = [] ): array {
-		return array_replace(
-			[
-				'background'        => 'neutral-0',
-				'base'              => 'neutral-0',
-				'contrast'          => 'neutral-800',
-				'foreground'        => 'neutral-800',
-				'primary'           => 'primary-900',
-				'secondary'         => 'primary-600',
-				'tertiary'          => 'primary-100',
-                'quaternary'        => 'primary-300',
-                'quinary'           => 'primary-200',
-                'senary'            => 'primary-300',
-			],
-			$settings['custom']['deprecatedColors'] ?? []
-		);
-	}
+
 }
