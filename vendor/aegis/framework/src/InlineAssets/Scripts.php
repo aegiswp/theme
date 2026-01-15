@@ -92,5 +92,4 @@ class Scripts implements Inlinable {
 
 		return $data;
 	}
-
 }
