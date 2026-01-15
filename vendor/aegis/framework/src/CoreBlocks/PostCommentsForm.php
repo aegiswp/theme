@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for core blocks within the Aegis Framework.
 namespace Aegis\Framework\CoreBlocks;
@@ -42,7 +42,8 @@ use function esc_attr;
  * @package Aegis\Framework\CoreBlocks
  * @since   1.0.0
  */
-class PostCommentsForm implements Renderable {
+class PostCommentsForm implements Renderable
+{
 
 	/**
 	 * Renders the Post Comments Form block with a modified title tag.
@@ -61,19 +62,20 @@ class PostCommentsForm implements Renderable {
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$dom = DOM::create( $block_content );
-		$div = DOM::get_element( 'div', $dom );
-		$h3  = DOM::get_element( 'h3', $div );
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		$dom = DOM::create($block_content);
+		$div = DOM::get_element('div', $dom);
+		$h3 = DOM::get_element('h3', $div);
 
 		// If the default <h3> title is not found, do nothing.
-		if ( ! $h3 ) {
+		if (!$h3) {
 			return $block_content;
 		}
 
 		// Change the tag name, allowing it to be filtered.
 		DOM::change_tag_name(
-			esc_attr( apply_filters( 'aegis_comments_form_title_tag', 'h4' ) ),
+			esc_attr(apply_filters('aegis_comments_form_title_tag', 'h4')),
 			$h3
 		);
 
@@ -98,8 +100,9 @@ class PostCommentsForm implements Renderable {
 	 *
 	 * @return array The modified block registration arguments.
 	 */
-	public function register_comments_args( array $args, string $block_type ): array {
-		if ( 'core/comments' === $block_type ) {
+	public function register_comments_args(array $args, string $block_type): array
+	{
+		if ('core/comments' === $block_type) {
 			$args['available_context'] = [
 				'postId' => '',
 			];
@@ -107,5 +110,4 @@ class PostCommentsForm implements Renderable {
 
 		return $args;
 	}
-
 }
