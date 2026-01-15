@@ -52,7 +52,7 @@ class JSON {
 	 *
 	 * @see   WP_Theme_JSON::compute_theme_vars()
 	 *
-	 * @since 5.8.0
+	 * @since 1.0.0
 	 *
 	 * @param array $custom_values Settings to process.
 	 *
@@ -101,7 +101,7 @@ class JSON {
 	 *
 	 * @see   WP_Theme_JSON::flatten_tree()
 	 *
-	 * @since 5.8.0
+	 * @since 1.0.0
 	 *
 	 * @param array  $tree   Input tree to process.
 	 * @param string $prefix Optional. Prefix to prepend to each variable. Default
