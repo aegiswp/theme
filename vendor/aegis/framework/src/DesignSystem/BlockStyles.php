@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for design system components.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
@@ -30,7 +30,8 @@ use function is_admin;
 
 // Implements the BlockStyles class to support block style data registration and management for the editor.
 
-class BlockStyles implements Scriptable {
+class BlockStyles implements Scriptable
+{
 
 	/**
 	 * Adds data to the editor.
@@ -39,10 +40,11 @@ class BlockStyles implements Scriptable {
 	 *
 	 * @return void
 	 */
-	public function scripts( Scripts $scripts ): void {
+	public function scripts(Scripts $scripts): void
+	{
 		$scripts->add_data(
 			'blockStyles',
-			$this->get_data( wp_get_global_settings() ?? [] ),
+			$this->get_data(wp_get_global_settings() ?? []),
 			[],
 			is_admin(),
 		);
@@ -55,20 +57,21 @@ class BlockStyles implements Scriptable {
 	 *
 	 * @return array
 	 */
-	private function get_data( array $global_settings ): array {
+	private function get_data(array $global_settings): array
+	{
 		$register = [
-			'core/archive-title'       => [ 'sub-heading' ],
-			'core/buttons'             => [ 'surface' ],
-			'core/button'              => [ 'ghost' ],
-			'core/code'                => [ 'surface' ],
-			'core/columns'             => [ 'surface' ],
-			'core/column'              => [ 'surface' ],
-			'core/comment-author-name' => [ 'heading' ],
-			'core/details'             => [
-				[ 'summary-heading' => __( 'Heading', 'aegis' ) ],
+			'core/archive-title' => ['sub-heading'],
+			'core/buttons' => ['surface'],
+			'core/button' => ['ghost'],
+			'core/code' => ['surface'],
+			'core/columns' => ['surface'],
+			'core/column' => ['surface'],
+			'core/comment-author-name' => ['heading'],
+			'core/details' => [
+				['summary-heading' => __('Heading', 'aegis')],
 			],
-			'core/group'               => [ 'surface' ],
-			'core/list'                => [
+			'core/group' => ['surface'],
+			'core/list' => [
 				'checklist',
 				'check-outline',
 				'check-circle',
@@ -77,41 +80,40 @@ class BlockStyles implements Scriptable {
 				'dash',
 				'none',
 			],
-			'core/list-item'           => [ 'surface' ],
-			'core/navigation'          => [ 'heading' ],
-			'core/page-list'           => [ 'none' ],
-			'core/paragraph'           => [ 'sub-heading', 'notice', 'heading' ],
-			'core/post-author-name'    => [ 'heading' ],
-			'core/post-terms'          => [ 'list', 'sub-heading', 'badges' ],
-			'core/post-title'          => [ 'sub-heading' ],
-			'core/query-pagination'    => [ 'badges' ],
-			'core/read-more'           => [ 'button' ],
-			'core/site-title'          => [ 'heading' ],
-			'core/spacer'              => [ 'angle', 'curve', 'round', 'wave', 'fade' ],
-			'core/tag-cloud'           => [ 'badges' ],
-			'core/quote'               => [ 'surface' ],
+			'core/list-item' => ['surface'],
+			'core/navigation' => ['heading'],
+			'core/page-list' => ['none'],
+			'core/paragraph' => ['sub-heading', 'notice', 'heading'],
+			'core/post-author-name' => ['heading'],
+			'core/post-terms' => ['list', 'sub-heading', 'badges'],
+			'core/post-title' => ['sub-heading'],
+			'core/query-pagination' => ['badges'],
+			'core/read-more' => ['button'],
+			'core/site-title' => ['heading'],
+			'core/spacer' => ['angle', 'curve', 'round', 'wave', 'fade'],
+			'core/tag-cloud' => ['badges'],
+			'core/quote' => ['surface'],
 		];
 
-		$register['core/code'][]    = 'light';
-		$register['core/code'][]    = 'dark';
-		$register['core/column'][]  = 'light';
-		$register['core/column'][]  = 'dark';
+		$register['core/code'][] = 'light';
+		$register['core/code'][] = 'dark';
+		$register['core/column'][] = 'light';
+		$register['core/column'][] = 'dark';
 		$register['core/columns'][] = 'light';
 		$register['core/columns'][] = 'dark';
-		$register['core/group'][]   = 'light';
-		$register['core/group'][]   = 'dark';
+		$register['core/group'][] = 'light';
+		$register['core/group'][] = 'dark';
 
 		// Values must be arrays.
 		$unregister = [
-			'core/image'     => [ 'rounded', 'default' ],
-			'core/site-logo' => [ 'default', 'rounded' ],
-			'core/separator' => [ 'wide', 'dots' ],
+			'core/image' => ['rounded', 'default'],
+			'core/site-logo' => ['default', 'rounded'],
+			'core/separator' => ['wide', 'dots'],
 		];
 
 		return [
-			'register'   => $register,
+			'register' => $register,
 			'unregister' => $unregister,
 		];
 	}
-
 }
