@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for block settings.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for block settings within the Aegis Framework.
 namespace Aegis\Framework\BlockSettings;
@@ -58,7 +58,8 @@ use function str_replace;
  * @package Aegis\Framework\BlockSettings
  * @since   1.0.0
  */
-class Placeholder implements Renderable, Styleable {
+class Placeholder implements Renderable, Styleable
+{
 
 	/**
 	 * Conditionally enqueues the stylesheet for placeholder images.
@@ -70,10 +71,11 @@ class Placeholder implements Renderable, Styleable {
 	 *
 	 * @param Styles $styles The Styles service instance.
 	 */
-	public function styles( Styles $styles ): void {
+	public function styles(Styles $styles): void
+	{
 		$styles->add_file(
 			'block-extensions/placeholder-image.css',
-			[ 'is-placeholder' ],
+			['is-placeholder'],
 			is_archive() || Block::is_rendering_preview()
 		);
 	}
@@ -96,139 +98,139 @@ class Placeholder implements Renderable, Styleable {
 	 *
 	 * @return string The block content, potentially replaced with a placeholder.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
 		// --- Bail-out Checks ---
 		// Only run on blocks with "image" in their name.
-		if ( ! Str::contains_any( $block['blockName'] ?? '', 'image' ) ) {
+		if (!Str::contains_any($block['blockName'] ?? '', 'image')) {
 			return $block_content;
 		}
 
 		// Do not run if an image ID, icon, or custom SVG is already set.
 		$attrs = $block['attrs'] ?? [];
-		if ( ( $attrs['id'] ?? '' ) || ( ( $attrs['iconSet'] ?? '' ) && ( $attrs['iconName'] ?? '' ) ) || ( $attrs['iconSvgString'] ?? '' ) || ( $attrs['style']['svgString'] ?? '' ) ) {
+		if (($attrs['id'] ?? '') || (($attrs['iconSet'] ?? '') && ($attrs['iconName'] ?? '')) || ($attrs['iconSvgString'] ?? '') || ($attrs['style']['svgString'] ?? '')) {
 			return $block_content;
 		}
 
 		// Do not run if placeholders are explicitly disabled.
-		if ( false === ( $attrs['usePlaceholder'] ?? true ) || 'none' === ( $attrs['usePlaceholder'] ?? '' ) ) {
+		if (false === ($attrs['usePlaceholder'] ?? true) || 'none' === ($attrs['usePlaceholder'] ?? '')) {
 			return $block_content;
 		}
 
 		// Do not run on blocks that are already styled as icons or SVGs.
-		if ( Str::contains_any( $block_content, 'is-style-icon', 'is-style-svg' ) ) {
+		if (Str::contains_any($block_content, 'is-style-icon', 'is-style-svg')) {
 			return $block_content;
 		}
 
 		// Check the DOM to see if an `<img>` with a `src` or an `<svg>` already exists.
-		$dom    = DOM::create( $block_content );
-		$figure = DOM::get_element( 'figure', $dom );
-		$img    = DOM::get_element( 'img', $figure );
-		$link   = DOM::get_element( 'a', $figure );
-		$svg    = DOM::get_element( 'svg', $link ?? $figure );
-		if ( $svg || ( $img && $img->getAttribute( 'src' ) ) ) {
+		$dom = DOM::create($block_content);
+		$figure = DOM::get_element('figure', $dom);
+		$img = DOM::get_element('img', $figure);
+		$link = DOM::get_element('a', $figure);
+		$svg = DOM::get_element('svg', $link ?? $figure);
+		if ($svg || ($img && $img->getAttribute('src'))) {
 			return $block_content;
 		}
 
 		// --- DOM Preparation ---
 		// If the block content is empty, create a basic figure wrapper.
-		$block_name    = str_replace( 'core/', '', $block['blockName'] ?? '' );
+		$block_name = str_replace('core/', '', $block['blockName'] ?? '');
 		$block_content = $block_content ?: "<figure class='wp-block-{$block_name}'></figure>";
-		$dom           = DOM::create( $block_content );
-		$figure        = DOM::get_element( 'figure', $dom );
-		if ( ! $figure instanceof DOMElement ) {
+		$dom = DOM::create($block_content);
+		$figure = DOM::get_element('figure', $dom);
+		if (!$figure instanceof DOMElement) {
 			return $block_content;
 		}
 
 		// Remove any empty `<img>` tags.
-		if ( ( $img = DOM::get_element( 'img', $figure ) ) instanceof DOMElement ) {
-			$figure->removeChild( $img );
+		if (($img = DOM::get_element('img', $figure)) instanceof DOMElement) {
+			$figure->removeChild($img);
 		}
 
 		// --- Placeholder Injection and Link Handling ---
-		$classes     = explode( ' ', $figure->getAttribute( 'class' ) );
-		$classes[]   = 'is-placeholder';
-		if ( $block['align'] ?? null ) {
+		$classes = explode(' ', $figure->getAttribute('class'));
+		$classes[] = 'is-placeholder';
+		if ($block['align'] ?? null) {
 			$classes[] = 'align' . $block['align'];
 		}
 
-		$placeholder = Icon::get_placeholder( $dom );
-		if ( 'svg' === $placeholder->tagName ) {
+		$placeholder = Icon::get_placeholder($dom);
+		if ('svg' === $placeholder->tagName) {
 			$classes[] = 'has-placeholder-icon';
 		}
 
 		// If the placeholder should be linked, create an `<a>` tag.
-		if ( $attrs['isLink'] ?? false ) {
-			$context = property_exists( $instance, 'context' ) ? (object) $instance->context : null;
-			$link    = DOM::create_element( 'a', $dom );
+		if ($attrs['isLink'] ?? false) {
+			$context = property_exists($instance, 'context') ? (object) $instance->context : null;
+			$link = DOM::create_element('a', $dom);
 			// Try to get the permalink from the block's context.
-			if ( property_exists( $context, 'postId' ) && ( $post_id = $context->postId ?? null ) && ( $href = get_permalink( $post_id ) ) ) {
-				$link->setAttribute( 'href', esc_url( $href ) );
+			if (property_exists($context, 'postId') && ($post_id = $context->postId ?? null) && ($href = get_permalink($post_id))) {
+				$link->setAttribute('href', esc_url($href));
 			}
 			// Add target and rel attributes.
-			if ( $link_target = $block['linkTarget'] ?? '' ) {
-				$link->setAttribute( 'target', $link_target );
+			if ($link_target = $block['linkTarget'] ?? '') {
+				$link->setAttribute('target', $link_target);
 			}
-			if ( $rel = esc_attr( $block['rel'] ?? '' ) ) {
-				$link->setAttribute( 'rel', $rel );
+			if ($rel = esc_attr($block['rel'] ?? '')) {
+				$link->setAttribute('rel', $rel);
 			}
 			// Add classes and append the placeholder inside the link.
-			$link_classes   = explode( ' ', $link->getAttribute( 'class' ) );
+			$link_classes = explode(' ', $link->getAttribute('class'));
 			$link_classes[] = 'wp-block-image__link';
 			$link_classes[] = 'is-placeholder';
-			$link->setAttribute( 'class', implode( ' ', $link_classes ) );
-			$link->appendChild( $placeholder );
-			$figure->appendChild( $link );
+			$link->setAttribute('class', implode(' ', $link_classes));
+			$link->appendChild($placeholder);
+			$figure->appendChild($link);
 		} else {
 			// Otherwise, just append the placeholder directly.
-			$figure->appendChild( $placeholder );
+			$figure->appendChild($placeholder);
 		}
 
 		// --- Style Application ---
 		// This section applies a huge range of style attributes to the placeholder figure.
-		$style            = $attrs['style'] ?? [];
-		$spacing          = $style['spacing'] ?? [];
-		$border           = $style['border'] ?? [];
-		$aspect_ratio     = $attrs['aspectRatio'] ?? null;
+		$style = $attrs['style'] ?? [];
+		$spacing = $style['spacing'] ?? [];
+		$border = $style['border'] ?? [];
+		$aspect_ratio = $attrs['aspectRatio'] ?? null;
 		$background_color = $attrs['backgroundColor'] ?? null;
 
 		$styles = [
-			'width'                      => $block['width'] ?? null,
-			'height'                     => $block['height'] ?? null,
-			'border-width'               => $border['width'] ?? null,
-			'border-style'               => $border['style'] ?? ( ( $border['width'] ?? null ) ? 'solid' : null ),
-			'border-color'               => $border['color'] ?? null,
-			'border-top-left-radius'     => $border['radius']['topLeft'] ?? null,
-			'border-top-right-radius'    => $border['radius']['topRight'] ?? null,
-			'border-bottom-left-radius'  => $border['radius']['bottomLeft'] ?? null,
+			'width' => $block['width'] ?? null,
+			'height' => $block['height'] ?? null,
+			'border-width' => $border['width'] ?? null,
+			'border-style' => $border['style'] ?? (($border['width'] ?? null) ? 'solid' : null),
+			'border-color' => $border['color'] ?? null,
+			'border-top-left-radius' => $border['radius']['topLeft'] ?? null,
+			'border-top-right-radius' => $border['radius']['topRight'] ?? null,
+			'border-bottom-left-radius' => $border['radius']['bottomLeft'] ?? null,
 			'border-bottom-right-radius' => $border['radius']['bottomRight'] ?? null,
-			'position'                   => $style['position']['all'] ?? null,
-			'top'                        => $style['top']['all'] ?? null,
-			'right'                      => $style['right']['all'] ?? null,
-			'bottom'                     => $style['bottom']['all'] ?? null,
-			'left'                       => $style['left']['all'] ?? null,
-			'z-index'                    => $style['zIndex']['all'] ?? null,
+			'position' => $style['position']['all'] ?? null,
+			'top' => $style['top']['all'] ?? null,
+			'right' => $style['right']['all'] ?? null,
+			'bottom' => $style['bottom']['all'] ?? null,
+			'left' => $style['left']['all'] ?? null,
+			'z-index' => $style['zIndex']['all'] ?? null,
 		];
-		$styles = CSS::add_shorthand_property( $styles, 'margin', $spacing['margin'] ?? [] );
-		$styles = CSS::add_shorthand_property( $styles, 'padding', $spacing['padding'] ?? [] );
+		$styles = CSS::add_shorthand_property($styles, 'margin', $spacing['margin'] ?? []);
+		$styles = CSS::add_shorthand_property($styles, 'padding', $spacing['padding'] ?? []);
 
-		if ( $aspect_ratio && 'auto' !== $aspect_ratio ) {
+		if ($aspect_ratio && 'auto' !== $aspect_ratio) {
 			$styles['aspect-ratio'] = $aspect_ratio;
 		}
 
-		if ( 'transparent' === $background_color ) {
+		if ('transparent' === $background_color) {
 			$classes[] = 'has-transparent-background-color';
 		} else {
 			$styles['background-color'] = $background_color;
 		}
 
 		// Merge new styles with any existing inline styles and apply.
-		$css = CSS::array_to_string( array_merge( CSS::string_to_array( $figure->getAttribute( 'style' ) ), $styles ) );
-		if ( $css ) {
-			$figure->setAttribute( 'style', $css );
+		$css = CSS::array_to_string(array_merge(CSS::string_to_array($figure->getAttribute('style')), $styles));
+		if ($css) {
+			$figure->setAttribute('style', $css);
 		}
-		$figure->setAttribute( 'class', implode( ' ', $classes ) );
+		$figure->setAttribute('class', implode(' ', $classes));
 
 		return $dom->saveHTML();
 	}
-
 }
