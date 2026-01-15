@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for core blocks within the Aegis Framework.
 namespace Aegis\Framework\CoreBlocks;
@@ -32,7 +32,8 @@ use function str_contains;
 
 // Implements the Query class to support query block rendering.
 
-class Query implements Renderable {
+class Query implements Renderable
+{
 
 	/**
 	 * Modifies front end HTML output of block.
@@ -47,36 +48,37 @@ class Query implements Renderable {
 	 *
 	 * @return string
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
 		$block_gap = $block['attrs']['style']['spacing']['blockGap'] ?? null;
 
-		if ( $block_gap ) {
-			$dom = DOM::create( $block_content );
-			$div = DOM::get_element( 'div', $dom );
+		if ($block_gap) {
+			$dom = DOM::create($block_content);
+			$div = DOM::get_element('div', $dom);
 
-			if ( ! $div ) {
+			if (!$div) {
 				return $block_content;
 			}
 
-			$styles = CSS::string_to_array( $div->getAttribute( 'style' ) );
+			$styles = CSS::string_to_array($div->getAttribute('style'));
 
-			$styles['--wp--style--block-gap'] = CSS::format_custom_property( $block_gap );
+			$styles['--wp--style--block-gap'] = CSS::format_custom_property($block_gap);
 
-			$div->setAttribute( 'style', CSS::array_to_string( $styles ) );
+			$div->setAttribute('style', CSS::array_to_string($styles));
 
 			$block_content = $dom->saveHTML();
 		}
 
 		$columns = $block['attrs']['displayLayout']['columns'] ?? null;
 
-		if ( $columns && str_contains( $block_content, 'nowrap' ) ) {
-			$dom = DOM::create( $block_content );
-			$div = DOM::get_element( 'div', $dom );
+		if ($columns && str_contains($block_content, 'nowrap')) {
+			$dom = DOM::create($block_content);
+			$div = DOM::get_element('div', $dom);
 
-			if ( $div ) {
-				$styles              = CSS::string_to_array( $div->getAttribute( 'style' ) );
+			if ($div) {
+				$styles = CSS::string_to_array($div->getAttribute('style'));
 				$styles['--columns'] = $columns;
-				$div->setAttribute( 'style', CSS::array_to_string( $styles ) );
+				$div->setAttribute('style', CSS::array_to_string($styles));
 
 				$block_content = $dom->saveHTML();
 			}
@@ -84,5 +86,4 @@ class Query implements Renderable {
 
 		return $block_content;
 	}
-
 }
