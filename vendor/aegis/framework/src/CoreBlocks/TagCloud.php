@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for core blocks within the Aegis Framework.
 namespace Aegis\Framework\CoreBlocks;
@@ -32,7 +32,8 @@ use function implode;
 
 // Implements the TagCloud class to support tag cloud block rendering.
 
-class TagCloud implements Renderable {
+class TagCloud implements Renderable
+{
 
 	/**
 	 * Modifies front end HTML output of block.
@@ -47,11 +48,12 @@ class TagCloud implements Renderable {
 	 *
 	 * @return string
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$smallest  = esc_attr( $block['attrs']['smallestFontSize'] ?? '1em' );
-		$largest   = esc_attr( $block['attrs']['largestFontSize'] ?? '1em' );
-		$dom       = DOM::create( $block_content );
-		$paragraph = DOM::get_element( 'p', $dom );
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		$smallest = esc_attr($block['attrs']['smallestFontSize'] ?? '1em');
+		$largest = esc_attr($block['attrs']['largestFontSize'] ?? '1em');
+		$dom = DOM::create($block_content);
+		$paragraph = DOM::get_element('p', $dom);
 
 		$paragraph->setAttribute(
 			'style',
@@ -59,12 +61,11 @@ class TagCloud implements Renderable {
 				';',
 				[
 					'font-size:max(' . $smallest . ',' . $largest . ')',
-					$paragraph->getAttribute( 'style' ),
+					$paragraph->getAttribute('style'),
 				]
 			)
 		);
 
 		return $dom->saveHTML();
 	}
-
 }
