@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for design system components.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
@@ -33,7 +33,8 @@ use function wp_get_global_settings;
 
 // Implements the ConicGradient class to support conversion of gradients for the design system.
 
-class ConicGradient implements Styleable {
+class ConicGradient implements Styleable
+{
 
 	/**
 	 * Converts custom linear or radial gradient into conic gradient.
@@ -44,15 +45,16 @@ class ConicGradient implements Styleable {
 	 *
 	 * @return void
 	 */
-	public function styles( Styles $styles ): void {
-		$settings  = wp_get_global_settings();
+	public function styles(Styles $styles): void
+	{
+		$settings = wp_get_global_settings();
 		$gradients = $settings['color']['gradients']['custom'] ?? [];
-		$style     = [];
+		$style = [];
 
-		foreach ( $gradients as $gradient ) {
+		foreach ($gradients as $gradient) {
 			$slug = $gradient['slug'] ?? '';
 
-			if ( ! str_contains( $slug, 'custom-conic-' ) ) {
+			if (!str_contains($slug, 'custom-conic-')) {
 				continue;
 			}
 
@@ -62,14 +64,13 @@ class ConicGradient implements Styleable {
 				$gradient['gradient']
 			);
 
-			$style[ '--wp--preset--gradient--' . $slug ] = $value;
+			$style['--wp--preset--gradient--' . $slug] = $value;
 		}
 
-		if ( $style ) {
-			$css = 'body{' . CSS::array_to_string( $style ) . '}';
+		if ($style) {
+			$css = 'body{' . CSS::array_to_string($style) . '}';
 
-			$styles->add_string( $css, [ 'custom-conic-' ] );
+			$styles->add_string($css, ['custom-conic-']);
 		}
 	}
-
 }
