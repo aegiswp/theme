@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for block settings.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for block settings within the Aegis Framework.
 namespace Aegis\Framework\BlockSettings;
@@ -41,13 +41,14 @@ use function str_replace;
 
 // Implements the Responsive class to support responsive settings and controls for blocks.
 
-class Responsive implements Renderable, Scriptable, Styleable {
+class Responsive implements Renderable, Scriptable, Styleable
+{
 
 	public const SETTINGS = [
-		'position'            => [
+		'position' => [
 			'property' => 'position',
-			'label'    => 'Position',
-			'options'  => [
+			'label' => 'Position',
+			'options' => [
 				[
 					'label' => '',
 					'value' => '',
@@ -74,30 +75,30 @@ class Responsive implements Renderable, Scriptable, Styleable {
 				],
 			],
 		],
-		'top'                 => [
+		'top' => [
 			'property' => 'top',
-			'label'    => 'Top',
+			'label' => 'Top',
 		],
-		'right'               => [
+		'right' => [
 			'property' => 'right',
-			'label'    => 'Right',
+			'label' => 'Right',
 		],
-		'bottom'              => [
+		'bottom' => [
 			'property' => 'bottom',
-			'label'    => 'Bottom',
+			'label' => 'Bottom',
 		],
-		'left'                => [
+		'left' => [
 			'property' => 'left',
-			'label'    => 'Left',
+			'label' => 'Left',
 		],
-		'zIndex'              => [
+		'zIndex' => [
 			'property' => 'z-index',
-			'label'    => 'Z-Index',
+			'label' => 'Z-Index',
 		],
-		'display'             => [
+		'display' => [
 			'property' => 'display',
-			'label'    => 'Display',
-			'options'  => [
+			'label' => 'Display',
+			'options' => [
 				[
 					'label' => '',
 					'value' => '',
@@ -140,38 +141,38 @@ class Responsive implements Renderable, Scriptable, Styleable {
 				],
 			],
 		],
-		'order'               => [
+		'order' => [
 			'property' => 'order',
-			'label'    => 'Order',
+			'label' => 'Order',
 		],
 		'gridTemplateColumns' => [
 			'property' => 'grid-template-columns',
-			'label'    => 'Columns',
+			'label' => 'Columns',
 		],
-		'gridTemplateRows'    => [
+		'gridTemplateRows' => [
 			'property' => 'grid-template-rows',
-			'label'    => 'Rows',
+			'label' => 'Rows',
 		],
-		'gridColumnStart'     => [
+		'gridColumnStart' => [
 			'property' => 'grid-column-start',
-			'label'    => 'Column Start',
+			'label' => 'Column Start',
 		],
-		'gridColumnEnd'       => [
+		'gridColumnEnd' => [
 			'property' => 'grid-column-end',
-			'label'    => 'Column End',
+			'label' => 'Column End',
 		],
-		'gridRowStart'        => [
+		'gridRowStart' => [
 			'property' => 'grid-row-start',
-			'label'    => 'Row Start',
+			'label' => 'Row Start',
 		],
-		'gridRowEnd'          => [
+		'gridRowEnd' => [
 			'property' => 'grid-row-end',
-			'label'    => 'Row End',
+			'label' => 'Row End',
 		],
-		'overflow'            => [
+		'overflow' => [
 			'property' => 'overflow',
-			'label'    => 'Overflow',
-			'options'  => [
+			'label' => 'Overflow',
+			'options' => [
 				[
 					'label' => '',
 					'value' => '',
@@ -186,10 +187,10 @@ class Responsive implements Renderable, Scriptable, Styleable {
 				],
 			],
 		],
-		'pointerEvents'       => [
+		'pointerEvents' => [
 			'property' => 'pointer-events',
-			'label'    => 'Pointer Events',
-			'options'  => [
+			'label' => 'Pointer Events',
+			'options' => [
 				[
 					'label' => '',
 					'value' => '',
@@ -204,17 +205,17 @@ class Responsive implements Renderable, Scriptable, Styleable {
 				],
 			],
 		],
-		'width'               => [
+		'width' => [
 			'property' => 'width',
-			'label'    => 'Width',
+			'label' => 'Width',
 		],
-		'minWidth'            => [
+		'minWidth' => [
 			'property' => 'min-width',
-			'label'    => 'Min Width',
+			'label' => 'Min Width',
 		],
-		'maxWidth'            => [
+		'maxWidth' => [
 			'property' => 'max-width',
-			'label'    => 'Max Width',
+			'label' => 'Max Width',
 		],
 	];
 
@@ -230,56 +231,57 @@ class Responsive implements Renderable, Scriptable, Styleable {
 	 *
 	 * @return string
 	 */
-	public static function add_responsive_classes( string $block_content, array $block, array $options, bool $image = false ): string {
-		$dom   = DOM::create( $block_content );
-		$first = DOM::get_element( '*', $dom );
+	public static function add_responsive_classes(string $block_content, array $block, array $options, bool $image = false): string
+	{
+		$dom = DOM::create($block_content);
+		$first = DOM::get_element('*', $dom);
 
-		if ( ! $first ) {
+		if (!$first) {
 			return $block_content;
 		}
 
 		$element = $first;
 
-		if ( $image ) {
-			$link    = DOM::get_element( 'a', $first );
-			$element = $link ? DOM::get_element( 'img', $link ) : DOM::get_element( 'img', $first );
+		if ($image) {
+			$link = DOM::get_element('a', $first);
+			$element = $link ? DOM::get_element('img', $link) : DOM::get_element('img', $first);
 		}
 
-		if ( ! $element ) {
+		if (!$element) {
 			return $block_content;
 		}
 
-		$style   = $block['attrs']['style'] ?? [];
-		$classes = explode( ' ', $element->getAttribute( 'class' ) );
+		$style = $block['attrs']['style'] ?? [];
+		$classes = explode(' ', $element->getAttribute('class'));
 
-		foreach ( $options as $key => $args ) {
-			if ( ! isset( $style[ $key ] ) || $style[ $key ] === '' ) {
+		foreach ($options as $key => $args) {
+			if (!isset($style[$key]) || $style[$key] === '') {
 				continue;
 			}
 
-			$property = _wp_to_kebab_case( $key );
+			$property = _wp_to_kebab_case($key);
 
-			if ( isset( $args['options'] ) ) {
-				$both    = $style[ $key ]['all'] ?? '';
-				$mobile  = $style[ $key ]['mobile'] ?? '';
-				$desktop = $style[ $key ]['desktop'] ?? '';
+			if (isset($args['options'])) {
+				$both = $style[$key]['all'] ?? '';
+				$mobile = $style[$key]['mobile'] ?? '';
+				$desktop = $style[$key]['desktop'] ?? '';
 
-				if ( $both ) {
+				if ($both) {
 					$classes[] = "has-{$property}-{$both}";
 				}
 
-				if ( $mobile ) {
+				if ($mobile) {
 					$classes[] = "has-{$property}-{$mobile}-mobile";
 				}
 
-				if ( $desktop ) {
+				if ($desktop) {
 					$classes[] = "has-{$property}-{$desktop}-desktop";
 				}
 			} else {
 				$classes[] = "has-{$property}";
 			}
 
-			$element->setAttribute( 'class', implode( ' ', $classes ) );
+			$element->setAttribute('class', implode(' ', $classes));
 
 			$block_content = $dom->saveHTML();
 		}
@@ -298,50 +300,51 @@ class Responsive implements Renderable, Scriptable, Styleable {
 	 *
 	 * @return string
 	 */
-	public static function add_responsive_styles( string $block_content, array $block, array $options ): string {
+	public static function add_responsive_styles(string $block_content, array $block, array $options): string
+	{
 		$style = $block['attrs']['style'] ?? [];
 
-		if ( ! $style ) {
+		if (!$style) {
 			return $block_content;
 		}
 
-		foreach ( $options as $key => $args ) {
+		foreach ($options as $key => $args) {
 
-			if ( ! isset( $style[ $key ] ) ) {
+			if (!isset($style[$key])) {
 				continue;
 			}
 
 			// Has utility class.
-			if ( isset( $args['options'] ) ) {
+			if (isset($args['options'])) {
 				continue;
 			}
 
-			$dom   = DOM::create( $block_content );
-			$first = DOM::get_element( '*', $dom );
+			$dom = DOM::create($block_content);
+			$first = DOM::get_element('*', $dom);
 
-			if ( ! $first ) {
+			if (!$first) {
 				continue;
 			}
 
-			$styles   = CSS::string_to_array( $first->getAttribute( 'style' ) );
-			$property = _wp_to_kebab_case( $key );
-			$both     = $style[ $key ]['all'] ?? '';
-			$mobile   = $style[ $key ]['mobile'] ?? '';
-			$desktop  = $style[ $key ]['desktop'] ?? '';
+			$styles = CSS::string_to_array($first->getAttribute('style'));
+			$property = _wp_to_kebab_case($key);
+			$both = $style[$key]['all'] ?? '';
+			$mobile = $style[$key]['mobile'] ?? '';
+			$desktop = $style[$key]['desktop'] ?? '';
 
-			if ( $both ) {
-				$styles[ '--' . $property ] = $both;
+			if ($both) {
+				$styles['--' . $property] = $both;
 			}
 
-			if ( $mobile ) {
-				$styles[ '--' . $property . '-mobile' ] = $mobile;
+			if ($mobile) {
+				$styles['--' . $property . '-mobile'] = $mobile;
 			}
 
-			if ( $desktop ) {
-				$styles[ '--' . $property . '-desktop' ] = $desktop;
+			if ($desktop) {
+				$styles['--' . $property . '-desktop'] = $desktop;
 			}
 
-			$first->setAttribute( 'style', CSS::array_to_string( $styles ) );
+			$first->setAttribute('style', CSS::array_to_string($styles));
 
 			$block_content = $dom->saveHTML();
 		}
@@ -362,10 +365,11 @@ class Responsive implements Renderable, Scriptable, Styleable {
 	 *
 	 * @return string
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
 		$style = $block['attrs']['style'] ?? [];
 
-		if ( ! $style ) {
+		if (!$style) {
 			return $block_content;
 		}
 
@@ -393,7 +397,8 @@ class Responsive implements Renderable, Scriptable, Styleable {
 	 *
 	 * @return void
 	 */
-	public function scripts( Scripts $scripts ): void {
+	public function scripts(Scripts $scripts): void
+	{
 		$scripts->add_data(
 			'responsiveOptions',
 			self::SETTINGS,
@@ -411,8 +416,9 @@ class Responsive implements Renderable, Scriptable, Styleable {
 	 *
 	 * @return void
 	 */
-	public function styles( Styles $styles ): void {
-		$styles->add_callback( [ $this, 'get_styles' ] );
+	public function styles(Styles $styles): void
+	{
+		$styles->add_callback([$this, 'get_styles']);
 	}
 
 	/**
@@ -425,33 +431,34 @@ class Responsive implements Renderable, Scriptable, Styleable {
 	 *
 	 * @return string
 	 */
-	public function get_styles( string $template_html, bool $load_all ): string {
+	public function get_styles(string $template_html, bool $load_all): string
+	{
 		$options = array_merge(
 			self::SETTINGS,
 			Image::SETTINGS,
 		);
-		$both    = '';
-		$mobile  = '';
+		$both = '';
+		$mobile = '';
 		$desktop = '';
 
-		foreach ( $options as $key => $args ) {
-			$property       = _wp_to_kebab_case( $key );
+		foreach ($options as $key => $args) {
+			$property = _wp_to_kebab_case($key);
 			$select_options = $args['options'] ?? [];
 
-			foreach ( $select_options as $option ) {
+			foreach ($select_options as $option) {
 				$value = $option['value'] ?? '';
 
-				if ( ! $value ) {
+				if (!$value) {
 					continue;
 				}
 
 				$formatted_value = $value;
 
-				if ( 'aspect-ratio' === $property ) {
-					$formatted_value = str_replace( '/', '\/', $formatted_value );
+				if ('aspect-ratio' === $property) {
+					$formatted_value = str_replace('/', '\/', $formatted_value);
 				}
 
-				if ( $load_all || str_contains( $template_html, " has-{$property}-{$value}" ) ) {
+				if ($load_all || str_contains($template_html, " has-{$property}-{$value}")) {
 					$both .= sprintf(
 						'.has-%1$s-%3$s{%1$s:%2$s !important}',
 						$property,
@@ -460,7 +467,7 @@ class Responsive implements Renderable, Scriptable, Styleable {
 					);
 				}
 
-				if ( $load_all || str_contains( $template_html, " has-{$property}-{$value}-mobile" ) ) {
+				if ($load_all || str_contains($template_html, " has-{$property}-{$value}-mobile")) {
 					$mobile .= sprintf(
 						'.has-%1$s-%3$s-mobile{%1$s:%2$s !important}',
 						$property,
@@ -469,7 +476,7 @@ class Responsive implements Renderable, Scriptable, Styleable {
 					);
 				}
 
-				if ( $load_all || str_contains( $template_html, " has-{$property}-{$value}-desktop" ) ) {
+				if ($load_all || str_contains($template_html, " has-{$property}-{$value}-desktop")) {
 					$desktop .= sprintf(
 						'.has-%1$s-%3$s-desktop{%1$s:%2$s !important}',
 						$property,
@@ -480,23 +487,23 @@ class Responsive implements Renderable, Scriptable, Styleable {
 			}
 
 			// Has custom value.
-			if ( ! $select_options ) {
+			if (!$select_options) {
 
-				if ( $load_all || str_contains( $template_html, " has-$property" ) ) {
+				if ($load_all || str_contains($template_html, " has-$property")) {
 					$both .= sprintf(
 						'.has-%1$s{%1$s:var(--%1$s)}',
 						$property
 					);
 				}
 
-				if ( $load_all || str_contains( $template_html, "--$property-mobile" ) ) {
+				if ($load_all || str_contains($template_html, "--$property-mobile")) {
 					$mobile .= sprintf(
 						'.has-%1$s{%1$s:var(--%1$s-mobile,var(--%1$s))}',
 						$property
 					);
 				}
 
-				if ( $load_all || str_contains( $template_html, "--$property-desktop" ) ) {
+				if ($load_all || str_contains($template_html, "--$property-desktop")) {
 					$desktop .= sprintf(
 						'.has-%1$s{%1$s:var(--%1$s-desktop,var(--%1$s))}',
 						$property
@@ -507,19 +514,18 @@ class Responsive implements Renderable, Scriptable, Styleable {
 
 		$css = '';
 
-		if ( $both ) {
+		if ($both) {
 			$css .= $both;
 		}
 
-		if ( $mobile ) {
-			$css .= sprintf( '@media(max-width:781px){%s}', $mobile );
+		if ($mobile) {
+			$css .= sprintf('@media(max-width:781px){%s}', $mobile);
 		}
 
-		if ( $desktop ) {
-			$css .= sprintf( '@media(min-width:782px){%s}', $desktop );
+		if ($desktop) {
+			$css .= sprintf('@media(min-width:782px){%s}', $desktop);
 		}
 
 		return $css;
 	}
-
 }
