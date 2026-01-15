@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for design system components.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
@@ -35,7 +35,8 @@ use function trim;
 
 // Implements the ChildTheme class to support loading and managing child theme styles.
 
-class ChildTheme implements Styleable {
+class ChildTheme implements Styleable
+{
 
 	/**
 	 * Adds child theme style.css to inline styles.
@@ -46,22 +47,22 @@ class ChildTheme implements Styleable {
 	 *
 	 * @return void
 	 */
-	public function styles( Styles $styles ): void {
-		$child       = get_stylesheet_directory() . '/style.css';
-		$file_exists = file_exists( $child );
+	public function styles(Styles $styles): void
+	{
+		$child = get_stylesheet_directory() . '/style.css';
+		$file_exists = file_exists($child);
 
-		if ( ! $file_exists ) {
+		if (!$file_exists) {
 			return;
 		}
 
-		$content = trim( file_get_contents( $child ) );
-		$css     = str_replace(
-			Str::between( '/**', '*/', $content ),
+		$content = trim(file_get_contents($child));
+		$css = str_replace(
+			Str::between('/**', '*/', $content),
 			'',
 			$content
 		);
 
-		$styles->add_string( $css );
+		$styles->add_string($css);
 	}
-
 }
