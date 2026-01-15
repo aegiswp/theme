@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for core blocks within the Aegis Framework.
 namespace Aegis\Framework\CoreBlocks;
@@ -41,7 +41,8 @@ use WP_Block;
  * @package Aegis\Framework\CoreBlocks
  * @since   1.0.0
  */
-class PageList implements Renderable {
+class PageList implements Renderable
+{
 
 	/**
 	 * Renders the page-list block with custom block gap spacing.
@@ -60,28 +61,28 @@ class PageList implements Renderable {
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
 		$block_gap = $block['attrs']['style']['spacing']['blockGap'] ?? null;
 
 		// Only proceed if a block gap value is set.
-		if ( ! $block_gap ) {
+		if (!$block_gap) {
 			return $block_content;
 		}
 
-		$dom = DOM::create( $block_content );
-		$ul  = DOM::get_element( 'ul', $dom );
+		$dom = DOM::create($block_content);
+		$ul = DOM::get_element('ul', $dom);
 
 		// If the <ul> element is not found, return the original content.
-		if ( ! $ul ) {
+		if (!$ul) {
 			return $block_content;
 		}
 
 		// Apply the block gap as a CSS custom property.
-		$styles = CSS::string_to_array( $ul->getAttribute( 'style' ) );
-		$styles['--wp--style--block-gap'] = CSS::format_custom_property( $block_gap );
-		$ul->setAttribute( 'style', CSS::array_to_string( $styles ) );
+		$styles = CSS::string_to_array($ul->getAttribute('style'));
+		$styles['--wp--style--block-gap'] = CSS::format_custom_property($block_gap);
+		$ul->setAttribute('style', CSS::array_to_string($styles));
 
 		return $dom->saveHTML();
 	}
-
 }
