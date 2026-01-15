@@ -78,5 +78,4 @@ class SyntaxHighlightingCodeBlock implements Conditional, Styleable {
 			static::condition()
 		);
 	}
-
 }
