@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for blocks variations.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for block variations within the Aegis Framework.
 namespace Aegis\Framework\BlockVariations;
@@ -41,7 +41,8 @@ use WP_Block;
  * @package Aegis\Framework\BlockVariations
  * @since   1.0.0
  */
-class Grid implements Renderable {
+class Grid implements Renderable
+{
 
 	/**
 	 * Applies a default vertical alignment to grid-based group blocks.
@@ -61,33 +62,33 @@ class Grid implements Renderable {
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$layout      = $block['attrs']['layout'] ?? [];
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		$layout = $block['attrs']['layout'] ?? [];
 		$orientation = $layout['orientation'] ?? '';
 
 		// Only apply to blocks with the "grid" layout orientation.
-		if ( 'grid' !== $orientation ) {
+		if ('grid' !== $orientation) {
 			return $block_content;
 		}
 
 		// If a vertical alignment is already set by the user, do nothing.
-		if ( ! empty( $layout['verticalAlignment'] ) ) {
+		if (!empty($layout['verticalAlignment'])) {
 			return $block_content;
 		}
 
 		// --- Apply the default style ---
-		$dom = DOM::create( $block_content );
-		$div = DOM::get_element( 'div', $dom );
+		$dom = DOM::create($block_content);
+		$div = DOM::get_element('div', $dom);
 
-		if ( $div ) {
+		if ($div) {
 			// Default to stretching items to be equal height.
-			$styles                = CSS::string_to_array( $div->getAttribute( 'style' ) );
+			$styles = CSS::string_to_array($div->getAttribute('style'));
 			$styles['align-items'] = 'stretch';
-			$div->setAttribute( 'style', CSS::array_to_string( $styles ) );
+			$div->setAttribute('style', CSS::array_to_string($styles));
 			$block_content = $dom->saveHTML();
 		}
 
 		return $block_content;
 	}
-
 }
