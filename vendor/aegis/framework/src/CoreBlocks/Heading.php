@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for core blocks within the Aegis Framework.
 namespace Aegis\Framework\CoreBlocks;
@@ -51,13 +51,14 @@ use function sprintf;
  * @package Aegis\Framework\CoreBlocks
  * @since   1.0.0
  */
-class Heading implements Renderable {
+class Heading implements Renderable
+{
 
 	/**
 	 * Renders the heading block with custom enhancements.
 	 *
 	 * This method is hooked into the `render_block_core/heading` filter. It
-	 * applies custom spacing, generates a sanitized ID if one doesn't exist,
+	 * applies custom spacing, generates a sanitized ID if one does not exist,
 	 * and replaces the default "Search Results" title with a more specific one.
 	 *
 	 * @since 1.0.0
@@ -70,38 +71,39 @@ class Heading implements Renderable {
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$dom     = DOM::create( $block_content );
-		$level   = intval( $block['attrs']['level'] ?? 2 );
-		$heading = DOM::get_element( 'h' . $level, $dom );
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		$dom = DOM::create($block_content);
+		$level = intval($block['attrs']['level'] ?? 2);
+		$heading = DOM::get_element('h' . $level, $dom);
 
-		if ( ! $heading ) {
+		if (!$heading) {
 			return $block_content;
 		}
 
 		// --- Class and Style application ---
-		$classes = explode( ' ', $heading->getAttribute( 'class' ) );
-		if ( ! in_array( 'wp-block-heading', $classes, true ) ) {
+		$classes = explode(' ', $heading->getAttribute('class'));
+		if (!in_array('wp-block-heading', $classes, true)) {
 			$classes[] = 'wp-block-heading';
 		}
 
-		$styles = CSS::string_to_array( $heading->getAttribute( 'style' ) );
-		$gap    = $block['attrs']['style']['spacing']['blockGap'] ?? null;
+		$styles = CSS::string_to_array($heading->getAttribute('style'));
+		$gap = $block['attrs']['style']['spacing']['blockGap'] ?? null;
 
-		if ( $gap ) {
-			$styles['gap'] = CSS::format_custom_property( $gap );
+		if ($gap) {
+			$styles['gap'] = CSS::format_custom_property($gap);
 		}
-		$styles = CSS::add_shorthand_property( $styles, 'margin', $block['attrs']['style']['spacing']['margin'] ?? [] );
+		$styles = CSS::add_shorthand_property($styles, 'margin', $block['attrs']['style']['spacing']['margin'] ?? []);
 
-		$heading->setAttribute( 'class', implode( ' ', $classes ) );
-		if ( $styles ) {
-			$heading->setAttribute( 'style', CSS::array_to_string( $styles ) );
+		$heading->setAttribute('class', implode(' ', $classes));
+		if ($styles) {
+			$heading->setAttribute('style', CSS::array_to_string($styles));
 		}
 
 		// --- Automatic ID Generation ---
 		// If the heading does not have an ID, create one from its text content.
 		// This is useful for creating anchor links and for accessibility.
-		if ( ! $heading->getAttribute( 'id' ) ) {
+		if (!$heading->getAttribute('id')) {
 			$heading->setAttribute(
 				'id',
 				Str::remove_non_alphanumeric(
@@ -113,23 +115,22 @@ class Heading implements Renderable {
 		}
 
 		// Clean up empty style attribute if it exists.
-		if ( ! $heading->getAttribute( 'style' ) ) {
-			$heading->removeAttribute( 'style' );
+		if (!$heading->getAttribute('style')) {
+			$heading->removeAttribute('style');
 		}
 
 		// --- Search Results Heading Enhancement ---
 		// On search pages, replace the generic "Search Results" H1 with a more descriptive title.
 		$search_query = get_search_query();
-		$default      = esc_html__( 'Search Results', 'aegis' );
+		$default = esc_html__('Search Results', 'aegis');
 
-		if ( 1 === $level && $search_query && $heading->textContent === $default ) {
+		if (1 === $level && $search_query && $heading->textContent === $default) {
 			$heading->textContent = sprintf(
-				esc_html__( 'Search results for: ', 'aegis' ) . '%s',
-				esc_html( $search_query )
+				esc_html__('Search results for: ', 'aegis') . '%s',
+				esc_html($search_query)
 			);
 		}
 
 		return $dom->saveHTML();
 	}
-
 }
