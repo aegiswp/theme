@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for block settings.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for block settings within the Aegis Framework.
 namespace Aegis\Framework\BlockSettings;
@@ -44,7 +44,8 @@ use function wp_get_global_settings;
  * @package Aegis\Framework\BlockSettings
  * @since   1.0.0
  */
-class TextShadow implements Renderable {
+class TextShadow implements Renderable
+{
 
 	/**
 	 * Renders the block with custom text-shadow CSS variables.
@@ -64,52 +65,52 @@ class TextShadow implements Renderable {
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
 		$text_shadow = $block['attrs']['style']['textShadow'] ?? [];
 
-		if ( ! $text_shadow ) {
+		if (!$text_shadow) {
 			return $block_content;
 		}
 
-		$dom   = DOM::create( $block_content );
-		$first = DOM::get_element( '*', $dom );
+		$dom = DOM::create($block_content);
+		$first = DOM::get_element('*', $dom);
 
-		if ( ! $first ) {
+		if (!$first) {
 			return $block_content;
 		}
 
 		// Add a helper class to the block to activate the text-shadow styles.
-		$first_classes = explode( ' ', $first->getAttribute( 'class' ) );
-		$text_classes  = array_unique( [ ...$first_classes, 'has-text-shadow' ] );
-		$first->setAttribute( 'class', implode( ' ', $text_classes ) );
+		$first_classes = explode(' ', $first->getAttribute('class'));
+		$text_classes = array_unique([...$first_classes, 'has-text-shadow']);
+		$first->setAttribute('class', implode(' ', $text_classes));
 
-		$first_styles = CSS::string_to_array( $first->getAttribute( 'style' ) );
+		$first_styles = CSS::string_to_array($first->getAttribute('style'));
 
 		// Set the dimensional properties as CSS variables.
-		if ( $x = $text_shadow['x'] ?? null ) {
-			$first_styles['--wp--custom--text-shadow--x'] = esc_attr( $x ) . 'px';
+		if ($x = $text_shadow['x'] ?? null) {
+			$first_styles['--wp--custom--text-shadow--x'] = esc_attr($x) . 'px';
 		}
-		if ( $y = $text_shadow['y'] ?? null ) {
-			$first_styles['--wp--custom--text-shadow--y'] = esc_attr( $y ) . 'px';
+		if ($y = $text_shadow['y'] ?? null) {
+			$first_styles['--wp--custom--text-shadow--y'] = esc_attr($y) . 'px';
 		}
-		if ( $blur = $text_shadow['blur'] ?? null ) {
-			$first_styles['--wp--custom--text-shadow--blur'] = esc_attr( $blur ) . 'px';
+		if ($blur = $text_shadow['blur'] ?? null) {
+			$first_styles['--wp--custom--text-shadow--blur'] = esc_attr($blur) . 'px';
 		}
 
 		// Set the color property, converting a palette color to a CSS variable if it matches.
-		if ( $color = $text_shadow['color'] ?? null ) {
-			$palette                                          = wp_get_global_settings()['color']['palette']['theme'] ?? [];
-			$first_styles['--wp--custom--text-shadow--color'] = esc_attr( $color );
-			foreach ( $palette as $theme_color ) {
-				if ( $theme_color['color'] === $color ) {
+		if ($color = $text_shadow['color'] ?? null) {
+			$palette = wp_get_global_settings()['color']['palette']['theme'] ?? [];
+			$first_styles['--wp--custom--text-shadow--color'] = esc_attr($color);
+			foreach ($palette as $theme_color) {
+				if ($theme_color['color'] === $color) {
 					$first_styles['--wp--custom--text-shadow--color'] = "var(--wp--preset--color--{$theme_color['slug']})";
 				}
 			}
 		}
 
-		$first->setAttribute( 'style', CSS::array_to_string( $first_styles ) );
+		$first->setAttribute('style', CSS::array_to_string($first_styles));
 
 		return $dom->saveHTML();
 	}
-
 }
