@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for block settings.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for block settings within the Aegis Framework.
 namespace Aegis\Framework\BlockSettings;
@@ -43,7 +43,8 @@ use WP_Block;
  * @package Aegis\Framework\BlockSettings
  * @since   1.0.0
  */
-class Opacity implements Renderable {
+class Opacity implements Renderable
+{
 
 	/**
 	 * Renders the block with a custom opacity style.
@@ -65,29 +66,29 @@ class Opacity implements Renderable {
 	 *
 	 * @return string The block content (currently unmodified).
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$attrs   = $block['attrs'] ?? [];
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
+		$attrs = $block['attrs'] ?? [];
 		$opacity = $attrs['style']['filter']['opacity'] ?? '';
 
-		if ( $opacity ) {
-			$dom   = DOM::create( $block_content );
-			$first = DOM::get_element( '*', $dom );
+		if ($opacity) {
+			$dom = DOM::create($block_content);
+			$first = DOM::get_element('*', $dom);
 
-			if ( ! $first ) {
+			if (!$first) {
 				return $block_content;
 			}
 
-			$styles = CSS::string_to_array( $first->getAttribute( 'style' ) );
+			$styles = CSS::string_to_array($first->getAttribute('style'));
 
 			// The following line is the core logic, which is currently disabled.
 			// $styles['opacity'] = $opacity / 100;
 
-			$first->setAttribute( 'style', CSS::array_to_string( $styles ) );
+			$first->setAttribute('style', CSS::array_to_string($styles));
 
 			$block_content = $dom->saveHTML();
 		}
 
 		return $block_content;
 	}
-
 }
