@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for core blocks within the Aegis Framework.
 namespace Aegis\Framework\CoreBlocks;
@@ -47,7 +47,8 @@ use function in_array;
  * @package Aegis\Framework\CoreBlocks
  * @since   1.0.0
  */
-class Image implements Renderable {
+class Image implements Renderable
+{
 
 	/**
 	 * The Responsive settings handler.
@@ -65,7 +66,8 @@ class Image implements Renderable {
 	 *
 	 * @param Responsive $responsive The responsive settings handler.
 	 */
-	public function __construct( Responsive $responsive ) {
+	public function __construct(Responsive $responsive)
+	{
 		$this->responsive = $responsive;
 	}
 
@@ -86,29 +88,30 @@ class Image implements Renderable {
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render( string $block_content, array $block, WP_Block $instance ): string {
+	public function render(string $block_content, array $block, WP_Block $instance): string
+	{
 		$name = $block['blockName'] ?? '';
 
 		// This renderer targets multiple image-related blocks.
-		if ( ! in_array( $name, [ 'core/image', 'core/post-featured-image', 'aegis/image-compare' ], true ) ) {
+		if (!in_array($name, ['core/image', 'core/post-featured-image', 'aegis/image-compare'], true)) {
 			return $block_content;
 		}
 
-		$attrs         = $block['attrs'] ?? [];
-		$id            = $attrs['id'] ?? '';
-		$style         = $attrs['style'] ?? [];
-		$margin        = $style['spacing']['margin'] ?? '';
+		$attrs = $block['attrs'] ?? [];
+		$id = $attrs['id'] ?? '';
+		$style = $attrs['style'] ?? [];
+		$margin = $style['spacing']['margin'] ?? '';
 		$border_radius = $style['border']['radius'] ?? '';
 
 		// --- Responsive Classes ---
 		// The presence of an icon or custom SVG suggests a different kind of block
 		// (like an icon block using an image mask), which may not need standard
 		// responsive image handling.
-		$has_icon = ( $attrs['iconSet'] ?? '' ) && ( $attrs['iconName'] ?? '' ) || ( $attrs['iconSvgString'] ?? '' );
-		$has_svg  = $style['svgString'] ?? '';
+		$has_icon = ($attrs['iconSet'] ?? '') && ($attrs['iconName'] ?? '') || ($attrs['iconSvgString'] ?? '');
+		$has_svg = $style['svgString'] ?? '';
 
-		if ( ! $has_icon && ! $has_svg ) {
-			if ( in_array( $name, [ 'core/image', 'core/post-featured-image' ], true ) ) {
+		if (!$has_icon && !$has_svg) {
+			if (in_array($name, ['core/image', 'core/post-featured-image'], true)) {
 				$block_content = $this->responsive->add_responsive_classes(
 					$block_content,
 					$block,
@@ -119,24 +122,23 @@ class Image implements Renderable {
 		}
 
 		// --- Style Application ---
-		$dom    = DOM::create( $block_content );
-		$figure = DOM::get_element( 'figure', $dom );
+		$dom = DOM::create($block_content);
+		$figure = DOM::get_element('figure', $dom);
 
 		// Apply margin and border-radius to the <figure> element.
-		if ( $figure ) {
-			$styles = CSS::string_to_array( $figure->getAttribute( 'style' ) );
+		if ($figure) {
+			$styles = CSS::string_to_array($figure->getAttribute('style'));
 
-			if ( $margin ) {
-				$styles = CSS::add_shorthand_property( $styles, 'margin', $style['spacing']['margin'] ?? [] );
+			if ($margin) {
+				$styles = CSS::add_shorthand_property($styles, 'margin', $style['spacing']['margin'] ?? []);
 			}
-			if ( $border_radius ) {
-				$styles = CSS::add_shorthand_property( $styles, 'border-radius', $style['border']['radius'] ?? [] );
+			if ($border_radius) {
+				$styles = CSS::add_shorthand_property($styles, 'border-radius', $style['border']['radius'] ?? []);
 			}
 
-			$figure->setAttribute( 'style', CSS::array_to_string( $styles ) );
+			$figure->setAttribute('style', CSS::array_to_string($styles));
 		}
 
 		return $dom->saveHTML();
 	}
-
 }
