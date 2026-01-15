@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for blocks variations.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for block variations within the Aegis Framework.
 namespace Aegis\Framework\BlockVariations;
@@ -46,7 +46,8 @@ use function str_contains;
  * @package Aegis\Framework\BlockVariations
  * @since   1.0.0
  */
-class RelatedPosts {
+class RelatedPosts
+{
 
 	/**
 	 * Modifies the query arguments for a Query Loop block to fetch related posts.
@@ -68,43 +69,44 @@ class RelatedPosts {
 	 *
 	 * @return array The modified query arguments.
 	 */
-	public function related_posts_query_block( array $query, WP_Block $block, int $page ): array {
+	public function related_posts_query_block(array $query, WP_Block $block, int $page): array
+	{
 		$class_name = $block->attributes['className'] ?? '';
 
 		// Only run on blocks with the `is-related-posts` class.
-		if ( ! str_contains( $class_name, 'is-related-posts' ) ) {
+		if (!str_contains($class_name, 'is-related-posts')) {
 			return $query;
 		}
 
 		// Only run on single post/page views, not on archives or the front page.
-		if ( ! is_singular() || is_front_page() ) {
+		if (!is_singular() || is_front_page()) {
 			return $query;
 		}
 
-		// This check seems redundant but may be a failsafe. If the class isn't in the
+		// This check seems redundant but may be a failsafe. If the class is not in the
 		// raw HTML, return an empty query to show nothing.
-		if ( ! str_contains( $block->inner_html, 'is-related-posts' ) ) {
+		if (!str_contains($block->inner_html, 'is-related-posts')) {
 			return [];
 		}
 
 		// --- Build the new query ---
 		// Get all taxonomies associated with the current post's type.
-		$term_types = get_object_taxonomies( get_post_type() );
-		$tax_query  = [
+		$term_types = get_object_taxonomies(get_post_type());
+		$tax_query = [
 			'relation' => 'OR', // Find posts that match in ANY of the taxonomies.
 		];
 
 		// For each taxonomy, get the terms of the current post.
-		foreach ( $term_types as $term_type ) {
-			$terms = get_the_terms( get_the_ID(), $term_type );
-			if ( ! $terms ) {
+		foreach ($term_types as $term_type) {
+			$terms = get_the_terms(get_the_ID(), $term_type);
+			if (!$terms) {
 				continue;
 			}
 
 			// Add a query clause to find posts that are in any of these terms.
 			$tax_query[] = [
-				'taxonomy'         => $term_type,
-				'terms'            => wp_list_pluck( $terms, 'term_id' ),
+				'taxonomy' => $term_type,
+				'terms' => wp_list_pluck($terms, 'term_id'),
 				'include_children' => false,
 			];
 		}
@@ -113,11 +115,11 @@ class RelatedPosts {
 		return array_replace_recursive(
 			$query,
 			[
-				'post_type'    => get_post_type(),
-				'order'        => 'DESC',
-				'orderby'      => 'date',
-				'post__not_in' => [ get_the_ID() ], // Exclude the current post from the results.
-				'tax_query'    => $tax_query,
+				'post_type' => get_post_type(),
+				'order' => 'DESC',
+				'orderby' => 'date',
+				'post__not_in' => [get_the_ID()], // Exclude the current post from the results.
+				'tax_query' => $tax_query,
 			]
 		);
 	}
