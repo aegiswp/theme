@@ -1,20 +1,20 @@
 /*
  Theme Name: Aegis
- Theme URI: https://github.com/aegiswp/theme
+ Theme URI: https://www.atmostfear-ntertainment.com/aegis/
  Author: Atmostfear Entertainment
- Author URI: https://www.atmostfear-entertainment.com
- Description: Aegis is a lightweight full-site-editing block theme framework, optimized for speed and extensibility. It provides a powerful toolkit to build modern WordPress sites, loading zero CSS, JavaScript, or font files by default. Features include advanced customization settings like SVG icons, box shadows, gradient text, absolute positioning, and responsive controls. Designed for child themes and compatible with popular plugins for e-commerce and learning management systems, Aegis is the perfect starting point for your custom block theme.
+ Author URI: https://www.atmostfear-ntertainment.com/
+ Description: A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes.
  Requires at least: 6.6
- Tested up to: 6.8.2
+ Tested up to: 6.9
  Requires PHP: 7.4
  Version: 1.0.0-rc.1
- License: GNU General Public License v2 or later
- License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ License: GPL v3.0
+ License URI: http://www.gnu.org/licenses/gpl-3.0.html
  Text Domain: aegis
  Domain Path: /languages
  Tags: accessibility-ready, block-patterns, block-styles, blog, custom-colors, custom-logo, custom-menu, e-commerce, editor-style, featured-images, footer-widgets, full-site-editing, full-width-template, grid-layout, one-column, portfolio, rtl-language-support, sticky-post, style-variations, template-editing, threaded-comments, three-columns, translation-ready, two-columns, wide-blocks
 
- Aegis, (c) 2022-2025 Atmostfear Entertainment SAS.
+ Aegis, (c) 2022-2026 Atmostfear Entertainment S.A.S.
  Aegis is distributed under the terms of the GNU GPL.
 */
 
@@ -31,4 +31,3 @@
  *
  * @link https://developer.wordpress.org/themes/advanced-topics/theme-json/
  */
- 
