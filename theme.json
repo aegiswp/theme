@@ -207,8 +207,8 @@
       "gradients": [
         {
           "gradient": "linear-gradient(135deg,var(--wp--preset--color--primary-700) 0%,var(--wp--preset--color--primary-500) 100%)",
-          "name": "Primary 600/500",
-          "slug": "primary-600-500"
+          "name": "Primary 700/500",
+          "slug": "primary-700-500"
         },
         {
           "gradient": "linear-gradient(135deg,var(--wp--preset--color--primary-500) 0%,var(--wp--preset--color--primary-300) 100%)",
