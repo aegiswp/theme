@@ -1,13 +1,13 @@
 <?php
 /**
  * Title: Single Blog Card
- * Slug: card
+ * Slug: single-card
  * Categories: blog
  * ID: 432
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["blog"],"patternName":"card","name":"Single Blog Card"},"style":{"spacing":{"blockGap":"0"},"maxWidth":{"all":"400px"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+<!-- wp:group {"metadata":{"categories":["blog"],"patternName":"single-card","name":"Single Blog Card"},"style":{"spacing":{"blockGap":"0"},"maxWidth":{"all":"400px"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group">
     <!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","dimRatio":30,"style":{"aspectRatio":{"all":""},"objectFit":{"all":""},"objectPosition":{"all":"top"},"height":{"all":"100%"},"width":{"all":""}}} /-->
 
