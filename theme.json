@@ -1234,10 +1234,6 @@
   },
   "customTemplates": [
     {
-      "title": "Archive: Download",
-      "name": "archive-download"
-    },
-    {
       "title": "Archive: Product",
       "name": "archive-product"
     },
