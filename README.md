@@ -2,7 +2,8 @@
 
 Welcome to the Aegis Theme development repository.
 
-![Aegis](https://github.com/user-attachments/assets/4a923c3a-fada-4400-9345-bffe949d31f1)
+
+![Aegis](https://github.com/user-attachments/assets/365b757e-43c1-4701-831f-aa4e6d5368b1)
 
 ##### Table of Contents
 
