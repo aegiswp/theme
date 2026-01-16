@@ -2,7 +2,7 @@
 /**
  * Title: Portfolio Image Gallery
  * Slug: image-gallery
- * Categories: Portfolio
+ * Categories: portfolio
  * ID: 554
  */
 ?>
