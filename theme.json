@@ -1258,10 +1258,6 @@
       "name": "product-search-results"
     },
     {
-      "title": "Single item: Download",
-      "name": "single-download"
-    },
-    {
       "title": "Single item: Product",
       "name": "single-product"
     },
