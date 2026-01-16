@@ -902,14 +902,12 @@
           "background": "var(--wp--preset--color--neutral-100)"
         }
       },
-      "core/archives": {},
       "core/avatar": {
         "border": {
           "border": "var(--wp--preset--color--inherit) !important",
           "radius": "50%"
         }
       },
-      "core/block": {},
       "core/buttons": {
         "border": {
           "radius": "var(--wp--custom--border--radius)"
@@ -923,8 +921,6 @@
           "blockGap": "var(--wp--preset--spacing--xxs)"
         }
       },
-      "core/calendar": {},
-      "core/categories": {},
       "core/code": {
         "border": {
           "width": "0px",
@@ -968,15 +964,6 @@
           "radius": "50%"
         }
       },
-      "core/comment-author-name": {},
-      "core/comment-edit-link": {},
-      "core/comment-content": {},
-      "core/comment-date": {},
-      "core/comment-reply-link": {},
-      "core/comment-template": {},
-      "core/comments": {},
-      "core/comments-pagination": {},
-      "core/comments-pagination-next": {},
       "core/comments-pagination-numbers": {},
       "core/comments-pagination-previous": {},
       "core/comments-title": {},
