@@ -1262,14 +1262,6 @@
       "name": "single-product"
     },
     {
-      "title": "Taxonomy Download Category",
-      "name": "taxonomy-download_category"
-    },
-    {
-      "title": "Taxonomy Download Tag",
-      "name": "taxonomy-download_tag"
-    },
-    {
       "title": "Taxonomy Product Category",
       "name": "taxonomy-product_cat"
     },
