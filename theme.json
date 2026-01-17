@@ -1003,18 +1003,11 @@
           "blockGap": "var(--wp--preset--spacing--sm)"
         }
       },
-      "core/page-list-item": {},
-      "core/paragraph": {},
       "core/post-author": {
         "border": {
           "radius": "50%"
         }
       },
-      "core/post-author-biography": {},
-      "core/post-author-name": {},
-      "core/post-comments-count": {},
-      "core/post-comments-form": {},
-      "core/post-comments-link": {},
       "core/post-comment": {
         "spacing": {
           "padding": {
@@ -1035,7 +1028,6 @@
           "fontSize": "var(--wp--preset--font-size--12)"
         }
       },
-      "core/post-excerpt": {},
       "core/post-featured-image": {
         "border": {
           "radius": "var(--wp--custom--border--radius)"
