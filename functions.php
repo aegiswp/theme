@@ -34,12 +34,11 @@ Aegis::register(__FILE__);
 // Initialize the GitHub Updater (Public Repo)
 if (class_exists('YahnisElsts\PluginUpdateChecker\v5\PucFactory')) {
     $myUpdateChecker = YahnisElsts\PluginUpdateChecker\v5\PucFactory::buildUpdateChecker(
-        'https://github.com/aegiswp/theme', // Public URL
-        __FILE__,                           // Full path to this file
-        'aegis'                             // Theme slug
+        'https://github.com/aegiswp/theme',           // Public GitHub repo URL
+        get_stylesheet_directory() . '/style.css',    // Theme's style.css path
+        'aegis'                                        // Theme slug
     );
 
-    // GitHub branch to watch
-    $myUpdateChecker->setBranch('main');
-
+    // Enable GitHub release assets for stable version updates
+    $myUpdateChecker->getVcsApi()->enableReleaseAssets();
 }
