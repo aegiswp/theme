@@ -1038,7 +1038,6 @@
           }
         }
       },
-      "core/post-navigation-link": {},
       "core/post-template": {
         "spacing": {
           "blockGap": "inherit",
@@ -1058,7 +1057,6 @@
           "fontSize": "var(--wp--preset--font-size--14)"
         }
       },
-      "core/post-title": {},
       "core/preformatted": {
         "border": {
           "radius": "var(--wp--custom--border--radius)"
@@ -1088,14 +1086,6 @@
           }
         }
       },
-      "core/query": {},
-      "core/query-no-results": {},
-      "core/query-pagination": {},
-      "core/query-pagination-next": {},
-      "core/query-pagination-numbers": {},
-      "core/query-pagination-previous": {},
-      "core/query-title": {},
-      "core/query-total": {},
       "core/quote": {
         "border": {
           "left": {
