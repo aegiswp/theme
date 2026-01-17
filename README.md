@@ -8,7 +8,6 @@ Welcome to the Aegis Theme development repository.
 ##### Table of Contents
 
 - [Introduction](#introduction)
-- [Description](#description)
 - [Working with Block Themes](#working-with-block-themes)
   - [Site Editor](#site-editor)
   - [Patterns](#patterns)
@@ -18,8 +17,11 @@ Welcome to the Aegis Theme development repository.
 - [Presets](#presets)
   - [Layout Presets](#layout-presets)
   - [Spacing Presets](#spacing-presets)
-- [Development](#development)
-- [Getting Started with Aegis](#getting-started-with-aegis)
+  - [Typography Presets](#typography-presets)
+  - [Shadow Presets](#shadow-presets)
+  - [Gradient Presets](#gradient-presets)
+- [Features](#features)
+- [Getting Started](#getting-started-with-aegis)
   - [Requirements](#requirements)
 - [Deploying WordPress Locally](#deploying-wordpress-locally)
   - [Development Environment Commands](#development-environment-commands)
@@ -38,7 +40,8 @@ Welcome to the Aegis Theme development repository.
   - [Version Control](#version-control)
   - [Pull Requests and Reviews](#pull-requests-and-reviews)
   - [Final Checks](#final-checks)
-- [Development](#development)
+- [Development Philosophy](#development)
+- [Pattern Creation Guidelines](#pattern-creation-guidelines)
 - [Experimenting](#experimenting)
 - [Resources](#resources)
 - [Demos](#demos)
@@ -49,16 +52,11 @@ Welcome to the Aegis Theme development repository.
 
 ## Introduction
 
-Aegis stands tall in the realm of Full Site Editing (FSE) themes, offering a steadfast foundation that seamlessly fuses Vanilla JS with the adaptability of Flexbox Grid.
+Aegis is a cutting-edge Full Site Editing (FSE) theme that combines performance with aesthetics. Built with Vanilla JavaScript and Flexbox Grid, Aegis provides a lightweight yet powerful foundation for modern WordPress development.
 
+Upholding the highest coding standards, Aegis is engineered for scalability—from personal blogs to professional portfolios and expansive business sites. The theme seamlessly supports multisite configurations, WooCommerce, SEO optimization, and learning management systems.
 
-## Description
-
-Aegis epitomizes a perfect balance between performance and aesthetics. Utilizing the prowess of Vanilla JavaScript, it ensures a lightweight and powerful foundation. The integration of Flexbox Grid means the theme is entirely responsive, flexible, and easy to extend, always prioritizing quality.
-
-Upholding the highest coding standards, Aegis is the ultimate choice for creating scalable websites, from intimate personal blogs to professional portfolios and expansive business sites.
-
-Designed for expansive compatibility, Aegis effortlessly supports multisite configurations and is primed for WooCommerce, search engine optimization, and learning management system functionalities. Every detail of this theme has been meticulously designed, emphasizing performance, accessibility, and user experience. Built to endure, Aegis is a theme destined to remain relevant and efficient through the ages.
+Every detail emphasizes performance, accessibility, and user experience. Aegis is particularly optimized for users with color vision deficiency, making it a truly inclusive design solution built to remain relevant for years to come.
 
 ## Working with Block Themes
 
@@ -119,35 +117,202 @@ This functionality essentially transforms the site editor into a theme builder. 
 
 ### Layout Presets
 
+Aegis utilizes responsive layout constraints that ensure optimal content width across all devices:
+
 | `theme.json` preset | `theme.json` value |
-|---------------|---------|
-| `contentSize` | `720px` |
-| `wideSize`    | `1620px` |
+|---------------------|--------------------------------------------------|
+| `contentSize` | `min(calc(100dvw - var(--wp--preset--spacing--lg,2rem) * 2), 720px)` |
+| `wideSize` | `min(calc(100vw - var(--wp--preset--spacing--lg,2rem) * 2), 1620px)` |
 
 ### Spacing Presets
 
-| Figma Token | CSS Variable | `theme.json` value | `theme.json` slug |
-|-------------|--------------|--------------------|-------------------|
-| `Spacing/30` | `--wp--preset--spacing--30` | `min(2.5rem, 5vw)` | `30` |
-| `Spacing/40` | `--wp--preset--spacing--40` | `min(4rem, 8vw)` | `40` |
-| `Spacing/50` | `--wp--preset--spacing--50` | `min(6.5rem, 13vw)` | `50` |
-| `Spacing/60` | `--wp--preset--spacing--60` | `min(10.5rem, 24vw)` | `60` |
+Aegis employs a fluid spacing system that scales intelligently across viewport sizes:
+
+| Name | Slug | CSS Variable | Size |
+|------|------|--------------|------|
+| XXS (8px) | `xxs` | `--wp--preset--spacing--xxs` | `var(--wp--preset--font-size--8)` |
+| XS (16px) | `xs` | `--wp--preset--spacing--xs` | `var(--wp--preset--font-size--16)` |
+| S (24px) | `sm` | `--wp--preset--spacing--sm` | `var(--wp--preset--font-size--24)` |
+| M (32px) | `md` | `--wp--preset--spacing--md` | `var(--wp--preset--font-size--32)` |
+| L (48px) | `lg` | `--wp--preset--spacing--lg` | `var(--wp--preset--font-size--48)` |
+| XL (64px) | `xl` | `--wp--preset--spacing--xl` | `var(--wp--preset--font-size--64)` |
+| XXL (96px) | `xxl` | `--wp--preset--spacing--xxl` | `var(--wp--preset--font-size--96)` |
+
+### Typography Presets
+
+Aegis features a comprehensive fluid typography system with 22 font size presets:
+
+| Name | Slug | Size | Fluid Range |
+|------|------|------|-------------|
+| 96px | `96` | `clamp(80px,9.6vw,96px)` | 80px → 96px |
+| 88px | `88` | `clamp(72px,8.8vw,88px)` | 72px → 88px |
+| 80px | `80` | `clamp(64px,8vw,80px)` | 64px → 80px |
+| 72px | `72` | `clamp(56px,7.2vw,72px)` | 56px → 72px |
+| 64px | `64` | `clamp(52px,6.4vw,64px)` | 52px → 64px |
+| 60px | `60` | `clamp(48px,6vw,60px)` | 48px → 60px |
+| 52px | `52` | `clamp(44px,5.2vw,52px)` | 44px → 52px |
+| 48px | `48` | `clamp(40px,4.8vw,48px)` | 40px → 48px |
+| 44px | `44` | `clamp(40px,4.4vw,44px)` | 40px → 44px |
+| 40px | `40` | `clamp(36px,4vw,40px)` | 36px → 40px |
+| 36px | `36` | `clamp(32px,3.6vw,36px)` | 32px → 36px |
+| 32px | `32` | `clamp(28px,3.2vw,32px)` | 28px → 32px |
+| 28px | `28` | `clamp(24px,2.8vw,28px)` | 24px → 28px |
+| 24px | `24` | `clamp(22px,2.4vw,24px)` | 22px → 24px |
+| 22px | `22` | `clamp(20px,2.2vw,22px)` | 20px → 22px |
+| 20px | `20` | `clamp(19px,2vw,20px)` | 19px → 20px |
+| 18px | `18` | `clamp(17px,1.8vw,18px)` | 17px → 18px |
+| 16px | `16` | `clamp(16px,1.6vw,16px)` | 16px → 16px |
+| 14px | `14` | `clamp(14px,1.4vw,14px)` | 14px → 14px |
+| 12px | `12` | `clamp(12px,1.2vw,12px)` | 12px → 12px |
+| 10px | `10` | `clamp(10px,1.0vw,10px)` | 10px → 10px |
+| 8px | `8` | `clamp(8px,0.8vw,8px)` | 8px → 8px |
+
+**Font Families**
+
+| Name | Slug | Font Family | Weight Range |
+|------|------|-------------|-------------|
+| Lexend | `lexend` | `Lexend, sans-serif` | 300–900 |
+| JetBrains | `jetbrains` | `JetBrains, monospace` | 100–900 |
+
+### Shadow Presets
+
+Aegis provides seven box shadow presets for depth and elevation:
+
+| Name | Slug | Shadow Value |
+|------|------|-------------|
+| None | `none` | `none` |
+| XX Small | `xxs` | `0 1px 2px 0 var(--wp--custom--box-shadow--color)` |
+| X Small | `xs` | `0 1px 2px var(--wp--custom--box-shadow--color), 0 2px 4px 0 var(--wp--custom--box-shadow--color)` |
+| Small | `sm` | `0 1px 2px 0 var(--wp--custom--box-shadow--color), 0 4px 12px -4px var(--wp--custom--box-shadow--color)` |
+| Medium | `md` | `0 1px 2px 0 var(--wp--custom--box-shadow--color), 0 4px 8px var(--wp--custom--box-shadow--color)` |
+| Large | `lg` | `0 2px 4px 0 var(--wp--custom--box-shadow--color), 0 8px 24px var(--wp--custom--box-shadow--color)` |
+| X Large | `xl` | `0 4px 8px -4px var(--wp--custom--box-shadow--color), 0 16px 24px -4px var(--wp--custom--box-shadow--color)` |
+| XX Large | `xxl` | `0 4px 8px 0 var(--wp--custom--box-shadow--color), 0 24px 48px 0 var(--wp--custom--box-shadow--color)` |
+
+### Gradient Presets
+
+Aegis includes 12 pre-configured gradients for sophisticated visual effects:
+
+| Name | Slug | Gradient |
+|------|------|----------|
+| Primary 700/500 | `primary-700-500` | `linear-gradient(135deg, primary-700 0%, primary-500 100%)` |
+| Primary 500/300 | `primary-500-300` | `linear-gradient(135deg, primary-500 0%, primary-300 100%)` |
+| Primary Transparent | `primary-transparent` | `linear-gradient(180deg, transparent 0%, primary-100 100%)` |
+| Primary Foreground | `primary-foreground` | `linear-gradient(135deg, primary-900 0%, neutral-950 100%)` |
+| Body/Heading | `body-heading` | `linear-gradient(135deg, neutral-600 0%, neutral-950 100%)` |
+| Surface/Border | `surface-border` | `linear-gradient(135deg, neutral-100 0%, neutral-200 100%)` |
+| Background/Transparent | `background-transparent` | `linear-gradient(0deg, background 50%, transparent 50%)` |
+| Transparent/Background | `transparent-background` | `linear-gradient(180deg, background 50%, transparent 50%)` |
+| Fade Left | `fade-left` | `linear-gradient(90deg, neutral-0 0%, transparent 100%)` |
+| Fade Right | `fade-right` | `linear-gradient(-90deg, neutral-0 0%, transparent 100%)` |
+| Checkerboard | `checkerboard` | `repeating-conic-gradient(neutral-200 0% 25%, transparent 0% 50%)` |
+| Grid | `grid` | `conic-gradient(from 90deg at 1px 1px, transparent 90deg, neutral-100 0)` |
 
 ### Token Cheat-sheet
 
 #### Default Global Style
 
-| Figma Token | CSS Variable | Color | Name | Slug | Visual |
-| --------------- | --------------- | --------------- | --------------------- | --------------------- | --------------------- |
-| N/A | --wp--preset--color--base | `#f9f9f9` | Base | base | ![jpg](https://placehold.co/20x20/F9F9F9/F9F9F9/jpg) |
-| N/A | --wp--preset--color--contrast | `#0a0a0a` | Contrast | contrast | ![jpg](https://placehold.co/20x20/0a0a0a/0a0a0a/jpg) |
-| N/A | --wp--preset--color--primary | `#3e3d3d` | Primary | primary | ![jpg](https://placehold.co/20x20/3e3d3d/3e3d3d/jpg) |
-| N/A | --wp--preset--color--secondary | `#ebebef` | Secondary | secondary | ![jpg](https://placehold.co/20x20/ebebef/ebebef/jpg) |
-| N/A | --wp--preset--color--tertiary | `#d7dade` | Tertiary | tertiary | ![jpg](https://placehold.co/20x20/d7dade/d7dade/jpg) |
-| N/A | --wp--preset--color--quaternary | `#ccd0d4` | Quaternary | quaternary | ![jpg](https://placehold.co/20x20/ccd0d4/ccd0d4/jpg) |
-| N/A | --wp--preset--color--quinary | `#b5bcc2` | Quinary | quinary | ![jpg](https://placehold.co/20x20/b5bcc2/b5bcc2/jpg) |
+The Aegis theme features a comprehensive color system with Primary, Neutral, and Semantic colors optimized for accessibility and visual hierarchy:
 
-### Pattern Creation Guidelines
+**Primary Colors**
+
+| CSS Variable | Color | Name | Slug | Visual |
+|--------------|-------|------|------|--------|
+| `--wp--preset--color--primary-950` | `#1e2225` | Primary 950 | `primary-950` | ![jpg](https://placehold.co/20x20/1e2225/1e2225/jpg) |
+| `--wp--preset--color--primary-900` | `#212528` | Primary 900 | `primary-900` | ![jpg](https://placehold.co/20x20/212528/212528/jpg) |
+| `--wp--preset--color--primary-800` | `#24282c` | Primary 800 | `primary-800` | ![jpg](https://placehold.co/20x20/24282c/24282c/jpg) |
+| `--wp--preset--color--primary-700` | `#343a40` | Primary 700 | `primary-700` | ![jpg](https://placehold.co/20x20/343a40/343a40/jpg) |
+| `--wp--preset--color--primary-600` | `#495057` | Primary 600 | `primary-600` | ![jpg](https://placehold.co/20x20/495057/495057/jpg) |
+| `--wp--preset--color--primary-500` | `#6c757d` | Primary 500 | `primary-500` | ![jpg](https://placehold.co/20x20/6c757d/6c757d/jpg) |
+| `--wp--preset--color--primary-400` | `#8d959d` | Primary 400 | `primary-400` | ![jpg](https://placehold.co/20x20/8d959d/8d959d/jpg) |
+| `--wp--preset--color--primary-300` | `#a9b1b9` | Primary 300 | `primary-300` | ![jpg](https://placehold.co/20x20/a9b1b9/a9b1b9/jpg) |
+| `--wp--preset--color--primary-200` | `#9da5ad` | Primary 200 | `primary-200` | ![jpg](https://placehold.co/20x20/9da5ad/9da5ad/jpg) |
+| `--wp--preset--color--primary-100` | `#a5adb5` | Primary 100 | `primary-100` | ![jpg](https://placehold.co/20x20/a5adb5/a5adb5/jpg) |
+| `--wp--preset--color--primary-50` | `#c9cfd4` | Primary 50 | `primary-50` | ![jpg](https://placehold.co/20x20/c9cfd4/c9cfd4/jpg) |
+| `--wp--preset--color--primary-25` | `#edf0f2` | Primary 25 | `primary-25` | ![jpg](https://placehold.co/20x20/edf0f2/edf0f2/jpg) |
+
+**Neutral Colors**
+
+| CSS Variable | Color | Name | Slug | Visual |
+|--------------|-------|------|------|--------|
+| `--wp--preset--color--neutral-950` | `#202427` | Neutral 950 | `neutral-950` | ![jpg](https://placehold.co/20x20/202427/202427/jpg) |
+| `--wp--preset--color--neutral-900` | `#25292d` | Neutral 900 | `neutral-900` | ![jpg](https://placehold.co/20x20/25292d/25292d/jpg) |
+| `--wp--preset--color--neutral-800` | `#313539` | Neutral 800 | `neutral-800` | ![jpg](https://placehold.co/20x20/313539/313539/jpg) |
+| `--wp--preset--color--neutral-700` | `#40454a` | Neutral 700 | `neutral-700` | ![jpg](https://placehold.co/20x20/40454a/40454a/jpg) |
+| `--wp--preset--color--neutral-600` | `#50555b` | Neutral 600 | `neutral-600` | ![jpg](https://placehold.co/20x20/50555b/50555b/jpg) |
+| `--wp--preset--color--neutral-500` | `#7e858c` | Neutral 500 | `neutral-500` | ![jpg](https://placehold.co/20x20/7e858c/7e858c/jpg) |
+| `--wp--preset--color--neutral-400` | `#8e959d` | Neutral 400 | `neutral-400` | ![jpg](https://placehold.co/20x20/8e959d/8e959d/jpg) |
+| `--wp--preset--color--neutral-300` | `#dee2e6` | Neutral 300 | `neutral-300` | ![jpg](https://placehold.co/20x20/dee2e6/dee2e6/jpg) |
+| `--wp--preset--color--neutral-200` | `#e4e7eb` | Neutral 200 | `neutral-200` | ![jpg](https://placehold.co/20x20/e4e7eb/e4e7eb/jpg) |
+| `--wp--preset--color--neutral-100` | `#e9ecef` | Neutral 100 | `neutral-100` | ![jpg](https://placehold.co/20x20/e9ecef/e9ecef/jpg) |
+| `--wp--preset--color--neutral-50` | `#f1f3f5` | Neutral 50 | `neutral-50` | ![jpg](https://placehold.co/20x20/f1f3f5/f1f3f5/jpg) |
+| `--wp--preset--color--neutral-0` | `#f8f9fa` | Neutral 0 | `neutral-0` | ![jpg](https://placehold.co/20x20/f8f9fa/f8f9fa/jpg) |
+
+**Semantic Colors**
+
+| CSS Variable | Color | Name | Slug | Visual |
+|--------------|-------|------|------|--------|
+| `--wp--preset--color--success-600` | `#40916c` | Success 600 | `success-600` | ![jpg](https://placehold.co/20x20/40916c/40916c/jpg) |
+| `--wp--preset--color--success-500` | `#52b788` | Success 500 | `success-500` | ![jpg](https://placehold.co/20x20/52b788/52b788/jpg) |
+| `--wp--preset--color--success-100` | `#d8f3dc` | Success 100 | `success-100` | ![jpg](https://placehold.co/20x20/d8f3dc/d8f3dc/jpg) |
+| `--wp--preset--color--warning-600` | `#e85d04` | Warning 600 | `warning-600` | ![jpg](https://placehold.co/20x20/e85d04/e85d04/jpg) |
+| `--wp--preset--color--warning-500` | `#f48c06` | Warning 500 | `warning-500` | ![jpg](https://placehold.co/20x20/f48c06/f48c06/jpg) |
+| `--wp--preset--color--warning-100` | `#ffdd00` | Warning 100 | `warning-100` | ![jpg](https://placehold.co/20x20/ffdd00/ffdd00/jpg) |
+| `--wp--preset--color--error-600` | `#dc2f02` | Error 600 | `error-600` | ![jpg](https://placehold.co/20x20/dc2f02/dc2f02/jpg) |
+| `--wp--preset--color--error-500` | `#ec5766` | Error 500 | `error-500` | ![jpg](https://placehold.co/20x20/ec5766/ec5766/jpg) |
+| `--wp--preset--color--error-100` | `#f4998d` | Error 100 | `error-100` | ![jpg](https://placehold.co/20x20/f4998d/f4998d/jpg) |
+
+**Utility Colors**
+
+| CSS Variable | Color | Name | Slug | Visual |
+|--------------|-------|------|------|--------|
+| `--wp--preset--color--transparent` | `transparent` | Transparent | `transparent` | — |
+| `--wp--preset--color--current` | `currentcolor` | Current | `current` | — |
+| `--wp--preset--color--inherit` | `inherit` | Inherit | `inherit` | — |
+
+## Features
+
+Aegis is a comprehensive Full Site Editing (FSE) theme that extends the capabilities of WordPress with powerful features designed for modern web development. Built with performance, accessibility, and developer experience in mind, Aegis provides an extensive toolkit for creating stunning, high-performance websites.
+
+### Core Architecture
+
+**Enhanced Block Supports**: Aegis extends WordPress core blocks with additional appearance controls including box shadows, absolute positioning, CSS transforms, and CSS filters. These enhancements provide granular control over block presentation without requiring custom code.
+
+**Advanced Global Styles**: Leveraging the full power of `theme.json`, Aegis implements a sophisticated design system with comprehensive color palettes, fluid typography scales, intelligent spacing presets, and responsive layout constraints. All styling is managed through the Site Editor for a seamless customization experience.
+
+**Optimized CSS Framework**: The theme features a minimal, performance-focused CSS framework where all stylesheets are conditionally loaded only when required by a page. This intelligent asset loading ensures optimal performance while addressing common core CSS issues.
+
+### Content & Design Tools
+
+**SVG Icon System**: Create inline SVG icons directly within the image block or as inline text. Aegis includes WordPress, Dashicons, and Social Icons by default, with full support for custom SVGs. Simply search for "Icon" in the block inserter to get started.
+
+**Variable Font Library**: Access a curated collection of popular variable Google Fonts, with fonts conditionally loaded based on selections made in Site Editor > Styles. This ensures optimal typography without unnecessary asset bloat.
+
+**Gradient Toolset**: Rich text gradient formats and comprehensive gradient settings for text blocks enable sophisticated visual treatments. The theme includes pre-configured gradients for common use cases, with support for custom gradient creation.
+
+**Advanced Text Formats**: Extended text formatting options including clear formatting, underline, gradient text, dynamic font sizes, and more. These formatting tools provide fine-grained control over typography and text presentation.
+
+### Layout & Navigation
+
+**Full Site Editing Support**: Enhanced page, post, and template part settings make customizing individual pages intuitive and powerful. Aegis provides additional controls and options beyond core WordPress FSE capabilities.
+
+**Responsive Controls**: Built-in responsive utilities including reverse-on-mobile layouts, hide-on-mobile visibility controls, and intelligent breakpoint management ensure your designs look perfect on all devices.
+
+**Flexible Header Styles**: Support for absolute positioned headers, transparent header overlays, and sticky navigation styles. These options enable sophisticated header designs that adapt to different page contexts.
+
+**Mega Menu System**: Create sophisticated multi-column dropdown menus using the core submenu block. Aegis's mega menu implementation leverages native WordPress blocks for maximum compatibility and ease of use.
+
+**CSS-Only Search Toggle**: Full-screen search functionality with a pure CSS implementation—no JavaScript required. This search toggle provides an elegant user experience while maintaining optimal performance.
+
+### User Experience
+
+**Intelligent Dark Mode**: Automatic dark mode support that adapts to user preferences and system settings. Dark mode can be customized or deactivated through the Blockify settings in the page editor, providing flexibility for different use cases.
+
+**Accessibility First**: Designed with accessibility at its core, Aegis prioritizes WCAG compliance, semantic HTML, proper heading hierarchies, and keyboard navigation. The theme is optimized for users with color vision deficiency.
+
+**Performance Optimized**: Every aspect of Aegis is engineered for speed. From conditional asset loading to optimized CSS delivery and minimal JavaScript footprint, the theme ensures fast page loads and excellent Core Web Vitals scores.
+
+## Pattern Creation Guidelines
 
 For the construction of patterns pertaining to the default theme, kindly consult the guidelines delineated in the [block-patterns handbook](https://developer.wordpress.org/block-editor/reference-guides/block-api/block-patterns/).
 
@@ -267,11 +432,11 @@ By adhering to these practices, you can make your development process more strea
 
 To get started with Aegis development:
 
-1. Set up a [WordPress](#deploying-wordpress-locally) instance.
+1. Set up a [WordPress instance locally](#deploying-wordpress-locally).
 2. Download [Aegis](https://github.com/aegiswp/theme/releases/).
-3. Unzip, and upload this repository into your `/wp-content/themes/` directory.
+3. Unzip and upload the theme into your `/wp-content/themes/` directory.
 
-Just in case you find the method to install WordPress locally too overwhelming, then we would recommend experimenting with [wp-env](https://developer.wordpress.org/block-editor/getting-started/devenv/), [Local](https://localwp.com/) or [DevKinsta](https://kinsta.com/devkinsta/).
+If you find setting up WordPress locally overwhelming, consider using [wp-env](https://developer.wordpress.org/block-editor/getting-started/devenv/), [Local](https://localwp.com/), or [DevKinsta](https://kinsta.com/devkinsta/).
 
 
 #### Requirements
@@ -282,8 +447,8 @@ Just in case you find the method to install WordPress locally too overwhelming, 
 - License: [GPLv2](https://www.gnu.org/licenses/gpl-2.0.html) or later.
 
 
-> **Warning**
-> Please note that the documentation below is based partially on the upcoming Aegis's [Full Site Editing](https://developer.wordpress.org/block-editor/getting-started/full-site-editing/) features.
+> **Note**
+> Some features may require the latest WordPress version or the [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/) for full functionality.
 
 
 Some Aegis features and/or [pull requests](https://github.com/aegiswp/theme/pulls) may require the [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/) trunk and will be described or tagged accordingly.
@@ -328,9 +493,9 @@ Ensure [Docker](https://www.docker.com/products/docker-desktop) is running befor
 
 #### How to start the development environment for the first time
 
-Start by cloning the current repository using `git clone https://github.com/WordPress/wordpress-develop.git`.
+Start by cloning the Aegis theme repository using `git clone https://github.com/aegiswp/theme.git`.
 
-Then in your terminal move to the repository folder `cd wordpress-develop` and run the following commands:
+Then navigate to the repository folder `cd theme` and run the following commands:
 
 ```
 npm install
@@ -483,23 +648,23 @@ Be advised that contributing is not just for developers. We welcome anyone willi
 
 ## Development
 
-Aegis aims to load fewer assets as much as possible. With a very performant approach, it relies on the [Block Editor](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/) and [Global Styles](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/) to provide you with the grand part of the visuals, and will progressively move toward a more Full Site Editing experience.
+Aegis aims to minimize asset loading through a highly performant approach. The theme relies on the [Block Editor](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/) and [Global Styles](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/) for most visual rendering, embracing a Full Site Editing philosophy.
 
-We strongly advise refraining from building any custom-built PHP or JavaScript-based workarounds for functionality that either Aegis or the [Block Editor](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/) might provide. Aegis is the first of its kind, hybrid, minimalistic, lightweight, performant and aimed at individuals with color vision deficiency. So please, let us keep its code as simple as possible.
+Avoid building custom PHP or JavaScript workarounds for functionality already provided by Aegis or the Block Editor. Aegis is minimalistic, lightweight, and performant—designed with accessibility in mind, particularly for users with color vision deficiency. Keep the code simple.
 
-According to those last two points, Aegis has no unnecessary build process.
+Aegis has no unnecessary build process, maintaining simplicity and performance.
 
-If you have [contributed](CONTRIBUTORS.md) to Aegis, due credit will be given. we will be updating [CONTRIBUTORS.md](CONTRIBUTORS.md) periodically with the names of contributors; however, feel free to open a [pull request](https://github.com/aegiswp/theme/pulls) or [issue](https://github.com/aegiswp/theme/issues) if we somehow omitted someone.
+If you have [contributed](CONTRIBUTORS.md) to Aegis, you will receive proper credit. We update [CONTRIBUTORS.md](CONTRIBUTORS.md) periodically. If we have missed anyone, please open a [pull request](https://github.com/aegiswp/theme/pulls) or [issue](https://github.com/aegiswp/theme/issues).
 
 
 ## Experimenting
 
-If you wish to experiment with custom code, we will encourage you to install and use the Aegis Child for further custom customisation, or further extend it with code snippets.
+If you wish to experiment with custom code, consider using the Aegis Child Theme for customization or extending functionality with code snippets.
 
 | Repository | Description |
 | --- | --- |
-| [Aegis Child Theme](https://github.com/atmostfear-entertainment/aegis-child) | Official Aegis Child Theme |
-| [Aegis Code Snippets](https://github.com/atmostfear-entertainment/aegis-snippets) | Official Aegis Code Snippets |
+| [Aegis Child Theme](https://github.com/aegiswp/theme-child) | Official Aegis Child Theme |
+| [Aegis Code Snippets](https://github.com/aegiswp/code-snippets) | Official Aegis Code Snippets |
 
 
 ## Resources
@@ -516,21 +681,28 @@ Here are some resources that may be helpful to context for learning more about d
 
 ## Demos
 
-Unfortunately, at the moment, we do not have any demos yet. Even so, we will be toiling on quite a few uniquely crafted demos without following what typically is offered within the ecosystem.
+Explore Aegis in action through our official child themes:
+
+| Child Theme | Description |
+| --- | --- |
+| [Aegis Child Theme](https://github.com/aegiswp/theme-child) | Official starter child theme for Aegis |
+| [Aegis Code Snippets](https://github.com/aegiswp/code-snippets) | Collection of code snippets and customizations |
 
 
 ## Roadmap
 
-Fortunately, Aegis has a [public roadmap](https://trello.com/b/x75Zqk7W/aegis-theme-roadmap) that can be accessed to observe both its development and progress.
+**Is there a public roadmap?**
+
+No, and this is by design. Although we follow a strict internal roadmap, we choose not to broadcast it to protect our innovations and give our team the peace of mind to perfect complex features without public pressure. We prefer the element of surprise by delivering unique tools that delight you rather than just ticking boxes on a public list.
 
 
 ## Credits
 
 The thumbnail on this README.md file:
 
-Aegis by Atmostfear Entertaiment SAS, CCO
+Aegis by [Atmostfear Entertainment S.A.S.](https://www.atmostfear-entertainment.com/), CCO
 
 
 ## Suggestions?
 
-If you would wish to propose any improvements to this repository, please feel free to open an [issue](https://github.com/aegiswp/theme/issues) or [pull request](https://github.com/aegiswp/theme/pulls).
+To propose improvements to this repository, please open an [issue](https://github.com/aegiswp/theme/issues) or [pull request](https://github.com/aegiswp/theme/pulls).
