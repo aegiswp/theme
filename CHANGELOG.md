@@ -11,15 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - RC 1 Release
 
-## [Released]
-
 ## [1.0.0-beta.3] - 2025-02-28
 
 - Beta 3 Release
 
 ## [1.0.0-beta.2] - 2024-02-16
 
-- Beta 3 Release
+- Beta 2 Release
 
 ## [1.0.0-beta.1] - 2023-12-23
 
