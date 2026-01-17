@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for considering contributing to the Aegis WordPress Block Theme! Whether you are interested in enhancing the theme's functionality with new features, creating new block patterns specifically tailored for Aegis, refining its global styles, improving the theme's code, or participating in beta testing, your contributions are always welcome.
+Thank you for considering contributing to the Aegis Block Theme! Whether you are interested in enhancing the theme's functionality with new features, creating new block patterns specifically tailored for Aegis, refining its global styles, improving the theme's code, or participating in beta testing, your contributions are always welcome.
 
 Aegis is built to fully utilize WordPress's Full Site Editing (FSE) capabilities, allowing for extensive customization directly within the block editor. Contributions can help enhance the theme's flexibility, performance, and user experience, making it even more robust and versatile for a diverse range of users.
 
@@ -55,9 +55,9 @@ We aim to foster a welcoming environment for everyone involved. Therefore, all c
 
 ### Licensing and Copyright
 
-Aegis is licensed under the [GPL-2.0-or-later](https://github.com/aegiswp/theme/blob/main/LICENSE) license. By contributing to the Aegis theme, you agree that your contributions will be released under the GPLv2 license.
+Aegis is licensed under the [GPL v3.0](https://github.com/aegiswp/theme/blob/main/LICENSE) license. By contributing to the Aegis theme, you agree that your contributions will be released under the GPL v3.0 license.
 
-You retain copyright over any contribution made to Aegis. However, by submitting a [pull request](https://github.com/aegiswp/theme/pulls), you agree to release that contribution under the [GPLv2](https://github.com/aegiswp/theme/blob/main/LICENSE) license.
+You retain copyright over any contribution made to Aegis. However, by submitting a [pull request](https://github.com/aegiswp/theme/pulls), you agree to release that contribution under the [GPL v3.0](https://github.com/aegiswp/theme/blob/main/LICENSE) license.
 
 ### Final Notes
 
