@@ -1103,7 +1103,6 @@
           }
         }
       },
-      "core/read-more": {},
       "core/search": {
         "spacing": {
           "padding": {
@@ -1123,13 +1122,11 @@
           "text": "var(--wp--preset--color--neutral-200)"
         }
       },
-      "core/shortcode": {},
       "core/site-logo": {
         "color": {
           "text": "var(--wp--preset--color--neutral-800)"
         }
       },
-      "core/site-tagline": {},
       "core/site-title": {
         "color": {
           "text": "var(--wp--preset--color--neutral-800)"
@@ -1153,10 +1150,6 @@
           }
         }
       },
-      "core/spacer": {},
-      "core/social-link": {},
-      "core/table": {},
-      "core/tag-cloud": {},
       "core/template-part": {
         "spacing": {
           "margin": {
@@ -1167,7 +1160,6 @@
           }
         }
       },
-      "core/term-description": {},
       "core/text-columns": {},
       "core/verse": {},
       "core/video": {
