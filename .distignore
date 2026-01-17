@@ -1,0 +1,44 @@
+# Git files
+.git/
+.gitattributes
+.gitignore
+
+# GitHub files
+.github/
+
+# Node.js files
+node_modules/
+package.json
+package-lock.json
+webpack.config.js
+babel.config.js
+.babelrc
+.eslintrc.js
+tsconfig.json
+.prettierrc
+
+# Composer files
+composer.json
+composer.lock
+vendor/
+
+# Editor and environment files
+.vscode/
+.editorconfig
+.env.docker
+
+# Documentation and temporary files
+README.md
+README_DOCKER.md
+CHANGELOG.md
+CONTRIBUTING.md
+CONTRIBUTORS.md
+changelog.txt
+
+# Source files (if they are not meant to be in the final theme)
+# Add any source directories here, e.g., src/
+
+# Other development files
+phpcs.xml.dist
+.stylelintignore
+stylelintrc.json

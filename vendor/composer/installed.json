@@ -1,0 +1,380 @@
+{
+    "packages": [
+        {
+            "name": "aegis/container",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aegiswp/container.git",
+                "reference": "5df69be1b79240ad17cacede6c141bceb77ba864"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aegiswp/container/zipball/5df69be1b79240ad17cacede6c141bceb77ba864",
+                "reference": "5df69be1b79240ad17cacede6c141bceb77ba864",
+                "shasum": ""
+            },
+            "require": {
+                "psr/container": "^2.0@dev"
+            },
+            "time": "2024-04-24T09:46:42+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Aegis\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Atmostfear Entertainment",
+                    "homepage": "https://www.atmostfear-entertainment.com/aegis/"
+                }
+            ],
+            "description": "Aegis container package.",
+            "support": {
+                "issues": "https://github.com/aegiswp/container/issues",
+                "source": "https://github.com/aegiswp/container/tree/main"
+            },
+            "install-path": "../aegis/container"
+        },
+        {
+            "name": "aegis/dom",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aegiswp/dom.git",
+                "reference": "900eaaedfc1c21887b2775eb5673c21f8af9f6ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aegiswp/dom/zipball/900eaaedfc1c21887b2775eb5673c21f8af9f6ab",
+                "reference": "900eaaedfc1c21887b2775eb5673c21f8af9f6ab",
+                "shasum": ""
+            },
+            "time": "2025-05-01T10:32:37+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Aegis\\Dom\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Atmostfear Entertainment",
+                    "homepage": "https://www.atmostfear-entertainment.com/aegis/"
+                }
+            ],
+            "description": "Aegis DOM package.",
+            "support": {
+                "issues": "https://github.com/aegiswp/dom/issues",
+                "source": "https://github.com/aegiswp/dom/tree/main"
+            },
+            "install-path": "../aegis/dom"
+        },
+        {
+            "name": "aegis/framework",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aegiswp/framework.git",
+                "reference": "e3f0f796bce622785598d30dbb6bf38f142c50f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aegiswp/framework/zipball/e3f0f796bce622785598d30dbb6bf38f142c50f8",
+                "reference": "e3f0f796bce622785598d30dbb6bf38f142c50f8",
+                "shasum": ""
+            },
+            "require": {
+                "aegis/container": "dev-main",
+                "aegis/dom": "dev-main",
+                "aegis/hooks": "dev-main",
+                "aegis/icons": "dev-main",
+                "aegis/utilities": "dev-main",
+                "php": ">=7.4"
+            },
+            "time": "2025-05-01T09:42:18+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Aegis\\Framework\\": "src/"
+                },
+                "classmap": [
+                    "src/Aegis.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Atmostfear Entertainment",
+                    "homepage": "https://www.atmostfear-entertainment.com/aegis/"
+                }
+            ],
+            "description": "WordPress block theme framework.",
+            "support": {
+                "issues": "https://github.com/aegiswp/framework/issues",
+                "source": "https://github.com/aegiswp/framework/tree/main"
+            },
+            "install-path": "../aegis/framework"
+        },
+        {
+            "name": "aegis/hooks",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aegiswp/hooks.git",
+                "reference": "d09514b4e6ef63c729665d03b17efe8b510f38e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aegiswp/hooks/zipball/d09514b4e6ef63c729665d03b17efe8b510f38e3",
+                "reference": "d09514b4e6ef63c729665d03b17efe8b510f38e3",
+                "shasum": ""
+            },
+            "time": "2025-05-24T09:46:57+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Aegis\\Hooks\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Atmostfear Entertainment",
+                    "homepage": "https://www.atmostfear-entertainment.com/aegis/"
+                }
+            ],
+            "description": "Aegis hooks package.",
+            "support": {
+                "issues": "https://github.com/aegiswp/hooks/issues",
+                "source": "https://github.com/aegiswp/hooks/tree/main"
+            },
+            "install-path": "../aegis/hooks"
+        },
+        {
+            "name": "aegis/icons",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aegiswp/icons.git",
+                "reference": "1f19ef9fc75e045007a02a27962a36484aaf22b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aegiswp/icons/zipball/1f19ef9fc75e045007a02a27962a36484aaf22b6",
+                "reference": "1f19ef9fc75e045007a02a27962a36484aaf22b6",
+                "shasum": ""
+            },
+            "require": {
+                "aegis/dom": "dev-main",
+                "aegis/utilities": "dev-main",
+                "enshrined/svg-sanitize": "dev-master"
+            },
+            "time": "2025-05-01T09:43:45+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Aegis\\Icons\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Atmostfear Entertainment",
+                    "homepage": "https://www.atmostfear-entertainment.com/aegis/"
+                }
+            ],
+            "description": "Aegis icons package.",
+            "support": {
+                "issues": "https://github.com/aegiswp/icons/issues",
+                "source": "https://github.com/aegiswp/icons/tree/main"
+            },
+            "install-path": "../aegis/icons"
+        },
+        {
+            "name": "aegis/utilities",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aegiswp/utilities.git",
+                "reference": "23d4829e0b0674094c9b394f5cdde1b69d1a0285"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aegiswp/utilities/zipball/23d4829e0b0674094c9b394f5cdde1b69d1a0285",
+                "reference": "23d4829e0b0674094c9b394f5cdde1b69d1a0285",
+                "shasum": ""
+            },
+            "require": {
+                "psr/container": "^2.0@dev"
+            },
+            "time": "2025-05-29T03:12:42+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Aegis\\Utilities\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Atmostfear Entertainment",
+                    "homepage": "https://www.atmostfear-entertainment.com/aegis/"
+                }
+            ],
+            "description": "Aegis utilities package.",
+            "support": {
+                "issues": "https://github.com/aegiswp/utilities/issues",
+                "source": "https://github.com/aegiswp/utilities/tree/main"
+            },
+            "install-path": "../aegis/utilities"
+        },
+        {
+            "name": "enshrined/svg-sanitize",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/darylldoyle/svg-sanitizer.git",
+                "reference": "6a2c069dab3843ca4d887ff09c972fc7033888d0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/darylldoyle/svg-sanitizer/zipball/6a2c069dab3843ca4d887ff09c972fc7033888d0",
+                "reference": "6a2c069dab3843ca4d887ff09c972fc7033888d0",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-libxml": "*",
+                "php": "^5.6 || ^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7 || ^6.5 || ^8.5"
+            },
+            "time": "2025-05-22T17:51:05+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "enshrined\\svgSanitize\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Daryll Doyle",
+                    "email": "daryll@enshrined.co.uk"
+                }
+            ],
+            "description": "An SVG sanitizer for PHP",
+            "support": {
+                "issues": "https://github.com/darylldoyle/svg-sanitizer/issues",
+                "source": "https://github.com/darylldoyle/svg-sanitizer/tree/0.18.0"
+            },
+            "install-path": "../enshrined/svg-sanitize"
+        },
+        {
+            "name": "psr/container",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/container.git",
+                "reference": "707984727bd5b2b670e59559d3ed2500240cf875"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/707984727bd5b2b670e59559d3ed2500240cf875",
+                "reference": "707984727bd5b2b670e59559d3ed2500240cf875",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.0"
+            },
+            "time": "2025-05-22T11:11:30+00:00",
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "homepage": "https://github.com/php-fig/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/container/issues",
+                "source": "https://github.com/php-fig/container"
+            },
+            "install-path": "../psr/container"
+        }
+    ],
+    "dev": false,
+    "dev-package-names": []
+}

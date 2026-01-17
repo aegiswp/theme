@@ -1,18 +1,18 @@
 {
-	"name": "atmostfear-entertainment/aegis",
-	"type": "package",
-	"description": "Aegis WordPress Block Theme",
+	"name": "aegiswp/theme",
+	"type": "wordpress-theme",
+	"description": "Aegis Theme",
 	"keywords": [
 		"WordPress",
 		"Block",
 		"Theme"
 	],
-	"homepage": "https://github.com/atmostfear-entertainment/aegis",
-	"license": "GPL-3.0",
+	"homepage": "https://github.com/aegiswp/theme",
+	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
 			"name": "Contributors",
-			"homepage": "https://github.com/atmostfear-entertainment/aegis/contributors.md"
+			"homepage": "https://github.com/aegiswp/theme/contributors.md"
 		}
 	],
 	"require": {
@@ -31,8 +31,7 @@
 	},
 	"scripts": {
 		"format": "phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
-		"lint": "phpcs --standard=phpcs.xml.dist",
-		"standards:check": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
-		"standards:fix": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
-	}
+		"lint": "phpcs --standard=phpcs.xml.dist"
+	},
+	"version": "1.0.0-rc.1"
 }

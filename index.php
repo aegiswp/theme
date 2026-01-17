@@ -1,9 +1,12 @@
 <?php
 /**
- * There is nothing output here because Block Themes such as Aegis do not use PHP templates.
+ * Main Index File
  *
- * @package aegis
+ * This file is intentionally left blank. As a block-based theme, Aegis uses the
+ * `templates/index.html` file as its main template.
  *
- * There is a core ticket discussing removing this requirement for block themes:
- * https://core.trac.wordpress.org/ticket/54272.
+ * This file is required for theme validation and to prevent directory browsing.
+ *
+ * @package Aegis
+ * @since 1.0.0
  */

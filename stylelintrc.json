@@ -1,3 +1,9 @@
 {
-	"extends": "stylelint-config-recommended"
+	"extends": [
+		"stylelint-config-standard",
+		"@wordpress/stylelint-config"
+	],
+	"rules": {
+		"no-descending-specificity": null
+	}
 }

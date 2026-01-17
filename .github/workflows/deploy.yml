@@ -1,0 +1,63 @@
+name: Deploy Theme
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build_and_package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Build theme
+        run: npm run build
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, intl, dom, curl, json, libxml, xml, xmlwriter
+
+      - name: Install Composer dependencies
+        run: composer install --no-dev --prefer-dist --no-progress --no-suggest
+
+      - name: Create theme package
+        run: |
+          THEME_SLUG="aegis"
+          mkdir -p "$THEME_SLUG"
+          rsync -av --exclude-from=.distignore . "$THEME_SLUG/"
+          zip -r "${THEME_SLUG}.zip" "$THEME_SLUG/"
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Please see the CHANGELOG.md for details.
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./aegis.zip
+          asset_name: aegis.zip
+          asset_content_type: application/zip

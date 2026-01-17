@@ -1,0 +1,85 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build-lint-test:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_DATABASE: wordpress
+          MYSQL_USER: wordpress
+          MYSQL_PASSWORD: wordpress
+          MYSQL_ROOT_PASSWORD: root
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd "mysqladmin ping --silent" --health-interval 10s --health-timeout 5s --health-retries 3
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Lint JS/TS
+        run: npm run lint:ts
+
+      - name: Lint CSS
+        run: npm run lint:css
+
+      - name: TypeScript type check
+        run: npm run type-check
+
+      - name: Build theme
+        run: npm run build
+
+      - name: Run JS/TS tests (Jest)
+        run: |
+          if [ -f jest.config.js ] || [ -f jest.config.ts ]; then
+            npx jest --coverage;
+          else
+            echo "No Jest config found, skipping JS/TS tests.";
+          fi
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, intl, dom, curl, json, libxml, xml, xmlwriter
+          coverage: pcov
+
+      - name: Install Composer dependencies
+        run: |
+          if [ -f composer.json ]; then
+            composer install --prefer-dist --no-progress --no-suggest --no-interaction;
+          fi
+
+      - name: PHPCS (WordPress Coding Standards)
+        run: |
+          if [ -f phpcs.xml.dist ]; then
+            vendor/bin/phpcs --standard=phpcs.xml.dist;
+          fi
+
+      - name: Run PHP Unit tests
+        run: |
+          if [ -f phpunit.xml ] || [ -f phpunit.xml.dist ]; then
+            vendor/bin/phpunit --coverage-clover coverage.xml;
+          else
+            echo "No PHPUnit config found, skipping PHP tests.";
+          fi
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
