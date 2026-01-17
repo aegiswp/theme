@@ -1,7 +1,7 @@
 {
   "name": "aegis-theme",
   "version": "1.0.0-rc.1",
-  "description": "Aegis - WordPress Block Theme",
+  "description": "Aegis - Native Block Framework",
   "main": "index.js",
   "scripts": {
     "build": "webpack --env production",
@@ -15,10 +15,11 @@
   },
   "keywords": [
     "WordPress",
-    "block theme"
+    "Framework",
+    "Block Theme"
   ],
   "author": "Atmostfear Entertainment",
-  "license": "GPL-2.0-or-later",
+  "license": "GPL v3.0",
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.4",
