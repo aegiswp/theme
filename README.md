@@ -686,7 +686,7 @@ Explore Aegis in action through our official child themes:
 | Child Theme | Description |
 | --- | --- |
 | [Aegis Child Theme](https://github.com/aegiswp/theme-child) | Official starter child theme for Aegis |
-| [Aegis Code Snippets](https://github.com/aegiswp/code-snippets) | Collection of code snippets and customizations |
+| [Aegis Code Snippets](https://gist.github.com/atmostfear-entertainment) | Collection of code snippets and customizations |
 
 
 ## Roadmap
