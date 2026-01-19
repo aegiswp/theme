@@ -1,0 +1,44 @@
+name: Code Quality & Linting
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  lint:
+    name: Lint PHP, JS, and CSS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: composer, phpcs
+          coverage: none
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: |
+          composer install --no-progress --prefer-dist
+          npm install
+
+      # Uses the rules defined in phpcs.xml.dist
+      - name: PHP Coding Standards (WPCS)
+        run: vendor/bin/phpcs
+
+      - name: CSS & theme.json Linting
+        run: npm run lint:css --if-present
+
+      - name: JS Linting
+        run: npm run lint:js --if-present
