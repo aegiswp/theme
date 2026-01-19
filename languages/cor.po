@@ -1,0 +1,485 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-19T10:22:00-05:00\n"
+"PO-Revision-Date: 2026-01-19 16:55-0500\n"
+"Last-Translator: \n"
+"Language-Team: Cornish <cor@li.org>\n"
+"Language: cor\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n==3 ? 3 : n%100==50 ? 4 : 5);\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "Aegis"
+
+#. Description of the theme
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "Framweyth blocow genesik dres rag tizh pur. Aegis a jarg CSS, JavaScript, po asetos font vyth dre dhefowt, ow ri sichenn bura dhen drehevyans. Ev a re dhen dresoryon maystri gwelus down—ow komprehendya dyghtyans SVG, tipografieth frosus, ha gorthypedh brian—ha ri dhen dhisplegyoryon kerghynnedh stret, selys war savonow. An sichenn dhen vuro rag is-themow a berfomans ughel."
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search this site"
+msgstr "Hwilas an tyller-ma"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search"
+msgstr "Hwilas"
+
+#: patterns/grid-boxed.php:27
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "Gaskowgh tekst po blocow a vyth diskwedhys pan na re sewyans vyth."
+
+#: patterns/faq/accordion-wide.php:36
+msgid "Type / to add a hidden block"
+msgstr "Skit / rag gaska bloc kudhys"
+
+#. Common translatable strings
+msgid "Home"
+msgstr "Tre"
+
+msgid "About"
+msgstr "A-dro dhe"
+
+msgid "Contact"
+msgstr "Kestalkye"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Services"
+msgstr "Servisow"
+
+msgid "Portfolio"
+msgstr "Portfolio"
+
+msgid "Features"
+msgstr "Gnasow"
+
+msgid "Pricing"
+msgstr "Prisow"
+
+msgid "Team"
+msgstr "Skward"
+
+msgid "Testimonials"
+msgstr "Testennyansow"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "Gallery"
+msgstr "Gwithva"
+
+msgid "Read More"
+msgstr "Redya moy"
+
+msgid "Learn More"
+msgstr "Deski moy"
+
+msgid "Get Started"
+msgstr "Dallath"
+
+msgid "Subscribe"
+msgstr "Ragprenna"
+
+msgid "Submit"
+msgstr "Danvon"
+
+msgid "Send Message"
+msgstr "Danvon messaj"
+
+msgid "View All"
+msgstr "Gweles oll"
+
+msgid "Back to Top"
+msgstr "War-dhelergh dhen penn"
+
+msgid "Previous"
+msgstr "Kyns"
+
+msgid "Next"
+msgstr "Nessa"
+
+msgid "Page"
+msgstr "Folen"
+
+msgid "of"
+msgstr "a"
+
+msgid "Posts"
+msgstr "Postow"
+
+msgid "Categories"
+msgstr "Kategorigow"
+
+msgid "Tags"
+msgstr "Tagow"
+
+msgid "Archive"
+msgstr "Arkhiv"
+
+msgid "Author"
+msgstr "Awtour"
+
+msgid "Date"
+msgstr "Dyth"
+
+msgid "Comments"
+msgstr "Gerow"
+
+msgid "Leave a Comment"
+msgstr "Gaska ger"
+
+msgid "Posted on"
+msgstr "Postys dhen"
+
+msgid "By"
+msgstr "Gans"
+
+msgid "in"
+msgstr "yn"
+
+msgid "No comments"
+msgstr "Nyns eus ger vyth"
+
+msgid "One comment"
+msgstr "Un ger"
+
+msgid "% comments"
+msgstr "% ger"
+
+msgid "Related Posts"
+msgstr "Postow kelmys"
+
+msgid "Recent Posts"
+msgstr "Postow a-dhiwedhes"
+
+msgid "Popular Posts"
+msgstr "Postow gerys-da"
+
+msgid "Featured"
+msgstr "Arbennik"
+
+msgid "Latest"
+msgstr "Diwettha"
+
+msgid "Continue Reading"
+msgstr "Pesya redya"
+
+msgid "Nothing Found"
+msgstr "Travyth na veu kevys"
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "Drog yw genen, nyns eus post vyth ow kesseni dhe'th kriteriow."
+
+msgid "Search Results for:"
+msgstr "Sewyansow hwilas rag:"
+
+msgid "404 - Page Not Found"
+msgstr "404 - Folen na veu kevys"
+
+msgid "The page you are looking for does not exist."
+msgstr "Nyns eus dhen folen yth eses ow hwilas."
+
+msgid "Go to Homepage"
+msgstr "Mos dhen benn-folen"
+
+#. Typography & Design
+msgid "Heading"
+msgstr "Pennlavar"
+
+msgid "Subheading"
+msgstr "Istitel"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Subtitle"
+msgstr "Istitel"
+
+msgid "Description"
+msgstr "Deskrifans"
+
+msgid "Content"
+msgstr "Dalgh"
+
+msgid "Text"
+msgstr "Tekst"
+
+msgid "Label"
+msgstr "Label"
+
+msgid "Caption"
+msgstr "Kapsyon"
+
+#. Form Elements
+msgid "Name"
+msgstr "Hanow"
+
+msgid "Email"
+msgstr "Ebost"
+
+msgid "Phone"
+msgstr "Pellgowser"
+
+msgid "Message"
+msgstr "Messaj"
+
+msgid "Subject"
+msgstr "Mater"
+
+msgid "Your Name"
+msgstr "Dha hanow"
+
+msgid "Your Email"
+msgstr "Dha ebost"
+
+msgid "Your Message"
+msgstr "Dha messaj"
+
+msgid "Required"
+msgstr "Res"
+
+msgid "Optional"
+msgstr "Dewisus"
+
+#. Navigation & UI
+msgid "Menu"
+msgstr "Rol"
+
+msgid "Navigation"
+msgstr "Lewyadgh"
+
+msgid "Primary Menu"
+msgstr "Rol bennek"
+
+msgid "Footer Menu"
+msgstr "Rol gwandar"
+
+msgid "Social Links"
+msgstr "Kevrennow socyal"
+
+msgid "Skip to content"
+msgstr "Lamma dhen dalgh"
+
+msgid "Close"
+msgstr "Degas"
+
+msgid "Open"
+msgstr "Egery"
+
+msgid "Toggle"
+msgstr "Toggle"
+
+msgid "Show"
+msgstr "Diskwedhes"
+
+msgid "Hide"
+msgstr "Cudha"
+
+#. Layout Elements
+msgid "Header"
+msgstr "Penn"
+
+msgid "Footer"
+msgstr "Gwandar"
+
+msgid "Sidebar"
+msgstr "Barra denwen"
+
+msgid "Main Content"
+msgstr "Dalgh bennek"
+
+msgid "Widget Area"
+msgstr "Tyller gwidget"
+
+#. Social Media
+msgid "Follow Us"
+msgstr "Sew ni"
+
+msgid "Connect"
+msgstr "Kevrenna"
+
+msgid "Share"
+msgstr "Kevrenna"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#. Call to Action
+msgid "Get in Touch"
+msgstr "Kestalkye genen"
+
+msgid "Contact Us"
+msgstr "Kestalkye ni"
+
+msgid "Join Us"
+msgstr "Yunia genen"
+
+msgid "Sign Up"
+msgstr "Formya"
+
+msgid "Register"
+msgstr "Restra"
+
+msgid "Download"
+msgstr "Iskarga"
+
+msgid "Book Now"
+msgstr "Lyvrynna lemmyn"
+
+msgid "Request Quote"
+msgstr "Govyn pris"
+
+msgid "Schedule Consultation"
+msgstr "Restra kunsultyans"
+
+#. Error Messages
+msgid "Error"
+msgstr "Gwall"
+
+msgid "Warning"
+msgstr "Gwarnyans"
+
+msgid "Success"
+msgstr "Sewen"
+
+msgid "Info"
+msgstr "Kedhlow"
+
+msgid "Please try again"
+msgstr "Triyowgh arta mar plek"
+
+msgid "Something went wrong"
+msgstr "Nebonan re dhewisys yn cam"
+
+msgid "Invalid input"
+msgstr "Entrans cam"
+
+msgid "Field is required"
+msgstr "Ma'n tull-ma res"
+
+#. Accessibility
+msgid "Skip to main content"
+msgstr "Lamma dhen dalgh bennek"
+
+msgid "Screen reader text"
+msgstr "Tekst redyer-skrin"
+
+msgid "External link"
+msgstr "Kevren denwen"
+
+msgid "Opens in new window"
+msgstr "Egery yn fenester nowydh"
+
+msgid "Back"
+msgstr "War-dhelergh"
+
+msgid "Forward"
+msgstr "War-rag"
+
+#. Time & Date
+msgid "Today"
+msgstr "Hedhyw"
+
+msgid "Yesterday"
+msgstr "De"
+
+msgid "Tomorrow"
+msgstr "A-vorow"
+
+msgid "Week"
+msgstr "Seythun"
+
+msgid "Month"
+msgstr "Mis"
+
+msgid "Year"
+msgstr "Bledhen"
+
+msgid "Daily"
+msgstr "Dydhyek"
+
+msgid "Weekly"
+msgstr "Seythunyek"
+
+msgid "Monthly"
+msgstr "Misyek"
+
+msgid "Yearly"
+msgstr "Blydhenyek"
+
+#. General
+msgid "All"
+msgstr "Oll"
+
+msgid "None"
+msgstr "Nagonan"
+
+msgid "More"
+msgstr "Moy"
+
+msgid "Less"
+msgstr "Le"
+
+msgid "Details"
+msgstr "Manylyon"
+
+msgid "Information"
+msgstr "Kedhlow"
+
+msgid "Welcome"
+msgstr "Dynnargh"
+
+msgid "Hello"
+msgstr "Hou"
+
+msgid "Thanks"
+msgstr "Meur ras"
+
+msgid "Thank You"
+msgstr "Meur ras dheugh"
+
+msgid "Copyright"
+msgstr "Gwir-bryntya"
+
+msgid "All Rights Reserved"
+msgstr "Oll gwiryow gwithys"
+
+msgid "Privacy Policy"
+msgstr "Polici privather"
+
+msgid "Terms of Service"
+msgstr "Kondicyonnow an servis"
+
+msgid "Cookies Policy"
+msgstr "Polici kuki"
+
+msgid "Disclaimer"
+msgstr "Denghans"
