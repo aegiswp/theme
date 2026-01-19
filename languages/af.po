@@ -1,0 +1,484 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-19T10:22:00-05:00\n"
+"PO-Revision-Date: 2026-01-19 10:40-0500\n"
+"Last-Translator: \n"
+"Language-Team: Afrikaans <af@li.org>\n"
+"Language: af\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "Aegis"
+
+#. Description of the theme [cite: 13]
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "'n Inheemse blokraamwerk wat ontwerp is vir rou snelheid. Aegis laai by verstek geen CSS, JavaScript of lettertipe-bates nie, wat 'n suiwer argitektoniese fondament bied. Dit bemagtig ontwerpers met diep visuele kontroles—insluitend SVG-bestuur, vloeibare tipografie en intrinsieke responsiwiteit—terwyl dit ontwikkelaars van 'n streng, standaardgebaseerde omgewing voorsien. Die definitiewe fondament vir hoëprestasie-kindtemas."
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23 [cite: 16]
+msgid "Search this site"
+msgstr "Soek op hierdie werf"
+
+#: patterns/utility/utility-search-toggle.php:23 [cite: 16]
+msgid "Search"
+msgstr "Soek"
+
+#: patterns/grid-boxed.php:27 [cite: 15]
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "Voeg teks of blokke by wat sal verskyn wanneer 'n navraag geen resultate lewer nie."
+
+#: patterns/faq/accordion-wide.php:36 [cite: 15]
+msgid "Type / to add a hidden block"
+msgstr "Tik / om 'n versteekte blok by te voeg"
+
+#. Common translatable strings [cite: 16]
+msgid "Home"
+msgstr "Tuis"
+
+msgid "About"
+msgstr "Omtrent"
+
+msgid "Contact"
+msgstr "Kontak"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Services"
+msgstr "Dienste"
+
+msgid "Portfolio"
+msgstr "Portefeulje"
+
+msgid "Features"
+msgstr "Kenmerke"
+
+msgid "Pricing"
+msgstr "Pryse"
+
+msgid "Team"
+msgstr "Span"
+
+msgid "Testimonials"
+msgstr "Getuigskrifte"
+
+msgid "FAQ"
+msgstr "VGV"
+
+msgid "Gallery"
+msgstr "Galery"
+
+msgid "Read More"
+msgstr "Lees meer"
+
+msgid "Learn More"
+msgstr "Leer meer"
+
+msgid "Get Started"
+msgstr "Begin nou"
+
+msgid "Subscribe"
+msgstr "Teken in"
+
+msgid "Submit"
+msgstr "Dien in"
+
+msgid "Send Message"
+msgstr "Stuur boodskap"
+
+msgid "View All"
+msgstr "Sien alles"
+
+msgid "Back to Top"
+msgstr "Terug na bo"
+
+msgid "Previous"
+msgstr "Vorige"
+
+msgid "Next"
+msgstr "Volgende"
+
+msgid "Page"
+msgstr "Bladsy"
+
+msgid "of"
+msgstr "van"
+
+msgid "Posts"
+msgstr "Inskrywings"
+
+msgid "Categories"
+msgstr "Kategorieë"
+
+msgid "Tags"
+msgstr "Etikette"
+
+msgid "Archive"
+msgstr "Argief"
+
+msgid "Author"
+msgstr "Outeur"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Comments"
+msgstr "Kommentaar"
+
+msgid "Leave a Comment"
+msgstr "Lewer kommentaar"
+
+msgid "Posted on"
+msgstr "Gepubliseer op"
+
+msgid "By"
+msgstr "Deur"
+
+msgid "in"
+msgstr "in"
+
+msgid "No comments"
+msgstr "Geen kommentaar nie"
+
+msgid "One comment"
+msgstr "Een kommentaar"
+
+msgid "% comments"
+msgstr "% kommentaar"
+
+msgid "Related Posts"
+msgstr "Verwante inskrywings"
+
+msgid "Recent Posts"
+msgstr "Onlangse inskrywings"
+
+msgid "Popular Posts"
+msgstr "Gewilde inskrywings"
+
+msgid "Featured"
+msgstr "Uitgesoek"
+
+msgid "Latest"
+msgstr "Nuutste"
+
+msgid "Continue Reading"
+msgstr "Lees verder"
+
+msgid "Nothing Found"
+msgstr "Niks gevind nie"
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "Jammer, geen inskrywings voldoen aan jou kriteria nie."
+
+msgid "Search Results for:"
+msgstr "Soekresultate vir:"
+
+msgid "404 - Page Not Found"
+msgstr "404 - Bladsy nie gevind nie"
+
+msgid "The page you are looking for does not exist."
+msgstr "Die bladsy wat jy soek bestaan nie."
+
+msgid "Go to Homepage"
+msgstr "Gaan na tuisblad"
+
+#. Typography & Design [cite: 19]
+msgid "Heading"
+msgstr "Opskrif"
+
+msgid "Subheading"
+msgstr "Subopskrif"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Subtitle"
+msgstr "Subtitel"
+
+msgid "Description"
+msgstr "Beskrywing"
+
+msgid "Content"
+msgstr "Inhoud"
+
+msgid "Text"
+msgstr "Teks"
+
+msgid "Label"
+msgstr "Etiket"
+
+msgid "Caption"
+msgstr "Byskrif"
+
+#. Form Elements [cite: 20]
+msgid "Name"
+msgstr "Naam"
+
+msgid "Email"
+msgstr "E-pos"
+
+msgid "Phone"
+msgstr "Foon"
+
+msgid "Message"
+msgstr "Boodskap"
+
+msgid "Subject"
+msgstr "Onderwerp"
+
+msgid "Your Name"
+msgstr "Jou naam"
+
+msgid "Your Email"
+msgstr "Jou e-pos"
+
+msgid "Your Message"
+msgstr "Jou boodskap"
+
+msgid "Required"
+msgstr "Verpligtend"
+
+msgid "Optional"
+msgstr "Opsioneel"
+
+#. Navigation & UI [cite: 21]
+msgid "Menu"
+msgstr "Kieslys"
+
+msgid "Navigation"
+msgstr "Navigasie"
+
+msgid "Primary Menu"
+msgstr "Hoofkieslys"
+
+msgid "Footer Menu"
+msgstr "Voetskrif-kieslys"
+
+msgid "Social Links"
+msgstr "Sosiale skakels"
+
+msgid "Skip to content"
+msgstr "Spring na inhoud"
+
+msgid "Close"
+msgstr "Sluit"
+
+msgid "Open"
+msgstr "Maak oop"
+
+msgid "Toggle"
+msgstr "Wissel"
+
+msgid "Show"
+msgstr "Wys"
+
+msgid "Hide"
+msgstr "Versteek"
+
+#. Layout Elements [cite: 22]
+msgid "Header"
+msgstr "Kopskrif"
+
+msgid "Footer"
+msgstr "Voetskrif"
+
+msgid "Sidebar"
+msgstr "Kantlyn"
+
+msgid "Main Content"
+msgstr "Hoofinhoud"
+
+msgid "Widget Area"
+msgstr "Toestel-area"
+
+#. Social Media [cite: 23]
+msgid "Follow Us"
+msgstr "Volg ons"
+
+msgid "Connect"
+msgstr "Koppel"
+
+msgid "Share"
+msgstr "Deel"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#. Call to Action [cite: 24]
+msgid "Get in Touch"
+msgstr "Kontak ons"
+
+msgid "Contact Us"
+msgstr "Kontak ons"
+
+msgid "Join Us"
+msgstr "Sluit by ons aan"
+
+msgid "Sign Up"
+msgstr "Teken aan"
+
+msgid "Register"
+msgstr "Registreer"
+
+msgid "Download"
+msgstr "Laai af"
+
+msgid "Book Now"
+msgstr "Bespreek nou"
+
+msgid "Request Quote"
+msgstr "Vra kwotasie"
+
+msgid "Schedule Consultation"
+msgstr "Skeduleer konsultasie"
+
+#. Error Messages [cite: 25]
+msgid "Error"
+msgstr "Fout"
+
+msgid "Warning"
+msgstr "Waarskuwing"
+
+msgid "Success"
+msgstr "Sukses"
+
+msgid "Info"
+msgstr "Inligting"
+
+msgid "Please try again"
+msgstr "Probeer asseblief weer"
+
+msgid "Something went wrong"
+msgstr "Iets het foutgegaan"
+
+msgid "Invalid input"
+msgstr "Ongeldige invoer"
+
+msgid "Field is required"
+msgstr "Veld word vereis"
+
+#. Accessibility [cite: 26]
+msgid "Skip to main content"
+msgstr "Spring na hoofinhoud"
+
+msgid "Screen reader text"
+msgstr "Skermleser-teks"
+
+msgid "External link"
+msgstr "Eksterne skakel"
+
+msgid "Opens in new window"
+msgstr "Maak in nuwe venster oop"
+
+msgid "Back"
+msgstr "Terug"
+
+msgid "Forward"
+msgstr "Vorentoe"
+
+#. Time & Date [cite: 27]
+msgid "Today"
+msgstr "Vandag"
+
+msgid "Yesterday"
+msgstr "Gister"
+
+msgid "Tomorrow"
+msgstr "Môre"
+
+msgid "Week"
+msgstr "Week"
+
+msgid "Month"
+msgstr "Maand"
+
+msgid "Year"
+msgstr "Jaar"
+
+msgid "Daily"
+msgstr "Daagliks"
+
+msgid "Weekly"
+msgstr "Weekliks"
+
+msgid "Monthly"
+msgstr "Maandeliks"
+
+msgid "Yearly"
+msgstr "Jaarliks"
+
+#. General [cite: 28]
+msgid "All"
+msgstr "Alles"
+
+msgid "None"
+msgstr "Geen"
+
+msgid "More"
+msgstr "Meer"
+
+msgid "Less"
+msgstr "Minder"
+
+msgid "Details"
+msgstr "Besonderhede"
+
+msgid "Information"
+msgstr "Inligting"
+
+msgid "Welcome"
+msgstr "Welkom"
+
+msgid "Hello"
+msgstr "Haai"
+
+msgid "Thanks"
+msgstr "Dankie"
+
+msgid "Thank You"
+msgstr "Baie dankie"
+
+msgid "Copyright"
+msgstr "Kopiereg"
+
+msgid "All Rights Reserved"
+msgstr "Alle regte voorbehou"
+
+msgid "Privacy Policy"
+msgstr "Privaatheidsbeleid"
+
+msgid "Terms of Service"
+msgstr "Diensbepalings"
+
+msgid "Cookies Policy"
+msgstr "Koekiebeleid"
+
+msgid "Disclaimer"
+msgstr "Vrywaring"
