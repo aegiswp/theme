@@ -1,0 +1,490 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-19T10:22:00-05:00\n"
+"PO-Revision-Date: 2026-01-19 10:45-0500\n"
+"Last-Translator: \n"
+"Language-Team: French (France) <fr_FR@li.org>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "Aegis"
+
+#. Description of the theme
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "Un framework de blocs natif conçu pour une vélocité brute. Aegis ne charge aucun asset CSS, JavaScript ou police par défaut, offrant une fondation architecturale pure. Il donne aux designers des contrôles visuels profonds—incluant la gestion des SVG, la typographie fluide et la réactivité intrinsèque—tout en offrant aux développeurs un environnement strict basé sur les standards. La fondation définitive pour des thèmes enfants haute performance."
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search this site"
+msgstr "Rechercher sur ce site"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search"
+msgstr "Rechercher"
+
+#: patterns/grid-boxed.php:27
+#: patterns/single-column.php:26
+#: patterns/blog/grid-boxed.php:43
+#: patterns/blog/single-column.php:49
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "Ajoutez du texte ou des blocs qui s'afficheront lorsqu'une requête ne retourne aucun résultat."
+
+#: patterns/faq/accordion-wide.php:36
+#: patterns/faq/accordion-wide.php:49
+#: patterns/faq/accordion-wide.php:61
+#: patterns/faq/accordion-wide.php:73
+msgid "Type / to add a hidden block"
+msgstr "Tapez / pour ajouter un bloc caché"
+
+#. Common translatable strings
+msgid "Home"
+msgstr "Accueil"
+
+msgid "About"
+msgstr "À propos"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Services"
+msgstr "Services"
+
+msgid "Portfolio"
+msgstr "Portfolio"
+
+msgid "Features"
+msgstr "Fonctionnalités"
+
+msgid "Pricing"
+msgstr "Tarifs"
+
+msgid "Team"
+msgstr "Équipe"
+
+msgid "Testimonials"
+msgstr "Témoignages"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "Gallery"
+msgstr "Galerie"
+
+msgid "Read More"
+msgstr "Lire la suite"
+
+msgid "Learn More"
+msgstr "En savoir plus"
+
+msgid "Get Started"
+msgstr "Commencer"
+
+msgid "Subscribe"
+msgstr "S'abonner"
+
+msgid "Submit"
+msgstr "Envoyer"
+
+msgid "Send Message"
+msgstr "Envoyer un message"
+
+msgid "View All"
+msgstr "Tout voir"
+
+msgid "Back to Top"
+msgstr "Retour en haut"
+
+msgid "Previous"
+msgstr "Précédent"
+
+msgid "Next"
+msgstr "Suivant"
+
+msgid "Page"
+msgstr "Page"
+
+msgid "of"
+msgstr "sur"
+
+msgid "Posts"
+msgstr "Articles"
+
+msgid "Categories"
+msgstr "Catégories"
+
+msgid "Tags"
+msgstr "Étiquettes"
+
+msgid "Archive"
+msgstr "Archive"
+
+msgid "Author"
+msgstr "Auteur"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Comments"
+msgstr "Commentaires"
+
+msgid "Leave a Comment"
+msgstr "Laisser un commentaire"
+
+msgid "Posted on"
+msgstr "Publié le"
+
+msgid "By"
+msgstr "Par"
+
+msgid "in"
+msgstr "dans"
+
+msgid "No comments"
+msgstr "Aucun commentaire"
+
+msgid "One comment"
+msgstr "Un commentaire"
+
+msgid "% comments"
+msgstr "% commentaires"
+
+msgid "Related Posts"
+msgstr "Articles similaires"
+
+msgid "Recent Posts"
+msgstr "Articles récents"
+
+msgid "Popular Posts"
+msgstr "Articles populaires"
+
+msgid "Featured"
+msgstr "Mis en avant"
+
+msgid "Latest"
+msgstr "Derniers articles"
+
+msgid "Continue Reading"
+msgstr "Continuer la lecture"
+
+msgid "Nothing Found"
+msgstr "Rien n'a été trouvé"
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "Désolé, aucun article ne correspond à vos critères."
+
+msgid "Search Results for:"
+msgstr "Résultats de recherche pour :"
+
+msgid "404 - Page Not Found"
+msgstr "404 - Page non trouvée"
+
+msgid "The page you are looking for does not exist."
+msgstr "La page que vous recherchez n'existe pas."
+
+msgid "Go to Homepage"
+msgstr "Aller à l'accueil"
+
+#. Typography & Design
+msgid "Heading"
+msgstr "Titre"
+
+msgid "Subheading"
+msgstr "Sous-titre"
+
+msgid "Title"
+msgstr "Titre"
+
+msgid "Subtitle"
+msgstr "Sous-titre"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Content"
+msgstr "Contenu"
+
+msgid "Text"
+msgstr "Texte"
+
+msgid "Label"
+msgstr "Étiquette"
+
+msgid "Caption"
+msgstr "Légende"
+
+#. Form Elements
+msgid "Name"
+msgstr "Nom"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Phone"
+msgstr "Téléphone"
+
+msgid "Message"
+msgstr "Message"
+
+msgid "Subject"
+msgstr "Sujet"
+
+msgid "Your Name"
+msgstr "Votre nom"
+
+msgid "Your Email"
+msgstr "Votre e-mail"
+
+msgid "Your Message"
+msgstr "Votre message"
+
+msgid "Required"
+msgstr "Requis"
+
+msgid "Optional"
+msgstr "Optionnel"
+
+#. Navigation & UI
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Navigation"
+msgstr "Navigation"
+
+msgid "Primary Menu"
+msgstr "Menu principal"
+
+msgid "Footer Menu"
+msgstr "Menu de pied de page"
+
+msgid "Social Links"
+msgstr "Liens sociaux"
+
+msgid "Skip to content"
+msgstr "Aller au contenu"
+
+msgid "Close"
+msgstr "Fermer"
+
+msgid "Open"
+msgstr "Ouvrir"
+
+msgid "Toggle"
+msgstr "Basculer"
+
+msgid "Show"
+msgstr "Afficher"
+
+msgid "Hide"
+msgstr "Masquer"
+
+#. Layout Elements
+msgid "Header"
+msgstr "En-tête"
+
+msgid "Footer"
+msgstr "Pied de page"
+
+msgid "Sidebar"
+msgstr "Barre latérale"
+
+msgid "Main Content"
+msgstr "Contenu principal"
+
+msgid "Widget Area"
+msgstr "Zone de widgets"
+
+#. Social Media
+msgid "Follow Us"
+msgstr "Suivez-nous"
+
+msgid "Connect"
+msgstr "Se connecter"
+
+msgid "Share"
+msgstr "Partager"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#. Call to Action
+msgid "Get in Touch"
+msgstr "Contactez-nous"
+
+msgid "Contact Us"
+msgstr "Nous contacter"
+
+msgid "Join Us"
+msgstr "Rejoignez-nous"
+
+msgid "Sign Up"
+msgstr "S'inscrire"
+
+msgid "Register"
+msgstr "S'enregistrer"
+
+msgid "Download"
+msgstr "Télécharger"
+
+msgid "Book Now"
+msgstr "Réserver maintenant"
+
+msgid "Request Quote"
+msgstr "Demander un devis"
+
+msgid "Schedule Consultation"
+msgstr "Prendre rendez-vous"
+
+#. Error Messages
+msgid "Error"
+msgstr "Erreur"
+
+msgid "Warning"
+msgstr "Avertissement"
+
+msgid "Success"
+msgstr "Succès"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Please try again"
+msgstr "Veuillez réessayer"
+
+msgid "Something went wrong"
+msgstr "Une erreur est survenue"
+
+msgid "Invalid input"
+msgstr "Entrée invalide"
+
+msgid "Field is required"
+msgstr "Ce champ est requis"
+
+#. Accessibility
+msgid "Skip to main content"
+msgstr "Passer au contenu principal"
+
+msgid "Screen reader text"
+msgstr "Texte pour lecteur d'écran"
+
+msgid "External link"
+msgstr "Lien externe"
+
+msgid "Opens in new window"
+msgstr "S'ouvre dans une nouvelle fenêtre"
+
+msgid "Back"
+msgstr "Retour"
+
+msgid "Forward"
+msgstr "Avancer"
+
+#. Time & Date
+msgid "Today"
+msgstr "Aujourd'hui"
+
+msgid "Yesterday"
+msgstr "Hier"
+
+msgid "Tomorrow"
+msgstr "Demain"
+
+msgid "Week"
+msgstr "Semaine"
+
+msgid "Month"
+msgstr "Mois"
+
+msgid "Year"
+msgstr "Année"
+
+msgid "Daily"
+msgstr "Quotidien"
+
+msgid "Weekly"
+msgstr "Hebdomadaire"
+
+msgid "Monthly"
+msgstr "Mensuel"
+
+msgid "Yearly"
+msgstr "Annuel"
+
+#. General
+msgid "All"
+msgstr "Tout"
+
+msgid "None"
+msgstr "Aucun"
+
+msgid "More"
+msgstr "Plus"
+
+msgid "Less"
+msgstr "Moins"
+
+msgid "Details"
+msgstr "Détails"
+
+msgid "Information"
+msgstr "Information"
+
+msgid "Welcome"
+msgstr "Bienvenue"
+
+msgid "Hello"
+msgstr "Bonjour"
+
+msgid "Thanks"
+msgstr "Merci"
+
+msgid "Thank You"
+msgstr "Merci beaucoup"
+
+msgid "Copyright"
+msgstr "Copyright"
+
+msgid "All Rights Reserved"
+msgstr "Tous droits réservés"
+
+msgid "Privacy Policy"
+msgstr "Politique de confidentialité"
+
+msgid "Terms of Service"
+msgstr "Conditions d'utilisation"
+
+msgid "Cookies Policy"
+msgstr "Politique de cookies"
+
+msgid "Disclaimer"
+msgstr "Avertissement légal"
