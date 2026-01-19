@@ -1,0 +1,71 @@
+name: Performance Report
+description: Report a speed or optimization issue in the Aegis theme.
+labels:
+  - '[Type] Performance'
+  - triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Performance is a Feature
+        Aegis is designed to be lean. Please provide the data below so we can investigate bottlenecks.
+  - type: input
+    id: url
+    attributes:
+      label: Affected URL
+      description: Provide a link to the page where the performance issue is visible.
+    validations:
+      required: true
+  - type: dropdown
+    id: metric-type
+    attributes:
+      label: Primary Issue Category
+      options:
+        - Loading Speed (LCP / FCP)
+        - Interactivity / Input Delay (INP)
+        - Visual Stability (Layout Shifts / CLS)
+        - Server Response (TTFB)
+        - Asset Size (JS/CSS Bloat)
+    validations:
+      required: true
+  - type: group
+    id: core-web-vitals
+    attributes:
+      label: Core Web Vitals Data
+    body:
+      - type: input
+        id: lcp
+        attributes:
+          label: Largest Contentful Paint (LCP)
+          description: e.g., 3.2s
+      - type: input
+        id: inp
+        attributes:
+          label: Interaction to Next Paint (INP)
+          description: e.g., 250ms
+      - type: input
+        id: cls
+        attributes:
+          label: Cumulative Layout Shift (CLS)
+          description: e.g., 0.15
+  - type: textarea
+    id: tools
+    attributes:
+      label: Testing Tools Used
+      description: e.g., Google PageSpeed Insights, WebPageTest, or Chrome DevTools.
+      placeholder: |
+        Link to report: https://pagespeed.web.dev/...
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Info
+      description: Include hosting provider, PHP version, and any active caching/CDN plugins.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Observations
+      description: Are certain blocks causing the delay? (e.g., "The Query Loop block slows down with 50+ items").
