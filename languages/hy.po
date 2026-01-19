@@ -1,0 +1,485 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-19T10:22:00-05:00\n"
+"PO-Revision-Date: 2026-01-19 13:05-0500\n"
+"Last-Translator: \n"
+"Language-Team: Armenian <hy@li.org>\n"
+"Language: hy\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "Aegis"
+
+#. Description of the theme
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "Բնիկ բլոկային հիմք (framework), որը նախագծված է առավելագույն արագության համար: Aegis-ը լռելյայն չի բեռնում CSS, JavaScript կամ տառատեսակների ֆայլեր՝ ապահովելով մաքուր ճարտարապետական հիմք: Այն դիզայներներին հնարավորություն է տալիս օգտվել խորը վիզուալ կառավարումից, ներառյալ SVG կառավարումը, ճկուն տիպոգրաֆիկան և ներքին ադապտիվությունը, մինչդեռ մշակողներին տրամադրում է ստանդարտների վրա հիմնված խիստ միջավայր: Վերջնական հիմքը բարձր արդյունավետությամբ դուստր թեմաների համար:"
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search this site"
+msgstr "Որոնել այս կայքում"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search"
+msgstr "Որոնել"
+
+#: patterns/grid-boxed.php:27
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "Ավելացրեք տեքստ կամ բլոկներ, որոնք կցուցադրվեն, երբ հարցումը արդյունք չտա:"
+
+#: patterns/faq/accordion-wide.php:36
+msgid "Type / to add a hidden block"
+msgstr "Մուտքագրեք / թաքնված բլոկ ավելացնելու համար"
+
+#. Common translatable strings
+msgid "Home"
+msgstr "Գլխավոր"
+
+msgid "About"
+msgstr "Մեր մասին"
+
+msgid "Contact"
+msgstr "Կապ"
+
+msgid "Blog"
+msgstr "Բլոգ"
+
+msgid "Services"
+msgstr "Ծառայություններ"
+
+msgid "Portfolio"
+msgstr "Պորտֆոլիո"
+
+msgid "Features"
+msgstr "Հնարավորություններ"
+
+msgid "Pricing"
+msgstr "Գներ"
+
+msgid "Team"
+msgstr "Թիմ"
+
+msgid "Testimonials"
+msgstr "Կարծիքներ"
+
+msgid "FAQ"
+msgstr "ՀՏՀ"
+
+msgid "Gallery"
+msgstr "Պատկերասրահ"
+
+msgid "Read More"
+msgstr "Կարդալ ավելին"
+
+msgid "Learn More"
+msgstr "Իմանալ ավելին"
+
+msgid "Get Started"
+msgstr "Սկսել"
+
+msgid "Subscribe"
+msgstr "Բաժանորդագրվել"
+
+msgid "Submit"
+msgstr "Ուղարկել"
+
+msgid "Send Message"
+msgstr "Ուղարկել հաղորդագրություն"
+
+msgid "View All"
+msgstr "Դիտել բոլորը"
+
+msgid "Back to Top"
+msgstr "Վերադառնալ վերև"
+
+msgid "Previous"
+msgstr "Նախորդ"
+
+msgid "Next"
+msgstr "Հաջորդ"
+
+msgid "Page"
+msgstr "Էջ"
+
+msgid "of"
+msgstr "-ից"
+
+msgid "Posts"
+msgstr "Գրառումներ"
+
+msgid "Categories"
+msgstr "Կատեգորիաներ"
+
+msgid "Tags"
+msgstr "Պիտակներ"
+
+msgid "Archive"
+msgstr "Արխիվ"
+
+msgid "Author"
+msgstr "Հեղինակ"
+
+msgid "Date"
+msgstr "Ամսաթիվ"
+
+msgid "Comments"
+msgstr "Մեկնաբանություններ"
+
+msgid "Leave a Comment"
+msgstr "Թողնել մեկնաբանություն"
+
+msgid "Posted on"
+msgstr "Հրապարակված է"
+
+msgid "By"
+msgstr "Հեղինակ՝"
+
+msgid "in"
+msgstr "-ում"
+
+msgid "No comments"
+msgstr "Մեկնաբանություններ չկան"
+
+msgid "One comment"
+msgstr "Մեկ մեկնաբանություն"
+
+msgid "% comments"
+msgstr "% մեկնաբանություն"
+
+msgid "Related Posts"
+msgstr "Նմանատիպ գրառումներ"
+
+msgid "Recent Posts"
+msgstr "Վերջին գրառումները"
+
+msgid "Popular Posts"
+msgstr "Հանրաճանաչ գրառումներ"
+
+msgid "Featured"
+msgstr "Ընտրված"
+
+msgid "Latest"
+msgstr "Վերջին"
+
+msgid "Continue Reading"
+msgstr "Շարունակել կարդալ"
+
+msgid "Nothing Found"
+msgstr "Ոչինչ չի գտնվել"
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "Ցավոք, ձեր չափանիշներին համապատասխան գրառումներ չեն գտնվել:"
+
+msgid "Search Results for:"
+msgstr "Որոնման արդյունքները՝"
+
+msgid "404 - Page Not Found"
+msgstr "404 - Էջը չի գտնվել"
+
+msgid "The page you are looking for does not exist."
+msgstr "Էջը, որը փնտրում եք, գոյություն չունի:"
+
+msgid "Go to Homepage"
+msgstr "Գնալ գլխավոր էջ"
+
+#. Typography & Design
+msgid "Heading"
+msgstr "Վերնագիր"
+
+msgid "Subheading"
+msgstr "Ենթավերնագիր"
+
+msgid "Title"
+msgstr "Վերնագիր"
+
+msgid "Subtitle"
+msgstr "Ենթավերնագիր"
+
+msgid "Description"
+msgstr "Նկարագրություն"
+
+msgid "Content"
+msgstr "Բովանդակություն"
+
+msgid "Text"
+msgstr "Տեքստ"
+
+msgid "Label"
+msgstr "Պիտակ"
+
+msgid "Caption"
+msgstr "Մակագրություն"
+
+#. Form Elements
+msgid "Name"
+msgstr "Անուն"
+
+msgid "Email"
+msgstr "Էլ. փոստ"
+
+msgid "Phone"
+msgstr "Հեռախոս"
+
+msgid "Message"
+msgstr "Հաղորդագրություն"
+
+msgid "Subject"
+msgstr "Թեմա"
+
+msgid "Your Name"
+msgstr "Ձեր անունը"
+
+msgid "Your Email"
+msgstr "Ձեր էլ. փոստը"
+
+msgid "Your Message"
+msgstr "Ձեր հաղորդագրությունը"
+
+msgid "Required"
+msgstr "Պարտադիր"
+
+msgid "Optional"
+msgstr "Ոչ պարտադիր"
+
+#. Navigation & UI
+msgid "Menu"
+msgstr "Մենյու"
+
+msgid "Navigation"
+msgstr "Նավիգացիա"
+
+msgid "Primary Menu"
+msgstr "Գլխավոր մենյու"
+
+msgid "Footer Menu"
+msgstr "Ստորին մենյու"
+
+msgid "Social Links"
+msgstr "Սոցիալական հղումներ"
+
+msgid "Skip to content"
+msgstr "Անցնել բովանդակությանը"
+
+msgid "Close"
+msgstr "Փակել"
+
+msgid "Open"
+msgstr "Բացել"
+
+msgid "Toggle"
+msgstr "Փոխարկել"
+
+msgid "Show"
+msgstr "Ցուցադրել"
+
+msgid "Hide"
+msgstr "Թաքցնել"
+
+#. Layout Elements
+msgid "Header"
+msgstr "Գլխամաս"
+
+msgid "Footer"
+msgstr "Ստորին մաս"
+
+msgid "Sidebar"
+msgstr "Կողային վահանակ"
+
+msgid "Main Content"
+msgstr "Հիմնական բովանդակություն"
+
+msgid "Widget Area"
+msgstr "Վիդջեթների տարածք"
+
+#. Social Media
+msgid "Follow Us"
+msgstr "Հետևեք մեզ"
+
+msgid "Connect"
+msgstr "Միանալ"
+
+msgid "Share"
+msgstr "Կիսվել"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#. Call to Action
+msgid "Get in Touch"
+msgstr "Կապ հաստատել"
+
+msgid "Contact Us"
+msgstr "Հետադարձ կապ"
+
+msgid "Join Us"
+msgstr "Միացեք մեզ"
+
+msgid "Sign Up"
+msgstr "Գրանցվել"
+
+msgid "Register"
+msgstr "Գրանցվել"
+
+msgid "Download"
+msgstr "Ներբեռնել"
+
+msgid "Book Now"
+msgstr "Ամրագրել հիմա"
+
+msgid "Request Quote"
+msgstr "Հարցնել արժեքը"
+
+msgid "Schedule Consultation"
+msgstr "Պլանավորել խորհրդատվություն"
+
+#. Error Messages
+msgid "Error"
+msgstr "Սխալ"
+
+msgid "Warning"
+msgstr "Զգուշացում"
+
+msgid "Success"
+msgstr "Հաջողություն"
+
+msgid "Info"
+msgstr "Տեղեկություն"
+
+msgid "Please try again"
+msgstr "Խնդրում ենք նորից փորձել"
+
+msgid "Something went wrong"
+msgstr "Ինչ-որ բան այն չէ"
+
+msgid "Invalid input"
+msgstr "Անվավեր մուտքագրում"
+
+msgid "Field is required"
+msgstr "Դաշտը պարտադիր է"
+
+#. Accessibility
+msgid "Skip to main content"
+msgstr "Անցնել հիմնական բովանդակությանը"
+
+msgid "Screen reader text"
+msgstr "Տեքստ էկրանի ընթերցողի համար"
+
+msgid "External link"
+msgstr "Արտաքին հղում"
+
+msgid "Opens in new window"
+msgstr "Բացվում է նոր պատուհանում"
+
+msgid "Back"
+msgstr "Հետ"
+
+msgid "Forward"
+msgstr "Առաջ"
+
+#. Time & Date
+msgid "Today"
+msgstr "Այսօր"
+
+msgid "Yesterday"
+msgstr "Երեկ"
+
+msgid "Tomorrow"
+msgstr "Վաղը"
+
+msgid "Week"
+msgstr "Շաբաթ"
+
+msgid "Month"
+msgstr "Ամիս"
+
+msgid "Year"
+msgstr "Տարի"
+
+msgid "Daily"
+msgstr "Օրական"
+
+msgid "Weekly"
+msgstr "Շաբաթական"
+
+msgid "Monthly"
+msgstr "Ամսական"
+
+msgid "Yearly"
+msgstr "Տարեկան"
+
+#. General
+msgid "All"
+msgstr "Բոլորը"
+
+msgid "None"
+msgstr "Ոչ մեկը"
+
+msgid "More"
+msgstr "Ավելին"
+
+msgid "Less"
+msgstr "Նվազ"
+
+msgid "Details"
+msgstr "Մանրամասներ"
+
+msgid "Information"
+msgstr "Տեղեկատվություն"
+
+msgid "Welcome"
+msgstr "Բարի գալուստ"
+
+msgid "Hello"
+msgstr "Բարև"
+
+msgid "Thanks"
+msgstr "Շնորհակալություն"
+
+msgid "Thank You"
+msgstr "Շնորհակալություն"
+
+msgid "Copyright"
+msgstr "Հեղինակային իրավունք"
+
+msgid "All Rights Reserved"
+msgstr "Բոլոր իրավունքները պաշտպանված են"
+
+msgid "Privacy Policy"
+msgstr "Գաղտնիության քաղաքականություն"
+
+msgid "Terms of Service"
+msgstr "Ծառայության պայմաններ"
+
+msgid "Cookies Policy"
+msgstr "Քուքիների քաղաքականություն"
+
+msgid "Disclaimer"
+msgstr "Հրաժարում պատասխանատվությունից"
