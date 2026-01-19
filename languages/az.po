@@ -1,0 +1,485 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-19T10:22:00-05:00\n"
+"PO-Revision-Date: 2026-01-19 15:10-0500\n"
+"Last-Translator: \n"
+"Language-Team: Azerbaijani <az@li.org>\n"
+"Language: az\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "Aegis"
+
+#. Description of the theme
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "Maksimum sürət üçün mühəndislik edilmiş yerli blok çərçivəsi. Aegis standart olaraq sıfır CSS, JavaScript və ya şrift aktivləri yükləyərək təmiz arxitektura təməli təqdim edir. O, dizaynerlərə SVG idarəetməsi, axıcı tipoqrafiya və daxili həssaslıq daxil olmaqla dərin vizual idarəetmə imkanları verir, eyni zamanda tərtibatçılara ciddi, standartlara əsaslanan mühit təmin edir. Yüksək performanslı alt mövzular üçün qətiyyətli təməldir."
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search this site"
+msgstr "Bu saytda axtar"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search"
+msgstr "Axtar"
+
+#: patterns/grid-boxed.php:27
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "Sorğu nəticə vermədikdə göstəriləcək mətni və ya blokları əlavə edin."
+
+#: patterns/faq/accordion-wide.php:36
+msgid "Type / to add a hidden block"
+msgstr "Gizli blok əlavə etmək üçün / yazın"
+
+#. Common translatable strings
+msgid "Home"
+msgstr "Ana Səhifə"
+
+msgid "About"
+msgstr "Haqqımızda"
+
+msgid "Contact"
+msgstr "Əlaqə"
+
+msgid "Blog"
+msgstr "Bloq"
+
+msgid "Services"
+msgstr "Xidmətlər"
+
+msgid "Portfolio"
+msgstr "Portfoli"
+
+msgid "Features"
+msgstr "Xüsusiyyətlər"
+
+msgid "Pricing"
+msgstr "Qiymətlər"
+
+msgid "Team"
+msgstr "Komanda"
+
+msgid "Testimonials"
+msgstr "Rəylər"
+
+msgid "FAQ"
+msgstr "MVS"
+
+msgid "Gallery"
+msgstr "Qalereya"
+
+msgid "Read More"
+msgstr "Davamını oxu"
+
+msgid "Learn More"
+msgstr "Daha çox öyrən"
+
+msgid "Get Started"
+msgstr "Başlayın"
+
+msgid "Subscribe"
+msgstr "Abunə ol"
+
+msgid "Submit"
+msgstr "Göndər"
+
+msgid "Send Message"
+msgstr "Mesaj göndər"
+
+msgid "View All"
+msgstr "Hamısına bax"
+
+msgid "Back to Top"
+msgstr "Yuxarı qayıt"
+
+msgid "Previous"
+msgstr "Əvvəlki"
+
+msgid "Next"
+msgstr "Növbəti"
+
+msgid "Page"
+msgstr "Səhifə"
+
+msgid "of"
+msgstr "dan"
+
+msgid "Posts"
+msgstr "Yazılar"
+
+msgid "Categories"
+msgstr "Kateqoriyalar"
+
+msgid "Tags"
+msgstr "Taqlar"
+
+msgid "Archive"
+msgstr "Arxiv"
+
+msgid "Author"
+msgstr "Müəllif"
+
+msgid "Date"
+msgstr "Tarix"
+
+msgid "Comments"
+msgstr "Şərhlər"
+
+msgid "Leave a Comment"
+msgstr "Rəy yazın"
+
+msgid "Posted on"
+msgstr "Dərc edilib"
+
+msgid "By"
+msgstr "Tərəfindən"
+
+msgid "in"
+msgstr "bölməsində"
+
+msgid "No comments"
+msgstr "Şərh yoxdur"
+
+msgid "One comment"
+msgstr "Bir şərh"
+
+msgid "% comments"
+msgstr "% şərh"
+
+msgid "Related Posts"
+msgstr "Oxşar yazılar"
+
+msgid "Recent Posts"
+msgstr "Son yazılar"
+
+msgid "Popular Posts"
+msgstr "Məşhur yazılar"
+
+msgid "Featured"
+msgstr "Seçilmiş"
+
+msgid "Latest"
+msgstr "Sonuncu"
+
+msgid "Continue Reading"
+msgstr "Oxumağa davam et"
+
+msgid "Nothing Found"
+msgstr "Heç nə tapılmadı"
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "Təəssüf ki, kriteriyalarınıza uyğun yazı tapılmadı."
+
+msgid "Search Results for:"
+msgstr "Axtarış nəticələri:"
+
+msgid "404 - Page Not Found"
+msgstr "404 - Səhifə tapılmadı"
+
+msgid "The page you are looking for does not exist."
+msgstr "Axtardığınız səhifə mövcud deyil."
+
+msgid "Go to Homepage"
+msgstr "Ana səhifəyə qayıt"
+
+#. Typography & Design
+msgid "Heading"
+msgstr "Başlıq"
+
+msgid "Subheading"
+msgstr "Alt başlıq"
+
+msgid "Title"
+msgstr "Başlıq"
+
+msgid "Subtitle"
+msgstr "Alt başlıq"
+
+msgid "Description"
+msgstr "Təsvir"
+
+msgid "Content"
+msgstr "Məzmun"
+
+msgid "Text"
+msgstr "Mətn"
+
+msgid "Label"
+msgstr "Etiket"
+
+msgid "Caption"
+msgstr "İmza"
+
+#. Form Elements
+msgid "Name"
+msgstr "Ad"
+
+msgid "Email"
+msgstr "E-poçt"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Message"
+msgstr "Mesaj"
+
+msgid "Subject"
+msgstr "Mövzu"
+
+msgid "Your Name"
+msgstr "Adınız"
+
+msgid "Your Email"
+msgstr "E-poçtunuz"
+
+msgid "Your Message"
+msgstr "Mesajınız"
+
+msgid "Required"
+msgstr "Məcburi"
+
+msgid "Optional"
+msgstr "İxtiyari"
+
+#. Navigation & UI
+msgid "Menu"
+msgstr "Menyu"
+
+msgid "Navigation"
+msgstr "Naviqasiya"
+
+msgid "Primary Menu"
+msgstr "Əsas menyu"
+
+msgid "Footer Menu"
+msgstr "Alt menyu"
+
+msgid "Social Links"
+msgstr "Sosial keçidlər"
+
+msgid "Skip to content"
+msgstr "Məzmuna keç"
+
+msgid "Close"
+msgstr "Bağla"
+
+msgid "Open"
+msgstr "Aç"
+
+msgid "Toggle"
+msgstr "Dəyişdir"
+
+msgid "Show"
+msgstr "Göstər"
+
+msgid "Hide"
+msgstr "Gizlət"
+
+#. Layout Elements
+msgid "Header"
+msgstr "Başlıq"
+
+msgid "Footer"
+msgstr "Altlıq"
+
+msgid "Sidebar"
+msgstr "Yan panel"
+
+msgid "Main Content"
+msgstr "Əsas məzmun"
+
+msgid "Widget Area"
+msgstr "Vidcet sahəsi"
+
+#. Social Media
+msgid "Follow Us"
+msgstr "Bizi izləyin"
+
+msgid "Connect"
+msgstr "Bağlan"
+
+msgid "Share"
+msgstr "Paylaş"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#. Call to Action
+msgid "Get in Touch"
+msgstr "Əlaqə saxla"
+
+msgid "Contact Us"
+msgstr "Bizimlə əlaqə"
+
+msgid "Join Us"
+msgstr "Bizə qoşulun"
+
+msgid "Sign Up"
+msgstr "Qeydiyyatdan keç"
+
+msgid "Register"
+msgstr "Qeydiyyat"
+
+msgid "Download"
+msgstr "Yüklə"
+
+msgid "Book Now"
+msgstr "İndi rezerv et"
+
+msgid "Request Quote"
+msgstr "Qiymət təklifi istə"
+
+msgid "Schedule Consultation"
+msgstr "Məsləhət təyin et"
+
+#. Error Messages
+msgid "Error"
+msgstr "Xəta"
+
+msgid "Warning"
+msgstr "Xəbərdarlıq"
+
+msgid "Success"
+msgstr "Uğur"
+
+msgid "Info"
+msgstr "Məlumat"
+
+msgid "Please try again"
+msgstr "Zəhmət olmasa yenidən cəhd edin"
+
+msgid "Something went wrong"
+msgstr "Xəta baş verdi"
+
+msgid "Invalid input"
+msgstr "Yanlış daxiletmə"
+
+msgid "Field is required"
+msgstr "Sahə doldurulmalıdır"
+
+#. Accessibility
+msgid "Skip to main content"
+msgstr "Əsas məzmuna keç"
+
+msgid "Screen reader text"
+msgstr "Ekran oxuyucu mətni"
+
+msgid "External link"
+msgstr "Xarici keçid"
+
+msgid "Opens in new window"
+msgstr "Yeni pəncərədə açılır"
+
+msgid "Back"
+msgstr "Geri"
+
+msgid "Forward"
+msgstr "İrəli"
+
+#. Time & Date
+msgid "Today"
+msgstr "Bu gün"
+
+msgid "Yesterday"
+msgstr "Dünən"
+
+msgid "Tomorrow"
+msgstr "Sabah"
+
+msgid "Week"
+msgstr "Həftə"
+
+msgid "Month"
+msgstr "Ay"
+
+msgid "Year"
+msgstr "İl"
+
+msgid "Daily"
+msgstr "Gündəlik"
+
+msgid "Weekly"
+msgstr "Həftəlik"
+
+msgid "Monthly"
+msgstr "Aylıq"
+
+msgid "Yearly"
+msgstr "İllik"
+
+#. General
+msgid "All"
+msgstr "Hamısı"
+
+msgid "None"
+msgstr "Heç biri"
+
+msgid "More"
+msgstr "Daha çox"
+
+msgid "Less"
+msgstr "Daha az"
+
+msgid "Details"
+msgstr "Təfərrüatlar"
+
+msgid "Information"
+msgstr "Məlumat"
+
+msgid "Welcome"
+msgstr "Xoş gəlmisiniz"
+
+msgid "Hello"
+msgstr "Salam"
+
+msgid "Thanks"
+msgstr "Təşəkkürlər"
+
+msgid "Thank You"
+msgstr "Çox sağ olun"
+
+msgid "Copyright"
+msgstr "Müəllif hüquqları"
+
+msgid "All Rights Reserved"
+msgstr "Bütün hüquqlar qorunur"
+
+msgid "Privacy Policy"
+msgstr "Məxfilik siyasəti"
+
+msgid "Terms of Service"
+msgstr "İstifadə şərtləri"
+
+msgid "Cookies Policy"
+msgstr "Kuki siyasəti"
+
+msgid "Disclaimer"
+msgstr "Məsuliyyətdən imtina"
