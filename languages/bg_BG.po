@@ -1,0 +1,485 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-19T10:22:00-05:00\n"
+"PO-Revision-Date: 2026-01-19 23:15-0500\n"
+"Last-Translator: \n"
+"Language-Team: Bulgarian <bg@li.org>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "Aegis"
+
+#. Description of the theme
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "Нативна блокова рамка, проектирана за максимална скорост. Aegis не зарежда по подразбиране никакви CSS, JavaScript или шрифтови ресурси, осигурявайки чиста архитектурна основа. Тя дава на дизайнерите задълбочен визуален контрол – включително управление на SVG, флуидна типография и присъща адаптивност – като същевременно предоставя на разработчиците строга, базирана на стандарти среда. Окончателната основа за високопроизводителни производни теми."
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search this site"
+msgstr "Търсене в сайта"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search"
+msgstr "Търсене"
+
+#: patterns/grid-boxed.php:27
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "Добавете текст или блокове, които да се показват, когато търсенето не върне резултати."
+
+#: patterns/faq/accordion-wide.php:36
+msgid "Type / to add a hidden block"
+msgstr "Въведете /, за да добавите скрит блок"
+
+#. Common translatable strings
+msgid "Home"
+msgstr "Начало"
+
+msgid "About"
+msgstr "За нас"
+
+msgid "Contact"
+msgstr "Контакт"
+
+msgid "Blog"
+msgstr "Блог"
+
+msgid "Services"
+msgstr "Услуги"
+
+msgid "Portfolio"
+msgstr "Портфолио"
+
+msgid "Features"
+msgstr "Функции"
+
+msgid "Pricing"
+msgstr "Цени"
+
+msgid "Team"
+msgstr "Екип"
+
+msgid "Testimonials"
+msgstr "Отзиви"
+
+msgid "FAQ"
+msgstr "ЧЗВ"
+
+msgid "Gallery"
+msgstr "Галерия"
+
+msgid "Read More"
+msgstr "Прочетете повече"
+
+msgid "Learn More"
+msgstr "Научете повече"
+
+msgid "Get Started"
+msgstr "Започнете"
+
+msgid "Subscribe"
+msgstr "Абониране"
+
+msgid "Submit"
+msgstr "Изпращане"
+
+msgid "Send Message"
+msgstr "Изпращане на съобщение"
+
+msgid "View All"
+msgstr "Вижте всички"
+
+msgid "Back to Top"
+msgstr "Обратно горе"
+
+msgid "Previous"
+msgstr "Предишна"
+
+msgid "Next"
+msgstr "Следваща"
+
+msgid "Page"
+msgstr "Страница"
+
+msgid "of"
+msgstr "от"
+
+msgid "Posts"
+msgstr "Публикации"
+
+msgid "Categories"
+msgstr "Категории"
+
+msgid "Tags"
+msgstr "Етикети"
+
+msgid "Archive"
+msgstr "Архив"
+
+msgid "Author"
+msgstr "Автор"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Comments"
+msgstr "Коментари"
+
+msgid "Leave a Comment"
+msgstr "Оставете коментар"
+
+msgid "Posted on"
+msgstr "Публикувано на"
+
+msgid "By"
+msgstr "От"
+
+msgid "in"
+msgstr "в"
+
+msgid "No comments"
+msgstr "Няма коментари"
+
+msgid "One comment"
+msgstr "Един коментар"
+
+msgid "% comments"
+msgstr "% коментара"
+
+msgid "Related Posts"
+msgstr "Свързани публикации"
+
+msgid "Recent Posts"
+msgstr "Скорошни публикации"
+
+msgid "Popular Posts"
+msgstr "Популярни публикации"
+
+msgid "Featured"
+msgstr "Препоръчано"
+
+msgid "Latest"
+msgstr "Последни"
+
+msgid "Continue Reading"
+msgstr "Продължете да четете"
+
+msgid "Nothing Found"
+msgstr "Нищо не е намерено"
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "За съжаление, няма публикации, отговарящи на вашите критерии."
+
+msgid "Search Results for:"
+msgstr "Резултати от търсенето за:"
+
+msgid "404 - Page Not Found"
+msgstr "404 - Страницата не е намерена"
+
+msgid "The page you are looking for does not exist."
+msgstr "Страницата, която търсите, не съществува."
+
+msgid "Go to Homepage"
+msgstr "Към началната страница"
+
+#. Typography & Design
+msgid "Heading"
+msgstr "Заглавие"
+
+msgid "Subheading"
+msgstr "Подзаглавие"
+
+msgid "Title"
+msgstr "Заглавие"
+
+msgid "Subtitle"
+msgstr "Подзаглавие"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Content"
+msgstr "Съдържание"
+
+msgid "Text"
+msgstr "Текст"
+
+msgid "Label"
+msgstr "Етикет"
+
+msgid "Caption"
+msgstr "Надпис"
+
+#. Form Elements
+msgid "Name"
+msgstr "Име"
+
+msgid "Email"
+msgstr "Имейл"
+
+msgid "Phone"
+msgstr "Телефон"
+
+msgid "Message"
+msgstr "Съобщение"
+
+msgid "Subject"
+msgstr "Тема"
+
+msgid "Your Name"
+msgstr "Вашето име"
+
+msgid "Your Email"
+msgstr "Вашият имейл"
+
+msgid "Your Message"
+msgstr "Вашето съобщение"
+
+msgid "Required"
+msgstr "Задължително"
+
+msgid "Optional"
+msgstr "По избор"
+
+#. Navigation & UI
+msgid "Menu"
+msgstr "Меню"
+
+msgid "Navigation"
+msgstr "Навигация"
+
+msgid "Primary Menu"
+msgstr "Основно меню"
+
+msgid "Footer Menu"
+msgstr "Меню в долната част"
+
+msgid "Social Links"
+msgstr "Социални мрежи"
+
+msgid "Skip to content"
+msgstr "Прескочи към съдържанието"
+
+msgid "Close"
+msgstr "Затваряне"
+
+msgid "Open"
+msgstr "Отваряне"
+
+msgid "Toggle"
+msgstr "Превключване"
+
+msgid "Show"
+msgstr "Показване"
+
+msgid "Hide"
+msgstr "Скриване"
+
+#. Layout Elements
+msgid "Header"
+msgstr "Заглавна част"
+
+msgid "Footer"
+msgstr "Долна част"
+
+msgid "Sidebar"
+msgstr "Странична лента"
+
+msgid "Main Content"
+msgstr "Основно съдържание"
+
+msgid "Widget Area"
+msgstr "Област за джаджи"
+
+#. Social Media
+msgid "Follow Us"
+msgstr "Последвайте ни"
+
+msgid "Connect"
+msgstr "Свържете се"
+
+msgid "Share"
+msgstr "Споделяне"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#. Call to Action
+msgid "Get in Touch"
+msgstr "Свържете се с нас"
+
+msgid "Contact Us"
+msgstr "Свържете се с нас"
+
+msgid "Join Us"
+msgstr "Присъединете се"
+
+msgid "Sign Up"
+msgstr "Регистрация"
+
+msgid "Register"
+msgstr "Регистрация"
+
+msgid "Download"
+msgstr "Изтегляне"
+
+msgid "Book Now"
+msgstr "Резервирайте сега"
+
+msgid "Request Quote"
+msgstr "Запитване за оферта"
+
+msgid "Schedule Consultation"
+msgstr "Записване за консултация"
+
+#. Error Messages
+msgid "Error"
+msgstr "Грешка"
+
+msgid "Warning"
+msgstr "Предупреждение"
+
+msgid "Success"
+msgstr "Успех"
+
+msgid "Info"
+msgstr "Инфо"
+
+msgid "Please try again"
+msgstr "Моля, опитайте отново"
+
+msgid "Something went wrong"
+msgstr "Възникна грешка"
+
+msgid "Invalid input"
+msgstr "Невалидни данни"
+
+msgid "Field is required"
+msgstr "Полето е задължително"
+
+#. Accessibility
+msgid "Skip to main content"
+msgstr "Прескочи към основното съдържание"
+
+msgid "Screen reader text"
+msgstr "Текст за екранни четци"
+
+msgid "External link"
+msgstr "Външна връзка"
+
+msgid "Opens in new window"
+msgstr "Отваря се в нов прозорец"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Forward"
+msgstr "Напред"
+
+#. Time & Date
+msgid "Today"
+msgstr "Днес"
+
+msgid "Yesterday"
+msgstr "Вчера"
+
+msgid "Tomorrow"
+msgstr "Утре"
+
+msgid "Week"
+msgstr "Седмица"
+
+msgid "Month"
+msgstr "Месец"
+
+msgid "Year"
+msgstr "Година"
+
+msgid "Daily"
+msgstr "Ежедневно"
+
+msgid "Weekly"
+msgstr "Ежеседмично"
+
+msgid "Monthly"
+msgstr "Ежемесечно"
+
+msgid "Yearly"
+msgstr "Ежегодно"
+
+#. General
+msgid "All"
+msgstr "Всички"
+
+msgid "None"
+msgstr "Няма"
+
+msgid "More"
+msgstr "Още"
+
+msgid "Less"
+msgstr "По-малко"
+
+msgid "Details"
+msgstr "Детайли"
+
+msgid "Information"
+msgstr "Информация"
+
+msgid "Welcome"
+msgstr "Добре дошли"
+
+msgid "Hello"
+msgstr "Здравейте"
+
+msgid "Thanks"
+msgstr "Благодаря"
+
+msgid "Thank You"
+msgstr "Благодарим ви"
+
+msgid "Copyright"
+msgstr "Авторско право"
+
+msgid "All Rights Reserved"
+msgstr "Всички права запазени"
+
+msgid "Privacy Policy"
+msgstr "Политика за поверителност"
+
+msgid "Terms of Service"
+msgstr "Условия за ползване"
+
+msgid "Cookies Policy"
+msgstr "Политика за бисквитки"
+
+msgid "Disclaimer"
+msgstr "Отказ от отговорност"
