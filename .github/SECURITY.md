@@ -1,25 +1,19 @@
 # Security Policy
 
+## Supported Versions
+We actively support and provide security updates for the following branches:
+
+| Version | Supported          |
+| ------- | ------------------ |
+| dev     | :white_check_mark: |
+| main    | :white_check_mark: |
+
 ## Reporting a Vulnerability
+**Please do not open a public GitHub issue for security vulnerabilities.**
 
-The team at Armostfear Entertainment takes security seriously. We appreciate your efforts to responsibly disclose your findings, and we will make every effort to acknowledge your contributions.
+To report a security issue, please follow these steps:
+1. Email the maintainers at [mail@atmostfear-entertainment.com] with a description of the vulnerability.
+2. Provide a proof of concept or steps to reproduce the issue.
+3. We will acknowledge your report within 48 hours and provide a timeline for a fix.
 
-To report a security vulnerability, please use the **"Report a vulnerability"** button on the [Security tab](https://github.com/aegiswp/theme/security).
-
-This will allow you to privately report a vulnerability to the project maintainers.
-
-### What to Expect
-
-After you report a vulnerability, you can expect the following:
-
-- We will acknowledge receipt of your vulnerability report within 3 business days.
-- We will provide you with a timeline for addressing the vulnerability.
-- We will notify you when the vulnerability has been fixed.
-
-We will not disclose your identity without your permission.
-
-### Scope
-
-Please only report vulnerabilities in the latest version of the theme.
-
-Thank you for helping keep Aegis and our users safe.
+For general bugs that are not security-related, please use our [Bug Report Template](.github/ISSUE_TEMPLATE/bug_report.yml).
