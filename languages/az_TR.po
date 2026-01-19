@@ -1,0 +1,196 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-19T10:22:00-05:00\n"
+"PO-Revision-Date: 2026-01-19 15:45-0500\n"
+"Last-Translator: \n"
+"Language-Team: Azerbaijani (Turkey) <az_TR@li.org>\n"
+"Language: az_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "Aegis"
+
+#. Description of the theme
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "Maksimum sürət üçün mühəndislik edilmiş yerli blok çərçivəsi. Aegis standart olaraq sıfır CSS, JavaScript və ya şrift aktivləri yükləyərək təmiz arxitektura təməli təqdim edir. O, dizaynerlərə SVG idarəetməsi, axıcı tipoqrafiya və daxili həssaslıq daxil olmaqla dərin vizual idarəetmə imkanları verir, eyni zamanda tərtibatçılara ciddi, standartlara əsaslanan mühit təmin edir. Yüksək performanslı alt mövzular üçün qətiyyətli təməldir."
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search this site"
+msgstr "Saytda axtar"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search"
+msgstr "Axtar"
+
+#: patterns/grid-boxed.php:27
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "Sorğu nəticə vermədikdə göstəriləcək mətni və ya blokları əlavə edin."
+
+#: patterns/faq/accordion-wide.php:36
+msgid "Type / to add a hidden block"
+msgstr "Gizli blok əlavə etmək üçün / yazın"
+
+#. Common translatable strings
+msgid "Home"
+msgstr "Ana Səhifə"
+
+msgid "About"
+msgstr "Haqqımızda"
+
+msgid "Contact"
+msgstr "Əlaqə"
+
+msgid "Blog"
+msgstr "Bloq"
+
+msgid "Services"
+msgstr "Xidmətlər"
+
+msgid "Portfolio"
+msgstr "Portfoli"
+
+msgid "Features"
+msgstr "Xüsusiyyətlər"
+
+msgid "Pricing"
+msgstr "Qiymətlər"
+
+msgid "Team"
+msgstr "Komanda"
+
+msgid "Testimonials"
+msgstr "Rəylər"
+
+msgid "FAQ"
+msgstr "MVS"
+
+msgid "Gallery"
+msgstr "Qalereya"
+
+msgid "Read More"
+msgstr "Davamını oxu"
+
+msgid "Learn More"
+msgstr "Daha çox öyrən"
+
+msgid "Get Started"
+msgstr "Başlayın"
+
+msgid "Submit"
+msgstr "Göndər"
+
+msgid "Back to Top"
+msgstr "Yuxarı qayıt"
+
+msgid "Previous"
+msgstr "Əvvəlki"
+
+msgid "Next"
+msgstr "Növbəti"
+
+msgid "Page"
+msgstr "Səhifə"
+
+msgid "Posts"
+msgstr "Yazılar"
+
+msgid "Categories"
+msgstr "Kateqoriyalar"
+
+msgid "Tags"
+msgstr "Taqlar"
+
+msgid "Author"
+msgstr "Müəllif"
+
+msgid "Date"
+msgstr "Tarix"
+
+msgid "Comments"
+msgstr "Şərhlər"
+
+msgid "Leave a Comment"
+msgstr "Rəy yazın"
+
+msgid "No comments"
+msgstr "Şərh yoxdur"
+
+msgid "One comment"
+msgstr "Bir şərh"
+
+msgid "% comments"
+msgstr "% şərh"
+
+msgid "Featured"
+msgstr "Seçilmiş"
+
+msgid "Latest"
+msgstr "Sonuncu"
+
+msgid "404 - Page Not Found"
+msgstr "404 - Səhifə tapılmadı"
+
+msgid "Go to Homepage"
+msgstr "Ana səhifəyə qayıt"
+
+msgid "Name"
+msgstr "Ad"
+
+msgid "Email"
+msgstr "E-poçt"
+
+msgid "Message"
+msgstr "Mesaj"
+
+msgid "Required"
+msgstr "Məcburi"
+
+msgid "Optional"
+msgstr "İxtiyari"
+
+msgid "Menu"
+msgstr "Menyu"
+
+msgid "Navigation"
+msgstr "Naviqasiya"
+
+msgid "Close"
+msgstr "Bağla"
+
+msgid "Open"
+msgstr "Aç"
+
+msgid "Show"
+msgstr "Göstər"
+
+msgid "Hide"
+msgstr "Gizlət"
+
+msgid "Error"
+msgstr "Xəta"
+
+msgid "Success"
+msgstr "Uğur"
+
+msgid "Today"
+msgstr "Bu gün"
+
+msgid "Yesterday"
+msgstr "Dünən"
+
+msgid "Tomorrow"
+msgstr "Sabah"
