@@ -1,0 +1,485 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-19T10:22:00-05:00\n"
+"PO-Revision-Date: 2026-01-19 14:35-0500\n"
+"Last-Translator: \n"
+"Language-Team: Asturian <ast@li.org>\n"
+"Language: ast\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "Aegis"
+
+#. Description of the theme
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "Un marcu de trabayu de bloques nativu diseñáu pa una velocidá pura. Aegis nun carga por defeutu nengún asset de CSS, JavaScript o fontes, ufriendo una base arquiteutónica pura. Da-yos a los diseñadores controles visuales fondos —incluyendo la xestión de SVG, tipografía fluyida y capacidá de rempuesta intrínseca— mientres apurre a los desarrolladores un entornu estrictu basáu n'estándares. La base definitiva pa temes fíu d'altu rendimientu."
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search this site"
+msgstr "Guetar nesti sitiu"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search"
+msgstr "Guetar"
+
+#: patterns/grid-boxed.php:27
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "Amiesta testu o bloques que se van amosar cuando una busca nun devuelva resultaos."
+
+#: patterns/faq/accordion-wide.php:36
+msgid "Type / to add a hidden block"
+msgstr "Escribi / p'amiestar un bloque ocultu"
+
+#. Common translatable strings
+msgid "Home"
+msgstr "Aniciu"
+
+msgid "About"
+msgstr "Tocante a"
+
+msgid "Contact"
+msgstr "Contautu"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Services"
+msgstr "Servicios"
+
+msgid "Portfolio"
+msgstr "Portfolio"
+
+msgid "Features"
+msgstr "Carauterístiques"
+
+msgid "Pricing"
+msgstr "Precios"
+
+msgid "Team"
+msgstr "Equipu"
+
+msgid "Testimonials"
+msgstr "Testimonios"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "Gallery"
+msgstr "Galería"
+
+msgid "Read More"
+msgstr "Lleer más"
+
+msgid "Learn More"
+msgstr "Deprender más"
+
+msgid "Get Started"
+msgstr "Empecipiar"
+
+msgid "Subscribe"
+msgstr "Soscribise"
+
+msgid "Submit"
+msgstr "Unviar"
+
+msgid "Send Message"
+msgstr "Unviar mensaxe"
+
+msgid "View All"
+msgstr "Ver too"
+
+msgid "Back to Top"
+msgstr "Tornar p'arriba"
+
+msgid "Previous"
+msgstr "Anterior"
+
+msgid "Next"
+msgstr "Siguiente"
+
+msgid "Page"
+msgstr "Páxina"
+
+msgid "of"
+msgstr "de"
+
+msgid "Posts"
+msgstr "Entraes"
+
+msgid "Categories"
+msgstr "Categoríes"
+
+msgid "Tags"
+msgstr "Etiquetes"
+
+msgid "Archive"
+msgstr "Archivu"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Comments"
+msgstr "Comentarios"
+
+msgid "Leave a Comment"
+msgstr "Dexar un comentariu"
+
+msgid "Posted on"
+msgstr "Espublizao'l"
+
+msgid "By"
+msgstr "Per"
+
+msgid "in"
+msgstr "en"
+
+msgid "No comments"
+msgstr "Ensin comentarios"
+
+msgid "One comment"
+msgstr "Un comentariu"
+
+msgid "% comments"
+msgstr "% comentarios"
+
+msgid "Related Posts"
+msgstr "Entraes rellacionaes"
+
+msgid "Recent Posts"
+msgstr "Entraes recién"
+
+msgid "Popular Posts"
+msgstr "Entraes populares"
+
+msgid "Featured"
+msgstr "Destacáu"
+
+msgid "Latest"
+msgstr "Postreres"
+
+msgid "Continue Reading"
+msgstr "Siguir lleendo"
+
+msgid "Nothing Found"
+msgstr "Nun s'atopó nada"
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "Sentímoslo, nenguna entrada coincide colos tos criterios."
+
+msgid "Search Results for:"
+msgstr "Resultaos de la gueta de:"
+
+msgid "404 - Page Not Found"
+msgstr "404 - Páxina non atopada"
+
+msgid "The page you are looking for does not exist."
+msgstr "La páxina que tas buscando nun esiste."
+
+msgid "Go to Homepage"
+msgstr "Dir al aniciu"
+
+#. Typography & Design
+msgid "Heading"
+msgstr "Encabezáu"
+
+msgid "Subheading"
+msgstr "Subencabezáu"
+
+msgid "Title"
+msgstr "Títulu"
+
+msgid "Subtitle"
+msgstr "Sobtítulu"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "Content"
+msgstr "Conteníu"
+
+msgid "Text"
+msgstr "Testu"
+
+msgid "Label"
+msgstr "Etiqueta"
+
+msgid "Caption"
+msgstr "Lleenda"
+
+#. Form Elements
+msgid "Name"
+msgstr "Nome"
+
+msgid "Email"
+msgstr "Corréu electrónicu"
+
+msgid "Phone"
+msgstr "Teléfonu"
+
+msgid "Message"
+msgstr "Mensaxe"
+
+msgid "Subject"
+msgstr "Asuntu"
+
+msgid "Your Name"
+msgstr "El to nome"
+
+msgid "Your Email"
+msgstr "El to corréu"
+
+msgid "Your Message"
+msgstr "El to mensaxe"
+
+msgid "Required"
+msgstr "Obligatoriu"
+
+msgid "Optional"
+msgstr "Opcional"
+
+#. Navigation & UI
+msgid "Menu"
+msgstr "Menú"
+
+msgid "Navigation"
+msgstr "Navegación"
+
+msgid "Primary Menu"
+msgstr "Menú principal"
+
+msgid "Footer Menu"
+msgstr "Menú del pie"
+
+msgid "Social Links"
+msgstr "Enllaces sociales"
+
+msgid "Skip to content"
+msgstr "Saltar al conteníu"
+
+msgid "Close"
+msgstr "Zarrar"
+
+msgid "Open"
+msgstr "Abrir"
+
+msgid "Toggle"
+msgstr "Alternar"
+
+msgid "Show"
+msgstr "Amosar"
+
+msgid "Hide"
+msgstr "Anubrir"
+
+#. Layout Elements
+msgid "Header"
+msgstr "Cabecera"
+
+msgid "Footer"
+msgstr "Pie de páxina"
+
+msgid "Sidebar"
+msgstr "Barra llateral"
+
+msgid "Main Content"
+msgstr "Conteníu principal"
+
+msgid "Widget Area"
+msgstr "Área de widgets"
+
+#. Social Media
+msgid "Follow Us"
+msgstr "Siguinos"
+
+msgid "Connect"
+msgstr "Coneutar"
+
+msgid "Share"
+msgstr "Compartir"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#. Call to Action
+msgid "Get in Touch"
+msgstr "Ponte en contautu"
+
+msgid "Contact Us"
+msgstr "Contáctanos"
+
+msgid "Join Us"
+msgstr "Xúnite"
+
+msgid "Sign Up"
+msgstr "Soscribise"
+
+msgid "Register"
+msgstr "Rexistru"
+
+msgid "Download"
+msgstr "Descargar"
+
+msgid "Book Now"
+msgstr "Reservar agora"
+
+msgid "Request Quote"
+msgstr "Pidir presupuestu"
+
+msgid "Schedule Consultation"
+msgstr "Programar consulta"
+
+#. Error Messages
+msgid "Error"
+msgstr "Error"
+
+msgid "Warning"
+msgstr "Avisu"
+
+msgid "Success"
+msgstr "Ésitu"
+
+msgid "Info"
+msgstr "Información"
+
+msgid "Please try again"
+msgstr "Inténtalo de nuevu"
+
+msgid "Something went wrong"
+msgstr "Daqué salió mal"
+
+msgid "Invalid input"
+msgstr "Entrada non válida"
+
+msgid "Field is required"
+msgstr "El campu ye obligatorio"
+
+#. Accessibility
+msgid "Skip to main content"
+msgstr "Saltar al conteníu principal"
+
+msgid "Screen reader text"
+msgstr "Testu pal llector de pantalla"
+
+msgid "External link"
+msgstr "Enllace esternu"
+
+msgid "Opens in new window"
+msgstr "S'abre nuna ventana nueva"
+
+msgid "Back"
+msgstr "Atrás"
+
+msgid "Forward"
+msgstr "Alantre"
+
+#. Time & Date
+msgid "Today"
+msgstr "Güei"
+
+msgid "Yesterday"
+msgstr "Ayeri"
+
+msgid "Tomorrow"
+msgstr "Mañana"
+
+msgid "Week"
+msgstr "Selmana"
+
+msgid "Month"
+msgstr "Mes"
+
+msgid "Year"
+msgstr "Añu"
+
+msgid "Daily"
+msgstr "Día per día"
+
+msgid "Weekly"
+msgstr "Selmanalmenti"
+
+msgid "Monthly"
+msgstr "Mensualmente"
+
+msgid "Yearly"
+msgstr "Añalmenti"
+
+#. General
+msgid "All"
+msgstr "Too"
+
+msgid "None"
+msgstr "Nengún"
+
+msgid "More"
+msgstr "Más"
+
+msgid "Less"
+msgstr "Menos"
+
+msgid "Details"
+msgstr "Detalles"
+
+msgid "Information"
+msgstr "Información"
+
+msgid "Welcome"
+msgstr "Bienveníu"
+
+msgid "Hello"
+msgstr "Hola"
+
+msgid "Thanks"
+msgstr "Gracies"
+
+msgid "Thank You"
+msgstr "Munches gracies"
+
+msgid "Copyright"
+msgstr "Copyright"
+
+msgid "All Rights Reserved"
+msgstr "Tolos derechos acutaos"
+
+msgid "Privacy Policy"
+msgstr "Política de privacidá"
+
+msgid "Terms of Service"
+msgstr "Condiciones del serviciu"
+
+msgid "Cookies Policy"
+msgstr "Política de cookies"
+
+msgid "Disclaimer"
+msgstr "Avisu llegal"
