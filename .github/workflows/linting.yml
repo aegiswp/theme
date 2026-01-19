@@ -30,6 +30,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          # Use update because composer.lock is not available
           composer update --no-progress --prefer-dist --no-interaction
           npm install --legacy-peer-deps
 
