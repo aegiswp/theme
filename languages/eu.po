@@ -1,0 +1,485 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-19T10:22:00-05:00\n"
+"PO-Revision-Date: 2026-01-19 17:15-0500\n"
+"Last-Translator: \n"
+"Language-Team: Basque <eu@li.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "Aegis"
+
+#. Description of the theme
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "Abiadura hutserako diseinatutako bloke-frama natiboa. Aegis-ek ez du CSS, JavaScript edo letra-tipo asetik kargatzen modu lehenetsian, oinarri arkitektoniko garbi bat eskainiz. Diseinatzaileei ikusizko kontrol sakonak ematen dizkie —SVG kudeaketa, tipografia fluidoa eta berezko erantzunkortasuna barne—, garatzaileei estandarratutako ingurune zorrotz bat eskaintzen dien bitartean. Errendimendu handiko ume-temetarako behin betiko oinarria."
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search this site"
+msgstr "Bilatu gune honetan"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search"
+msgstr "Bilatu"
+
+#: patterns/grid-boxed.php:27
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "Gehitu kontsulta batek emaitzarik ematen ez duenean bistaratuko diren testuak edo blokeak."
+
+#: patterns/faq/accordion-wide.php:36
+msgid "Type / to add a hidden block"
+msgstr "Idatzi / bloke ezkutu bat gehitzeko"
+
+#. Common translatable strings
+msgid "Home"
+msgstr "Hasiera"
+
+msgid "About"
+msgstr "Honi buruz"
+
+msgid "Contact"
+msgstr "Kontaktua"
+
+msgid "Blog"
+msgstr "Bloga"
+
+msgid "Services"
+msgstr "Zerbitzuak"
+
+msgid "Portfolio"
+msgstr "Portfolioa"
+
+msgid "Features"
+msgstr "Ezaugarriak"
+
+msgid "Pricing"
+msgstr "Prezioak"
+
+msgid "Team"
+msgstr "Taldea"
+
+msgid "Testimonials"
+msgstr "Gomendioak"
+
+msgid "FAQ"
+msgstr "Ondutako galderak"
+
+msgid "Gallery"
+msgstr "Galeria"
+
+msgid "Read More"
+msgstr "Irakurri gehiago"
+
+msgid "Learn More"
+msgstr "Ikasi gehiago"
+
+msgid "Get Started"
+msgstr "Hasi"
+
+msgid "Subscribe"
+msgstr "Harpidetu"
+
+msgid "Submit"
+msgstr "Bidali"
+
+msgid "Send Message"
+msgstr "Bidali mezua"
+
+msgid "View All"
+msgstr "Ikusi guztiak"
+
+msgid "Back to Top"
+msgstr "Itzuli gora"
+
+msgid "Previous"
+msgstr "Aurrekoa"
+
+msgid "Next"
+msgstr "Hurrengoa"
+
+msgid "Page"
+msgstr "Orria"
+
+msgid "of"
+msgstr "/"
+
+msgid "Posts"
+msgstr "Sarrerak"
+
+msgid "Categories"
+msgstr "Kategoriak"
+
+msgid "Tags"
+msgstr "Etiketak"
+
+msgid "Archive"
+msgstr "Artxiboa"
+
+msgid "Author"
+msgstr "Egilea"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Comments"
+msgstr "Iruzkinak"
+
+msgid "Leave a Comment"
+msgstr "Utzi iruzkin bat"
+
+msgid "Posted on"
+msgstr "Argitaratze-data"
+
+msgid "By"
+msgstr "Egilea:"
+
+msgid "in"
+msgstr "hemen:"
+
+msgid "No comments"
+msgstr "Ez dago iruzkinik"
+
+msgid "One comment"
+msgstr "Iruzkin bat"
+
+msgid "% comments"
+msgstr "% iruzkin"
+
+msgid "Related Posts"
+msgstr "Erlazionatutako sarrerak"
+
+msgid "Recent Posts"
+msgstr "Azken sarrerak"
+
+msgid "Popular Posts"
+msgstr "Sarrera ezagunak"
+
+msgid "Featured"
+msgstr "Nabarmendua"
+
+msgid "Latest"
+msgstr "Azkenak"
+
+msgid "Continue Reading"
+msgstr "Jarraitu irakurtzen"
+
+msgid "Nothing Found"
+msgstr "Ez da ezer aurkitu"
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "Barkatu, ez da zure irizpideekin bat datorren sarrerarik aurkitu."
+
+msgid "Search Results for:"
+msgstr "Honen bilaketa-emaitzak:"
+
+msgid "404 - Page Not Found"
+msgstr "404 - Orria ez da aurkitu"
+
+msgid "The page you are looking for does not exist."
+msgstr "Bilatzen ari zaren orria ez da existitzen."
+
+msgid "Go to Homepage"
+msgstr "Joan hasierako orrira"
+
+#. Typography & Design
+msgid "Heading"
+msgstr "Izenburua"
+
+msgid "Subheading"
+msgstr "Azpititulua"
+
+msgid "Title"
+msgstr "Izenburua"
+
+msgid "Subtitle"
+msgstr "Azpititulua"
+
+msgid "Description"
+msgstr "Deskribapena"
+
+msgid "Content"
+msgstr "Edukia"
+
+msgid "Text"
+msgstr "Testua"
+
+msgid "Label"
+msgstr "Etiketa"
+
+msgid "Caption"
+msgstr "Oina"
+
+#. Form Elements
+msgid "Name"
+msgstr "Izena"
+
+msgid "Email"
+msgstr "Posta elektronikoa"
+
+msgid "Phone"
+msgstr "Telefonoa"
+
+msgid "Message"
+msgstr "Mezua"
+
+msgid "Subject"
+msgstr "Gaia"
+
+msgid "Your Name"
+msgstr "Zure izena"
+
+msgid "Your Email"
+msgstr "Zure posta elektronikoa"
+
+msgid "Your Message"
+msgstr "Zure mezua"
+
+msgid "Required"
+msgstr "Beharrezkoa"
+
+msgid "Optional"
+msgstr "Aukerakoa"
+
+#. Navigation & UI
+msgid "Menu"
+msgstr "Menua"
+
+msgid "Navigation"
+msgstr "Nabigazioa"
+
+msgid "Primary Menu"
+msgstr "Menu nagusia"
+
+msgid "Footer Menu"
+msgstr "Oineko menua"
+
+msgid "Social Links"
+msgstr "Gizarte-estekak"
+
+msgid "Skip to content"
+msgstr "Joan edukira"
+
+msgid "Close"
+msgstr "Itxi"
+
+msgid "Open"
+msgstr "Ireki"
+
+msgid "Toggle"
+msgstr "Aldatu"
+
+msgid "Show"
+msgstr "Erakutsi"
+
+msgid "Hide"
+msgstr "Ezkutatu"
+
+#. Layout Elements
+msgid "Header"
+msgstr "Goiburua"
+
+msgid "Footer"
+msgstr "Orri-oina"
+
+msgid "Sidebar"
+msgstr "Alboko barra"
+
+msgid "Main Content"
+msgstr "Eduki nagusia"
+
+msgid "Widget Area"
+msgstr "Widget eremua"
+
+#. Social Media
+msgid "Follow Us"
+msgstr "Jarraitu gaitzazu"
+
+msgid "Connect"
+msgstr "Konektatu"
+
+msgid "Share"
+msgstr "Partekatu"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#. Call to Action
+msgid "Get in Touch"
+msgstr "Jarri gurekin harremanetan"
+
+msgid "Contact Us"
+msgstr "Jarri gurekin harremanetan"
+
+msgid "Join Us"
+msgstr "Bat egin gurekin"
+
+msgid "Sign Up"
+msgstr "Erregistratu"
+
+msgid "Register"
+msgstr "Erregistratu"
+
+msgid "Download"
+msgstr "Deskargatu"
+
+msgid "Book Now"
+msgstr "Erreserbatu orain"
+
+msgid "Request Quote"
+msgstr "Eskatu aurrekontua"
+
+msgid "Schedule Consultation"
+msgstr "Antolatu kontsulta"
+
+#. Error Messages
+msgid "Error"
+msgstr "Errorea"
+
+msgid "Warning"
+msgstr "Abisua"
+
+msgid "Success"
+msgstr "Arrakasta"
+
+msgid "Info"
+msgstr "Informazioa"
+
+msgid "Please try again"
+msgstr "Mesedez, saiatu berriro"
+
+msgid "Something went wrong"
+msgstr "Zerbait gaizki joan da"
+
+msgid "Invalid input"
+msgstr "Sarrera baliogabea"
+
+msgid "Field is required"
+msgstr "Eremu hau beharrezkoa da"
+
+#. Accessibility
+msgid "Skip to main content"
+msgstr "Joan eduki nagusira"
+
+msgid "Screen reader text"
+msgstr "Pantaila-irakurlearen testua"
+
+msgid "External link"
+msgstr "Kanpoko esteka"
+
+msgid "Opens in new window"
+msgstr "Leiho berrian irekitzen da"
+
+msgid "Back"
+msgstr "Atzera"
+
+msgid "Forward"
+msgstr "Aurrera"
+
+#. Time & Date
+msgid "Today"
+msgstr "Gaur"
+
+msgid "Yesterday"
+msgstr "Atzo"
+
+msgid "Tomorrow"
+msgstr "Bihar"
+
+msgid "Week"
+msgstr "Astea"
+
+msgid "Month"
+msgstr "Hilabetea"
+
+msgid "Year"
+msgstr "Urtea"
+
+msgid "Daily"
+msgstr "Egunero"
+
+msgid "Weekly"
+msgstr "Astero"
+
+msgid "Monthly"
+msgstr "Hilabetero"
+
+msgid "Yearly"
+msgstr "Urtero"
+
+#. General
+msgid "All"
+msgstr "Guztiak"
+
+msgid "None"
+msgstr "Bat ere ez"
+
+msgid "More"
+msgstr "Gehiago"
+
+msgid "Less"
+msgstr "Gutxiago"
+
+msgid "Details"
+msgstr "Xehetasunak"
+
+msgid "Information"
+msgstr "Informazioa"
+
+msgid "Welcome"
+msgstr "Ongi etorri"
+
+msgid "Hello"
+msgstr "Kaixo"
+
+msgid "Thanks"
+msgstr "Eskerrik asko"
+
+msgid "Thank You"
+msgstr "Eskerrik asko"
+
+msgid "Copyright"
+msgstr "Copyrighta"
+
+msgid "All Rights Reserved"
+msgstr "Eskubide guztiak erreserbatuta"
+
+msgid "Privacy Policy"
+msgstr "Pribatutasun politika"
+
+msgid "Terms of Service"
+msgstr "Zerbitzu baldintzak"
+
+msgid "Cookies Policy"
+msgstr "Cookie politika"
+
+msgid "Disclaimer"
+msgstr "Legezko oharra"
