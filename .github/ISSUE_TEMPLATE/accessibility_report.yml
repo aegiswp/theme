@@ -7,89 +7,63 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for reporting an accessibility issue! Your feedback helps us ensure the Aegis WordPress Block Theme is usable and inclusive for everyone. Please provide as much detail as possible to help us understand and resolve the issue.
+        ### Help us make Aegis inclusive!
+        Your feedback helps us ensure Aegis is usable for everyone.
   - type: textarea
     id: description
     attributes:
       label: Issue Description
-      description: Provide a detailed description of the accessibility issue. Include what you expected to happen and what actually happened.
+      description: What is the accessibility barrier? (e.g., "Main menu is not keyboard navigable").
     validations:
       required: true
-  - type: textarea
-    id: elements
+  - type: dropdown
+    id: severity
     attributes:
-      label: Affected Elements
-      description: List any specific elements, components, or blocks where the accessibility issue occurs.
+      label: Severity Level
+      options:
+        - Critical (Blocker - prevents use of a feature)
+        - High (Major barrier - very difficult to use)
+        - Medium (Usability issue - inconsistent behavior)
+        - Low (Minor enhancement)
     validations:
       required: true
   - type: textarea
     id: steps
     attributes:
       label: Steps to Reproduce
-      description: Provide the steps needed to reproduce the accessibility issue.
+      description: How can we see this issue?
       placeholder: |
-        1. Go to '...'
-        2. Use '...' assistive technology (e.g., screen reader, keyboard-only navigation)
-        3. Observe the '...' behavior
+        1. Open the homepage
+        2. Press 'Tab' until reaching the navigation
+        3. Observe that focus is lost
     validations:
       required: true
-  - type: textarea
-    id: standards
+  - type: input
+    id: assistive-tech
     attributes:
-      label: Accessibility Standards Affected
-      description: Specify which accessibility standards or guidelines are not being met (e.g., WCAG 2.1, ARIA roles, keyboard navigation).
-      placeholder: |
-        Example: WCAG 2.1 AA - 1.3.1 Info and Relationships
+      label: Assistive Technology Used
+      description: e.g., VoiceOver (macOS/iOS), NVDA (Windows), Keyboard only.
     validations:
-      required: false
-  - type: textarea
-    id: media
-    attributes:
-      label: Screenshots or Videos
-      description: Provide screenshots, screen recordings, or videos demonstrating the accessibility issue.
-    validations:
-      required: false
-
+      required: true
   - type: group
-    id: wordpress-environment
+    id: environment
     attributes:
-      label: WordPress Environment
+      label: Environment Info
     body:
       - type: input
         id: wp-version
         attributes:
           label: WordPress Version
-          description: What version of WordPress are you running?
-        validations:
-          required: true
-      - type: input
-        id: php-version
-        attributes:
-          label: PHP Version
-          description: What version of PHP are you running?
         validations:
           required: true
       - type: input
         id: theme-version
         attributes:
-          label: Theme Version
-          description: What version of the Aegis theme are you using?
+          label: Theme Version (e.g., 1.0.1)
         validations:
           required: true
-      - type: textarea
-        id: active-plugins
-        attributes:
-          label: Active Plugins
-          description: Please provide a list of all active plugins.
-        validations:
-          required: false
-
   - type: textarea
-    id: environment
+    id: media
     attributes:
-      label: Environment Information
-      description: Provide details about your environment, including the assistive technology used (e.g., screen reader, keyboard-only navigation), browser version, and operating system.
-      placeholder: |
-        Assistive technology: 
-    validations:
-      required: false
+      label: Screenshots or Videos
+      description: Visual evidence is extremely helpful for accessibility triage.
