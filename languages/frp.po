@@ -1,0 +1,485 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-19T10:22:00-05:00\n"
+"PO-Revision-Date: 2026-01-19 13:50-0500\n"
+"Last-Translator: \n"
+"Language-Team: Arpitan <frp@li.org>\n"
+"Language: frp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "Aegis"
+
+#. Description of the theme
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "Un framework de blocs natif concèptualisâ por una vèlociitât bruta. Aegis bârre pouent de CSS, JavaScript, ou d'assets de polices per dèfôt, balient una fondacion architècturâla pura. O pèrmèt ux dèssinateurs de controlar lo visuèl en provondior—y compris la gèstion des SVG, la tipografia fluida et la rèactivitât entrensèca—tot en balient ux dèvelopors un enveronement d'aprés des Règlles de l'ârt. La bâsa dèfinitiva por des tèmes enfants de hiôta pèrrformence."
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search this site"
+msgstr "Rechèrchiar dens ceti seto"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search"
+msgstr "Rechèrchiar"
+
+#: patterns/grid-boxed.php:27
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "Apondre du tèxto ou des blocs que s'apondront quand una rechèrche ne balie pas de rèsultat."
+
+#: patterns/faq/accordion-wide.php:36
+msgid "Type / to add a hidden block"
+msgstr "Tapar / por apondre un bloc cachiê"
+
+#. Common translatable strings
+msgid "Home"
+msgstr "Acuely"
+
+msgid "About"
+msgstr "A propôs"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Services"
+msgstr "Sèrvices"
+
+msgid "Portfolio"
+msgstr "Portefôlyo"
+
+msgid "Features"
+msgstr "Fonccionalitâts"
+
+msgid "Pricing"
+msgstr "Pris"
+
+msgid "Team"
+msgstr "Èquipa"
+
+msgid "Testimonials"
+msgstr "Tèmoignâjos"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "Gallery"
+msgstr "Galerie"
+
+msgid "Read More"
+msgstr "Liére de ples"
+
+msgid "Learn More"
+msgstr "Savoêr de ples"
+
+msgid "Get Started"
+msgstr "Comenciér"
+
+msgid "Subscribe"
+msgstr "S’abonar"
+
+msgid "Submit"
+msgstr "Mandâr"
+
+msgid "Send Message"
+msgstr "Mandâr un mèssâjo"
+
+msgid "View All"
+msgstr "Vêre tot"
+
+msgid "Back to Top"
+msgstr "Tornar d’amont"
+
+msgid "Previous"
+msgstr "Prècèdent"
+
+msgid "Next"
+msgstr "Sivant"
+
+msgid "Page"
+msgstr "Pâge"
+
+msgid "of"
+msgstr "de"
+
+msgid "Posts"
+msgstr "Articllos"
+
+msgid "Categories"
+msgstr "Catègories"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "Archive"
+msgstr "Archives"
+
+msgid "Author"
+msgstr "Ôtor"
+
+msgid "Date"
+msgstr "Dâta"
+
+msgid "Comments"
+msgstr "Comentèros"
+
+msgid "Leave a Comment"
+msgstr "Lèssiér un comentèro"
+
+msgid "Posted on"
+msgstr "Publiâ lo"
+
+msgid "By"
+msgstr "Par"
+
+msgid "in"
+msgstr "dens"
+
+msgid "No comments"
+msgstr "Guan comentèro"
+
+msgid "One comment"
+msgstr "Un comentèro"
+
+msgid "% comments"
+msgstr "% comentèros"
+
+msgid "Related Posts"
+msgstr "Articllos liyês"
+
+msgid "Recent Posts"
+msgstr "Articllos dèrriérs"
+
+msgid "Popular Posts"
+msgstr "Articllos populèros"
+
+msgid "Featured"
+msgstr "En avant"
+
+msgid "Latest"
+msgstr "Dèrriérs"
+
+msgid "Continue Reading"
+msgstr "Contignuér de liére"
+
+msgid "Nothing Found"
+msgstr "Rien fêt"
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "Dèsolâ, gins de pâge ne corrèspond a voutra rechèrche."
+
+msgid "Search Results for:"
+msgstr "Rèsultats de rechèrche por :"
+
+msgid "404 - Page Not Found"
+msgstr "404 - Pâge pas trovâ"
+
+msgid "The page you are looking for does not exist."
+msgstr "La pâge que vos rechèrchiéd ègziste pas."
+
+msgid "Go to Homepage"
+msgstr "Tornar a l’acuely"
+
+#. Typography & Design
+msgid "Heading"
+msgstr "Titro"
+
+msgid "Subheading"
+msgstr "Sot-titro"
+
+msgid "Title"
+msgstr "Titro"
+
+msgid "Subtitle"
+msgstr "Sot-titro"
+
+msgid "Description"
+msgstr "Dèscripcion"
+
+msgid "Content"
+msgstr "Contenut"
+
+msgid "Text"
+msgstr "Tèxto"
+
+msgid "Label"
+msgstr "Ètiquèta"
+
+msgid "Caption"
+msgstr "Lègenda"
+
+#. Form Elements
+msgid "Name"
+msgstr "Nom"
+
+msgid "Email"
+msgstr "Mèl"
+
+msgid "Phone"
+msgstr "Tèlèfona"
+
+msgid "Message"
+msgstr "Mèssâjo"
+
+msgid "Subject"
+msgstr "Sujèt"
+
+msgid "Your Name"
+msgstr "Voutro nom"
+
+msgid "Your Email"
+msgstr "Voutro mèl"
+
+msgid "Your Message"
+msgstr "Voutro mèssâjo"
+
+msgid "Required"
+msgstr "Oblyigatouèro"
+
+msgid "Optional"
+msgstr "Facultatif"
+
+#. Navigation & UI
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Navigation"
+msgstr "Navigacion"
+
+msgid "Primary Menu"
+msgstr "Menu principâl"
+
+msgid "Footer Menu"
+msgstr "Menu de pied de pâge"
+
+msgid "Social Links"
+msgstr "Liens socials"
+
+msgid "Skip to content"
+msgstr "Passar u contenut"
+
+msgid "Close"
+msgstr "Clôre"
+
+msgid "Open"
+msgstr "Uvrir"
+
+msgid "Toggle"
+msgstr "Bascular"
+
+msgid "Show"
+msgstr "Amostrar"
+
+msgid "Hide"
+msgstr "Amagiér"
+
+#. Layout Elements
+msgid "Header"
+msgstr "Entéta"
+
+msgid "Footer"
+msgstr "Pied de pâge"
+
+msgid "Sidebar"
+msgstr "Barra latèrâla"
+
+msgid "Main Content"
+msgstr "Contenut principâl"
+
+msgid "Widget Area"
+msgstr "Zona de widgets"
+
+#. Social Media
+msgid "Follow Us"
+msgstr "Siude-nos"
+
+msgid "Connect"
+msgstr "S’encllotiér"
+
+msgid "Share"
+msgstr "Partagiér"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#. Call to Action
+msgid "Get in Touch"
+msgstr "Contactar-nos"
+
+msgid "Contact Us"
+msgstr "Contactar-nos"
+
+msgid "Join Us"
+msgstr "Jondre-nos"
+
+msgid "Sign Up"
+msgstr "S’enscrìre"
+
+msgid "Register"
+msgstr "S’enscrìre"
+
+msgid "Download"
+msgstr "Tèlèchargiér"
+
+msgid "Book Now"
+msgstr "Resèrvar d’abôrd"
+
+msgid "Request Quote"
+msgstr "Demandâr un devis"
+
+msgid "Schedule Consultation"
+msgstr "Prendre un rendès-vôs"
+
+#. Error Messages
+msgid "Error"
+msgstr "Èrror"
+
+msgid "Warning"
+msgstr "Avèrtissament"
+
+msgid "Success"
+msgstr "Succès"
+
+msgid "Info"
+msgstr "Enformacion"
+
+msgid "Please try again"
+msgstr "Èprovar de novèl"
+
+msgid "Something went wrong"
+msgstr "Kék’chousa a falyi"
+
+msgid "Invalid input"
+msgstr "Entrâ fâssa"
+
+msgid "Field is required"
+msgstr "Ceti champ est oblyigatouèro"
+
+#. Accessibility
+msgid "Skip to main content"
+msgstr "Passar u contenut principâl"
+
+msgid "Screen reader text"
+msgstr "Tèxto por lo liésor d’ècran"
+
+msgid "External link"
+msgstr "Lien de defôr"
+
+msgid "Opens in new window"
+msgstr "S’uvre dens un fenétro novél"
+
+msgid "Back"
+msgstr "Arriér"
+
+msgid "Forward"
+msgstr "Devant"
+
+#. Time & Date
+msgid "Today"
+msgstr "Huè"
+
+msgid "Yesterday"
+msgstr "Hiér"
+
+msgid "Tomorrow"
+msgstr "Deman"
+
+msgid "Week"
+msgstr "Semana"
+
+msgid "Month"
+msgstr "Mês"
+
+msgid "Year"
+msgstr "An"
+
+msgid "Daily"
+msgstr "Chaque jorn"
+
+msgid "Weekly"
+msgstr "Chaque semana"
+
+msgid "Monthly"
+msgstr "Chaque mês"
+
+msgid "Yearly"
+msgstr "Chaque an"
+
+#. General
+msgid "All"
+msgstr "Tot"
+
+msgid "None"
+msgstr "Guan"
+
+msgid "More"
+msgstr "Ples"
+
+msgid "Less"
+msgstr "Mens"
+
+msgid "Details"
+msgstr "Dètalys"
+
+msgid "Information"
+msgstr "Enformacion"
+
+msgid "Welcome"
+msgstr "Benvegnua"
+
+msgid "Hello"
+msgstr "Bonjorn"
+
+msgid "Thanks"
+msgstr "Mèrci"
+
+msgid "Thank You"
+msgstr "Grant mèrci"
+
+msgid "Copyright"
+msgstr "Drêt d’ôtor"
+
+msgid "All Rights Reserved"
+msgstr "Tôts drêts resèrvâs"
+
+msgid "Privacy Policy"
+msgstr "Politica de confidencialitât"
+
+msgid "Terms of Service"
+msgstr "Condicions d’usâjo"
+
+msgid "Cookies Policy"
+msgstr "Politica de cookies"
+
+msgid "Disclaimer"
+msgstr "Aviso legâl"
