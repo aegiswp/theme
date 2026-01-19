@@ -1,0 +1,485 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-19T10:22:00-05:00\n"
+"PO-Revision-Date: 2026-01-19 18:20-0500\n"
+"Last-Translator: \n"
+"Language-Team: Belarusian <be@li.org>\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "Aegis"
+
+#. Description of the theme
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "Натыўны фрэймворк блокаў, створаны для максімальнай хуткасці. Aegis па змаўчанні не загружае файлы CSS, JavaScript або шрыфты, забяспечваючы чыстую архітэктурную аснову. Ён дае дызайнерам глыбокі візуальны кантроль — уключаючы кіраванне SVG, гнуткую тыпаграфіку і адаптыўнасць — адначасова забяспечваючы распрацоўшчыкам строгае асяроддзе на аснове стандартаў. Канчатковая аснова для высокапрадукцыйных даччыных тэм."
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search this site"
+msgstr "Пошук па сайце"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search"
+msgstr "Пошук"
+
+#: patterns/grid-boxed.php:27
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "Дадайце тэкст або блокі, якія будуць адлюстроўвацца, калі запыт не дасць вынікаў."
+
+#: patterns/faq/accordion-wide.php:36
+msgid "Type / to add a hidden block"
+msgstr "Увядзіце /, каб дадаць схаваны блок"
+
+#. Common translatable strings
+msgid "Home"
+msgstr "Галоўная"
+
+msgid "About"
+msgstr "Пра нас"
+
+msgid "Contact"
+msgstr "Кантакты"
+
+msgid "Blog"
+msgstr "Блог"
+
+msgid "Services"
+msgstr "Паслугі"
+
+msgid "Portfolio"
+msgstr "Партфоліа"
+
+msgid "Features"
+msgstr "Магчымасці"
+
+msgid "Pricing"
+msgstr "Цэны"
+
+msgid "Team"
+msgstr "Каманда"
+
+msgid "Testimonials"
+msgstr "Водгукі"
+
+msgid "FAQ"
+msgstr "Пытанні і адказы"
+
+msgid "Gallery"
+msgstr "Галерэя"
+
+msgid "Read More"
+msgstr "Чытаць далей"
+
+msgid "Learn More"
+msgstr "Даведацца больш"
+
+msgid "Get Started"
+msgstr "Пачаць"
+
+msgid "Subscribe"
+msgstr "Падпісацца"
+
+msgid "Submit"
+msgstr "Адправіць"
+
+msgid "Send Message"
+msgstr "Адправіць паведамленне"
+
+msgid "View All"
+msgstr "Глядзець усё"
+
+msgid "Back to Top"
+msgstr "Вернуцца ўгору"
+
+msgid "Previous"
+msgstr "Папярэдні"
+
+msgid "Next"
+msgstr "Наступны"
+
+msgid "Page"
+msgstr "Старонка"
+
+msgid "of"
+msgstr "з"
+
+msgid "Posts"
+msgstr "Запісы"
+
+msgid "Categories"
+msgstr "Катэгорыі"
+
+msgid "Tags"
+msgstr "Тэгі"
+
+msgid "Archive"
+msgstr "Архіў"
+
+msgid "Author"
+msgstr "Аўтар"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Comments"
+msgstr "Каментарыі"
+
+msgid "Leave a Comment"
+msgstr "Пакінуць каментарый"
+
+msgid "Posted on"
+msgstr "Апублікавана"
+
+msgid "By"
+msgstr "Ад"
+
+msgid "in"
+msgstr "у"
+
+msgid "No comments"
+msgstr "Няма каментарыяў"
+
+msgid "One comment"
+msgstr "Адзін каментарый"
+
+msgid "% comments"
+msgstr "% каментарыяў"
+
+msgid "Related Posts"
+msgstr "Падобныя запісы"
+
+msgid "Recent Posts"
+msgstr "Апошнія запісы"
+
+msgid "Popular Posts"
+msgstr "Папулярныя запісы"
+
+msgid "Featured"
+msgstr "Выбранае"
+
+msgid "Latest"
+msgstr "Апошняе"
+
+msgid "Continue Reading"
+msgstr "Працягнуць чытанне"
+
+msgid "Nothing Found"
+msgstr "Нічога не знойдзена"
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "На жаль, па вашым запыце нічога не знойдзена."
+
+msgid "Search Results for:"
+msgstr "Вынікі пошуку для:"
+
+msgid "404 - Page Not Found"
+msgstr "404 - Старонка не знойдзена"
+
+msgid "The page you are looking for does not exist."
+msgstr "Старонка, якую вы шукаеце, не існуе."
+
+msgid "Go to Homepage"
+msgstr "Перайсці на галоўную"
+
+#. Typography & Design
+msgid "Heading"
+msgstr "Загаловак"
+
+msgid "Subheading"
+msgstr "Падзагаловак"
+
+msgid "Title"
+msgstr "Назва"
+
+msgid "Subtitle"
+msgstr "Падназва"
+
+msgid "Description"
+msgstr "Апісанне"
+
+msgid "Content"
+msgstr "Змест"
+
+msgid "Text"
+msgstr "Тэкст"
+
+msgid "Label"
+msgstr "Метка"
+
+msgid "Caption"
+msgstr "Подпіс"
+
+#. Form Elements
+msgid "Name"
+msgstr "Імя"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Phone"
+msgstr "Тэлефон"
+
+msgid "Message"
+msgstr "Паведамленне"
+
+msgid "Subject"
+msgstr "Тэма"
+
+msgid "Your Name"
+msgstr "Ваша імя"
+
+msgid "Your Email"
+msgstr "Ваш Email"
+
+msgid "Your Message"
+msgstr "Ваша паведамленне"
+
+msgid "Required"
+msgstr "Абавязкова"
+
+msgid "Optional"
+msgstr "Неабавязкова"
+
+#. Navigation & UI
+msgid "Menu"
+msgstr "Меню"
+
+msgid "Navigation"
+msgstr "Навігацыя"
+
+msgid "Primary Menu"
+msgstr "Галоўнае меню"
+
+msgid "Footer Menu"
+msgstr "Меню футара"
+
+msgid "Social Links"
+msgstr "Сацыяльныя спасылкі"
+
+msgid "Skip to content"
+msgstr "Перайсці да зместу"
+
+msgid "Close"
+msgstr "Закрыць"
+
+msgid "Open"
+msgstr "Адкрыць"
+
+msgid "Toggle"
+msgstr "Пераключыць"
+
+msgid "Show"
+msgstr "Паказаць"
+
+msgid "Hide"
+msgstr "Схаваць"
+
+#. Layout Elements
+msgid "Header"
+msgstr "Шапка"
+
+msgid "Footer"
+msgstr "Падвал"
+
+msgid "Sidebar"
+msgstr "Бакавая панэль"
+
+msgid "Main Content"
+msgstr "Асноўны змест"
+
+msgid "Widget Area"
+msgstr "Вобласць віджэтаў"
+
+#. Social Media
+msgid "Follow Us"
+msgstr "Сачыце за намі"
+
+msgid "Connect"
+msgstr "Звязацца"
+
+msgid "Share"
+msgstr "Падзяліцца"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#. Call to Action
+msgid "Get in Touch"
+msgstr "Звяжыцеся з намі"
+
+msgid "Contact Us"
+msgstr "Напісаць нам"
+
+msgid "Join Us"
+msgstr "Далучыцца"
+
+msgid "Sign Up"
+msgstr "Зарэгістравацца"
+
+msgid "Register"
+msgstr "Рэгістрацыя"
+
+msgid "Download"
+msgstr "Спампаваць"
+
+msgid "Book Now"
+msgstr "Забраніраваць"
+
+msgid "Request Quote"
+msgstr "Запытаць цану"
+
+msgid "Schedule Consultation"
+msgstr "Запісацца на кансультацыю"
+
+#. Error Messages
+msgid "Error"
+msgstr "Памылка"
+
+msgid "Warning"
+msgstr "Папярэджанне"
+
+msgid "Success"
+msgstr "Поспех"
+
+msgid "Info"
+msgstr "Інфармацыя"
+
+msgid "Please try again"
+msgstr "Паспрабуйце яшчэ раз"
+
+msgid "Something went wrong"
+msgstr "Штосьці пайшло не так"
+
+msgid "Invalid input"
+msgstr "Няправільныя даныя"
+
+msgid "Field is required"
+msgstr "Поле абавязковае"
+
+#. Accessibility
+msgid "Skip to main content"
+msgstr "Перайсці да асноўнага зместу"
+
+msgid "Screen reader text"
+msgstr "Тэкст для чытання з экрана"
+
+msgid "External link"
+msgstr "Знешняя спасылка"
+
+msgid "Opens in new window"
+msgstr "Адкрываецца ў новым акне"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Forward"
+msgstr "Наперад"
+
+#. Time & Date
+msgid "Today"
+msgstr "Сёння"
+
+msgid "Yesterday"
+msgstr "Учора"
+
+msgid "Tomorrow"
+msgstr "Заўтра"
+
+msgid "Week"
+msgstr "Тыдзень"
+
+msgid "Month"
+msgstr "Месяц"
+
+msgid "Year"
+msgstr "Год"
+
+msgid "Daily"
+msgstr "Штодня"
+
+msgid "Weekly"
+msgstr "Штотыдзень"
+
+msgid "Monthly"
+msgstr "Штомесяц"
+
+msgid "Yearly"
+msgstr "Штогод"
+
+#. General
+msgid "All"
+msgstr "Усе"
+
+msgid "None"
+msgstr "Няма"
+
+msgid "More"
+msgstr "Больш"
+
+msgid "Less"
+msgstr "Менш"
+
+msgid "Details"
+msgstr "Падрабязнасці"
+
+msgid "Information"
+msgstr "Інфармацыя"
+
+msgid "Welcome"
+msgstr "Сардэчна запрашаем"
+
+msgid "Hello"
+msgstr "Прывітанне"
+
+msgid "Thanks"
+msgstr "Дзякуй"
+
+msgid "Thank You"
+msgstr "Вялікі дзякуй"
+
+msgid "Copyright"
+msgstr "Аўтарскія правы"
+
+msgid "All Rights Reserved"
+msgstr "Усе правы абаронены"
+
+msgid "Privacy Policy"
+msgstr "Палітыка прыватнасці"
+
+msgid "Terms of Service"
+msgstr "Умовы выкарыстання"
+
+msgid "Cookies Policy"
+msgstr "Палітыка выкарыстання кукі"
+
+msgid "Disclaimer"
+msgstr "Адмова ад адказнасці"
