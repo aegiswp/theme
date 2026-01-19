@@ -1,17 +1,18 @@
 {
   "name": "aegis-theme",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0-rc.2",
   "description": "Aegis - Native Block Framework",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --env production",
+    "build": "npm run translate && webpack --env production",
     "start": "webpack --watch --env development",
     "dev": "webpack --env development",
     "serve": "webpack serve --config webpack.config.js --env development",
     "lint:ts": "eslint 'src/**/*.{ts,tsx}'",
     "lint:css": "stylelint '**/*.css' --config stylelintrc.json",
     "type-check": "tsc --noEmit",
-    "format": "prettier --write 'src/**/*.{ts,tsx,css}'"
+    "format": "prettier --write 'src/**/*.{ts,tsx,css}'",
+    "translate": "find languages -name \"*.po\" -exec msgfmt {} -o {}.mo \\; && rename 's/\\.po\\.mo$/\\.mo/' languages/*.po.mo"
   },
   "keywords": [
     "WordPress",
