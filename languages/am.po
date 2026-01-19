@@ -1,0 +1,484 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-19T10:22:00-05:00\n"
+"PO-Revision-Date: 2026-01-19 12:05-0500\n"
+"Last-Translator: \n"
+"Language-Team: Amharic <am@li.org>\n"
+"Language: am\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "ኤጂስ (Aegis)"
+
+#. Description of the theme
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "ለከፍተኛ ፍጥነት ተብሎ የተነደፈ የብሎክ ፍሬምወርክ። Aegis በነባሪነት ምንም አይነት CSS፣ JavaScript ወይም የፎንት ፋይሎችን አይጭንም፤ ይህም ንጹህ የስነ-ህንፃ መሰረት ይሰጣል። ዲዛይነሮች የSVG አስተዳደርን፣ ተለዋዋጭ ታይፖግራፊን እና ምላሽ ሰጪነትን ጨምሮ ጥልቅ የእይታ ቁጥጥሮችን እንዲያገኙ ያስችላቸዋል፤ ለገንቢዎች ደግሞ ጥብቅ በሆኑ ደረጃዎች ላይ የተመሰረተ አካባቢን ይሰጣል። ለከፍተኛ አፈጻጸም ያላቸው የልጅ ገጽታዎች (child themes) ወሳኝ መሰረት ነው።"
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search this site"
+msgstr "ይህን ድረ-ገጽ ፈልግ"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search"
+msgstr "ፈልግ"
+
+#: patterns/grid-boxed.php:27
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "ፍለጋው ውጤት በማይሰጥበት ጊዜ የሚታዩ ጽሁፎችን ወይም ብሎኮችን እዚህ ይጨምሩ።"
+
+#: patterns/faq/accordion-wide.php:36
+msgid "Type / to add a hidden block"
+msgstr "የተደበቀ ብሎክ ለመጨመር / ይተይቡ"
+
+#. Common translatable strings
+msgid "Home"
+msgstr "መነሻ"
+
+msgid "About"
+msgstr "ስለ"
+
+msgid "Contact"
+msgstr "እውቂያ"
+
+msgid "Blog"
+msgstr "ብሎግ"
+
+msgid "Services"
+msgstr "አገልግሎቶች"
+
+msgid "Portfolio"
+msgstr "ፖርትፎሊዮ"
+
+msgid "Features"
+msgstr "ባህሪያት"
+
+msgid "Pricing"
+msgstr "ዋጋ"
+
+msgid "Team"
+msgstr "ቡድን"
+
+msgid "Testimonials"
+msgstr "ምስክርነቶች"
+
+msgid "FAQ"
+msgstr "ተደጋጋሚ ጥያቄዎች"
+
+msgid "Gallery"
+msgstr "ጋለሪ"
+
+msgid "Read More"
+msgstr "ተጨማሪ ያንብቡ"
+
+msgid "Learn More"
+msgstr "ተጨማሪ ይወቁ"
+
+msgid "Get Started"
+msgstr "ይጀምሩ"
+
+msgid "Subscribe"
+msgstr "ሰብስክራይብ"
+
+msgid "Submit"
+msgstr "አስገባ"
+
+msgid "Send Message"
+msgstr "መልዕክት ላክ"
+
+msgid "View All"
+msgstr "ሁሉንም ተመልከት"
+
+msgid "Back to Top"
+msgstr "ወደ ላይ ተመለስ"
+
+msgid "Previous"
+msgstr "ቀዳሚ"
+
+msgid "Next"
+msgstr "ቀጣይ"
+
+msgid "Page"
+msgstr "ገጽ"
+
+msgid "of"
+msgstr "ከ"
+
+msgid "Posts"
+msgstr "ልጥፎች"
+
+msgid "Categories"
+msgstr "ምድቦች"
+
+msgid "Tags"
+msgstr "መለያዎች"
+
+msgid "Archive"
+msgstr "አርካይቭ"
+
+msgid "Author"
+msgstr "ደራሲ"
+
+msgid "Date"
+msgstr "ቀን"
+
+msgid "Comments"
+msgstr "አስተያየቶች"
+
+msgid "Leave a Comment"
+msgstr "አስተያየት ይተው"
+
+msgid "Posted on"
+msgstr "ተለጠፈ በ"
+
+msgid "By"
+msgstr "በ"
+
+msgid "in"
+msgstr "ውስጥ"
+
+msgid "No comments"
+msgstr "ምንም አስተያየት የለም"
+
+msgid "One comment"
+msgstr "አንድ አስተያየት"
+
+msgid "% comments"
+msgstr "% አስተያየቶች"
+
+msgid "Related Posts"
+msgstr "ተዛማጅ ልጥፎች"
+
+msgid "Recent Posts"
+msgstr "የቅርብ ጊዜ ልጥፎች"
+
+msgid "Popular Posts"
+msgstr "ታዋቂ ልጥፎች"
+
+msgid "Featured"
+msgstr "ተለይተው የቀረቡ"
+
+msgid "Latest"
+msgstr "የቅርብ ጊዜ"
+
+msgid "Continue Reading"
+msgstr "ንባብዎን ይቀጥሉ"
+
+msgid "Nothing Found"
+msgstr "ምንም አልተገኘም"
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "ይቅርታ፣ ከእርስዎ ፍለጋ ጋር የሚዛመድ ልጥፍ አልተገኘም።"
+
+msgid "Search Results for:"
+msgstr "የፍለጋ ውጤቶች ለ፦"
+
+msgid "404 - Page Not Found"
+msgstr "404 - ገጹ አልተገኘም"
+
+msgid "The page you are looking for does not exist."
+msgstr "የሚፈልጉት ገጽ የለም።"
+
+msgid "Go to Homepage"
+msgstr "ወደ መነሻ ገጽ ይሂዱ"
+
+#. Typography & Design
+msgid "Heading"
+msgstr "ርዕስ"
+
+msgid "Subheading"
+msgstr "ንዑስ ርዕስ"
+
+msgid "Title"
+msgstr "አርዕስት"
+
+msgid "Subtitle"
+msgstr "ንዑስ አርዕስት"
+
+msgid "Description"
+msgstr "መግለጫ"
+
+msgid "Content"
+msgstr "ይዘት"
+
+msgid "Text"
+msgstr "ጽሁፍ"
+
+msgid "Label"
+msgstr "መለያ"
+
+msgid "Caption"
+msgstr "መግለጫ ጽሁፍ"
+
+#. Form Elements
+msgid "Name"
+msgstr "ስም"
+
+msgid "Email"
+msgstr "ኢሜይል"
+
+msgid "Phone"
+msgstr "ስልክ"
+
+msgid "Message"
+msgstr "መልዕክት"
+
+msgid "Subject"
+msgstr "ጉዳዩ"
+
+msgid "Your Name"
+msgstr "የእርስዎ ስም"
+
+msgid "Your Email"
+msgstr "የእርስዎ ኢሜይል"
+
+msgid "Your Message"
+msgstr "የእርስዎ መልዕክት"
+
+msgid "Required"
+msgstr "አስፈላጊ"
+
+msgid "Optional"
+msgstr "አማራጭ"
+
+#. Navigation & UI
+msgid "Menu"
+msgstr "ሜኑ"
+
+msgid "Navigation"
+msgstr "አሰሳ"
+
+msgid "Primary Menu"
+msgstr "ዋና ሜኑ"
+
+msgid "Footer Menu"
+msgstr "የግርጌ ሜኑ"
+
+msgid "Social Links"
+msgstr "ማህበራዊ ትስስሮች"
+
+msgid "Skip to content"
+msgstr "ወደ ይዘቱ ዝለል"
+
+msgid "Close"
+msgstr "ዝጋ"
+
+msgid "Open"
+msgstr "ክፈት"
+
+msgid "Toggle"
+msgstr "ቀይር"
+
+msgid "Show"
+msgstr "አሳይ"
+
+msgid "Hide"
+msgstr "ደብቅ"
+
+#. Layout Elements
+msgid "Header"
+msgstr "ራስጌ"
+
+msgid "Footer"
+msgstr "ግርጌ"
+
+msgid "Sidebar"
+msgstr "የጎን አሞሌ"
+
+msgid "Main Content"
+msgstr "ዋና ይዘት"
+
+msgid "Widget Area"
+msgstr "የዊጄት ቦታ"
+
+#. Social Media
+msgid "Follow Us"
+msgstr "ይከተሉን"
+
+msgid "Connect"
+msgstr "ይገናኙ"
+
+msgid "Share"
+msgstr "ያጋሩ"
+
+msgid "Facebook"
+msgstr "ፌስቡክ"
+
+msgid "Twitter"
+msgstr "ትዊተር"
+
+msgid "Instagram"
+msgstr "ኢንስታግራም"
+
+msgid "LinkedIn"
+msgstr "ሊንክድኢን"
+
+msgid "YouTube"
+msgstr "ዩቲዩብ"
+
+msgid "Pinterest"
+msgstr "ፒንተረስት"
+
+#. Call to Action
+msgid "Get in Touch"
+msgstr "ያግኙን"
+
+msgid "Contact Us"
+msgstr "እኛን ያግኙን"
+
+msgid "Join Us"
+msgstr "እኛን ይቀላቀሉ"
+
+msgid "Sign Up"
+msgstr "ይመዝገቡ"
+
+msgid "Register"
+msgstr "ይመዝገቡ"
+
+msgid "Download"
+msgstr "ያውርዱ"
+
+msgid "Book Now"
+msgstr "አሁን ያስይዙ"
+
+msgid "Request Quote"
+msgstr "የዋጋ ግምት ይጠይቁ"
+
+msgid "Schedule Consultation"
+msgstr "ምክክር ቀጠሮ ይያዙ"
+
+#. Error Messages
+msgid "Error"
+msgstr "ስህተት"
+
+msgid "Warning"
+msgstr "ማስጠንቀቂያ"
+
+msgid "Success"
+msgstr "ተሳክቷል"
+
+msgid "Info"
+msgstr "መረጃ"
+
+msgid "Please try again"
+msgstr "እባክዎ እንደገና ይሞክሩ"
+
+msgid "Something went wrong"
+msgstr "ችግር ተከስቷል"
+
+msgid "Invalid input"
+msgstr "የማይሰራ ግቤት"
+
+msgid "Field is required"
+msgstr "ይህ ቦታ መሞላት አለበት"
+
+#. Accessibility
+msgid "Skip to main content"
+msgstr "ወደ ዋናው ይዘት ዝለል"
+
+msgid "Screen reader text"
+msgstr "የስክሪን አንባቢ ጽሁፍ"
+
+msgid "External link"
+msgstr "ውጫዊ ሊንክ"
+
+msgid "Opens in new window"
+msgstr "በአዲስ መስኮት ይከፈታል"
+
+msgid "Back"
+msgstr "ወደ ኋላ"
+
+msgid "Forward"
+msgstr "ወደ ፊት"
+
+#. Time & Date
+msgid "Today"
+msgstr "ዛሬ"
+
+msgid "Yesterday"
+msgstr "ትናንት"
+
+msgid "Tomorrow"
+msgstr "ነገ"
+
+msgid "Week"
+msgstr "ሳምንት"
+
+msgid "Month"
+msgstr "ወር"
+
+msgid "Year"
+msgstr "አመት"
+
+msgid "Daily"
+msgstr "በየቀኑ"
+
+msgid "Weekly"
+msgstr "በየሳምንቱ"
+
+msgid "Monthly"
+msgstr "በየወሩ"
+
+msgid "Yearly"
+msgstr "በየአመቱ"
+
+#. General
+msgid "All"
+msgstr "ሁሉም"
+
+msgid "None"
+msgstr "ምንም"
+
+msgid "More"
+msgstr "ተጨማሪ"
+
+msgid "Less"
+msgstr "ያነሰ"
+
+msgid "Details"
+msgstr "ዝርዝሮች"
+
+msgid "Information"
+msgstr "መረጃ"
+
+msgid "Welcome"
+msgstr "እንኳን ደህና መጡ"
+
+msgid "Hello"
+msgstr "ሰላም"
+
+msgid "Thanks"
+msgstr "አመሰግናለሁ"
+
+msgid "Thank You"
+msgstr "እናመሰግናለን"
+
+msgid "Copyright"
+msgstr "የቅጂ መብት"
+
+msgid "All Rights Reserved"
+msgstr "መብቱ በህግ የተጠበቀ ነው"
+
+msgid "Privacy Policy"
+msgstr "የግላዊነት ፖሊሲ"
+
+msgid "Terms of Service"
+msgstr "የአገልግሎት ውሎች"
+
+msgid "Cookies Policy"
+msgstr "የኩኪዎች ፖሊሲ"
+
+msgid "Disclaimer"
+msgstr "ማስተባበያ"
