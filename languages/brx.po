@@ -1,0 +1,282 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-19T10:22:00-05:00\n"
+"PO-Revision-Date: 2026-01-19 22:15-0500\n"
+"Last-Translator: \n"
+"Language-Team: Bodo <brx@li.org>\n"
+"Language: brx\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "Aegis"
+
+#. Description of the theme
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "गोख्रोंथिनी थाखाय बानायजानाय मोनसे नेतिभ ब्लक फ्रेमवर्क। Aegis आ निजोरा बादियैनो जेबो CSS, JavaScript, एबा फन्ट फाइलफोरखौ ल'ड खालामा, जाय मोनसे गोथार आकितेक्चरल बिथा होयो। बेयो दिजाइनारफोरखौ SVG म्यानेजमेन्ट, फ्लुइड ताइप'ग्राफी आरो इन्ट्रिनसिक रेसपन्सिभनेसजों लोगोसे गोथौ विजुयेल कन्ट'लनि गोहो होयो—लोगोसे डेभलपरफोरखौ मोनसे गोख्रों, मान-बिथायारि आबहावा होयो। गोजौ-बिबानि फिसा थिमफोरनि थाखाय बेयो मोनसे थि बिथा।"
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search this site"
+msgstr "बे साइतआव नागिर"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search"
+msgstr "नागिर"
+
+#: patterns/grid-boxed.php:27
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "जेब्ला नागिरनाया जेबो फिथाय होआ, अब्ला दिन्थिफुं जाग्रा लिरबिदां एबा ब्लकफोरखौ बेयाव सोदेर।"
+
+#. Common translatable strings
+msgid "Home"
+msgstr "गाहाइ"
+
+msgid "About"
+msgstr "सोमोन्दै"
+
+msgid "Contact"
+msgstr "जगाज'ग"
+
+msgid "Blog"
+msgstr "ब्लग"
+
+msgid "Services"
+msgstr "सिबिथाय"
+
+msgid "Portfolio"
+msgstr "पर्टफलिय'"
+
+msgid "Features"
+msgstr "गुणफोर"
+
+msgid "Pricing"
+msgstr "बेसेन"
+
+msgid "Team"
+msgstr "हानजा"
+
+msgid "Testimonials"
+msgstr "साखि"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "Gallery"
+msgstr "गेलारी"
+
+msgid "Read More"
+msgstr "बारायना फराय"
+
+msgid "Learn More"
+msgstr "मिथिना ला"
+
+msgid "Get Started"
+msgstr "जागाय"
+
+msgid "Subscribe"
+msgstr "साबस्क्राइब"
+
+msgid "Submit"
+msgstr "दैथायहर"
+
+msgid "Send Message"
+msgstr "खौरां दैथायहर"
+
+msgid "View All"
+msgstr "गासैखौबो नाय"
+
+msgid "Back to Top"
+msgstr "गोजौआव थांफिन"
+
+msgid "Previous"
+msgstr "सिगांनि"
+
+msgid "Next"
+msgstr "उननि"
+
+msgid "Page"
+msgstr "बिखा"
+
+msgid "of"
+msgstr "नि"
+
+msgid "Posts"
+msgstr "फ'स्टफोर"
+
+msgid "Categories"
+msgstr "थाखोफोर"
+
+msgid "Tags"
+msgstr "ट्यागफोर"
+
+msgid "Archive"
+msgstr "आरकाइभ"
+
+msgid "Author"
+msgstr "लिरगिरि"
+
+msgid "Date"
+msgstr "अक्ट'"
+
+msgid "Comments"
+msgstr "रायज्लायनाय"
+
+msgid "Leave a Comment"
+msgstr "रायज्लायनाय लिर"
+
+msgid "Posted on"
+msgstr "फोसावबाय"
+
+msgid "By"
+msgstr "जों"
+
+msgid "No comments"
+msgstr "जेबो रायज्लायनाय गैया"
+
+msgid "One comment"
+msgstr "मोनसे रायज्लायनाय"
+
+msgid "% comments"
+msgstr "% रायज्लायनाय"
+
+msgid "Related Posts"
+msgstr "सोमोन्दो गोनां फ'स्टफोर"
+
+msgid "Recent Posts"
+msgstr "दानि फ'स्टफोर"
+
+msgid "Popular Posts"
+msgstr "मुंदांखा फ'स्टफोर"
+
+msgid "Featured"
+msgstr "मख'जाथाव"
+
+msgid "Latest"
+msgstr "गोदान"
+
+msgid "Continue Reading"
+msgstr "फरायबाय था"
+
+msgid "Nothing Found"
+msgstr "जेबो मोननाय जायाखै"
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "दुखुनांथाव, नोंथांनि नागिरनाय बादियै जेबो फ'स्ट मोननाय जायाखै।"
+
+msgid "Search Results for:"
+msgstr "नागिरनायनि फिथाय:"
+
+msgid "404 - Page Not Found"
+msgstr "404 - बिखाखौ मोननाय जायाखै"
+
+msgid "The page you are looking for does not exist."
+msgstr "नोंथाङा नागिरबाय थानाय बिखाया बेयाव गैया।"
+
+msgid "Go to Homepage"
+msgstr "गाहाइ बिखायाव थां"
+
+#. Form Elements
+msgid "Name"
+msgstr "मुं"
+
+msgid "Email"
+msgstr "इमेल"
+
+msgid "Phone"
+msgstr "फन"
+
+msgid "Message"
+msgstr "खौरां"
+
+msgid "Subject"
+msgstr "आयदा"
+
+msgid "Required"
+msgstr "गोनां"
+
+msgid "Optional"
+msgstr "खामानि गैया"
+
+#. Navigation & UI
+msgid "Menu"
+msgstr "मेनू"
+
+msgid "Skip to content"
+msgstr "थाख'आव थां"
+
+msgid "Close"
+msgstr "बन्द खालाम"
+
+msgid "Open"
+msgstr "खेव"
+
+msgid "Show"
+msgstr "दिन्थि"
+
+msgid "Hide"
+msgstr "खोबथे"
+
+#. Layout Elements
+msgid "Header"
+msgstr "हेडार"
+
+msgid "Footer"
+msgstr "फुटार"
+
+#. Social Media
+msgid "Follow Us"
+msgstr "नोंथाङा जोंखौ फालि"
+
+msgid "Share"
+msgstr "रानना हो"
+
+#. Error Messages
+msgid "Error"
+msgstr "गुलत"
+
+msgid "Warning"
+msgstr "सावथान"
+
+msgid "Success"
+msgstr "जाफुंनाय"
+
+msgid "Today"
+msgstr "दिनै"
+
+msgid "Yesterday"
+msgstr "मैया"
+
+msgid "Tomorrow"
+msgstr "गाबोन"
+
+#. General
+msgid "Information"
+msgstr "मिथिसार"
+
+msgid "Welcome"
+msgstr "बयखौबो बरायो"
+
+msgid "Thanks"
+msgstr "साबायखर"
+
+msgid "Copyright"
+msgstr "कपिराइट"
+
+msgid "Privacy Policy"
+msgstr "खौरां रैखाथि नेम"
+
+msgid "Terms of Service"
+msgstr "सिबिथायनि नेमफोर"
