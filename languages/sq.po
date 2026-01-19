@@ -1,0 +1,484 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-19T10:22:00-05:00\n"
+"PO-Revision-Date: 2026-01-19 11:15-0500\n"
+"Last-Translator: \n"
+"Language-Team: Albanian <sq@li.org>\n"
+"Language: sq\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "Aegis"
+
+#. Description of the theme [cite: 13]
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "Një strukturë blloku amtare e projektuar për shpejtësi të lartë. Aegis nuk ngarkon asnjë aset CSS, JavaScript ose font si parazgjedhje, duke ofruar një themel të pastër arkitekturor. Ai fuqizon dizajnerët me kontrolle të thella vizuale—duke përfshirë menaxhimin e SVG, tipografinë fluide dhe përgjegjshmërinë e brendshme—ndërsa u ofron zhvilluesve një mjedis strikt të bazuar në standarde. Themelimi definitiv për tema bija me performancë të lartë."
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search this site"
+msgstr "Kërkoni në këtë faqe"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search"
+msgstr "Kërko"
+
+#: patterns/grid-boxed.php:27
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "Shtoni tekst ose blloqe që do të shfaqen kur një kërkim nuk jep rezultate."
+
+#: patterns/faq/accordion-wide.php:36
+msgid "Type / to add a hidden block"
+msgstr "Shtypni / për të shtuar një bllok të fshehur"
+
+#. Common translatable strings [cite: 16]
+msgid "Home"
+msgstr "Ballina"
+
+msgid "About"
+msgstr "Rreth nesh"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Blog"
+msgstr "Blogu"
+
+msgid "Services"
+msgstr "Shërbimet"
+
+msgid "Portfolio"
+msgstr "Portofoli"
+
+msgid "Features"
+msgstr "Karakteristikat"
+
+msgid "Pricing"
+msgstr "Çmimet"
+
+msgid "Team"
+msgstr "Ekipi"
+
+msgid "Testimonials"
+msgstr "Përshtypjet"
+
+msgid "FAQ"
+msgstr "Pyetje të Shpeshta"
+
+msgid "Gallery"
+msgstr "Galeria"
+
+msgid "Read More"
+msgstr "Lexo më shumë"
+
+msgid "Learn More"
+msgstr "Mësoni më shumë"
+
+msgid "Get Started"
+msgstr "Fillo"
+
+msgid "Subscribe"
+msgstr "Abonohu"
+
+msgid "Submit"
+msgstr "Dërgo"
+
+msgid "Send Message"
+msgstr "Dërgo Mesazh"
+
+msgid "View All"
+msgstr "Shiko të gjitha"
+
+msgid "Back to Top"
+msgstr "Kthehu lart"
+
+msgid "Previous"
+msgstr "E mëparshme"
+
+msgid "Next"
+msgstr "Tjetra"
+
+msgid "Page"
+msgstr "Faqe"
+
+msgid "of"
+msgstr "nga"
+
+msgid "Posts"
+msgstr "Artikujt"
+
+msgid "Categories"
+msgstr "Kategoritë"
+
+msgid "Tags"
+msgstr "Etiketat"
+
+msgid "Archive"
+msgstr "Arkiva"
+
+msgid "Author"
+msgstr "Autori"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Comments"
+msgstr "Komentet"
+
+msgid "Leave a Comment"
+msgstr "Lini një koment"
+
+msgid "Posted on"
+msgstr "Postuar më"
+
+msgid "By"
+msgstr "Nga"
+
+msgid "in"
+msgstr "në"
+
+msgid "No comments"
+msgstr "Asnjë koment"
+
+msgid "One comment"
+msgstr "Një koment"
+
+msgid "% comments"
+msgstr "% komente"
+
+msgid "Related Posts"
+msgstr "Artikuj të ngjashëm"
+
+msgid "Recent Posts"
+msgstr "Artikujt e fundit"
+
+msgid "Popular Posts"
+msgstr "Artikujt popullorë"
+
+msgid "Featured"
+msgstr "Të zgjedhur"
+
+msgid "Latest"
+msgstr "Të fundit"
+
+msgid "Continue Reading"
+msgstr "Vazhdoni leximin"
+
+msgid "Nothing Found"
+msgstr "Nuk u gjet asgjë"
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "Na vjen keq, asnjë artikull nuk përputhet me kriteret tuaja."
+
+msgid "Search Results for:"
+msgstr "Rezultatet e kërkimit për:"
+
+msgid "404 - Page Not Found"
+msgstr "404 - Faqja nuk u gjet"
+
+msgid "The page you are looking for does not exist."
+msgstr "Faqja që po kërkoni nuk ekziston."
+
+msgid "Go to Homepage"
+msgstr "Shko te ballina"
+
+#. Typography & Design [cite: 19]
+msgid "Heading"
+msgstr "Kreu"
+
+msgid "Subheading"
+msgstr "Nënkreu"
+
+msgid "Title"
+msgstr "Titulli"
+
+msgid "Subtitle"
+msgstr "Nëntitulli"
+
+msgid "Description"
+msgstr "Përshkrimi"
+
+msgid "Content"
+msgstr "Përmbajtja"
+
+msgid "Text"
+msgstr "Teksti"
+
+msgid "Label"
+msgstr "Etiketa"
+
+msgid "Caption"
+msgstr "Titulli i figurës"
+
+#. Form Elements [cite: 20]
+msgid "Name"
+msgstr "Emri"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Phone"
+msgstr "Telefoni"
+
+msgid "Message"
+msgstr "Mesazhi"
+
+msgid "Subject"
+msgstr "Subjekti"
+
+msgid "Your Name"
+msgstr "Emri juaj"
+
+msgid "Your Email"
+msgstr "Emaili juaj"
+
+msgid "Your Message"
+msgstr "Mesazhi juaj"
+
+msgid "Required"
+msgstr "E detyrueshme"
+
+msgid "Optional"
+msgstr "Opsionale"
+
+#. Navigation & UI [cite: 21]
+msgid "Menu"
+msgstr "Menuja"
+
+msgid "Navigation"
+msgstr "Lundrimi"
+
+msgid "Primary Menu"
+msgstr "Menuja Kryesore"
+
+msgid "Footer Menu"
+msgstr "Menuja e Fundfaqes"
+
+msgid "Social Links"
+msgstr "Lidhjet Sociale"
+
+msgid "Skip to content"
+msgstr "Kalo te përmbajtja"
+
+msgid "Close"
+msgstr "Mbyll"
+
+msgid "Open"
+msgstr "Hap"
+
+msgid "Toggle"
+msgstr "Ndërro"
+
+msgid "Show"
+msgstr "Shfaq"
+
+msgid "Hide"
+msgstr "Fshih"
+
+#. Layout Elements [cite: 22]
+msgid "Header"
+msgstr "Kreu i faqes"
+
+msgid "Footer"
+msgstr "Fundfaqja"
+
+msgid "Sidebar"
+msgstr "Shiriti anësor"
+
+msgid "Main Content"
+msgstr "Përmbajtja kryesore"
+
+msgid "Widget Area"
+msgstr "Zona e widget-it"
+
+#. Social Media [cite: 23]
+msgid "Follow Us"
+msgstr "Na ndiqni"
+
+msgid "Connect"
+msgstr "Lidhu"
+
+msgid "Share"
+msgstr "Shpërndaje"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#. Call to Action [cite: 24]
+msgid "Get in Touch"
+msgstr "Na kontaktoni"
+
+msgid "Contact Us"
+msgstr "Na kontaktoni"
+
+msgid "Join Us"
+msgstr "Bashkohuni me ne"
+
+msgid "Sign Up"
+msgstr "Regjistrohuni"
+
+msgid "Register"
+msgstr "Regjistrohu"
+
+msgid "Download"
+msgstr "Shkarko"
+
+msgid "Book Now"
+msgstr "Rezervo tani"
+
+msgid "Request Quote"
+msgstr "Kërko ofertë"
+
+msgid "Schedule Consultation"
+msgstr "Programoni një konsultë"
+
+#. Error Messages [cite: 25]
+msgid "Error"
+msgstr "Gabim"
+
+msgid "Warning"
+msgstr "Paralajmërim"
+
+msgid "Success"
+msgstr "Sukses"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Please try again"
+msgstr "Ju lutem provoni përsëri"
+
+msgid "Something went wrong"
+msgstr "Diçka shkoi keq"
+
+msgid "Invalid input"
+msgstr "Hyrje e pavlefshme"
+
+msgid "Field is required"
+msgstr "Fusha është e detyrueshme"
+
+#. Accessibility [cite: 26]
+msgid "Skip to main content"
+msgstr "Kalo te përmbajtja kryesore"
+
+msgid "Screen reader text"
+msgstr "Tekst për lexuesit e ekranit"
+
+msgid "External link"
+msgstr "Lidhje e jashtme"
+
+msgid "Opens in new window"
+msgstr "Hapet në një dritare të re"
+
+msgid "Back"
+msgstr "Mbrapsht"
+
+msgid "Forward"
+msgstr "Përpara"
+
+#. Time & Date [cite: 27]
+msgid "Today"
+msgstr "Sot"
+
+msgid "Yesterday"
+msgstr "Dje"
+
+msgid "Tomorrow"
+msgstr "Nesër"
+
+msgid "Week"
+msgstr "Java"
+
+msgid "Month"
+msgstr "Muaji"
+
+msgid "Year"
+msgstr "Viti"
+
+msgid "Daily"
+msgstr "Përditshme"
+
+msgid "Weekly"
+msgstr "Javore"
+
+msgid "Monthly"
+msgstr "Mujore"
+
+msgid "Yearly"
+msgstr "Vjetore"
+
+#. General [cite: 28]
+msgid "All"
+msgstr "Të gjitha"
+
+msgid "None"
+msgstr "Asnjë"
+
+msgid "More"
+msgstr "Më shumë"
+
+msgid "Less"
+msgstr "Më pak"
+
+msgid "Details"
+msgstr "Detajet"
+
+msgid "Information"
+msgstr "Informacion"
+
+msgid "Welcome"
+msgstr "Mirë se vini"
+
+msgid "Hello"
+msgstr "Përshëndetje"
+
+msgid "Thanks"
+msgstr "Faleminderit"
+
+msgid "Thank You"
+msgstr "Ju faleminderit"
+
+msgid "Copyright"
+msgstr "Të drejtat e autorit"
+
+msgid "All Rights Reserved"
+msgstr "Të gjitha të drejtat e rezervuara"
+
+msgid "Privacy Policy"
+msgstr "Politika e Privatësisë"
+
+msgid "Terms of Service"
+msgstr "Kushtet e Shërbimit"
+
+msgid "Cookies Policy"
+msgstr "Politika e Cookies"
+
+msgid "Disclaimer"
+msgstr "Mohim përgjegjësie"
