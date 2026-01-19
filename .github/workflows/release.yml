@@ -1,0 +1,68 @@
+name: Release Aegis Theme
+
+on:
+  push:
+    tags:
+      - 'v*' # Triggers on any tag starting with v (e.g., v1.0.1)
+
+jobs:
+  build:
+    name: Build & Release Theme
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # Aegis has a package.json for dev tools. We run it to ensure assets are fresh.
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Assets
+        run: npm run build --if-present
+
+      - name: Package Theme (Create Zip)
+        id: package_theme
+        run: |
+          THEME_NAME="aegis"
+          # Create a temporary directory for the clean build
+          mkdir $THEME_NAME
+          
+          # Copy only the necessary production files
+          # Based on Aegis repository structure:
+          rsync -am . $THEME_NAME/ \
+            --exclude '.git*' \
+            --exclude '.github' \
+            --exclude 'node_modules' \
+            --exclude 'composer.*' \
+            --exclude 'package*' \
+            --exclude 'phpcs.xml.dist' \
+            --exclude 'stylelintrc.json' \
+            --exclude '.editorconfig' \
+            --exclude '.eslintrc*' \
+            --exclude 'CHANGELOG.md' \
+            --exclude 'CONTRIBUTING.md' \
+            --exclude 'CONTRIBUTORS.md'
+          
+          # Zip the directory
+          zip -r "${THEME_NAME}.zip" $THEME_NAME
+          echo "zip_path=${THEME_NAME}.zip" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: aegis.zip
+          generate_release_notes: true
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
