@@ -1,0 +1,485 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-19T10:22:00-05:00\n"
+"PO-Revision-Date: 2026-01-19 22:45-0500\n"
+"Last-Translator: \n"
+"Language-Team: Breton <br@li.org>\n"
+"Language: br\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "Aegis"
+
+#. Description of the theme
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "Ur framm bloc'hoù a-vro lakaet e pleustr evit un tizh kriz. Aegis ne garg ket a CSS, JavaScript, pe fontoù dre ziouer, evit reiñ ur sichenn arkitekturel pur. Reiñ a ra d'an dreserien kontrollioù gwelet don—evel merañ ar SVG, tipografiezh redus ha reizhegezh voutin—tra ma pourchas d'an diorroerien un endro strizh diazezet war reolennoù. Ar sichenn definitiv evit tudennoù bugale a berzh mat."
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search this site"
+msgstr "Klask el lec'hienn-mañ"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search"
+msgstr "Klask"
+
+#: patterns/grid-boxed.php:27
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "Ouzhpennit testenn pe vloc'hoù a vo diskouezet pa ne vo ket kavet disoc'h ebet evit ho klask."
+
+#: patterns/faq/accordion-wide.php:36
+msgid "Type / to add a hidden block"
+msgstr "Skit / evit ouzhpennañ ur bloc'h kuzh"
+
+#. Common translatable strings
+msgid "Home"
+msgstr "Degemer"
+
+msgid "About"
+msgstr "Diwar-benn"
+
+msgid "Contact"
+msgstr "Darempred"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Services"
+msgstr "Servijoù"
+
+msgid "Portfolio"
+msgstr "Portfolio"
+
+msgid "Features"
+msgstr "Arc'hwelioù"
+
+msgid "Pricing"
+msgstr "Prizioù"
+
+msgid "Team"
+msgstr "Skipailh"
+
+msgid "Testimonials"
+msgstr "Testenioù"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "Gallery"
+msgstr "Skeudennaoueg"
+
+msgid "Read More"
+msgstr "Lenn muioc'h"
+
+msgid "Learn More"
+msgstr "Gouzout muioc'h"
+
+msgid "Get Started"
+msgstr "Kregiñ ganti"
+
+msgid "Subscribe"
+msgstr "Koumanantiñ"
+
+msgid "Submit"
+msgstr "Kas"
+
+msgid "Send Message"
+msgstr "Kas ur gemennadenn"
+
+msgid "View All"
+msgstr "Gwelet an holl"
+
+msgid "Back to Top"
+msgstr "Distreiñ d'ar penn"
+
+msgid "Previous"
+msgstr "Kent"
+
+msgid "Next"
+msgstr "War-lerc'h"
+
+msgid "Page"
+msgstr "Pajenn"
+
+msgid "of"
+msgstr "eus"
+
+msgid "Posts"
+msgstr "Pennadoù"
+
+msgid "Categories"
+msgstr "Rannoù"
+
+msgid "Tags"
+msgstr "Tagoù"
+
+msgid "Archive"
+msgstr "Dielloù"
+
+msgid "Author"
+msgstr "Aozer"
+
+msgid "Date"
+msgstr "Deiziad"
+
+msgid "Comments"
+msgstr "Evezhiadennoù"
+
+msgid "Leave a Comment"
+msgstr "Lezel un evezhiadenn"
+
+msgid "Posted on"
+msgstr "Embannet d'an"
+
+msgid "By"
+msgstr "Gant"
+
+msgid "in"
+msgstr "e-barzh"
+
+msgid "No comments"
+msgstr "Evezhiadenn ebet"
+
+msgid "One comment"
+msgstr "Un evezhiadenn"
+
+msgid "% comments"
+msgstr "% evezhiadenn"
+
+msgid "Related Posts"
+msgstr "Pennadoù kar"
+
+msgid "Recent Posts"
+msgstr "Pennadoù nevez"
+
+msgid "Popular Posts"
+msgstr "Pennadoù muiañ-lennet"
+
+msgid "Featured"
+msgstr "Lakaet war-raok"
+
+msgid "Latest"
+msgstr "Pennadoù diwezhañ"
+
+msgid "Continue Reading"
+msgstr "Kenderc'hel da lenn"
+
+msgid "Nothing Found"
+msgstr "Kavet netra"
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "Ho pegoù, n'eus pennad ebet a glot gant ho klask."
+
+msgid "Search Results for:"
+msgstr "Disoc'hoù klask evit :"
+
+msgid "404 - Page Not Found"
+msgstr "404 - Pajenn n'eo ket bet kavet"
+
+msgid "The page you are looking for does not exist."
+msgstr "Ar bajenn emaoc'h o klask n'eus ket anezhi."
+
+msgid "Go to Homepage"
+msgstr "Distreiñ d'ar bajenn degemer"
+
+#. Typography & Design
+msgid "Heading"
+msgstr "Talbenn"
+
+msgid "Subheading"
+msgstr "Istitl"
+
+msgid "Title"
+msgstr "Titl"
+
+msgid "Subtitle"
+msgstr "Istitl"
+
+msgid "Description"
+msgstr "Deskrivadur"
+
+msgid "Content"
+msgstr "Endalc'had"
+
+msgid "Text"
+msgstr "Testenn"
+
+msgid "Label"
+msgstr "Tikedennoù"
+
+msgid "Caption"
+msgstr "Sturiad"
+
+#. Form Elements
+msgid "Name"
+msgstr "Anv"
+
+msgid "Email"
+msgstr "Postel"
+
+msgid "Phone"
+msgstr "Pellgomz"
+
+msgid "Message"
+msgstr "Kemennadenn"
+
+msgid "Subject"
+msgstr "Danvez"
+
+msgid "Your Name"
+msgstr "Hoc'h anv"
+
+msgid "Your Email"
+msgstr "Ho postel"
+
+msgid "Your Message"
+msgstr "Ho kemennadenn"
+
+msgid "Required"
+msgstr "Ret"
+
+msgid "Optional"
+msgstr "Diret"
+
+#. Navigation & UI
+msgid "Menu"
+msgstr "Meuziad"
+
+msgid "Navigation"
+msgstr "Merdeerezh"
+
+msgid "Primary Menu"
+msgstr "Meuziad pennañ"
+
+msgid "Footer Menu"
+msgstr "Meuziad an troad-pajenn"
+
+msgid "Social Links"
+msgstr "Liammoù sokial"
+
+msgid "Skip to content"
+msgstr "Mont d'an endalc'had"
+
+msgid "Close"
+msgstr "Serriñ"
+
+msgid "Open"
+msgstr "Digeriñ"
+
+msgid "Toggle"
+msgstr "Gwintañ"
+
+msgid "Show"
+msgstr "Diskouez"
+
+msgid "Hide"
+msgstr "Kuzhat"
+
+#. Layout Elements
+msgid "Header"
+msgstr "Penn"
+
+msgid "Footer"
+msgstr "Troad"
+
+msgid "Sidebar"
+msgstr "Barrenn gostez"
+
+msgid "Main Content"
+msgstr "Endalc'had pennañ"
+
+msgid "Widget Area"
+msgstr "Tachenn ar widjedoù"
+
+#. Social Media
+msgid "Follow Us"
+msgstr "Heuilhit ac'hanomp"
+
+msgid "Connect"
+msgstr "Kevreañ"
+
+msgid "Share"
+msgstr "Rannañ"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#. Call to Action
+msgid "Get in Touch"
+msgstr "Daremprediñ"
+
+msgid "Contact Us"
+msgstr "Daremprediñ ac'hanomp"
+
+msgid "Join Us"
+msgstr "Enebiñ ouzhimp"
+
+msgid "Sign Up"
+msgstr "Emezelañ"
+
+msgid "Register"
+msgstr "Emezelañ"
+
+msgid "Download"
+msgstr "Pellgargañ"
+
+msgid "Book Now"
+msgstr "Miret bremañ"
+
+msgid "Request Quote"
+msgstr "Goulenn ur goust-lavar"
+
+msgid "Schedule Consultation"
+msgstr "Rakwelet ur guzuliadeg"
+
+#. Error Messages
+msgid "Error"
+msgstr "Fazi"
+
+msgid "Warning"
+msgstr "Diwallit"
+
+msgid "Success"
+msgstr "Berzh"
+
+msgid "Info"
+msgstr "Titour"
+
+msgid "Please try again"
+msgstr "Klaskit en-dro mar plij"
+
+msgid "Something went wrong"
+msgstr "Un dra bennak a zo bet e-maez"
+
+msgid "Invalid input"
+msgstr "Enmont direizh"
+
+msgid "Field is required"
+msgstr "Ret eo leuniañ ar maez-mañ"
+
+#. Accessibility
+msgid "Skip to main content"
+msgstr "Mont d'an endalc'had pennañ"
+
+msgid "Screen reader text"
+msgstr "Testenn lenner-skramm"
+
+msgid "External link"
+msgstr "Liamm diavaez"
+
+msgid "Opens in new window"
+msgstr "Digeriñ a ra en ur prenestr nevez"
+
+msgid "Back"
+msgstr "Distreiñ"
+
+msgid "Forward"
+msgstr "War-raok"
+
+#. Time & Date
+msgid "Today"
+msgstr "Hiziv"
+
+msgid "Yesterday"
+msgstr "Dec'h"
+
+msgid "Tomorrow"
+msgstr "Warc'hoazh"
+
+msgid "Week"
+msgstr "Sizhun"
+
+msgid "Month"
+msgstr "Miz"
+
+msgid "Year"
+msgstr "Bloaz"
+
+msgid "Daily"
+msgstr "Bemdez"
+
+msgid "Weekly"
+msgstr "Bep sizhun"
+
+msgid "Monthly"
+msgstr "Bep miz"
+
+msgid "Yearly"
+msgstr "Bep bloaz"
+
+#. General
+msgid "All"
+msgstr "Holl"
+
+msgid "None"
+msgstr "Hini ebet"
+
+msgid "More"
+msgstr "Muioc'h"
+
+msgid "Less"
+msgstr "Nebeutoc'h"
+
+msgid "Details"
+msgstr "Munudoù"
+
+msgid "Information"
+msgstr "Titour"
+
+msgid "Welcome"
+msgstr "Degemer mat"
+
+msgid "Hello"
+msgstr "Demat"
+
+msgid "Thanks"
+msgstr "Trugarez"
+
+msgid "Thank You"
+msgstr "Trugarez deoc'h"
+
+msgid "Copyright"
+msgstr "Copyright"
+
+msgid "All Rights Reserved"
+msgstr "Pep gwir miret strizh"
+
+msgid "Privacy Policy"
+msgstr "Reolennoù prevezded"
+
+msgid "Terms of Service"
+msgstr "Kumbennoù servij"
+
+msgid "Cookies Policy"
+msgstr "Reolennoù ar c'hookioù"
+
+msgid "Disclaimer"
+msgstr "Dizagañ"
