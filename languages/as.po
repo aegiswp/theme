@@ -1,0 +1,485 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-19T10:22:00-05:00\n"
+"PO-Revision-Date: 2026-01-19 14:15-0500\n"
+"Last-Translator: \n"
+"Language-Team: Assamese <as@li.org>\n"
+"Language: as\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "Aegis"
+
+#. Description of the theme
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "দ্ৰুত গতিৰ বাবে নিৰ্মিত এটা নেটিভ ব্লক ফ্ৰেমৱৰ্ক। Aegis-এ অবিকল্পিতভাৱে কোনো CSS, JavaScript, বা ফণ্ট ফাইল লোড নকৰে, যাৰ ফলত এক বিশুদ্ধ স্থাপত্যৰ আধাৰ পোৱা যায়। ই ডিজাইনাৰসকলক SVG মেনেজমেণ্ট, ফ্লুইড টাইপগ্ৰাফী আৰু ইনট্ৰিনচিক ৰেচপন্সিবনেছৰ দৰে গভীৰ দৃশ্যমান নিয়ন্ত্ৰণৰ ক্ষমতা প্ৰদান কৰে—আৰু লগতে ডেভেলপাৰসকলক এক কঠোৰ, মানদণ্ড-আধাৰিত পৰিৱেশ প্ৰদান কৰে। উচ্চ-কাৰ্যক্ষমতা সম্পন্ন চাইল্ড থিমৰ বাবে ই এক নিৰ্দিষ্ট ভেটি।"
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search this site"
+msgstr "এই ছাইটটোত সন্ধান কৰক"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search"
+msgstr "সন্ধান কৰক"
+
+#: patterns/grid-boxed.php:27
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "অনুসন্ধানৰ কোনো ফলাফল পোৱা নগ’লে প্ৰদৰ্শিত হ’বলগীয়া পাঠ বা ব্লক ইয়াতে যোগ কৰক।"
+
+#: patterns/faq/accordion-wide.php:36
+msgid "Type / to add a hidden block"
+msgstr "এটা লুকাই থকা ব্লক যোগ কৰিবলৈ / টাইপ কৰক"
+
+#. Common translatable strings
+msgid "Home"
+msgstr "ঘৰ"
+
+msgid "About"
+msgstr "আমাৰ বিষয়ে"
+
+msgid "Contact"
+msgstr "যোগাযোগ"
+
+msgid "Blog"
+msgstr "ব্লগ"
+
+msgid "Services"
+msgstr "সেৱাসমূহ"
+
+msgid "Portfolio"
+msgstr "পোৰ্টফোলিঅ’"
+
+msgid "Features"
+msgstr "বৈশিষ্ট্যসমূহ"
+
+msgid "Pricing"
+msgstr "মূল্য তালিকা"
+
+msgid "Team"
+msgstr "দল"
+
+msgid "Testimonials"
+msgstr "প্ৰশংসাপত্ৰ"
+
+msgid "FAQ"
+msgstr "প্ৰায়ে সোধা প্ৰশ্ন"
+
+msgid "Gallery"
+msgstr "গেলেৰী"
+
+msgid "Read More"
+msgstr "অধিক পঢ়ক"
+
+msgid "Learn More"
+msgstr "অধিক জানক"
+
+msgid "Get Started"
+msgstr "আৰম্ভ কৰক"
+
+msgid "Subscribe"
+msgstr "চাবস্ক্ৰাইব কৰক"
+
+msgid "Submit"
+msgstr "দাখিল কৰক"
+
+msgid "Send Message"
+msgstr "বাৰ্তা পঠিয়াওক"
+
+msgid "View All"
+msgstr "সকলো চাওক"
+
+msgid "Back to Top"
+msgstr "ওপৰলৈ উভতি যাওক"
+
+msgid "Previous"
+msgstr "পূৰ্বৱৰ্তী"
+
+msgid "Next"
+msgstr "পৰৱৰ্তী"
+
+msgid "Page"
+msgstr "পৃষ্ঠা"
+
+msgid "of"
+msgstr "ৰ"
+
+msgid "Posts"
+msgstr "পোষ্টসমূহ"
+
+msgid "Categories"
+msgstr "শ্ৰেণীসমূহ"
+
+msgid "Tags"
+msgstr "টেগসমূহ"
+
+msgid "Archive"
+msgstr "আৰ্কাইভ"
+
+msgid "Author"
+msgstr "লেখক"
+
+msgid "Date"
+msgstr "তাৰিখ"
+
+msgid "Comments"
+msgstr "মন্তব্যসমূহ"
+
+msgid "Leave a Comment"
+msgstr "এটা মন্তব্য দিয়ক"
+
+msgid "Posted on"
+msgstr "প্ৰকাশৰ তাৰিখ"
+
+msgid "By"
+msgstr "দ্বাৰা"
+
+msgid "in"
+msgstr "ত"
+
+msgid "No comments"
+msgstr "কোনো মন্তব্য নাই"
+
+msgid "One comment"
+msgstr "এটা মন্তব্য"
+
+msgid "% comments"
+msgstr "% মন্তব্যসমূহ"
+
+msgid "Related Posts"
+msgstr "সম্পৰ্কীয় পোষ্টসমূহ"
+
+msgid "Recent Posts"
+msgstr "শেহতীয়া পোষ্টসমূহ"
+
+msgid "Popular Posts"
+msgstr "জনপ্ৰিয় পোষ্টসমূহ"
+
+msgid "Featured"
+msgstr "বিশেষ বৈশিষ্ট্যযুক্ত"
+
+msgid "Latest"
+msgstr "শেহতীয়া"
+
+msgid "Continue Reading"
+msgstr "পঢ়ি থাকক"
+
+msgid "Nothing Found"
+msgstr "একো পোৱা নগ’ল"
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "দুঃখিত, আপোনাৰ চৰ্তৰ সৈতে কোনো পোষ্ট মিল খোৱা নাই।"
+
+msgid "Search Results for:"
+msgstr "সন্ধানৰ ফলাফলসমূহ:"
+
+msgid "404 - Page Not Found"
+msgstr "404 - পৃষ্ঠা পোৱা নগ’ল"
+
+msgid "The page you are looking for does not exist."
+msgstr "আপুনি বিচৰা পৃষ্ঠাখনৰ কোনো অস্তিত্ব নাই।"
+
+msgid "Go to Homepage"
+msgstr "মূল পৃষ্ঠালৈ যাওক"
+
+#. Typography & Design
+msgid "Heading"
+msgstr "শীৰ্ষক"
+
+msgid "Subheading"
+msgstr "উপ-শীৰ্ষক"
+
+msgid "Title"
+msgstr "শীৰ্ষনাম"
+
+msgid "Subtitle"
+msgstr "উপ-শীৰ্ষনাম"
+
+msgid "Description"
+msgstr "বৰ্ণনা"
+
+msgid "Content"
+msgstr "বিষয়বস্তু"
+
+msgid "Text"
+msgstr "পাঠ"
+
+msgid "Label"
+msgstr "লেবেল"
+
+msgid "Caption"
+msgstr "কেপশ্বন"
+
+#. Form Elements
+msgid "Name"
+msgstr "নাম"
+
+msgid "Email"
+msgstr "ইমেইল"
+
+msgid "Phone"
+msgstr "ফোন"
+
+msgid "Message"
+msgstr "বাৰ্তা"
+
+msgid "Subject"
+msgstr "বিষয়"
+
+msgid "Your Name"
+msgstr "আপোনাৰ নাম"
+
+msgid "Your Email"
+msgstr "আপোনাৰ ইমেইল"
+
+msgid "Your Message"
+msgstr "আপোনাৰ বাৰ্তা"
+
+msgid "Required"
+msgstr "প্ৰয়োজনীয়"
+
+msgid "Optional"
+msgstr "বৈকল্পিক"
+
+#. Navigation & UI
+msgid "Menu"
+msgstr "মেনু"
+
+msgid "Navigation"
+msgstr "নেভিগেচন"
+
+msgid "Primary Menu"
+msgstr "প্ৰাথমিক মেনু"
+
+msgid "Footer Menu"
+msgstr "ফুটাৰ মেনু"
+
+msgid "Social Links"
+msgstr "ছচিয়েল লিংকসমূহ"
+
+msgid "Skip to content"
+msgstr "বিষয়বস্তুলৈ যাওক"
+
+msgid "Close"
+msgstr "বন্ধ কৰক"
+
+msgid "Open"
+msgstr "খোলক"
+
+msgid "Toggle"
+msgstr "টগল কৰক"
+
+msgid "Show"
+msgstr "দেখুৱাওক"
+
+msgid "Hide"
+msgstr "লুকুৱাওক"
+
+#. Layout Elements
+msgid "Header"
+msgstr "হেডাৰ"
+
+msgid "Footer"
+msgstr "ফুটাৰ"
+
+msgid "Sidebar"
+msgstr "ছাইডবাৰ"
+
+msgid "Main Content"
+msgstr "মূল বিষয়বস্তু"
+
+msgid "Widget Area"
+msgstr "উইজেট অঞ্চল"
+
+#. Social Media
+msgid "Follow Us"
+msgstr "আমাৰ পিছে পিছে আহক"
+
+msgid "Connect"
+msgstr "সংযোগ কৰক"
+
+msgid "Share"
+msgstr "শ্বেয়াৰ কৰক"
+
+msgid "Facebook"
+msgstr "ফেচবুক"
+
+msgid "Twitter"
+msgstr "টুইটাৰ"
+
+msgid "Instagram"
+msgstr "ইনষ্টাগ্ৰাম"
+
+msgid "LinkedIn"
+msgstr "লিংকডইন"
+
+msgid "YouTube"
+msgstr "ইউটিউব"
+
+msgid "Pinterest"
+msgstr "পিন্টাৰেষ্ট"
+
+#. Call to Action
+msgid "Get in Touch"
+msgstr "যোগাযোগ কৰক"
+
+msgid "Contact Us"
+msgstr "আমাৰ সৈতে যোগাযোগ কৰক"
+
+msgid "Join Us"
+msgstr "আমাৰ সৈতে যোগ দিয়ক"
+
+msgid "Sign Up"
+msgstr "ছাইন আপ কৰক"
+
+msgid "Register"
+msgstr "পঞ্জীয়ন কৰক"
+
+msgid "Download"
+msgstr "ডাউনলোড কৰক"
+
+msgid "Book Now"
+msgstr "এতিয়াই বুক কৰক"
+
+msgid "Request Quote"
+msgstr "উদ্ধৃতিৰ বাবে অনুৰোধ কৰক"
+
+msgid "Schedule Consultation"
+msgstr "পৰামৰ্শৰ সময় নিৰ্ধাৰণ কৰক"
+
+#. Error Messages
+msgid "Error"
+msgstr "ত্ৰুটি"
+
+msgid "Warning"
+msgstr "সতৰ্কবাৰ্তা"
+
+msgid "Success"
+msgstr "সফলতা"
+
+msgid "Info"
+msgstr "তথ্য"
+
+msgid "Please try again"
+msgstr "অনুগ্ৰহ কৰি পুনৰ চেষ্টা কৰক"
+
+msgid "Something went wrong"
+msgstr "কিবা ভুল হ’ল"
+
+msgid "Invalid input"
+msgstr "অ বৈধ ইনপুট"
+
+msgid "Field is required"
+msgstr "ক্ষেত্ৰটো পূৰণ কৰাটো প্ৰয়োজনীয়"
+
+#. Accessibility
+msgid "Skip to main content"
+msgstr "মূল বিষয়বস্তুলৈ যাওক"
+
+msgid "Screen reader text"
+msgstr "স্ক্ৰীন ৰিডাৰ টেক্সট"
+
+msgid "External link"
+msgstr "বাহ্যিক লিংক"
+
+msgid "Opens in new window"
+msgstr "নতুন উইণ্ডোত খোল খায়"
+
+msgid "Back"
+msgstr "পিছলৈ"
+
+msgid "Forward"
+msgstr "আগলৈ"
+
+#. Time & Date
+msgid "Today"
+msgstr "আজি"
+
+msgid "Yesterday"
+msgstr "কালি"
+
+msgid "Tomorrow"
+msgstr "াইলৈ"
+
+msgid "Week"
+msgstr "সপ্তাহ"
+
+msgid "Month"
+msgstr "মাহ"
+
+msgid "Year"
+msgstr "বছৰ"
+
+msgid "Daily"
+msgstr "দৈনিক"
+
+msgid "Weekly"
+msgstr "সাপ্তাহিক"
+
+msgid "Monthly"
+msgstr "মাহিলী"
+
+msgid "Yearly"
+msgstr "বাৰ্ষিক"
+
+#. General
+msgid "All"
+msgstr "সকলো"
+
+msgid "None"
+msgstr "একো নাই"
+
+msgid "More"
+msgstr "অধিক"
+
+msgid "Less"
+msgstr "কম"
+
+msgid "Details"
+msgstr "বিৱৰণ"
+
+msgid "Information"
+msgstr "তথ্য"
+
+msgid "Welcome"
+msgstr "স্বাগতম"
+
+msgid "Hello"
+msgstr "নমস্কাৰ"
+
+msgid "Thanks"
+msgstr "ধন্যবাদ"
+
+msgid "Thank You"
+msgstr "আপোনাক ধন্যবাদ"
+
+msgid "Copyright"
+msgstr "স্বত্ব"
+
+msgid "All Rights Reserved"
+msgstr "সকলো স্বত্ব সংৰক্ষিত"
+
+msgid "Privacy Policy"
+msgstr "গোপনীয়তা নীতি"
+
+msgid "Terms of Service"
+msgstr "সেৱাৰ চৰ্তাৱলী"
+
+msgid "Cookies Policy"
+msgstr "কুকীজ নীতি"
+
+msgid "Disclaimer"
+msgstr "দাবী ত্যাগ"
