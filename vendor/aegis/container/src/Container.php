@@ -1,6 +1,6 @@
 <?php
 /**
- * Aegis Dependency Injection Container
+ * Dependency Injection Container
  *
  * Provides a simple auto-wiring dependency injection container for the
  * Aegis Framework.
@@ -22,7 +22,7 @@
 // Enforces strict type checking for all code in this file, ensuring type safety throughout the container implementation.
 declare(strict_types=1);
 
-// Declares the namespace for the Aegis dependency injection container, organizing related classes and interfaces.
+// Declares the namespace for the dependency injection container, organizing related classes and interfaces.
 namespace Aegis\Container;
 
 // Imports exception handling, PSR-11 container interface, reflection utilities, and helper functions required for container operations.
@@ -38,7 +38,7 @@ use function uniqid;
 // Imports the Debug utility class for enhanced logging and debugging support.
 use Aegis\Utilities\Debug;
 
-// Implements the main Aegis dependency injection container, providing auto-wiring and PSR-11 compatibility.
+// Implements the main dependency injection container, providing auto-wiring and PSR-11 compatibility.
 class Container implements ContainerInterface
 {
 
