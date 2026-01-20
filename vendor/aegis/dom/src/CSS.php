@@ -54,7 +54,7 @@ class CSS
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $styles An associative array of CSS rules, for example: [ 'color' => 'red', 'background' => 'blue' ].
+	 * @param array $styles An associative array of CSS rules, for example: [ 'color' => 'white', 'background' => 'black' ].
 	 * @param bool  $trim   Set to true to remove the trailing semicolon from the resulting string.
 	 *
 	 * @return string The formatted CSS string for use in HTML or stylesheet output.
@@ -165,7 +165,7 @@ class CSS
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $css 'color:red;background:blue'.
+	 * @param string $css 'color:white;background:black'.
 	 *
 	 * @return array
 	 */
@@ -267,7 +267,9 @@ class CSS
 	}
 
 	/**
-	 * Quick and dirty way to mostly minify CSS.
+	 * TODO: This method needs to be replaced by native framework code
+	 * to remove the dependency on an outdated third-party GitHub repository,
+	 * ensuring the Aegis Framework remains up-to-date and performant.
 	 *
 	 * @author Gary Jones
 	 *
