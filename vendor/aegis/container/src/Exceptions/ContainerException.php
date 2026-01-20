@@ -63,5 +63,4 @@ class ContainerException extends Exception implements ContainerExceptionInterfac
 	{
 		parent::__construct($message, $code, $previous);
 	}
-
 }
