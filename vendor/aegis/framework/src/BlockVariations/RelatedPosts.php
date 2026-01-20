@@ -1,6 +1,6 @@
 <?php
 /**
- * RelatedPosts Block Variation
+ * Related Posts Block Variation
  *
  * Provides support for querying and displaying related posts within the Aegis Framework.
  *
