@@ -267,7 +267,7 @@ class CSS
 	}
 
 	/**
-	 * TODO: This method needs to be replaced by native framework code
+	 * @todo This method needs to be replaced by native framework code
 	 * to remove the dependency on an outdated third-party GitHub repository,
 	 * ensuring the Aegis Framework remains up-to-date and performant.
 	 *
