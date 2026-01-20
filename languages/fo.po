@@ -1,0 +1,485 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-20T04:50:00-05:00\n"
+"PO-Revision-Date: 2026-01-20 10:50-0500\n"
+"Last-Translator: \n"
+"Language-Team: Faroese <fo@li.org>\n"
+"Language: fo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "Aegis"
+
+#. Description of the theme
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "Eitt nativt blokk-framework mentað til ráan ferð. Aegis lesur sum standard onki CSS, JavaScript, ella font-assets, og veitir eina reina arkitektoniska grundvøll. Tað gevur sniðgevum djúpa visuella stýring — m.a. SVG-stýring, flótandi typografi og innbygda responsivitet — samstundis sum tað veitir mennarum eitt strangt, standard-grundað umhvørvi. Tann endaliga grundvøllurin fyri hágóðsku child-temu."
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search this site"
+msgstr "Leita á hesu síðuni"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search"
+msgstr "Leita"
+
+#: patterns/grid-boxed.php:27
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "Legg tekst ella blokkar afturat, ið verða vístir, tá ein leiting onki úrslit gevur."
+
+#: patterns/faq/accordion-wide.php:36
+msgid "Type / to add a hidden block"
+msgstr "Skriva / fyri at leggja ein fjaldan blokk afturat"
+
+#. Common translatable strings
+msgid "Home"
+msgstr "Heim"
+
+msgid "About"
+msgstr "Um okkum"
+
+msgid "Contact"
+msgstr "Samband"
+
+msgid "Blog"
+msgstr "Blogg"
+
+msgid "Services"
+msgstr "Tænastur"
+
+msgid "Portfolio"
+msgstr "Portfolio"
+
+msgid "Features"
+msgstr "Eginleikar"
+
+msgid "Pricing"
+msgstr "Prísir"
+
+msgid "Team"
+msgstr "Toymi"
+
+msgid "Testimonials"
+msgstr "Ummæli"
+
+msgid "FAQ"
+msgstr "Ofta settir spurningar"
+
+msgid "Gallery"
+msgstr "Gallerí"
+
+msgid "Read More"
+msgstr "Les meira"
+
+msgid "Learn More"
+msgstr "Lær meira"
+
+msgid "Get Started"
+msgstr "Byrja her"
+
+msgid "Subscribe"
+msgstr "Hald"
+
+msgid "Submit"
+msgstr "Send"
+
+msgid "Send Message"
+msgstr "Send boð"
+
+msgid "View All"
+msgstr "Vís alt"
+
+msgid "Back to Top"
+msgstr "Til toppinn"
+
+msgid "Previous"
+msgstr "Undanfarna"
+
+msgid "Next"
+msgstr "Næsta"
+
+msgid "Page"
+msgstr "Síða"
+
+msgid "of"
+msgstr "av"
+
+msgid "Posts"
+msgstr "Innlegg"
+
+msgid "Categories"
+msgstr "Flokkar"
+
+msgid "Tags"
+msgstr "Frámerki"
+
+msgid "Archive"
+msgstr "Savn"
+
+msgid "Author"
+msgstr "Høvundur"
+
+msgid "Date"
+msgstr "Dato"
+
+msgid "Comments"
+msgstr "Viðmerkingar"
+
+msgid "Leave a Comment"
+msgstr "Skriva eina viðmerking"
+
+msgid "Posted on"
+msgstr "Sagt tann"
+
+msgid "By"
+msgstr "Av"
+
+msgid "in"
+msgstr "í"
+
+msgid "No comments"
+msgstr "Ongar viðmerkingar"
+
+msgid "One comment"
+msgstr "Ein viðmerking"
+
+msgid "% comments"
+msgstr "% viðmerkingar"
+
+msgid "Related Posts"
+msgstr "Líknandi innlegg"
+
+msgid "Recent Posts"
+msgstr "Nýggjastu innlegg"
+
+msgid "Popular Posts"
+msgstr "Umtókt innlegg"
+
+msgid "Featured"
+msgstr "Framúrskarandi"
+
+msgid "Latest"
+msgstr "Nýggjasta"
+
+msgid "Continue Reading"
+msgstr "Halt áfram at lesa"
+
+msgid "Nothing Found"
+msgstr "Onki varð funnið"
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "Gevið okkum tøkk, onki innlegg samsvarar við tína leiting."
+
+msgid "Search Results for:"
+msgstr "Leitiúrslit fyri:"
+
+msgid "404 - Page Not Found"
+msgstr "404 - Síðan varð ikki funnin"
+
+msgid "The page you are looking for does not exist."
+msgstr "Síðan, tú leitar eftir, er ikki til."
+
+msgid "Go to Homepage"
+msgstr "Far til forsíðuna"
+
+#. Typography & Design
+msgid "Heading"
+msgstr "Yvirskrift"
+
+msgid "Subheading"
+msgstr "Undiryvirskrift"
+
+msgid "Title"
+msgstr "Heiti"
+
+msgid "Subtitle"
+msgstr "Undirheiti"
+
+msgid "Description"
+msgstr "Frágreiðing"
+
+msgid "Content"
+msgstr "Innihald"
+
+msgid "Text"
+msgstr "Tekstur"
+
+msgid "Label"
+msgstr "Merki"
+
+msgid "Caption"
+msgstr "Tekstur til mynd"
+
+#. Form Elements
+msgid "Name"
+msgstr "Navn"
+
+msgid "Email"
+msgstr "T-postur"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Message"
+msgstr "Boð"
+
+msgid "Subject"
+msgstr "Evni"
+
+msgid "Your Name"
+msgstr "Títt navn"
+
+msgid "Your Email"
+msgstr "Tín t-postur"
+
+msgid "Your Message"
+msgstr "Tíni boð"
+
+msgid "Required"
+msgstr "Kravt"
+
+msgid "Optional"
+msgstr "Valfrítt"
+
+#. Navigation & UI
+msgid "Menu"
+msgstr "Valmynd"
+
+msgid "Navigation"
+msgstr "Navigatión"
+
+msgid "Primary Menu"
+msgstr "Høvuðsvalmynd"
+
+msgid "Footer Menu"
+msgstr "Valmynd í fótinum"
+
+msgid "Social Links"
+msgstr "Sosialir leinkjur"
+
+msgid "Skip to content"
+msgstr "Far til innihald"
+
+msgid "Close"
+msgstr "Lat aftur"
+
+msgid "Open"
+msgstr "Lat upp"
+
+msgid "Toggle"
+msgstr "Skift"
+
+msgid "Show"
+msgstr "Vís"
+
+msgid "Hide"
+msgstr "Fjal"
+
+#. Layout Elements
+msgid "Header"
+msgstr "Høvd"
+
+msgid "Footer"
+msgstr "Fótur"
+
+msgid "Sidebar"
+msgstr "Síðulinja"
+
+msgid "Main Content"
+msgstr "Høvuðsinnihald"
+
+msgid "Widget Area"
+msgstr "Widget-øki"
+
+#. Social Media
+msgid "Follow Us"
+msgstr "Fylg okkum"
+
+msgid "Connect"
+msgstr "Set teg í samband"
+
+msgid "Share"
+msgstr "Deil"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#. Call to Action
+msgid "Get in Touch"
+msgstr "Set teg í samband"
+
+msgid "Contact Us"
+msgstr "Set teg í samband við okkum"
+
+msgid "Join Us"
+msgstr "Gerst limur"
+
+msgid "Sign Up"
+msgstr "Stovna tær eina kontu"
+
+msgid "Register"
+msgstr "Registrera"
+
+msgid "Download"
+msgstr "Heinta"
+
+msgid "Book Now"
+msgstr "Billa tær nú"
+
+msgid "Request Quote"
+msgstr "Bið um tilboð"
+
+msgid "Schedule Consultation"
+msgstr "Avtala ráðgeving"
+
+#. Error Messages
+msgid "Error"
+msgstr "Villa"
+
+msgid "Warning"
+msgstr "Ávaring"
+
+msgid "Success"
+msgstr "Væleydnað"
+
+msgid "Info"
+msgstr "Kunning"
+
+msgid "Please try again"
+msgstr "Vinaliga royn aftur"
+
+msgid "Something went wrong"
+msgstr "Okkurt gekk galið"
+
+msgid "Invalid input"
+msgstr "Ógyldug innskriving"
+
+msgid "Field is required"
+msgstr "Teigurin skal fyllast út"
+
+#. Accessibility
+msgid "Skip to main content"
+msgstr "Far til høvuðsinnihald"
+
+msgid "Screen reader text"
+msgstr "Tekstur til skíggjalesara"
+
+msgid "External link"
+msgstr "Uttanhýsis leinkja"
+
+msgid "Opens in new window"
+msgstr "Letur upp í nýggjum kaga"
+
+msgid "Back"
+msgstr "Aftur"
+
+msgid "Forward"
+msgstr "Fram"
+
+#. Time & Date
+msgid "Today"
+msgstr "Í dag"
+
+msgid "Yesterday"
+msgstr "Í gjár"
+
+msgid "Tomorrow"
+msgstr "Í morgin"
+
+msgid "Week"
+msgstr "Vika"
+
+msgid "Month"
+msgstr "Mánaður"
+
+msgid "Year"
+msgstr "Ár"
+
+msgid "Daily"
+msgstr "Dagliga"
+
+msgid "Weekly"
+msgstr "Vikuliga"
+
+msgid "Monthly"
+msgstr "Mánaðarliga"
+
+msgid "Yearly"
+msgstr "Árliga"
+
+#. General
+msgid "All"
+msgstr "Alt"
+
+msgid "None"
+msgstr "Onki"
+
+msgid "More"
+msgstr "Meira"
+
+msgid "Less"
+msgstr "Minni"
+
+msgid "Details"
+msgstr "Smálutir"
+
+msgid "Information"
+msgstr "Upplýsingar"
+
+msgid "Welcome"
+msgstr "Vælkomin"
+
+msgid "Hello"
+msgstr "Halló"
+
+msgid "Thanks"
+msgstr "Takk"
+
+msgid "Thank You"
+msgstr "Takk fyri"
+
+msgid "Copyright"
+msgstr "Upphavsrættur"
+
+msgid "All Rights Reserved"
+msgstr "Øll rættindi fyrivardin"
+
+msgid "Privacy Policy"
+msgstr "Privatlívsvernd"
+
+msgid "Terms of Service"
+msgstr "Tænastutreytir"
+
+msgid "Cookies Policy"
+msgstr "Cookie-reglur"
+
+msgid "Disclaimer"
+msgstr "Fyrivarni"
