@@ -1,0 +1,485 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-20T04:45:00-05:00\n"
+"PO-Revision-Date: 2026-01-20 11:45-0500\n"
+"Last-Translator: \n"
+"Language-Team: Estonian <et@li.org>\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "Aegis"
+
+#. Description of the theme
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "Natiivne plokk-raamistik, mis on loodud maksimaalse kiiruse saavutamiseks. Aegis ei laadi vaikimisi ühtegi CSS-, JavaScripti ega fondifaili, pakkudes puhast arhitektuurset vundamenti. See annab disaineritele süvitsi mineva visuaalse kontrolli — sealhulgas SVG-haldus, dünaamiline tüpograafia ja loomupärane responsiivsus — pakkudes samal ajal arendajatele ranget, standarditel põhinevat keskkonda. Lõplik alustala suure jõudlusega tütarteemadele."
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search this site"
+msgstr "Otsi sellelt saidilt"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search"
+msgstr "Otsi"
+
+#: patterns/grid-boxed.php:27
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "Lisa siia tekst või plokid, mida kuvatakse siis, kui otsingutulemusi ei leita."
+
+#: patterns/faq/accordion-wide.php:36
+msgid "Type / to add a hidden block"
+msgstr "Trüki / peidetud ploki lisamiseks"
+
+#. Common translatable strings
+msgid "Home"
+msgstr "Avaleht"
+
+msgid "About"
+msgstr "Meist"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Blog"
+msgstr "Blogi"
+
+msgid "Services"
+msgstr "Teenused"
+
+msgid "Portfolio"
+msgstr "Portfoolio"
+
+msgid "Features"
+msgstr "Võimalused"
+
+msgid "Pricing"
+msgstr "Hinnakiri"
+
+msgid "Team"
+msgstr "Tiim"
+
+msgid "Testimonials"
+msgstr "Tagasiside"
+
+msgid "FAQ"
+msgstr "KKK"
+
+msgid "Gallery"
+msgstr "Galerii"
+
+msgid "Read More"
+msgstr "Loe edasi"
+
+msgid "Learn More"
+msgstr "Loe rohkem"
+
+msgid "Get Started"
+msgstr "Alusta siit"
+
+msgid "Subscribe"
+msgstr "Telli"
+
+msgid "Submit"
+msgstr "Saada"
+
+msgid "Send Message"
+msgstr "Saada sõnum"
+
+msgid "View All"
+msgstr "Vaata kõiki"
+
+msgid "Back to Top"
+msgstr "Tagasi üles"
+
+msgid "Previous"
+msgstr "Eelmine"
+
+msgid "Next"
+msgstr "Järgmine"
+
+msgid "Page"
+msgstr "Lehekülg"
+
+msgid "of"
+msgstr "/"
+
+msgid "Posts"
+msgstr "Postitused"
+
+msgid "Categories"
+msgstr "Kategooriad"
+
+msgid "Tags"
+msgstr "Sildid"
+
+msgid "Archive"
+msgstr "Arhiiv"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Date"
+msgstr "Kuupäev"
+
+msgid "Comments"
+msgstr "Kommentaarid"
+
+msgid "Leave a Comment"
+msgstr "Lisa kommentaar"
+
+msgid "Posted on"
+msgstr "Postitatud"
+
+msgid "By"
+msgstr "Autor:"
+
+msgid "in"
+msgstr "valdkonnas"
+
+msgid "No comments"
+msgstr "Kommentaarid puuduvad"
+
+msgid "One comment"
+msgstr "Üks kommentaar"
+
+msgid "% comments"
+msgstr "% kommentaari"
+
+msgid "Related Posts"
+msgstr "Sarnased postitused"
+
+msgid "Recent Posts"
+msgstr "Viimased postitused"
+
+msgid "Popular Posts"
+msgstr "Populaarsed postitused"
+
+msgid "Featured"
+msgstr "Esiletõstetud"
+
+msgid "Latest"
+msgstr "Viimased"
+
+msgid "Continue Reading"
+msgstr "Jätka lugemist"
+
+msgid "Nothing Found"
+msgstr "Midagi ei leitud"
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "Kahjuks ei leitud ühtegi postitust, mis vastaks teie kriteeriumidele."
+
+msgid "Search Results for:"
+msgstr "Otsingu tulemused:"
+
+msgid "404 - Page Not Found"
+msgstr "404 - Lehte ei leitud"
+
+msgid "The page you are looking for does not exist."
+msgstr "Lehekülge, mida otsite, ei ole olemas."
+
+msgid "Go to Homepage"
+msgstr "Mine avalehele"
+
+#. Typography & Design
+msgid "Heading"
+msgstr "Pealkiri"
+
+msgid "Subheading"
+msgstr "Alampealkiri"
+
+msgid "Title"
+msgstr "Tiitel"
+
+msgid "Subtitle"
+msgstr "Alantiitel"
+
+msgid "Description"
+msgstr "Kirjeldus"
+
+msgid "Content"
+msgstr "Sisu"
+
+msgid "Text"
+msgstr "Tekst"
+
+msgid "Label"
+msgstr "Silt"
+
+msgid "Caption"
+msgstr "Pildiallkiri"
+
+#. Form Elements
+msgid "Name"
+msgstr "Nimi"
+
+msgid "Email"
+msgstr "E-post"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Message"
+msgstr "Sõnum"
+
+msgid "Subject"
+msgstr "Teema"
+
+msgid "Your Name"
+msgstr "Sinu nimi"
+
+msgid "Your Email"
+msgstr "Sinu e-post"
+
+msgid "Your Message"
+msgstr "Sinu sõnum"
+
+msgid "Required"
+msgstr "Kohustuslik"
+
+msgid "Optional"
+msgstr "Valikuline"
+
+#. Navigation & UI
+msgid "Menu"
+msgstr "Menüü"
+
+msgid "Navigation"
+msgstr "Navigatsioon"
+
+msgid "Primary Menu"
+msgstr "Peamenüü"
+
+msgid "Footer Menu"
+msgstr "Jaluse menüü"
+
+msgid "Social Links"
+msgstr "Sotsiaalmeedia lingid"
+
+msgid "Skip to content"
+msgstr "Hüppa sisu juurde"
+
+msgid "Close"
+msgstr "Sulge"
+
+msgid "Open"
+msgstr "Ava"
+
+msgid "Toggle"
+msgstr "Lülita"
+
+msgid "Show"
+msgstr "Näita"
+
+msgid "Hide"
+msgstr "Peida"
+
+#. Layout Elements
+msgid "Header"
+msgstr "Päis"
+
+msgid "Footer"
+msgstr "Jalus"
+
+msgid "Sidebar"
+msgstr "Küljeriba"
+
+msgid "Main Content"
+msgstr "Põhisisu"
+
+msgid "Widget Area"
+msgstr "Vidinate ala"
+
+#. Social Media
+msgid "Follow Us"
+msgstr "Jälgi meid"
+
+msgid "Connect"
+msgstr "Loo ühendus"
+
+msgid "Share"
+msgstr "Jaga"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#. Call to Action
+msgid "Get in Touch"
+msgstr "Võta ühendust"
+
+msgid "Contact Us"
+msgstr "Võta meiega ühendust"
+
+msgid "Join Us"
+msgstr "Liitu meiega"
+
+msgid "Sign Up"
+msgstr "Registreeru"
+
+msgid "Register"
+msgstr "Registreeri"
+
+msgid "Download"
+msgstr "Laadi alla"
+
+msgid "Book Now"
+msgstr "Broneeri kohe"
+
+msgid "Request Quote"
+msgstr "Küsi pakkumist"
+
+msgid "Schedule Consultation"
+msgstr "Broneeri konsultatsioon"
+
+#. Error Messages
+msgid "Error"
+msgstr "Viga"
+
+msgid "Warning"
+msgstr "Hoiatus"
+
+msgid "Success"
+msgstr "Edukas"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Please try again"
+msgstr "Palun proovi uuesti"
+
+msgid "Something went wrong"
+msgstr "Midagi läks valesti"
+
+msgid "Invalid input"
+msgstr "Vigane sisend"
+
+msgid "Field is required"
+msgstr "Väli on kohustuslik"
+
+#. Accessibility
+msgid "Skip to main content"
+msgstr "Hüppa põhisisu juurde"
+
+msgid "Screen reader text"
+msgstr "Ekraanilugeri tekst"
+
+msgid "External link"
+msgstr "Väline link"
+
+msgid "Opens in new window"
+msgstr "Avaneb uues aknas"
+
+msgid "Back"
+msgstr "Tagasi"
+
+msgid "Forward"
+msgstr "Edasi"
+
+#. Time & Date
+msgid "Today"
+msgstr "Täna"
+
+msgid "Yesterday"
+msgstr "Eile"
+
+msgid "Tomorrow"
+msgstr "Homme"
+
+msgid "Week"
+msgstr "Nädal"
+
+msgid "Month"
+msgstr "Kuu"
+
+msgid "Year"
+msgstr "Aasta"
+
+msgid "Daily"
+msgstr "Igapäevane"
+
+msgid "Weekly"
+msgstr "Iganädalane"
+
+msgid "Monthly"
+msgstr "Igakuine"
+
+msgid "Yearly"
+msgstr "Iga-aastane"
+
+#. General
+msgid "All"
+msgstr "Kõik"
+
+msgid "None"
+msgstr "Puudub"
+
+msgid "More"
+msgstr "Rohkem"
+
+msgid "Less"
+msgstr "Vähem"
+
+msgid "Details"
+msgstr "Detailid"
+
+msgid "Information"
+msgstr "Info"
+
+msgid "Welcome"
+msgstr "Tere tulemast"
+
+msgid "Hello"
+msgstr "Tere"
+
+msgid "Thanks"
+msgstr "Tänan"
+
+msgid "Thank You"
+msgstr "Aitäh"
+
+msgid "Copyright"
+msgstr "Autoriõigus"
+
+msgid "All Rights Reserved"
+msgstr "Kõik õigused kaitstud"
+
+msgid "Privacy Policy"
+msgstr "Andmekaitsepõhimõtted"
+
+msgid "Terms of Service"
+msgstr "Kasutustingimused"
+
+msgid "Cookies Policy"
+msgstr "Küpsiste poliitika"
+
+msgid "Disclaimer"
+msgstr "Vastutuse välistamine"
