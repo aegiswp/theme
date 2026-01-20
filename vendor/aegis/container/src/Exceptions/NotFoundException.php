@@ -71,5 +71,4 @@ class NotFoundException extends Exception implements NotFoundExceptionInterface
 
 		parent::__construct(sprintf($message, $id));
 	}
-
 }
