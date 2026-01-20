@@ -1,0 +1,485 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-20T04:54:00-05:00\n"
+"PO-Revision-Date: 2026-01-20 11:54-0500\n"
+"Last-Translator: \n"
+"Language-Team: Fon <fon@li.org>\n"
+"Language: fon\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "Aegis"
+
+#. Description of the theme
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "Frame-wɛn bloc tɔn e è sɔ́ ɖó te bɔ é nɔ fú gàn ganjí é. Aegis nɔ bɛ́ CSS, JavaScript, alɔ font kpaà ɖé lɛ́ ǎ, bo nɔ ná dò ɖagbe ɖé. É nɔ ná nǔwukpíkpé fɔndó-wlantɔ́ lɛ́ nú yě ná kpé nǔ wu ɖó nǔ e yě nɔ mɔ lɛ́ é wu—mɔ̌ jɛn é nɔ sɔ́ SVG, we-wlantɔ́ e nɔ fú gàn é, bɔ é nɔ fú gàn ɖagbe ganjí é—bo nɔ ná tɛn fɔndó-we-wlantɔ́ lɛ́ ɖó akpaxwé e è sɔ́ kpaà é mɛ. Dò tawun ɔ nú child themes e nɔ fú gàn ɖagbe lɛ́ é."
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search this site"
+msgstr "Ba nǔ ɖò tɛn ɛntɛnɛti tɔn lɔ mɛ"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search"
+msgstr "Ba"
+
+#: patterns/grid-boxed.php:27
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "Gɔ́ wěma-wlantɔ́ alǒ bloc lɛ́ gɔ́ na bónú è nǎ mɔ ɖò hwenu e nǔ e è bà é ma tɔ́n ǎ é."
+
+#: patterns/faq/accordion-wide.php:36
+msgid "Type / to add a hidden block"
+msgstr "Wlǎn / bónú a nǎ gɔ́ bloc e è sɔ́ hwlá é gɔ́ na"
+
+#. Common translatable strings
+msgid "Home"
+msgstr "Agbasagbé"
+
+msgid "About"
+msgstr "Mǐ wu nyà"
+
+msgid "Contact"
+msgstr "Gbesisɔ"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Services"
+msgstr "Azɔ̌ lɛ́"
+
+msgid "Portfolio"
+msgstr "Azɔ̌ e è wà lɛ́ é"
+
+msgid "Features"
+msgstr "Nǔ tɔxe lɛ́"
+
+msgid "Pricing"
+msgstr "Akwɛ́ sísɔ́"
+
+msgid "Team"
+msgstr "Gbɛ̌tɔ́ lɛ́"
+
+msgid "Testimonials"
+msgstr "Ðaseɖíɖó lɛ́"
+
+msgid "FAQ"
+msgstr "Biabiá e è nɔ biá tawun lɛ́ é"
+
+msgid "Gallery"
+msgstr "Nɔnɔmetata lɛ́"
+
+msgid "Read More"
+msgstr "Xà gɔ́ ná"
+
+msgid "Learn More"
+msgstr "Kplɔ́n nǔ d’é jí"
+
+msgid "Get Started"
+msgstr "Bɛ́ sín fí"
+
+msgid "Subscribe"
+msgstr "Wlantɔ́ ŋkɔ́"
+
+msgid "Submit"
+msgstr "Ðoè ɖá"
+
+msgid "Send Message"
+msgstr "Ðò wɛn ɖá"
+
+msgid "View All"
+msgstr "Kpɔ́ bǐ"
+
+msgid "Back to Top"
+msgstr "Lɛkɔ yì aga"
+
+msgid "Previous"
+msgstr "Ee wá yì é"
+
+msgid "Next"
+msgstr "Ee ja é"
+
+msgid "Page"
+msgstr "Axadzí"
+
+msgid "of"
+msgstr "sín"
+
+msgid "Posts"
+msgstr "Wɛn lɛ́"
+
+msgid "Categories"
+msgstr "Akpaxwé lɛ́"
+
+msgid "Tags"
+msgstr "Gesí lɛ́"
+
+msgid "Archive"
+msgstr "Nudzraɖóƒé"
+
+msgid "Author"
+msgstr "Wlantɔ́"
+
+msgid "Date"
+msgstr "Azǎn"
+
+msgid "Comments"
+msgstr "Ðonúwu lɛ́"
+
+msgid "Leave a Comment"
+msgstr "Ðonúwu aɖe ɖó fí"
+
+msgid "Posted on"
+msgstr "È wlán ɖó"
+
+msgid "By"
+msgstr "Tɔn"
+
+msgid "in"
+msgstr "ɖò"
+
+msgid "No comments"
+msgstr "Ðonúwu ɖé kpo ǎ"
+
+msgid "One comment"
+msgstr "Ðonúwu ɖokpó"
+
+msgid "% comments"
+msgstr "Ðonúwu %"
+
+msgid "Related Posts"
+msgstr "Wɛn e gɔ́ na lɛ́ é"
+
+msgid "Recent Posts"
+msgstr "Wɛn yɔyɔ́ lɛ́"
+
+msgid "Popular Posts"
+msgstr "Wɛn e è nɔ xà tawun lɛ́ é"
+
+msgid "Featured"
+msgstr "Ee xɔ akwɛ́ é"
+
+msgid "Latest"
+msgstr "Gǔdo tɔn lɛ́"
+
+msgid "Continue Reading"
+msgstr "Kpó ɖò xìxà jí"
+
+msgid "Nothing Found"
+msgstr "È mɔ nanú ɖé ǎ"
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "Baba, wɛn ɖé sɔgbe xá nǔ e a bà é ǎ."
+
+msgid "Search Results for:"
+msgstr "Bibá sín nǔ e è mɔ lɛ́ é nú:"
+
+msgid "404 - Page Not Found"
+msgstr "404 - È mɔ axadzí ɔ ǎ"
+
+msgid "The page you are looking for does not exist."
+msgstr "Axadzí e a ɖò biba wɛ é tíìn ǎ."
+
+msgid "Go to Homepage"
+msgstr "Yì axadzí gbadó"
+
+#. Typography & Design
+msgid "Heading"
+msgstr "Tanyatanyao"
+
+msgid "Subheading"
+msgstr "Tanyatanyao kpɛví"
+
+msgid "Title"
+msgstr "Tanya"
+
+msgid "Subtitle"
+msgstr "Tanya gɔ́ na"
+
+msgid "Description"
+msgstr "Nǔtinmɛ"
+
+msgid "Content"
+msgstr "Emenuwo"
+
+msgid "Text"
+msgstr "Wěma-wlantɔ́"
+
+msgid "Label"
+msgstr "Dzeside"
+
+msgid "Caption"
+msgstr "Nɔnɔmetata ƒe nya"
+
+#. Form Elements
+msgid "Name"
+msgstr "Nyǐkɔ"
+
+msgid "Email"
+msgstr "Imɛɛlu"
+
+msgid "Phone"
+msgstr "Alokan"
+
+msgid "Message"
+msgstr "Wɛn"
+
+msgid "Subject"
+msgstr "Xó"
+
+msgid "Your Name"
+msgstr "Nyǐkɔ towe"
+
+msgid "Your Email"
+msgstr "Imɛɛlu towe"
+
+msgid "Your Message"
+msgstr "Wɛn towe"
+
+msgid "Required"
+msgstr "Dandan"
+
+msgid "Optional"
+msgstr "Kpaà"
+
+#. Navigation & UI
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Navigation"
+msgstr "Mɔfiame"
+
+msgid "Primary Menu"
+msgstr "Menu tɔn"
+
+msgid "Footer Menu"
+msgstr "Menu dò tɔn"
+
+msgid "Social Links"
+msgstr "Hancɛjí kplé tɔn"
+
+msgid "Skip to content"
+msgstr "Yì emenuwo mɛ"
+
+msgid "Close"
+msgstr "Sú"
+
+msgid "Open"
+msgstr "Hun"
+
+msgid "Toggle"
+msgstr "Tɔtrɔ"
+
+msgid "Show"
+msgstr "Fíá"
+
+msgid "Hide"
+msgstr "Hwlá"
+
+#. Layout Elements
+msgid "Header"
+msgstr "Aga"
+
+msgid "Footer"
+msgstr "Dò"
+
+msgid "Sidebar"
+msgstr "Axadzí"
+
+msgid "Main Content"
+msgstr "Emenu tawun"
+
+msgid "Widget Area"
+msgstr "Widget tɛnmɛ"
+
+#. Social Media
+msgid "Follow Us"
+msgstr "Xwedó mǐ"
+
+msgid "Connect"
+msgstr "Dò ka"
+
+msgid "Share"
+msgstr "Má"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#. Call to Action
+msgid "Get in Touch"
+msgstr "Dò ka xá mǐ"
+
+msgid "Contact Us"
+msgstr "Kàn xó bǐ mǐ"
+
+msgid "Join Us"
+msgstr "Xwedó mǐ"
+
+msgid "Sign Up"
+msgstr "Wlǎn nyǐkɔ"
+
+msgid "Register"
+msgstr "Nyǐkɔ-wlantɔ́"
+
+msgid "Download"
+msgstr "Sɔ́ nǔ tɔ́n"
+
+msgid "Book Now"
+msgstr "Xɔ tɛnmɛ azɔn"
+
+msgid "Request Quote"
+msgstr "Biá asixɔxɔ"
+
+msgid "Schedule Consultation"
+msgstr "Wɔ ɖoɖo xá mǐ"
+
+#. Error Messages
+msgid "Error"
+msgstr "Vodada"
+
+msgid "Warning"
+msgstr "Nuxɔxlɔ̃"
+
+msgid "Success"
+msgstr "Dzidzedze"
+
+msgid "Info"
+msgstr "Nyatakaka"
+
+msgid "Please try again"
+msgstr "Kɛnklɛn vɔ́ tɛ́n kpɔ́n"
+
+msgid "Something went wrong"
+msgstr "Nǔ ɖé gblé"
+
+msgid "Invalid input"
+msgstr "Nǔ e a sɔ́ dó mɛ é sɔgbe ǎ"
+
+msgid "Field is required"
+msgstr "Ele na wlán nǔ ɖó fí"
+
+#. Accessibility
+msgid "Skip to main content"
+msgstr "Yì emenu tawun mɛ"
+
+msgid "Screen reader text"
+msgstr "Wěma-wlantɔ́ nú mɔ e nɔ xà wěma é"
+
+msgid "External link"
+msgstr "Kadodó gǔdo tɔn"
+
+msgid "Opens in new window"
+msgstr "Hùn ɖò flɛsɛ́ yɔyɔ́ mɛ"
+
+msgid "Back"
+msgstr "Gǔdo"
+
+msgid "Forward"
+msgstr "Nukɔn"
+
+#. Time & Date
+msgid "Today"
+msgstr "Égbé"
+
+msgid "Yesterday"
+msgstr "Sɔ̀"
+
+msgid "Tomorrow"
+msgstr "Sɔ̀ e ja é"
+
+msgid "Week"
+msgstr "Akwɛ́zángbe"
+
+msgid "Month"
+msgstr "Sun"
+
+msgid "Year"
+msgstr "Xwè"
+
+msgid "Daily"
+msgstr "Gbè bǐ gbè"
+
+msgid "Weekly"
+msgstr "Akwɛ́zángbe bǐ"
+
+msgid "Monthly"
+msgstr "Sun bǐ sun"
+
+msgid "Yearly"
+msgstr "Xwè bǐ xwè"
+
+#. General
+msgid "All"
+msgstr "Bǐ"
+
+msgid "None"
+msgstr "Nanú ɖé kpo ǎ"
+
+msgid "More"
+msgstr "Gɔ́ na"
+
+msgid "Less"
+msgstr "Kpɛví"
+
+msgid "Details"
+msgstr "Emenuwo"
+
+msgid "Information"
+msgstr "Nyatakaka"
+
+msgid "Welcome"
+msgstr "Kúàbɔ̀"
+
+msgid "Hello"
+msgstr "Kú d’é jí"
+
+msgid "Thanks"
+msgstr "Kpɛn"
+
+msgid "Thank You"
+msgstr "Nǔ é a wà é nyɔ́"
+
+msgid "Copyright"
+msgstr "Acɛ̀-wlantɔ́"
+
+msgid "All Rights Reserved"
+msgstr "Acɛ̀ bǐ tíìn nú mǐ"
+
+msgid "Privacy Policy"
+msgstr "Sɛ́n nyatakaka tɔn"
+
+msgid "Terms of Service"
+msgstr "Sɛ́n azɔ̌ tɔn"
+
+msgid "Cookies Policy"
+msgstr "Sɛ́n kuki tɔn"
+
+msgid "Disclaimer"
+msgstr "Gbetɔ́n"
