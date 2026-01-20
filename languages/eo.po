@@ -1,0 +1,485 @@
+# Copyright (C) 2026 Atmostfear Entertainment
+# This file is distributed under the GPL v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Aegis 1.0.0-rc.2\n"
+"Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
+"POT-Creation-Date: 2026-01-20T04:45:00-05:00\n"
+"PO-Revision-Date: 2026-01-20 10:45-0500\n"
+"Last-Translator: \n"
+"Language-Team: Esperanto <eo@li.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aegis\n"
+
+#. Theme Name of the theme
+msgid "Aegis"
+msgstr "Aegis"
+
+#. Description of the theme
+msgid "A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes."
+msgstr "Indiĝena bloka kadro kreita por kruda rapideco. Aegis ŝarĝas neniun CSS, JavaScript aŭ tiparojn defaŭlte, liverante puran arkitekturan fundamenton. Ĝi povigas fasonistojn per profundaj vidaj kontroloj—inkluzive de SVG-administrado, fluida tipografio kaj intrinŝika respondemo—dum ĝi provizas al programistoj striktan, normbazitan medion. La definitiva fundamento por alt-efikecaj idaj etosoj."
+
+#. Author of the theme
+msgid "Atmostfear Entertainment"
+msgstr "Atmostfear Entertainment"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search this site"
+msgstr "Serĉi en ĉi tiu retejo"
+
+#: patterns/utility/utility-search-toggle.php:23
+msgid "Search"
+msgstr "Serĉi"
+
+#: patterns/grid-boxed.php:27
+msgid "Add text or blocks that will display when a query returns no results."
+msgstr "Aldonu tekston aŭ blokojn, kiuj aperos kiam serĉo liveras neniun rezulton."
+
+#: patterns/faq/accordion-wide.php:36
+msgid "Type / to add a hidden block"
+msgstr "Tajpu / por aldoni kaŝitan blokon"
+
+#. Common translatable strings
+msgid "Home"
+msgstr "Hejmo"
+
+msgid "About"
+msgstr "Pri"
+
+msgid "Contact"
+msgstr "Kontakto"
+
+msgid "Blog"
+msgstr "Blogo"
+
+msgid "Services"
+msgstr "Servoj"
+
+msgid "Portfolio"
+msgstr "Paperaro"
+
+msgid "Features"
+msgstr "Trajtoj"
+
+msgid "Pricing"
+msgstr "Prezaro"
+
+msgid "Team"
+msgstr "Teamo"
+
+msgid "Testimonials"
+msgstr "Atestoj"
+
+msgid "FAQ"
+msgstr "Oftaj demandoj"
+
+msgid "Gallery"
+msgstr "Galerio"
+
+msgid "Read More"
+msgstr "Legi pli"
+
+msgid "Learn More"
+msgstr "Lerni pli"
+
+msgid "Get Started"
+msgstr "Ekpaŝi"
+
+msgid "Subscribe"
+msgstr "Aboni"
+
+msgid "Submit"
+msgstr "Sendi"
+
+msgid "Send Message"
+msgstr "Sendi mesaĝon"
+
+msgid "View All"
+msgstr "Vidi ĉion"
+
+msgid "Back to Top"
+msgstr "Reen al la supro"
+
+msgid "Previous"
+msgstr "Antaŭa"
+
+msgid "Next"
+msgstr "Sekva"
+
+msgid "Page"
+msgstr "Paĝo"
+
+msgid "of"
+msgstr "el"
+
+msgid "Posts"
+msgstr "Afiŝoj"
+
+msgid "Categories"
+msgstr "Kategorioj"
+
+msgid "Tags"
+msgstr "Etikedoj"
+
+msgid "Archive"
+msgstr "Arkivo"
+
+msgid "Author"
+msgstr "Aŭtoro"
+
+msgid "Date"
+msgstr "Dato"
+
+msgid "Comments"
+msgstr "Komentoj"
+
+msgid "Leave a Comment"
+msgstr "Lasi komenton"
+
+msgid "Posted on"
+msgstr "Afiŝita je"
+
+msgid "By"
+msgstr "De"
+
+msgid "in"
+msgstr "en"
+
+msgid "No comments"
+msgstr "Neniuj komentoj"
+
+msgid "One comment"
+msgstr "Unu komento"
+
+msgid "% comments"
+msgstr "% komentoj"
+
+msgid "Related Posts"
+msgstr "Rilataj afiŝoj"
+
+msgid "Recent Posts"
+msgstr "Lastatempaj afiŝoj"
+
+msgid "Popular Posts"
+msgstr "Popularaj afiŝoj"
+
+msgid "Featured"
+msgstr "Prezentita"
+
+msgid "Latest"
+msgstr "Plej novaj"
+
+msgid "Continue Reading"
+msgstr "Daŭrigi legadon"
+
+msgid "Nothing Found"
+msgstr "Nenio trovita"
+
+msgid "Sorry, no posts matched your criteria."
+msgstr "Bedaŭrinde, neniuj afiŝoj kongruas kun viaj kriterioj."
+
+msgid "Search Results for:"
+msgstr "Serĉrezultoj por:"
+
+msgid "404 - Page Not Found"
+msgstr "404 - Paĝo ne trovita"
+
+msgid "The page you are looking for does not exist."
+msgstr "La paĝo, kiun vi serĉas, ne ekzistas."
+
+msgid "Go to Homepage"
+msgstr "Iru al la ĉefpaĝo"
+
+#. Typography & Design
+msgid "Heading"
+msgstr "Titolo"
+
+msgid "Subheading"
+msgstr "Subtitolo"
+
+msgid "Title"
+msgstr "Titolo"
+
+msgid "Subtitle"
+msgstr "Subtitolo"
+
+msgid "Description"
+msgstr "Priskribo"
+
+msgid "Content"
+msgstr "Enhavo"
+
+msgid "Text"
+msgstr "Teksto"
+
+msgid "Label"
+msgstr "Etikedo"
+
+msgid "Caption"
+msgstr "Apudskribo"
+
+#. Form Elements
+msgid "Name"
+msgstr "Nomo"
+
+msgid "Email"
+msgstr "Retpoŝto"
+
+msgid "Phone"
+msgstr "Telefono"
+
+msgid "Message"
+msgstr "Mesaĝo"
+
+msgid "Subject"
+msgstr "Temo"
+
+msgid "Your Name"
+msgstr "Via nomo"
+
+msgid "Your Email"
+msgstr "Via retpoŝtadreso"
+
+msgid "Your Message"
+msgstr "Via mesaĝo"
+
+msgid "Required"
+msgstr "Bezonata"
+
+msgid "Optional"
+msgstr "Nedeviga"
+
+#. Navigation & UI
+msgid "Menu"
+msgstr "Menuo"
+
+msgid "Navigation"
+msgstr "Navigado"
+
+msgid "Primary Menu"
+msgstr "Ĉefa menuo"
+
+msgid "Footer Menu"
+msgstr "Malsupra menuo"
+
+msgid "Social Links"
+msgstr "Sociaj ligiloj"
+
+msgid "Skip to content"
+msgstr "Preterpasi al enhavo"
+
+msgid "Close"
+msgstr "Fermi"
+
+msgid "Open"
+msgstr "Malfermi"
+
+msgid "Toggle"
+msgstr "Ŝalti"
+
+msgid "Show"
+msgstr "Montri"
+
+msgid "Hide"
+msgstr "Kaŝi"
+
+#. Layout Elements
+msgid "Header"
+msgstr "Supraĵo"
+
+msgid "Footer"
+msgstr "Malsupraĵo"
+
+msgid "Sidebar"
+msgstr "Flankstango"
+
+msgid "Main Content"
+msgstr "Ĉefa enhavo"
+
+msgid "Widget Area"
+msgstr "Zono de fenestraĵoj"
+
+#. Social Media
+msgid "Follow Us"
+msgstr "Sekvu nin"
+
+msgid "Connect"
+msgstr "Konekti"
+
+msgid "Share"
+msgstr "Dividi"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#. Call to Action
+msgid "Get in Touch"
+msgstr "Kontaktiĝi"
+
+msgid "Contact Us"
+msgstr "Kontaktu nin"
+
+msgid "Join Us"
+msgstr "Aliĝi al ni"
+
+msgid "Sign Up"
+msgstr "Registriĝi"
+
+msgid "Register"
+msgstr "Registriĝi"
+
+msgid "Download"
+msgstr "Elŝuti"
+
+msgid "Book Now"
+msgstr "Rezervi nun"
+
+msgid "Request Quote"
+msgstr "Peti devizon"
+
+msgid "Schedule Consultation"
+msgstr "Planu konsulton"
+
+#. Error Messages
+msgid "Error"
+msgstr "Eraro"
+
+msgid "Warning"
+msgstr "Averto"
+
+msgid "Success"
+msgstr "Sukceso"
+
+msgid "Info"
+msgstr "Informo"
+
+msgid "Please try again"
+msgstr "Bonvolu provi denove"
+
+msgid "Something went wrong"
+msgstr "Io malfunkciis"
+
+msgid "Invalid input"
+msgstr "Nevalida enigo"
+
+msgid "Field is required"
+msgstr "Kampo estas bezonata"
+
+#. Accessibility
+msgid "Skip to main content"
+msgstr "Preterpasi al ĉefa enhavo"
+
+msgid "Screen reader text"
+msgstr "Teksto por ekranlegilo"
+
+msgid "External link"
+msgstr "Ekstera ligilo"
+
+msgid "Opens in new window"
+msgstr "Malfermiĝas en nova fenestro"
+
+msgid "Back"
+msgstr "Reen"
+
+msgid "Forward"
+msgstr "Antaŭen"
+
+#. Time & Date
+msgid "Today"
+msgstr "Hodiaŭ"
+
+msgid "Yesterday"
+msgstr "Hieraŭ"
+
+msgid "Tomorrow"
+msgstr "Morgaŭ"
+
+msgid "Week"
+msgstr "Semajno"
+
+msgid "Month"
+msgstr "Monato"
+
+msgid "Year"
+msgstr "Jaro"
+
+msgid "Daily"
+msgstr "Ĉiutage"
+
+msgid "Weekly"
+msgstr "Ĉiusemajne"
+
+msgid "Monthly"
+msgstr "Ĉiumonate"
+
+msgid "Yearly"
+msgstr "Ĉiujare"
+
+#. General
+msgid "All"
+msgstr "Ĉio"
+
+msgid "None"
+msgstr "Neniu"
+
+msgid "More"
+msgstr "Pli"
+
+msgid "Less"
+msgstr "Malpli"
+
+msgid "Details"
+msgstr "Detaloj"
+
+msgid "Information"
+msgstr "Informoj"
+
+msgid "Welcome"
+msgstr "Bonvenon"
+
+msgid "Hello"
+msgstr "Saluton"
+
+msgid "Thanks"
+msgstr "Dankon"
+
+msgid "Thank You"
+msgstr "Dankon al vi"
+
+msgid "Copyright"
+msgstr "Kopirajto"
+
+msgid "All Rights Reserved"
+msgstr "Ĉiuj rajtoj rezervitaj"
+
+msgid "Privacy Policy"
+msgstr "Privateca politiko"
+
+msgid "Terms of Service"
+msgstr "Kondiĉoj de servado"
+
+msgid "Cookies Policy"
+msgstr "Kuketa politiko"
+
+msgid "Disclaimer"
+msgstr "Malgarantio"
