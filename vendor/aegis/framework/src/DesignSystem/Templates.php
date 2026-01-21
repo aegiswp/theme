@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for design system components.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
@@ -40,7 +40,8 @@ use function str_contains;
 
 // Implements the Templates class to support template hierarchy customization for the design system.
 
-class Templates {
+class Templates
+{
 
 	/**
 	 * Updates search template hierarchy.
@@ -53,15 +54,16 @@ class Templates {
 	 *
 	 * @return array
 	 */
-	public function update_search_template_hierarchy( array $templates ): array {
-		if ( is_search() && is_post_type_archive() ) {
+	public function update_search_template_hierarchy(array $templates): array
+	{
+		if (is_search() && is_post_type_archive()) {
 			$post_type = get_queried_object()->name ?? get_post_type();
-			$slug      = "search-$post_type";
-			$child     = get_stylesheet_directory() . "/templates/$slug.html";
-			$parent    = get_template_directory() . "/templates/$slug.html";
+			$slug = "search-$post_type";
+			$child = get_stylesheet_directory() . "/templates/$slug.html";
+			$parent = get_template_directory() . "/templates/$slug.html";
 
-			if ( file_exists( $child ) || file_exists( $parent ) ) {
-				array_unshift( $templates, $slug );
+			if (file_exists($child) || file_exists($parent)) {
+				array_unshift($templates, $slug);
 			}
 		}
 
@@ -81,25 +83,26 @@ class Templates {
 	 *
 	 * @return array
 	 */
-	public function remove_templates( ?array $query_result, array $query, string $template_type ): array {
-		if ( 'wp_template' !== $template_type ) {
+	public function remove_templates(?array $query_result, array $query, string $template_type): array
+	{
+		if ('wp_template' !== $template_type) {
 			return $query_result;
 		}
 
-		$woocommerce = class_exists( 'WooCommerce' );
-		$template    = get_template();
-		$stylesheet  = get_stylesheet();
+		$woocommerce = class_exists('WooCommerce');
+		$template = get_template();
+		$stylesheet = get_stylesheet();
 
-		foreach ( $query_result as $index => $wp_block_template ) {
-			$slug  = $wp_block_template->slug;
+		foreach ($query_result as $index => $wp_block_template) {
+			$slug = $wp_block_template->slug;
 			$theme = $wp_block_template->theme;
 
-			if ( ! in_array( $theme, [ $template, $stylesheet ] ) ) {
+			if (!in_array($theme, [$template, $stylesheet])) {
 				continue;
 			}
 
-			if ( ! $woocommerce && str_contains( $slug, 'product' ) ) {
-				unset( $query_result[ $index ] );
+			if (!$woocommerce && str_contains($slug, 'product')) {
+				unset($query_result[$index]);
 			}
 		}
 
