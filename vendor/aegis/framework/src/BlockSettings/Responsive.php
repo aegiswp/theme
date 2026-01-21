@@ -264,6 +264,8 @@ class Responsive implements Renderable, Scriptable, Styleable
 			if (isset($args['options'])) {
 				$both = $style[$key]['all'] ?? '';
 				$mobile = $style[$key]['mobile'] ?? '';
+				$landscape = $style[$key]['landscape'] ?? '';
+				$tablet = $style[$key]['tablet'] ?? '';
 				$desktop = $style[$key]['desktop'] ?? '';
 
 				if ($both) {
@@ -272,6 +274,14 @@ class Responsive implements Renderable, Scriptable, Styleable
 
 				if ($mobile) {
 					$classes[] = "has-{$property}-{$mobile}-mobile";
+				}
+
+				if ($landscape) {
+					$classes[] = "has-{$property}-{$landscape}-landscape";
+				}
+
+				if ($tablet) {
+					$classes[] = "has-{$property}-{$tablet}-tablet";
 				}
 
 				if ($desktop) {
@@ -330,6 +340,8 @@ class Responsive implements Renderable, Scriptable, Styleable
 			$property = _wp_to_kebab_case($key);
 			$both = $style[$key]['all'] ?? '';
 			$mobile = $style[$key]['mobile'] ?? '';
+			$landscape = $style[$key]['landscape'] ?? '';
+			$tablet = $style[$key]['tablet'] ?? '';
 			$desktop = $style[$key]['desktop'] ?? '';
 
 			if ($both) {
@@ -338,6 +350,14 @@ class Responsive implements Renderable, Scriptable, Styleable
 
 			if ($mobile) {
 				$styles['--' . $property . '-mobile'] = $mobile;
+			}
+
+			if ($landscape) {
+				$styles['--' . $property . '-landscape'] = $landscape;
+			}
+
+			if ($tablet) {
+				$styles['--' . $property . '-tablet'] = $tablet;
 			}
 
 			if ($desktop) {
@@ -439,6 +459,8 @@ class Responsive implements Renderable, Scriptable, Styleable
 		);
 		$both = '';
 		$mobile = '';
+		$landscape = '';
+		$tablet = '';
 		$desktop = '';
 
 		foreach ($options as $key => $args) {
@@ -476,6 +498,24 @@ class Responsive implements Renderable, Scriptable, Styleable
 					);
 				}
 
+				if ($load_all || str_contains($template_html, " has-{$property}-{$value}-landscape")) {
+					$landscape .= sprintf(
+						'.has-%1$s-%3$s-landscape{%1$s:%2$s !important}',
+						$property,
+						$value,
+						$formatted_value,
+					);
+				}
+
+				if ($load_all || str_contains($template_html, " has-{$property}-{$value}-tablet")) {
+					$tablet .= sprintf(
+						'.has-%1$s-%3$s-tablet{%1$s:%2$s !important}',
+						$property,
+						$value,
+						$formatted_value,
+					);
+				}
+
 				if ($load_all || str_contains($template_html, " has-{$property}-{$value}-desktop")) {
 					$desktop .= sprintf(
 						'.has-%1$s-%3$s-desktop{%1$s:%2$s !important}',
@@ -503,6 +543,20 @@ class Responsive implements Renderable, Scriptable, Styleable
 					);
 				}
 
+				if ($load_all || str_contains($template_html, "--$property-landscape")) {
+					$landscape .= sprintf(
+						'.has-%1$s{%1$s:var(--%1$s-landscape,var(--%1$s))}',
+						$property
+					);
+				}
+
+				if ($load_all || str_contains($template_html, "--$property-tablet")) {
+					$tablet .= sprintf(
+						'.has-%1$s{%1$s:var(--%1$s-tablet,var(--%1$s))}',
+						$property
+					);
+				}
+
 				if ($load_all || str_contains($template_html, "--$property-desktop")) {
 					$desktop .= sprintf(
 						'.has-%1$s{%1$s:var(--%1$s-desktop,var(--%1$s))}',
@@ -519,11 +573,19 @@ class Responsive implements Renderable, Scriptable, Styleable
 		}
 
 		if ($mobile) {
-			$css .= sprintf('@media(max-width:781px){%s}', $mobile);
+			$css .= sprintf('@media(max-width:479px){%s}', $mobile);
+		}
+
+		if ($landscape) {
+			$css .= sprintf('@media(min-width:480px) and (max-width:767px){%s}', $landscape);
+		}
+
+		if ($tablet) {
+			$css .= sprintf('@media(min-width:768px) and (max-width:1023px){%s}', $tablet);
 		}
 
 		if ($desktop) {
-			$css .= sprintf('@media(min-width:782px){%s}', $desktop);
+			$css .= sprintf('@media(min-width:1024px){%s}', $desktop);
 		}
 
 		return $css;
