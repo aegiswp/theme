@@ -124,6 +124,7 @@ class ServiceProvider implements Registerable
 		DesignSystem\SystemFonts::class,
 		DesignSystem\Templates::class,
 		Integrations\FluentForms::class,
+		Integrations\RankMath::class,
 		Integrations\SyntaxHighlightingCodeBlock::class,
 		Integrations\WooCommerce::class,
 	];
