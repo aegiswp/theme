@@ -106,7 +106,7 @@ class CustomProperties implements Styleable
 
 		$styles = [
 			'--scroll' => '0',
-			'--breakpoint' => '782px', // Only used by JS.
+			'--breakpoint' => '782px', // Only used by JavaScript.
 			'--wp--custom--border' => "var(--wp--custom--border--width,1px) var(--wp--custom--border--style,solid) var(--wp--custom--border--color,#ddd)",
 			'--wp--custom--transition' => "$transition_property $transition_duration $transition_timing",
 			'--wp--custom--body--background' => $body_background,
