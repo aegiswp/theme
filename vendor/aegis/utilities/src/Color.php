@@ -18,24 +18,17 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for utility classes within the Aegis Framework.
 namespace Aegis\Utilities;
 
 // Imports standard classes and WordPress helper functions for color operations.
-use stdClass;
-use function _wp_to_kebab_case;
-use function array_replace;
 use function explode;
-use function file_exists;
-use function get_stylesheet_directory;
-use function get_template_directory;
-use function wp_get_global_settings;
-use function wp_json_file_decode;
 
 // Implements the Aegis color utility class for reusable color operations.
-class Color {
+class Color
+{
 
 	const SYSTEM_COLORS = [
 		'current',
@@ -54,7 +47,8 @@ class Color {
 	 *
 	 * @return array
 	 */
-	public static function get_system_colors(): array {
+	public static function get_system_colors(): array
+	{
 		return self::SYSTEM_COLORS;
 	}
 
@@ -67,12 +61,13 @@ class Color {
 	 *
 	 * @return string
 	 */
-	public static function reverse_color_shade( string $slug ): string {
-		$explode = explode( '-', $slug );
-		$color   = $explode[0] ?? '';
-		$shade   = $explode[1] ?? '';
-		$scale   = self::get_shade_scales( $color );
-		$reverse = $scale[ (int) $shade ] ?? '';
+	public static function reverse_color_shade(string $slug): string
+	{
+		$explode = explode('-', $slug);
+		$color = $explode[0] ?? '';
+		$shade = $explode[1] ?? '';
+		$scale = self::get_shade_scales($color);
+		$reverse = $scale[(int) $shade] ?? '';
 
 		return $reverse ? "{$color}-{$reverse}" : '';
 	}
@@ -86,7 +81,8 @@ class Color {
 	 *
 	 * @return array
 	 */
-	public static function get_shade_scales( ?string $color = null ): array {
+	public static function get_shade_scales(?string $color = null): array
+	{
 		$map = [
 			'neutral' => [
 				950 => 0,
@@ -99,8 +95,8 @@ class Color {
 				300 => 600,
 				200 => 700,
 				100 => 800,
-				50  => 900,
-				0   => 950,
+				50 => 900,
+				0 => 950,
 			],
 			'primary' => [
 				950 => 25,
@@ -111,7 +107,7 @@ class Color {
 				300 => 700,
 				100 => 900,
 			],
-			'accent'  => [
+			'accent' => [
 				900 => 100,
 				700 => 300,
 				600 => 500,
@@ -129,72 +125,17 @@ class Color {
 				500 => 500,
 				100 => 600,
 			],
-			'error'   => [
+			'error' => [
 				600 => 100,
 				500 => 500,
 				100 => 600,
 			],
 		];
 
-		return $color ? ( $map[ $color ] ?? [] ) : $map;
+		return $color ? ($map[$color] ?? []) : $map;
 	}
 
-	/**
-	 * Returns key value pairs of deprecated colors with replacements.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return array
-	 */
-	public static function get_deprecated_colors(): array {
-		$child_theme_file  = get_stylesheet_directory() . '/theme.json';
-		$parent_theme_file = get_template_directory() . '/theme.json';
-		$child_theme_json  = file_exists( $child_theme_file ) ? wp_json_file_decode( $child_theme_file ) : new stdClass();
-		$parent_theme_json = file_exists( $parent_theme_file ) ? wp_json_file_decode( $parent_theme_file ) : new stdClass();
-		$parent_colors     = self::get_color_values( $parent_theme_json->settings->color->palette ?? [] );
-		$child_colors      = self::get_color_values( $child_theme_json->settings->color->palette ?? [] );
-		$settings          = wp_get_global_settings();
-		$replacements      = self::get_replacement_colors( $settings );
-		$user_colors       = self::get_color_values( $settings['color']['palette']['theme'] ?? [] );
-		$default_colors    = array_replace( $parent_colors, $child_colors, $user_colors );
-
-		$has_deprecated = $settings['custom']['deprecatedColors'] ?? false;
-		$new_colors     = [];
-		$old_colors     = [];
-
-		foreach ( $replacements as $old => $new ) {
-			$old = _wp_to_kebab_case( $old );
-
-			if ( isset( $user_colors[ $old ] ) ) {
-				$has_deprecated = true;
-			}
-
-			if ( ! isset( $user_colors[ $new ] ) ) {
-				$value = $user_colors[ $old ] ?? $default_colors[ $new ] ?? '';
-
-				if ( $value ) {
-					$new_colors[ $new ] = $value;
-				}
-
-				if ( isset( $user_colors[ $old ] ) ) {
-					continue;
-				}
-			}
-
-			$old = _wp_to_kebab_case( $old );
-
-			if ( ! Str::contains_any( $new, 'var', '#', 'rgb', 'hsl' ) ) {
-				$new = "var(--wp--preset--color--$new)";
-			}
-
-			if ( $new ) {
-				$old_colors[ $old ] = $new;
-			}
-		}
-
-		return $has_deprecated ? array_replace( $new_colors, $old_colors ) : [];
-	}
-
+	
 	/**
 	 * Gets color values from a color palette.
 	 *
@@ -205,17 +146,18 @@ class Color {
 	 *
 	 * @return array
 	 */
-	public static function get_color_values( array $colors, string $type = 'color' ): array {
+	public static function get_color_values(array $colors, string $type = 'color'): array
+	{
 		$color_values = [];
 
-		foreach ( $colors as $color ) {
+		foreach ($colors as $color) {
 			$color = (array) $color;
 
-			if ( ! isset( $color['slug'], $color[ $type ] ) ) {
+			if (!isset($color['slug'], $color[$type])) {
 				continue;
 			}
 
-			$color_values[ $color['slug'] ] = $color[ $type ];
+			$color_values[$color['slug']] = $color[$type];
 		}
 
 		return $color_values;
