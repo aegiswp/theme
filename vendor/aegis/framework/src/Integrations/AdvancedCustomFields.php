@@ -36,7 +36,7 @@ use function get_stylesheet_directory;
 use function get_template_directory;
 use function is_dir;
 use function mkdir;
-use function wp_get_global_settings;
+use Aegis\Framework\ServiceProvider;
 
 // Implements the Advanced Custom Fields integration class for the design system.
 
@@ -78,7 +78,7 @@ class AdvancedCustomFields implements Conditional
 	/**
 	 * Set ACF JSON save path to child theme directory.
 	 *
-	 * Creates the acf-json directory if it doesn't exist.
+	 * Creates the acf-json directory if it does not exist.
 	 *
 	 * @since 1.0.0
 	 *
@@ -92,7 +92,7 @@ class AdvancedCustomFields implements Conditional
 	{
 		$child_theme_path = get_stylesheet_directory() . '/acf-json';
 
-		// Create directory if it does not exist.
+		// Create directory if it doesn't exist.
 		if (!is_dir($child_theme_path)) {
 			mkdir($child_theme_path, 0755, true);
 		}
@@ -144,7 +144,7 @@ class AdvancedCustomFields implements Conditional
 	 */
 	public function add_color_picker_palette(): void
 	{
-		$global_settings = wp_get_global_settings();
+		$global_settings = ServiceProvider::get_global_settings();
 		$palette = $global_settings['color']['palette']['theme'] ?? [];
 
 		if (empty($palette)) {
