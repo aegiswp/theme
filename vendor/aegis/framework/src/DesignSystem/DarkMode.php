@@ -47,7 +47,7 @@ use function round;
 use function sprintf;
 use function str_contains;
 use function substr;
-use function wp_get_global_settings;
+use Aegis\Framework\ServiceProvider;
 use const FILTER_SANITIZE_FULL_SPECIAL_CHARS;
 use const INPUT_COOKIE;
 use const INPUT_GET;
@@ -164,7 +164,7 @@ class DarkMode implements Styleable
 
 		$cookie = filter_input(INPUT_COOKIE, 'aegisDarkMode', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 		$url_param = filter_input(INPUT_GET, 'dark_mode', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-		$global_settings = wp_get_global_settings();
+		$global_settings = ServiceProvider::get_global_settings();
 		$dark_settings = $global_settings['custom']['darkMode'] ?? null;
 
 		if ($dark_settings === false) {
@@ -214,7 +214,7 @@ class DarkMode implements Styleable
 			return;
 		}
 
-		$settings = wp_get_global_settings();
+		$settings = ServiceProvider::get_global_settings();
 		$light_settings = $settings['custom']['lightMode'] ?? null;
 		$dark_settings = $settings['custom']['darkMode'] ?? null;
 
