@@ -1,6 +1,6 @@
 <?php
 /**
- * LearnDash LMS Plugin Integration Component
+ * LearnDash LMS Integration Component
  *
  * Provides deep integration for LearnDash LMS plugin compatibility in the Aegis Framework.
  *
@@ -36,7 +36,7 @@ use function add_filter;
 use function defined;
 use function remove_action;
 use function str_contains;
-use function wp_get_global_settings;
+use Aegis\Framework\ServiceProvider;
 
 // Implements the LearnDash LMS integration class for the design system.
 
