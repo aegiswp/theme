@@ -2,8 +2,7 @@
 /**
  * Editor Assets Component
  *
- * Provides support for registering and managing editor scripts and styles
- * for the Aegis Framework block editor experience.
+ * Provides support for registering and managing editor scripts and styles for the Aegis Framework block editor experience.
  *
  * Responsibilities:
  * - Registers and enqueues editor scripts and styles
@@ -39,7 +38,7 @@ use function time;
 use function wp_dequeue_style;
 use function wp_enqueue_script;
 use function wp_enqueue_style;
-use function wp_get_global_settings;
+use Aegis\Framework\ServiceProvider;
 use function wp_localize_script;
 use function wp_register_script;
 use function wp_register_style;
@@ -112,7 +111,7 @@ class EditorAssets
 
 		wp_enqueue_script($handle);
 
-		$global_settings = wp_get_global_settings();
+		$global_settings = ServiceProvider::get_global_settings();
 
 		$default = [
 			'siteUrl' => esc_url(get_home_url()),
@@ -147,7 +146,6 @@ class EditorAssets
 	 */
 	private function enqueue_responsive_breakpoints(): void
 	{
-		// @todo Rename this file to responsivebreakpoints.asset.php.
 		$asset_file = $this->scripts->dir . 'responsive-breakpoints.asset.php';
 
 		if (!file_exists($asset_file)) {
