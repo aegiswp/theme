@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for inline asset management.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for inline assets components within the Aegis Framework.
 namespace Aegis\Framework\InlineAssets;
@@ -34,7 +34,8 @@ use function wp_register_script;
 
 // Implements the Scripts class to support inline script management for the design system.
 
-class Scripts implements Inlinable {
+class Scripts implements Inlinable
+{
 
 	use AssetsTrait;
 
@@ -45,23 +46,24 @@ class Scripts implements Inlinable {
 	 *
 	 * @return void
 	 */
-	public function enqueue(): void {
-		if ( is_admin() ) {
+	public function enqueue(): void
+	{
+		if (is_admin()) {
 			return;
 		}
 
 		$template_html = $GLOBALS['template_html'] ?? '';
-		$load_all      = apply_filters( 'aegis_load_all_scripts', ! $template_html );
+		$load_all = apply_filters('aegis_load_all_scripts', !$template_html);
 
-		$js   = $this->get_inline_assets( $template_html, $load_all );
-		$data = $this->get_data( $template_html, $load_all );
+		$js = $this->get_inline_assets($template_html, $load_all);
+		$data = $this->get_data($template_html, $load_all);
 
-		wp_register_script( $this->handle, '', [], '', true );
-		wp_enqueue_script( $this->handle );
-		wp_add_inline_script( $this->handle, $js );
+		wp_register_script($this->handle, '', [], '', true);
+		wp_enqueue_script($this->handle);
+		wp_add_inline_script($this->handle, $js);
 
-		if ( $data ) {
-			wp_localize_script( $this->handle, 'aegis', $data );
+		if ($data) {
+			wp_localize_script($this->handle, 'aegis', $data);
 		}
 	}
 
@@ -73,20 +75,21 @@ class Scripts implements Inlinable {
 	 *
 	 * @return array
 	 */
-	public function get_data( string $template_html, bool $load_all ): array {
+	public function get_data(string $template_html, bool $load_all): array
+	{
 		$data = [];
 
-		foreach ( $this->data as $key => $args ) {
-			$value     = $args[0] ?? [];
-			$strings   = $args[1] ?? [];
+		foreach ($this->data as $key => $args) {
+			$value = $args[0] ?? [];
+			$strings = $args[1] ?? [];
 			$condition = $args[2] ?? true;
 
-			if ( ! $condition ) {
+			if (!$condition) {
 				continue;
 			}
 
-			if ( $load_all || Str::contains_any( $template_html, ...$strings ) ) {
-				$data[ $key ] = $value;
+			if ($load_all || Str::contains_any($template_html, ...$strings)) {
+				$data[$key] = $value;
 			}
 		}
 
