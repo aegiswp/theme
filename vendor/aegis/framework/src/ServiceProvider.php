@@ -119,6 +119,7 @@ class ServiceProvider implements Registerable
 		DesignSystem\DarkMode::class,
 		DesignSystem\Emojis::class,
 		DesignSystem\EditorAssets::class,
+		DesignSystem\Hooks::class,
 		DesignSystem\Layout::class,
 		DesignSystem\Patterns::class,
 		DesignSystem\SystemFonts::class,
