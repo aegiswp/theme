@@ -124,6 +124,7 @@ class ServiceProvider implements Registerable
 		DesignSystem\SystemFonts::class,
 		DesignSystem\Templates::class,
 		Integrations\AdvancedCustomFields::class,
+		Integrations\BunnyCDN::class,
 		Integrations\CodeBlockPro::class,
 		Integrations\FluentForms::class,
 		Integrations\LearnDash::class,
