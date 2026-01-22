@@ -30,7 +30,7 @@ use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
 use function array_unique;
 use function esc_attr;
-use function wp_get_global_settings;
+use Aegis\Framework\ServiceProvider;
 
 // Implements the TextShadow class to support custom text shadow styling for blocks.
 
@@ -100,7 +100,7 @@ class TextShadow implements Renderable
 
 		// Set the color property, converting a palette color to a CSS variable if it matches.
 		if ($color = $text_shadow['color'] ?? null) {
-			$palette = wp_get_global_settings()['color']['palette']['theme'] ?? [];
+			$palette = ServiceProvider::get_global_settings()['color']['palette']['theme'] ?? [];
 			$first_styles['--wp--custom--text-shadow--color'] = esc_attr($color);
 			foreach ($palette as $theme_color) {
 				if ($theme_color['color'] === $color) {
