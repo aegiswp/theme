@@ -32,11 +32,63 @@ use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
 use Aegis\Hooks\Hook;
 use function is_object;
+use function wp_get_global_settings;
+use function wp_get_global_styles;
 
 // Implements the Aegis Framework service provider for dependency registration and management.
 
 class ServiceProvider implements Registerable
 {
+
+	/**
+	 * Cached global settings.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var array|null
+	 */
+	private static ?array $global_settings = null;
+
+	/**
+	 * Cached global styles.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var array|null
+	 */
+	private static ?array $global_styles = null;
+
+	/**
+	 * Get cached global settings.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return array
+	 */
+	public static function get_global_settings(): array
+	{
+		if ( self::$global_settings === null ) {
+			self::$global_settings = wp_get_global_settings();
+		}
+
+		return self::$global_settings;
+	}
+
+	/**
+	 * Get cached global styles.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return array
+	 */
+	public static function get_global_styles(): array
+	{
+		if ( self::$global_styles === null ) {
+			self::$global_styles = wp_get_global_styles();
+		}
+
+		return self::$global_styles;
+	}
 
 	/**
 	 * Services.
