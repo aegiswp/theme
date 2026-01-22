@@ -18,14 +18,15 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for inline asset management.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for inline assets components within the Aegis Framework.
 namespace Aegis\Framework\InlineAssets;
 
 // Declares the Styleable interface for style registration in the design system.
 
-interface Styleable {
+interface Styleable
+{
 
 	/**
 	 * Register styles.
@@ -36,6 +37,6 @@ interface Styleable {
 	 *
 	 * @return void
 	 */
-	public function styles( Styles $styles ): void;
+	public function styles(Styles $styles): void;
 
 }
