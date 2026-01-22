@@ -68,7 +68,7 @@ class BlockStyles implements Scriptable
 			'core/column' => ['surface'],
 			'core/comment-author-name' => ['heading'],
 			'core/details' => [
-				['summary-heading' => __('Heading', 'aegis')],
+				['summary-heading' => 'Heading'],
 			],
 			'core/group' => ['surface'],
 			'core/list' => [
