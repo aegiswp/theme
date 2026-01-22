@@ -19,7 +19,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for integration components.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for integration components within the Aegis Framework.
 namespace Aegis\Framework\Integrations;
@@ -38,7 +38,8 @@ use function printf;
 
 // Implements the Rank Math SEO integration class for the design system.
 
-class RankMath implements Conditional {
+class RankMath implements Conditional
+{
 
 	/**
 	 * Condition.
@@ -47,8 +48,9 @@ class RankMath implements Conditional {
 	 *
 	 * @return bool
 	 */
-	public static function condition(): bool {
-		return ! is_plugin_active( 'seo-by-rank-math/rank-math.php' );
+	public static function condition(): bool
+	{
+		return !is_plugin_active('seo-by-rank-math/rank-math.php');
 	}
 
 	/**
@@ -58,8 +60,9 @@ class RankMath implements Conditional {
 	 *
 	 * @return void
 	 */
-	public function hooks(): void {
-		add_action( 'wp_head', [ $this, 'fallback_meta_description' ], 2 );
+	public function hooks(): void
+	{
+		add_action('wp_head', [$this, 'fallback_meta_description'], 2);
 	}
 
 	/**
@@ -69,26 +72,27 @@ class RankMath implements Conditional {
 	 *
 	 * @return void
 	 */
-	public function fallback_meta_description(): void {
-		$description = get_bloginfo( 'description' );
+	public function fallback_meta_description(): void
+	{
+		$description = get_bloginfo('description');
 
-		if ( ! $description ) {
-			$description = get_bloginfo( 'name' );
+		if (!$description) {
+			$description = get_bloginfo('name');
 		}
 
-		if ( is_singular() ) {
-			$excerpt     = get_the_excerpt();
+		if (is_singular()) {
+			$excerpt = get_the_excerpt();
 			$description = $excerpt ?: $description;
 		}
 
-		if ( is_archive() ) {
+		if (is_archive()) {
 			$archive_description = get_the_archive_description();
-			$description         = $archive_description ?: $description;
+			$description = $archive_description ?: $description;
 		}
 
 		printf(
 			'<meta name="description" content="%s">',
-			esc_html( $description )
+			esc_html($description)
 		);
 	}
 }
