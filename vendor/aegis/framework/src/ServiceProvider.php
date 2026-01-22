@@ -130,6 +130,7 @@ class ServiceProvider implements Registerable
 		Integrations\LearnDash::class,
 		Integrations\LifterLMS::class,
 		Integrations\RankMath::class,
+		Integrations\SenseiLMS::class,
 		Integrations\SyntaxHighlightingCodeBlock::class,
 		Integrations\WooCommerce::class,
 	];
