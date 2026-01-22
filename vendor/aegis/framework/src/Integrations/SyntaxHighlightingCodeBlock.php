@@ -28,7 +28,7 @@ use Aegis\Container\Interfaces\Conditional;
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
 use function defined;
-use function wp_get_global_settings;
+use Aegis\Framework\ServiceProvider;
 
 // Implements the SyntaxHighlightingCodeBlock integration class for the design system.
 
@@ -60,7 +60,7 @@ class SyntaxHighlightingCodeBlock implements Conditional, Styleable
 	 */
 	public function set_syntax_highlighting_code_theme(string $theme): string
 	{
-		$global_settings = wp_get_global_settings();
+		$global_settings = ServiceProvider::get_global_settings();
 
 		return $global_settings['custom']['highlightJs'] ?? 'atom-one-dark';
 	}
