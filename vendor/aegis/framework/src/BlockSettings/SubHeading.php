@@ -28,7 +28,7 @@ use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
 use function str_contains;
 use function str_replace;
-use function wp_get_global_settings;
+use Aegis\Framework\ServiceProvider;
 
 // Implements the SubHeading class to support sub-heading content and styling for blocks.
 
@@ -74,7 +74,7 @@ class SubHeading implements Renderable
 		}
 
 		// Check the global settings (from theme.json) for a gradient background.
-		$global_settings = wp_get_global_settings();
+		$global_settings = ServiceProvider::get_global_settings();
 		$background = $global_settings['custom']['subHeading']['background'] ?? '';
 
 		// If there is no gradient background defined, do nothing.
