@@ -134,6 +134,7 @@ class ServiceProvider implements Registerable
 		CoreBlocks\Heading::class,
 		CoreBlocks\Image::class,
 		CoreBlocks\ListBlock::class,
+		CoreBlocks\Modal::class,
 		CoreBlocks\Navigation::class,
 		CoreBlocks\NavigationSubmenu::class,
 		CoreBlocks\PageList::class,
