@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for utility classes within the Aegis Framework.
 namespace Aegis\Utilities;
@@ -33,16 +33,18 @@ use const WP_DEBUG;
 
 // Implements the Aegis debug utility class for reusable debug operations.
 
-class Debug {
+class Debug
+{
 
 	/**
 	 * Check if debug mode is enabled.
 	 *
 	 * @return bool
 	 */
-	public static function is_enabled(): bool {
-		$wp_debug     = defined( 'WP_DEBUG' ) && WP_DEBUG;
-		$script_debug = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
+	public static function is_enabled(): bool
+	{
+		$wp_debug = defined('WP_DEBUG') && WP_DEBUG;
+		$script_debug = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG;
 
 		return $wp_debug || $script_debug;
 	}
@@ -55,9 +57,10 @@ class Debug {
 	 *
 	 * @return void
 	 */
-	public static function console_log( $data, bool $trace = false ): void {
-		add_action( 'wp_footer', static fn() => static::render_log( $data, $trace ) );
-		add_action( 'admin_footer', static fn() => static::render_log( $data, $trace ) );
+	public static function console_log($data, bool $trace = false): void
+	{
+		add_action('wp_footer', static fn() => static::render_log($data, $trace));
+		add_action('admin_footer', static fn() => static::render_log($data, $trace));
 	}
 
 	/**
@@ -65,16 +68,17 @@ class Debug {
 	 *
 	 * @return void
 	 */
-	public static function stacktrace(): array {
-		$backtrace  = debug_backtrace();
+	public static function stacktrace(): array
+	{
+		$backtrace = debug_backtrace();
 		$stacktrace = [];
 
-		foreach ( $backtrace as $index => $trace ) {
-			if ( ! isset( $trace['file'] ) || ! isset( $trace['line'] ) ) {
+		foreach ($backtrace as $index => $trace) {
+			if (!isset($trace['file']) || !isset($trace['line'])) {
 				continue;
 			}
 
-			if ( 0 === $index ) {
+			if (0 === $index) {
 				continue;
 			}
 
@@ -92,15 +96,16 @@ class Debug {
 	 *
 	 * @return void
 	 */
-	private static function render_log( $data, bool $trace = true ): void {
+	private static function render_log($data, bool $trace = true): void
+	{
 		$stacktrace = self::stacktrace();
 
 		echo '<script>';
-		echo 'console.log(' . json_encode( $data ) . ');';
+		echo 'console.log(' . json_encode($data) . ');';
 
-		if ( $trace && $stacktrace ) {
-			foreach ( $stacktrace as $trace ) {
-				echo 'console.log(' . json_encode( $trace ) . ');';
+		if ($trace && $stacktrace) {
+			foreach ($stacktrace as $trace) {
+				echo 'console.log(' . json_encode($trace) . ');';
 			}
 		}
 
