@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for utility classes within the Aegis Framework.
 namespace Aegis\Utilities;
@@ -47,7 +47,8 @@ use function wp_get_global_settings;
 
 // Implements the Aegis pattern utility class for reusable pattern operations.
 
-class Pattern {
+class Pattern
+{
 
 	/**
 	 * Parses and registers block pattern from PHP file with header comment.
@@ -58,16 +59,17 @@ class Pattern {
 	 *
 	 * @return void
 	 */
-	public static function register_from_file( string $file ): void {
-		$pattern    = self::parse_file( $file );
+	public static function register_from_file(string $file): void
+	{
+		$pattern = self::parse_file($file);
 		$categories = $pattern['categories'] ?? [];
 
-		foreach ( $categories as $category ) {
+		foreach ($categories as $category) {
 
-			if ( in_array( $category, [ 'cta', 'faq' ], true ) ) {
-				$label = strtoupper( $category );
+			if (in_array($category, ['cta', 'faq'], true)) {
+				$label = strtoupper($category);
 			} else {
-				$label = ucwords( str_replace( '-', ' ', $category ) );
+				$label = ucwords(str_replace('-', ' ', $category));
 			}
 
 			register_block_pattern_category(
@@ -78,7 +80,7 @@ class Pattern {
 			);
 		}
 
-		register_block_pattern( $pattern['slug'], $pattern );
+		register_block_pattern($pattern['slug'], $pattern);
 	}
 
 	/**
@@ -90,24 +92,25 @@ class Pattern {
 	 *
 	 * @return array
 	 */
-	public static function parse_file( string $file ): array {
-		if ( ! $file ) {
+	public static function parse_file(string $file): array
+	{
+		if (!$file) {
 			return [];
 		}
 
-		$content         = '';
+		$content = '';
 		$default_headers = [
-			'categories'  => 'Categories',
-			'title'       => 'Title',
-			'slug'        => 'Slug',
+			'categories' => 'Categories',
+			'title' => 'Title',
+			'slug' => 'Slug',
 			'block_types' => 'Block Types',
-			'inserter'    => 'Inserter',
-			'ID'          => 'ID',
-			'theme'       => 'Theme',
+			'inserter' => 'Inserter',
+			'ID' => 'ID',
+			'theme' => 'Theme',
 		];
 
-		if ( is_readable( $file ) ) {
-			$headers = get_file_data( $file, $default_headers );
+		if (is_readable($file)) {
+			$headers = get_file_data($file, $default_headers);
 
 			ob_start();
 			$global_settings = wp_get_global_settings();
@@ -116,66 +119,66 @@ class Pattern {
 			$content = ob_get_clean();
 
 		} else {
-			if ( str_contains( $file, 'Title: ' ) ) {
+			if (str_contains($file, 'Title: ')) {
 				$content = $file;
 				$headers = $default_headers;
 
 				// Use regex from get_file_data().
-				foreach ( $headers as $field => $regex ) {
-					if ( preg_match( '/^(?:[ \t]*<\?php)?[ \t\/*#@]*' . preg_quote( $regex, '/' ) . ':(.*)$/mi', $file, $match ) && $match[1] ) {
-						$headers[ $field ] = _cleanup_header_comment( $match[1] );
+				foreach ($headers as $field => $regex) {
+					if (preg_match('/^(?:[ \t]*<\?php)?[ \t\/*#@]*' . preg_quote($regex, '/') . ':(.*)$/mi', $file, $match) && $match[1]) {
+						$headers[$field] = _cleanup_header_comment($match[1]);
 					} else {
-						$headers[ $field ] = '';
+						$headers[$field] = '';
 					}
 				}
 			}
 		}
 
-		if ( ! isset( $headers['title'], $headers['slug'], $headers['categories'] ) ) {
+		if (!isset($headers['title'], $headers['slug'], $headers['categories'])) {
 			return [];
 		}
 
-		$categories = explode( ',', $headers['categories'] );
+		$categories = explode(',', $headers['categories']);
 
 		$theme = $headers['theme'] ?? null;
 
-		if ( ! $theme ) {
+		if (!$theme) {
 			$stylesheet_dir = get_stylesheet_directory();
-			$template_dir   = get_template_directory();
+			$template_dir = get_template_directory();
 
-			if ( $stylesheet_dir === $template_dir ) {
+			if ($stylesheet_dir === $template_dir) {
 				$theme = get_template();
 			} else {
-				if ( str_contains( $file, $stylesheet_dir ) ) {
+				if (str_contains($file, $stylesheet_dir)) {
 					$theme = get_stylesheet();
 				} else {
-					if ( str_contains( $file, $template_dir ) ) {
+					if (str_contains($file, $template_dir)) {
 						$theme = get_template();
 					}
 				}
 			}
 		}
 
-		$slug = ( $categories[0] ?? 'common' ) . '-' . $headers['slug'];
+		$slug = ($categories[0] ?? 'common') . '-' . $headers['slug'];
 
 		$content = Str::replace_first(
-			Str::between( '<?php', '?>', $content ),
+			Str::between('<?php', '?>', $content),
 			'',
 			$content
 		);
 
 		$pattern = [
-			'slug'        => $slug,
-			'title'       => $headers['title'],
-			'content'     => $content,
-			'categories'  => [ ...$categories ],
+			'slug' => $slug,
+			'title' => $headers['title'],
+			'content' => $content,
+			'categories' => [...$categories],
 			'description' => $headers['description'] ?? '',
-			'blockTypes'  => explode( ',', $headers['block_types'] ?? [] ),
-			'ID'          => $headers['ID'] ?? null,
-			'theme'       => $theme,
+			'blockTypes' => explode(',', $headers['block_types'] ?? []),
+			'ID' => $headers['ID'] ?? null,
+			'theme' => $theme,
 		];
 
-		if ( ( $headers['inserter'] ?? null ) === 'false' ) {
+		if (($headers['inserter'] ?? null) === 'false') {
 			$pattern['inserter'] = false;
 		}
 
