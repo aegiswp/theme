@@ -1,12 +1,12 @@
 <?php
 /**
- * Deprecated Styles Component
+ * Block Styles Component
  *
- * Provides support for loading deprecated color palette and typography styles for backward compatibility in the Aegis Framework.
+ * Provides support for registering and managing block-specific style data for the WordPress editor within the Aegis Framework.
  *
  * Responsibilities:
- * - Loads deprecated color palette and typography styles
- * - Integrates with the styles service for frontend delivery
+ * - Registers and loads block style data for the editor
+ * - Integrates with the scripts service for editor-side JavaScript data
  *
  * @package    Aegis\Framework\DesignSystem
  * @since      1.0.0
@@ -23,118 +23,99 @@ declare(strict_types=1);
 // Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
 
-// Imports styleable interface, styles service, color utilities, CSS utilities, and WordPress helpers.
-use Aegis\Framework\InlineAssets\Styleable;
-use Aegis\Framework\InlineAssets\Styles;
-use Aegis\Utilities\Color;
-use Aegis\Dom\CSS;
-use function file_exists;
-use function get_template_directory;
+// Imports scriptable interface, scripts service, and WordPress admin detection helper.
+use Aegis\Framework\InlineAssets\Scriptable;
+use Aegis\Framework\InlineAssets\Scripts;
+use function is_admin;
 use Aegis\Framework\ServiceProvider;
-use function wp_json_file_decode;
 
-// Implements the DeprecatedStyles class to support backward compatibility for deprecated styles.
+// Implements the BlockStyles class to support block style data registration and management for the editor.
 
-class DeprecatedStyles implements Styleable
+class BlockStyles implements Scriptable
 {
 
 	/**
-	 * Styles.
+	 * Adds data to the editor.
 	 *
-	 * @since 1.0.0
-	 *
-	 * @param Styles $styles Styles.
+	 * @param Scripts $scripts
 	 *
 	 * @return void
 	 */
-	public function styles(Styles $styles): void
+	public function scripts(Scripts $scripts): void
 	{
-		$css = CSS::array_to_string($this->get_deprecated_color_palette());
-		$css .= CSS::array_to_string($this->get_deprecated_typography());
-
-		$styles->add_string("body{{$css}}", [], !empty($css));
+		$scripts->add_data(
+			'blockStyles',
+			$this->get_data(ServiceProvider::get_global_settings()),
+			[],
+			is_admin(),
+		);
 	}
 
 	/**
-	 * Adds deprecated color palette to inline styles.
+	 * Returns array of localized data.
 	 *
-	 * @since 1.0.0
-	 *
-	 * @return array
-	 */
-	private function get_deprecated_color_palette(): array
-	{
-		$colors = Color::get_deprecated_colors();
-		$styles = [];
-
-		foreach ($colors as $slug => $value) {
-			if ($value) {
-				$styles["--wp--preset--color--{$slug}"] = $value;
-			}
-		}
-
-		return $styles;
-	}
-
-	/**
-	 * Adds deprecated typography to inline styles.
-	 *
-	 * @since 1.0.0
+	 * @param array $global_settings Global settings.
 	 *
 	 * @return array
 	 */
-	private function get_deprecated_typography(): array
+	private function get_data(array $global_settings): array
 	{
-		$global_settings = ServiceProvider::get_global_settings();
-		$font_sizes = $global_settings['typography']['fontSizes']['theme'] ?? [];
+		$register = [
+			'core/archive-title' => ['sub-heading'],
+			'core/buttons' => ['surface'],
+			'core/button' => ['ghost'],
+			'core/code' => ['surface'],
+			'core/columns' => ['surface'],
+			'core/column' => ['surface'],
+			'core/comment-author-name' => ['heading'],
+			'core/details' => [
+				['summary-heading' => 'Heading'],
+			],
+			'core/group' => ['surface'],
+			'core/list' => [
+				'checklist',
+				'check-outline',
+				'check-circle',
+				'square',
+				'list-heading',
+				'dash',
+				'none',
+			],
+			'core/list-item' => ['surface'],
+			'core/navigation' => ['heading'],
+			'core/page-list' => ['none'],
+			'core/paragraph' => ['sub-heading', 'notice', 'heading'],
+			'core/post-author-name' => ['heading'],
+			'core/post-terms' => ['list', 'sub-heading', 'badges'],
+			'core/post-title' => ['sub-heading'],
+			'core/query-pagination' => ['badges'],
+			'core/read-more' => ['button'],
+			'core/site-title' => ['heading'],
+			'core/spacer' => ['angle', 'curve', 'round', 'wave', 'fade'],
+			'core/tag-cloud' => ['badges'],
+			'core/quote' => ['surface'],
+		];
 
-		$styles = [];
+		$register['core/code'][] = 'light';
+		$register['core/code'][] = 'dark';
+		$register['core/column'][] = 'light';
+		$register['core/column'][] = 'dark';
+		$register['core/columns'][] = 'light';
+		$register['core/columns'][] = 'dark';
+		$register['core/group'][] = 'light';
+		$register['core/group'][] = 'dark';
 
-		if (!$font_sizes) {
-			return $styles;
-		}
+		// Values must be arrays.
+		$unregister = [
+			'core/image' => ['rounded', 'default'],
+			'core/site-logo' => ['default', 'rounded'],
+			'core/separator' => ['wide', 'dots'],
+		];
 
-		$has_deprecated = false;
-		$slugs = [];
-
-		foreach ($font_sizes as $font_size) {
-			$slug = $font_size['slug'] ?? '';
-
-			if ($slug === '81') {
-				$has_deprecated = true;
-			}
-
-			$slugs[$slug] = $font_size;
-		}
-
-		if (!$has_deprecated) {
-			return $styles;
-		}
-
-		$theme_json_file = get_template_directory() . '/theme.json';
-
-		if (!file_exists($theme_json_file)) {
-			return $styles;
-		}
-
-		$theme_json = wp_json_file_decode($theme_json_file);
-		$theme_json_font_sizes = (array) ($theme_json->settings->typography->fontSizes ?? []);
-
-		if (!$theme_json_font_sizes) {
-			return $styles;
-		}
-
-		foreach ($theme_json_font_sizes as $font_size) {
-			$slug = $font_size->slug ?? '';
-
-			if (isset($slugs[$slug])) {
-				continue;
-			}
-
-			$styles["--wp--preset--font-size--{$slug}"] = $font_size->size ?? '';
-		}
-
-		return $styles;
+		return [
+			'register' => $register,
+			'unregister' => $unregister,
+		];
 	}
-
 }
+
