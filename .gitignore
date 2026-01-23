@@ -1,4 +1,5 @@
 # === WordPress Theme Ignore ===
+
 # Node.js dependencies and build artifacts
 node_modules/
 dist/
@@ -7,6 +8,8 @@ build/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.npm/
+.yarn/
 
 # Composer dependencies
 # Note: composer.lock is tracked for reproducible builds
@@ -18,41 +21,79 @@ wp-content/cache/
 # Database and sensitive files
 *.sql
 *.sqlite
+*.db
 
-# Editor/OS files
+# Environment files
 .env
 .env.local
 .env.*.local
-.DS_Store
-Thumbs.db
+.env.production
+.env.staging
 
-# Source maps and minified files
-*.map
-*.min.js
-*.min.css
+# OS files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Source maps (keep for debugging, remove if you don't want them)
+# *.map
 
 # IDE/project files
 .vscode/
 .idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
 
 # Docker
 .dockerignore
-# Ignore Docker named volumes if accidentally created in the repo
 /db_data/
 /wp_uploads/
+docker-compose.override.yml
 
-# Misc
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+
+# Cache directories
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+
+# Temporary files
 *.bak
 *.tmp
+*.temp
+*.orig
 
-# Ignore build artifacts from previous tools (optional, keep if you use .NET/VS)
-# [Uncomment below if you use Visual Studio/.NET]
-# [Dd]ebug/
-# [Rr]elease/
-# *.suo
-# *.user
-# *.userosscache
-# *.sln.docstates
-# .vs/
+# Local development
+local-*.json
+*.local.js
+*.local.ts
+
+# Secrets and credentials (never commit these)
+*.pem
+*.key
+*.crt
+*.p12
+secrets.json
+credentials.json
+
+# WordPress specific
+debug.log
+error_log
+php_errorlog
+
+# Backup files
+*~
+*.backup
 
 # === End of WordPress Theme Ignore ===
