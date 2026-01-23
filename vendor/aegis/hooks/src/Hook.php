@@ -8,8 +8,6 @@
  * - Parses docblock annotations and registers methods as WordPress hooks
  * - Integrates with the Aegis Framework's onboarding and developer experience
  *
- * Based on Hook Annotations by Viktor Szépe.
- *
  * @package    Aegis\Hooks
  * @since      1.0.0
  * @author     Atmostfear Entertainment
