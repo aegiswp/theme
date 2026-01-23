@@ -31,7 +31,7 @@ use DOMElement;
 use WP_Block;
 use function esc_attr;
 use function trim;
-use function wp_get_global_settings;
+use Aegis\Framework\ServiceProvider;
 
 // Implements the SocialLinks class to support social links block rendering.
 
@@ -60,7 +60,7 @@ class SocialLinks implements Renderable
 			return $block_content;
 		}
 
-		$global_settings = wp_get_global_settings();
+		$global_settings = ServiceProvider::get_global_settings();
 		$color_palette = $global_settings['color']['palette']['theme'] ?? [];
 
 		foreach ($ul->childNodes as $child) {
