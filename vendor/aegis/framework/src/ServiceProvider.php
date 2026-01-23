@@ -67,7 +67,7 @@ class ServiceProvider implements Registerable
 	 */
 	public static function get_global_settings(): array
 	{
-		if ( self::$global_settings === null ) {
+		if (self::$global_settings === null) {
 			self::$global_settings = wp_get_global_settings();
 		}
 
@@ -83,7 +83,7 @@ class ServiceProvider implements Registerable
 	 */
 	public static function get_global_styles(): array
 	{
-		if ( self::$global_styles === null ) {
+		if (self::$global_styles === null) {
 			self::$global_styles = wp_get_global_styles();
 		}
 
@@ -186,6 +186,7 @@ class ServiceProvider implements Registerable
 		Integrations\SenseiLMS::class,
 		Integrations\SyntaxHighlightingCodeBlock::class,
 		Integrations\WooCommerce::class,
+		ThemeUpdater\ThemeUpdater::class,
 	];
 
 	/**
