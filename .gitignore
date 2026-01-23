@@ -9,7 +9,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Composer dependencies
-composer.lock
+# Note: composer.lock is tracked for reproducible builds
 
 # WordPress uploads and cache (if present)
 wp-content/uploads/
