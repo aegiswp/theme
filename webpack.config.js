@@ -5,12 +5,13 @@ const path = require('path');
 module.exports = {
     ...defaultConfig,
     entry: {
-        // Block entries
-        'blocks/modal/index': path.resolve(__dirname, 'src/blocks/modal/index.tsx'),
-        'blocks/modal/view': path.resolve(__dirname, 'src/blocks/modal/view.ts'),
+        // Block entries - output to src/blocks for WordPress block registration
+        'modal/index': path.resolve(__dirname, 'src/blocks/modal/index.tsx'),
+        'modal/view': path.resolve(__dirname, 'src/blocks/modal/view.ts'),
+        'modal/style': path.resolve(__dirname, 'src/blocks/modal/style.scss'),
     },
     output: {
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, 'src/blocks'),
         filename: '[name].js',
     },
     plugins: [
