@@ -114,3 +114,6 @@ php_errorlog
 
 # === End of WordPress Theme Ignore ===
 patterns/modal/modal-newsletter.php
+patterns/modal/modal-contact.php
+patterns/modal/modal-cookie-consent.php
+patterns/modal/modal-video.php
