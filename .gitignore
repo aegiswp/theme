@@ -113,3 +113,4 @@ php_errorlog
 *.backup
 
 # === End of WordPress Theme Ignore ===
+patterns/modal/modal-newsletter.php
