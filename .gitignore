@@ -117,3 +117,4 @@ patterns/modal/modal-newsletter.php
 patterns/modal/modal-contact.php
 patterns/modal/modal-cookie-consent.php
 patterns/modal/modal-video.php
+vendor/aegis/framework/src/CoreBlocks/Modal.php
