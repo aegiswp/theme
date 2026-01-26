@@ -26,7 +26,11 @@ namespace Aegis\Framework\InlineAssets;
 // Imports utility classes and WordPress functions for style management.
 use Aegis\Utilities\Path;
 use function apply_filters;
+use function esc_url;
+use function get_template_directory_uri;
+use function in_array;
 use function is_admin;
+use function str_contains;
 use function wp_add_inline_style;
 use function wp_dequeue_style;
 use function wp_enqueue_style;
@@ -38,6 +42,7 @@ class Styles implements Inlinable
 {
 
 	use AssetsTrait;
+
 	public const DYNAMIC_URL = 'https://aegis-dynamic-styles';
 
 	/**
@@ -81,6 +86,84 @@ class Styles implements Inlinable
 		}
 
 		add_editor_style(static::DYNAMIC_URL);
+	}
+
+	/**
+	 * @hook wp_head
+	 */
+	public function preload_assets(): void
+	{
+		if (is_admin()) {
+			return;
+		}
+
+		$base = get_template_directory_uri();
+		$template_html = $GLOBALS['template_html'] ?? '';
+		$fonts = [];
+
+		if (apply_filters('aegis_preload_font_lexend', false, $template_html)) {
+			$fonts[] = $base . '/assets/fonts/lexend/lexend.woff2';
+		}
+
+		if (
+			str_contains($template_html, '<code') ||
+			str_contains($template_html, 'wp-block-code') ||
+			str_contains($template_html, 'wp-block-preformatted')
+		) {
+			$fonts[] = $base . '/assets/fonts/jetbrains/jetbrains.woff2';
+		}
+
+		foreach ($fonts as $url) {
+			echo '<link rel="preload" href="' . esc_url($url) . '" as="font" type="font/woff2" crossorigin="anonymous">';
+		}
+	}
+
+	/**
+	 * @hook wp_resource_hints
+	 */
+	public function resource_hints(array $urls, string $relation_type): array
+	{
+		if (is_admin()) {
+			return $urls;
+		}
+
+		if (!in_array($relation_type, ['dns-prefetch', 'preconnect'], true)) {
+			return $urls;
+		}
+
+		$template_html = $GLOBALS['template_html'] ?? '';
+		$hosts = [];
+
+		if (
+			str_contains($template_html, 'youtube.com') ||
+			str_contains($template_html, 'youtu.be') ||
+			str_contains($template_html, 'ytimg.com')
+		) {
+			$hosts = array_merge($hosts, [
+				'https://www.youtube.com',
+				'https://i.ytimg.com',
+			]);
+		}
+
+		if (
+			str_contains($template_html, 'vimeo.com') ||
+			str_contains($template_html, 'player.vimeo.com')
+		) {
+			$hosts = array_merge($hosts, [
+				'https://player.vimeo.com',
+				'https://vimeo.com',
+			]);
+		}
+
+		$hosts = apply_filters('aegis_resource_hints_hosts', $hosts, $relation_type, $template_html);
+
+		foreach ($hosts as $host) {
+			if (!in_array($host, $urls, true)) {
+				$urls[] = $host;
+			}
+		}
+
+		return $urls;
 	}
 
 	/**
