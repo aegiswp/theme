@@ -112,6 +112,11 @@ class Onclick implements Renderable
 			} elseif ($div) {
 				// For other blocks, apply it to the main wrapper div.
 				$div->setAttribute('onclick', $on_click);
+
+				// Add keyboard accessibility for non-interactive elements (WCAG 2.1.1).
+				$div->setAttribute('tabindex', '0');
+				$div->setAttribute('role', 'button');
+				$div->setAttribute('onkeydown', 'if(event.key==="Enter"||event.key===" "){event.preventDefault();this.click();}');
 			}
 
 			$block_content = $dom->saveHTML();
@@ -127,6 +132,11 @@ class Onclick implements Renderable
 			// Excludes the post-featured-image block.
 			if ($img && !str_contains($figure->getAttribute('class'), 'wp-block-post-featured-image')) {
 				$img->setAttribute('onclick', $on_click);
+
+				// Add keyboard accessibility for images with onclick (WCAG 2.1.1).
+				$img->setAttribute('tabindex', '0');
+				$img->setAttribute('role', 'button');
+				$img->setAttribute('onkeydown', 'if(event.key==="Enter"||event.key===" "){event.preventDefault();this.click();}');
 			}
 
 			$block_content = $dom->saveHTML();
