@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow
+
 name: Release Aegis Theme
 
 on:
@@ -30,6 +32,15 @@ jobs:
 
       - name: Build Block Assets
         run: npm run build --if-present
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: composer
+
+      - name: Install Composer Dependencies
+        run: composer install --no-dev --prefer-dist --no-progress --no-interaction
 
       # Automatically compile .po to .mo
       - name: Compile Translations
