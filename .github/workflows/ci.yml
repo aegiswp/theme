@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow
+
 name: CI
 
 on:
@@ -5,6 +7,10 @@ on:
     branches: [ main, dev ]
   pull_request:
     branches: [ main, dev ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build-lint-test:
