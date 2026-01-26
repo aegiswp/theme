@@ -104,7 +104,7 @@ class FluentForms implements Conditional, Styleable
 		$form_id = $form->id ?? 0;
 		$styler_settings = \FluentForm\App\Helpers\Helper::getFormMeta($form_id, '_form_styler_settings', '');
 
-		// Only set default if no styler settings exist (user hasn't configured styling).
+		// Only set default if no styler settings exist (user has not configured styling).
 		if (empty($styler_settings)) {
 			$extra_class = $form->settings['layout']['extraClass'] ?? '';
 
