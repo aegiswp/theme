@@ -166,7 +166,6 @@ class BaseCss implements Styleable
 			'edit-link' => ['edit-link'],
 			'screen-reader-text' => [],
 			'site-blocks' => [],
-			'splide' => ['splide'],
 		];
 
 		if (Debug::is_enabled() && function_exists('xdebug_is_debugger_active')) {
