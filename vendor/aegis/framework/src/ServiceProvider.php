@@ -175,6 +175,7 @@ class ServiceProvider implements Registerable
 		DesignSystem\Hooks::class,
 		DesignSystem\Layout::class,
 		DesignSystem\Patterns::class,
+		DesignSystem\SvgUpload::class,
 		DesignSystem\SystemFonts::class,
 		DesignSystem\Templates::class,
 		Integrations\AdvancedCustomFields::class,
