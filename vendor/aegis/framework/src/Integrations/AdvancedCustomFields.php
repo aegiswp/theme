@@ -92,7 +92,7 @@ class AdvancedCustomFields implements Conditional
 	{
 		$child_theme_path = get_stylesheet_directory() . '/acf-json';
 
-		// Create directory if it doesn't exist.
+		// Create directory if it does not exist.
 		if (!is_dir($child_theme_path)) {
 			mkdir($child_theme_path, 0755, true);
 		}
