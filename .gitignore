@@ -27,11 +27,9 @@ src/blocks/*/*-rtl.css
 !src/blocks/*/block.json
 !src/blocks/*/render.php
 
-# Modal block files (development only, not for distribution)
-patterns/modals/modal-newsletter.php
-patterns/modals/modal-contact.php
-patterns/modals/modal-cookie-consent.php
-patterns/modals/modal-video.php
+# Modal block files (development only, not for distribution - RC 3)
+/src
+/patterns/modal
 vendor/aegis/framework/src/CoreBlocks/Modal.php
 
 # Composer dependencies
@@ -120,9 +118,3 @@ php_errorlog
 *.backup
 
 # === End of WordPress Theme Ignore ===
-patterns/modal/modal-newsletter.php
-patterns/modal/modal-contact.php
-patterns/modal/modal-cookie-consent.php
-patterns/modal/modal-video.php
-vendor/aegis/framework/src/CoreBlocks/Modal.php
-/src
