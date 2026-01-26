@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow
+
+name: Generate Composer Lock
+
+on:
+  push:
+    branches: [ main, dev ]
+    paths:
+      - 'composer.json'
+  workflow_dispatch:
+
+jobs:
+  generate-lock:
+    name: Generate composer.lock
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: composer
+
+      - name: Check if composer.lock exists
+        id: check-lock
+        run: |
+          if [ -f composer.lock ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Generate composer.lock
+        if: steps.check-lock.outputs.exists == 'false'
+        run: composer update --no-install --no-interaction
+
+      - name: Update composer.lock
+        if: steps.check-lock.outputs.exists == 'true'
+        run: composer update --no-install --no-interaction
+
+      - name: Commit composer.lock
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          if git diff --quiet composer.lock 2>/dev/null; then
+            echo "No changes to composer.lock"
+          else
+            git add composer.lock
+            git commit -m "chore: update composer.lock [skip ci]"
+            git push
+          fi
