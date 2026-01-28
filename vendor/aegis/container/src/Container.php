@@ -137,7 +137,8 @@ class Container implements ContainerInterface
 		if ($reflector->implementsInterface('Aegis\Container\Interfaces\Conditional')) {
 			try {
 				if (!$id::condition()) {
-					$this->log("Conditional check failed for '{$id}'. Service not registered.");
+					// Silently skip - conditional checks failing is expected behavior
+					// when plugins/integrations are not installed.
 					return null;
 				}
 			} catch (ReflectionException $e) {

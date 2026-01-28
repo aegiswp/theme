@@ -1,5 +1,5 @@
 name: Bug report
-description: Create a report to help us improve
+description: Create a report to help us improve Aegis
 labels:
   - triage
 body:
@@ -7,7 +7,6 @@ body:
     attributes:
       value: |
         **Thank you for helping us improve the Aegis WordPress Block Theme!**
-        Please fill out the following to help us reproduce and fix the bug.
   - type: textarea
     id: description
     attributes:
@@ -15,33 +14,38 @@ body:
       description: A clear and concise description of what the bug is.
     validations:
       required: true
+  - type: dropdown
+    id: location
+    attributes:
+      label: Where does this occur?
+      options:
+        - Front-end (Live Site)
+        - Site Editor (Admin UI)
+        - Both
+    validations:
+      required: true
   - type: textarea
     id: steps
     attributes:
       label: To Reproduce
-      description: Steps to reproduce the behavior.
       placeholder: |
         1. Go to '...'
         2. Click on '...'
-        3. Scroll down to '...'
-        4. See error
+        3. See error
     validations:
       required: true
   - type: textarea
     id: expected
     attributes:
       label: Expected behavior
-      description: What did you expect to happen?
+      description: What should have happened?
     validations:
       required: true
   - type: textarea
-    id: screenshots
+    id: logs
     attributes:
-      label: Screenshots
-      description: Add screenshots to help explain your problem (if applicable).
-    validations:
-      required: false
-
+      label: Browser Console Logs
+      description: Paste any red error text from F12 > Console here.
   - type: group
     id: environment
     attributes:
@@ -51,58 +55,20 @@ body:
         id: wp-version
         attributes:
           label: WordPress Version
-          description: What version of WordPress are you running?
-        validations:
-          required: true
-      - type: input
-        id: php-version
-        attributes:
-          label: PHP Version
-          description: What version of PHP are you running?
         validations:
           required: true
       - type: input
         id: theme-version
         attributes:
           label: Theme Version
-          description: What version of the Aegis theme are you using?
         validations:
           required: true
       - type: textarea
         id: active-plugins
         attributes:
           label: Active Plugins
-          description: Please provide a list of all active plugins.
-        validations:
-          required: false
-
-  - type: input
-    id: desktop
-    attributes:
-      label: Desktop (please complete the following information)
-      description: OS, Browser, and Version
-      placeholder: |
-        OS: [e.g. Windows, macOS]
-        Browser: [e.g. Chrome, Safari]
-        Version: [e.g. 22]
-    validations:
-      required: false
-  - type: input
-    id: smartphone
-    attributes:
-      label: Smartphone (please complete the following information)
-      description: Device, OS, Browser, and Version
-      placeholder: |
-        Device: [e.g. iPhone6]
-        OS: [e.g. iOS8.1]
-        Browser: [e.g. Safari]
-        Version: [e.g. 22]
-    validations:
-      required: false
   - type: textarea
     id: context
     attributes:
       label: Additional context
-      description: Add any other context about the problem here.
-    validations:
-      required: false
+      description: Browser, OS, or any other details.

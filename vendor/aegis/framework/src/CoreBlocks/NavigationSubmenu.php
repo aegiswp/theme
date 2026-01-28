@@ -51,8 +51,7 @@ class NavigationSubmenu implements Renderable
 	/**
 	 * Renders the navigation submenu block with custom style properties.
 	 *
-	 * @todo  Original developer noted: "Does not work." This implementation
-	 *        may not function as expected.
+	 * @todo This implementation may not function as expected.
 	 *
 	 * This method reads color, padding, margin, and gap settings from the
 	 * block's attributes and attempts to apply them as CSS custom properties

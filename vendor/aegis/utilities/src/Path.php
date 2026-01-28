@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for utility classes within the Aegis Framework.
 namespace Aegis\Utilities;
@@ -42,7 +42,8 @@ use const DIRECTORY_SEPARATOR;
  *
  * @since 1.0.0
  */
-class Path {
+class Path
+{
 
 	/**
 	 * Returns the package directory path.
@@ -52,13 +53,14 @@ class Path {
 	 *
 	 * @return string
 	 */
-	public static function get_package_dir( string $project_dir, string $package_dir ): string {
+	public static function get_package_dir(string $project_dir, string $package_dir): string
+	{
 		return trailingslashit(
 			implode(
 				'/', // DIRECTORY_SEPARATOR breaks in Windows.
 				[
-					untrailingslashit( $project_dir ),
-					static::get_segment( $package_dir, -3 ),
+					untrailingslashit($project_dir),
+					static::get_segment($package_dir, -3),
 				]
 			)
 		);
@@ -72,10 +74,11 @@ class Path {
 	 *
 	 * @return string
 	 */
-	public static function get_package_url( string $project_dir, string $package_dir ): string {
-		$package_path = static::get_segment( $package_dir, -3, true );
+	public static function get_package_url(string $project_dir, string $package_dir): string
+	{
+		$package_path = static::get_segment($package_dir, -3, true);
 
-		return static::get_project_url( $project_dir ) . Str::unleadingslashit( $package_path );
+		return static::get_project_url($project_dir) . Str::unleadingslashit($package_path);
 	}
 
 	/**
@@ -85,8 +88,9 @@ class Path {
 	 *
 	 * @return string
 	 */
-	public static function get_project_dir( string $package_dir ): string {
-		return trailingslashit( dirname( $package_dir, 3 ) );
+	public static function get_project_dir(string $package_dir): string
+	{
+		return trailingslashit(dirname($package_dir, 3));
 	}
 
 	/**
@@ -96,8 +100,9 @@ class Path {
 	 *
 	 * @return string
 	 */
-	public static function get_project_url( string $project_dir ): string {
-		return content_url( static::get_segment( $project_dir, -2, true ) );
+	public static function get_project_url(string $project_dir): string
+	{
+		return content_url(static::get_segment($project_dir, -2, true));
 	}
 
 	/**
@@ -109,11 +114,12 @@ class Path {
 	 *
 	 * @return string
 	 */
-	public static function get_segment( string $path, int $number, bool $wrap = false ): string {
-		$segments  = explode( DIRECTORY_SEPARATOR, trim( $path, DIRECTORY_SEPARATOR ) );
-		$extracted = $number > 0 ? array_slice( $segments, 0, $number ) : array_slice( $segments, $number );
-		$slash     = $wrap ? '/' : ''; // DIRECTORY_SEPARATOR breaks in Windows.
+	public static function get_segment(string $path, int $number, bool $wrap = false): string
+	{
+		$segments = explode(DIRECTORY_SEPARATOR, trim($path, DIRECTORY_SEPARATOR));
+		$extracted = $number > 0 ? array_slice($segments, 0, $number) : array_slice($segments, $number);
+		$slash = $wrap ? '/' : ''; // DIRECTORY_SEPARATOR breaks in Windows.
 
-		return $slash . implode( '/', $extracted ) . $slash;
+		return $slash . implode('/', $extracted) . $slash;
 	}
 }

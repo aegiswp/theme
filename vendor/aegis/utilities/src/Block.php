@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for utility classes within the Aegis Framework.
 namespace Aegis\Utilities;
@@ -36,7 +36,8 @@ use function strip_core_block_namespace;
 
 // Implements the Aegis block utility class for reusable block operations.
 
-class Block {
+class Block
+{
 
 	/**
 	 * Recursively search blocks for a specific type.
@@ -48,16 +49,17 @@ class Block {
 	 *
 	 * @return array
 	 */
-	public static function search_blocks( array $blocks, string $type ): array {
+	public static function search_blocks(array $blocks, string $type): array
+	{
 		$found = [];
 
-		foreach ( $blocks as $block ) {
-			if ( $block['blockName'] === $type ) {
+		foreach ($blocks as $block) {
+			if ($block['blockName'] === $type) {
 				$found[] = $block;
 			}
 
-			if ( ! empty( $block['innerBlocks'] ) ) {
-				$found = array_merge( $found, self::search_blocks( $block['innerBlocks'], $type ) );
+			if (!empty($block['innerBlocks'])) {
+				$found = array_merge($found, self::search_blocks($block['innerBlocks'], $type));
 			}
 		}
 
@@ -71,24 +73,25 @@ class Block {
 	 *
 	 * @return bool
 	 */
-	public static function is_rendering_preview(): bool {
-		if ( is_admin() ) {
+	public static function is_rendering_preview(): bool
+	{
+		if (is_admin()) {
 			return true;
 		}
 
-		if ( ! defined( 'REST_REQUEST' ) || ! is_user_logged_in() ) {
+		if (!defined('REST_REQUEST') || !is_user_logged_in()) {
 			return false;
 		}
 
 		global $wp;
 
-		if ( ! $wp instanceof WP || empty( $wp->query_vars['rest_route'] ) ) {
+		if (!$wp instanceof WP || empty($wp->query_vars['rest_route'])) {
 			return false;
 		}
 
 		$route = $wp->query_vars['rest_route'];
 
-		return str_contains( $route, '/block-renderer/' );
+		return str_contains($route, '/block-renderer/');
 	}
 
 	/**
@@ -101,50 +104,52 @@ class Block {
 	 *
 	 * @return string
 	 */
-	public static function get_html( array $block, bool $render = false ): string {
+	public static function get_html(array $block, bool $render = false): string
+	{
 		$block['innerContent'] = $block['innerContent'] ?? [];
-		$block['innerHTML']    = $block['innerHTML'] ?? '';
-		$block['innerBlocks']  = $block['innerBlocks'] ?? [];
-		$name                  = strip_core_block_namespace( $block['blockName'] ?? '' );
+		$block['innerHTML'] = $block['innerHTML'] ?? '';
+		$block['innerBlocks'] = $block['innerBlocks'] ?? [];
+		$name = strip_core_block_namespace($block['blockName'] ?? '');
 
-		if ( ! $name || empty( $block['innerBlocks'] ) ) {
-			return serialize_block( $block );
+		if (!$name || empty($block['innerBlocks'])) {
+			return serialize_block($block);
 		}
 
-		$classes = array_filter( [
+		$classes = array_filter([
 			'wp-block-' . $name,
 			$block['attrs']['className'] ?? null,
-			isset( $block['attrs']['fontSize'] ) ? 'has-' . $block['attrs']['fontSize'] . '-font-size' : null,
-			isset( $block['attrs']['textColor'] ) ? 'has-' . $block['attrs']['textColor'] . '-color' : null,
-			isset( $block['attrs']['backgroundColor'] ) ? 'has-' . $block['attrs']['backgroundColor'] . '-background-color' : null,
-		] );
+			isset($block['attrs']['fontSize']) ? 'has-' . $block['attrs']['fontSize'] . '-font-size' : null,
+			isset($block['attrs']['textColor']) ? 'has-' . $block['attrs']['textColor'] . '-color' : null,
+			isset($block['attrs']['backgroundColor']) ? 'has-' . $block['attrs']['backgroundColor'] . '-background-color' : null,
+		]);
 
-		$styles = array_filter( [
+		$styles = array_filter([
 			'gap' => $block['attrs']['style']['spacing']['blockGap'] ?? null,
-		] );
+		]);
 
-		$tag     = $block['tagName'] ?? $block['attrs']['tagName'] ?? 'div';
+		$tag = $block['tagName'] ?? $block['attrs']['tagName'] ?? 'div';
 		$opening = sprintf(
 			'<%s class="%s" style="%s">',
-			$tag, implode( ' ', $classes ),
-			CSS::array_to_string( $styles )
+			$tag,
+			implode(' ', $classes),
+			CSS::array_to_string($styles)
 		);
-		$closing = sprintf( '</%s>', $tag );
+		$closing = sprintf('</%s>', $tag);
 
 		$inner_content = $block['innerContent'];
-		array_unshift( $inner_content, $opening );
+		array_unshift($inner_content, $opening);
 		$inner_content[] = $closing;
 
-		foreach ( $block['innerBlocks'] as $inner_block ) {
-			$inner_content[] = static::get_html( $inner_block );
+		foreach ($block['innerBlocks'] as $inner_block) {
+			$inner_content[] = static::get_html($inner_block);
 		}
 
 		$block['innerContent'] = $inner_content;
-		$block['innerHTML']    = implode( '', $inner_content );
+		$block['innerHTML'] = implode('', $inner_content);
 
-		$serialized   = serialize_block( $block );
-		$parsed_block = parse_blocks( $serialized )[0];
+		$serialized = serialize_block($block);
+		$parsed_block = parse_blocks($serialized)[0];
 
-		return $render ? render_block( $parsed_block ) : $serialized;
+		return $render ? render_block($parsed_block) : $serialized;
 	}
 }

@@ -27,6 +27,7 @@ namespace Aegis\Framework\DesignSystem;
 use Aegis\Framework\InlineAssets\Scriptable;
 use Aegis\Framework\InlineAssets\Scripts;
 use function is_admin;
+use Aegis\Framework\ServiceProvider;
 
 // Implements the BlockStyles class to support block style data registration and management for the editor.
 
@@ -44,7 +45,7 @@ class BlockStyles implements Scriptable
 	{
 		$scripts->add_data(
 			'blockStyles',
-			$this->get_data(wp_get_global_settings() ?? []),
+			$this->get_data(ServiceProvider::get_global_settings()),
 			[],
 			is_admin(),
 		);
@@ -68,7 +69,7 @@ class BlockStyles implements Scriptable
 			'core/column' => ['surface'],
 			'core/comment-author-name' => ['heading'],
 			'core/details' => [
-				['summary-heading' => __('Heading', 'aegis')],
+				['summary-heading' => 'Heading'],
 			],
 			'core/group' => ['surface'],
 			'core/list' => [
@@ -117,3 +118,4 @@ class BlockStyles implements Scriptable
 		];
 	}
 }
+

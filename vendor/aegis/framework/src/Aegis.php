@@ -18,13 +18,13 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for the framework loader.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Imports the Aegis dependency injection container and service provider.
 use Aegis\Container\Container;
 use Aegis\Framework\ServiceProvider;
 
-if ( ! class_exists( 'Aegis' ) ) {
+if (!class_exists('Aegis')) {
 
 	/**
 	 * Aegis singleton loader.
@@ -33,7 +33,8 @@ if ( ! class_exists( 'Aegis' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	class Aegis {
+	class Aegis
+	{
 
 		/**
 		 * Service provider instance.
@@ -49,10 +50,11 @@ if ( ! class_exists( 'Aegis' ) ) {
 		 *
 		 * @return void
 		 */
-		public static function register( string $file ): void {
-			if ( is_null( self::$provider ) ) {
-				self::$provider = new ServiceProvider( $file );
-				self::$provider->register( new Container() );
+		public static function register(string $file): void
+		{
+			if (is_null(self::$provider)) {
+				self::$provider = new ServiceProvider($file);
+				self::$provider->register(new Container());
 			}
 		}
 	}

@@ -38,8 +38,7 @@ use function is_string;
 use function str_contains;
 use function str_replace;
 use function trim;
-use function wp_get_global_settings;
-use function wp_get_global_styles;
+use Aegis\Framework\ServiceProvider;
 use function wp_list_pluck;
 
 // Implements the Navigation class to support navigation block rendering.
@@ -118,7 +117,7 @@ class Navigation implements Renderable, Styleable
 		// --- Overlay Menu Background Color ---
 		if ($overlay_menu) {
 			$overlay_background_color = $attrs['overlayBackgroundColor'] ?? $attrs['customOverlayBackgroundColor'] ?? '';
-			$global_settings = wp_get_global_settings();
+			$global_settings = ServiceProvider::get_global_settings();
 			$color_slugs = wp_list_pluck($global_settings['color']['palette']['theme'] ?? [], 'slug');
 			$color_values = wp_list_pluck($global_settings['color']['palette']['theme'] ?? [], 'color');
 

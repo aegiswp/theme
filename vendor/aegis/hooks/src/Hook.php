@@ -8,8 +8,6 @@
  * - Parses docblock annotations and registers methods as WordPress hooks
  * - Integrates with the Aegis Framework's onboarding and developer experience
  *
- * Based on Hook Annotations by Viktor Szépe.
- *
  * @package    Aegis\Hooks
  * @since      1.0.0
  * @author     Atmostfear Entertainment
@@ -17,12 +15,10 @@
  *
  * For developer documentation and onboarding. No logic changes in this
  * documentation update.
- *
- * Original: https://github.com/szepeviktor/SentencePress
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for hook utilities.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for hook utilities within the Aegis Framework.
 namespace Aegis\Hooks;
@@ -38,7 +34,8 @@ use function trim;
 
 // Implements the Aegis hook utility class for annotation-driven hook registration.
 
-class Hook {
+class Hook
+{
 
 	/**
 	 * Hook methods based on annotation.
@@ -47,27 +44,28 @@ class Hook {
 	 *
 	 * @return void
 	 */
-	public static function annotations( object $object ): void {
-		$reflection     = new ReflectionClass( $object );
-		$public_methods = $reflection->getMethods( ReflectionMethod::IS_PUBLIC );
+	public static function annotations(object $object): void
+	{
+		$reflection = new ReflectionClass($object);
+		$public_methods = $reflection->getMethods(ReflectionMethod::IS_PUBLIC);
 
-		foreach ( $public_methods as $method ) {
+		foreach ($public_methods as $method) {
 
 			// Do not hook constructors.
-			if ( $method->isConstructor() ) {
+			if ($method->isConstructor()) {
 				continue;
 			}
 
-			$annotations = self::get_annotations( (string) $method->getDocComment() );
+			$annotations = self::get_annotations((string) $method->getDocComment());
 
-			if ( ! $annotations ) {
+			if (!$annotations) {
 				continue;
 			}
 
-			foreach ( $annotations as $annotation ) {
+			foreach ($annotations as $annotation) {
 				add_filter(
 					$annotation['tag'],
-					[ $object, $method->name ],
+					[$object, $method->name],
 					$annotation['priority'],
 					$method->getNumberOfParameters()
 				);
@@ -82,24 +80,25 @@ class Hook {
 	 *
 	 * @return ?array
 	 */
-	private static function get_annotations( string $doc_block ): ?array {
+	private static function get_annotations(string $doc_block): ?array
+	{
 		$pattern = '/@hook\s+([^\s]+)(\s+[0-9]+)?/';
 
-		preg_match_all( $pattern, $doc_block, $matches );
+		preg_match_all($pattern, $doc_block, $matches);
 
-		if ( ! isset( $matches[0] ) ) {
+		if (!isset($matches[0])) {
 			return null;
 		}
 
 		$annotations = [];
 
-		foreach ( $matches[0] as $annotation ) {
-			$annotation = str_replace( '@hook', '', $annotation );
-			$parts      = explode( ' ', trim( $annotation ) );
-			$tag        = trim( $parts[0] ?? '' );
+		foreach ($matches[0] as $annotation) {
+			$annotation = str_replace('@hook', '', $annotation);
+			$parts = explode(' ', trim($annotation));
+			$tag = trim($parts[0] ?? '');
 
 			$annotations[] = [
-				'tag'      => $tag,
+				'tag' => $tag,
 				'priority' => $parts[1] ?? 10,
 			];
 		}

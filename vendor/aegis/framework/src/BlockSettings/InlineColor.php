@@ -32,6 +32,7 @@ use WP_Block;
 use function explode;
 use function in_array;
 use function str_contains;
+use Aegis\Framework\ServiceProvider;
 
 // Implements the InlineColor class to support inline color styling for blocks.
 /**
@@ -80,7 +81,7 @@ class InlineColor implements Renderable
 			return $block_content;
 		}
 
-		$global_settings = wp_get_global_settings();
+		$global_settings = ServiceProvider::get_global_settings();
 		$color_palette = $global_settings['color']['palette']['theme'] ?? [];
 
 		// Iterate through the direct children of the block's wrapper.

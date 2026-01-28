@@ -15,11 +15,12 @@
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  *
- * For developer documentation and onboarding. No logic changes in this doc update.
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for icon functions.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for icon classes within the Aegis Framework.
 namespace Aegis\Icons;
@@ -69,7 +70,8 @@ use const GLOB_ONLYDIR;
  *
  * @since 1.0.0
  */
-class Icon {
+class Icon
+{
 
 	const FILTER = 'aegis_icon_sets';
 
@@ -80,53 +82,54 @@ class Icon {
 	 *
 	 * @return array <string, string>
 	 */
-	public static function get_icon_sets(): array {
-		$utility_dir    = dirname( __DIR__ ) . '/public/icons/';
-		$template_dir   = get_template_directory() . '/assets/icons/';
+	public static function get_icon_sets(): array
+	{
+		$utility_dir = dirname(__DIR__) . '/public/icons/';
+		$template_dir = get_template_directory() . '/assets/icons/';
 		$stylesheet_dir = get_stylesheet_directory() . '/assets/icons/';
 
 		$dirs = [
-			...glob( $utility_dir . '*', GLOB_ONLYDIR ),
-			...glob( $template_dir . '*', GLOB_ONLYDIR ),
-			...glob( $stylesheet_dir . '*', GLOB_ONLYDIR ),
+			...glob($utility_dir . '*', GLOB_ONLYDIR),
+			...glob($template_dir . '*', GLOB_ONLYDIR),
+			...glob($stylesheet_dir . '*', GLOB_ONLYDIR),
 		];
 
 		$found = [];
 
-		foreach ( $dirs as $dir ) {
-			$slug = basename( $dir );
+		foreach ($dirs as $dir) {
+			$slug = basename($dir);
 
 			$found[] = [
-				'label' => Str::title_case( $slug ),
+				'label' => Str::title_case($slug),
 				'value' => $slug,
 			];
 		}
 
-		$db_option = get_option( 'aegis' )['iconSets'] ?? null;
-		$options   = $db_option ?: $found;
+		$db_option = get_option('aegis')['iconSets'] ?? null;
+		$options = $db_option ?: $found;
 		$icon_sets = [];
 
-		foreach ( $options as $option ) {
+		foreach ($options as $option) {
 			$value = $option['value'] ?? null;
 
-			if ( is_null( $value ) ) {
+			if (is_null($value)) {
 				continue;
 			}
 
 			$utility = $utility_dir . $value;
-			$parent  = $template_dir . $value;
-			$child   = $stylesheet_dir . $value;
+			$parent = $template_dir . $value;
+			$child = $stylesheet_dir . $value;
 
-			if ( is_dir( $utility ) ) {
-				$icon_sets[ $value ] = $utility;
+			if (is_dir($utility)) {
+				$icon_sets[$value] = $utility;
 			}
 
-			if ( is_dir( $parent ) ) {
-				$icon_sets[ $value ] = $parent;
+			if (is_dir($parent)) {
+				$icon_sets[$value] = $parent;
 			}
 
-			if ( is_dir( $child ) ) {
-				$icon_sets[ $value ] = $child;
+			if (is_dir($child)) {
+				$icon_sets[$value] = $child;
 			}
 		}
 
@@ -137,7 +140,7 @@ class Icon {
 		 *
 		 * @param array $icon_sets <string, string> Set name, set path.
 		 */
-		return apply_filters( static::FILTER, $icon_sets );
+		return apply_filters(static::FILTER, $icon_sets);
 	}
 
 	/**
@@ -152,86 +155,87 @@ class Icon {
 	 *
 	 * @return string
 	 */
-	public static function get_svg( string $set, string $name, $size = null, ?string $title = '' ): string {
-		$set = strtolower( $set );
+	public static function get_svg(string $set, string $name, $size = null, ?string $title = ''): string
+	{
+		$set = strtolower($set);
 
 		static $cache = [];
 
-		$cache_key = implode( '-', [ $set, $name, $size ] );
+		$cache_key = implode('-', [$set, $name, $size]);
 
-		if ( isset( $cache[ $cache_key ] ) ) {
-			return $cache[ $cache_key ];
+		if (isset($cache[$cache_key])) {
+			return $cache[$cache_key];
 		}
 
 		$icon_sets = static::get_icon_sets();
 
-		if ( ! isset( $icon_sets[ $set ] ) ) {
+		if (!isset($icon_sets[$set])) {
 			return '';
 		}
 
-		$dir  = $icon_sets[ $set ];
+		$dir = $icon_sets[$set];
 		$file = $dir . '/' . $name . '.svg';
 
-		if ( ! file_exists( $file ) ) {
+		if (!file_exists($file)) {
 			return '';
 		}
 
-		$html = file_get_contents( $file );
+		$html = file_get_contents($file);
 
-		if ( $set === 'WordPress' ) {
+		if ($set === 'WordPress') {
 			$html = str_replace(
-				[ 'fill="none"' ],
-				[ 'fill="currentColor"' ],
+				['fill="none"'],
+				['fill="currentColor"'],
 				$html
 			);
 		}
 
-		$dom = DOM::create( trim( $html ) );
-		$svg = DOM::get_element( 'svg', $dom );
+		$dom = DOM::create(trim($html));
+		$svg = DOM::get_element('svg', $dom);
 
-		if ( ! $svg ) {
+		if (!$svg) {
 			return '';
 		}
 
 		$unique_id = 'icon-' . uniqid();
 
-		$svg->setAttribute( 'role', 'img' );
-		$svg->setAttribute( 'aria-labelledby', $unique_id );
-		$svg->setAttribute( 'data-icon', $set . '-' . $name );
+		$svg->setAttribute('role', 'img');
+		$svg->setAttribute('aria-labelledby', $unique_id);
+		$svg->setAttribute('data-icon', $set . '-' . $name);
 
-		$label     = $title ?: Str::title_case( $name ) . __( ' Icon', 'aegis' );
-		$title_tag = DOM::create_element( 'title', $dom );
+		$label = $title ?: Str::title_case($name) . __(' Icon', 'aegis');
+		$title_tag = DOM::create_element('title', $dom);
 
-		$title_tag->appendChild( $dom->createTextNode( $label ) );
-		$title_tag->setAttribute( 'id', $unique_id );
+		$title_tag->appendChild($dom->createTextNode($label));
+		$title_tag->setAttribute('id', $unique_id);
 
-		$svg->insertBefore( $title_tag, $svg->firstChild );
+		$svg->insertBefore($title_tag, $svg->firstChild);
 
-		if ( $size ) {
-			$has_unit = Str::contains_any( (string) $size, 'px', 'em', 'rem', '%', 'vh', 'vw' );
+		if ($size) {
+			$has_unit = Str::contains_any((string) $size, 'px', 'em', 'rem', '%', 'vh', 'vw');
 
-			if ( $has_unit ) {
-				$styles = CSS::string_to_array( $svg->getAttribute( 'style' ) );
+			if ($has_unit) {
+				$styles = CSS::string_to_array($svg->getAttribute('style'));
 
 				$styles['min-width'] = $size;
-				$styles['height']    = $size;
+				$styles['height'] = $size;
 
-				$svg->setAttribute( 'style', CSS::array_to_string( $styles ) );
+				$svg->setAttribute('style', CSS::array_to_string($styles));
 			} else {
-				$svg->setAttribute( 'width', (string) $size );
-				$svg->setAttribute( 'height', (string) $size );
+				$svg->setAttribute('width', (string) $size);
+				$svg->setAttribute('height', (string) $size);
 			}
 		}
 
-		$fill = $svg->getAttribute( 'fill' );
+		$fill = $svg->getAttribute('fill');
 
-		if ( ! $fill ) {
-			$svg->setAttribute( 'fill', 'currentColor' );
+		if (!$fill) {
+			$svg->setAttribute('fill', 'currentColor');
 		}
 
-		$cache[ $cache_key ] = static::sanitize_svg( $dom->saveHTML() );
+		$cache[$cache_key] = static::sanitize_svg($dom->saveHTML());
 
-		return $cache[ $cache_key ];
+		return $cache[$cache_key];
 	}
 
 	/**
@@ -244,28 +248,29 @@ class Icon {
 	 *
 	 * @return void
 	 */
-	public static function register_rest_route( string $namespace = 'aegis/v1', string $route = '/icons/' ): void {
+	public static function register_rest_route(string $namespace = 'aegis/v1', string $route = '/icons/'): void
+	{
 		static $registered = [];
 
-		if ( isset( $registered[ $namespace ] ) ) {
+		if (isset($registered[$namespace])) {
 			return;
 		}
 
-		$registered[ $namespace ] = $route;
+		$registered[$namespace] = $route;
 
 		$args = [
-			'permission_callback' => static fn() => current_user_can( 'edit_posts' ),
-			'callback'            => static fn( WP_REST_Request $request ): array => static::get_icon_data( $request ),
-			'methods'             => WP_REST_Server::READABLE,
+			'permission_callback' => static fn() => current_user_can('edit_posts'),
+			'callback' => static fn(WP_REST_Request $request): array => static::get_icon_data($request),
+			'methods' => WP_REST_Server::READABLE,
 			[
 				'args' => [
 					'sets' => [
 						'required' => false,
-						'type'     => 'string',
+						'type' => 'string',
 					],
-					'set'  => [
+					'set' => [
 						'required' => false,
-						'type'     => 'string',
+						'type' => 'string',
 					],
 				],
 			],
@@ -273,7 +278,7 @@ class Icon {
 
 		add_action(
 			'rest_api_init',
-			static fn() => register_rest_route( $namespace, $route, $args )
+			static fn() => register_rest_route($namespace, $route, $args)
 		);
 	}
 
@@ -287,10 +292,11 @@ class Icon {
 	 *
 	 * @return void
 	 */
-	public static function register_icon_set( string $name, string $path ): void {
+	public static function register_icon_set(string $name, string $path): void
+	{
 		add_filter(
 			static::FILTER,
-			static fn( array $icon_sets ) => array_merge( $icon_sets, [ $name => $path ] )
+			static fn(array $icon_sets) => array_merge($icon_sets, [$name => $path])
 		);
 	}
 
@@ -303,9 +309,10 @@ class Icon {
 	 *
 	 * @return DOMElement
 	 */
-	public static function get_placeholder( DOMDocument $dom ): DOMElement {
-		$svg_title = esc_html__( 'Image placeholder', 'aegis' );
-		$svg_icon  = <<<HTML
+	public static function get_placeholder(DOMDocument $dom): DOMElement
+	{
+		$svg_title = esc_html__('Image placeholder', 'aegis');
+		$svg_icon = <<<HTML
 <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 64 64" width="32" height="32">
 	<title>$svg_title</title>
 	<circle cx="52" cy="18" r="7"/>
@@ -321,24 +328,24 @@ HTML;
 		 * @param string $svg_icon  SVG icon.
 		 * @param string $svg_title SVG title.
 		 */
-		$svg_icon    = apply_filters( 'aegis_placeholder_svg', $svg_icon, $svg_title );
-		$svg_icon    = static::sanitize_svg( $svg_icon );
-		$svg_dom     = DOM::create( $svg_icon );
-		$svg_element = DOM::get_element( 'svg', $svg_dom );
+		$svg_icon = apply_filters('aegis_placeholder_svg', $svg_icon, $svg_title);
+		$svg_icon = static::sanitize_svg($svg_icon);
+		$svg_dom = DOM::create($svg_icon);
+		$svg_element = DOM::get_element('svg', $svg_dom);
 
-		if ( ! $svg_element ) {
-			return DOM::create_element( 'span', $dom );
+		if (!$svg_element) {
+			return DOM::create_element('span', $dom);
 		}
 
-		$svg_classes   = explode( ' ', $svg_element->getAttribute( 'class' ) );
+		$svg_classes = explode(' ', $svg_element->getAttribute('class'));
 		$svg_classes[] = 'wp-block-image__placeholder-icon';
 
-		$svg_element->setAttribute( 'class', implode( ' ', $svg_classes ) );
-		$svg_element->setAttribute( 'fill', 'currentColor' );
+		$svg_element->setAttribute('class', implode(' ', $svg_classes));
+		$svg_element->setAttribute('fill', 'currentColor');
 
-		$imported = $dom->importNode( $svg_element, true );
+		$imported = $dom->importNode($svg_element, true);
 
-		return DOM::node_to_element( $imported );
+		return DOM::node_to_element($imported);
 	}
 
 	/**
@@ -350,28 +357,29 @@ HTML;
 	 *
 	 * @return mixed array|string
 	 */
-	public static function get_icon_data( ?WP_REST_Request $request ) {
+	public static function get_icon_data(?WP_REST_Request $request)
+	{
 		$icon_data = [];
 		$icon_sets = Icon::get_icon_sets();
 
-		foreach ( $icon_sets as $icon_set => $set_dir ) {
-			$icons = glob( $set_dir . '/*.svg' );
+		foreach ($icon_sets as $icon_set => $set_dir) {
+			$icons = glob($set_dir . '/*.svg');
 
-			foreach ( $icons as $icon ) {
-				$name = basename( $icon, '.svg' );
+			foreach ($icons as $icon) {
+				$name = basename($icon, '.svg');
 
-				$icon_data[ $icon_set ][ $name ] = static::get_svg( $icon_set, $name, 24, null );
+				$icon_data[$icon_set][$name] = static::get_svg($icon_set, $name, 24, null);
 			}
 		}
 
-		if ( $request && $request->get_param( 'set' ) ) {
-			$set = $request->get_param( 'set' );
+		if ($request && $request->get_param('set')) {
+			$set = $request->get_param('set');
 
-			return $icon_data[ $set ];
+			return $icon_data[$set];
 		}
 
-		if ( $request && $request->get_param( 'sets' ) ) {
-			return array_keys( $icon_data );
+		if ($request && $request->get_param('sets')) {
+			return array_keys($icon_data);
 		}
 
 		return $icon_data;
@@ -386,37 +394,38 @@ HTML;
 	 *
 	 * @return string
 	 */
-	public static function sanitize_svg( string $svg ): string {
+	public static function sanitize_svg(string $svg): string
+	{
 
 		// Sanitize SVG.
-		if ( class_exists( 'enshrined\svgSanitize\Sanitizer' ) ) {
+		if (class_exists('enshrined\svgSanitize\Sanitizer')) {
 			static $sanitizer = null;
 
-			if ( is_null( $sanitizer ) ) {
+			if (is_null($sanitizer)) {
 				$sanitizer = new Sanitizer();
 
-				$sanitizer->minify( true );
-				$sanitizer->removeXMLTag( true );
+				$sanitizer->minify(true);
+				$sanitizer->removeXMLTag(true);
 			}
 
-			$svg = $sanitizer->sanitize( $svg ) ?: '';
+			$svg = $sanitizer->sanitize($svg) ?: '';
 		}
 
 		// Remove comments.
-		$svg = preg_replace( '/<!--(.|\s)*?-->/', '', $svg );
+		$svg = preg_replace('/<!--(.|\s)*?-->/', '', $svg);
 
 		// Remove new lines.
-		$svg = preg_replace( '/\s+/', ' ', $svg );
+		$svg = preg_replace('/\s+/', ' ', $svg);
 
 		// Remove tabs.
-		$svg = preg_replace( '/\t+/', '', $svg );
+		$svg = preg_replace('/\t+/', '', $svg);
 
 		// Remove spaces between tags.
-		$svg = preg_replace( '/>\s+</', '><', $svg );
+		$svg = preg_replace('/>\s+</', '><', $svg);
 
 		// Correct viewBox.
-		$svg = str_replace( 'viewbox=', 'viewBox=', $svg );
+		$svg = str_replace('viewbox=', 'viewBox=', $svg);
 
-		return trim( $svg );
+		return trim($svg);
 	}
 }

@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow
+
+name: Release Aegis Theme
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    name: Build & Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install System Dependencies
+        run: sudo apt-get install gettext -y
+
+      - name: Install Node Dependencies
+        run: npm ci
+
+      - name: Build Block Assets
+        run: npm run build --if-present
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: composer
+
+      - name: Install Composer Dependencies
+        run: composer install --no-dev --prefer-dist --no-progress --no-interaction
+
+      # Automatically compile .po to .mo
+      - name: Compile Translations
+        run: |
+          mkdir -p languages
+          for po in languages/*.po; do
+            if [ -f "$po" ]; then
+              msgfmt "$po" -o "${po%.po}.mo"
+            fi
+          done
+
+      - name: Package Theme (Clean Build)
+        id: package_theme
+        run: |
+          THEME_SLUG="aegis"
+          mkdir $THEME_SLUG
+          
+          # Sync using .distignore
+          rsync -am . $THEME_SLUG/ \
+            --exclude-from='.distignore' \
+            --exclude='_playground/' \
+            --exclude='_wordpress-org/'
+          
+          zip -r "${THEME_SLUG}.zip" $THEME_SLUG
+          echo "zip_path=${THEME_SLUG}.zip" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: aegis.zip
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

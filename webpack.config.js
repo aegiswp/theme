@@ -1,8 +1,19 @@
 const defaultConfig = require('@wordpress/scripts/config/webpack.config');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const path = require('path');
 
 module.exports = {
     ...defaultConfig,
+    entry: {
+        // Block entries - output to src/blocks for WordPress block registration
+        'modal/index': path.resolve(__dirname, 'src/blocks/modal/index.tsx'),
+        'modal/view': path.resolve(__dirname, 'src/blocks/modal/view.ts'),
+        'modal/style': path.resolve(__dirname, 'src/blocks/modal/style.scss'),
+    },
+    output: {
+        path: path.resolve(__dirname, 'src/blocks'),
+        filename: '[name].js',
+    },
     plugins: [
         ...defaultConfig.plugins,
         new BrowserSyncPlugin({

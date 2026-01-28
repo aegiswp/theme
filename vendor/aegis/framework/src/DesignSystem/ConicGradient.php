@@ -29,7 +29,7 @@ use Aegis\Framework\InlineAssets\Styles;
 use Aegis\Dom\CSS;
 use function str_contains;
 use function str_replace;
-use function wp_get_global_settings;
+use Aegis\Framework\ServiceProvider;
 
 // Implements the ConicGradient class to support conversion of gradients for the design system.
 
@@ -47,7 +47,7 @@ class ConicGradient implements Styleable
 	 */
 	public function styles(Styles $styles): void
 	{
-		$settings = wp_get_global_settings();
+		$settings = ServiceProvider::get_global_settings();
 		$gradients = $settings['color']['gradients']['custom'] ?? [];
 		$style = [];
 

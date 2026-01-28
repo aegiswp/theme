@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for integration components.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for integration components within the Aegis Framework.
 namespace Aegis\Framework\Integrations;
@@ -33,7 +33,8 @@ use function str_contains;
 
 // Implements the WooCommerce integration class for the design system.
 
-class WooCommerce implements Conditional {
+class WooCommerce implements Conditional
+{
 
 	/**
 	 * Condition.
@@ -42,8 +43,9 @@ class WooCommerce implements Conditional {
 	 *
 	 * @return bool
 	 */
-	public static function condition(): bool {
-		return class_exists( 'WooCommerce' );
+	public static function condition(): bool
+	{
+		return class_exists('WooCommerce');
 	}
 
 	/**
@@ -53,13 +55,14 @@ class WooCommerce implements Conditional {
 	 *
 	 * @return void
 	 */
-	public function hooks(): void {
-		remove_action( 'init', [
+	public function hooks(): void
+	{
+		remove_action('init', [
 			'Automattic\WooCommerce\Blocks\BlockPatterns',
 			'register_block_patterns',
-		] );
+		]);
 
-		add_action( 'init', [ $this, 'unregister_woocommerce_block_patterns' ], 11 );
+		add_action('init', [$this, 'unregister_woocommerce_block_patterns'], 11);
 	}
 
 	/**
@@ -69,15 +72,16 @@ class WooCommerce implements Conditional {
 	 *
 	 * @return void
 	 */
-	public function unregister_woocommerce_block_patterns(): void {
-		$registry   = WP_Block_Patterns_Registry::get_instance();
+	public function unregister_woocommerce_block_patterns(): void
+	{
+		$registry = WP_Block_Patterns_Registry::get_instance();
 		$registered = $registry->get_all_registered();
 
-		foreach ( $registered as $pattern ) {
+		foreach ($registered as $pattern) {
 			$name = $pattern['name'];
 
-			if ( str_contains( $name, 'woocommerce' ) ) {
-				$registry->unregister( $name );
+			if (str_contains($name, 'woocommerce')) {
+				$registry->unregister($name);
 			}
 		}
 	}

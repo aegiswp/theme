@@ -38,7 +38,7 @@ use function in_array;
 use function is_array;
 use function str_contains;
 use function str_replace;
-use function wp_get_global_settings;
+use Aegis\Framework\ServiceProvider;
 use function wp_list_pluck;
 
 // Implements the Icon class to support icon block rendering.
@@ -178,7 +178,7 @@ class Icon implements Renderable
 
 		// Apply text color, with a fallback from primary to neutral colors.
 		if ($text_color = $attrs['textColor'] ?? null) {
-			$global_settings = wp_get_global_settings();
+			$global_settings = ServiceProvider::get_global_settings();
 			$color_slugs = wp_list_pluck($global_settings['color']['palette']['theme'] ?? [], 'slug');
 			$has_primary = false;
 			foreach ($color_slugs as $slug) {

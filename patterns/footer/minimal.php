@@ -23,37 +23,49 @@
         </div>
         <!-- /wp:group -->
 
-        <!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"wrap"}} -->
+        <!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
         <div class="wp-block-group alignwide">
             <!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"4px","margin":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"left"}} -->
             <div class="wp-block-group alignwide" style="margin-top:0;margin-bottom:0">
                 <!-- wp:paragraph {"align":"center"} -->
-                <p class="aligncenter has-text-align-center aligncenter">
-                    © Copyright {year}
-                </p>
+                <p class="aligncenter has-text-align-center aligncenter">© Copyright {year}</p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:site-title {"level":0} /-->
 
                 <!-- wp:paragraph {"align":"center"} -->
-                <p class="aligncenter has-text-align-center aligncenter">
-                    · All rights reserved.
-                </p>
+                <p class="aligncenter has-text-align-center aligncenter">· All rights reserved.</p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->
 
-            <!-- wp:social-links {"iconColor":"neutral-400","iconColorValue":"#94a3b8","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"top":"20px","left":"20px"}}},"layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
-            <ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
-                <!-- wp:social-link {"url":"#","service":"facebook"} /-->
+            <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+            <div class="wp-block-group">
+                <!-- wp:social-links {"iconColor":"neutral-400","iconColorValue":"#94a3b8","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"top":"20px","left":"20px"}}},"layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
+                <ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
+                    <!-- wp:social-link {"url":"#","service":"facebook"} /-->
 
-                <!-- wp:social-link {"url":"#","service":"linkedin"} /-->
+                    <!-- wp:social-link {"url":"#","service":"linkedin"} /-->
 
-                <!-- wp:social-link {"url":"#","service":"bluesky"} /-->
+                    <!-- wp:social-link {"url":"#","service":"bluesky"} /-->
 
-                <!-- wp:social-link {"url":"#","service":"instagram"} /-->
-            </ul>
-            <!-- /wp:social-links -->
+                    <!-- wp:social-link {"url":"#","service":"instagram"} /-->
+                </ul>
+                <!-- /wp:social-links -->
+
+                <!-- wp:buttons -->
+                <div class="wp-block-buttons">
+                    <!-- wp:button {"backgroundColor":"transparent","textColor":"current","className":"is-style-fill","style":{"spacing":{"padding":{"top":"0","right":"var:preset|spacing|xxs","bottom":"0","left":"var:preset|spacing|xxs"}}},"onclick":"window.scrollTo({ top: 0, behavior: 'smooth' });","shadowPreset":"none","shadowPresetHover":"sm","iconSet":"wordpress","iconName":"chevron-up","iconSize":"20px","iconPosition":"end","iconSvgString":"\u003csvg viewBox=\u00220 0 24 24\u0022 xmlns=\u0022http://www.w3.org/2000/svg\u0022\u003e\u003cpath d=\u0022M6.5 12.4 12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z\u0022/\u003e\u003c/svg\u003e"} -->
+                    <div class="wp-block-button is-style-fill has-shadow has-none-shadow has-sm-shadow-hover"
+                        style="padding-top:0;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:0;padding-left:var(--wp--preset--spacing--xxs);--wp--custom--icon--background:var(--wp--preset--color--transparent, currentColor);--wp--custom--icon--color:var(--wp--preset--color--current,currentColor);--wp--custom--icon--padding:0 var(--wp--preset--spacing--xxs) 0 var(--wp--preset--spacing--xxs);--wp--custom--icon--size:20px;--wp--custom--icon--url:url('data:image/svg+xml;utf8,<svg viewBox=&quot;0 0 24 24&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;<path d=&quot;M6.5 12.4 12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z&quot;/&gt;</svg&gt;')">
+                        <a class="wp-block-button__link has-current-color has-transparent-background-color has-text-color has-background wp-element-button"
+                            style="padding-top:0;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:0;padding-left:var(--wp--preset--spacing--xxs)">Back to Top</a>
+                    </div>
+                    <!-- /wp:button -->
+                </div>
+                <!-- /wp:buttons -->
+            </div>
+            <!-- /wp:group -->
         </div>
         <!-- /wp:group -->
     </div>

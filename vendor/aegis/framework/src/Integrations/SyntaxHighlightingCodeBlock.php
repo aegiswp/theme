@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for integration components.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for integration components within the Aegis Framework.
 namespace Aegis\Framework\Integrations;
@@ -28,11 +28,12 @@ use Aegis\Container\Interfaces\Conditional;
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
 use function defined;
-use function wp_get_global_settings;
+use Aegis\Framework\ServiceProvider;
 
 // Implements the SyntaxHighlightingCodeBlock integration class for the design system.
 
-class SyntaxHighlightingCodeBlock implements Conditional, Styleable {
+class SyntaxHighlightingCodeBlock implements Conditional, Styleable
+{
 
 	/**
 	 * Condition.
@@ -41,8 +42,9 @@ class SyntaxHighlightingCodeBlock implements Conditional, Styleable {
 	 *
 	 * @return bool
 	 */
-	public static function condition(): bool {
-		return defined( '\\Syntax_Highlighting_Code_Block\\PLUGIN_VERSION' );
+	public static function condition(): bool
+	{
+		return defined('\\Syntax_Highlighting_Code_Block\\PLUGIN_VERSION');
 	}
 
 	/**
@@ -56,8 +58,9 @@ class SyntaxHighlightingCodeBlock implements Conditional, Styleable {
 	 *
 	 * @return string
 	 */
-	public function set_syntax_highlighting_code_theme( string $theme ): string {
-		$global_settings = wp_get_global_settings();
+	public function set_syntax_highlighting_code_theme(string $theme): string
+	{
+		$global_settings = ServiceProvider::get_global_settings();
 
 		return $global_settings['custom']['highlightJs'] ?? 'atom-one-dark';
 	}
@@ -71,10 +74,11 @@ class SyntaxHighlightingCodeBlock implements Conditional, Styleable {
 	 *
 	 * @return void
 	 */
-	public function styles( Styles $styles ): void {
+	public function styles(Styles $styles): void
+	{
 		$styles->add_file(
 			'plugins/syntax-highlighting-code-block.css',
-			[ 'wp-block-code' ],
+			['wp-block-code'],
 			static::condition()
 		);
 	}

@@ -1,0 +1,28 @@
+# Typos configuration for Aegis Theme
+# https://github.com/crate-ci/typos
+
+[files]
+extend-exclude = [
+    "vendor/",
+    "node_modules/",
+    "assets/",
+    "*.min.js",
+    "*.min.css",
+    "*.lock",
+    "languages/*.po",
+    "languages/*.mo",
+]
+
+[default]
+extend-ignore-identifiers-re = [
+    # WordPress-specific terms
+    "wpdb",
+    "wptrt",
+    "phpcs",
+    "WPCS",
+]
+
+[default.extend-words]
+# WordPress/PHP common terms that aren't typos
+aci = "aci"
+ser = "ser"

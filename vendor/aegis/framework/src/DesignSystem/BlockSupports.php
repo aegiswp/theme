@@ -109,7 +109,7 @@ class BlockSupports implements Scriptable
 			'aegisFilter' => true,
 			'aegisTransform' => true,
 			'aegisColor' => [
-				// TODO: The following features are not yet implemented and will not work if uncommented.
+				// @todo The following features are not yet implemented and will not work if uncommented.
 				// To implement, we need to:
 				// 1. Add JavaScript editor controls to capture iconColor and backgroundHover values
 				// 2. Add PHP rendering logic in CoreBlocks\Button.php to apply these CSS variables
@@ -764,8 +764,8 @@ class BlockSupports implements Scriptable
 		],
 		'core/tag-cloud' => [
 			'typography' => [
-				'textTransform' => true, // Does not work.
-				'letterSpacing' => true, // Does not work.
+				'textTransform' => true, // @todo Does not work.
+				'letterSpacing' => true, // @todo Does not work.
 			],
 		],
 		'core/template-part' => [
@@ -785,7 +785,7 @@ class BlockSupports implements Scriptable
 				'text' => true,
 			],
 			'spacing' => [
-				'margin' => true, // Does not work.
+				'margin' => true, // @todo Does not work.
 			],
 			'__experimentalBorder' => [
 				'radius' => true,

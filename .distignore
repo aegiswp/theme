@@ -20,25 +20,41 @@ tsconfig.json
 # Composer files
 composer.json
 composer.lock
-vendor/
+
+# Vendor dev dependencies (keep vendor/aegis for framework)
+vendor/bin/
+vendor/dealerdirect/
+vendor/phpcsstandards/
+vendor/squizlabs/
+vendor/wp-coding-standards/
+vendor/wptrt/
 
 # Editor and environment files
 .vscode/
+.idea/
 .editorconfig
-.env.docker
+.env
+.env.*
+docker-compose.yml
 
-# Documentation and temporary files
+# Documentation files
 README.md
 README_DOCKER.md
 CHANGELOG.md
 CONTRIBUTING.md
 CONTRIBUTORS.md
+CODE_OF_CONDUCT.md
 changelog.txt
 
-# Source files (if they are not meant to be in the final theme)
-# Add any source directories here, e.g., src/
-
-# Other development files
+# Development/testing files
 phpcs.xml.dist
+phpunit.xml.dist
 .stylelintignore
 stylelintrc.json
+.typos.toml
+tests/
+src/
+
+# Playground/WordPress.org specific
+_playground/
+_wordpress-org/

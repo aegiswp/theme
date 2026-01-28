@@ -68,7 +68,7 @@ class QueryPagination implements Renderable
 				continue;
 			}
 
-			// TODO: Which properties need formatting?
+			// @todo Which properties need formatting?
 			if (str_contains($value, 'var:')) {
 				$styles[$key] = CSS::format_custom_property($value);
 			}

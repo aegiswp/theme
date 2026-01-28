@@ -34,7 +34,7 @@ use function array_diff;
 use function esc_attr;
 use function in_array;
 use function str_contains;
-use function wp_get_global_settings;
+use Aegis\Framework\ServiceProvider;
 
 // Implements the BoxShadow class to support custom box shadow styling.
 
@@ -162,7 +162,7 @@ class BoxShadow implements Renderable, Styleable
 		// Set color properties, converting palette colors to CSS variables.
 		$color = $custom_shadow['color'] ?? null;
 		$hover_color = $custom_shadow['hover']['color'] ?? null;
-		$palette = wp_get_global_settings()['color']['palette']['theme'] ?? [];
+		$palette = ServiceProvider::get_global_settings()['color']['palette']['theme'] ?? [];
 		foreach ($palette as $theme_color) {
 			if ($theme_color['color'] === $color) {
 				$styles['--wp--custom--box-shadow--color'] = "var(--wp--preset--color--{$theme_color['slug']})";
@@ -203,7 +203,7 @@ class BoxShadow implements Renderable, Styleable
 	 */
 	public function get_inline_css(string $template_html, bool $load_all): string
 	{
-		$settings = wp_get_global_settings();
+		$settings = ServiceProvider::get_global_settings();
 		$presets = $settings['shadow']['presets']['theme'] ?? [];
 		$style = [];
 

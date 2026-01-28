@@ -36,11 +36,13 @@ use function get_home_url;
 use function is_admin;
 use function time;
 use function wp_dequeue_style;
+use function wp_enqueue_script;
 use function wp_enqueue_style;
-use function wp_get_global_settings;
+use Aegis\Framework\ServiceProvider;
 use function wp_localize_script;
 use function wp_register_script;
 use function wp_register_style;
+use function wp_set_script_translations;
 
 // Implements the EditorAssets class to support editor asset management for the design system.
 
@@ -109,7 +111,7 @@ class EditorAssets
 
 		wp_enqueue_script($handle);
 
-		$global_settings = wp_get_global_settings();
+		$global_settings = ServiceProvider::get_global_settings();
 
 		$default = [
 			'siteUrl' => esc_url(get_home_url()),
@@ -129,6 +131,43 @@ class EditorAssets
 			$handle,
 			'aegis',
 			$data
+		);
+
+		// Enqueue responsive breakpoints extension script.
+		$this->enqueue_responsive_breakpoints();
+	}
+
+	/**
+	 * Enqueue responsive breakpoints editor extension script.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+	private function enqueue_responsive_breakpoints(): void
+	{
+		$asset_file = $this->scripts->dir . 'responsive-breakpoints.asset.php';
+
+		if (!file_exists($asset_file)) {
+			return;
+		}
+
+		$asset = require $asset_file;
+		$handle = $this->scripts->handle . '-responsive-breakpoints';
+
+		wp_register_script(
+			$handle,
+			$this->scripts->url . 'responsive-breakpoints.js',
+			$asset['dependencies'] ?? [],
+			$asset['version'] ?? (Debug::is_enabled() ? time() : '1.0.0'),
+			true
+		);
+
+		wp_enqueue_script($handle);
+
+		wp_set_script_translations(
+			$handle,
+			'aegis'
 		);
 	}
 

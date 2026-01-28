@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
-declare( strict_types=1 );
+declare(strict_types=1);
 
 // Declares the namespace for utility classes within the Aegis Framework.
 namespace Aegis\Utilities;
@@ -31,7 +31,8 @@ use function strtolower;
 
 // Implements the Aegis JSON utility class for reusable JSON operations.
 
-class JSON {
+class JSON
+{
 
 	/**
 	 * Given an array of settings, extracts the CSS Custom Properties
@@ -58,12 +59,13 @@ class JSON {
 	 *
 	 * @return array The modified $declarations.
 	 */
-	public static function compute_theme_vars( array $custom_values ): array {
+	public static function compute_theme_vars(array $custom_values): array
+	{
 		$declarations = [];
-		$css_vars     = self::flatten_tree( $custom_values );
+		$css_vars = self::flatten_tree($custom_values);
 
-		foreach ( $css_vars as $key => $value ) {
-			$declarations[ '--wp--custom--' . $key ] = $value;
+		foreach ($css_vars as $key => $value) {
+			$declarations['--wp--custom--' . $key] = $value;
 		}
 
 		return $declarations;
@@ -110,26 +112,27 @@ class JSON {
 	 *
 	 * @return array The flattened tree.
 	 */
-	public static function flatten_tree( array $tree, string $prefix = '', string $token = '--' ): array {
+	public static function flatten_tree(array $tree, string $prefix = '', string $token = '--'): array
+	{
 		$result = [];
 
-		foreach ( $tree as $property => $value ) {
+		foreach ($tree as $property => $value) {
 			$new_key = $prefix . str_replace(
-					'/',
-					'-',
-					strtolower( _wp_to_kebab_case( $property ) )
-				);
+				'/',
+				'-',
+				strtolower(_wp_to_kebab_case($property))
+			);
 
-			if ( is_array( $value ) ) {
-				$new_prefix        = $new_key . $token;
-				$flattened_subtree = self::flatten_tree( $value, $new_prefix, $token );
+			if (is_array($value)) {
+				$new_prefix = $new_key . $token;
+				$flattened_subtree = self::flatten_tree($value, $new_prefix, $token);
 
-				foreach ( $flattened_subtree as $subtree_key => $subtree_value ) {
-					$result[ $subtree_key ] = $subtree_value;
+				foreach ($flattened_subtree as $subtree_key => $subtree_value) {
+					$result[$subtree_key] = $subtree_value;
 				}
 
 			} else {
-				$result[ $new_key ] = $value;
+				$result[$new_key] = $value;
 			}
 		}
 

@@ -1,17 +1,20 @@
 {
   "name": "aegis-theme",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0-rc.2",
   "description": "Aegis - Native Block Framework",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --env production",
-    "start": "webpack --watch --env development",
-    "dev": "webpack --env development",
-    "serve": "webpack serve --config webpack.config.js --env development",
+    "build": "webpack --mode production",
+    "build:translate": "npm run translate && webpack --mode production",
+    "start": "webpack --watch --mode development",
+    "dev": "webpack --mode development",
+    "serve": "webpack serve --config webpack.config.js --mode development",
     "lint:ts": "eslint 'src/**/*.{ts,tsx}'",
     "lint:css": "stylelint '**/*.css' --config stylelintrc.json",
     "type-check": "tsc --noEmit",
-    "format": "prettier --write 'src/**/*.{ts,tsx,css}'"
+    "format": "prettier --write 'src/**/*.{ts,tsx,css}'",
+    "translate": "node scripts/translate.js",
+    "translate:unix": "find languages -name \"*.po\" -exec msgfmt {} -o {}.mo \\; && rename 's/\\.po\\.mo$/\\.mo/' languages/*.po.mo"
   },
   "keywords": [
     "WordPress",
@@ -24,6 +27,7 @@
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.4",
     "@babel/preset-react": "^7.24.7",
+    "@babel/preset-typescript": "^7.28.5",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^19.2.3",
     "@typescript-eslint/eslint-plugin": "^8.5.0",

@@ -1,0 +1,31 @@
+{
+    "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+    "landingPage": "/wp-admin/site-editor.php",
+    "preferredPhpVersion": "8.3",
+    "preferredWordPressVersion": "latest",
+    "steps": [
+        {
+            "step": "login",
+            "username": "admin",
+            "password": "password"
+        },
+        {
+            "step": "installTheme",
+            "themeZipFile": {
+                "resource": "url",
+                "url": "https://github.com/aegiswp/theme/archive/refs/heads/dev.zip"
+            }
+        },
+        {
+            "step": "activateTheme",
+            "themeSlug": "theme-dev"
+        },
+        {
+            "step": "importWxr",
+            "file": {
+                "resource": "url",
+                "url": "https://raw.githubusercontent.com/aegiswp/theme/dev/tests/data/sample-content.xml"
+            }
+        }
+    ]
+}

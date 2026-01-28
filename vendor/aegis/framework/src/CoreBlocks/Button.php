@@ -42,7 +42,7 @@ use function implode;
 use function in_array;
 use function str_contains;
 use function str_replace;
-use function wp_get_global_settings;
+use Aegis\Framework\ServiceProvider;
 
 // Implements the Button class to support button block rendering.
 
@@ -165,7 +165,7 @@ class Button implements Renderable
 
 		// Apply custom border styles from block attributes.
 		if (isset($attrs['style']['border']) || isset($attrs['borderColor'])) {
-			$global_settings = wp_get_global_settings();
+			$global_settings = ServiceProvider::get_global_settings();
 
 			// Remove any default border classes/styles to avoid conflicts.
 			foreach ($div_classes as $index => $class) {

@@ -22,23 +22,13 @@ declare(strict_types=1);
 // Includes the Composer-generated autoloader to make all dependencies available.
 require_once __DIR__ . '/vendor/autoload.php';
 
-// Load the Plugin Update Checker Library
-$pucPath = __DIR__ . '/inc/plugin-update-checker/plugin-update-checker.php';
-if (file_exists($pucPath)) {
-    require_once $pucPath;
-}
+// Configure the theme updater for GitHub releases (must be before Aegis::register).
+add_filter('aegis_theme_updater_config', function () {
+    return [
+        'repo' => 'aegiswp/theme',
+        'slug' => 'aegis',
+    ];
+});
 
 // Registers the Aegis Framework, initializing all its components and services.
 Aegis::register(__FILE__);
-
-// Initialize the GitHub Updater (Public Repo)
-if (class_exists('YahnisElsts\PluginUpdateChecker\v5\PucFactory')) {
-    $myUpdateChecker = YahnisElsts\PluginUpdateChecker\v5\PucFactory::buildUpdateChecker(
-        'https://github.com/aegiswp/theme',           // Public GitHub repo URL
-        get_stylesheet_directory() . '/style.css',    // Theme's style.css path
-        'aegis'                                        // Theme slug
-    );
-
-    // Enable GitHub release assets for stable version updates
-    $myUpdateChecker->getVcsApi()->enableReleaseAssets();
-}

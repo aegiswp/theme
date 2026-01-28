@@ -29,8 +29,7 @@ use Aegis\Framework\InlineAssets\Styles;
 use Aegis\Dom\CSS;
 use function apply_filters;
 use function array_merge;
-use function wp_get_global_settings;
-use function wp_get_global_styles;
+use Aegis\Framework\ServiceProvider;
 
 // Implements the CustomProperties class to support dynamic CSS property generation for the design system.
 class CustomProperties implements Styleable
@@ -61,8 +60,8 @@ class CustomProperties implements Styleable
 	 */
 	public function get_custom_properties(): array
 	{
-		$global_settings = wp_get_global_settings();
-		$global_styles = wp_get_global_styles();
+		$global_settings = ServiceProvider::get_global_settings();
+		$global_styles = ServiceProvider::get_global_styles();
 		$custom = $global_settings['custom'] ?? [];
 		$transition_property = $custom['transition']['property'] ?? 'all';
 		$transition_duration = $custom['transition']['duration'] ?? '0.3s';
