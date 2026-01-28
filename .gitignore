@@ -30,7 +30,7 @@ src/blocks/*/*-rtl.css
 # Modal block files (development only, not for distribution - RC 3)
 /src
 /patterns/modal
-vendor/aegis/framework/src/CoreBlocks/Modal.php
+
 
 # Composer dependencies
 # Note: composer.lock is tracked for reproducible builds
