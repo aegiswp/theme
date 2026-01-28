@@ -312,6 +312,49 @@ Aegis is a comprehensive Full Site Editing (FSE) theme that extends the capabili
 
 **Performance Optimized**: Every aspect of Aegis is engineered for speed. From conditional asset loading to optimized CSS delivery and minimal JavaScript footprint, the theme ensures fast page loads and excellent Core Web Vitals scores.
 
+### Enhanced Core Blocks
+
+Aegis extends the following WordPress core blocks with additional functionality, styling options, and performance optimizations:
+
+| Block | WordPress Block | Description |
+|-------|-----------------|-------------|
+| Button | `core/button` | Enhanced button styling with additional appearance controls and hover effects |
+| Buttons | `core/buttons` | Extended button group layouts with responsive alignment options |
+| Calendar | `core/calendar` | Improved calendar styling and DOM manipulation |
+| Code | `core/code` | Enhanced code block with syntax highlighting support |
+| Columns | `core/columns` | Extended column layouts with responsive controls |
+| Cover | `core/cover` | Advanced cover block with overlay and positioning options |
+| Details | `core/details` | Styled accordion/disclosure elements |
+| Group | `core/group` | Enhanced group block with additional layout options |
+| Heading | `core/heading` | Extended heading styles with gradient and decoration support |
+| Image | `core/image` | SVG icon support and advanced image controls |
+| List | `core/list` | Enhanced list styling with custom markers |
+| Navigation | `core/navigation` | Mega menu support and advanced navigation styles |
+| Navigation Submenu | `core/navigation-submenu` | Multi-column dropdown menu support |
+| Page List | `core/page-list` | Improved page list rendering |
+| Paragraph | `core/paragraph` | Extended text formatting and gradient support |
+| Post Author | `core/post-author` | Enhanced author display options |
+| Post Comments Form | `core/post-comments-form` | Styled comment form with accessibility improvements |
+| Post Content | `core/post-content` | Extended post content rendering |
+| Post Date | `core/post-date` | Flexible date formatting options |
+| Post Excerpt | `core/post-excerpt` | Enhanced excerpt display with length controls |
+| Post Featured Image | `core/post-featured-image` | Advanced featured image options with aspect ratios |
+| Post Template | `core/post-template` | Extended query loop template options |
+| Post Terms | `core/post-terms` | Enhanced taxonomy term display |
+| Post Title | `core/post-title` | Extended title styling options |
+| Query | `core/query` | Advanced query block configurations |
+| Query Pagination | `core/query-pagination` | Styled pagination with multiple layouts |
+| Query Title | `core/query-title` | Enhanced query title rendering |
+| Search | `core/search` | CSS-only search toggle with full-screen mode |
+| Shortcode | `core/shortcode` | Improved shortcode block rendering |
+| Social Link | `core/social-link` | Extended social icon options |
+| Social Links | `core/social-links` | Enhanced social links container styling |
+| Spacer | `core/spacer` | Responsive spacer with breakpoint controls |
+| Table of Contents | `core/table-of-contents` | Styled TOC with smooth scrolling |
+| Tag Cloud | `core/tag-cloud` | Enhanced tag cloud styling |
+| Template Part | `core/template-part` | Extended template part rendering |
+| Video | `core/video` | Advanced video block with lazy loading |
+
 ## Pattern Creation Guidelines
 
 For the construction of patterns pertaining to the default theme, kindly consult the guidelines delineated in the [block-patterns handbook](https://developer.wordpress.org/block-editor/reference-guides/block-api/block-patterns/).
