@@ -355,6 +355,16 @@ Aegis extends the following WordPress core blocks with additional functionality,
 | Template Part | `core/template-part` | Extended template part rendering |
 | Video | `core/video` | Advanced video block with lazy loading |
 
+### Custom Blocks
+
+Aegis includes the following custom blocks built specifically for the theme:
+
+| Block | Block Name | Description |
+|-------|------------|-------------|
+| Modal | `aegis/modal` | An accessible modal dialog with popup, off-canvas, bottom sheet, and fullscreen modes |
+| Slider | `aegis/slider` | A responsive slider/carousel with multiple slide types, transitions, and navigation options |
+| Slide | `aegis/slide` | An individual slide within a slider block with support for content, image, and video slide types |
+
 ### Block Variations
 
 Aegis includes the following custom block variations that extend WordPress core blocks with specialized functionality:
