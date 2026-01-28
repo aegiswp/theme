@@ -33,5 +33,5 @@
 		"format": "phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
 		"lint": "phpcs --standard=phpcs.xml.dist"
 	},
-	"version": "1.0.0-rc.2"
+	"version": "1.0.0-rc.3"
 }
