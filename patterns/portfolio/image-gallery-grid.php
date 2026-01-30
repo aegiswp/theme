@@ -3,7 +3,9 @@
  * Title: Portfolio Image Gallery Grid
  * Slug: image-gallery-grid
  * Categories: portfolio
- * ID: 546
+ * Keywords: portfolio, gallery, grid, images
+ * Description: A grid-based image gallery for portfolios.
+ * Viewport Width: 1280
  */
 ?>
 
