@@ -3,16 +3,16 @@
  * Title: Feature Images Two Column
  * Slug: images-two-column
  * Categories: feature
- * ID: 543
+ * Keywords: feature, images, two column, gallery, layout
+ * Description: A two-column feature section with staggered images.
+ * Viewport Width: 1280
  */
 ?>
 
-<!-- wp:group {"lock":{"move":false,"remove":false},"metadata":{"name":"Feature Images Two Column"},"align":"full","className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull is-style-surface"
-    style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)">
+<!-- wp:group {"lock":{"move":false,"remove":false},"metadata":{"name":"Feature Images Two Column","categories":["feature"],"patternName":"images-two-column"},"align":"full","className":"is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull is-style-default" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)">
     <!-- wp:columns {"verticalAlignment":"center","align":"wide","className":"is-reverse-on-mobile is-reverse-mobile","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md"},"blockGap":{"top":"var:preset|spacing|lg","left":"var:preset|spacing|lg"}},"u002du002dflex-direction":"column-reverse","u002du002dflex-direction-desktop":"row"}} -->
-    <div class="wp-block-columns alignwide are-vertically-aligned-center is-reverse-on-mobile is-reverse-mobile"
-        style="padding-top:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md)">
+    <div class="wp-block-columns alignwide are-vertically-aligned-center is-reverse-on-mobile is-reverse-mobile" style="padding-top:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md)">
         <!-- wp:column {"verticalAlignment":"center","style":{"position":{"all":"relative"},"overflow":{"all":"hidden"}},"layout":{"inherit":false}} -->
         <div class="wp-block-column is-vertically-aligned-center"><!-- wp:columns -->
             <div class="wp-block-columns"><!-- wp:column -->
