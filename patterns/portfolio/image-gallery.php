@@ -3,7 +3,9 @@
  * Title: Portfolio Image Gallery
  * Slug: image-gallery
  * Categories: portfolio
- * ID: 554
+ * Keywords: portfolio, gallery, images, showcase
+ * Description: An image gallery for portfolio showcases.
+ * Viewport Width: 1280
  */
 ?>
 
