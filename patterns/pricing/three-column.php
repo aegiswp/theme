@@ -3,7 +3,9 @@
  * Title: Pricing Three Column
  * Slug: three-column
  * Categories: pricing
- * ID: 616
+ * Keywords: pricing, three column, plans, table
+ * Description: A three-column pricing table.
+ * Viewport Width: 1280
  */
 ?>
 
