@@ -3,24 +3,22 @@
  * Title: Accordion Wide
  * Slug: accordion-wide
  * Categories: faq
- * ID: 525
+ * Keywords: faq, accordion, wide, questions, answers
+ * Description: A wide accordion FAQ section.
+ * Viewport Width: 1280
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["faq"],"patternName":"accordion-wide","name":"Accordion Wide"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|xs"},"margin":{"top":"0"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull"
-    style="margin-top:0;padding-top:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--xs)">
+<!-- wp:group {"metadata":{"categories":["faq"],"patternName":"accordion-wide","name":"Accordion Wide"},"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|xs"},"margin":{"top":"0"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="margin-top:0;padding-top:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--xs)">
     <!-- wp:group {"layout":{"type":"constrained","contentSize":"720px"}} -->
     <div class="wp-block-group">
         <!-- wp:paragraph {"align":"center","className":"is-style-sub-heading","textColor":"primary-500"} -->
-        <p
-            class="aligncenter has-text-align-center is-style-sub-heading has-primary-500-color has-text-color aligncenter">
-            FAQs</p>
+        <p class="aligncenter has-text-align-center is-style-sub-heading has-primary-500-color has-text-color aligncenter">FAQs</p>
         <!-- /wp:paragraph -->
 
         <!-- wp:heading {"textAlign":"center","style":{"u002du002dmax-width":"","spacing":{"margin":{"bottom":"var:preset|spacing|lg"}}}} -->
-        <h2 class="wp-block-heading has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--lg)">
-            Frequently Asked Questions</h2>
+        <h2 class="wp-block-heading has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--lg)">Frequently Asked Questions</h2>
         <!-- /wp:heading -->
     </div>
     <!-- /wp:group -->
@@ -30,8 +28,7 @@
         <!-- wp:column {"verticalAlignment":"top","style":{"position":{"all":"relative"}}} -->
         <div class="wp-block-column is-vertically-aligned-top">
             <!-- wp:details {"className":"is-style-surface is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
-            <details class="wp-block-details is-style-surface is-style-default"
-                style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
+            <details class="wp-block-details is-style-surface is-style-default" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
                 <summary>What version of PHP do I need?</summary>
                 <!-- wp:paragraph {"placeholder":"Type / to add a hidden block","fontSize":"16"} -->
                 <p class="has-16-font-size">The framework requires PHP 7.4 as a baseline. For optimal velocity and
@@ -43,8 +40,7 @@
             <!-- /wp:details -->
 
             <!-- wp:details {"className":"is-style-surface is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
-            <details class="wp-block-details is-style-surface is-style-default"
-                style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
+            <details class="wp-block-details is-style-surface is-style-default" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
                 <summary>How do I replace this default Home screen?</summary>
                 <!-- wp:paragraph {"placeholder":"Type / to add a hidden block","fontSize":"16"} -->
                 <p class="has-16-font-size">This layout is the default Home template. To replace it with your own
@@ -55,8 +51,7 @@
             <!-- /wp:details -->
 
             <!-- wp:details {"className":"is-style-surface is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
-            <details class="wp-block-details is-style-surface is-style-default"
-                style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
+            <details class="wp-block-details is-style-surface is-style-default" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
                 <summary>Where is the classic Customizer?</summary>
                 <!-- wp:paragraph {"placeholder":"Type / to add a hidden block","fontSize":"16"} -->
                 <p class="has-16-font-size">The Customizer has been retired in favor of the Site Editor (Appearance →
@@ -67,8 +62,7 @@
             <!-- /wp:details -->
 
             <!-- wp:details {"className":"is-style-surface is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
-            <details class="wp-block-details is-style-surface is-style-default"
-                style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
+            <details class="wp-block-details is-style-surface is-style-default" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
                 <summary>How to change the site logo?</summary>
                 <!-- wp:paragraph {"placeholder":"Type / to add a hidden block","className":"is-style-default","fontSize":"16"} -->
                 <p class="is-style-default has-16-font-size">Access the Header template part within the Site Editor.
@@ -80,8 +74,7 @@
             <!-- /wp:details -->
 
             <!-- wp:details {"className":"is-style-surface is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
-            <details class="wp-block-details is-style-surface is-style-default"
-                style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
+            <details class="wp-block-details is-style-surface is-style-default" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
                 <summary>How do I edit the navigation menu?</summary>
                 <!-- wp:paragraph {"placeholder":"Type / to add a hidden block","className":"is-style-default","fontSize":"16"} -->
                 <p class="is-style-default has-16-font-size">Menus are now managed via the Navigation Block. Click on
@@ -92,8 +85,7 @@
             <!-- /wp:details -->
 
             <!-- wp:details {"className":"is-style-surface is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
-            <details class="wp-block-details is-style-surface is-style-default"
-                style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
+            <details class="wp-block-details is-style-surface is-style-default" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
                 <summary>How do I change fonts and colors globally?</summary>
                 <!-- wp:paragraph {"placeholder":"Type / to add a hidden block","className":"is-style-default","fontSize":"16"} -->
                 <p class="is-style-default has-16-font-size">Open the Styles panel (the half-shaded circle icon) in the
@@ -104,8 +96,7 @@
             <!-- /wp:details -->
 
             <!-- wp:details {"className":"is-style-surface is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
-            <details class="wp-block-details is-style-surface is-style-default"
-                style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
+            <details class="wp-block-details is-style-surface is-style-default" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
                 <summary>How do I add custom SVG images?</summary>
                 <!-- wp:paragraph {"placeholder":"Type / to add a hidden block","className":"is-style-default","fontSize":"16"} -->
                 <p class="is-style-default has-16-font-size">Use the Icon Block to manage curated sets or the Inline SVG
@@ -120,8 +111,7 @@
             <!-- /wp:details -->
 
             <!-- wp:details {"className":"is-style-surface is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
-            <details class="wp-block-details is-style-surface is-style-default"
-                style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
+            <details class="wp-block-details is-style-surface is-style-default" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
                 <summary>How can I add animations to blocks?</summary>
                 <!-- wp:paragraph {"placeholder":"Type / to add a hidden block","className":"is-style-default","fontSize":"16"} -->
                 <p class="is-style-default has-16-font-size">Motion parameters are integrated directly into the block's
@@ -133,8 +123,7 @@
             <!-- /wp:details -->
 
             <!-- wp:details {"className":"is-style-surface is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
-            <details class="wp-block-details is-style-surface is-style-default"
-                style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
+            <details class="wp-block-details is-style-surface is-style-default" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
                 <summary>How do I create an FAQ accordion?</summary>
                 <!-- wp:paragraph {"placeholder":"Type / to add a hidden block","className":"is-style-default","fontSize":"16"} -->
                 <p class="is-style-default has-16-font-size">Deploy a pre-configured accordion instantly from the
@@ -150,8 +139,7 @@
         <!-- wp:column {"verticalAlignment":"top","style":{"position":{"all":"relative"}}} -->
         <div class="wp-block-column is-vertically-aligned-top">
             <!-- wp:details {"className":"is-style-surface is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
-            <details class="wp-block-details is-style-surface is-style-default"
-                style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
+            <details class="wp-block-details is-style-surface is-style-default" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
                 <summary>How can I display blog posts on the home page?</summary>
                 <!-- wp:paragraph {"placeholder":"Type / to add a hidden block","className":"is-style-default","fontSize":"16"} -->
                 <p class="is-style-default has-16-font-size">Inject dynamic content instantly by dragging a layout from
@@ -162,8 +150,7 @@
             <!-- /wp:details -->
 
             <!-- wp:details {"className":"is-style-surface is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
-            <details class="wp-block-details is-style-surface is-style-default"
-                style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
+            <details class="wp-block-details is-style-surface is-style-default" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
                 <summary>What is the difference between Templates and Pages?</summary>
                 <!-- wp:paragraph {"placeholder":"Type / to add a hidden block","className":"is-style-default","fontSize":"16"} -->
                 <p class="is-style-default has-16-font-size">Pages hold your specific content (like "About Us").
@@ -174,8 +161,7 @@
             <!-- /wp:details -->
 
             <!-- wp:details {"className":"is-style-surface is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
-            <details class="wp-block-details is-style-surface is-style-default"
-                style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
+            <details class="wp-block-details is-style-surface is-style-default" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
                 <summary>How do I edit the Header or Footer?</summary>
                 <!-- wp:paragraph {"placeholder":"Type / to add a hidden block","className":"is-style-default","fontSize":"16"} -->
                 <p class="is-style-default has-16-font-size">These are Template Parts. You can edit them contextually
@@ -186,8 +172,7 @@
             <!-- /wp:details -->
 
             <!-- wp:details {"className":"is-style-surface is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
-            <details class="wp-block-details is-style-surface is-style-default"
-                style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
+            <details class="wp-block-details is-style-surface is-style-default" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
                 <summary>Where do I find the pre-made layouts?</summary>
                 <!-- wp:paragraph {"placeholder":"Type / to add a hidden block","className":"is-style-default","fontSize":"16"} -->
                 <p class="is-style-default has-16-font-size">Open the Block Inserter (+) and switch to the Patterns tab.
@@ -198,8 +183,7 @@
             <!-- /wp:details -->
 
             <!-- wp:details {"className":"is-style-surface is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
-            <details class="wp-block-details is-style-surface is-style-default"
-                style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
+            <details class="wp-block-details is-style-surface is-style-default" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
                 <summary>Where do I add custom CSS?</summary>
                 <!-- wp:paragraph {"placeholder":"Type / to add a hidden block","className":"is-style-default","fontSize":"16"} -->
                 <p class="is-style-default has-16-font-size">Open the Styles panel, click the three dots menu, and
@@ -210,8 +194,7 @@
             <!-- /wp:details -->
 
             <!-- wp:details {"className":"is-style-surface is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
-            <details class="wp-block-details is-style-surface is-style-default"
-                style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
+            <details class="wp-block-details is-style-surface is-style-default" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
                 <summary>How do I set a different template for a specific page?</summary>
                 <!-- wp:paragraph {"placeholder":"Type / to add a hidden block","className":"is-style-default","fontSize":"16"} -->
                 <p class="is-style-default has-16-font-size">Inside the page editor, look for the Template setting in
@@ -222,8 +205,7 @@
             <!-- /wp:details -->
 
             <!-- wp:details {"className":"is-style-surface is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
-            <details class="wp-block-details is-style-surface is-style-default"
-                style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
+            <details class="wp-block-details is-style-surface is-style-default" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
                 <summary>How do I revert changes if I break a template?</summary>
                 <!-- wp:paragraph {"placeholder":"Type / to add a hidden block","className":"is-style-default","fontSize":"16"} -->
                 <p class="is-style-default has-16-font-size">If a template is modified, a blue dot appears next to it in
@@ -234,8 +216,7 @@
             <!-- /wp:details -->
 
             <!-- wp:details {"className":"is-style-surface is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
-            <details class="wp-block-details is-style-surface is-style-default"
-                style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
+            <details class="wp-block-details is-style-surface is-style-default" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
                 <summary>How can I save user dark mode preferences?</summary>
                 <!-- wp:paragraph {"placeholder":"Type / to add a hidden block","className":"is-style-default","fontSize":"16"} -->
                 <p class="is-style-default has-16-font-size">The system defaults to the visitor's OS setting
@@ -246,8 +227,7 @@
             <!-- /wp:details -->
 
             <!-- wp:details {"className":"is-style-surface is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
-            <details class="wp-block-details is-style-surface is-style-default"
-                style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
+            <details class="wp-block-details is-style-surface is-style-default" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
                 <summary>Does this theme require any plugins?</summary>
                 <!-- wp:paragraph {"placeholder":"Type / to add a hidden block","className":"is-style-default","fontSize":"16"} -->
                 <p class="is-style-default has-16-font-size">No. We operate on a strict zero-dependency architecture.
@@ -262,9 +242,7 @@
     <!-- /wp:columns -->
 
     <!-- wp:paragraph {"align":"center","className":"","style":{"typography":{"textDecoration":"none"},"spacing":{"margin":{"top":"var:preset|spacing|lg"}}},"fontSize":"14"} -->
-    <p class="aligncenter has-text-align-center has-14-font-size aligncenter"
-        style="margin-top:var(--wp--preset--spacing--lg);text-decoration:none">Question not answered above? <a
-            href="#">Contact us →</a></p>
+    <p class="aligncenter has-text-align-center has-14-font-size aligncenter" style="margin-top:var(--wp--preset--spacing--lg);text-decoration:none">Question not answered above? <a href="#">Contact us →</a></p>
     <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
