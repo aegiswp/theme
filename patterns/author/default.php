@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: List with Author
- * Slug: list-author
+ * Slug: default
  * Categories: author
  * Keywords: blog, list, author, posts, horizontal
  * Description: A horizontal list layout with author information.
@@ -9,7 +9,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["blog"],"patternName":"list-author","name":"List with Author"},"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"categories":["author"],"patternName":"default","name":"List with Author"},"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
     <!-- wp:query {"queryId":0,"query":{"perPage":5,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"align":"wide","style":{"spacing":{"blockGap":"0"}}} -->
     <div class="wp-block-query alignwide"><!-- wp:post-template {"layout":{"type":"default"}} -->
