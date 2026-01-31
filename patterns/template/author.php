@@ -8,4 +8,4 @@
  */
 ?>
 
-<!-- wp:pattern {"slug":"template-archive"} /-->
+<!-- wp:pattern {"slug":"author-default"} /-->
