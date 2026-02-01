@@ -1,7 +1,7 @@
 {
 	"name": "aegiswp/theme",
 	"type": "wordpress-theme",
-	"description": "Aegis Theme",
+	"description": "Aegis - Native Block Framework",
 	"keywords": [
 		"WordPress",
 		"Block",
