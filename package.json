@@ -4,17 +4,13 @@
   "description": "Aegis - Native Block Framework",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production",
-    "build:translate": "npm run translate && webpack --mode production",
-    "start": "webpack --watch --mode development",
-    "dev": "webpack --mode development",
-    "serve": "webpack serve --config webpack.config.js --mode development",
-    "lint:ts": "eslint 'src/**/*.{ts,tsx}'",
-    "lint:css": "stylelint '**/*.css' --config stylelintrc.json",
-    "type-check": "tsc --noEmit",
-    "format": "prettier --write 'src/**/*.{ts,tsx,css}'",
-    "translate": "node scripts/translate.js",
-    "translate:unix": "find languages -name \"*.po\" -exec msgfmt {} -o {}.mo \\; && rename 's/\\.po\\.mo$/\\.mo/' languages/*.po.mo"
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "lint:js": "wp-scripts lint-js",
+    "lint:css": "wp-scripts lint-style",
+    "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "format": "wp-scripts format",
+    "translate": "node scripts/translate.js"
   },
   "keywords": [
     "WordPress",
@@ -24,39 +20,17 @@
   "author": "Atmostfear Entertainment",
   "license": "GPL-3.0",
   "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/preset-env": "^7.25.4",
-    "@babel/preset-react": "^7.24.7",
-    "@babel/preset-typescript": "^7.28.5",
-    "@types/react": "^18.3.5",
-    "@types/react-dom": "^19.2.3",
-    "@typescript-eslint/eslint-plugin": "^8.5.0",
-    "@typescript-eslint/parser": "^8.5.0",
     "@wordpress/env": "^10.19.0",
-    "@wordpress/eslint-plugin": "^21.0.0",
-    "@wordpress/scripts": "^31.3.0",
-    "@wordpress/stylelint-config": "^23.22.0",
-    "babel-loader": "^9.1.3",
-    "browser-sync-webpack-plugin": "^2.3.0",
-    "css-loader": "^7.1.2",
-    "eslint": "^8.0.0",
-    "eslint-plugin-import": "^2.30.0",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "sass": "^1.78.0",
-    "sass-loader": "^16.0.1",
-    "style-loader": "^4.0.0",
-    "stylelint": "^16.0.0",
-    "stylelint-config-recommended": "^14.0.0",
-    "stylelint-config-standard": "^36.0.0",
-    "ts-loader": "^9.5.1",
-    "typescript": "^5.6.2",
-    "webpack": "^5.94.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-merge": "^6.0.1"
+    "@wordpress/scripts": "^31.3.0"
   },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^19.2.3"
+  "overrides": {
+    "qs": ">=6.14.1",
+    "glob": ">=10.5.0",
+    "webpack-dev-server": ">=5.2.1",
+    "lodash": ">=4.17.22",
+    "lodash-es": ">=4.17.23",
+    "eslint": ">=9.26.0",
+    "fast-xml-parser": ">=5.3.4"
   },
   "repository": {
     "type": "git",
