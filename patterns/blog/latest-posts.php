@@ -9,22 +9,20 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["blog"],"patternName":"latest-posts","name":"Latest Posts"},"align":"wide","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|xl","top":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
-    <!-- wp:heading {"textAlign":"center","className":"wp-block-heading","style":{"spacing":{"margin":{"bottom":"0","top":"0"},"padding":{"bottom":"var:preset|spacing|sm"}}}} -->
-    <h2 class="wp-block-heading has-text-align-center" style="margin-top:0;margin-bottom:0;padding-bottom:var(--wp--preset--spacing--sm)">Latest Posts</h2>
+<!-- wp:group {"metadata":{"categories":["blog"],"patternName":"latest-posts","name":"Latest Posts"},"align":"wide","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|xl","top":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
+<div class="wp-block-group alignwide has-animation" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl);animation-iteration-count:"><!-- wp:heading {"textAlign":"center","className":"wp-block-heading","style":{"spacing":{"margin":{"bottom":"0","top":"0"},"padding":{"bottom":"var:preset|spacing|sm"}}},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
+    <h2 class="wp-block-heading has-text-align-center has-animation" style="margin-top:0;margin-bottom:0;padding-bottom:var(--wp--preset--spacing--sm);animation-iteration-count:">Latest Posts</h2>
     <!-- /wp:heading -->
 
     <!-- wp:query {"queryId":0,"query":{"perPage":3,"pages":"","offset":"","postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"align":"wide","layout":{"inherit":false},"style":{"spacing":{"blockGap":"1.5em"}}} -->
     <div class="wp-block-query alignwide"><!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
-        <!-- wp:post-featured-image {"isLink":true,"style":{"aspectRatio":{"all":"16/9"},"objectFit":{"all":"cover"},"objectPosition":{"all":"center"},"height":{"all":"100%"},"width":{"all":"100%"}}} /-->
+        <!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","style":{"aspectRatio":{"all":""},"objectFit":{"all":""},"objectPosition":{"all":""},"height":{"all":"100%"},"width":{"all":""}}} /-->
 
-        <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs","margin":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-        <div class="wp-block-group" style="margin-top:0;margin-bottom:0">
-            <!-- wp:post-date {"metadata":{"bindings":{"datetime":{"source":"core/post-data","args":{"field":"date"}}}},"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"fontSize":"14"} /-->
+        <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs","margin":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap"},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
+        <div class="wp-block-group has-animation" style="margin-top:0;margin-bottom:0;animation-iteration-count:"><!-- wp:post-date {"metadata":{"bindings":{"datetime":{"source":"core/post-data","args":{"field":"date"}}}},"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"fontSize":"14"} /-->
 
-            <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"right":"3px","left":"3px"}}},"textColor":"neutral-200"} -->
-            <p class="has-neutral-200-color has-text-color" style="margin-top:0;margin-bottom:0;padding-right:3px;padding-left:3px">|</p>
+            <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"textColor":"neutral-200","animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
+            <p class="has-neutral-200-color has-text-color has-animation" style="margin-top:0;margin-bottom:0;animation-iteration-count:">|</p>
             <!-- /wp:paragraph -->
 
             <!-- wp:post-terms {"term":"category","style":{"typography":{"textDecoration":"none"},"spacing":{"margin":{"top":"0","bottom":"0"}}},"fontSize":"14"} /-->
