@@ -1,3 +1,5 @@
 node_modules/**
 vendor/**
+assets/**
+src/*/css/**
 *.min.css
