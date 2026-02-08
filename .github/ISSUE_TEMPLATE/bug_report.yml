@@ -46,27 +46,25 @@ body:
     attributes:
       label: Browser Console Logs
       description: Paste any red error text from F12 > Console here.
-  - type: group
-    id: environment
+  - type: markdown
     attributes:
-      label: WordPress Environment
-    body:
-      - type: input
-        id: wp-version
-        attributes:
-          label: WordPress Version
-        validations:
-          required: true
-      - type: input
-        id: theme-version
-        attributes:
-          label: Theme Version
-        validations:
-          required: true
-      - type: textarea
-        id: active-plugins
-        attributes:
-          label: Active Plugins
+      value: "### WordPress Environment"
+  - type: input
+    id: wp-version
+    attributes:
+      label: WordPress Version
+    validations:
+      required: true
+  - type: input
+    id: theme-version
+    attributes:
+      label: Theme Version
+    validations:
+      required: true
+  - type: textarea
+    id: active-plugins
+    attributes:
+      label: Active Plugins
   - type: textarea
     id: context
     attributes:
