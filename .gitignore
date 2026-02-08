@@ -27,8 +27,7 @@ src/blocks/*/*-rtl.css
 !src/blocks/*/block.json
 !src/blocks/*/render.php
 
-# Modal block files (development only, not for distribution - RC 3)
-/src
+# Modal block patterns (development only, not for distribution - RC 3)
 /patterns/modal/modal-video.php
 /patterns/modal/modal-newsletter.php
 /patterns/modal/modal-contact.php
@@ -67,6 +66,7 @@ Desktop.ini
 # IDE/project files
 .vscode/
 .idea/
+.windsurf/
 *.sublime-project
 *.sublime-workspace
 *.swp
