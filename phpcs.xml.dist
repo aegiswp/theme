@@ -55,6 +55,8 @@
 	<exclude-pattern>/vendor/*</exclude-pattern>
 	<exclude-pattern>/_playground/*</exclude-pattern>
 	<exclude-pattern>/_wordpress-org/*</exclude-pattern>
+	<exclude-pattern>/src/*/css/*</exclude-pattern>
+	<exclude-pattern>/src/*/js/*</exclude-pattern>
 
 	<rule ref="WordPress.CodeAnalysis.AssignmentInCondition.FoundInWhileCondition">
 		<exclude-pattern>*</exclude-pattern>
