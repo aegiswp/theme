@@ -6,6 +6,8 @@ extend-exclude = [
     "vendor/",
     "node_modules/",
     "assets/",
+    "src/*/css/",
+    "src/*/js/",
     "*.min.js",
     "*.min.css",
     "*.lock",
