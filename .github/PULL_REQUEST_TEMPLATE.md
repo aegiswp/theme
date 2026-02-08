@@ -41,4 +41,4 @@ Please go through this checklist and make sure your PR is ready for review.
 - [ ] I have tested my changes locally.
 - [ ] My changes are well-documented.
 - [ ] I have added my name to the CONTRIBUTORS.md file.
-- [ ] I have read the [CONTRIBUTING.md](https://github.com/aegiswp/theme/blob/develop/CONTRIBUTING.md) file.
+- [ ] I have read the [CONTRIBUTING.md](https://github.com/aegiswp/theme/blob/main/CONTRIBUTING.md) file.
