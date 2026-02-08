@@ -53,7 +53,13 @@ phpunit.xml.dist
 stylelintrc.json
 .typos.toml
 tests/
-src/
+
+# Block/editor source files (compiled output ships in src/blocks/*/index.js etc.)
+src/blocks/*/*.tsx
+src/blocks/*/*.ts
+src/blocks/*/*.scss
+src/editor/*.tsx
+src/editor/*.scss
 
 # Playground/WordPress.org specific
 _playground/
