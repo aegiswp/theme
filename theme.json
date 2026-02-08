@@ -652,7 +652,24 @@
               "fontStyle": "normal",
               "fontWeight": "300 900",
               "src": [
-                "file:./assets/fonts/lexend/lexend.woff2"
+                "file:./assets/fonts/lexend.woff2"
+              ]
+            }
+          ]
+        },
+        {
+          "fontFamily": "Lexend Deca, var(--wp--preset--font-family--lexend)",
+          "name": "Lexend Deca",
+          "slug": "lexend-deca",
+          "fontFace": [
+            {
+              "fontDisplay": "block",
+              "fontFamily": "Lexend Deca",
+              "fontStretch": "normal",
+              "fontStyle": "normal",
+              "fontWeight": "300 900",
+              "src": [
+                "file:./assets/fonts/lexend-deca.woff2"
               ]
             }
           ]
@@ -669,7 +686,7 @@
               "fontDisplay": "swap",
               "fontWeight": "100 900",
               "src": [
-                "file:./assets/fonts/jetbrains/jetbrains.woff2"
+                "file:./assets/fonts/jetbrains.woff2"
               ]
             }
           ]
@@ -830,7 +847,7 @@
       },
       "heading": {
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--lexend)",
+          "fontFamily": "var(--wp--preset--font-family--lexend-deca)",
           "fontWeight": "var(--wp--custom--font-weight--semi-bold)",
           "lineHeight": "1.4"
         },
@@ -1208,6 +1225,30 @@
     {
       "title": "Taxonomy Product Tag",
       "name": "taxonomy-product_tag"
+    },
+    {
+      "title": "Page: Cart",
+      "name": "page-cart"
+    },
+    {
+      "title": "Page: Checkout",
+      "name": "page-checkout"
+    },
+    {
+      "title": "Page: Checkout Multi-Step",
+      "name": "page-checkout-multi-step"
+    },
+    {
+      "title": "Order Confirmation",
+      "name": "order-confirmation"
+    },
+    {
+      "title": "Page: My Account",
+      "name": "page-my-account"
+    },
+    {
+      "title": "Page: Wishlist",
+      "name": "page-wishlist"
     }
   ],
   "templateParts": [
@@ -1225,6 +1266,11 @@
       "area": "footer",
       "name": "footer",
       "title": "Footer"
+    },
+    {
+      "area": "uncategorized",
+      "name": "mini-cart",
+      "title": "Mini Cart"
     }
   ]
 }
