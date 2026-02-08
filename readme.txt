@@ -46,12 +46,12 @@ Copyright 2018-2024 Thomas Jockin (https://thomasjockin.com/)
 License: SIL Open Font License, 1.1, https://opensource.org/licenses/OFL-1.1
 Source: https://github.com/googlefonts/lexend
 
+Lexend Deca Font
+Copyright 2018-2024 Thomas Jockin (https://thomasjockin.com/)
+License: SIL Open Font License, 1.1, https://opensource.org/licenses/OFL-1.1
+Source: https://github.com/googlefonts/lexend
+
 JetBrains Mono Font
 Copyright 2020 The JetBrains Mono Project Authors (https://github.com/JetBrains/JetBrainsMono)
 License: SIL Open Font License, 1.1, https://opensource.org/licenses/OFL-1.1
 Source: https://github.com/JetBrains/JetBrainsMono
-
-Outfit Font
-Copyright 2021 The Outfit Project Authors (https://github.com/Outfitio/Outfit-Fonts)
-License: SIL Open Font License, 1.1, https://opensource.org/licenses/OFL-1.1
-Source: https://github.com/Outfitio/Outfit-Fonts
