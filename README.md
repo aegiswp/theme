@@ -169,10 +169,11 @@ Aegis features a comprehensive fluid typography system with 22 font size presets
 
 **Font Families**
 
-| Name | Slug | Font Family | Weight Range |
-|------|------|-------------|-------------|
-| Lexend | `lexend` | `Lexend, sans-serif` | 300–900 |
-| JetBrains | `jetbrains` | `JetBrains, monospace` | 100–900 |
+| Name | Slug | Font Family | Weight Range | Usage |
+|------|------|-------------|-------------|-------|
+| Lexend | `lexend` | `Lexend, sans-serif` | 300–900 | Body |
+| Lexend Deca | `lexend-deca` | `Lexend Deca, sans-serif` | 300–900 | Headings |
+| JetBrains | `jetbrains` | `JetBrains, monospace` | 100–900 | Code |
 
 ### Shadow Presets
 
