@@ -45,23 +45,21 @@ body:
       description: e.g., VoiceOver (macOS/iOS), NVDA (Windows), Keyboard only.
     validations:
       required: true
-  - type: group
-    id: environment
+  - type: markdown
     attributes:
-      label: Environment Info
-    body:
-      - type: input
-        id: wp-version
-        attributes:
-          label: WordPress Version
-        validations:
-          required: true
-      - type: input
-        id: theme-version
-        attributes:
-          label: Theme Version (e.g., 1.0.1)
-        validations:
-          required: true
+      value: "### Environment Info"
+  - type: input
+    id: wp-version
+    attributes:
+      label: WordPress Version
+    validations:
+      required: true
+  - type: input
+    id: theme-version
+    attributes:
+      label: Theme Version (e.g., 1.0.1)
+    validations:
+      required: true
   - type: textarea
     id: media
     attributes:
