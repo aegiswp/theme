@@ -32,29 +32,27 @@ body:
     validations:
       required: false
 
-  - type: group
-    id: environment
+  - type: markdown
     attributes:
-      label: WordPress Environment (Optional)
-    body:
-      - type: input
-        id: wp-version
-        attributes:
-          label: WordPress Version
-        validations:
-          required: false
-      - type: input
-        id: theme-version
-        attributes:
-          label: Theme Version
-        validations:
-          required: false
-      - type: textarea
-        id: active-plugins
-        attributes:
-          label: Active Plugins
-        validations:
-          required: false
+      value: "### WordPress Environment (Optional)"
+  - type: input
+    id: wp-version
+    attributes:
+      label: WordPress Version
+    validations:
+      required: false
+  - type: input
+    id: theme-version
+    attributes:
+      label: Theme Version
+    validations:
+      required: false
+  - type: textarea
+    id: active-plugins
+    attributes:
+      label: Active Plugins
+    validations:
+      required: false
 
   - type: textarea
     id: context
