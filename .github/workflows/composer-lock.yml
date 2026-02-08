@@ -28,21 +28,7 @@ jobs:
           php-version: '8.3'
           tools: composer
 
-      - name: Check if composer.lock exists
-        id: check-lock
-        run: |
-          if [ -f composer.lock ]; then
-            echo "exists=true" >> $GITHUB_OUTPUT
-          else
-            echo "exists=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Generate composer.lock
-        if: steps.check-lock.outputs.exists == 'false'
-        run: composer update --no-install --no-interaction
-
       - name: Update composer.lock
-        if: steps.check-lock.outputs.exists == 'true'
         run: composer update --no-install --no-interaction
 
       - name: Commit composer.lock
