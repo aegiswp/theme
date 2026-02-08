@@ -15,6 +15,11 @@
 			"homepage": "https://github.com/aegiswp/theme/contributors.md"
 		}
 	],
+	"autoload": {
+		"psr-4": {
+			"Aegis\\": "src/"
+		}
+	},
 	"require": {
 		"php": ">=7.4"
 	},
