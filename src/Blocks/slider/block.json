@@ -1,0 +1,106 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aegis/slider",
+  "version": "1.0.0",
+  "title": "Slider",
+  "category": "design",
+  "description": "A responsive slider/carousel block powered by Splide.js with multiple layout and navigation options.",
+  "icon": "slides",
+  "textdomain": "aegis",
+  "keywords": [
+    "slider",
+    "carousel",
+    "slideshow",
+    "gallery",
+    "swipe"
+  ],
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "className": true,
+    "anchor": true,
+    "spacing": {
+      "blockGap": true
+    }
+  },
+  "attributes": {
+    "type": {
+      "type": "string",
+      "default": "slider",
+      "enum": [
+        "slider",
+        "marquee"
+      ]
+    },
+    "perPage": {
+      "type": "number",
+      "default": 3
+    },
+    "perMove": {
+      "type": "number",
+      "default": 1
+    },
+    "autoplay": {
+      "type": "boolean",
+      "default": false
+    },
+    "pauseOnHover": {
+      "type": "boolean",
+      "default": true
+    },
+    "loop": {
+      "type": "boolean",
+      "default": false
+    },
+    "drag": {
+      "type": "boolean",
+      "default": true
+    },
+    "showArrows": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDots": {
+      "type": "boolean",
+      "default": true
+    },
+    "speed": {
+      "type": "number",
+      "default": 400
+    },
+    "interval": {
+      "type": "number",
+      "default": 5000
+    },
+    "direction": {
+      "type": "string",
+      "default": "ltr",
+      "enum": [
+        "ltr",
+        "rtl",
+        "ttb"
+      ]
+    },
+    "height": {
+      "type": "string",
+      "default": ""
+    },
+    "breakpoints": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "editorScript": "file:index.js",
+  "editorStyle": "file:index.css",
+  "style": "file:style-index.css",
+  "viewScript": [
+    "file:view.js",
+    "splide",
+    "splide-autoscroll"
+  ],
+  "render": "file:render.php"
+}
