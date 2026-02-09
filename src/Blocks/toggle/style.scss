@@ -1,0 +1,142 @@
+/**
+ * Toggle Block - Frontend Styles
+ *
+ * @package Aegis
+ * @since   1.0.0
+ */
+
+.wp-block-aegis-toggle {
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	margin-bottom: 8px;
+
+	+ .wp-block-aegis-toggle {
+		margin-top: 0;
+	}
+}
+
+.aegis-toggle__header {
+	margin: 0;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+}
+
+.aegis-toggle__trigger {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	padding: 1rem 1.25rem;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	font: inherit;
+	color: inherit;
+	text-align: left;
+	gap: 0.75rem;
+	transition: background 0.15s ease;
+
+	&:hover {
+		background: rgba(0, 0, 0, 0.03);
+	}
+
+	// Focus fallback for older browsers (S3).
+	&:focus {
+		outline: 2px solid var(--wp--preset--color--primary, #0073aa);
+		outline-offset: -2px;
+	}
+
+	&:focus:not(:focus-visible) {
+		outline: none;
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--wp--preset--color--primary, #0073aa);
+		outline-offset: -2px;
+	}
+}
+
+.aegis-toggle__heading {
+	flex: 1;
+	font-weight: 600;
+}
+
+.aegis-toggle__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	flex-shrink: 0;
+	transition: transform 0.3s ease;
+
+	svg {
+		width: 20px;
+		height: 20px;
+		fill: currentColor;
+	}
+}
+
+// Icon position variants.
+.aegis-toggle--icon-left {
+	.aegis-toggle__trigger {
+		flex-direction: row-reverse;
+	}
+}
+
+// Open state.
+.aegis-toggle--open {
+	.aegis-toggle__icon {
+		transform: rotate(180deg);
+	}
+}
+
+.aegis-toggle--icon-plus {
+	&.aegis-toggle--open .aegis-toggle__icon {
+		transform: rotate(45deg);
+	}
+}
+
+// Content.
+.aegis-toggle__content {
+	&[hidden] {
+		display: none;
+	}
+}
+
+.aegis-toggle__body {
+	padding: 0 1.25rem 1rem;
+
+	> *:first-child {
+		margin-top: 0;
+	}
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+}
+
+// Reduced motion.
+@media (prefers-reduced-motion: reduce) {
+	.aegis-toggle__icon,
+	.aegis-toggle__trigger {
+		transition: none !important;
+	}
+
+	.aegis-toggle__content {
+		transition: none !important;
+	}
+}
+
+// High contrast.
+@media (forced-colors: active) {
+	.wp-block-aegis-toggle {
+		border: 1px solid CanvasText;
+	}
+
+	.aegis-toggle__trigger:focus,
+	.aegis-toggle__trigger:focus-visible {
+		outline: 2px solid Highlight;
+	}
+}
