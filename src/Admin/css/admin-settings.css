@@ -1,0 +1,1197 @@
+/**
+ * Aegis Admin Settings Styles
+ *
+ * @package Aegis
+ * @since   1.0.0
+ */
+
+/* Admin Page Container */
+.aegis-admin-page {
+	margin-left: -20px;
+	margin-top: -10px;
+}
+
+/* Top Bar - WordPress Dark Style */
+.aegis-top-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 16px;
+	height: 60px;
+	background: #1d2327;
+	border-bottom: 1px solid #2c3338;
+}
+
+.aegis-top-bar-left {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.aegis-top-bar-back {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: #fff;
+	text-decoration: none;
+	font-size: 13px;
+	padding: 8px 12px;
+	border-radius: 4px;
+	transition: background 0.2s ease;
+}
+
+.aegis-top-bar-back:hover {
+	background: rgba(255, 255, 255, 0.1);
+	color: #fff;
+}
+
+.aegis-top-bar-back .dashicons {
+	font-size: 20px;
+	width: 20px;
+	height: 20px;
+}
+
+.aegis-top-bar-title {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	color: #fff;
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.aegis-top-bar-title svg {
+	width: 24px;
+	height: 24px;
+	fill: #fff;
+}
+
+.aegis-top-bar-right {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.aegis-top-bar-link {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 8px 12px;
+	color: #a7aaad;
+	text-decoration: none;
+	font-size: 13px;
+	border-radius: 4px;
+	transition: all 0.2s ease;
+}
+
+.aegis-top-bar-link:hover {
+	color: #fff;
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.aegis-top-bar-link .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+}
+
+/* Page Tabs - Horizontal */
+.aegis-page-tabs {
+	display: flex;
+	align-items: center;
+	gap: 0;
+	padding: 0 24px;
+	background: #2c3338;
+	border-bottom: 1px solid #3c4349;
+}
+
+.aegis-page-tab {
+	display: inline-flex;
+	align-items: center;
+	padding: 14px 24px;
+	color: #a7aaad;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 500;
+	border-bottom: 2px solid transparent;
+	margin-bottom: -1px;
+	transition: all 0.2s ease;
+}
+
+.aegis-page-tab:hover {
+	color: #fff;
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.aegis-page-tab.active {
+	color: #fff;
+	border-bottom-color: #2271b1;
+}
+
+/* Settings Wrap */
+.aegis-settings-wrap {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 30px 24px;
+}
+
+/* Header */
+.aegis-settings-header {
+	margin-bottom: 30px;
+}
+
+.aegis-settings-header h1 {
+	font-size: 24px;
+	font-weight: 600;
+	margin: 0 0 8px;
+	color: #1e1e1e;
+}
+
+.aegis-settings-header p {
+	font-size: 14px;
+	color: #666;
+	margin: 0;
+}
+
+/* Notice Messages */
+.aegis-notice {
+	padding: 12px 16px;
+	border-radius: 6px;
+	margin-bottom: 20px;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.aegis-notice-success {
+	background: #d4edda;
+	color: #155724;
+	border: 1px solid #c3e6cb;
+}
+
+.aegis-notice-error {
+	background: #f8d7da;
+	color: #721c24;
+	border: 1px solid #f5c6cb;
+}
+
+/* Layout */
+.aegis-settings-layout {
+	display: grid;
+	grid-template-columns: 220px 1fr;
+	gap: 30px;
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+/* Navigation */
+.aegis-settings-nav {
+	background: #2c3338;
+	padding: 20px 0;
+	border-right: 1px solid #3c4349;
+}
+
+.aegis-nav-item {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 12px 20px;
+	color: #a7aaad;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 500;
+	transition: all 0.2s ease;
+	border-left: 3px solid transparent;
+}
+
+.aegis-nav-item:hover {
+	color: #fff;
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.aegis-nav-item.active {
+	color: #fff;
+	background: rgba(255, 255, 255, 0.1);
+	border-left-color: #2271b1;
+}
+
+.aegis-nav-item .dashicons {
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+	color: inherit;
+}
+
+/* Content */
+.aegis-settings-content {
+	padding: 30px;
+}
+
+/* Sections */
+.aegis-settings-section {
+	display: none;
+}
+
+.aegis-settings-section.active {
+	display: block;
+}
+
+.aegis-settings-section h2 {
+	font-size: 20px;
+	font-weight: 600;
+	margin: 0 0 8px;
+	color: #1e1e1e;
+}
+
+.aegis-settings-section > .description {
+	font-size: 14px;
+	color: #757575;
+	margin: 0 0 24px;
+}
+
+/* Settings Grid - Ollie Pro Style */
+.aegis-settings-grid {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	background: transparent;
+	margin-bottom: 16px;
+}
+
+/* Toggle Row - Ollie Pro Style */
+.aegis-toggle-card {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 16px 20px;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #e5e7eb;
+	border-radius: 0;
+	transition: background-color 0.2s ease;
+}
+
+.aegis-toggle-card:last-child {
+	border-bottom: none;
+}
+
+.aegis-toggle-card:hover {
+	background-color: #f6f7f7;
+}
+
+.aegis-toggle-card.aegis-toggle-active {
+	background-color: #f0f6fc;
+}
+
+/* Toggle Info with Icon */
+.aegis-toggle-info {
+	display: flex;
+	align-items: flex-start;
+	gap: 16px;
+	flex: 1;
+}
+
+.aegis-toggle-icon {
+	width: 40px;
+	height: 40px;
+	background: #f0f0f0;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.aegis-toggle-icon .dashicons {
+	font-size: 20px;
+	width: 20px;
+	height: 20px;
+	color: #1e1e1e;
+}
+
+.aegis-toggle-text h3 {
+	font-size: 14px;
+	font-weight: 600;
+	margin: 0 0 2px;
+	color: #1f2937;
+}
+
+.aegis-toggle-text p {
+	font-size: 13px;
+	color: #6b7280;
+	margin: 0;
+	line-height: 1.4;
+}
+
+/* Toggle Switch */
+.aegis-toggle {
+	position: relative;
+	display: inline-block;
+	width: 48px;
+	height: 28px;
+	flex-shrink: 0;
+}
+
+.aegis-toggle input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.aegis-toggle-slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #c0c0c0;
+	transition: 0.3s;
+	border-radius: 28px;
+}
+
+.aegis-toggle-slider:before {
+	position: absolute;
+	content: "";
+	height: 20px;
+	width: 20px;
+	left: 4px;
+	bottom: 4px;
+	background-color: #fff;
+	transition: 0.3s;
+	border-radius: 50%;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.aegis-toggle input:checked + .aegis-toggle-slider {
+	background-color: #007cba;
+}
+
+.aegis-toggle input:checked + .aegis-toggle-slider:before {
+	transform: translateX(20px);
+}
+
+.aegis-toggle input:focus + .aegis-toggle-slider {
+	box-shadow: 0 0 0 3px rgba(0, 124, 186, 0.25);
+}
+
+/* Footer */
+.aegis-settings-footer {
+	margin-top: 30px;
+	padding-top: 20px;
+	border-top: 1px solid #e0e0e0;
+}
+
+.aegis-settings-footer .button-primary {
+	padding: 8px 24px;
+	height: auto;
+	font-size: 14px;
+}
+
+/* Toolbar */
+.aegis-toolbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 15px;
+	margin-bottom: 20px;
+	padding: 15px;
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+}
+
+.aegis-toolbar-left {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.aegis-toolbar-right {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.aegis-search-input {
+	padding: 8px 12px !important;
+	border: 1px solid #ddd !important;
+	border-radius: 4px !important;
+	font-size: 14px !important;
+	min-width: 280px;
+	height: 36px !important;
+	box-sizing: border-box !important;
+	transition: border-color 0.2s ease;
+	background: #fff !important;
+}
+
+.aegis-search-input:focus {
+	outline: none;
+	border-color: #2271b1;
+}
+
+.aegis-export-btn,
+.aegis-import-btn {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.aegis-export-btn .dashicons,
+.aegis-import-btn .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+}
+
+/* Section Header - Ollie Pro Style */
+.aegis-section-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin-bottom: 24px;
+	padding-bottom: 0;
+	border-bottom: none;
+}
+
+.aegis-section-title {
+	flex: 1;
+}
+
+.aegis-section-title h2 {
+	margin: 0 0 8px 0;
+	font-size: 20px;
+	font-weight: 600;
+	color: #1f2937;
+}
+
+.aegis-section-title .description {
+	margin: 0;
+	color: #6b7280;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+/* Subsection titles */
+.aegis-subsection-title {
+	font-size: 14px;
+	font-weight: 600;
+	color: #1d2327;
+	margin: 24px 0 12px 0;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #eee;
+}
+
+.aegis-subsection-title:first-of-type {
+	margin-top: 20px;
+}
+
+.aegis-bulk-actions {
+	display: flex;
+	gap: 8px;
+}
+
+.aegis-bulk-actions .button {
+	font-size: 13px;
+	padding: 6px 16px;
+	border-radius: 6px;
+	border: 1px solid #e5e7eb;
+	background: #fff;
+	color: #374151;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.aegis-bulk-actions .button:hover {
+	background: #f9fafb;
+	border-color: #d1d5db;
+}
+
+/* Nav item search states */
+.aegis-nav-item.has-results {
+	background: rgba(34, 113, 177, 0.2);
+}
+
+.aegis-nav-item.no-results {
+	opacity: 0.5;
+}
+
+/* Plugin status badge */
+.aegis-plugin-status {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 11px;
+	padding: 2px 8px;
+	border-radius: 10px;
+	margin-left: 8px;
+}
+
+.aegis-plugin-status.active {
+	background: #d4edda;
+	color: #155724;
+}
+
+.aegis-plugin-status.inactive {
+	background: #f8d7da;
+	color: #721c24;
+}
+
+.aegis-plugin-status.not-installed {
+	background: #e2e3e5;
+	color: #6c757d;
+}
+
+/* Disabled toggle card */
+.aegis-toggle-card.aegis-toggle-disabled {
+	opacity: 0.6;
+	pointer-events: none;
+}
+
+.aegis-toggle-card.aegis-toggle-disabled .aegis-toggle-slider {
+	background-color: #ccc;
+	cursor: not-allowed;
+}
+
+/* Suboptions for integrations and blocks */
+.aegis-toggle-suboptions {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.aegis-toggle-subcard {
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #e5e7eb;
+	padding: 16px 20px 16px 56px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.aegis-toggle-subcard:last-child {
+	border-bottom: 1px solid #e5e7eb;
+}
+
+/* Pro feature styling */
+.aegis-toggle-subcard.aegis-pro-feature {
+	background: #fffbeb;
+}
+
+.aegis-toggle-subcard.aegis-pro-feature.aegis-toggle-disabled {
+	opacity: 0.7;
+}
+
+.aegis-toggle-subcard.aegis-pro-feature.aegis-toggle-disabled .aegis-toggle-slider {
+	background-color: #d1d5db;
+	cursor: not-allowed;
+}
+
+.aegis-pro-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 3px;
+	padding: 3px 8px;
+	background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+	color: #fff;
+	font-size: 9px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	border-radius: 3px;
+	margin-left: 8px;
+	white-space: nowrap;
+}
+
+.aegis-pro-badge .dashicons {
+	font-size: 10px;
+	width: 10px;
+	height: 10px;
+	line-height: 10px;
+}
+
+.aegis-toggle-subcard .aegis-toggle-info {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	flex: 1;
+}
+
+.aegis-toggle-subcard .aegis-toggle-icon {
+	width: 40px;
+	height: 40px;
+	min-width: 40px;
+	background: #f3f4f6;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.aegis-toggle-subcard .aegis-toggle-icon .dashicons {
+	font-size: 20px;
+	width: 20px;
+	height: 20px;
+	color: #6b7280;
+}
+
+.aegis-toggle-subcard .aegis-toggle-text {
+	flex: 1;
+}
+
+.aegis-toggle-subcard h3 {
+	font-size: 14px;
+	margin: 0;
+	font-weight: 500;
+	color: #1f2937;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.aegis-toggle-subcard p {
+	font-size: 13px;
+	margin: 4px 0 0 0;
+	color: #6b7280;
+	line-height: 1.4;
+}
+
+/* Main block toggle styling */
+.aegis-toggle-main {
+	background: transparent;
+	border-radius: 0;
+	margin-bottom: 0;
+	border-bottom: 1px solid #e5e7eb;
+}
+
+.aegis-toggle-main h3 {
+	font-size: 14px;
+	font-weight: 500;
+}
+
+/* Dashboard Styles - WordPress Editor Colors */
+.aegis-dashboard-wrap {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 40px 24px;
+	background: #fff;
+}
+
+.aegis-dashboard-hero {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 60px;
+	align-items: center;
+	margin-bottom: 60px;
+	padding: 40px;
+	background: #f0f0f0;
+	border-radius: 4px;
+	border: 1px solid #ddd;
+}
+
+.aegis-dashboard-label {
+	display: inline-block;
+	font-size: 13px;
+	font-weight: 600;
+	color: #1e1e1e;
+	margin-bottom: 16px;
+}
+
+.aegis-dashboard-hero-content h1 {
+	font-size: 32px;
+	font-weight: 700;
+	line-height: 1.2;
+	color: #1f2937;
+	margin: 0 0 16px;
+}
+
+.aegis-dashboard-hero-content p {
+	font-size: 15px;
+	line-height: 1.6;
+	color: #6b7280;
+	margin: 0 0 24px;
+}
+
+.aegis-dashboard-hero-actions {
+	display: flex;
+	gap: 12px;
+}
+
+.aegis-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 20px;
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: none;
+	border-radius: 8px;
+	transition: all 0.2s ease;
+}
+
+.aegis-btn .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+}
+
+.aegis-btn-primary {
+	background: #007cba;
+	color: #fff;
+	border: none;
+}
+
+.aegis-btn-primary:hover {
+	background: #006ba1;
+	color: #fff;
+}
+
+.aegis-btn-secondary {
+	background: #fff;
+	color: #1e1e1e;
+	border: 1px solid #ddd;
+}
+
+.aegis-btn-secondary:hover {
+	background: #f0f0f0;
+	color: #1e1e1e;
+	border-color: #c3c4c7;
+}
+
+.aegis-dashboard-hero-image {
+	display: flex;
+	justify-content: center;
+}
+
+.aegis-dashboard-preview {
+	width: 100%;
+	max-width: 400px;
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+}
+
+.aegis-preview-header {
+	height: 40px;
+	background: #2271b1;
+}
+
+.aegis-preview-content {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.aegis-preview-block {
+	height: 24px;
+	background: #e5e7eb;
+	border-radius: 4px;
+	width: 60%;
+}
+
+.aegis-preview-block-wide {
+	width: 100%;
+	height: 80px;
+}
+
+/* Dashboard Section */
+.aegis-dashboard-section {
+	margin-bottom: 40px;
+}
+
+.aegis-dashboard-section-header {
+	margin-bottom: 24px;
+}
+
+.aegis-dashboard-section-header h2 {
+	font-size: 24px;
+	font-weight: 600;
+	color: #1f2937;
+	margin: 0 0 8px;
+}
+
+.aegis-dashboard-section-header p {
+	font-size: 14px;
+	color: #6b7280;
+	margin: 0;
+}
+
+/* Dashboard Cards */
+.aegis-dashboard-cards {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 20px;
+}
+
+.aegis-dashboard-card {
+	background: #fff;
+	border: 1px solid #e5e7eb;
+	border-radius: 12px;
+	padding: 24px;
+	transition: all 0.2s ease;
+}
+
+.aegis-dashboard-card:hover {
+	border-color: #d1d5db;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.aegis-dashboard-card h3 {
+	font-size: 16px;
+	font-weight: 600;
+	color: #1f2937;
+	margin: 0 0 8px;
+}
+
+.aegis-dashboard-card p {
+	font-size: 13px;
+	line-height: 1.5;
+	color: #6b7280;
+	margin: 0 0 16px;
+}
+
+.aegis-card-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #2271b1;
+	text-decoration: none;
+}
+
+.aegis-card-link:hover {
+	color: #135e96;
+}
+
+/* Dashboard Footer */
+.aegis-dashboard-footer {
+	text-align: center;
+	padding-top: 40px;
+	border-top: 1px solid #e5e7eb;
+}
+
+.aegis-dashboard-footer p {
+	font-size: 13px;
+	color: #9ca3af;
+	margin: 0;
+}
+
+/* Responsive - must be last */
+@media (max-width: 782px) {
+	.aegis-settings-layout {
+		grid-template-columns: 1fr;
+	}
+
+	.aegis-settings-nav {
+		display: flex;
+		flex-wrap: wrap;
+		padding: 10px;
+		gap: 5px;
+	}
+
+	.aegis-nav-item {
+		padding: 10px 15px;
+		border-left: none;
+		border-radius: 4px;
+	}
+
+	.aegis-nav-item.active {
+		border-left: none;
+		background: rgba(255, 255, 255, 0.15);
+		color: #fff;
+	}
+
+	.aegis-toolbar {
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.aegis-toolbar-left,
+	.aegis-toolbar-right {
+		width: 100%;
+	}
+
+	.aegis-search-input {
+		width: 100%;
+	}
+
+	.aegis-section-header {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+	}
+
+	.aegis-dashboard-hero {
+		grid-template-columns: 1fr;
+		gap: 30px;
+		padding: 24px;
+	}
+
+	.aegis-dashboard-hero-content h1 {
+		font-size: 24px;
+	}
+
+	.aegis-dashboard-hero-actions {
+		flex-direction: column;
+	}
+
+	.aegis-dashboard-cards {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ==========================================================================
+   API Configuration Form - Sleek Design
+   ========================================================================== */
+
+.aegis-api-config {
+	margin-top: 16px;
+	background: #fff;
+	border: 1px solid #e5e7eb;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.aegis-api-config-disabled {
+	opacity: 0.7;
+}
+
+.aegis-api-config-disabled .aegis-api-field-input input,
+.aegis-api-config-disabled .aegis-api-field-input select {
+	background: #f3f4f6;
+	cursor: not-allowed;
+}
+
+.aegis-api-config-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 16px 20px;
+	background: linear-gradient(135deg, #1d2327 0%, #2c3338 100%);
+	border-bottom: 1px solid #3c4349;
+}
+
+.aegis-api-config-title {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.aegis-api-config-title .dashicons {
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+	color: #72aee6;
+}
+
+.aegis-api-section-header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 20px;
+	background: #f6f7f7;
+	border-bottom: 1px solid #e5e7eb;
+	font-size: 12px;
+	font-weight: 600;
+	color: #1d2327;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.aegis-api-section-header .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+	color: #2271b1;
+}
+
+.aegis-api-field-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 16px 20px;
+	border-bottom: 1px solid #f0f0f0;
+	transition: background-color 0.2s ease;
+}
+
+.aegis-api-field-row:hover {
+	background-color: #f9fafb;
+}
+
+.aegis-api-field-row:last-of-type {
+	border-bottom: 1px solid #e5e7eb;
+}
+
+.aegis-api-field-info {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	flex: 1;
+	min-width: 0;
+}
+
+.aegis-api-field-icon {
+	width: 36px;
+	height: 36px;
+	min-width: 36px;
+	background: #f3f4f6;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.aegis-api-field-icon .dashicons {
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+	color: #6b7280;
+}
+
+.aegis-api-field-text {
+	flex: 1;
+	min-width: 0;
+}
+
+.aegis-api-field-text label {
+	display: block;
+	font-size: 13px;
+	font-weight: 600;
+	color: #1f2937;
+	margin: 0 0 2px 0;
+}
+
+.aegis-api-field-text p {
+	font-size: 12px;
+	color: #6b7280;
+	margin: 0;
+	line-height: 1.4;
+}
+
+.aegis-api-field-input {
+	flex: 0 0 280px;
+	max-width: 280px;
+}
+
+.aegis-api-field-input input,
+.aegis-api-field-input select {
+	width: 100%;
+	padding: 10px 14px;
+	font-size: 13px;
+	border: 1px solid #d1d5db;
+	border-radius: 6px;
+	background: #fff;
+	color: #1f2937;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	box-sizing: border-box;
+}
+
+.aegis-api-field-input input:focus,
+.aegis-api-field-input select:focus {
+	outline: none;
+	border-color: #2271b1;
+	box-shadow: 0 0 0 3px rgba(34, 113, 177, 0.15);
+}
+
+.aegis-api-field-input input::placeholder {
+	color: #9ca3af;
+}
+
+.aegis-api-field-input input:disabled,
+.aegis-api-field-input select:disabled {
+	background: #f9fafb;
+	color: #9ca3af;
+	cursor: not-allowed;
+}
+
+.aegis-api-config-footer {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 16px 20px;
+	background: #f9fafb;
+	border-top: 1px solid #e5e7eb;
+}
+
+.aegis-api-config-footer .button {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 8px 16px;
+	font-size: 13px;
+	font-weight: 500;
+	border-radius: 6px;
+	transition: all 0.2s ease;
+}
+
+.aegis-api-config-footer .button .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+}
+
+.aegis-api-config-footer .button-primary {
+	background: linear-gradient(135deg, #2271b1 0%, #135e96 100%);
+	border-color: #135e96;
+	color: #fff;
+}
+
+.aegis-api-config-footer .button-primary:hover {
+	background: linear-gradient(135deg, #135e96 0%, #0a4b78 100%);
+	border-color: #0a4b78;
+}
+
+.aegis-api-pro-notice {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 10px 16px;
+	background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+	border: 1px solid #f59e0b;
+	border-radius: 6px;
+	font-size: 13px;
+	font-weight: 500;
+	color: #92400e;
+}
+
+.aegis-api-pro-notice .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+	color: #d97706;
+}
+
+/* Responsive API Config */
+@media (max-width: 782px) {
+	.aegis-api-field-row {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 12px;
+	}
+
+	.aegis-api-field-input {
+		flex: none;
+		max-width: none;
+		width: 100%;
+	}
+
+	.aegis-api-config-footer {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.aegis-api-config-footer .button {
+		justify-content: center;
+	}
+}
