@@ -4,12 +4,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aegis 1.0.0-rc.2\n"
 "Report-Msgid-Bugs-To: https://github.com/aegiswp/theme/issues\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: Alex de Borba <mail@alexdeborba.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-01-19T10:22:00-05:00\n"
+"POT-Creation-Date: 2026-02-09T02:38:00-07:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: aegis\n"
@@ -19,7 +19,7 @@ msgid "Aegis"
 msgstr ""
 
 #. Theme URI of the theme
-msgid "https://www.atmostfear-entertainment.com/aegis/"
+msgid "https://wwww.atmostfear-entertainment.com/aegis/"
 msgstr ""
 
 #. Description of the theme
@@ -31,148 +31,2548 @@ msgid "Atmostfear Entertainment"
 msgstr ""
 
 #. Author URI of the theme
-msgid "https://www.atmostfear-entertainment.com/"
+msgid "https://wwww.atmostfear-entertainment.com/"
 msgstr ""
 
-#: patterns/utility/utility-search-toggle.php:23
-msgid "Search this site"
+#: vendor/aegis/framework/src/DesignSystem/SkipLink.php:93
+msgid "Skip to content"
 msgstr ""
 
-#: patterns/utility/utility-search-toggle.php:23
-msgid "Search"
+#: vendor/aegis/framework/src/DesignSystem/BuilderNotice.php:137
+msgid "Unsupported Page Builder Detected"
 msgstr ""
 
-#: patterns/grid-boxed.php:27
-#: patterns/single-column.php:26
-#: patterns/blog/grid-boxed.php:43
-#: patterns/blog/single-column.php:49
-msgid "Add text or blocks that will display when a query returns no results."
+#: vendor/aegis/framework/src/DesignSystem/BuilderNotice.php:140
+msgid "The following page builder(s) are active: %s. Aegis is a native block theme and does not support third-party page builders. For the best experience, please use the WordPress Block Editor (Gutenberg)."
 msgstr ""
 
-#: patterns/faq/accordion-wide.php:36
-#: patterns/faq/accordion-wide.php:49
-#: patterns/faq/accordion-wide.php:61
-#: patterns/faq/accordion-wide.php:73
-msgid "Type / to add a hidden block"
+#: vendor/aegis/framework/src/DesignSystem/BuilderNotice.php:144
+msgid "Dismiss permanently"
 msgstr ""
 
-#. Common translatable strings
-msgid "Home"
+#: vendor/aegis/framework/src/DesignSystem/SvgUpload.php:393
+msgid "You do not have permission to upload SVG files."
 msgstr ""
 
-msgid "About"
+#: vendor/aegis/framework/src/DesignSystem/SvgUpload.php:406
+msgid "Could not read SVG file."
 msgstr ""
 
-msgid "Contact"
+#: vendor/aegis/framework/src/DesignSystem/SvgUpload.php:415
+msgid "Could not decompress SVGZ file."
 msgstr ""
 
-msgid "Blog"
+#: vendor/aegis/framework/src/DesignSystem/SvgUpload.php:423
+msgid "SVG file failed security validation."
 msgstr ""
 
-msgid "Services"
+#: vendor/aegis/framework/src/CoreBlocks/Heading.php:125
+msgid "Search Results"
 msgstr ""
 
-msgid "Portfolio"
+#: vendor/aegis/framework/src/CoreBlocks/Heading.php:129
+msgid "Search results for: "
 msgstr ""
 
-msgid "Features"
+#: vendor/aegis/framework/src/CoreBlocks/PostExcerpt.php:133
+msgid "this post"
 msgstr ""
 
-msgid "Pricing"
+#: vendor/aegis/framework/src/CoreBlocks/PostExcerpt.php:134
+msgid " about "
 msgstr ""
 
-msgid "Team"
+#: vendor/aegis/framework/src/CoreBlocks/PostTitle.php:69
+msgid "Latest Posts"
 msgstr ""
 
-msgid "Testimonials"
+#: vendor/aegis/framework/src/CoreBlocks/PostTerms.php:166
+msgid "All"
 msgstr ""
 
-msgid "FAQ"
-msgstr ""
-
-msgid "Gallery"
-msgstr ""
-
-msgid "Read More"
-msgstr ""
-
-msgid "Learn More"
-msgstr ""
-
-msgid "Get Started"
-msgstr ""
-
-msgid "Subscribe"
-msgstr ""
-
-msgid "Submit"
-msgstr ""
-
-msgid "Send Message"
-msgstr ""
-
-msgid "View All"
-msgstr ""
-
-msgid "Back to Top"
-msgstr ""
-
-msgid "Previous"
-msgstr ""
-
-msgid "Next"
-msgstr ""
-
-msgid "Page"
-msgstr ""
-
-msgid "of"
-msgstr ""
-
-msgid "Posts"
-msgstr ""
-
-msgid "Categories"
-msgstr ""
-
-msgid "Tags"
-msgstr ""
-
+#: vendor/aegis/framework/src/CoreBlocks/QueryTitle.php:112
 msgid "Archive"
 msgstr ""
 
+#: vendor/aegis/framework/src/CoreBlocks/TableOfContents.php:80
+msgid "Table of Contents"
+msgstr ""
+
+#: vendor/aegis/framework/src/CoreBlocks/TableOfContents.php:81
+msgid "Contents"
+msgstr ""
+
+#: vendor/aegis/framework/src/CoreBlocks/TableOfContents.php:82
+msgid "Table of contents"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockVariations/Icon.php:236
+msgid " icon"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockVariations/Newsletter.php:98
+msgid "Newsletter signup"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/CopyToClipboard.php:88
+msgid "Copy to clipboard"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/CopyToClipboard.php:89
+msgid "Copied!"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:173
+msgid "No posts found matching your criteria."
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:313
+msgid "Search..."
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:313
+msgid "Search"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:487
+msgid "Equals (=)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:488
+msgid "Not Equals (!=)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:489
+msgid "Greater Than (>)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:490
+msgid "Greater or Equal (>=)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:491
+msgid "Less Than (<)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:492
+msgid "Less or Equal (<=)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:493
+msgid "Contains (LIKE)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:494
+msgid "Not Contains (NOT LIKE)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:495
+msgid "In List (IN)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:496
+msgid "Not In List (NOT IN)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:497
+msgid "Between (BETWEEN)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:498
+msgid "Not Between (NOT BETWEEN)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:499
+msgid "Exists (EXISTS)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:500
+msgid "Not Exists (NOT EXISTS)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:513
+msgid "Text (CHAR)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:514
+msgid "Number (NUMERIC)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:515
+msgid "Decimal (DECIMAL)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:516
+msgid "Date (DATE)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:517
+msgid "Date & Time (DATETIME)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:518
+msgid "Time (TIME)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:519
+msgid "Signed Integer (SIGNED)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:520
+msgid "Unsigned Integer (UNSIGNED)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:533
+msgid "Default"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:534
+msgid "Title"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:535
+msgid "Last Modified"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:536
+msgid "Comment Count"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:537
+msgid "Menu Order"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:538
 msgid "Author"
 msgstr ""
 
-msgid "Date"
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:539
+msgid "Slug (Name)"
 msgstr ""
 
-msgid "Comments"
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:540
+msgid "Parent"
 msgstr ""
 
-msgid "Leave a Comment"
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:541
+msgid "Random"
 msgstr ""
 
-msgid "Posted on"
+#: vendor/aegis/framework/src/Integrations/AdvancedCustomFields.php:191
+msgid "ACF Field"
 msgstr ""
 
-msgid "By"
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:74
+msgid "Aegis"
 msgstr ""
 
-msgid "in"
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:85
+msgid "Conditional Logic"
 msgstr ""
 
-msgid "No comments"
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:228
+msgid "Screen Size"
 msgstr ""
 
-msgid "One comment"
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:228
+msgid "Hide blocks on mobile, tablet, or desktop."
 msgstr ""
 
-msgid "% comments"
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:229
+msgid "Custom Breakpoints"
 msgstr ""
 
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:229
+msgid "Define custom min/max width breakpoints."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:230
+msgid "Browser & Device"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:230
+msgid "Target specific browsers and devices."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:240
+msgid "Reduced Motion"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:240
+msgid "Hide content for users who prefer reduced motion."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:241
+msgid "Screen Reader Only"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:241
+msgid "Make content visually hidden but accessible."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:242
+msgid "Color Scheme"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:242
+msgid "Show content only in light or dark mode."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:243
+msgid "High Contrast"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:243
+msgid "Hide content in high contrast mode."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:244
+msgid "Forced Colors"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:244
+msgid "Hide content in Windows High Contrast mode."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:254
+msgid "User Status"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:254
+msgid "Show/hide content for logged in or logged out users."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:255
+msgid "User Role"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:255
+msgid "Show/hide content based on user roles."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:265
+msgid "Date & Time"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:265
+msgid "Schedule content to show/hide at specific times."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:347
+msgid "Settings saved successfully."
+msgstr ""
+
+#: src/Checkout/MultiStep.php:56
+msgid "Continue to Payment "
+msgstr ""
+
+#: src/Checkout/MultiStep.php:57
+msgid "Review Order "
+msgstr ""
+
+#: src/blocks/modal/render.php:67
+msgid "Open Modal"
+msgstr ""
+
+#: src/blocks/modal/render.php:156
+msgid "Close modal"
+msgstr ""
+
+#: src/blocks/modal/render.php:180
+msgid "Modal dialog"
+msgstr ""
+
+#: src/blocks/slider/render.php:42
+msgid "carousel"
+msgstr ""
+
+#: src/blocks/slider/render.php:43
+msgid "Slider"
+msgstr ""
+
+#: src/blocks/toggle/index.tsx:45
+msgid "Toggle Settings"
+msgstr ""
+
+#: src/blocks/toggle/index.tsx:49
+msgid "Heading Tag"
+msgstr ""
+
+#: src/blocks/toggle/index.tsx:63
+msgid "Open by Default"
+msgstr ""
+
+#: src/blocks/toggle/index.tsx:70
+msgid "Icon Position"
+msgstr ""
+
+#: src/blocks/toggle/index.tsx:73
+msgid "Left"
+msgstr ""
+
+#: src/blocks/toggle/index.tsx:74
+msgid "Right"
+msgstr ""
+
+#: src/blocks/toggle/index.tsx:80
+msgid "Icon Type"
+msgstr ""
+
+#: src/blocks/toggle/index.tsx:83
+msgid "Chevron"
+msgstr ""
+
+#: src/blocks/toggle/index.tsx:84
+msgid "Plus/Minus"
+msgstr ""
+
+#: src/blocks/toggle/index.tsx:85
+msgid "Arrow"
+msgstr ""
+
+#: src/blocks/toggle/index.tsx:91
+msgid "Animation Duration (ms)"
+msgstr ""
+
+#: src/blocks/toggle/index.tsx:100
+msgid "Allow Multiple Open"
+msgstr ""
+
+#: src/blocks/toggle/index.tsx:130
+msgid "Toggle heading"
+msgstr ""
+
+#: src/blocks/toggle-content/index.tsx:22
+msgid "Toggle content"
+msgstr ""
+
+#: src/blocks/video/index.tsx:48
+msgid "Video Settings"
+msgstr ""
+
+#: src/blocks/video/index.tsx:50
+msgid "Autoplay"
+msgstr ""
+
+#: src/blocks/video/index.tsx:56
+msgid "Autoplay requires the video to be muted."
+msgstr ""
+
+#: src/blocks/video/index.tsx:60
+msgid "Loop"
+msgstr ""
+
+#: src/blocks/video/index.tsx:67
+msgid "Muted"
+msgstr ""
+
+#: src/blocks/video/index.tsx:74
+msgid "Show Controls"
+msgstr ""
+
+#: src/blocks/video/index.tsx:81
+msgid "Plays Inline"
+msgstr ""
+
+#: src/blocks/video/index.tsx:88
+msgid "Preload"
+msgstr ""
+
+#: src/blocks/video/index.tsx:92
+msgid "Auto"
+msgstr ""
+
+#: src/blocks/video/index.tsx:93
+msgid "Metadata"
+msgstr ""
+
+#: src/blocks/video/index.tsx:94
+msgid "None"
+msgstr ""
+
+#: src/blocks/video/index.tsx:100
+msgid "Caption"
+msgstr ""
+
+#: src/blocks/video/index.tsx:112
+msgid "Poster Image"
+msgstr ""
+
+#: src/blocks/video/index.tsx:119
+msgid "Poster preview"
+msgstr ""
+
+#: src/blocks/video/index.tsx:129
+msgid "Replace Poster"
+msgstr ""
+
+#: src/blocks/video/index.tsx:133
+msgid "Select Poster"
+msgstr ""
+
+#: src/blocks/video/index.tsx:142
+msgid "Remove"
+msgstr ""
+
+#: src/blocks/video/index.tsx:155
+msgid "Select Video"
+msgstr ""
+
+#: src/editor/video-editor.tsx:45
+msgid "Video"
+msgstr ""
+
+#: src/editor/video-editor.tsx:46
+msgid "YouTube"
+msgstr ""
+
+#: src/editor/video-editor.tsx:47
+msgid "Vimeo"
+msgstr ""
+
+#: src/editor/video-editor.tsx:48
+msgid "Audio"
+msgstr ""
+
+#: src/editor/video-editor.tsx:49
+msgid "Bunny.net"
+msgstr ""
+
+#: src/editor/video-editor.tsx:120
+msgid "Choose a video type to get started."
+msgstr ""
+
+#: src/editor/video-editor.tsx:125
+msgid "or"
+msgstr ""
+
+#: src/editor/video-editor.tsx:130
+msgid "Select media"
+msgstr ""
+
+#: src/editor/video-editor.tsx:180
+msgid "YouTube Video"
+msgstr ""
+
+#: src/editor/video-editor.tsx:182
+msgid "Enter a YouTube video URL."
+msgstr ""
+
+#: src/editor/video-editor.tsx:190
+msgid "Embed"
+msgstr ""
+
+#: src/editor/video-editor.tsx:195
+msgid "Back"
+msgstr ""
+
+#: src/editor/video-editor.tsx:220
+msgid "Vimeo Video"
+msgstr ""
+
+#: src/editor/video-editor.tsx:222
+msgid "Enter a Vimeo video URL."
+msgstr ""
+
+#: src/editor/video-editor.tsx:280
+msgid "Bunny.net Stream"
+msgstr ""
+
+#: src/editor/video-editor.tsx:282
+msgid "Enter your Bunny.net Stream details."
+msgstr ""
+
+#: src/editor/video-editor.tsx:290
+msgid "Library ID"
+msgstr ""
+
+#: src/editor/video-editor.tsx:300
+msgid "Video ID"
+msgstr ""
+
+#: src/editor/video-editor.tsx:350
+msgid "Pro"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:807
+msgid "Dashboard"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:808
+msgid "Welcome to the Aegis Native Block Framework. Get started with the resources below."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:815
+msgid "Getting Started"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:819
+msgid "Quick Links"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:823
+msgid "Theme Info"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:830
+msgid "Learn the basics of the Aegis Native Block Framework."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:839
+msgid "Site Editor"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:840
+msgid "Customize your site templates, styles, and global settings using the WordPress Site Editor."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:843
+msgid "Open"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:852
+msgid "Templates"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:853
+msgid "Create and manage page templates for your site."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:856
+msgid "Manage"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:865
+msgid "Pattern Library"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:866
+msgid "Browse and insert pre-designed patterns to quickly build beautiful pages."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:869
+msgid "Browse"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:878
+msgid "Global Styles"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:879
+msgid "Customize colors, typography, and spacing across your entire site."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:882
+msgid "Customize"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:889
+msgid "Jump to commonly used settings and tools."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:898
+msgid "Conditionals"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:899
+msgid "Control block visibility based on user roles, schedules, and more."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:902
+msgid "Configure"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:911
+msgid "Blocks"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:912
+msgid "Enable or disable blocks like Modal, Slider, and Toggle."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:924
+msgid "Integrations"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:925
+msgid "Connect with WooCommerce, LearnDash, and other popular plugins."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:928
+msgid "View"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:935
+msgid "Theme Information"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:935
+msgid "Details about your current theme installation."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:944
+msgid "Theme Version"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:956
+msgid "WordPress Version"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:968
+msgid "PHP Version"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:998
+msgid "Enable or disable conditional logic features for the block editor."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1011
+msgid "Visibility"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1015
+msgid "Accessibility"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1019
+msgid "User"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1023
+msgid "Schedule"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1030
+msgid "Visibility Controls"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1030
+msgid "Control block visibility based on screen size and device."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1041
+msgid "Accessibility Controls"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1041
+msgid "Respect user accessibility preferences."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1045
+msgid "Make content visible only to screen readers."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1054
+msgid "User Controls"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1054
+msgid "Control visibility based on user status and role."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1057
+msgid "Show content to logged-in or logged-out users."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1058
+msgid "Show content to specific user roles."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1064
+msgid "Schedule Controls"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1064
+msgid "Control visibility based on date and time."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1067
+msgid "Show content during specific dates and times."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1072
+msgid "Save Settings"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1098
+msgid "Enable or disable third-party plugin integrations."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1111
+msgid "E-Commerce"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1115
+msgid "LMS"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1119
+msgid "Forms & Booking"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1123
+msgid "SEO"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1127
+msgid "Developer"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1131
+msgid "Performance"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1138
+msgid "E-Commerce Integrations"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1138
+msgid "Integrations for e-commerce plugins."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1141
+msgid "WooCommerce"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1141
+msgid "E-commerce platform for selling products and services."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1147
+msgid "Learning Management Systems"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1147
+msgid "Integrations for online course and learning platforms."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1150
+msgid "LearnDash"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1150
+msgid "Powerful LMS plugin for creating and selling courses."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1151
+msgid "LifterLMS"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1151
+msgid "Complete LMS solution for course creation and membership."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1152
+msgid "Sensei LMS"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1152
+msgid "Learning management by WooCommerce."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1158
+msgid "Integrations for form builders and booking systems."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1161
+msgid "Fluent Forms"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1161
+msgid "Fast and lightweight form builder plugin."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1162
+msgid "Fluent Booking"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1162
+msgid "Appointment and booking management system."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1168
+msgid "Integrations for search engine optimization plugins."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1171
+msgid "Rank Math"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1171
+msgid "SEO plugin for optimizing your content."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1177
+msgid "Developer Tools"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1177
+msgid "Integrations for developer-focused plugins."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1180
+msgid "Advanced Custom Fields"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1180
+msgid "Custom fields and meta boxes for WordPress."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1181
+msgid "Code Block Pro"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1181
+msgid "Syntax highlighting for code blocks."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1182
+msgid "Syntax Highlighting Code Block"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1182
+msgid "Alternative syntax highlighting for code."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1188
+msgid "Integrations for performance and CDN plugins."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1191
+msgid "Bunny CDN"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1191
+msgid "Content delivery network for faster loading."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1222
+msgid "Enable or disable blocks enhancements provided by the framework."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1235
+msgid "Accordion"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1239
+msgid "Counter"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1243
+msgid "Icon"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1247
+msgid "Marquee"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1251
+msgid "Modal"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1255
+msgid "Newsletter"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1259
+msgid "Query Loop"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1267
+msgid "SVG"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1271
+msgid "Toggle"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1275
+msgid "Utilities"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1279
+msgid "Video"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1286
+msgid "Accordion Block"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1286
+msgid "List block variation that transforms lists into semantic accordions."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1289
+msgid "Open First Item"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1289
+msgid "Automatically expand the first accordion item on load."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1290
+msgid "Open All Items"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1290
+msgid "Expand all accordion items by default."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1291
+msgid "Toggle Icon"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1291
+msgid "Show expand/collapse icon indicator."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1292
+msgid "Border Separator"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1292
+msgid "Show border separator between title and content."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1293
+msgid "FAQ Schema"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1293
+msgid "Add FAQPage structured data markup for SEO."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1294
+msgid "Single Open Mode"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1294
+msgid "Close other items when one is opened."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1301
+msgid "Counter Block"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1301
+msgid "Paragraph block variation that animates numbers with counting effects."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1304
+msgid "Prefix Text"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1304
+msgid "Display text before the counter number (e.g. currency symbol)."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1305
+msgid "Suffix Text"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1305
+msgid "Display text after the counter number (e.g. percentage sign)."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1306
+msgid "Start Delay"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1306
+msgid "Delay before the counting animation begins."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1307
+msgid "Custom Duration"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1307
+msgid "Control the speed of the counting animation."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1308
+msgid "Scroll Trigger"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1308
+msgid "Start animation when the counter scrolls into view."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1315
+msgid "Icon Block"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1315
+msgid "Image block variation that transforms images into inline SVG icons."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1318
+msgid "Gradient Colors"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1318
+msgid "Apply gradient colors to icons using CSS mask technique."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1319
+msgid "Animations"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1319
+msgid "Add animation effects to icon elements."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1320
+msgid "Custom SVG"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1320
+msgid "Allow custom SVG string input for icons."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1321
+msgid "Icon Gallery"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1321
+msgid "Display all available icons in a grid gallery view."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1322
+msgid "Responsive Sizing"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1322
+msgid "Different icon sizes per breakpoint."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1323
+msgid "REST API Endpoint"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1323
+msgid "Expose icon sets via REST API for editor integration."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1330
+msgid "Marquee Block"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1330
+msgid "Group block variation that creates CSS-powered infinite scrolling banners."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1333
+msgid "Pause on Hover"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1333
+msgid "Pause the scrolling animation on hover and focus."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1334
+msgid "Direction Control"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1334
+msgid "Set scroll direction (left-to-right or right-to-left)."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1335
+msgid "Speed Control"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1335
+msgid "Adjust the animation speed of the scrolling content."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1336
+msgid "Repeat Items"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1336
+msgid "Control how many times items are cloned for seamless looping."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1337
+msgid "Responsive Speed"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1337
+msgid "Different animation speeds for mobile and desktop."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1344
+msgid "Modal Block"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1344
+msgid "Popup/modal block with various trigger types."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1347
+msgid "Button Trigger"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1347
+msgid "Open modal on button click."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1348
+msgid "Icon Trigger"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1348
+msgid "Open modal on icon click."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1349
+msgid "Text Trigger"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1349
+msgid "Open modal on text link click."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1350
+msgid "Image Trigger"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1350
+msgid "Open modal on image click."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1351
+msgid "Off-Canvas Modes"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1351
+msgid "Left, right off-canvas and bottom sheet styles."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1352
+msgid "Fullscreen Mode"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1352
+msgid "Full viewport modal style."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1353
+msgid "Fade, scale, slide, flip, zoom effects."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1354
+msgid "Exit Intent"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1354
+msgid "Open modal when user moves to leave the page."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1355
+msgid "Scroll Depth"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1355
+msgid "Open modal after scrolling a percentage of the page."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1356
+msgid "Time Delay"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1356
+msgid "Open modal after a specified time delay."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1357
+msgid "Auto Close"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1357
+msgid "Automatically close modal after delay."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1358
+msgid "Show Once"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1358
+msgid "Remember if user has seen this modal."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1359
+msgid "Device Visibility"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1359
+msgid "Show/hide on specific devices."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1366
+msgid "Newsletter Block"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1366
+msgid "Search block variation that transforms the search form into a newsletter signup."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1369
+msgid "Email Validation"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1369
+msgid "Validate email format on the input field before submission."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1370
+msgid "Success Message"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1370
+msgid "Display a confirmation message after successful signup."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1371
+msgid "Custom Placeholder"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1371
+msgid "Set custom placeholder text for the email input field."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1378
+msgid "Advanced query parameters and layout controls for the Query Loop block."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1381
+msgid "Multiple Post Types"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1381
+msgid "Query multiple post types in a single loop."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1382
+msgid "Taxonomy Filtering"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1382
+msgid "Filter by categories, tags, and custom taxonomies."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1383
+msgid "Include/Exclude Posts"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1383
+msgid "Manually select posts to include or exclude."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1384
+msgid "Custom Field Query"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1384
+msgid "Filter posts by custom field values."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1385
+msgid "Order by Custom Field"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1385
+msgid "Sort posts by custom field values."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1386
+msgid "Responsive Columns"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1386
+msgid "Different column counts per breakpoint."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1387
+msgid "Gap Controls"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1387
+msgid "Custom row and column gap settings."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1388
+msgid "Featured First Post"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1388
+msgid "Make the first post span multiple columns."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1389
+msgid "Equal Height Cards"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1389
+msgid "Force all cards to have equal height."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1390
+msgid "No Results Template"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1390
+msgid "Custom message when no posts match query."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1391
+msgid "Extended Ordering"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1391
+msgid "Random, comment count, modified date, etc."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1392
+msgid "Advanced Meta Query"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1392
+msgid "Multiple meta queries with AND/OR relation."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1393
+msgid "Date Query"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1393
+msgid "Filter by date ranges and relative dates."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1394
 msgid "Related Posts"
 msgstr ""
 
-msgid "Recent Posts"
+#: src/Admin/ConditionalLogicSettings.php:1394
+msgid "Show posts related by category, tag, or field."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1395
+msgid "Parent/Child Posts"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1395
+msgid "Query child pages of current or specific post."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1396
+msgid "ACF/MetaBox Integration"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1396
+msgid "Field picker for ACF and Meta Box plugins."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1397
+msgid "AJAX Pagination"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1397
+msgid "Load more, infinite scroll, AJAX page nav."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1398
+msgid "Frontend Filters"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1398
+msgid "Taxonomy, search, and sort filters."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1399
+msgid "Masonry Layout"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1399
+msgid "CSS and JS masonry grid with animations."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1400
+msgid "Carousel Layout"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1400
+msgid "Slider with navigation, pagination, autoplay."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1401
+msgid "WooCommerce Integration"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1401
+msgid "Product filtering, sorting, and display options."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1402
+msgid "Performance Optimization"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1402
+msgid "Caching, lazy loading, skeleton loading."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1409
+msgid "Slider Block"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1409
+msgid "Slider/carousel block with multiple navigation options."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1412
+msgid "Slide Effect"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1412
+msgid "Basic slide transition between slides."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1413
+msgid "Fade Effect"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1413
+msgid "Fade transition between slides."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1414
+msgid "Navigation Arrows"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1414
+msgid "Show previous/next navigation arrows."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1415
+msgid "Pagination Dots"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1415
+msgid "Show pagination dots below the slider."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1416
+msgid "Infinite Loop"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1416
+msgid "Loop slides infinitely."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1417
+msgid "Keyboard Navigation"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1417
+msgid "Navigate slides with arrow keys."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1418
+msgid "Responsive Slides"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1418
+msgid "Different slides per view on devices."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1419
+msgid "Auto-advance slides with configurable delay."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1420
+msgid "Advanced Effects"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1420
+msgid "Cube, coverflow, flip, cards, creative effects."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1421
+msgid "Thumbnail Navigation"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1421
+msgid "Thumbnail strip for slide navigation."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1422
+msgid "Lightbox Mode"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1422
+msgid "Open slides in fullscreen lightbox."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1423
+msgid "Mousewheel Control"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1423
+msgid "Navigate slides with mouse scroll."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1424
+msgid "Aspect Ratio Lock"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1424
+msgid "Lock to specific aspect ratios."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1425
+msgid "Lazy Loading"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1425
+msgid "Performance optimization for images."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1426
+msgid "Custom Arrow Styles"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1426
+msgid "Minimal, rounded, square arrow styles."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1427
+msgid "Custom Dot Styles"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1427
+msgid "Line, dash, fraction pagination styles."
+msgstr ""
+#: src/Admin/ConditionalLogicSettings.php:1434
+msgid "SVG Block"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1434
+msgid "Image block variation and settings for inline SVG rendering and manipulation."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1437
+msgid "Mask Mode"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1437
+msgid "Render SVG as a CSS mask for colorization via background-color."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1438
+msgid "Onclick Action"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1438
+msgid "Attach custom onclick behavior to SVG elements."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1439
+msgid "Inline SVG"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1439
+msgid "Replace CSS-masked images with raw inline SVG elements."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1440
+msgid "Inline SVG Files"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1440
+msgid "Replace image tags linking to .svg files with inline SVG markup."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1447
+msgid "Toggle Block"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1447
+msgid "Expandable/collapsible toggle block for content."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1450
+msgid "Pill Style"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1450
+msgid "Pill-shaped toggle control."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1451
+msgid "Switch Style"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1451
+msgid "On/off switch style toggle."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1452
+msgid "Button Style"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1452
+msgid "Button group style toggle."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1453
+msgid "Position Control"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1453
+msgid "Left, center, right alignment options."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1454
+msgid "Custom Labels"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1454
+msgid "Customizable toggle labels."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1455
+msgid "URL Sync"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1455
+msgid "Sync toggle state with URL parameter."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1456
+msgid "State Persistence"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1456
+msgid "Remember user choice via localStorage."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1457
+msgid "Fade, slide, scale transitions."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1458
+msgid "Structured data markup for SEO."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1459
+msgid "Nested Toggles"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1459
+msgid "Toggles within toggles for complex content."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1460
+msgid "Conditional Visibility"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1460
+msgid "Show/hide other elements based on state."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1467
+msgid "Utility CSS classes for consistent styling across blocks."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1470
+msgid "Spacing Classes"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1470
+msgid "Padding, margin, and gap utilities."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1471
+msgid "Typography Classes"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1471
+msgid "Font size, weight, and text utilities."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1472
+msgid "Layout Classes"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1472
+msgid "Flexbox, grid, and display utilities."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1473
+msgid "Effects Classes"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1473
+msgid "Shadows, borders, and opacity utilities."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1474
+msgid "Create Custom Classes"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1474
+msgid "Create reusable CSS classes with visual editor."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1475
+msgid "Class Library"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1475
+msgid "Manage and organize custom global classes."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1476
+msgid "Transfer Local to Global"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1476
+msgid "Convert block styles to reusable classes."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1477
+msgid "Import/Export"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1477
+msgid "Export and import class libraries."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1484
+msgid "Video Block"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1484
+msgid "Enhanced video player with modern controls and features."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1487
+msgid "Custom Player"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1487
+msgid "Modern player with custom controls."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1488
+msgid "Theater Mode"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1488
+msgid "Expand video to viewport width."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1489
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1489
+msgid "Space, arrows, M, F keyboard controls."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1490
+msgid "Schema Markup"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1490
+msgid "VideoObject SEO schema for search engines."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1491
+msgid "Ambient Light"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1491
+msgid "Glow effect behind video based on colors."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1492
+msgid "Thumbnail Preview"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1492
+msgid "Show preview when hovering progress bar."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1493
+msgid "Touch Gestures"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1493
+msgid "Double-tap seek, swipe volume controls."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1494
+msgid "Playlists"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1494
+msgid "Multi-video playlists with autoplay."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1495
+msgid "Sticky Player"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1495
+msgid "Floating video when scrolling past."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1496
+msgid "Focus Mode"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1496
+msgid "Dim background when video plays."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1497
+msgid "Save Progress"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1497
+msgid "Remember playback position."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1498
+msgid "Chapters"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1498
+msgid "Video chapters with navigation."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1499
+msgid "Email Capture"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1499
+msgid "Collect emails during playback."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1500
+msgid "Analytics"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1500
+msgid "Track video engagement metrics."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1501
+msgid "Multi-Audio"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1501
+msgid "Multiple audio track support."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1502
+msgid "Privacy Controls"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1502
+msgid "Private videos, watermarks, expiring URLs."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1508
+msgid "Video sitemap is handled by Rank Math. Disable in Integrations to use built-in sitemap."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1509
+msgid "Generate video sitemap for search engines."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1510
+msgid "Video Sitemap"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1515
+msgid "BunnyCDN Integration"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1519
+msgid "Configure BunnyCDN features for cloud video hosting in %s."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1520
+msgid "Integrations  Performance"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1642
+msgid "Upgrade to Unlock"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1717
+msgid "Default Patterns"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1718
+msgid "Enable default %s patterns provided by the theme."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1742
+msgid "Let Rank Math handle Video Sitemap instead of the Core Video Block. When enabled, the Video Block's built-in sitemap is disabled."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1770
+msgid "Stream Library"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1778
+msgid "Access and manage your BunnyCDN Stream video library directly from WordPress."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1799
+msgid "Direct Upload"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1807
+msgid "Upload videos directly to BunnyCDN Stream from the block editor."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1828
+msgid "HLS Streaming"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1836
+msgid "Enable adaptive bitrate HLS streaming for optimal playback quality."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1857
+msgid "AI Transcription"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1865
+msgid "Automatic video transcription and captions powered by AI."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1886
+msgid "Video Thumbnails"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1894
+msgid "Auto-generate video thumbnails and preview sprites from BunnyCDN."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1915
+msgid "Video Watermark"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1923
+msgid "Add watermarks to videos for branding and copyright protection."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1941
+msgid "API Configuration"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1958
+msgid "Account API Key"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1959
+msgid "Found in your BunnyCDN dashboard under Account  API."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1967
+msgid "Enter API Key"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1975
+msgid "CDN Settings"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1985
+msgid "Pull Zone Name"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1986
+msgid "The name of your CDN pull zone."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:1994
+msgid "my-pullzone"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2006
+msgid "CDN Hostname"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2007
+msgid "Your CDN hostname or custom domain."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2015
+msgid "cdn.example.com"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2023
+msgid "Storage Settings"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2033
+msgid "Storage Zone Name"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2034
+msgid "The name of your storage zone."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2042
+msgid "my-storage-zone"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2054
+msgid "Storage API Key"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2055
+msgid "Storage zone password/API key."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2063
+msgid "Enter Storage API Key"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2075
+msgid "Storage Region"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2076
+msgid "Select your storage zone region."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2083
+msgid "Falkenstein (DE)"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2084
+msgid "New York (US)"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2085
+msgid "Los Angeles (US)"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2086
+msgid "Singapore (SG)"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2087
+msgid "Sydney (AU)"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2088
+msgid "London (UK)"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2089
+msgid "Stockholm (SE)"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2090
+msgid "São Paulo (BR)"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2091
+msgid "Johannesburg (ZA)"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2099
+msgid "Stream Settings"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2109
+msgid "Stream Library ID"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2110
+msgid "Found in Stream  Library  API."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2130
+msgid "Stream API Key"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2131
+msgid "Stream library API key for authentication."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2139
+msgid "Enter Stream API Key"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2149
+msgid "Save API Settings"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2153
+msgid "Test Connection"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2158
+msgid "BunnyCDN API configuration requires Aegis Pro."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2235
+msgid "Active"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2241
+msgid "Not Installed"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2283
+msgid "Search settings..."
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2287
+msgid "Export"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2290
+msgid "Import"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2323
+msgid "Enable All"
+msgstr ""
+
+#: src/Admin/ConditionalLogicSettings.php:2324
+msgid "Disable All"
+msgstr ""
+
+#: vendor/aegis/framework/src/DesignSystem/BuilderNotice.php:89
+msgid "Unsupported Page Builder Detected"
+msgstr ""
+
+#: vendor/aegis/framework/src/DesignSystem/BuilderNotice.php:91
+msgid "The following page builder(s) are active: %s. Aegis is a native block theme and does not support third-party page builders. For the best experience, please use the WordPress Block Editor (Gutenberg)."
+msgstr ""
+
+#: vendor/aegis/framework/src/DesignSystem/BuilderNotice.php:100
+msgid "Dismiss permanently"
+msgstr ""
+
+#: vendor/aegis/framework/src/DesignSystem/SkipLink.php:52
+msgid "Skip to content"
+msgstr ""
+
+#: vendor/aegis/framework/src/DesignSystem/SvgUpload.php:120
+msgid "You do not have permission to upload SVG files."
+msgstr ""
+
+#: vendor/aegis/framework/src/DesignSystem/SvgUpload.php:135
+msgid "Could not read SVG file."
+msgstr ""
+
+#: vendor/aegis/framework/src/DesignSystem/SvgUpload.php:145
+msgid "Could not decompress SVGZ file."
+msgstr ""
+
+#: vendor/aegis/framework/src/DesignSystem/SvgUpload.php:160
+msgid "SVG file failed security validation."
+msgstr ""
+
+#: vendor/aegis/framework/src/CoreBlocks/TableOfContents.php:45
+msgid "Table of Contents"
+msgstr ""
+
+#: vendor/aegis/framework/src/CoreBlocks/TableOfContents.php:80
+msgid "Contents"
+msgstr ""
+
+#: vendor/aegis/framework/src/CoreBlocks/TableOfContents.php:95
+msgid "Table of contents"
+msgstr ""
+
+#: vendor/aegis/framework/src/CoreBlocks/PostExcerpt.php:85
+msgid "this post"
+msgstr ""
+
+#: vendor/aegis/framework/src/CoreBlocks/PostExcerpt.php:86
+msgid " about "
+msgstr ""
+
+#: vendor/aegis/framework/src/CoreBlocks/Heading.php:50
+msgid "Search Results"
+msgstr ""
+
+#: vendor/aegis/framework/src/CoreBlocks/Heading.php:55
+msgid "Search results for: "
+msgstr ""
+
+#: vendor/aegis/framework/src/CoreBlocks/PostTerms.php:60
+msgid "All"
+msgstr ""
+
+#: vendor/aegis/framework/src/CoreBlocks/PostTitle.php:45
+msgid "Latest Posts"
+msgstr ""
+
+#: vendor/aegis/framework/src/CoreBlocks/QueryTitle.php:50
+msgid "Archive"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:85
+msgid "No posts found matching your criteria."
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:120
+msgid "Search..."
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:125
+msgid "Search"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/CopyToClipboard.php:55
+msgid "Copy to clipboard"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/CopyToClipboard.php:70
+msgid "Copied!"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:30
+msgid "Equals (=)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:31
+msgid "Not Equals (!=)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:32
+msgid "Greater Than (>)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:33
+msgid "Greater or Equal (>=)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:34
+msgid "Less Than (<)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:35
+msgid "Less or Equal (<=)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:36
+msgid "Like"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:37
+msgid "Not Like"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:38
+msgid "In"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:39
+msgid "Not In"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:40
+msgid "Between"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:41
+msgid "Not Between"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:42
+msgid "Exists"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:43
+msgid "Not Exists"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:50
+msgid "Text (CHAR)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:51
+msgid "Number (NUMERIC)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:52
+msgid "Decimal (DECIMAL)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:53
+msgid "Date (DATE)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:54
+msgid "DateTime (DATETIME)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:55
+msgid "Time (TIME)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:56
+msgid "Signed Integer (SIGNED)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:57
+msgid "Unsigned Integer (UNSIGNED)"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:64
+msgid "Default"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:65
+msgid "Title"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:66
+msgid "Last Modified"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:67
+msgid "Comment Count"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:68
+msgid "Random"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:69
+msgid "Menu Order"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:70
+msgid "Author"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:71
+msgid "Post ID"
+msgstr ""
+
+#: vendor/aegis/framework/src/Integrations/AdvancedCustomFields.php:55
+msgid "ACF Field"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockVariations/Icon.php:30
+msgid " icon"
+msgstr ""
+
+#: vendor/aegis/framework/src/BlockVariations/Newsletter.php:45
+msgid "Newsletter signup"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:71
+msgid "Aegis"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:83
+msgid "Conditional Logic"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:225
+msgid "Screen Size"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:226
+msgid "Hide blocks on mobile, tablet, or desktop."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:237
+msgid "Custom Breakpoints"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:238
+msgid "Define custom min/max width breakpoints."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:244
+msgid "Browser & Device"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:245
+msgid "Target specific browsers and devices."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:251
+msgid "Reduced Motion"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:252
+msgid "Hide content for users who prefer reduced motion."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:255
+msgid "Screen Reader Only"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:256
+msgid "Make content visually hidden but accessible."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:262
+msgid "Color Scheme"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:263
+msgid "Show content only in light or dark mode."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:265
+msgid "High Contrast"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:266
+msgid "Hide content in high contrast mode."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:268
+msgid "Forced Colors"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:269
+msgid "Hide content in Windows High Contrast mode."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:275
+msgid "User Status"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:276
+msgid "Show/hide content for logged in or logged out users."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:278
+msgid "User Role"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:279
+msgid "Show/hide content based on user roles."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:285
+msgid "Date & Time"
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:286
+msgid "Schedule content to show/hide at specific times."
+msgstr ""
+
+#: vendor/aegis/framework/src/Admin/ConditionalLogicSettings.php:344
+msgid "Settings saved successfully."
 msgstr ""
