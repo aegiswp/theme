@@ -1,0 +1,330 @@
+/**
+ * Modal Block - Frontend Styles
+ *
+ * @package Aegis
+ * @since   1.0.0
+ */
+
+// Modal Wrapper
+.wp-block-aegis-modal {
+	position: relative;
+}
+
+// Trigger
+.aegis-modal-trigger {
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+	background: none;
+	border: none;
+	padding: 0;
+	font: inherit;
+	color: inherit;
+
+	&--button {
+		padding: 0.6em 1.2em;
+		background: var(--wp--preset--color--primary, #0073aa);
+		color: #fff;
+		border-radius: 4px;
+		font-weight: 500;
+		transition: background 0.2s ease;
+
+		&:hover {
+			background: var(--wp--preset--color--primary, #005a87);
+			filter: brightness(0.9);
+		}
+	}
+
+	&--text {
+		text-decoration: underline;
+		text-underline-offset: 2px;
+
+		&:hover {
+			text-decoration-thickness: 2px;
+		}
+	}
+
+	&--icon {
+		font-size: 1.5em;
+	}
+
+	&--image {
+		.aegis-modal-trigger__image {
+			max-width: 100%;
+			height: auto;
+			display: block;
+		}
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--wp--preset--color--primary, #0073aa);
+		outline-offset: 2px;
+	}
+}
+
+// Modal Dialog
+.aegis-modal {
+	position: fixed;
+	inset: 0;
+	z-index: 100000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&[hidden] {
+		display: none;
+	}
+
+	// Overlay
+	&__overlay {
+		position: absolute;
+		inset: 0;
+		background: var(--aegis-modal-overlay-color, rgba(0, 0, 0, 0.5));
+		backdrop-filter: blur(var(--aegis-modal-overlay-blur, 0px));
+	}
+
+	// Container
+	&__container {
+		position: relative;
+		z-index: 1;
+		width: var(--aegis-modal-width, 500px);
+		max-width: var(--aegis-modal-max-width, 90vw);
+		height: var(--aegis-modal-height, auto);
+		max-height: var(--aegis-modal-max-height, 90vh);
+	}
+
+	// Content
+	&__content {
+		position: relative;
+		background: var(--aegis-modal-bg, #fff);
+		border-radius: var(--aegis-modal-radius, 8px);
+		padding: var(--aegis-modal-padding, 24px);
+		overflow-y: auto;
+		max-height: var(--aegis-modal-max-height, 90vh);
+		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	// Close Button
+	&__close {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		padding: 0;
+		border: none;
+		background: transparent;
+		cursor: pointer;
+		border-radius: 50%;
+		transition: background 0.15s ease;
+		color: inherit;
+
+		svg {
+			width: 20px;
+			height: 20px;
+			fill: currentColor;
+		}
+
+		&:hover {
+			background: rgba(0, 0, 0, 0.08);
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--wp--preset--color--primary, #0073aa);
+			outline-offset: 2px;
+		}
+
+		&--inside {
+			position: absolute;
+			top: 8px;
+			right: 8px;
+			z-index: 1;
+		}
+
+		&--outside {
+			position: absolute;
+			top: -44px;
+			right: 0;
+			color: #fff;
+
+			&:hover {
+				background: rgba(255, 255, 255, 0.15);
+			}
+		}
+	}
+
+	// Title
+	&__title {
+		margin: 0 0 16px;
+		font-size: 1.25em;
+		line-height: 1.4;
+	}
+
+	// Body
+	&__body {
+		> *:first-child {
+			margin-top: 0;
+		}
+
+		> *:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+// Modal Type Variants
+.aegis-modal--off-canvas {
+	justify-content: flex-end;
+
+	.aegis-modal__container {
+		height: 100%;
+		max-height: 100vh;
+	}
+
+	.aegis-modal__content {
+		height: 100%;
+		border-radius: 0;
+		max-height: 100vh;
+	}
+}
+
+.aegis-modal--bottom-sheet {
+	align-items: flex-end;
+
+	.aegis-modal__container {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.aegis-modal__content {
+		border-radius: var(--aegis-modal-radius, 8px) var(--aegis-modal-radius, 8px) 0 0;
+		max-height: 80vh;
+	}
+}
+
+.aegis-modal--fullscreen {
+	.aegis-modal__container {
+		width: 100%;
+		max-width: 100%;
+		height: 100%;
+		max-height: 100%;
+	}
+
+	.aegis-modal__content {
+		height: 100%;
+		border-radius: 0;
+		max-height: 100%;
+	}
+}
+
+// Animations
+.aegis-modal--fade {
+	.aegis-modal__overlay,
+	.aegis-modal__container {
+		animation: aegis-modal-fade-in var(--aegis-modal-duration, 200ms) ease;
+	}
+}
+
+.aegis-modal--slide-up {
+	.aegis-modal__container {
+		animation: aegis-modal-slide-up var(--aegis-modal-duration, 200ms) ease;
+	}
+}
+
+.aegis-modal--slide-down {
+	.aegis-modal__container {
+		animation: aegis-modal-slide-down var(--aegis-modal-duration, 200ms) ease;
+	}
+}
+
+.aegis-modal--slide-left {
+	.aegis-modal__container {
+		animation: aegis-modal-slide-left var(--aegis-modal-duration, 200ms) ease;
+	}
+}
+
+.aegis-modal--slide-right {
+	.aegis-modal__container {
+		animation: aegis-modal-slide-right var(--aegis-modal-duration, 200ms) ease;
+	}
+}
+
+.aegis-modal--zoom {
+	.aegis-modal__container {
+		animation: aegis-modal-zoom var(--aegis-modal-duration, 200ms) ease;
+	}
+}
+
+@keyframes aegis-modal-fade-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes aegis-modal-slide-up {
+	from { transform: translateY(20px); opacity: 0; }
+	to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes aegis-modal-slide-down {
+	from { transform: translateY(-20px); opacity: 0; }
+	to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes aegis-modal-slide-left {
+	from { transform: translateX(20px); opacity: 0; }
+	to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes aegis-modal-slide-right {
+	from { transform: translateX(-20px); opacity: 0; }
+	to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes aegis-modal-zoom {
+	from { transform: scale(0.9); opacity: 0; }
+	to { transform: scale(1); opacity: 1; }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+	.aegis-modal__overlay,
+	.aegis-modal__container,
+	.aegis-modal__close,
+	.aegis-modal-trigger {
+		animation: none !important;
+		transition: none !important;
+	}
+}
+
+// High contrast mode
+@media (forced-colors: active) {
+	.aegis-modal__close {
+		border: 1px solid ButtonText;
+	}
+
+	.aegis-modal__content {
+		border: 2px solid CanvasText;
+	}
+
+	.aegis-modal-trigger--button {
+		border: 1px solid ButtonText;
+	}
+}
+
+// Screen reader text
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	word-wrap: normal !important;
+}
