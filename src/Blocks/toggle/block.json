@@ -1,0 +1,105 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aegis/toggle",
+  "version": "1.0.0",
+  "title": "Toggle",
+  "category": "design",
+  "description": "An accessible accordion/toggle block with expandable content sections.",
+  "icon": "arrow-down-alt2",
+  "textdomain": "aegis",
+  "keywords": [
+    "toggle",
+    "accordion",
+    "collapse",
+    "expand",
+    "faq"
+  ],
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "className": true,
+    "anchor": true,
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "headingTag": {
+      "type": "string",
+      "default": "h3",
+      "enum": [
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "p"
+      ]
+    },
+    "isOpen": {
+      "type": "boolean",
+      "default": false
+    },
+    "iconPosition": {
+      "type": "string",
+      "default": "right",
+      "enum": [
+        "left",
+        "right"
+      ]
+    },
+    "iconType": {
+      "type": "string",
+      "default": "chevron",
+      "enum": [
+        "chevron",
+        "plus",
+        "arrow"
+      ]
+    },
+    "allowMultiple": {
+      "type": "boolean",
+      "default": true
+    },
+    "animationDuration": {
+      "type": "number",
+      "default": 300
+    }
+  },
+  "example": {
+    "attributes": {
+      "heading": "Toggle heading"
+    },
+    "innerBlocks": [
+      {
+        "name": "aegis/toggle-content",
+        "innerBlocks": [
+          {
+            "name": "core/paragraph",
+            "attributes": {
+              "content": "Toggle content goes here."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "editorScript": "file:index.js",
+  "editorStyle": "file:index.css",
+  "style": "file:style-index.css",
+  "viewScript": "file:view.js",
+  "render": "file:render.php"
+}
