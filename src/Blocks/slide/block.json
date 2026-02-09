@@ -1,0 +1,34 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aegis/slide",
+  "version": "1.0.0",
+  "title": "Slide",
+  "category": "design",
+  "description": "A single slide in a slider block.",
+  "icon": "slides",
+  "textdomain": "aegis",
+  "parent": [
+    "aegis/slider"
+  ],
+  "keywords": [
+    "slide",
+    "carousel",
+    "swipe"
+  ],
+  "supports": {
+    "html": false,
+    "className": true,
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true
+    }
+  },
+  "attributes": {},
+  "editorScript": "file:index.js",
+  "style": "file:style-index.css",
+  "render": "file:render.php"
+}
