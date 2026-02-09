@@ -1,0 +1,206 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aegis/modal",
+  "version": "1.0.0",
+  "title": "Modal",
+  "category": "design",
+  "description": "A fully accessible modal/popup block with multiple trigger types and animations.",
+  "icon": "editor-expand",
+  "textdomain": "aegis",
+  "keywords": [
+    "modal",
+    "popup",
+    "dialog",
+    "lightbox",
+    "overlay"
+  ],
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "className": true,
+    "anchor": true
+  },
+  "attributes": {
+    "modalId": {
+      "type": "string",
+      "default": ""
+    },
+    "modalType": {
+      "type": "string",
+      "default": "popup",
+      "enum": [
+        "popup",
+        "off-canvas",
+        "bottom-sheet",
+        "fullscreen"
+      ]
+    },
+    "triggerType": {
+      "type": "string",
+      "default": "button",
+      "enum": [
+        "button",
+        "text",
+        "icon",
+        "image",
+        "scroll",
+        "exit-intent",
+        "timed"
+      ]
+    },
+    "triggerText": {
+      "type": "string",
+      "default": "Open Modal"
+    },
+    "triggerIcon": {
+      "type": "string",
+      "default": ""
+    },
+    "triggerImageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "triggerImageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "modalTitle": {
+      "type": "string",
+      "default": ""
+    },
+    "animation": {
+      "type": "string",
+      "default": "fade",
+      "enum": [
+        "fade",
+        "slide-up",
+        "slide-down",
+        "slide-left",
+        "slide-right",
+        "zoom",
+        "none"
+      ]
+    },
+    "animationDuration": {
+      "type": "number",
+      "default": 200
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "default": true
+    },
+    "closeOnOverlay": {
+      "type": "boolean",
+      "default": true
+    },
+    "showCloseButton": {
+      "type": "boolean",
+      "default": true
+    },
+    "closeButtonPosition": {
+      "type": "string",
+      "default": "inside",
+      "enum": [
+        "inside",
+        "outside"
+      ]
+    },
+    "preventBodyScroll": {
+      "type": "boolean",
+      "default": true
+    },
+    "focusTrap": {
+      "type": "boolean",
+      "default": true
+    },
+    "returnFocus": {
+      "type": "boolean",
+      "default": true
+    },
+    "width": {
+      "type": "string",
+      "default": "500px"
+    },
+    "maxWidth": {
+      "type": "string",
+      "default": "90vw"
+    },
+    "height": {
+      "type": "string",
+      "default": "auto"
+    },
+    "maxHeight": {
+      "type": "string",
+      "default": "90vh"
+    },
+    "overlayColor": {
+      "type": "string",
+      "default": "rgba(0, 0, 0, 0.5)"
+    },
+    "overlayBlur": {
+      "type": "number",
+      "default": 0
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "borderRadius": {
+      "type": "string",
+      "default": "8px"
+    },
+    "padding": {
+      "type": "string",
+      "default": "24px"
+    },
+    "scrollTriggerPercent": {
+      "type": "number",
+      "default": 50
+    },
+    "scrollTriggerOnce": {
+      "type": "boolean",
+      "default": true
+    },
+    "exitIntentSensitivity": {
+      "type": "number",
+      "default": 20
+    },
+    "exitIntentDelay": {
+      "type": "number",
+      "default": 0
+    },
+    "timedTriggerDelay": {
+      "type": "number",
+      "default": 5000
+    },
+    "autoCloseDelay": {
+      "type": "number",
+      "default": 0
+    },
+    "showOnce": {
+      "type": "boolean",
+      "default": false
+    },
+    "showOnceExpiry": {
+      "type": "number",
+      "default": 7
+    },
+    "deviceVisibility": {
+      "type": "array",
+      "default": [
+        "desktop",
+        "tablet",
+        "mobile"
+      ]
+    }
+  },
+  "editorScript": "file:index.js",
+  "editorStyle": "file:index.css",
+  "style": "file:style-index.css",
+  "viewScript": "file:view.js",
+  "render": "file:render.php"
+}
