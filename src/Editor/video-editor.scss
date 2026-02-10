@@ -1,0 +1,221 @@
+/**
+ * Video Block Editor Styles
+ *
+ * Video type selector.
+ *
+ * @package Aegis
+ * @since   1.0.0
+ */
+
+// Override core/video block centering when our selector is present
+.wp-block-video:has(.aegis-video-type-selector) {
+	text-align: left !important;
+}
+
+// Video Type Selector
+.aegis-video-type-selector {
+	padding: 32px;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	text-align: left !important;
+
+	&__header {
+		display: flex !important;
+		flex-direction: row !important;
+		align-items: center !important;
+		justify-content: flex-start !important;
+		gap: 10px;
+		margin-bottom: 4px;
+	}
+
+	&__logo {
+		width: 24px;
+		height: 24px;
+		flex-shrink: 0;
+		color: #007cba;
+	}
+
+	&__title {
+		font-size: 24px;
+		font-weight: 500;
+		color: #1e1e1e;
+		margin: 0;
+	}
+
+	&__description {
+		color: #757575;
+		font-size: 14px;
+		font-weight: 300;
+		margin: 16px 0 20px;
+	}
+
+	&__options {
+		display: flex;
+		justify-content: flex-start;
+		gap: 20px;
+		flex-wrap: wrap;
+		max-width: 540px;
+	}
+
+	&__divider {
+		display: flex;
+		align-items: center;
+		margin: 20px 0;
+		max-width: 540px;
+
+		&::before,
+		&::after {
+			content: '';
+			flex: 1;
+			max-width: 210px;
+			height: 1px;
+			background: #ddd;
+		}
+
+		span {
+			padding: 0 12px;
+			color: #757575;
+			font-size: 14px;
+		}
+	}
+
+	&__upload {
+		min-width: auto;
+	}
+}
+
+// Video Type Option Button
+.aegis-video-type-option {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 14px;
+	width: 80px;
+	min-width: 80px;
+	height: 80px;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+	position: relative;
+
+	&:hover {
+		border-color: #007cba;
+		box-shadow: 0 5px 9px 0 rgba(0, 0, 0, 0.07);
+	}
+
+	&:focus {
+		outline: none;
+		border-color: #007cba;
+		box-shadow: 0 5px 9px 0 rgba(0, 0, 0, 0.07);
+	}
+
+	&--pro {
+		cursor: default;
+
+		&:hover {
+			border-color: #ddd;
+			box-shadow: none;
+		}
+	}
+
+	&__pro-badge {
+		position: absolute;
+		top: 4px;
+		right: 4px;
+		background: var(--wp-admin-theme-color, #007cba);
+		color: #fff;
+		font-size: 10px;
+		font-weight: 500;
+		line-height: 1;
+		padding: 3px 6px;
+		border-radius: 9999px;
+	}
+
+	&__icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		svg {
+			width: 24px;
+			height: 24px;
+		}
+	}
+
+	&__label {
+		font-size: 14px;
+		font-weight: 500;
+		color: #1e1e1e;
+		margin: 0;
+		height: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+// URL input form
+.aegis-video-url-input {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	align-items: flex-end;
+	width: 100%;
+	max-width: 500px;
+
+	.aegis-video-url-field {
+		flex: 1;
+		min-width: 200px;
+
+		.components-base-control__field {
+			margin-bottom: 0;
+		}
+	}
+}
+
+// Bunny.net input form
+.aegis-video-bunny-input {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	width: 100%;
+	max-width: 400px;
+
+	.components-base-control {
+		margin-bottom: 0;
+	}
+}
+
+.aegis-video-bunny-actions {
+	display: flex;
+	gap: 8px;
+	margin-top: 8px;
+}
+
+// Video preview in editor
+.aegis-video-preview {
+	margin: 0;
+}
+
+.aegis-video-embed {
+	position: relative;
+	width: 100%;
+	padding-bottom: 56.25%; // 16:9 aspect ratio
+	height: 0;
+	overflow: hidden;
+	background: #000;
+	border-radius: 4px;
+
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border: 0;
+	}
+}
