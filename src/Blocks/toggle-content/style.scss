@@ -1,0 +1,16 @@
+/**
+ * Toggle Content Block - Frontend Styles
+ *
+ * @package Aegis
+ * @since   1.0.0
+ */
+
+.wp-block-aegis-toggle-content {
+	> *:first-child {
+		margin-top: 0;
+	}
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+}
