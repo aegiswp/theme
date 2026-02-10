@@ -1,0 +1,72 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aegis/video",
+  "version": "1.0.0",
+  "title": "Video",
+  "category": "media",
+  "description": "An enhanced video block with custom player controls and accessibility features.",
+  "icon": "video-alt3",
+  "textdomain": "aegis",
+  "keywords": [
+    "video",
+    "media",
+    "player",
+    "embed"
+  ],
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "className": true,
+    "anchor": true
+  },
+  "attributes": {
+    "src": {
+      "type": "string",
+      "default": ""
+    },
+    "poster": {
+      "type": "string",
+      "default": ""
+    },
+    "caption": {
+      "type": "string",
+      "default": ""
+    },
+    "autoplay": {
+      "type": "boolean",
+      "default": false
+    },
+    "loop": {
+      "type": "boolean",
+      "default": false
+    },
+    "muted": {
+      "type": "boolean",
+      "default": false
+    },
+    "controls": {
+      "type": "boolean",
+      "default": true
+    },
+    "preload": {
+      "type": "string",
+      "default": "metadata",
+      "enum": [
+        "auto",
+        "metadata",
+        "none"
+      ]
+    },
+    "playsInline": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "editorScript": "file:index.js",
+  "editorStyle": "file:index.css",
+  "style": "file:style-index.css"
+}
