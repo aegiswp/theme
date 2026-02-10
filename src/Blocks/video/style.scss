@@ -1,0 +1,37 @@
+/**
+ * Video Block - Frontend Styles
+ *
+ * @package Aegis
+ * @since   1.0.0
+ */
+
+.wp-block-aegis-video {
+	position: relative;
+	width: 100%;
+
+	video {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	figcaption {
+		margin-top: 8px;
+		font-size: 0.875em;
+		color: inherit;
+		opacity: 0.7;
+		text-align: center;
+	}
+}
+
+// Editor upload button.
+.aegis-video-editor__upload {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 200px;
+	width: 100%;
+	border: 2px dashed currentColor;
+	border-radius: 4px;
+	opacity: 0.5;
+}
