@@ -30,7 +30,7 @@
                         <!-- wp:group {"align":"wide","layout":{"type":"flex","orientation":"vertical","justifyContent":"left"}} -->
                         <div class="wp-block-group alignwide">
                             <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","style":{"typography":{"lineHeight":"0"}}} -->
-                            <p class="alignleft has-text-align-left is-style-sub-heading alignleft" style="line-height:0">Featured</p>
+                            <p class="alignleft has-text-align-left is-style-sub-heading alignleft" style="line-height:0"><?php echo esc_html__( 'Featured', 'aegis' ); ?></p>
                             <!-- /wp:paragraph -->
 
                             <!-- wp:post-title {"isLink":true} /-->
