@@ -13,17 +13,17 @@
 <div class="wp-block-group alignfull is-style-surface has-animation" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xs);animation-iteration-count:"><!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"580px"},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
 	<div class="wp-block-group has-animation" style="margin-bottom:var(--wp--preset--spacing--lg);animation-iteration-count:"><!-- wp:group {"align":"wide","layout":{"type":"flex","orientation":"vertical","justifyContent":"center"},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
 		<div class="wp-block-group alignwide has-animation" style="animation-iteration-count:"><!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","style":{"typography":{"lineHeight":"0"}},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
-			<p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="line-height:0;animation-iteration-count:">Blog</p>
+			<p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="line-height:0;animation-iteration-count:"><?php echo esc_html__( 'Blog', 'aegis' ); ?></p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:heading {"textAlign":"center","animation":{"duration":"","delay":"","iterationCount":"","event":""}} -->
-			<h2 class="wp-block-heading has-text-align-center has-animation" style="animation-iteration-count:">Blog Feed</h2>
+			<h2 class="wp-block-heading has-text-align-center has-animation" style="animation-iteration-count:"><?php echo esc_html__( 'Blog Feed', 'aegis' ); ?></h2>
 			<!-- /wp:heading -->
 		</div>
 		<!-- /wp:group -->
 
 		<!-- wp:paragraph {"align":"center","textColor":"neutral-400","fontSize":"15","animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
-		<p class="aligncenter has-text-align-center has-neutral-400-color has-text-color has-15-font-size aligncenter has-animation" style="animation-iteration-count:">This layout is perfect for building a professional news hub or blog, keeping your readers engaged with your most recent content at a glance.</p>
+		<p class="aligncenter has-text-align-center has-neutral-400-color has-text-color has-15-font-size aligncenter has-animation" style="animation-iteration-count:"><?php echo esc_html__( 'This layout is perfect for building a professional news hub or blog, keeping your readers engaged with your most recent content at a glance.', 'aegis' ); ?></p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->
@@ -66,11 +66,11 @@
 		<!-- wp:column {"width":"58%","animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
 		<div class="wp-block-column has-animation" style="flex-basis:58%;animation-iteration-count:"><!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|md"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
 			<div class="wp-block-group has-animation" style="margin-bottom:var(--wp--preset--spacing--md);animation-iteration-count:"><!-- wp:heading {"level":4,"style":{"typography":{"fontWeight":"600","fontStyle":"normal"}},"fontSize":"20","animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
-				<h4 class="wp-block-heading has-20-font-size has-animation" style="font-style:normal;font-weight:600;animation-iteration-count:">Latest Posts</h4>
+				<h4 class="wp-block-heading has-20-font-size has-animation" style="font-style:normal;font-weight:600;animation-iteration-count:"><?php echo esc_html__( 'Latest Posts', 'aegis' ); ?></h4>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"style":{"elements":{"link":{":hover":{"color":{"text":"var:preset|color|primary"}}}}},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
-				<p style="animation-iteration-count:" class="undefined has-animation"><a href="#">View Archive →</a></p>
+				<p style="animation-iteration-count:" class="undefined has-animation"><a href="#"><?php echo esc_html__( 'View Archive →', 'aegis' ); ?></a></p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:group -->
