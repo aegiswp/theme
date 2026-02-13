@@ -11,7 +11,7 @@
 
 <!-- wp:group {"metadata":{"categories":["blog"],"patternName":"single-column","name":"Single Column"},"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
 <div class="wp-block-group alignwide has-animation" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl);animation-iteration-count:"><!-- wp:heading {"textAlign":"center","animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
-    <h2 class="wp-block-heading has-text-align-center has-animation" style="animation-iteration-count:">Latest Posts</h2>
+    <h2 class="wp-block-heading has-text-align-center has-animation" style="animation-iteration-count:"><?php echo esc_html__( 'Latest Posts', 'aegis' ); ?></h2>
     <!-- /wp:heading -->
 
     <!-- wp:query {"queryId":0,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"contentSize":null,"type":"constrained"}} -->
