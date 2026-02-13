@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Title: Grid Masonry
  * Slug: grid-masonry
