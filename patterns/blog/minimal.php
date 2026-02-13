@@ -11,7 +11,7 @@
 
 <!-- wp:group {"metadata":{"categories":["blog"],"patternName":"minimal","name":"Minimal"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained","contentSize":""},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
 <div class="wp-block-group has-animation" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl);animation-iteration-count:"><!-- wp:heading {"textAlign":"center","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|lg"}}},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
-    <h2 class="wp-block-heading has-text-align-center has-animation" style="margin-bottom:var(--wp--preset--spacing--lg);animation-iteration-count:">Latest Articles</h2>
+    <h2 class="wp-block-heading has-text-align-center has-animation" style="margin-bottom:var(--wp--preset--spacing--lg);animation-iteration-count:"><?php echo esc_html__( 'Latest Articles', 'aegis' ); ?></h2>
     <!-- /wp:heading -->
 
     <!-- wp:query {"queryId":0,"query":{"perPage":6,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"style":{"spacing":{"blockGap":"0"}}} -->
