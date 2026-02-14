@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: Contact Form Image Overlay
- * Slug: form-image-overlay
+ * Title: Contact Form Map Overlay
+ * Slug: form-map-overlay
  * Categories: contact
  * Keywords: contact, form, image, overlay
  * Description: A contact form with image overlay background.
@@ -9,7 +9,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["contact"],"patternName":"form-image-overlay","name":"Contact Form Image Overlay"},"align":"full","style":{"spacing":{"blockGap":"0","padding":{"bottom":"var:preset|spacing|xl"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"neutral-50","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"categories":["contact"],"patternName":"form-map-overlay","name":"Contact Form Map Overlay"},"align":"full","style":{"spacing":{"blockGap":"0","padding":{"bottom":"var:preset|spacing|xl"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"neutral-50","layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull has-neutral-50-background-color has-background" style="margin-top:0;margin-bottom:0;padding-bottom:var(--wp--preset--spacing--xl)">
     <!-- wp:image {"aspectRatio":"16/9","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"aspectRatio":{"all":"16/9"},"objectFit":{"all":"cover"}}} -->
     <figure class="wp-block-image size-full"><img alt="" style="aspect-ratio:16/9;object-fit:cover" /></figure>
