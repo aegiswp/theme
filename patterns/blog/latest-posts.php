@@ -9,12 +9,12 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["blog"],"patternName":"latest-posts","name":"Latest Posts"},"align":"wide","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|xl","top":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
+<!-- wp:group {"metadata":{"categories":["blog"],"patternName":"blog-latest-posts","name":"Latest Posts"},"align":"wide","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|xl","top":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
 <div class="wp-block-group alignwide has-animation" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl);animation-iteration-count:"><!-- wp:heading {"textAlign":"center","className":"wp-block-heading","style":{"spacing":{"margin":{"bottom":"0","top":"0"},"padding":{"bottom":"var:preset|spacing|sm"}}},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
     <h2 class="wp-block-heading has-text-align-center has-animation" style="margin-top:0;margin-bottom:0;padding-bottom:var(--wp--preset--spacing--sm);animation-iteration-count:"><?php echo esc_html__( 'Latest Posts', 'aegis' ); ?></h2>
     <!-- /wp:heading -->
 
-    <!-- wp:query {"queryId":0,"query":{"perPage":3,"pages":"","offset":"","postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"align":"wide","layout":{"inherit":false},"style":{"spacing":{"blockGap":"1.5em"}}} -->
+    <!-- wp:query {"queryId":0,"query":{"perPage":10,"pages":"","offset":"","postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"align":"wide","layout":{"inherit":false},"style":{"spacing":{"blockGap":"1.5em"}}} -->
     <div class="wp-block-query alignwide"><!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
         <!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","style":{"aspectRatio":{"all":""},"objectFit":{"all":""},"objectPosition":{"all":""},"height":{"all":"100%"},"width":{"all":""}}} /-->
 
