@@ -10,7 +10,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["commerce"],"patternName":"commerce-product-reviews","name":"Product Reviews"},"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
+<!-- wp:group {"metadata":{"categories":["commerce"],"patternName":"product-reviews","name":"Product Reviews"},"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
 <div class="wp-block-group alignwide has-animation" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);animation-iteration-count:"><!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|md"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 	<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--md)"><!-- wp:heading {"textAlign":"center","fontSize":"24"} -->
 		<h2 class="wp-block-heading has-text-align-center has-24-font-size"><?php echo esc_html__( 'What Our Customers Say', 'aegis' ); ?></h2>
