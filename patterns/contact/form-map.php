@@ -9,7 +9,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["contact"],"patternName":"contact-form-map","name":"Contact Form Map"},"align":"wide","layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"categories":["contact"],"patternName":"form-map","name":"Contact Form Map"},"align":"wide","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignwide"><!-- wp:columns {"verticalAlignment":"center","align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|xl","left":"var:preset|spacing|xl"},"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}}} -->
     <div class="wp-block-columns alignwide are-vertically-aligned-center" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)"><!-- wp:column {"verticalAlignment":"center"} -->
         <div class="wp-block-column is-vertically-aligned-center"><!-- wp:heading {"className":"has-text-align-left has-48-font-size"} -->
