@@ -9,7 +9,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["contact"],"patternName":"contact-form-boxed","name":"Form Boxed"},"align":"wide","layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"categories":["contact"],"patternName":"form-boxed","name":"Form Boxed"},"align":"wide","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignwide"><!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","right":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg"}},"width":{"all":"100%"}},"backgroundColor":"neutral-50","layout":{"type":"default"}} -->
     <div class="wp-block-group is-style-surface has-neutral-50-background-color has-background" style="padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)"><!-- wp:paragraph {"align":"center","className":"is-style-sub-heading"} -->
         <p class="aligncenter has-text-align-center is-style-sub-heading aligncenter"><?php echo esc_html__( 'Get in Touch', 'aegis' ); ?></p>
