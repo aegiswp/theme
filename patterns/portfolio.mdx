@@ -1,0 +1,181 @@
+---
+title: "Portfolio Patterns"
+description: "Portfolio and project showcase layouts"
+---
+
+## Available Portfolio Patterns
+
+Aegis includes 2 portfolio patterns:
+
+| Pattern | Description |
+|---------|-------------|
+| Portfolio Grid | Project grid layout |
+| Portfolio Masonry | Masonry-style gallery |
+
+## Portfolio Grid
+
+A uniform grid for showcasing projects:
+
+- Consistent image sizes
+- Project titles and categories
+- Hover effects for interaction
+- Link to project details
+
+### Structure
+
+```html
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+  <!-- wp:heading {"textAlign":"center"} -->
+  <h2>Our Work</h2>
+  <!-- /wp:heading -->
+  
+  <!-- wp:columns -->
+    <!-- Project 1 -->
+    <!-- wp:column -->
+      <!-- wp:group {"className":"portfolio-item"} -->
+        <!-- wp:image /-->
+        <!-- wp:heading {"level":3} -->Project Name<!-- /wp:heading -->
+        <!-- wp:paragraph {"className":"category"} -->Web Design<!-- /wp:paragraph -->
+      <!-- /wp:group -->
+    <!-- /wp:column -->
+    
+    <!-- Additional projects -->
+  <!-- /wp:columns -->
+<!-- /wp:group -->
+```
+
+## Portfolio Masonry
+
+A dynamic masonry layout:
+
+- Varied image heights
+- Visual interest
+- Pinterest-style arrangement
+
+<Note>
+True masonry layouts require CSS Grid or JavaScript. Aegis provides CSS-based approximations that work well for most use cases.
+</Note>
+
+## Layout Options
+
+### Grid Configurations
+
+- **2 columns**: Large project images
+- **3 columns**: Standard portfolio grid
+- **4 columns**: Compact gallery view
+
+### Image Treatments
+
+- **Uniform**: Same aspect ratio for all
+- **Mixed**: Varied sizes for visual interest
+- **Hover overlay**: Info appears on hover
+
+## Customizing Portfolio Patterns
+
+### Project Cards
+
+Elements to include:
+
+- **Featured image**: High-quality project screenshot
+- **Title**: Project or client name
+- **Category**: Type of work
+- **Description**: Brief project summary
+- **Link**: To case study or live site
+
+### Filtering
+
+Add category filters for large portfolios:
+
+```html
+<!-- wp:group {"layout":{"type":"flex","justifyContent":"center"}} -->
+  <!-- wp:paragraph -->
+  <p><a href="#all">All</a></p>
+  <!-- /wp:paragraph -->
+  <!-- wp:paragraph -->
+  <p><a href="#web-design">Web Design</a></p>
+  <!-- /wp:paragraph -->
+  <!-- wp:paragraph -->
+  <p><a href="#branding">Branding</a></p>
+  <!-- /wp:paragraph -->
+<!-- /wp:group -->
+```
+
+<Note>
+Interactive filtering requires JavaScript. Consider using a portfolio plugin for advanced filtering functionality.
+</Note>
+
+### Hover Effects
+
+Add visual feedback on hover:
+
+- Image zoom
+- Overlay with project info
+- Color shift
+- Shadow elevation
+
+### Lightbox
+
+For image-focused portfolios, consider adding lightbox functionality:
+
+- Click to enlarge images
+- Gallery navigation
+- Caption display
+
+## Using with Custom Post Types
+
+For larger portfolios, consider a custom post type:
+
+```php
+// In functions.php or plugin
+register_post_type('portfolio', [
+    'label' => 'Portfolio',
+    'public' => true,
+    'supports' => ['title', 'editor', 'thumbnail'],
+    'has_archive' => true,
+]);
+```
+
+Then use the Query Loop block:
+
+```html
+<!-- wp:query {"query":{"postType":"portfolio","perPage":9}} -->
+  <!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+    <!-- wp:post-featured-image /-->
+    <!-- wp:post-title /-->
+  <!-- /wp:post-template -->
+<!-- /wp:query -->
+```
+
+## Best Practices
+
+### Images
+
+- **High quality**: Showcase your best work
+- **Consistent style**: Similar editing and presentation
+- **Optimized**: Compress for fast loading
+- **Descriptive alt text**: For accessibility and SEO
+
+### Content
+
+- **Curate carefully**: Quality over quantity
+- **Recent work**: Keep portfolio current
+- **Variety**: Show range of skills
+- **Context**: Explain your role and process
+
+<Tip>
+Include case studies for your best projects. Explain the problem, your solution, and the results.
+</Tip>
+
+### Organization
+
+- **Categories**: Group by type of work
+- **Featured projects**: Highlight best work
+- **Chronological option**: Show recent work first
+
+### Calls to Action
+
+Include clear next steps:
+
+- "View Project" links
+- "Hire Me" or "Get a Quote" CTA
+- Contact information

@@ -1,0 +1,134 @@
+---
+title: "Templates"
+description: "Block templates that define layout structure for different page types"
+---
+
+## Overview
+
+Aegis provides a comprehensive set of block templates that define the layout structure for different page types. Templates are HTML files in the `templates/` directory that use block markup.
+
+## Core Templates
+
+| Template | File | Description |
+|----------|------|-------------|
+| **Index** | `index.html` | Default fallback template for all content |
+| **Front Page** | `front-page.html` | Homepage template |
+| **Page** | `page.html` | Standard page template |
+| **Single** | `single.html` | Single post template |
+| **Archive** | `archive.html` | Post archive/listing template |
+| **Search** | `search.html` | Search results template |
+| **404** | `404.html` | Error page template |
+| **Author** | `author.html` | Author archive template |
+| **Date** | `date.html` | Date-based archive template |
+
+## Custom Templates
+
+| Template | File | Post Types | Description |
+|----------|------|-----------|-------------|
+| **Blank** | `blank.html` | Page, Post | Minimal template with no header/footer |
+| **Full Width** | `full-width.html` | Page, Post | Full-width layout without sidebar constraints |
+| **No Page Title** | `page-no-title.html` | Page | Page template without the default title |
+
+## WooCommerce Templates
+
+| Template | File | Description |
+|----------|------|-------------|
+| **Archive: Product** | `archive-product.html` | Shop/product listing page |
+| **Single: Product** | `single-product.html` | Individual product page |
+| **Product Search** | `search-product.html` | Product search results |
+| **Cart** | `page-cart.html` | Shopping cart page |
+| **Checkout** | `page-checkout.html` | Standard checkout page |
+| **Multi-Step Checkout** | `page-checkout-multi-step.html` | Multi-step checkout flow |
+| **Order Confirmation** | `order-confirmation.html` | Post-purchase confirmation |
+| **My Account** | `page-my-account.html` | Customer account dashboard |
+| **Wishlist** | `page-wishlist.html` | Product wishlist page |
+| **Product Category** | `taxonomy-product_cat.html` | Product category archive |
+| **Product Tag** | `taxonomy-product_tag.html` | Product tag archive |
+
+## Template Structure
+
+Each template is an HTML file containing block markup. A typical template includes:
+
+```html
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group">
+  <!-- wp:post-content /-->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
+```
+
+## Template Hierarchy
+
+Aegis follows the standard WordPress template hierarchy:
+
+```
+Specific → General → Fallback
+
+single-{post-type}-{slug}.html
+  → single-{post-type}.html
+    → single.html
+      → singular.html
+        → index.html
+```
+
+## Assigning Templates
+
+### Per-Page Assignment
+
+<Steps>
+  <Step title="Edit content">
+    Edit any page or post.
+  </Step>
+  <Step title="Open settings">
+    Open the **Settings** sidebar (gear icon).
+  </Step>
+  <Step title="Select template">
+    Under **Template**, select from available templates.
+  </Step>
+</Steps>
+
+Templates marked with specific post types only appear for those types.
+
+### Default Templates
+
+- **Pages** use `page.html` by default
+- **Posts** use `single.html` by default
+- **Archives** use `archive.html` by default
+- **Homepage** uses `front-page.html` if set, otherwise `index.html`
+
+## Editing Templates
+
+### Via Site Editor
+
+1. Go to **Appearance → Editor → Templates**.
+2. Click any template to edit it.
+3. Modifications are saved to the database, overriding the theme file.
+4. Click **Reset** to revert to the theme's original template.
+
+### Via Theme Files
+
+Edit the HTML files directly in `templates/`. Changes take effect immediately unless a database override exists.
+
+## Custom Template Registration
+
+Custom templates are registered in `theme.json` under `customTemplates`:
+
+```json
+{
+  "customTemplates": [
+    {
+      "title": "Full Width",
+      "name": "full-width",
+      "postTypes": ["page", "post"]
+    }
+  ]
+}
+```
+
+- **`title`** — Display name in the template selector
+- **`name`** — Must match the filename (without `.html`)
+- **`postTypes`** — Optional array restricting which post types can use this template

@@ -1,0 +1,105 @@
+---
+title: "Rank Math"
+description: "SEO integration with Rank Math"
+---
+
+## Overview
+
+Aegis provides Rank Math SEO integration with fallback meta description support and hook integration.
+
+## Features
+
+- Fallback meta description support
+- Hook integration
+- Schema markup compatibility
+- Breadcrumb styling
+
+## Meta Description Fallback
+
+Aegis provides fallback meta descriptions when Rank Math description is empty:
+
+```php
+add_filter('rank_math/frontend/description', function($description) {
+    if (empty($description)) {
+        // Provide fallback from excerpt or content
+        $description = get_the_excerpt();
+    }
+    return $description;
+});
+```
+
+## Breadcrumbs
+
+Rank Math breadcrumbs are styled with Aegis tokens:
+
+```css
+.rank-math-breadcrumb {
+    font-size: var(--wp--preset--font-size--14);
+    color: var(--wp--preset--color--neutral-500);
+}
+
+.rank-math-breadcrumb a {
+    color: var(--wp--preset--color--neutral-600);
+}
+
+.rank-math-breadcrumb a:hover {
+    color: var(--wp--preset--color--primary-500);
+}
+```
+
+## Schema Markup
+
+Aegis is compatible with Rank Math's schema markup:
+
+- Article schema for posts
+- Organization schema for site
+- Breadcrumb schema
+- FAQ schema (with FAQ patterns)
+
+## Integration Points
+
+### Hooks
+
+Aegis integrates with Rank Math hooks:
+
+```php
+// Example: Modify title
+add_filter('rank_math/frontend/title', function($title) {
+    // Custom title modifications
+    return $title;
+});
+```
+
+### Settings
+
+Recommended Rank Math settings for Aegis:
+
+- Enable breadcrumbs
+- Use JSON-LD for schema
+- Enable Open Graph
+
+## Best Practices
+
+<Tip>
+Use Rank Math's Focus Keyword feature to optimize your content for search engines while maintaining Aegis's clean design.
+</Tip>
+
+### SEO
+
+- Set meta descriptions for all pages
+- Use proper heading hierarchy
+- Optimize images with alt text
+- Enable XML sitemaps
+
+### Performance
+
+- Minimize schema markup complexity
+- Use caching with SEO plugins
+- Monitor Core Web Vitals
+
+### Content
+
+- Write descriptive titles
+- Use keywords naturally
+- Structure content with headings
+- Include internal links

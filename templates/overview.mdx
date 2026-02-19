@@ -1,0 +1,88 @@
+---
+title: "Templates Overview"
+description: "Understanding templates in Aegis and how to customize them"
+---
+
+## What are Templates?
+
+Templates define the structure and layout of different page types in WordPress. In block themes like Aegis, templates are HTML files containing block markup that you can edit visually in the Site Editor.
+
+## Aegis Templates
+
+Aegis includes 17 templates covering all common page types:
+
+| Template | File | Purpose |
+|----------|------|---------|
+| Index | `index.html` | Default fallback template |
+| Front Page | `front-page.html` | Homepage |
+| Page | `page.html` | Static pages |
+| Single | `single.html` | Individual posts |
+| Archive | `archive.html` | Post archives |
+| Author | `author.html` | Author archives |
+| Date | `date.html` | Date-based archives |
+| Search | `search.html` | Search results |
+| 404 | `404.html` | Not found page |
+
+### Custom Templates
+
+| Template | File | Post Types |
+|----------|------|------------|
+| Blank | `blank.html` | page, post |
+| Full Width | `full-width.html` | page, post |
+| Page No Title | `page-no-title.html` | page |
+
+### WooCommerce Templates
+
+| Template | File | Purpose |
+|----------|------|---------|
+| Archive: Product | `archive-product.html` | Shop page |
+| Single: Product | `single-product.html` | Product pages |
+| Search: Product | `search-product.html` | Product search |
+| Taxonomy: Product Cat | `taxonomy-product_cat.html` | Category archives |
+| Taxonomy: Product Tag | `taxonomy-product_tag.html` | Tag archives |
+
+## Template Parts
+
+Templates use reusable template parts for common sections:
+
+| Part | Area | File |
+|------|------|------|
+| Header | `header` | `parts/header.html` |
+| Footer | `footer` | `parts/footer.html` |
+
+## Editing Templates
+
+<Steps>
+  <Step title="Open Site Editor">
+    Navigate to **Appearance → Editor**.
+  </Step>
+  <Step title="Go to Templates">
+    Click **Templates** in the left sidebar.
+  </Step>
+  <Step title="Select a template">
+    Choose the template you want to edit.
+  </Step>
+  <Step title="Edit with blocks">
+    Add, remove, or modify blocks to customize the layout.
+  </Step>
+  <Step title="Save">
+    Click **Save** to apply your changes.
+  </Step>
+</Steps>
+
+## Template Hierarchy
+
+WordPress uses a template hierarchy to determine which template to use:
+
+```
+Front Page → front-page.html
+Single Post → single.html → singular.html → index.html
+Page → page.html → singular.html → index.html
+Archive → archive.html → index.html
+Search → search.html → index.html
+404 → 404.html → index.html
+```
+
+<Tip>
+Create custom templates for specific pages by duplicating an existing template and modifying it for your needs.
+</Tip>

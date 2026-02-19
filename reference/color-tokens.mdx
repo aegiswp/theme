@@ -1,0 +1,145 @@
+---
+title: "Color Tokens"
+description: "Complete reference of color CSS custom properties in Aegis"
+---
+
+## Overview
+
+All colors in Aegis are available as CSS custom properties generated from `theme.json`.
+
+## Primary Colors
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--wp--preset--color--primary-950` | `#1e2225` | Darkest primary |
+| `--wp--preset--color--primary-900` | `#212528` | Very dark primary |
+| `--wp--preset--color--primary-800` | `#24282c` | Dark primary |
+| `--wp--preset--color--primary-700` | `#343a40` | Medium-dark primary |
+| `--wp--preset--color--primary-600` | `#495057` | Medium primary |
+| `--wp--preset--color--primary-500` | `#6c757d` | Base primary |
+| `--wp--preset--color--primary-400` | `#8d959d` | Light primary |
+| `--wp--preset--color--primary-300` | `#a9b1b9` | Lighter primary |
+| `--wp--preset--color--primary-200` | `#9da5ad` | Very light primary |
+| `--wp--preset--color--primary-100` | `#a5adb5` | Near-white primary |
+| `--wp--preset--color--primary-50` | `#c9cfd4` | Lightest primary |
+| `--wp--preset--color--primary-25` | `#edf0f2` | Almost white primary |
+
+## Neutral Colors
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--wp--preset--color--neutral-950` | `#202427` | Darkest neutral |
+| `--wp--preset--color--neutral-900` | `#25292d` | Very dark neutral |
+| `--wp--preset--color--neutral-800` | `#313539` | Headings |
+| `--wp--preset--color--neutral-700` | `#40454a` | Dark text |
+| `--wp--preset--color--neutral-600` | `#50555b` | Body text |
+| `--wp--preset--color--neutral-500` | `#7e858c` | Muted text |
+| `--wp--preset--color--neutral-400` | `#8e959d` | Placeholder text |
+| `--wp--preset--color--neutral-300` | `#dee2e6` | Light borders |
+| `--wp--preset--color--neutral-200` | `#e4e7eb` | Borders |
+| `--wp--preset--color--neutral-100` | `#e9ecef` | Light backgrounds |
+| `--wp--preset--color--neutral-50` | `#f1f3f5` | Lighter backgrounds |
+| `--wp--preset--color--neutral-0` | `#f8f9fa` | Page background |
+
+## Semantic Colors
+
+### Success
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--wp--preset--color--success-600` | `#40916c` | Success dark |
+| `--wp--preset--color--success-500` | `#52b788` | Success base |
+| `--wp--preset--color--success-100` | `#d8f3dc` | Success light |
+
+### Warning
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--wp--preset--color--warning-600` | `#e85d04` | Warning dark |
+| `--wp--preset--color--warning-500` | `#f48c06` | Warning base |
+| `--wp--preset--color--warning-100` | `#ffdd00` | Warning light |
+
+### Error
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--wp--preset--color--error-600` | `#dc2f02` | Error dark |
+| `--wp--preset--color--error-500` | `#ec5766` | Error base |
+| `--wp--preset--color--error-100` | `#f4998d` | Error light |
+
+## Utility Colors
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--wp--preset--color--transparent` | `transparent` | Transparent |
+| `--wp--preset--color--current` | `currentcolor` | Inherit from parent |
+| `--wp--preset--color--inherit` | `inherit` | Inherit value |
+
+## Usage Examples
+
+### CSS
+
+```css
+.my-element {
+    background-color: var(--wp--preset--color--neutral-100);
+    color: var(--wp--preset--color--neutral-800);
+    border-color: var(--wp--preset--color--neutral-200);
+}
+
+.my-button {
+    background-color: var(--wp--preset--color--primary-500);
+    color: var(--wp--preset--color--primary-25);
+}
+
+.success-message {
+    background-color: var(--wp--preset--color--success-100);
+    color: var(--wp--preset--color--success-600);
+}
+```
+
+### Block Editor
+
+In block attributes:
+
+```json
+{
+    "backgroundColor": "primary-500",
+    "textColor": "neutral-0"
+}
+```
+
+### theme.json
+
+```json
+{
+    "styles": {
+        "color": {
+            "background": "var(--wp--preset--color--neutral-0)",
+            "text": "var(--wp--preset--color--neutral-600)"
+        }
+    }
+}
+```
+
+## Color Relationships
+
+### Text on Backgrounds
+
+| Background | Recommended Text |
+|------------|------------------|
+| `neutral-0` | `neutral-600`, `neutral-800` |
+| `neutral-100` | `neutral-700`, `neutral-800` |
+| `primary-500` | `primary-25`, `neutral-0` |
+| `neutral-950` | `neutral-100`, `neutral-0` |
+
+### Borders
+
+| Context | Recommended Border |
+|---------|-------------------|
+| Light backgrounds | `neutral-200` |
+| Dark backgrounds | `neutral-700` |
+| Focus states | `primary-500` |
+
+<Tip>
+All color combinations in Aegis meet WCAG 2.1 AA contrast requirements.
+</Tip>

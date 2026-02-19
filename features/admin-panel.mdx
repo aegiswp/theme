@@ -1,0 +1,86 @@
+---
+title: "Admin Panel"
+description: "Centralized theme settings and feature management"
+---
+
+## Overview
+
+Aegis provides a centralized admin panel under the **Aegis** menu in the WordPress dashboard. All theme features, blocks, and integrations are managed from this single location.
+
+## Tabs
+
+The admin panel is organized into six tabs:
+
+| Tab | Purpose |
+|-----|---------|
+| **Dashboard** | Theme overview, version info, and quick links |
+| **Blocks** | Enable or disable individual Aegis blocks |
+| **Modals** | Manage modal blocks and view modal feature status |
+| **Hooks** | Manage hook patterns and view available hooks |
+| **Conditionals** | Enable or disable conditional logic groups |
+| **Integrations** | Third-party plugin settings and feature toggles |
+
+## Dashboard
+
+The default landing page when clicking the Aegis menu. Displays:
+
+- Theme version and update status
+- Quick links to documentation and support
+- Feature summary
+
+## Blocks
+
+Toggle individual Aegis blocks on or off. Disabled blocks are unregistered and will not appear in the block inserter.
+
+Available blocks:
+
+- **Slider** (`aegis/slider`) — Responsive carousel
+- **Modal** (`aegis/modal`) — Dialog overlays
+
+<Note>
+When a block is disabled, its assets are not loaded and the block type is not registered.
+</Note>
+
+## Modals
+
+A dedicated overview for the Modal block system:
+
+- **Modal count** — Number of published modal blocks across the site
+- **Active features** — Status of modal-related features (trigger types, animation, conditional display)
+- **Add New** — Quick link to create a new post with a modal block
+- **Manage All** — Link to the modal block list
+
+## Hooks
+
+Overview and management for [Hook Patterns](/features/hook-patterns):
+
+- **Active count** — Number of enabled hook patterns
+- **Add New** — Create a new hook pattern
+- **Manage All** — Link to the hook patterns list table
+- **Hook Reference** — Table of all available hooks with descriptions and enabled status
+
+## Conditionals
+
+Settings for the [Conditional Logic](/features/conditional-logic) system. Each condition group can be independently toggled:
+
+| Group | Controls |
+|-------|----------|
+| **Visibility** | Lockdown, Screen Size, Browser & Device |
+| **User** | User Status, User Role, Specific Users |
+| **Schedule** | Date & Time scheduling |
+| **Pro Conditions** | Cookie, Referral, ACF, MetaBox, Post Meta, User Meta |
+
+Disabling a group removes its section from the Conditionals meta box in the editor across all post types.
+
+## Integrations
+
+Settings for third-party plugin integrations. Features are conditionally displayed based on which plugins are active.
+
+## Implementation
+
+The admin panel is implemented in `Aegis\Admin\ConditionalLogicSettings`:
+
+- Pages are registered as hidden submenu pages under the Aegis menu
+- Tab navigation is rendered via PHP with active state detection
+- Each tab has a dedicated render method
+- Styles are loaded from `src/Admin/css/admin-settings.css` and `src/Admin/css/hook-patterns.css`

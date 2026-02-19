@@ -1,0 +1,191 @@
+---
+title: "Contact Patterns"
+description: "Contact forms and information layouts"
+---
+
+## Available Contact Patterns
+
+Aegis includes 5 contact patterns:
+
+| Pattern | Description |
+|---------|-------------|
+| Contact Default | Form with contact info |
+| Contact Split | Two-column layout |
+| Contact Card | Contact info cards |
+| Contact Map | Form with embedded map |
+| Contact Simple | Minimal contact form |
+
+## Contact Default
+
+A comprehensive contact section:
+
+- Contact form
+- Address and phone
+- Email link
+- Social media links
+
+### Structure
+
+```html
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+  <!-- wp:heading {"textAlign":"center"} -->
+  <h2>Get in Touch</h2>
+  <!-- /wp:heading -->
+  
+  <!-- wp:columns -->
+    <!-- wp:column {"width":"60%"} -->
+      <!-- Contact form -->
+    <!-- /wp:column -->
+    
+    <!-- wp:column {"width":"40%"} -->
+      <!-- wp:heading {"level":3} -->Contact Information<!-- /wp:heading -->
+      <!-- wp:paragraph -->Address, phone, email<!-- /wp:paragraph -->
+      <!-- wp:social-links /-->
+    <!-- /wp:column -->
+  <!-- /wp:columns -->
+<!-- /wp:group -->
+```
+
+## Contact Split
+
+A balanced two-column layout:
+
+- Form on one side
+- Large contact details on the other
+- Visual imagery or map
+
+## Contact Card
+
+Contact information in card format:
+
+- Multiple contact method cards
+- Icons for each method
+- Click-to-action (call, email)
+
+### Structure
+
+```html
+<!-- wp:columns -->
+  <!-- wp:column -->
+    <!-- wp:group {"className":"contact-card"} -->
+      <!-- wp:image {"className":"is-style-icon"} /-->
+      <!-- wp:heading {"level":3} -->Email<!-- /wp:heading -->
+      <!-- wp:paragraph -->
+      <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+      <!-- /wp:paragraph -->
+    <!-- /wp:group -->
+  <!-- /wp:column -->
+  
+  <!-- Phone card -->
+  <!-- Address card -->
+<!-- /wp:columns -->
+```
+
+## Contact Map
+
+Contact form with embedded map:
+
+- Google Maps or OpenStreetMap embed
+- Form alongside or below map
+- Visual location context
+
+<Note>
+Use the Custom HTML block to embed maps, or integrate with a maps plugin for more features.
+</Note>
+
+## Contact Simple
+
+A minimal contact form:
+
+- Name, email, message fields
+- Single submit button
+- No additional content
+
+## Form Integration
+
+Aegis patterns work with popular form plugins:
+
+### Fluent Forms
+
+Aegis includes Fluent Forms integration with theme-styled form elements:
+
+```html
+<!-- wp:shortcode -->
+[fluentform id="1"]
+<!-- /wp:shortcode -->
+```
+
+### Other Form Plugins
+
+Compatible with:
+
+- Contact Form 7
+- WPForms
+- Gravity Forms
+- Ninja Forms
+
+## Customizing Contact Patterns
+
+### Form Fields
+
+Common contact form fields:
+
+- **Name**: First name, last name, or full name
+- **Email**: Required for response
+- **Phone**: Optional
+- **Subject**: Dropdown or text
+- **Message**: Textarea
+- **Consent**: GDPR checkbox
+
+### Contact Information
+
+Include relevant details:
+
+- **Address**: Physical location
+- **Phone**: With click-to-call link
+- **Email**: With mailto link
+- **Hours**: Business hours
+- **Social**: Social media links
+
+### Styling
+
+- Match form colors to your brand
+- Ensure input fields are clearly visible
+- Style buttons consistently with site
+- Add focus states for accessibility
+
+## Best Practices
+
+<Tip>
+Always include a clear call-to-action and set expectations for response time.
+</Tip>
+
+### Form Design
+
+- Keep forms short (5-7 fields max)
+- Mark required fields clearly
+- Use appropriate input types
+- Provide helpful placeholder text
+- Show validation errors inline
+
+### Accessibility
+
+- Label all form fields
+- Associate labels with inputs
+- Provide error messages
+- Ensure keyboard navigation
+- Test with screen readers
+
+### Spam Prevention
+
+- Use honeypot fields
+- Implement CAPTCHA if needed
+- Validate on server side
+- Rate limit submissions
+
+### Privacy
+
+- Include privacy policy link
+- Add GDPR consent checkbox
+- Explain data usage
+- Secure form submissions (HTTPS)

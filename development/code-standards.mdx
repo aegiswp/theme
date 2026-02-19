@@ -1,0 +1,247 @@
+---
+title: "Code Standards"
+description: "Coding standards and best practices for Aegis development"
+---
+
+## Overview
+
+Aegis follows WordPress Coding Standards with additional guidelines for block theme development.
+
+## PHP Standards
+
+### WordPress Coding Standards
+
+Aegis uses [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/):
+
+```php
+<?php
+/**
+ * Function description.
+ *
+ * @param string $param Parameter description.
+ * @return bool Return description.
+ */
+function aegis_example_function( $param ) {
+    if ( empty( $param ) ) {
+        return false;
+    }
+
+    $result = do_something( $param );
+
+    return $result;
+}
+```
+
+### Key Rules
+
+- **Indentation**: Tabs, not spaces
+- **Braces**: Opening brace on same line
+- **Spacing**: Space after control structures
+- **Naming**: Snake_case for functions and variables
+- **Documentation**: PHPDoc for all functions
+
+### Checking Standards
+
+```bash
+composer run standards:check
+composer run standards:fix
+```
+
+## CSS Standards
+
+### Stylelint
+
+Aegis uses Stylelint for CSS validation:
+
+```css
+/* Good */
+.my-class {
+    display: flex;
+    align-items: center;
+    gap: var(--wp--preset--spacing--sm);
+}
+
+/* Bad */
+.my-class {
+    display:flex;
+    align-items:center;
+    gap:24px;
+}
+```
+
+### Key Rules
+
+- Use CSS custom properties (design tokens)
+- Avoid hardcoded values
+- Use logical properties when possible
+- Keep selectors simple
+
+### Checking Standards
+
+```bash
+npm run lint:css
+```
+
+## JavaScript Standards
+
+### WordPress JavaScript Standards
+
+Follow [WordPress JavaScript Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/):
+
+```javascript
+/**
+ * Function description.
+ *
+ * @param {string} param - Parameter description.
+ * @return {boolean} Return description.
+ */
+function exampleFunction( param ) {
+    if ( ! param ) {
+        return false;
+    }
+
+    const result = doSomething( param );
+
+    return result;
+}
+```
+
+### Key Rules
+
+- **Indentation**: Tabs
+- **Semicolons**: Required
+- **Quotes**: Single quotes preferred
+- **Spacing**: Space inside parentheses
+- **Naming**: camelCase for variables and functions
+
+## HTML/Block Markup
+
+### Block Comments
+
+```html
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+<div class="wp-block-group">
+    <!-- wp:heading -->
+    <h2>Heading</h2>
+    <!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+```
+
+### Key Rules
+
+- Proper indentation
+- Self-closing blocks: `<!-- wp:spacer /-->`
+- Closing comments: `<!-- /wp:group -->`
+- Valid HTML structure
+
+## theme.json Standards
+
+### Structure
+
+```json
+{
+    "$schema": "https://schemas.wp.org/wp/6.8/theme.json",
+    "version": 3,
+    "settings": {},
+    "styles": {},
+    "customTemplates": [],
+    "templateParts": []
+}
+```
+
+### Key Rules
+
+- Use schema for validation
+- Consistent property ordering
+- Use presets over hardcoded values
+- Document custom properties
+
+## File Organization
+
+### Directory Structure
+
+```
+aegis/
+├── assets/
+│   ├── fonts/
+│   ├── images/
+│   └── css/
+├── parts/
+├── patterns/
+│   ├── header/
+│   ├── footer/
+│   └── ...
+├── templates/
+├── vendor/
+├── functions.php
+├── style.css
+└── theme.json
+```
+
+### Naming Conventions
+
+| Type | Convention | Example |
+|------|------------|---------|
+| PHP files | lowercase-hyphenated | `class-my-feature.php` |
+| Templates | lowercase-hyphenated | `single-product.html` |
+| Patterns | lowercase-hyphenated | `hero-default.php` |
+| CSS classes | lowercase-hyphenated | `.my-custom-class` |
+| PHP functions | snake_case with prefix | `aegis_my_function()` |
+| PHP classes | PascalCase | `Aegis_My_Class` |
+
+## Documentation
+
+### PHPDoc
+
+```php
+/**
+ * Short description.
+ *
+ * Long description if needed.
+ *
+ * @since 1.0.0
+ *
+ * @param string $param1 Description.
+ * @param int    $param2 Description.
+ * @return array Description.
+ */
+```
+
+### Inline Comments
+
+```php
+// Single line comment for simple explanations.
+
+/*
+ * Multi-line comment for
+ * more complex explanations.
+ */
+```
+
+## Best Practices
+
+<Tip>
+Run linters before every commit to catch issues early.
+</Tip>
+
+### Performance
+
+- Minimize database queries
+- Use caching appropriately
+- Lazy load when possible
+- Optimize assets
+
+### Security
+
+- Escape output: `esc_html()`, `esc_attr()`, `esc_url()`
+- Sanitize input: `sanitize_text_field()`, `absint()`
+- Use nonces for forms
+- Validate user capabilities
+
+### Accessibility
+
+- Semantic HTML
+- ARIA attributes when needed
+- Keyboard navigation
+- Sufficient color contrast

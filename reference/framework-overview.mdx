@@ -1,0 +1,221 @@
+---
+title: "Framework Overview"
+description: "Understanding the Aegis Framework architecture"
+---
+
+## Overview
+
+The Aegis Framework is a modular PHP framework that powers the theme's functionality. It's located in `vendor/aegis/` and provides services for blocks, design system, integrations, and more.
+
+## Architecture
+
+```
+vendor/aegis/
+├── container/        # Dependency injection container
+├── dom/              # DOM manipulation utilities
+├── framework/        # Core framework
+│   ├── public/       # Public assets
+│   └── src/          # PHP source files
+├── hooks/            # WordPress hooks utilities
+├── icons/            # SVG icon library
+└── utilities/        # Helper utilities
+```
+
+## Core Components
+
+### Aegis Class
+
+The main entry point that bootstraps the framework:
+
+```php
+// functions.php
+Aegis::register(__FILE__);
+```
+
+### Service Provider
+
+Registers all framework services:
+
+```php
+// vendor/aegis/framework/src/ServiceProvider.php
+class ServiceProvider {
+    public function register() {
+        // Register services
+    }
+}
+```
+
+## Framework Modules
+
+### BlockSettings
+
+Extends WordPress blocks with additional controls:
+
+- Box shadows
+- Absolute positioning
+- CSS transforms
+- CSS filters
+
+Location: `vendor/aegis/framework/src/BlockSettings/`
+
+### BlockVariations
+
+Provides specialized block variations:
+
+- Accordion List
+- Counter
+- Curved Text
+- Grid
+- Icon
+- Marquee
+- Newsletter
+- Related Posts
+- SVG
+
+Location: `vendor/aegis/framework/src/BlockVariations/`
+
+### CoreBlocks
+
+Enhances WordPress core blocks:
+
+- Extended styling
+- Additional controls
+- Performance optimizations
+
+Location: `vendor/aegis/framework/src/CoreBlocks/`
+
+### DesignSystem
+
+Manages design tokens and styling:
+
+- Color system
+- Typography
+- Spacing
+- Shadows
+
+Location: `vendor/aegis/framework/src/DesignSystem/`
+
+### InlineAssets
+
+Handles conditional asset loading:
+
+- CSS injection
+- JavaScript loading
+- Font loading
+
+Location: `vendor/aegis/framework/src/InlineAssets/`
+
+### Integrations
+
+Plugin compatibility layer:
+
+- WooCommerce
+- LearnDash
+- LifterLMS
+- ACF
+- Rank Math
+
+Location: `vendor/aegis/framework/src/Integrations/`
+
+### ThemeUpdater
+
+GitHub-based theme updates:
+
+- Version checking
+- Update notifications
+- Automatic updates
+
+Location: `vendor/aegis/framework/src/ThemeUpdater/`
+
+## Initialization Flow
+
+1. **Bootstrap** - `functions.php` loads autoloader
+2. **Registration** - `Aegis::register()` initializes framework
+3. **Service Loading** - ServiceProvider registers all services
+4. **Hook Binding** - Services attach to WordPress hooks
+5. **Execution** - Services execute during WordPress lifecycle
+
+## Extending the Framework
+
+### Custom Service
+
+Create a custom service in a child theme:
+
+```php
+// child-theme/includes/MyService.php
+class MyService {
+    public function __construct() {
+        add_action('init', [$this, 'init']);
+    }
+    
+    public function init() {
+        // Service logic
+    }
+}
+
+// child-theme/functions.php
+add_action('after_setup_theme', function() {
+    new MyService();
+});
+```
+
+### Hooking into Framework
+
+Use WordPress hooks to extend functionality:
+
+```php
+// Modify block output
+add_filter('render_block', function($content, $block) {
+    // Modify content
+    return $content;
+}, 10, 2);
+
+// Add custom block settings
+add_action('enqueue_block_editor_assets', function() {
+    // Enqueue editor scripts
+});
+```
+
+## Icon Library
+
+Aegis includes 338+ SVG icons:
+
+```
+vendor/aegis/icons/
+├── wordpress/
+├── dashicons/
+└── social/
+```
+
+Access icons through the Icon block variation.
+
+## Utilities
+
+### DOM Utilities
+
+```php
+// vendor/aegis/dom/
+// DOM manipulation helpers
+```
+
+### Hooks Utilities
+
+```php
+// vendor/aegis/hooks/
+// WordPress hooks helpers
+```
+
+### General Utilities
+
+```php
+// vendor/aegis/utilities/
+// General helper functions
+```
+
+<Note>
+The framework is loaded via Composer autoloader. All classes are available after `require_once __DIR__ . '/vendor/autoload.php';` in `functions.php`.
+</Note>
+
+<Tip>
+For customizations, prefer using WordPress hooks and filters rather than modifying framework files directly.
+</Tip>

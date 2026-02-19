@@ -1,0 +1,199 @@
+---
+title: "Custom Patterns"
+description: "Create custom block patterns for Aegis"
+---
+
+## Overview
+
+Block patterns are pre-designed block layouts that users can insert with a single click. Creating custom patterns extends Aegis's pattern library with your own designs.
+
+## Pattern Structure
+
+Patterns are PHP files in the `patterns/` directory:
+
+```php
+<?php
+/**
+ * Title: My Pattern
+ * Slug: aegis/my-pattern
+ * Categories: featured
+ * Description: A description of the pattern.
+ * Keywords: keyword1, keyword2
+ */
+?>
+<!-- Block markup here -->
+```
+
+## Pattern Header
+
+Required and optional header fields:
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| Title | Yes | Display name in inserter |
+| Slug | Yes | Unique identifier |
+| Categories | Yes | Inserter categories |
+| Description | No | Pattern description |
+| Keywords | No | Search keywords |
+| Viewport Width | No | Preview width |
+| Block Types | No | Associated block types |
+| Post Types | No | Limit to post types |
+| Template Types | No | Suggest for templates |
+| Inserter | No | Show in inserter (yes/no) |
+
+## Creating Patterns
+
+### Basic Pattern
+
+```php
+<?php
+/**
+ * Title: Simple CTA
+ * Slug: aegis-child/simple-cta
+ * Categories: call-to-action
+ */
+?>
+<!-- wp:group {"backgroundColor":"primary-100","layout":{"type":"constrained"}} -->
+<div class="wp-block-group has-primary-100-background-color has-background">
+    <!-- wp:heading {"textAlign":"center"} -->
+    <h2 class="has-text-align-center">Ready to Get Started?</h2>
+    <!-- /wp:heading -->
+    
+    <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+    <div class="wp-block-buttons">
+        <!-- wp:button -->
+        <div class="wp-block-button">
+            <a class="wp-block-button__link wp-element-button">Get Started</a>
+        </div>
+        <!-- /wp:button -->
+    </div>
+    <!-- /wp:buttons -->
+</div>
+<!-- /wp:group -->
+```
+
+### Pattern with Images
+
+Use `get_template_directory_uri()` for dynamic image paths:
+
+```php
+<?php
+/**
+ * Title: Hero with Image
+ * Slug: aegis-child/hero-image
+ * Categories: featured
+ */
+?>
+<!-- wp:cover {"url":"<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/hero.webp","dimRatio":50} -->
+<div class="wp-block-cover">
+    <span class="wp-block-cover__background has-background-dim-50"></span>
+    <img class="wp-block-cover__image-background" 
+         src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/hero.webp" 
+         alt="<?php echo esc_attr_x('Hero background', 'alt text', 'aegis-child'); ?>"/>
+    <div class="wp-block-cover__inner-container">
+        <!-- Content -->
+    </div>
+</div>
+<!-- /wp:cover -->
+```
+
+### Translatable Patterns
+
+Use translation functions for text:
+
+```php
+<!-- wp:heading -->
+<h2><?php echo esc_html_x('Our Services', 'Pattern heading', 'aegis-child'); ?></h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><?php echo esc_html__('We offer a wide range of services.', 'aegis-child'); ?></p>
+<!-- /wp:paragraph -->
+```
+
+## Pattern Categories
+
+### Default Categories
+
+| Slug | Name |
+|------|------|
+| `featured` | Featured |
+| `header` | Headers |
+| `footer` | Footers |
+| `call-to-action` | Call to Action |
+| `testimonials` | Testimonials |
+| `team` | Team |
+| `gallery` | Gallery |
+| `posts` | Posts |
+| `text` | Text |
+| `about` | About |
+| `contact` | Contact |
+
+### Custom Categories
+
+Register custom categories:
+
+```php
+add_action('init', function() {
+    register_block_pattern_category('aegis-child-custom', [
+        'label' => __('My Custom Patterns', 'aegis-child'),
+    ]);
+});
+```
+
+## Hidden Patterns
+
+Hide patterns from the inserter (for utility patterns):
+
+```php
+<?php
+/**
+ * Title: Utility Pattern
+ * Slug: aegis-child/utility
+ * Categories: hidden
+ * Inserter: no
+ */
+?>
+```
+
+<Note>
+Prefix hidden pattern filenames with `hidden-` for easy identification.
+</Note>
+
+## Best Practices
+
+### Use Presets
+
+Always use theme presets instead of hardcoded values:
+
+```php
+<!-- Good: Uses preset -->
+<!-- wp:group {"backgroundColor":"primary-100","style":{"spacing":{"padding":"var:preset|spacing|lg"}}} -->
+
+<!-- Bad: Hardcoded values -->
+<!-- wp:group {"style":{"color":{"background":"#edf0f2"},"spacing":{"padding":"48px"}}} -->
+```
+
+### Clean Markup
+
+Remove unnecessary attributes:
+
+- Remove `queryId` from Query blocks
+- Remove `theme` attribute from Template Parts
+- Remove image IDs for portability
+
+### Accessibility
+
+- Include alt text for images
+- Use proper heading hierarchy
+- Ensure sufficient color contrast
+
+### Translation
+
+- Use `esc_html_x()` for context-specific strings
+- Use `esc_html__()` for simple strings
+- Use `esc_attr__()` for attributes
+
+<Tip>
+Test patterns in both the editor and frontend to ensure they render correctly in all contexts.
+</Tip>

@@ -1,0 +1,154 @@
+---
+title: "Layout"
+description: "Responsive layout constraints and content width settings"
+---
+
+## Overview
+
+Aegis utilizes responsive layout constraints that ensure optimal content width across all devices. The layout system uses CSS `min()` functions for fluid, responsive behavior.
+
+## Layout Presets
+
+| Setting | Value | Max Width |
+|---------|-------|-----------|
+| Content Size | `min(calc(100dvw - var(--wp--preset--spacing--lg) * 2), 720px)` | 720px |
+| Wide Size | `min(calc(100vw - var(--wp--preset--spacing--lg) * 2), 1620px)` | 1620px |
+
+<Note>
+Both values automatically account for page padding using the `lg` spacing preset (48px), ensuring content never touches the viewport edges.
+</Note>
+
+## How It Works
+
+### Content Size (720px)
+
+The default content width for text-heavy content like blog posts and articles:
+
+```css
+/* Calculated as */
+min(
+  calc(100dvw - 48px * 2),  /* Viewport minus padding */
+  720px                      /* Maximum width */
+)
+```
+
+### Wide Size (1620px)
+
+The maximum width for wide-aligned blocks and full-width sections:
+
+```css
+/* Calculated as */
+min(
+  calc(100vw - 48px * 2),   /* Viewport minus padding */
+  1620px                     /* Maximum width */
+)
+```
+
+## Block Alignment Options
+
+Blocks in Aegis can use these alignment options:
+
+| Alignment | Width | Use Case |
+|-----------|-------|----------|
+| None | Content Size (720px) | Default for most blocks |
+| Wide | Wide Size (1620px) | Images, galleries, featured content |
+| Full | 100% viewport | Hero sections, full-bleed images |
+
+## Root Padding Aware Alignments
+
+Aegis enables `useRootPaddingAwareAlignments`, which means:
+
+- Full-width blocks extend to the viewport edge
+- Content respects the root padding
+- No need for negative margins on full-width elements
+
+```json
+{
+  "settings": {
+    "useRootPaddingAwareAlignments": true
+  }
+}
+```
+
+## Appearance Tools
+
+Aegis enables all appearance tools for maximum layout flexibility:
+
+```json
+{
+  "settings": {
+    "appearanceTools": true
+  }
+}
+```
+
+This enables:
+- Border controls (color, radius, style, width)
+- Link color controls
+- Typography controls (line height, font weight)
+- Spacing controls (margin, padding, block gap)
+- Dimensions controls (min-height)
+
+## Custom Border Defaults
+
+Aegis provides default border tokens:
+
+| Property | Value | CSS Variable |
+|----------|-------|--------------|
+| Width | 1px | `--wp--custom--border--width` |
+| Style | solid | `--wp--custom--border--style` |
+| Color | neutral-200 | `--wp--custom--border--color` |
+| Radius | 6px | `--wp--custom--border--radius` |
+
+## Position Settings
+
+```json
+{
+  "settings": {
+    "position": {
+      "sticky": false
+    }
+  }
+}
+```
+
+<Note>
+Sticky positioning is disabled by default to prevent layout issues. Enable it in child themes if needed.
+</Note>
+
+## Usage in Templates
+
+When creating templates, use the Group block with layout settings:
+
+```html
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+<div class="wp-block-group">
+  <!-- Content blocks here use contentSize -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"layout":{"type":"constrained"},"align":"wide"} -->
+<div class="wp-block-group alignwide">
+  <!-- Content blocks here use wideSize -->
+</div>
+<!-- /wp:group -->
+```
+
+## Customizing Layout
+
+Override layout settings in a child theme's `theme.json`:
+
+```json
+{
+  "settings": {
+    "layout": {
+      "contentSize": "800px",
+      "wideSize": "1400px"
+    }
+  }
+}
+```
+
+<Tip>
+Keep content width between 600-800px for optimal readability of body text. Use wide alignment for visual content that benefits from more horizontal space.
+</Tip>

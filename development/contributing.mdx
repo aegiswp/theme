@@ -1,0 +1,192 @@
+---
+title: "Contributing"
+description: "How to contribute to Aegis development"
+---
+
+## Overview
+
+Contributing to Aegis is a rewarding experience. We welcome contributions of all kinds: code, testing, documentation, and design.
+
+## Getting Started
+
+<Steps>
+  <Step title="Read the guidelines">
+    Review the [Code of Conduct](https://github.com/aegiswp/theme/blob/main/CODE_OF_CONDUCT.md) and [Contributing Guide](https://github.com/aegiswp/theme/blob/main/CONTRIBUTING.md).
+  </Step>
+  <Step title="Set up development environment">
+    Follow the [Local Environment](/development/local-environment) guide.
+  </Step>
+  <Step title="Find an issue">
+    Browse [open issues](https://github.com/aegiswp/theme/issues) for tasks.
+  </Step>
+  <Step title="Create a pull request">
+    Submit your changes for review.
+  </Step>
+</Steps>
+
+## Ways to Contribute
+
+### Code
+
+- Fix bugs
+- Implement new features
+- Improve performance
+- Enhance accessibility
+
+### Testing
+
+- Test new features
+- Report bugs
+- Verify fixes
+- Cross-browser testing
+
+### Documentation
+
+- Improve existing docs
+- Write tutorials
+- Translate content
+- Add code examples
+
+### Design
+
+- Create patterns
+- Design templates
+- Improve UI/UX
+- Create assets
+
+## Communication
+
+### Community Channels
+
+<Card
+  title="Facebook Group"
+  icon="facebook"
+  href="https://www.facebook.com/groups/aegiswp"
+>
+  Join the Aegis community for discussions and support.
+</Card>
+
+### GitHub
+
+- [Issues](https://github.com/aegiswp/theme/issues) - Bug reports and feature requests
+- [Pull Requests](https://github.com/aegiswp/theme/pulls) - Code contributions
+- [Discussions](https://github.com/aegiswp/theme/discussions) - General questions
+
+## Pull Request Process
+
+### Before Submitting
+
+1. **Check existing issues** - Avoid duplicates
+2. **Create an issue first** - For significant changes
+3. **Fork the repository** - Work on your own copy
+4. **Create a feature branch** - `feature/my-feature` or `fix/bug-description`
+
+### Submitting
+
+1. **Run all tests** - Ensure nothing is broken
+2. **Follow coding standards** - Run linters
+3. **Write descriptive commits** - Clear, concise messages
+4. **Update documentation** - If applicable
+5. **Create pull request** - With detailed description
+
+### PR Description Template
+
+```markdown
+## Description
+Brief description of changes.
+
+## Related Issue
+Fixes #123
+
+## Type of Change
+- [ ] Bug fix
+- [ ] New feature
+- [ ] Documentation
+- [ ] Performance improvement
+
+## Testing
+How to test these changes.
+
+## Screenshots
+If applicable.
+```
+
+## Code Quality
+
+### Standards
+
+- Follow [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/)
+- Write clean, readable code
+- Comment complex logic
+- Keep functions focused
+
+### Testing
+
+Before submitting:
+
+```bash
+npm run lint:css
+composer run standards:check
+composer run analyze
+npm run test:php
+```
+
+### Commits
+
+- Use descriptive messages
+- One logical change per commit
+- Reference issues when applicable
+
+```
+fix: Resolve button hover state issue (#123)
+
+- Updated button hover color
+- Added transition effect
+- Fixed focus state
+```
+
+## Review Process
+
+1. **Automated checks** - CI runs tests
+2. **Code review** - Maintainer reviews changes
+3. **Feedback** - Address any requested changes
+4. **Approval** - Maintainer approves PR
+5. **Merge** - Changes merged to main branch
+
+<Note>
+Be patient during review. Maintainers are volunteers and may take time to respond.
+</Note>
+
+## PR Description Template
+
+```markdown
+## Description
+Brief description of changes.
+
+## Related Issue
+Fixes #123
+
+## Type of Change
+- [ ] Bug fix
+- [ ] New feature
+- [ ] Documentation
+- [ ] Performance improvement
+
+## Testing
+How to test these changes.
+
+## Screenshots
+If applicable.
+```
+
+## Recognition
+
+Contributors are recognized in:
+
+- [CONTRIBUTORS.md](https://github.com/aegiswp/theme/blob/main/CONTRIBUTORS.md)
+- Release notes
+- Theme credits
+
+<Tip>
+Start with "good first issue" labeled issues if you're new to the project.
+</Tip>

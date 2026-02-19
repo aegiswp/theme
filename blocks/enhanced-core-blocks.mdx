@@ -1,0 +1,258 @@
+---
+title: "Enhanced Core Blocks"
+description: "WordPress core blocks extended with additional Aegis functionality"
+---
+
+## Overview
+
+Aegis extends 37 WordPress core blocks with additional styling options, performance optimizations, and enhanced functionality.
+
+## Text Blocks
+
+### Paragraph (`core/paragraph`)
+
+Extended with:
+- Gradient text support
+- Dynamic font sizes
+- Advanced text formatting
+
+### Heading (`core/heading`)
+
+Extended with:
+- Gradient and decoration support
+- Extended heading styles
+- Anchor link generation
+
+### List (`core/list`)
+
+Extended with:
+- Custom list markers
+- Checklist styling (uses `success-600` color)
+- Accordion list variation
+
+### Code (`core/code`)
+
+Enhanced styling:
+- JetBrains Mono font family
+- 14px font size
+- Rounded corners
+- Background color
+
+### Quote (`core/quote`)
+
+Styled with:
+- Left border accent
+- Padding adjustments
+- Citation styling
+
+## Media Blocks
+
+### Image (`core/image`)
+
+Extended with:
+- SVG icon support
+- Border radius from theme
+- Advanced image controls
+
+### Cover (`core/cover`)
+
+Enhanced with:
+- Overlay and positioning options
+- Zero margin defaults
+- Advanced background controls
+
+### Video (`core/video`)
+
+Styled with:
+- Border radius
+- Background color for loading state
+- Lazy loading support
+
+### Audio (`core/audio`)
+
+Styled with:
+- Border radius
+- Background color
+- Consistent player styling
+
+## Layout Blocks
+
+### Group (`core/group`)
+
+Extended with:
+- Grid layout variation
+- Marquee animation variation
+- Newsletter form variation
+
+### Columns (`core/columns`)
+
+Enhanced with:
+- Responsive controls
+- Zero bottom margin
+- Border radius support
+
+### Column (`core/column`)
+
+Styled with:
+- Border radius support
+- Flexible width options
+
+### Buttons (`core/buttons`)
+
+Styled with:
+- Consistent gap spacing (XS)
+- Border radius inheritance
+
+### Button (`core/button`)
+
+Comprehensive styling:
+- Primary color scheme
+- Rounded corners
+- Consistent padding
+- Hover states
+
+```css
+/* Button defaults */
+background: var(--wp--preset--color--primary-500);
+color: var(--wp--preset--color--primary-25);
+border-radius: var(--wp--custom--border--radius);
+font-size: var(--wp--preset--font-size--14);
+font-weight: var(--wp--custom--font-weight--semi-bold);
+```
+
+### Spacer (`core/spacer`)
+
+Extended with:
+- Responsive breakpoint controls
+- Preset height options
+
+### Button CSS Defaults
+
+```css
+background: var(--wp--preset--color--primary-500);
+color: var(--wp--preset--color--primary-25);
+border-radius: var(--wp--custom--border--radius);
+font-size: var(--wp--preset--font-size--14);
+font-weight: var(--wp--custom--font-weight--semi-bold);
+```
+
+## Navigation Blocks
+
+### Navigation (`core/navigation`)
+
+Enhanced with:
+- Mega menu support
+- Custom font styling
+- 14px font size, medium weight
+
+### Navigation Submenu (`core/navigation-submenu`)
+
+Extended with:
+- Multi-column dropdown support
+- Shadow styling (XL shadow)
+
+### Page List (`core/page-list`)
+
+Styled with:
+- Consistent gap spacing
+
+## Query Blocks
+
+### Query (`core/query`)
+
+Extended with:
+- Advanced query configurations
+- Related posts variation
+
+### Post Template (`core/post-template`)
+
+Styled with:
+- Inherited gap spacing
+- Zero top margin
+
+### Post Featured Image (`core/post-featured-image`)
+
+Styled with:
+- Border radius
+- Bottom margin spacing
+
+### Post Title (`core/post-title`)
+
+Extended with:
+- Styling options
+- Link decoration control
+
+### Post Date (`core/post-date`)
+
+Styled with:
+- 12px font size
+- Consistent formatting
+
+### Post Terms (`core/post-terms`)
+
+Styled with:
+- No text decoration
+- 14px font size
+
+### Post Excerpt (`core/post-excerpt`)
+
+Extended with:
+- Length controls
+- Read more styling
+
+## Theme Blocks
+
+### Site Logo (`core/site-logo`)
+
+Styled with:
+- Neutral-800 text color
+- Consistent sizing
+
+### Site Title (`core/site-title`)
+
+Styled with:
+- Neutral-800 text color
+- No text decoration
+- Zero bottom margin
+
+### Template Part (`core/template-part`)
+
+Styled with:
+- Zero margins on all sides
+
+## Other Blocks
+
+### Search (`core/search`)
+
+Enhanced with:
+- CSS-only toggle functionality
+- Full-screen search mode
+- Consistent input styling
+
+### Separator (`core/separator`)
+
+Styled with:
+- Current color border
+- Neutral-200 default color
+
+### Social Links (`core/social-links`)
+
+Styled with:
+- Inherited text color
+- Zero left padding
+
+### Table of Contents (`core/table-of-contents`)
+
+Enhanced with:
+- Smooth scrolling
+- Styled list items
+
+### Calendar (`core/calendar`)
+
+Enhanced with:
+- Improved styling
+- DOM manipulation fixes
+
+<Tip>
+All enhanced blocks maintain full compatibility with WordPress core. Aegis enhancements are additive and don't break existing functionality.
+</Tip>

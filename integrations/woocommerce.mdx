@@ -1,0 +1,135 @@
+---
+title: "WooCommerce"
+description: "E-commerce integration with WooCommerce"
+---
+
+## Overview
+
+Aegis provides full WooCommerce integration with custom templates, styling, and block support.
+
+## Features
+
+- Custom product templates
+- Theme-styled cart and checkout
+- Product block enhancements
+- Consistent design language
+
+## Templates
+
+Aegis includes WooCommerce-specific templates:
+
+| Template | File | Purpose |
+|----------|------|---------|
+| Shop | `archive-product.html` | Main shop page |
+| Product | `single-product.html` | Individual products |
+| Product Search | `search-product.html` | Product search results |
+| Category | `taxonomy-product_cat.html` | Product categories |
+| Tag | `taxonomy-product_tag.html` | Product tags |
+
+## Styling
+
+WooCommerce elements inherit Aegis design tokens:
+
+### Buttons
+
+```css
+.woocommerce .button,
+.woocommerce button.button {
+    background: var(--wp--preset--color--primary-500);
+    color: var(--wp--preset--color--primary-25);
+    border-radius: var(--wp--custom--border--radius);
+}
+```
+
+### Forms
+
+```css
+.woocommerce input,
+.woocommerce select {
+    border: 1px solid var(--wp--custom--border--color);
+    border-radius: var(--wp--custom--border--radius);
+}
+```
+
+### Product Cards
+
+```css
+.wc-block-grid__product {
+    border-radius: var(--wp--custom--border--radius);
+}
+```
+
+## Block Support
+
+Aegis enhances WooCommerce blocks:
+
+- Product Grid
+- Product Categories
+- Cart
+- Checkout
+- Mini Cart
+
+## Customization
+
+### Product Grid Layout
+
+Use the Query Loop block with product post type:
+
+```html
+<!-- wp:query {"query":{"postType":"product","perPage":12}} -->
+  <!-- wp:post-template {"layout":{"type":"grid","columnCount":4}} -->
+    <!-- wp:post-featured-image /-->
+    <!-- wp:post-title /-->
+    <!-- wp:woocommerce/product-price /-->
+    <!-- wp:woocommerce/product-button /-->
+  <!-- /wp:post-template -->
+<!-- /wp:query -->
+```
+
+### Shop Page
+
+Customize the shop page template:
+
+1. Go to **Appearance → Editor → Templates**
+2. Select **Archive: Product**
+3. Edit the layout with blocks
+
+### Single Product
+
+Customize product pages:
+
+1. Edit the **Single: Product** template
+2. Arrange WooCommerce blocks as needed
+3. Add custom content sections
+
+## Best Practices
+
+<Tip>
+Use WooCommerce blocks instead of shortcodes for better integration with the block editor and Aegis styling.
+</Tip>
+
+### Performance
+
+- Enable WooCommerce block-based cart/checkout
+- Use product image optimization
+- Consider lazy loading for product grids
+
+### Design
+
+- Maintain consistent button styles
+- Use theme spacing for product layouts
+- Apply theme colors to sale badges
+
+## Troubleshooting
+
+### Styles not applying
+
+1. Clear any caching plugins
+2. Check for CSS conflicts
+3. Ensure WooCommerce is updated
+
+### Template issues
+
+1. Verify template files exist
+2. Check template hierarchy
+3. Reset customizations if needed

@@ -1,0 +1,160 @@
+---
+title: "Local Environment"
+description: "Set up a local development environment for Aegis"
+---
+
+## Prerequisites
+
+Before setting up the development environment, ensure you have:
+
+- [Node.js](https://nodejs.org/) (LTS version)
+- [Composer](https://getcomposer.org/)
+- [Docker](https://www.docker.com/products/docker-desktop)
+- Git
+
+## Quick Start
+
+<Steps>
+  <Step title="Clone the repository">
+    ```bash
+    git clone https://github.com/aegiswp/theme.git
+    cd theme
+    ```
+  </Step>
+  <Step title="Install dependencies">
+    ```bash
+    npm install
+    composer install
+    ```
+  </Step>
+  <Step title="Build assets">
+    ```bash
+    npm run build:dev
+    ```
+  </Step>
+  <Step title="Start environment">
+    ```bash
+    npm run env:start
+    npm run env:install
+    ```
+  </Step>
+</Steps>
+
+Your WordPress site will be accessible at **http://localhost:8889**.
+
+## Alternative Setup Methods
+
+<Tabs>
+  <Tab title="wp-env">
+    WordPress's official local environment tool:
+    
+    ```bash
+    npm install -g @wordpress/env
+    wp-env start
+    ```
+  </Tab>
+  <Tab title="Local by Flywheel">
+    1. Download [Local](https://localwp.com/)
+    2. Create a new site
+    3. Clone Aegis to `wp-content/themes/`
+  </Tab>
+  <Tab title="DevKinsta">
+    1. Download [DevKinsta](https://kinsta.com/devkinsta/)
+    2. Create a new site
+    3. Clone Aegis to the themes directory
+  </Tab>
+</Tabs>
+
+## Environment Configuration
+
+Configuration is stored in the `.env` file at the project root:
+
+```env
+# WordPress settings
+WP_ENV_PORT=8889
+WP_ENV_TESTS_PORT=8888
+
+# Database
+WORDPRESS_DB_NAME=wordpress_develop
+WORDPRESS_DB_USER=root
+WORDPRESS_DB_PASSWORD=password
+```
+
+## Credentials
+
+### WordPress Admin
+
+| Setting | Value |
+|---------|-------|
+| URL | http://localhost:8889/wp-admin |
+| Username | `admin` |
+| Password | `password` |
+
+### Database
+
+| Setting | Value |
+|---------|-------|
+| Database | `wordpress_develop` |
+| Username | `root` |
+| Password | `password` |
+
+<Warning>
+Change the default password after first login. Go to **Users → Edit → Generate Password**.
+</Warning>
+
+## File Watching
+
+Start the file watcher for development:
+
+```bash
+npm run dev
+```
+
+This watches for changes in:
+- PHP files
+- JavaScript files
+- CSS files
+- Block JSON files
+
+Press `Ctrl+C` to stop the watcher.
+
+## Docker Commands
+
+Ensure Docker is running before using these commands:
+
+| Command | Description |
+|---------|-------------|
+| `npm run env:start` | Start the environment |
+| `npm run env:stop` | Stop the environment |
+| `npm run env:restart` | Restart the environment |
+| `npm run env:destroy` | Remove all containers and data |
+
+## Troubleshooting
+
+### Port conflicts
+
+If port 8889 is in use:
+
+1. Edit `.env` to change `WP_ENV_PORT`
+2. Restart the environment
+
+### Docker issues
+
+```bash
+# Reset Docker environment
+npm run env:destroy
+npm run env:start
+npm run env:install
+```
+
+### Permission errors
+
+On Linux/Mac, you may need to adjust file permissions:
+
+```bash
+sudo chown -R $USER:$USER .
+```
+
+<Tip>
+Keep Docker Desktop running while developing. The environment won't work without it.
+</Tip>

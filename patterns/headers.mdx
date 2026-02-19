@@ -1,0 +1,127 @@
+---
+title: "Header Patterns"
+description: "Pre-designed header patterns for site navigation"
+---
+
+## Available Header Patterns
+
+Aegis includes 4 header patterns for different navigation styles:
+
+| Pattern | Description |
+|---------|-------------|
+| Header Default | Standard header with logo and navigation |
+| Header Centered | Centered logo with navigation below |
+| Header Transparent | Transparent header for hero overlays |
+| Header Sticky | Fixed header that stays visible on scroll |
+
+## Header Default
+
+The standard header layout with:
+
+- Site logo on the left
+- Navigation menu on the right
+- Responsive mobile menu
+
+### Structure
+
+```html
+<!-- wp:group {"tagName":"header","className":"site-header"} -->
+<header class="wp-block-group site-header">
+  <!-- wp:group {"layout":{"type":"flex","justifyContent":"space-between"}} -->
+    <!-- wp:site-logo /-->
+    <!-- wp:navigation /-->
+  <!-- /wp:group -->
+</header>
+<!-- /wp:group -->
+```
+
+## Header Centered
+
+A centered layout ideal for minimal designs:
+
+- Centered site logo/title
+- Navigation below or split around logo
+- Clean, symmetrical appearance
+
+## Header Transparent
+
+Designed to overlay hero sections:
+
+- Transparent background
+- Light text colors for dark backgrounds
+- Absolute positioning option
+
+<Note>
+Use the transparent header with Cover blocks or dark hero sections for a seamless look.
+</Note>
+
+## Using Header Patterns
+
+### As Template Part
+
+<Steps>
+  <Step title="Open Site Editor">
+    Go to **Appearance → Editor**.
+  </Step>
+  <Step title="Edit Header">
+    Click **Template Parts → Header**.
+  </Step>
+  <Step title="Replace content">
+    Clear existing content and insert a header pattern.
+  </Step>
+  <Step title="Save">
+    Save the template part.
+  </Step>
+</Steps>
+
+### In Templates
+
+Headers are included via template parts:
+
+```html
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+```
+
+## Customizing Headers
+
+### Logo
+
+Replace the site logo in **Settings → General → Site Icon** or use the Site Logo block settings.
+
+### Navigation
+
+Edit navigation menus in **Appearance → Editor → Navigation** or directly in the Navigation block.
+
+### Colors
+
+Adjust header colors through:
+
+1. Block-level color settings
+2. Global Styles for site-wide changes
+3. Custom CSS for advanced styling
+
+### Spacing
+
+Modify padding and margins using the Dimensions controls in the block settings.
+
+## Responsive Behavior
+
+Aegis headers automatically adapt to mobile:
+
+- Navigation collapses to hamburger menu
+- Logo scales appropriately
+- Touch-friendly tap targets
+
+<Tip>
+Test your header on mobile devices to ensure the navigation is accessible and easy to use.
+</Tip>
+
+## Mega Menu Support
+
+Aegis supports mega menus through the Navigation Submenu block:
+
+- Multi-column dropdown layouts
+- Rich content in submenus
+- Native WordPress block implementation
+
+See [Blocks → Enhanced Core Blocks](/blocks/enhanced-core-blocks) for mega menu details.

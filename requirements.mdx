@@ -1,0 +1,77 @@
+---
+title: "Requirements"
+description: "System requirements and compatibility information for Aegis"
+---
+
+## System Requirements
+
+| Requirement | Minimum | Recommended |
+|-------------|---------|-------------|
+| WordPress | 6.6+ | Latest |
+| PHP | 7.4+ | 8.1+ |
+| MySQL | 5.7+ | 8.0+ |
+| MariaDB | 10.3+ | 10.6+ |
+
+## Browser Support
+
+Aegis supports all modern browsers:
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Server Requirements
+
+For optimal performance, your server should have:
+
+- **Memory Limit**: 256MB minimum (512MB recommended)
+- **Max Execution Time**: 60 seconds minimum
+- **Upload Max Filesize**: 64MB recommended
+
+## WordPress Configuration
+
+Aegis works best with these WordPress settings:
+
+```php
+// wp-config.php recommendations
+define('WP_MEMORY_LIMIT', '256M');
+define('WP_MAX_MEMORY_LIMIT', '512M');
+```
+
+## Plugin Compatibility
+
+Aegis is tested and compatible with:
+
+<CardGroup cols={2}>
+  <Card title="WooCommerce" icon="cart-shopping">
+    Full e-commerce support with custom templates
+  </Card>
+  <Card title="LearnDash" icon="graduation-cap">
+    LMS integration with Focus Mode support
+  </Card>
+  <Card title="LifterLMS" icon="book">
+    Learning management with custom patterns
+  </Card>
+  <Card title="Advanced Custom Fields" icon="database">
+    ACF JSON paths and Block Bindings support
+  </Card>
+  <Card title="Rank Math" icon="chart-line">
+    SEO integration with meta description fallbacks
+  </Card>
+  <Card title="Fluent Forms" icon="rectangle-list">
+    Theme-styled form elements
+  </Card>
+</CardGroup>
+
+## Development Requirements
+
+For theme development, you'll also need:
+
+- [Node.js](https://nodejs.org/) (LTS version)
+- [Composer](https://getcomposer.org/)
+- [Docker](https://www.docker.com/) (for local development environment)
+
+<Tip>
+See the [Local Environment](/development/local-environment) guide for detailed setup instructions.
+</Tip>

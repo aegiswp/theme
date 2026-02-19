@@ -1,0 +1,131 @@
+---
+title: "Shadows"
+description: "Box shadow presets for depth and elevation effects"
+---
+
+## Overview
+
+Aegis provides 8 box shadow presets for creating depth and elevation in your designs. All shadows use a customizable color token for consistency.
+
+<Note>
+Aegis disables WordPress core shadow presets (`defaultPresets: false`) to provide a curated, consistent shadow system.
+</Note>
+
+## Shadow Presets
+
+| Name | Slug | CSS Variable |
+|------|------|--------------|
+| None | `none` | `--wp--preset--shadow--none` |
+| XX Small | `xxs` | `--wp--preset--shadow--xxs` |
+| X Small | `xs` | `--wp--preset--shadow--xs` |
+| Small | `sm` | `--wp--preset--shadow--sm` |
+| Medium | `md` | `--wp--preset--shadow--md` |
+| Large | `lg` | `--wp--preset--shadow--lg` |
+| X Large | `xl` | `--wp--preset--shadow--xl` |
+| XX Large | `xxl` | `--wp--preset--shadow--xxl` |
+
+## Shadow Values
+
+```css
+/* None */
+--wp--preset--shadow--none: none;
+
+/* XX Small */
+--wp--preset--shadow--xxs: 0 1px 2px 0 var(--wp--custom--box-shadow--color);
+
+/* X Small */
+--wp--preset--shadow--xs: 0 1px 2px var(--wp--custom--box-shadow--color), 
+                          0 2px 4px 0 var(--wp--custom--box-shadow--color);
+
+/* Small */
+--wp--preset--shadow--sm: 0 1px 2px 0 var(--wp--custom--box-shadow--color), 
+                          0 4px 12px -4px var(--wp--custom--box-shadow--color);
+
+/* Medium */
+--wp--preset--shadow--md: 0 1px 2px 0 var(--wp--custom--box-shadow--color), 
+                          0 4px 8px var(--wp--custom--box-shadow--color);
+
+/* Large */
+--wp--preset--shadow--lg: 0 2px 4px 0 var(--wp--custom--box-shadow--color), 
+                          0 8px 24px var(--wp--custom--box-shadow--color);
+
+/* X Large */
+--wp--preset--shadow--xl: 0 4px 8px -4px var(--wp--custom--box-shadow--color), 
+                          0 16px 24px -4px var(--wp--custom--box-shadow--color);
+
+/* XX Large */
+--wp--preset--shadow--xxl: 0 4px 8px 0 var(--wp--custom--box-shadow--color), 
+                           0 24px 48px 0 var(--wp--custom--box-shadow--color);
+```
+
+## Shadow Color Token
+
+All shadows reference a custom color token:
+
+```css
+--wp--custom--box-shadow--color: var(--wp--preset--color--custom-shadow, #6b728011);
+```
+
+The default shadow color is a semi-transparent gray (`#6b728011`). You can customize this by defining `--wp--preset--color--custom-shadow`.
+
+## Custom Shadow Properties
+
+Aegis provides additional shadow configuration tokens:
+
+```css
+--wp--custom--box-shadow--inset: "";
+--wp--custom--box-shadow--x: 0;
+--wp--custom--box-shadow--y: 4px;
+--wp--custom--box-shadow--blur: 16px;
+--wp--custom--box-shadow--spread: 0;
+
+/* Hover state */
+--wp--custom--box-shadow--hover--inset: "";
+--wp--custom--box-shadow--hover--y: 8px;
+```
+
+## Usage in Blocks
+
+Apply shadows in the block editor:
+
+<Steps>
+  <Step title="Select a block">
+    Click on a block that supports shadow (Group, Column, Image, etc.).
+  </Step>
+  <Step title="Open Shadow settings">
+    In the Settings sidebar, find the **Shadow** control under **Effects** or **Styles**.
+  </Step>
+  <Step title="Choose a preset">
+    Select from None, XXS, XS, SM, MD, LG, XL, or XXL.
+  </Step>
+</Steps>
+
+## Usage in CSS
+
+```css
+.my-card {
+  box-shadow: var(--wp--preset--shadow--md);
+}
+
+.my-card:hover {
+  box-shadow: var(--wp--preset--shadow--lg);
+}
+
+.my-modal {
+  box-shadow: var(--wp--preset--shadow--xxl);
+}
+```
+
+## Component Defaults
+
+Some Aegis components use shadows by default:
+
+| Component | Default Shadow |
+|-----------|----------------|
+| Surface overlay | `sm` |
+| Submenu dropdown | `xl` |
+| Input focus | `sm` |
+
+<Tip>
+Use smaller shadows (XXS, XS, SM) for subtle depth on cards and inputs. Use larger shadows (LG, XL, XXL) for modals, dropdowns, and elevated elements.
+</Tip>

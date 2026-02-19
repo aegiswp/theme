@@ -1,0 +1,242 @@
+---
+title: "Custom Properties"
+description: "CSS custom properties defined in Aegis theme.json"
+---
+
+## Overview
+
+Aegis defines custom CSS properties through `theme.json` that are available throughout your site for consistent styling.
+
+## Border Properties
+
+```css
+--wp--custom--border--width: 1px;
+--wp--custom--border--style: solid;
+--wp--custom--border--color: var(--wp--preset--color--neutral-200);
+--wp--custom--border--radius: 6px;
+```
+
+### Usage
+
+```css
+.my-element {
+    border: var(--wp--custom--border--width) 
+            var(--wp--custom--border--style) 
+            var(--wp--custom--border--color);
+    border-radius: var(--wp--custom--border--radius);
+}
+```
+
+## Box Shadow Properties
+
+```css
+--wp--custom--box-shadow--inset: "";
+--wp--custom--box-shadow--x: 0;
+--wp--custom--box-shadow--y: 4px;
+--wp--custom--box-shadow--blur: 16px;
+--wp--custom--box-shadow--spread: 0;
+--wp--custom--box-shadow--color: var(--wp--preset--color--custom-shadow, #6b728011);
+
+/* Hover state */
+--wp--custom--box-shadow--hover--inset: "";
+--wp--custom--box-shadow--hover--y: 8px;
+```
+
+## Font Weight Properties
+
+```css
+--wp--custom--font-weight--black: 900;
+--wp--custom--font-weight--extra-bold: 800;
+--wp--custom--font-weight--bold: 700;
+--wp--custom--font-weight--semi-bold: 600;
+--wp--custom--font-weight--medium: 500;
+--wp--custom--font-weight--regular: 400;
+--wp--custom--font-weight--light: 300;
+--wp--custom--font-weight--extra-light: 200;
+--wp--custom--font-weight--thin: 100;
+```
+
+### Usage
+
+```css
+.heading {
+    font-weight: var(--wp--custom--font-weight--semi-bold);
+}
+
+.body-text {
+    font-weight: var(--wp--custom--font-weight--regular);
+}
+```
+
+## Transition Properties
+
+```css
+--wp--custom--transition--property: all;
+--wp--custom--transition--duration: 0.1s;
+--wp--custom--transition--timing-function: ease-in;
+```
+
+### Usage
+
+```css
+.my-element {
+    transition: var(--wp--custom--transition--property) 
+                var(--wp--custom--transition--duration) 
+                var(--wp--custom--transition--timing-function);
+}
+```
+
+## Spacing Properties
+
+```css
+--wp--custom--spacing--gap: var(--wp--style--block-gap);
+```
+
+## Component Properties
+
+### Strong/Bold
+
+```css
+--wp--custom--strong--font-weight: var(--wp--custom--font-weight--medium);
+```
+
+### Checklist
+
+```css
+--wp--custom--checklist--color: var(--wp--preset--color--success-600);
+```
+
+### Subheading
+
+```css
+--wp--custom--sub-heading--color: var(--wp--preset--color--primary-500);
+```
+
+### Button Outline
+
+```css
+--wp--custom--button-outline--color: var(--wp--preset--color--primary-500);
+--wp--custom--button-outline--border-width: 1px;
+```
+
+### Ghost Button
+
+```css
+--wp--custom--ghost--color: var(--wp--preset--color--primary-600);
+```
+
+### Input Fields
+
+```css
+--wp--custom--input--background: transparent;
+--wp--custom--input--focus--box-shadow: var(--wp--preset--shadow--sm);
+--wp--custom--input--focus--border-color: var(--wp--preset--color--primary-500);
+```
+
+### Placeholder
+
+```css
+--wp--custom--placeholder--background: var(--wp--preset--color--neutral-100);
+```
+
+### Icon
+
+```css
+--wp--custom--icon--color: currentcolor;
+```
+
+### Notice
+
+```css
+--wp--custom--notice--color: var(--wp--preset--color--primary-500);
+```
+
+### Accordion
+
+```css
+--wp--custom--accordion--height: 1.5px;
+--wp--custom--accordion--width: 12px;
+--wp--custom--accordion--animation-duration: 0s;
+```
+
+### Submenu
+
+```css
+--wp--custom--submenu--box-shadow: var(--wp--preset--shadow--xl);
+```
+
+### Header
+
+```css
+--wp--custom--header--z-index: 2;
+```
+
+### Button
+
+```css
+--wp--custom--button--padding--top: 1em;
+--wp--custom--button--padding--right: 1.5em;
+--wp--custom--button--padding--bottom: 1em;
+--wp--custom--button--padding--left: 1.5em;
+--wp--custom--button--font-size: var(--wp--preset--font-size--16);
+```
+
+### Surface
+
+```css
+--wp--custom--surface--backdrop-filter: blur(8px);
+--wp--custom--surface--border-radius: var(--wp--custom--border--radius);
+--wp--custom--surface--box-shadow: var(--wp--preset--shadow--sm);
+--wp--custom--surface--border--top: 0;
+--wp--custom--surface--border--right: 0;
+--wp--custom--surface--border--bottom: 0;
+--wp--custom--surface--border--left: 0;
+--wp--custom--surface--overlay--background: var(--wp--preset--color--neutral-50);
+--wp--custom--surface--overlay--opacity: .5;
+--wp--custom--surface--input--focus--border-color: var(--wp--preset--color--primary-500);
+```
+
+## Grid Gradient Properties
+
+```css
+--wp--custom--gradient-grid--color: var(--wp--preset--color--neutral-100);
+--wp--custom--gradient-grid--size: 40px;
+```
+
+### Usage
+
+```css
+.custom-grid-bg {
+    --wp--custom--gradient-grid--size: 60px;
+    --wp--custom--gradient-grid--color: var(--wp--preset--color--primary-100);
+    background: var(--wp--preset--gradient--grid);
+}
+```
+
+## Overriding Custom Properties
+
+Override in child theme `theme.json`:
+
+```json
+{
+  "settings": {
+    "custom": {
+      "border": {
+        "radius": "8px"
+      }
+    }
+  }
+}
+```
+
+Or in CSS:
+
+```css
+:root {
+    --wp--custom--border--radius: 8px;
+}
+```
+
+<Tip>
+Custom properties cascade, so you can override them at any level: root, block, or element.
+</Tip>

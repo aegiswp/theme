@@ -1,0 +1,173 @@
+---
+title: "FAQ Patterns"
+description: "Frequently asked questions layouts"
+---
+
+## Available FAQ Patterns
+
+Aegis includes 3 FAQ patterns:
+
+| Pattern | Description |
+|---------|-------------|
+| FAQ Accordion | Expandable accordion-style FAQ |
+| FAQ Two Column | Side-by-side FAQ layout |
+| FAQ Simple | Basic list-style FAQ |
+
+## FAQ Accordion
+
+An interactive accordion where users click to expand answers:
+
+- Space-efficient
+- Users find specific questions easily
+- Clean, organized appearance
+
+### Structure
+
+```html
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+  <!-- wp:heading {"textAlign":"center"} -->
+  <h2>Frequently Asked Questions</h2>
+  <!-- /wp:heading -->
+  
+  <!-- wp:details -->
+  <details>
+    <summary>What is your refund policy?</summary>
+    <!-- wp:paragraph -->
+    <p>We offer a 30-day money-back guarantee on all purchases.</p>
+    <!-- /wp:paragraph -->
+  </details>
+  <!-- /wp:details -->
+  
+  <!-- Additional FAQ items -->
+<!-- /wp:group -->
+```
+
+<Note>
+Aegis uses the native WordPress Details block for accordions, ensuring accessibility and no JavaScript dependency.
+</Note>
+
+## FAQ Two Column
+
+A two-column layout for longer FAQ sections:
+
+- Questions and answers side by side
+- Good for comprehensive FAQ pages
+- Visual balance
+
+### Structure
+
+```html
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+  <!-- wp:columns -->
+    <!-- wp:column -->
+      <!-- FAQ items 1-5 -->
+    <!-- /wp:column -->
+    
+    <!-- wp:column -->
+      <!-- FAQ items 6-10 -->
+    <!-- /wp:column -->
+  <!-- /wp:columns -->
+<!-- /wp:group -->
+```
+
+## FAQ Simple
+
+A straightforward list of questions and answers:
+
+- All content visible
+- No interaction required
+- Good for short FAQ sections
+
+### Structure
+
+```html
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+  <!-- wp:heading {"level":3} -->
+  <h3>What is your refund policy?</h3>
+  <!-- /wp:heading -->
+  
+  <!-- wp:paragraph -->
+  <p>We offer a 30-day money-back guarantee...</p>
+  <!-- /wp:paragraph -->
+  
+  <!-- wp:separator /-->
+  
+  <!-- Additional Q&A pairs -->
+<!-- /wp:group -->
+```
+
+## Customizing FAQs
+
+### Accordion Styling
+
+Customize the Details block appearance:
+
+- Border styles for visual separation
+- Background colors for expanded state
+- Icon customization for open/close indicator
+
+Aegis provides custom properties for accordion styling:
+
+```css
+--wp--custom--accordion--height: 1.5px;
+--wp--custom--accordion--width: 12px;
+--wp--custom--accordion--animation-duration: 0s;
+```
+
+### Categories
+
+Organize FAQs by category:
+
+```html
+<!-- wp:heading {"level":3} -->
+<h3>Billing & Payments</h3>
+<!-- /wp:heading -->
+<!-- Billing FAQs -->
+
+<!-- wp:heading {"level":3} -->
+<h3>Technical Support</h3>
+<!-- /wp:heading -->
+<!-- Support FAQs -->
+```
+
+### Search
+
+For large FAQ sections, consider adding a search block:
+
+```html
+<!-- wp:search {"label":"Search FAQs","placeholder":"Type your question..."} /-->
+```
+
+## Best Practices
+
+### Content
+
+- **Clear questions**: Write questions as users would ask them
+- **Concise answers**: Get to the point quickly
+- **Complete information**: Answer the full question
+- **Links**: Reference related pages or documentation
+
+### Organization
+
+- **Most common first**: Put frequently asked questions at the top
+- **Logical grouping**: Organize by topic or category
+- **Limit length**: 10-15 questions per section maximum
+
+### SEO Benefits
+
+FAQs can improve SEO:
+
+- Target long-tail keywords
+- Appear in featured snippets
+- Add FAQ schema markup
+
+<Tip>
+Use actual customer questions from support tickets, emails, or chat logs for authentic FAQ content.
+</Tip>
+
+### Accessibility
+
+- Ensure accordion controls are keyboard accessible
+- Use proper heading hierarchy
+- Provide sufficient color contrast
+- Test with screen readers

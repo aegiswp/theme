@@ -1,0 +1,214 @@
+---
+title: "Extending Blocks"
+description: "Extend and customize blocks in Aegis"
+---
+
+## Overview
+
+Aegis provides multiple ways to extend block functionality:
+
+- Block styles
+- Block variations
+- Block filters
+- Custom blocks
+
+## Block Styles
+
+Add visual variations to existing blocks:
+
+### PHP Registration
+
+```php
+add_action('init', function() {
+    register_block_style('core/button', [
+        'name' => 'gradient',
+        'label' => __('Gradient', 'aegis-child'),
+    ]);
+});
+```
+
+### CSS Styling
+
+```css
+.wp-block-button.is-style-gradient .wp-block-button__link {
+    background: linear-gradient(135deg, 
+        var(--wp--preset--color--primary-700), 
+        var(--wp--preset--color--primary-500)
+    );
+}
+```
+
+### Unregister Styles
+
+Remove unwanted block styles:
+
+```php
+add_action('init', function() {
+    unregister_block_style('core/button', 'outline');
+});
+```
+
+## Block Variations
+
+Create specialized versions of blocks:
+
+### JavaScript Registration
+
+```javascript
+wp.blocks.registerBlockVariation('core/group', {
+    name: 'card',
+    title: 'Card',
+    description: 'A card container with shadow',
+    attributes: {
+        className: 'is-style-card',
+        style: {
+            shadow: 'var(--wp--preset--shadow--md)'
+        }
+    },
+    scope: ['inserter'],
+});
+```
+
+### PHP Registration
+
+```php
+add_action('init', function() {
+    register_block_variation('core/group', [
+        'name' => 'card',
+        'title' => __('Card', 'aegis-child'),
+        'attributes' => [
+            'className' => 'is-style-card',
+        ],
+    ]);
+});
+```
+
+## Block Filters
+
+Modify block output with filters:
+
+### render_block Filter
+
+```php
+add_filter('render_block', function($content, $block) {
+    if ($block['blockName'] === 'core/image') {
+        // Modify image block output
+        $content = str_replace(
+            'wp-block-image',
+            'wp-block-image custom-class',
+            $content
+        );
+    }
+    return $content;
+}, 10, 2);
+```
+
+### Block Type Specific
+
+```php
+add_filter('render_block_core/paragraph', function($content, $block) {
+    // Only affects paragraph blocks
+    return $content;
+}, 10, 2);
+```
+
+## Block Supports
+
+Add features to blocks via `theme.json`:
+
+```json
+{
+  "settings": {
+    "blocks": {
+      "core/paragraph": {
+        "color": {
+          "background": true,
+          "text": true,
+          "link": true
+        },
+        "spacing": {
+          "margin": true,
+          "padding": true
+        }
+      }
+    }
+  }
+}
+```
+
+## Custom Block Settings
+
+Add custom controls to blocks:
+
+### Using SlotFill
+
+```javascript
+import { InspectorControls } from '@wordpress/block-editor';
+import { PanelBody, ToggleControl } from '@wordpress/components';
+import { addFilter } from '@wordpress/hooks';
+
+addFilter(
+    'editor.BlockEdit',
+    'aegis-child/custom-control',
+    (BlockEdit) => (props) => {
+        if (props.name !== 'core/group') {
+            return <BlockEdit {...props} />;
+        }
+        
+        return (
+            <>
+                <BlockEdit {...props} />
+                <InspectorControls>
+                    <PanelBody title="Custom Settings">
+                        <ToggleControl
+                            label="Enable Feature"
+                            checked={props.attributes.customFeature}
+                            onChange={(value) => 
+                                props.setAttributes({ customFeature: value })
+                            }
+                        />
+                    </PanelBody>
+                </InspectorControls>
+            </>
+        );
+    }
+);
+```
+
+## Block Patterns
+
+Create reusable block configurations:
+
+```php
+add_action('init', function() {
+    register_block_pattern('aegis-child/hero', [
+        'title' => __('Custom Hero', 'aegis-child'),
+        'categories' => ['featured'],
+        'content' => '<!-- wp:cover -->...',
+    ]);
+});
+```
+
+## Best Practices
+
+<Tip>
+Use block styles for visual variations and block variations for structural changes with preset attributes.
+</Tip>
+
+### Performance
+
+- Load JavaScript only in editor context
+- Use PHP filters for server-side modifications
+- Avoid excessive DOM manipulation
+
+### Compatibility
+
+- Test with Gutenberg plugin
+- Check WordPress version requirements
+- Document block dependencies
+
+### Maintainability
+
+- Use descriptive names
+- Document custom attributes
+- Follow WordPress coding standards

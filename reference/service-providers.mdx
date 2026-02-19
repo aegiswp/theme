@@ -1,0 +1,225 @@
+---
+title: "Service Providers"
+description: "Understanding Aegis service providers and dependency injection"
+---
+
+## Overview
+
+Aegis uses a service provider pattern to organize and register functionality. Services are modular components that handle specific features.
+
+## Service Provider
+
+The main `ServiceProvider` class registers all framework services:
+
+```php
+// vendor/aegis/framework/src/ServiceProvider.php
+class ServiceProvider {
+    
+    protected array $services = [
+        BlockSettings\BoxShadow::class,
+        BlockSettings\Position::class,
+        BlockSettings\Transform::class,
+        // ... more services
+    ];
+    
+    public function register(): void {
+        foreach ($this->services as $service) {
+            new $service();
+        }
+    }
+}
+```
+
+## Service Structure
+
+Each service follows a consistent pattern:
+
+```php
+class MyService {
+    
+    public function __construct() {
+        $this->registerHooks();
+    }
+    
+    protected function registerHooks(): void {
+        add_action('init', [$this, 'init']);
+        add_filter('some_filter', [$this, 'filterMethod']);
+    }
+    
+    public function init(): void {
+        // Initialization logic
+    }
+    
+    public function filterMethod($value): mixed {
+        // Filter logic
+        return $value;
+    }
+}
+```
+
+## Service Categories
+
+### BlockSettings Services
+
+Add controls to block editor:
+
+| Service | Purpose |
+|---------|---------|
+| BoxShadow | Shadow controls |
+| Position | Positioning controls |
+| Transform | CSS transform controls |
+| Filter | CSS filter controls |
+
+### BlockVariations Services
+
+Register block variations:
+
+| Service | Variation |
+|---------|-----------|
+| AccordionList | Accordion list variation |
+| Counter | Counter variation |
+| CurvedText | Curved text variation |
+| Grid | Grid layout variation |
+| Icon | Icon variation |
+| Marquee | Marquee variation |
+| Newsletter | Newsletter variation |
+| RelatedPosts | Related posts variation |
+| SVG | SVG variation |
+
+### CoreBlocks Services
+
+Enhance core blocks:
+
+| Service | Block |
+|---------|-------|
+| Button | core/button |
+| Columns | core/columns |
+| Cover | core/cover |
+| Group | core/group |
+| Heading | core/heading |
+| Image | core/image |
+| Navigation | core/navigation |
+| Paragraph | core/paragraph |
+| Query | core/query |
+| Search | core/search |
+
+### DesignSystem Services
+
+Manage design tokens:
+
+| Service | Purpose |
+|---------|---------|
+| Colors | Color palette management |
+| Typography | Font management |
+| Spacing | Spacing system |
+| Shadows | Shadow presets |
+
+### Integration Services
+
+Plugin compatibility:
+
+| Service | Plugin |
+|---------|--------|
+| WooCommerce | WooCommerce |
+| LearnDash | LearnDash LMS |
+| LifterLMS | LifterLMS |
+| ACF | Advanced Custom Fields |
+| RankMath | Rank Math SEO |
+
+## Creating Custom Services
+
+### Basic Service
+
+```php
+<?php
+namespace AegisChild\Services;
+
+class CustomService {
+    
+    public function __construct() {
+        add_action('init', [$this, 'init']);
+    }
+    
+    public function init(): void {
+        // Your initialization code
+    }
+}
+```
+
+### Registering in Child Theme
+
+```php
+// child-theme/functions.php
+add_action('after_setup_theme', function() {
+    new \AegisChild\Services\CustomService();
+}, 20);
+```
+
+### Service with Dependencies
+
+```php
+class DependentService {
+    
+    protected OtherService $dependency;
+    
+    public function __construct(OtherService $dependency) {
+        $this->dependency = $dependency;
+        $this->registerHooks();
+    }
+    
+    protected function registerHooks(): void {
+        add_action('init', [$this, 'init']);
+    }
+}
+```
+
+## Hook Priorities
+
+Services use specific hook priorities:
+
+| Priority | Use Case |
+|----------|----------|
+| 5 | Early initialization |
+| 10 | Default (most services) |
+| 15 | After core services |
+| 20 | Late initialization |
+| 99 | Final modifications |
+
+## Conditional Loading
+
+Services can conditionally load:
+
+```php
+class ConditionalService {
+    
+    public function __construct() {
+        if ($this->shouldLoad()) {
+            $this->registerHooks();
+        }
+    }
+    
+    protected function shouldLoad(): bool {
+        return class_exists('WooCommerce');
+    }
+}
+```
+
+## Best Practices
+
+<Tip>
+Keep services focused on a single responsibility. If a service grows too large, split it into multiple services.
+</Tip>
+
+### Do
+
+- Use dependency injection
+- Follow single responsibility principle
+- Use appropriate hook priorities
+- Conditionally load when possible
+
+### Don't
+
+- Create circular dependencies
+- Use global state
+- Hardcode values
+- Skip error handling

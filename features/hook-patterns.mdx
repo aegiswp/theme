@@ -1,0 +1,91 @@
+---
+title: "Hook Patterns"
+description: "Inject block content at specific theme hook locations without editing templates"
+---
+
+## Overview
+
+Hook patterns are a custom post type (`aegis_hook_pattern`) that attach block editor content to WordPress action hooks fired by the theme. Each pattern targets a specific hook location, runs at a configurable priority, and can be toggled on or off.
+
+## Available Hooks
+
+### Template Part Hooks
+
+Every template part fires a pair of hooks around its content:
+
+| Hook | Fires |
+|------|-------|
+| `aegis_before_{slug}` | Before the template part output |
+| `aegis_after_{slug}` | After the template part output |
+
+Common template part slugs: `header`, `footer`, `sidebar`.
+
+### Content Hooks
+
+| Hook | Fires |
+|------|-------|
+| `aegis_before_content` | Before the main content area |
+| `aegis_after_content` | After the main content area |
+
+## Creating a Hook Pattern
+
+<Steps>
+  <Step title="Navigate to Hooks">
+    Go to **Aegis → Hooks** in the admin panel.
+  </Step>
+  <Step title="Add New">
+    Click **Add New**.
+  </Step>
+  <Step title="Add content">
+    Add block content in the editor — this is what will be injected at the hook location.
+  </Step>
+  <Step title="Configure settings">
+    In the **Hook Pattern Settings** meta box, configure:
+
+    | Setting | Description |
+    |---------|-------------|
+    | **Hook** | Select the target hook location from the dropdown |
+    | **Priority** | Numeric priority (default 10). Lower numbers run earlier |
+    | **Enabled** | Toggle the pattern on or off |
+  </Step>
+  <Step title="Publish">
+    Publish the pattern.
+  </Step>
+</Steps>
+
+## Conditional Logic
+
+Hook patterns support the full [Conditional Logic](/features/conditional-logic) system. Add visibility rules to control when a hook pattern renders on the frontend — based on user role, schedule, device, location, and more.
+
+## Use Cases
+
+- **Announcement bars** — Inject a banner before the header
+- **CTA sections** — Add a call-to-action after the content
+- **Seasonal promotions** — Schedule content with conditional logic
+- **Role-based content** — Show different content to logged-in vs. anonymous users
+
+## For Developers
+
+### Custom Hooks
+
+Register additional hook locations via the `aegis_available_hook_patterns` filter:
+
+```php
+add_filter( 'aegis_available_hook_patterns', function( array $hooks ): array {
+    $hooks['my_custom_hook'] = 'My Custom Hook Location';
+    return $hooks;
+});
+```
+
+Then fire the hook in your template:
+
+```php
+do_action( 'my_custom_hook' );
+```
+
+### Technical Details
+
+- **Post type:** `aegis_hook_pattern`
+- **Meta keys:** `_aegis_hook`, `_aegis_priority`, `_aegis_enabled`, `_aegis_conditions`
+- **Renderer:** `Aegis\HookPatternsRenderer` evaluates conditions and outputs content
+- **Manager:** `Aegis\Admin\HookPatternsManager` handles editor UI and meta saving

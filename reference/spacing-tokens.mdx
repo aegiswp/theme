@@ -1,0 +1,187 @@
+---
+title: "Spacing Tokens"
+description: "Complete reference of spacing CSS custom properties in Aegis"
+---
+
+## Overview
+
+Aegis provides 7 spacing presets that scale with the typography system for visual harmony.
+
+## Spacing Tokens
+
+| Token | Size | Value |
+|-------|------|-------|
+| `--wp--preset--spacing--xxs` | 8px | `var(--wp--preset--font-size--8)` |
+| `--wp--preset--spacing--xs` | 16px | `var(--wp--preset--font-size--16)` |
+| `--wp--preset--spacing--sm` | 24px | `var(--wp--preset--font-size--24)` |
+| `--wp--preset--spacing--md` | 32px | `var(--wp--preset--font-size--32)` |
+| `--wp--preset--spacing--lg` | 48px | `var(--wp--preset--font-size--48)` |
+| `--wp--preset--spacing--xl` | 64px | `var(--wp--preset--font-size--64)` |
+| `--wp--preset--spacing--xxl` | 96px | `var(--wp--preset--font-size--96)` |
+
+## Block Gap
+
+```css
+--wp--style--block-gap: var(--wp--preset--spacing--sm);
+--wp--custom--spacing--gap: var(--wp--style--block-gap);
+```
+
+Default block gap is 24px (`spacing-sm`).
+
+## Usage Examples
+
+### Padding
+
+```css
+.section {
+    padding: var(--wp--preset--spacing--lg);
+}
+
+.card {
+    padding: var(--wp--preset--spacing--sm) var(--wp--preset--spacing--md);
+}
+
+.button {
+    padding: var(--wp--preset--spacing--xs) var(--wp--preset--spacing--sm);
+}
+```
+
+### Margin
+
+```css
+.section {
+    margin-bottom: var(--wp--preset--spacing--xl);
+}
+
+.heading {
+    margin-bottom: var(--wp--preset--spacing--sm);
+}
+```
+
+### Gap
+
+```css
+.grid {
+    display: grid;
+    gap: var(--wp--preset--spacing--md);
+}
+
+.flex-row {
+    display: flex;
+    gap: var(--wp--preset--spacing--xs);
+}
+```
+
+### Block Editor
+
+In block attributes:
+
+```json
+{
+    "style": {
+        "spacing": {
+            "padding": {
+                "top": "var:preset|spacing|lg",
+                "right": "var:preset|spacing|lg",
+                "bottom": "var:preset|spacing|lg",
+                "left": "var:preset|spacing|lg"
+            },
+            "margin": {
+                "bottom": "var:preset|spacing|xl"
+            },
+            "blockGap": "var:preset|spacing|md"
+        }
+    }
+}
+```
+
+### theme.json
+
+```json
+{
+    "styles": {
+        "spacing": {
+            "padding": {
+                "top": "var(--wp--preset--spacing--lg)",
+                "bottom": "var(--wp--preset--spacing--lg)"
+            }
+        }
+    }
+}
+```
+
+## Spacing Scale
+
+The spacing scale follows a consistent progression:
+
+| Step | Size | Ratio |
+|------|------|-------|
+| XXS | 8px | 0.5x |
+| XS | 16px | 1x (base) |
+| SM | 24px | 1.5x |
+| MD | 32px | 2x |
+| LG | 48px | 3x |
+| XL | 64px | 4x |
+| XXL | 96px | 6x |
+
+## Responsive Behavior
+
+Because spacing tokens reference fluid font sizes, they scale on smaller viewports:
+
+| Token | Desktop | Mobile (approx) |
+|-------|---------|-----------------|
+| XXL | 96px | 80px |
+| XL | 64px | 52px |
+| LG | 48px | 40px |
+| MD | 32px | 28px |
+| SM | 24px | 22px |
+| XS | 16px | 16px |
+| XXS | 8px | 8px |
+
+## Common Patterns
+
+### Section Spacing
+
+```css
+.section {
+    padding-top: var(--wp--preset--spacing--xl);
+    padding-bottom: var(--wp--preset--spacing--xl);
+}
+```
+
+### Card Spacing
+
+```css
+.card {
+    padding: var(--wp--preset--spacing--md);
+    gap: var(--wp--preset--spacing--sm);
+}
+```
+
+### Form Spacing
+
+```css
+.form-group {
+    margin-bottom: var(--wp--preset--spacing--sm);
+}
+
+.form-row {
+    gap: var(--wp--preset--spacing--xs);
+}
+```
+
+### Navigation Spacing
+
+```css
+.nav-items {
+    gap: var(--wp--preset--spacing--sm);
+}
+
+.nav-link {
+    padding: var(--wp--preset--spacing--xxs) var(--wp--preset--spacing--xs);
+}
+```
+
+<Tip>
+Use larger spacing (LG, XL, XXL) for section-level spacing and smaller spacing (XS, SM, MD) for component-level spacing.
+</Tip>

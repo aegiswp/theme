@@ -1,0 +1,156 @@
+---
+title: "Testimonial Patterns"
+description: "Display customer testimonials and social proof"
+---
+
+## Available Testimonial Patterns
+
+Aegis includes 4 testimonial patterns:
+
+| Pattern | Description |
+|---------|-------------|
+| Testimonials Grid | Multi-column testimonial cards |
+| Testimonials Carousel | Sliding testimonial carousel |
+| Testimonials Single | Featured single testimonial |
+| Testimonials Quote | Large quote-style testimonial |
+
+## Testimonials Grid
+
+Display multiple testimonials in a grid:
+
+- 2 or 3 column layout
+- Avatar, name, and role
+- Quote text
+- Optional company logo
+
+### Structure
+
+```html
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+  <!-- wp:heading {"textAlign":"center"} -->
+  <h2>What Our Customers Say</h2>
+  <!-- /wp:heading -->
+  
+  <!-- wp:columns -->
+    <!-- wp:column -->
+      <!-- wp:group {"className":"testimonial-card"} -->
+        <!-- wp:paragraph {"className":"testimonial-quote"} -->
+        <p>"Amazing product that transformed our workflow."</p>
+        <!-- /wp:paragraph -->
+        
+        <!-- wp:group {"layout":{"type":"flex"}} -->
+          <!-- wp:image {"className":"avatar"} /-->
+          <!-- wp:group -->
+            <!-- wp:paragraph {"className":"name"} -->Jane Doe<!-- /wp:paragraph -->
+            <!-- wp:paragraph {"className":"role"} -->CEO, Company<!-- /wp:paragraph -->
+          <!-- /wp:group -->
+        <!-- /wp:group -->
+      <!-- /wp:group -->
+    <!-- /wp:column -->
+    
+    <!-- Additional testimonials -->
+  <!-- /wp:columns -->
+<!-- /wp:group -->
+```
+
+## Testimonials Carousel
+
+A sliding carousel for multiple testimonials:
+
+- Space-efficient for many testimonials
+- Navigation arrows or dots
+- Auto-play option
+
+<Note>
+The carousel uses the Aegis Slider block. See [Custom Blocks](/blocks/custom-blocks) for details.
+</Note>
+
+## Testimonials Single
+
+A featured testimonial with emphasis:
+
+- Large quote text
+- Prominent avatar
+- Background styling
+- Great for highlighting key testimonials
+
+## Testimonials Quote
+
+A dramatic quote-style layout:
+
+- Large quotation marks
+- Centered text
+- Minimal design
+- High visual impact
+
+## Customizing Testimonials
+
+### Avatar Images
+
+<Steps>
+  <Step title="Select avatar">
+    Click on the avatar image placeholder.
+  </Step>
+  <Step title="Replace image">
+    Upload or select a customer photo.
+  </Step>
+  <Step title="Adjust styling">
+    Apply circular crop using border-radius.
+  </Step>
+</Steps>
+
+### Quote Styling
+
+Enhance quote appearance:
+
+- Use italic text for quotes
+- Add quotation marks via CSS or text
+- Apply subtle background colors
+- Add left border for visual interest
+
+### Star Ratings
+
+Add star ratings to testimonials:
+
+```html
+<!-- wp:paragraph {"className":"star-rating"} -->
+<p>★★★★★</p>
+<!-- /wp:paragraph -->
+```
+
+Or use an icon-based approach with the Icon block.
+
+## Best Practices
+
+### Content
+
+- **Authentic quotes**: Use real customer feedback
+- **Specific results**: Include metrics when possible
+- **Relevant roles**: Show job titles and companies
+- **Permission**: Always get approval to use testimonials
+
+### Design
+
+- **Consistent styling**: Same card design for all testimonials
+- **Readable text**: Appropriate font size for quotes
+- **Visual hierarchy**: Name and role less prominent than quote
+- **White space**: Don't overcrowd testimonial cards
+
+### Accessibility
+
+- Include alt text for avatar images
+- Ensure quote text has sufficient contrast
+- Make carousel controls keyboard accessible
+
+<Tip>
+Feature your strongest testimonials prominently. Quality over quantity—3 great testimonials are better than 10 mediocre ones.
+</Tip>
+
+## Social Proof Variations
+
+Combine testimonials with:
+
+- **Logos**: Display client company logos
+- **Stats**: "500+ happy customers"
+- **Ratings**: Average rating from review platforms
+- **Case studies**: Link to detailed success stories

@@ -1,0 +1,191 @@
+---
+title: "Blog Patterns"
+description: "Blog layouts and post display patterns"
+---
+
+## Available Blog Patterns
+
+Aegis includes 11 blog patterns:
+
+| Pattern | Description |
+|---------|-------------|
+| Blog Grid | Post grid layout |
+| Blog List | Traditional list layout |
+| Blog Cards | Card-style post display |
+| Blog Featured | Featured post highlight |
+| Blog Sidebar | Posts with sidebar |
+| Blog Masonry | Masonry grid layout |
+| Post Header | Single post header |
+| Post Footer | Single post footer |
+| Post Navigation | Previous/next navigation |
+| Related Posts | Related posts section |
+| Author Bio | Author information box |
+
+## Blog Grid
+
+A responsive grid of post cards:
+
+- 2, 3, or 4 columns
+- Featured image, title, excerpt
+- Meta information (date, author, categories)
+
+### Structure
+
+```html
+<!-- wp:query {"query":{"perPage":9,"inherit":false}} -->
+  <!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+    <!-- wp:post-featured-image /-->
+    <!-- wp:post-title /-->
+    <!-- wp:post-excerpt /-->
+    <!-- wp:post-date /-->
+  <!-- /wp:post-template -->
+  
+  <!-- wp:query-pagination /-->
+<!-- /wp:query -->
+```
+
+## Blog List
+
+A traditional blog layout:
+
+- Full-width posts
+- Larger excerpts
+- More detailed meta information
+
+### Structure
+
+```html
+<!-- wp:query {"query":{"perPage":10,"inherit":false}} -->
+  <!-- wp:post-template -->
+    <!-- wp:columns -->
+      <!-- wp:column {"width":"40%"} -->
+        <!-- wp:post-featured-image /-->
+      <!-- /wp:column -->
+      <!-- wp:column {"width":"60%"} -->
+        <!-- wp:post-title /-->
+        <!-- wp:post-excerpt /-->
+        <!-- wp:group {"layout":{"type":"flex"}} -->
+          <!-- wp:post-date /-->
+          <!-- wp:post-author /-->
+        <!-- /wp:group -->
+      <!-- /wp:column -->
+    <!-- /wp:columns -->
+  <!-- /wp:post-template -->
+<!-- /wp:query -->
+```
+
+## Blog Cards
+
+Elevated card design with shadows:
+
+- Card container with shadow
+- Hover effects
+- Clean, modern appearance
+
+## Blog Featured
+
+Highlight a featured post:
+
+- Large featured image
+- Prominent title
+- Full excerpt
+- Followed by regular post grid
+
+## Blog Sidebar
+
+Traditional blog with sidebar:
+
+- Main content area (2/3 width)
+- Sidebar (1/3 width)
+- Widgets: search, categories, recent posts
+
+## Related Posts
+
+Display related content on single posts:
+
+```html
+<!-- wp:query {"query":{"perPage":3,"postType":"post","taxQuery":{"category":[]}}} -->
+  <!-- wp:heading -->
+  <h2>Related Posts</h2>
+  <!-- /wp:heading -->
+  
+  <!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+    <!-- wp:post-featured-image /-->
+    <!-- wp:post-title /-->
+  <!-- /wp:post-template -->
+<!-- /wp:query -->
+```
+
+<Note>
+Aegis includes a Related Posts block variation that automatically queries posts from the same category.
+</Note>
+
+## Author Bio
+
+Display author information:
+
+```html
+<!-- wp:group {"className":"author-bio"} -->
+  <!-- wp:group {"layout":{"type":"flex"}} -->
+    <!-- wp:avatar /-->
+    <!-- wp:group -->
+      <!-- wp:post-author {"isLink":true} /-->
+      <!-- wp:post-author-biography /-->
+    <!-- /wp:group -->
+  <!-- /wp:group -->
+<!-- /wp:group -->
+```
+
+## Customizing Blog Patterns
+
+### Query Settings
+
+Customize what posts are displayed:
+
+- **Posts per page**: Number of posts to show
+- **Categories**: Filter by specific categories
+- **Tags**: Filter by tags
+- **Order**: Date, title, random
+- **Sticky posts**: Include or exclude
+
+### Post Elements
+
+Choose which elements to display:
+
+- Featured image
+- Title
+- Excerpt (with length control)
+- Date
+- Author
+- Categories/Tags
+- Read more link
+
+### Layout Options
+
+- **Grid columns**: 2, 3, or 4
+- **Gap spacing**: Space between posts
+- **Image aspect ratio**: Square, landscape, portrait
+
+## Best Practices
+
+<Tip>
+Use the `inherit` query option in archive templates to respect the main WordPress query, including pagination and filtering.
+</Tip>
+
+### Performance
+
+- Limit posts per page (9-12 for grids)
+- Use appropriate image sizes
+- Consider lazy loading for images
+
+### Accessibility
+
+- Ensure proper heading hierarchy
+- Include alt text for images
+- Make "Read more" links descriptive
+
+### SEO
+
+- Use semantic HTML (article, time elements)
+- Include structured data
+- Optimize meta descriptions

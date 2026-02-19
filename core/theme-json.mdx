@@ -1,0 +1,163 @@
+---
+title: "theme.json"
+description: "Understanding the theme.json configuration file that powers Aegis"
+---
+
+## Overview
+
+The `theme.json` file is the heart of Aegis's design system. It defines all design tokens, block settings, and default styles that power the theme.
+
+```json
+{
+  "$schema": "https://schemas.wp.org/wp/6.8/theme.json",
+  "version": 3,
+  "title": "Light",
+  "settings": { ... },
+  "styles": { ... },
+  "customTemplates": [ ... ],
+  "templateParts": [ ... ]
+}
+```
+
+## Schema Version
+
+Aegis uses **version 3** of the `theme.json` schema, which requires WordPress 6.6+.
+
+## Main Sections
+
+### Settings
+
+Defines available options and presets:
+
+<Accordion title="settings.color">
+  - `palette` - Color presets (Primary, Neutral, Semantic)
+  - `gradients` - Gradient presets
+  - `duotone` - Duotone filter presets
+  - `defaultPalette` - Disable core colors (set to `false`)
+  - `defaultGradients` - Disable core gradients (set to `false`)
+</Accordion>
+
+<Accordion title="settings.typography">
+  - `fontFamilies` - Available fonts (Lexend, JetBrains)
+  - `fontSizes` - 22 fluid font size presets
+  - `customFontSize` - Allow custom sizes
+  - `lineHeight` - Enable line height controls
+  - `dropCap` - Enable drop cap feature
+</Accordion>
+
+<Accordion title="settings.spacing">
+  - `spacingSizes` - 7 spacing presets (XXS to XXL)
+  - `units` - Allowed CSS units
+  - `blockGap` - Enable block gap controls
+  - `margin` - Enable margin controls
+  - `padding` - Enable padding controls
+</Accordion>
+
+<Accordion title="settings.layout">
+  - `contentSize` - Default content width (720px max)
+  - `wideSize` - Wide content width (1620px max)
+</Accordion>
+
+<Accordion title="settings.shadow">
+  - `presets` - 8 shadow presets (none to XXL)
+  - `defaultPresets` - Disable core shadows (set to `false`)
+</Accordion>
+
+<Accordion title="settings.custom">
+  Custom CSS properties for:
+  - Border defaults
+  - Box shadow configuration
+  - Font weights
+  - Transitions
+  - Component-specific tokens
+</Accordion>
+
+### Styles
+
+Defines default styling:
+
+```json
+{
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--neutral-0)",
+      "text": "var(--wp--preset--color--neutral-600)"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--lexend)",
+      "fontSize": "var(--wp--preset--font-size--16)",
+      "lineHeight": "1.6"
+    },
+    "elements": { ... },
+    "blocks": { ... }
+  }
+}
+```
+
+### Custom Templates
+
+Registered custom page templates:
+
+| Template | Slug | Post Types |
+|----------|------|------------|
+| Blank | `blank` | page, post |
+| Full Width | `full-width` | page, post |
+| Archive: Product | `archive-product` | - |
+| Single: Product | `single-product` | - |
+
+### Template Parts
+
+Registered template part areas:
+
+| Part | Area | Purpose |
+|------|------|---------|
+| Header | `header` | Site header |
+| Footer | `footer` | Site footer |
+| Main | `uncategorized` | Main content |
+
+## CSS Custom Properties
+
+Aegis generates CSS custom properties from `theme.json`:
+
+```css
+/* Colors */
+--wp--preset--color--primary-500: #6c757d;
+--wp--preset--color--neutral-0: #f8f9fa;
+
+/* Typography */
+--wp--preset--font-size--16: clamp(16px, 1.6vw, 16px);
+--wp--preset--font-family--lexend: Lexend, sans-serif;
+
+/* Spacing */
+--wp--preset--spacing--sm: var(--wp--preset--font-size--24);
+--wp--preset--spacing--lg: var(--wp--preset--font-size--48);
+
+/* Shadows */
+--wp--preset--shadow--sm: 0 1px 2px 0 var(--wp--custom--box-shadow--color);
+```
+
+## Extending theme.json
+
+In a child theme, create your own `theme.json` to extend or override settings:
+
+```json
+{
+  "$schema": "https://schemas.wp.org/wp/6.8/theme.json",
+  "version": 3,
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "name": "Brand",
+          "slug": "brand",
+          "color": "#ff6b6b"
+        }
+      ]
+    }
+  }
+}
+```
+
+<Tip>
+Child theme `theme.json` settings are merged with the parent theme. Use the same structure to override specific values.
+</Tip>

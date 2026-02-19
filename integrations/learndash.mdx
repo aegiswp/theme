@@ -1,0 +1,118 @@
+---
+title: "LearnDash"
+description: "Learning Management System integration with LearnDash"
+---
+
+## Overview
+
+Aegis provides comprehensive LearnDash integration including Focus Mode support, theme colors, and custom block patterns.
+
+## Features
+
+- Focus Mode integration
+- Theme colors and typography
+- Custom block patterns
+- Consistent styling
+
+## Focus Mode
+
+Aegis supports LearnDash Focus Mode with theme-consistent styling:
+
+- Header matches theme design
+- Sidebar uses theme colors
+- Progress indicators styled
+- Navigation follows theme patterns
+
+## Styling
+
+LearnDash elements inherit Aegis design tokens:
+
+### Course Cards
+
+```css
+.ld-course-list-item {
+    border-radius: var(--wp--custom--border--radius);
+    box-shadow: var(--wp--preset--shadow--sm);
+}
+```
+
+### Progress Bars
+
+```css
+.learndash-wrapper .ld-progress-bar {
+    background: var(--wp--preset--color--neutral-100);
+}
+
+.learndash-wrapper .ld-progress-bar-percentage {
+    background: var(--wp--preset--color--primary-500);
+}
+```
+
+### Buttons
+
+```css
+.learndash-wrapper .ld-button {
+    background: var(--wp--preset--color--primary-500);
+    color: var(--wp--preset--color--primary-25);
+    border-radius: var(--wp--custom--border--radius);
+}
+```
+
+## Patterns
+
+Aegis includes LearnDash-specific patterns:
+
+- Course grid layout
+- Lesson list
+- Topic navigation
+- Quiz results display
+
+## Customization
+
+### Course Archive
+
+Create custom course archive layouts:
+
+```html
+<!-- wp:query {"query":{"postType":"sfwd-courses","perPage":9}} -->
+  <!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+    <!-- wp:post-featured-image /-->
+    <!-- wp:post-title /-->
+    <!-- wp:post-excerpt /-->
+  <!-- /wp:post-template -->
+<!-- /wp:query -->
+```
+
+### Single Course
+
+Customize course pages in the Site Editor:
+
+1. Create a custom template for courses
+2. Add LearnDash blocks
+3. Style with theme settings
+
+## Dark Mode
+
+LearnDash elements support Aegis dark mode:
+
+- Automatic color adjustments
+- Readable text on dark backgrounds
+- Consistent contrast ratios
+
+## Best Practices
+
+<Tip>
+Use LearnDash blocks in the block editor for the best integration with Aegis styling.
+</Tip>
+
+### Performance
+
+- Optimize course images
+- Use pagination for large course lists
+- Enable caching for course content
+
+### Accessibility
+
+- Ensure progress indicators are accessible
+- Provide text alternatives for visual elements
+- Test keyboard navigation in courses

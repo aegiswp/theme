@@ -1,0 +1,154 @@
+---
+title: "Typography Tokens"
+description: "Complete reference of typography CSS custom properties in Aegis"
+---
+
+## Overview
+
+Aegis provides comprehensive typography tokens for consistent text styling across your site.
+
+## Font Family Tokens
+
+| Token | Value |
+|-------|-------|
+| `--wp--preset--font-family--lexend` | `Lexend, var(--wp--preset--font-family--sans-serif)` |
+| `--wp--preset--font-family--jetbrains` | `JetBrains, var(--wp--preset--font-family--monospace)` |
+
+### Usage
+
+```css
+body {
+    font-family: var(--wp--preset--font-family--lexend);
+}
+
+code {
+    font-family: var(--wp--preset--font-family--jetbrains);
+}
+```
+
+## Font Size Tokens
+
+### Display Sizes (Large)
+
+| Token | Size | Fluid Range |
+|-------|------|-------------|
+| `--wp--preset--font-size--96` | `clamp(80px, 9.6vw, 96px)` | 80px → 96px |
+| `--wp--preset--font-size--88` | `clamp(72px, 8.8vw, 88px)` | 72px → 88px |
+| `--wp--preset--font-size--80` | `clamp(64px, 8vw, 80px)` | 64px → 80px |
+| `--wp--preset--font-size--72` | `clamp(56px, 7.2vw, 72px)` | 56px → 72px |
+| `--wp--preset--font-size--64` | `clamp(52px, 6.4vw, 64px)` | 52px → 64px |
+| `--wp--preset--font-size--60` | `clamp(48px, 6vw, 60px)` | 48px → 60px |
+
+### Heading Sizes
+
+| Token | Size | Fluid Range |
+|-------|------|-------------|
+| `--wp--preset--font-size--52` | `clamp(44px, 5.2vw, 52px)` | 44px → 52px |
+| `--wp--preset--font-size--48` | `clamp(40px, 4.8vw, 48px)` | 40px → 48px |
+| `--wp--preset--font-size--44` | `clamp(40px, 4.4vw, 44px)` | 40px → 44px |
+| `--wp--preset--font-size--40` | `clamp(36px, 4vw, 40px)` | 36px → 40px |
+| `--wp--preset--font-size--36` | `clamp(32px, 3.6vw, 36px)` | 32px → 36px |
+| `--wp--preset--font-size--32` | `clamp(28px, 3.2vw, 32px)` | 28px → 32px |
+| `--wp--preset--font-size--28` | `clamp(24px, 2.8vw, 28px)` | 24px → 28px |
+| `--wp--preset--font-size--24` | `clamp(22px, 2.4vw, 24px)` | 22px → 24px |
+
+### Body Sizes
+
+| Token | Size | Fluid Range |
+|-------|------|-------------|
+| `--wp--preset--font-size--22` | `clamp(20px, 2.2vw, 22px)` | 20px → 22px |
+| `--wp--preset--font-size--20` | `clamp(19px, 2vw, 20px)` | 19px → 20px |
+| `--wp--preset--font-size--18` | `clamp(17px, 1.8vw, 18px)` | 17px → 18px |
+| `--wp--preset--font-size--16` | `clamp(16px, 1.6vw, 16px)` | 16px |
+| `--wp--preset--font-size--14` | `clamp(14px, 1.4vw, 14px)` | 14px |
+
+### Small Sizes
+
+| Token | Size | Fluid Range |
+|-------|------|-------------|
+| `--wp--preset--font-size--12` | `clamp(12px, 1.2vw, 12px)` | 12px |
+| `--wp--preset--font-size--10` | `clamp(10px, 1vw, 10px)` | 10px |
+| `--wp--preset--font-size--8` | `clamp(8px, 0.8vw, 8px)` | 8px |
+
+### Special
+
+| Token | Value |
+|-------|-------|
+| `--wp--preset--font-size--inherit` | `inherit` |
+
+## Font Weight Tokens
+
+| Token | Value |
+|-------|-------|
+| `--wp--custom--font-weight--black` | `900` |
+| `--wp--custom--font-weight--extra-bold` | `800` |
+| `--wp--custom--font-weight--bold` | `700` |
+| `--wp--custom--font-weight--semi-bold` | `600` |
+| `--wp--custom--font-weight--medium` | `500` |
+| `--wp--custom--font-weight--regular` | `400` |
+| `--wp--custom--font-weight--light` | `300` |
+| `--wp--custom--font-weight--extra-light` | `200` |
+| `--wp--custom--font-weight--thin` | `100` |
+
+## Default Heading Styles
+
+| Element | Font Size | Line Height |
+|---------|-----------|-------------|
+| H1 | `--wp--preset--font-size--44` | `--wp--preset--font-size--52` |
+| H2 | `--wp--preset--font-size--36` | `--wp--preset--font-size--44` |
+| H3 | `--wp--preset--font-size--32` | `--wp--preset--font-size--40` |
+| H4 | `--wp--preset--font-size--28` | `--wp--preset--font-size--36` |
+| H5 | `--wp--preset--font-size--24` | `--wp--preset--font-size--32` |
+| H6 | `--wp--preset--font-size--20` | `--wp--preset--font-size--28` |
+
+## Usage Examples
+
+### CSS
+
+```css
+.hero-title {
+    font-family: var(--wp--preset--font-family--lexend);
+    font-size: var(--wp--preset--font-size--64);
+    font-weight: var(--wp--custom--font-weight--bold);
+    line-height: 1.2;
+}
+
+.body-text {
+    font-family: var(--wp--preset--font-family--lexend);
+    font-size: var(--wp--preset--font-size--16);
+    font-weight: var(--wp--custom--font-weight--regular);
+    line-height: 1.6;
+}
+
+.code-block {
+    font-family: var(--wp--preset--font-family--jetbrains);
+    font-size: var(--wp--preset--font-size--14);
+}
+```
+
+### Block Editor
+
+In block attributes:
+
+```json
+{
+    "fontSize": "24",
+    "fontFamily": "lexend"
+}
+```
+
+## Responsive Behavior
+
+Font sizes automatically scale on smaller viewports:
+
+| Desktop | Mobile (approx) |
+|---------|-----------------|
+| 96px | 80px |
+| 64px | 52px |
+| 44px | 40px |
+| 24px | 22px |
+| 16px | 16px |
+
+<Tip>
+Use the fluid font sizes for responsive typography without media queries. The `clamp()` function handles scaling automatically.
+</Tip>

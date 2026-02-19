@@ -1,0 +1,172 @@
+---
+title: "Pricing Patterns"
+description: "Pricing table layouts for products and services"
+---
+
+## Available Pricing Patterns
+
+Aegis includes pricing table patterns:
+
+| Pattern | Description |
+|---------|-------------|
+| Pricing Table | Multi-tier pricing comparison |
+
+## Pricing Table
+
+A comparison table for pricing tiers:
+
+- Multiple pricing columns
+- Feature lists
+- Highlighted recommended plan
+- Call-to-action buttons
+
+### Structure
+
+```html
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+  <!-- wp:heading {"textAlign":"center"} -->
+  <h2>Choose Your Plan</h2>
+  <!-- /wp:heading -->
+  
+  <!-- wp:columns -->
+    <!-- Basic Plan -->
+    <!-- wp:column -->
+      <!-- wp:group {"className":"pricing-card"} -->
+        <!-- wp:heading {"level":3} -->Basic<!-- /wp:heading -->
+        <!-- wp:paragraph {"className":"price"} -->
+        <p><span class="amount">$9</span>/month</p>
+        <!-- /wp:paragraph -->
+        
+        <!-- wp:list -->
+        <ul>
+          <li>Feature 1</li>
+          <li>Feature 2</li>
+          <li>Feature 3</li>
+        </ul>
+        <!-- /wp:list -->
+        
+        <!-- wp:buttons -->
+          <!-- wp:button {"className":"is-style-outline"} -->Get Started<!-- /wp:button -->
+        <!-- /wp:buttons -->
+      <!-- /wp:group -->
+    <!-- /wp:column -->
+    
+    <!-- Pro Plan (Featured) -->
+    <!-- wp:column -->
+      <!-- wp:group {"className":"pricing-card featured"} -->
+        <!-- wp:paragraph {"className":"badge"} -->Most Popular<!-- /wp:paragraph -->
+        <!-- wp:heading {"level":3} -->Pro<!-- /wp:heading -->
+        <!-- wp:paragraph {"className":"price"} -->
+        <p><span class="amount">$29</span>/month</p>
+        <!-- /wp:paragraph -->
+        
+        <!-- wp:list -->
+        <ul>
+          <li>Everything in Basic</li>
+          <li>Pro Feature 1</li>
+          <li>Pro Feature 2</li>
+        </ul>
+        <!-- /wp:list -->
+        
+        <!-- wp:buttons -->
+          <!-- wp:button -->Get Started<!-- /wp:button -->
+        <!-- /wp:buttons -->
+      <!-- /wp:group -->
+    <!-- /wp:column -->
+    
+    <!-- Enterprise Plan -->
+    <!-- wp:column -->
+      <!-- Similar structure -->
+    <!-- /wp:column -->
+  <!-- /wp:columns -->
+<!-- /wp:group -->
+```
+
+## Customizing Pricing Tables
+
+### Plan Structure
+
+Common pricing table elements:
+
+- **Plan name**: Clear tier identification
+- **Price**: Amount and billing period
+- **Description**: Brief plan summary
+- **Features**: Bulleted list of inclusions
+- **CTA button**: Sign up or contact action
+- **Badge**: "Popular", "Best Value", etc.
+
+### Highlighting Plans
+
+Make the recommended plan stand out:
+
+- Different background color
+- Border or shadow emphasis
+- "Most Popular" badge
+- Larger size or scale
+- Primary button color
+
+### Feature Comparison
+
+Show feature availability:
+
+```html
+<!-- wp:list -->
+<ul>
+  <li>✓ Feature included</li>
+  <li>✗ Feature not included</li>
+  <li>10 GB Storage</li>
+  <li>Unlimited Users</li>
+</ul>
+<!-- /wp:list -->
+```
+
+### Billing Toggle
+
+For monthly/annual pricing:
+
+```html
+<!-- wp:group {"layout":{"type":"flex","justifyContent":"center"}} -->
+  <!-- wp:paragraph -->Monthly<!-- /wp:paragraph -->
+  <!-- Toggle switch (requires custom implementation) -->
+  <!-- wp:paragraph -->Annual (Save 20%)<!-- /wp:paragraph -->
+<!-- /wp:group -->
+```
+
+<Note>
+Billing toggles require JavaScript for interactivity. Consider using a pricing plugin or custom implementation.
+</Note>
+
+## Best Practices
+
+### Pricing Strategy
+
+- **3 tiers**: Good, better, best
+- **Anchor pricing**: Show value of middle tier
+- **Clear differentiation**: Each tier should have distinct value
+
+### Design
+
+- **Visual hierarchy**: Guide users to preferred plan
+- **Scannable features**: Easy to compare
+- **Mobile responsive**: Stack cards on small screens
+- **Consistent styling**: Same card structure across tiers
+
+### Copy
+
+- **Clear plan names**: Basic, Pro, Enterprise
+- **Benefit-focused features**: What users get, not technical specs
+- **Action-oriented CTAs**: "Start Free Trial", "Get Started"
+
+<Tip>
+Test your pricing page with real users. Watch where they look and what questions they have.
+</Tip>
+
+### Trust Elements
+
+Add credibility:
+
+- Money-back guarantee
+- Security badges
+- Customer logos
+- Testimonials
+- FAQ section below pricing

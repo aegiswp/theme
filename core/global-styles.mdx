@@ -1,0 +1,104 @@
+---
+title: "Global Styles"
+description: "Configure site-wide styling through the Global Styles interface"
+---
+
+## Overview
+
+Global Styles is a powerful feature that enables comprehensive customization of your website's appearance through the Site Editor. It provides a centralized hub for modifying typography, colors, layout defaults, and block-specific styles.
+
+<Note>
+Under the hood, Global Styles is powered by `theme.json`. Changes made in the Site Editor are stored as user customizations that override theme defaults.
+</Note>
+
+## Accessing Global Styles
+
+1. Navigate to **Appearance → Editor**
+2. Click the **Styles** icon (half-filled circle) in the top toolbar
+3. Or press `Shift + Alt + Y` as a keyboard shortcut
+
+## Style Categories
+
+### Typography
+
+Configure text appearance site-wide:
+
+- **Font family** - Choose from theme-provided fonts
+- **Font size** - Set default sizes for body text
+- **Line height** - Adjust text spacing
+- **Font weight** - Control text boldness
+- **Letter spacing** - Fine-tune character spacing
+
+### Colors
+
+Customize your color scheme:
+
+- **Background** - Page background color
+- **Text** - Default text color
+- **Links** - Link color and hover states
+- **Buttons** - Button background and text colors
+- **Headings** - Heading text color
+
+### Layout
+
+Control content dimensions:
+
+- **Content width** - Maximum width for content blocks
+- **Wide width** - Maximum width for wide-aligned blocks
+- **Padding** - Page-level padding
+
+### Blocks
+
+Customize individual block types:
+
+<Accordion title="Available block customizations">
+  - Buttons - Colors, typography, spacing, borders
+  - Headings - Font sizes, colors, spacing per level (H1-H6)
+  - Paragraphs - Typography and colors
+  - Images - Border radius, shadows
+  - Navigation - Font size, colors, spacing
+  - And many more...
+</Accordion>
+
+## Aegis Default Styles
+
+Aegis provides carefully crafted default styles:
+
+| Element | Default Value |
+|---------|---------------|
+| Background | `neutral-0` (#f8f9fa) |
+| Text | `neutral-600` (#50555b) |
+| Headings | `neutral-800` (#313539) |
+| Links | Inherit (underlined) |
+| Link Hover | `primary-500` (#6c757d) |
+| Buttons | `primary-500` background |
+| Border Radius | 6px |
+| Block Gap | 24px (spacing-sm) |
+
+## Style Variations
+
+Aegis includes the **Light** style variation by default. The theme's design system supports creating additional variations through `theme.json`.
+
+<Tip>
+To create a style variation, add a new JSON file in the `styles/` directory of your child theme (e.g., `styles/dark.json`).
+</Tip>
+
+## Resetting Styles
+
+To reset Global Styles to theme defaults:
+
+<Steps>
+  <Step title="Open Styles panel">
+    Click the Styles icon in the Site Editor.
+  </Step>
+  <Step title="Open options">
+    Click the three-dot menu (⋮) in the Styles panel.
+  </Step>
+  <Step title="Reset">
+    Select **Reset to defaults** to restore theme settings.
+  </Step>
+</Steps>
+
+<Warning>
+Resetting styles will remove all your customizations. Consider exporting your site first if you want to preserve your changes.
+</Warning>

@@ -1,0 +1,171 @@
+---
+title: "Block Supports"
+description: "Enhanced appearance controls for WordPress core blocks"
+---
+
+## Overview
+
+Aegis extends WordPress core blocks with additional appearance controls beyond what WordPress provides by default. These enhanced block supports give you granular control over block presentation without writing custom code.
+
+## Enhanced Supports
+
+### Box Shadows
+
+Aegis adds box shadow controls to blocks that don't natively support them. Shadows use the shadow scale defined in `theme.json`.
+
+- Select from 7 shadow presets (XXS through XXL)
+- Applied via the block sidebar under **Styles → Shadow**
+
+### Absolute Positioning
+
+Position blocks absolutely within their parent container. Useful for:
+
+- Overlapping elements
+- Transparent header overlays
+- Decorative elements positioned relative to a section
+
+### CSS Transforms
+
+Apply CSS transforms directly from the block sidebar:
+
+- **Translate** — Move blocks along X/Y axes
+- **Rotate** — Rotate blocks by degrees
+- **Scale** — Resize blocks proportionally
+- **Skew** — Apply skew transformations
+
+### CSS Filters
+
+Apply visual filters to blocks:
+
+- **Blur** — Gaussian blur effect
+- **Brightness** — Adjust brightness
+- **Contrast** — Adjust contrast
+- **Grayscale** — Convert to grayscale
+- **Saturate** — Adjust color saturation
+- **Sepia** — Apply sepia tone
+
+## Global Settings
+
+The following appearance tools are enabled globally via `theme.json`:
+
+```json
+{
+  "settings": {
+    "appearanceTools": true,
+    "border": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true
+    },
+    "color": {
+      "customDuotone": true,
+      "customGradient": true,
+      "link": true
+    },
+    "typography": {
+      "customFontSize": true,
+      "dropCap": true,
+      "lineHeight": true,
+      "writingMode": true
+    },
+    "spacing": {
+      "blockGap": true,
+      "margin": true,
+      "padding": true,
+      "customSpacingSize": true
+    }
+  }
+}
+```
+
+### What `appearanceTools` Enables
+
+Setting `appearanceTools: true` is a shorthand that enables:
+
+- Border controls (color, radius, style, width)
+- Color link controls
+- Typography line height
+- Spacing (block gap, margin, padding)
+- Dimensions (min-height)
+- Background image controls
+
+## Custom Properties
+
+Aegis exposes several custom properties through `theme.json`:
+
+### Border Defaults
+
+| Property | Value | CSS Variable |
+|----------|-------|-------------|
+| Width | `1px` | `--wp--custom--border--width` |
+| Style | `solid` | `--wp--custom--border--style` |
+| Color | `neutral-200` | `--wp--custom--border--color` |
+| Radius | `6px` | `--wp--custom--border--radius` |
+
+### Transition Defaults
+
+| Property | Value | CSS Variable |
+|----------|-------|-------------|
+| Property | `all` | `--wp--custom--transition--property` |
+| Duration | `0.1s` | `--wp--custom--transition--duration` |
+| Timing | `ease-in` | `--wp--custom--transition--timing-function` |
+
+### Surface Properties
+
+| Property | Value | CSS Variable |
+|----------|-------|-------------|
+| Backdrop Filter | `blur(8px)` | `--wp--custom--surface--backdrop-filter` |
+| Border Radius | Global token | `--wp--custom--surface--border-radius` |
+| Box Shadow | `sm` preset | `--wp--custom--surface--box-shadow` |
+| Overlay BG | `neutral-50` | `--wp--custom--surface--overlay--background` |
+| Overlay Opacity | `0.5` | `--wp--custom--surface--overlay--opacity` |
+
+### Input Focus
+
+| Property | Value | CSS Variable |
+|----------|-------|-------------|
+| Border Color | `primary-500` | `--wp--custom--surface--input--focus--border-color` |
+| Box Shadow | `sm` preset | `--wp--custom--input--focus--box-shadow` |
+
+## Position Settings
+
+```json
+{
+  "settings": {
+    "position": {
+      "sticky": false
+    }
+  }
+}
+```
+
+<Note>
+Sticky positioning is disabled by default in Aegis. The theme provides its own sticky header implementation through template parts and CSS.
+</Note>
+
+## How It Works
+
+Enhanced block supports are implemented through the framework's `DesignSystem` namespace:
+
+1. **Block registration filters** — Additional attributes and supports are added to block type definitions
+2. **Editor scripts** — Custom inspector controls are injected into the block sidebar
+3. **Render filters** — Additional inline styles and classes are applied to block output
+4. **Conditional CSS** — Supporting stylesheets are loaded only when features are used
+
+## Customization
+
+Override any custom property in a child theme's `theme.json`:
+
+```json
+{
+  "settings": {
+    "custom": {
+      "border": {
+        "radius": "8px",
+        "color": "var(--wp--preset--color--neutral-300)"
+      }
+    }
+  }
+}
+```

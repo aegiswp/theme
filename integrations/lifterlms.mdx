@@ -1,0 +1,113 @@
+---
+title: "LifterLMS"
+description: "Learning Management System integration with LifterLMS"
+---
+
+## Overview
+
+Aegis provides LifterLMS integration with theme colors, typography, and custom block patterns that replace default LifterLMS patterns.
+
+## Features
+
+- Theme colors and typography
+- Custom block patterns
+- Styled course elements
+- Membership page support
+
+## Styling
+
+LifterLMS elements inherit Aegis design tokens:
+
+### Course Cards
+
+```css
+.llms-loop-item {
+    border-radius: var(--wp--custom--border--radius);
+}
+
+.llms-loop-item-content {
+    padding: var(--wp--preset--spacing--sm);
+}
+```
+
+### Buttons
+
+```css
+.llms-button-primary {
+    background: var(--wp--preset--color--primary-500);
+    color: var(--wp--preset--color--primary-25);
+    border-radius: var(--wp--custom--border--radius);
+}
+```
+
+### Progress
+
+```css
+.llms-progress .progress-bar-complete {
+    background: var(--wp--preset--color--primary-500);
+}
+```
+
+## Patterns
+
+Aegis replaces default LifterLMS patterns with theme-styled versions:
+
+- Course catalog grid
+- Membership pricing
+- Student dashboard
+- Certificate display
+
+## Customization
+
+### Course Catalog
+
+Create custom course listings:
+
+```html
+<!-- wp:query {"query":{"postType":"course","perPage":12}} -->
+  <!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+    <!-- wp:post-featured-image /-->
+    <!-- wp:post-title /-->
+    <!-- wp:post-excerpt /-->
+    <!-- wp:buttons -->
+      <!-- wp:button -->Enroll Now<!-- /wp:button -->
+    <!-- /wp:buttons -->
+  <!-- /wp:post-template -->
+<!-- /wp:query -->
+```
+
+### Membership Pages
+
+Style membership pages with theme patterns:
+
+1. Use pricing pattern as base
+2. Add LifterLMS membership blocks
+3. Customize colors and layout
+
+## Theme Support
+
+Aegis declares LifterLMS theme support:
+
+```php
+add_theme_support('lifterlms');
+add_theme_support('lifterlms-quizzes');
+add_theme_support('lifterlms-sidebars');
+```
+
+## Best Practices
+
+<Tip>
+Use LifterLMS blocks combined with Aegis patterns for consistent, professional course pages.
+</Tip>
+
+### Design
+
+- Maintain consistent button styles
+- Use theme spacing for layouts
+- Apply semantic colors for progress/status
+
+### Performance
+
+- Optimize course media
+- Use lazy loading for course grids
+- Enable object caching

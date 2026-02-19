@@ -1,0 +1,85 @@
+---
+title: "SVG Icons"
+description: "Built-in SVG icon system with inline rendering and icon libraries"
+---
+
+## Overview
+
+Aegis includes a built-in SVG icon system that lets you create inline SVG icons directly within the block editor — no plugins required.
+
+## How to Use
+
+<Steps>
+  <Step title="Open Block Inserter">
+    Open the Block Inserter (+).
+  </Step>
+  <Step title="Search for Icon">
+    Search for **"Icon"**.
+  </Step>
+  <Step title="Insert Icon block">
+    Insert the Icon block (a variation of the Image block).
+  </Step>
+  <Step title="Choose icon">
+    Browse the icon library or paste custom SVG code.
+  </Step>
+</Steps>
+
+## Icon Libraries
+
+Aegis ships with three icon libraries:
+
+| Library | Icons | Description |
+|---------|-------|-------------|
+| **WordPress** | Core WordPress icons | Standard WordPress UI icons |
+| **Dashicons** | 300+ icons | The WordPress admin icon set |
+| **Social Icons** | 40+ icons | Social media brand icons |
+
+## Custom SVGs
+
+You can also use custom SVG icons:
+
+1. Insert the **SVG** block variation (Image block → SVG variation)
+2. Paste your SVG code directly
+3. The SVG is sanitized for security and rendered inline
+
+<Warning>
+SVG files are sanitized on upload to prevent security issues. Some complex SVGs may have features removed.
+</Warning>
+
+## Inline Rendering
+
+Icons are rendered as inline SVG elements, which means:
+
+- **Crisp at any size** — Vector graphics scale without pixelation
+- **Styleable via CSS** — Color, size, and other properties can be controlled
+- **No HTTP requests** — Icons are embedded in the HTML
+- **Dark mode compatible** — Icons using `currentcolor` adapt automatically
+
+## Icon Color
+
+By default, icons use `currentcolor`:
+
+```css
+--wp--custom--icon--color: currentcolor;
+```
+
+This means icons inherit the text color of their parent element and automatically adapt to dark mode.
+
+## Usage in Patterns
+
+Icons in patterns should use the Icon block variation:
+
+```html
+<!-- wp:image {"className":"is-style-icon"} -->
+<figure class="wp-block-image is-style-icon">
+  <img src="data:image/svg+xml,..." alt=""/>
+</figure>
+<!-- /wp:image -->
+```
+
+## Framework Implementation
+
+The icon system is implemented in:
+
+- `BlockVariations\Icon` — Registers the Icon variation on `core/image`
+- `BlockVariations\Svg` — Registers the SVG variation for custom SVGs

@@ -1,0 +1,159 @@
+---
+title: "Hero Patterns"
+description: "Eye-catching hero sections for page headers"
+---
+
+## Available Hero Patterns
+
+Aegis includes 3 hero patterns:
+
+| Pattern | Description |
+|---------|-------------|
+| Hero Default | Standard hero with heading and CTA |
+| Hero Split | Two-column layout with image |
+| Hero Full | Full-screen hero with overlay |
+
+## Hero Default
+
+A versatile hero section with:
+
+- Large heading (H1)
+- Subheading or description
+- Call-to-action buttons
+- Optional background image/color
+
+### Structure
+
+```html
+<!-- wp:cover {"dimRatio":50} -->
+<div class="wp-block-cover">
+  <!-- wp:group {"layout":{"type":"constrained"}} -->
+    <!-- wp:heading {"level":1} -->
+    <h1>Your Compelling Headline</h1>
+    <!-- /wp:heading -->
+    
+    <!-- wp:paragraph -->
+    <p>Supporting text that explains your value proposition.</p>
+    <!-- /wp:paragraph -->
+    
+    <!-- wp:buttons -->
+      <!-- wp:button -->Get Started<!-- /wp:button -->
+      <!-- wp:button {"className":"is-style-outline"} -->Learn More<!-- /wp:button -->
+    <!-- /wp:buttons -->
+  <!-- /wp:group -->
+</div>
+<!-- /wp:cover -->
+```
+
+## Hero Split
+
+A two-column layout ideal for:
+
+- Product showcases
+- App landing pages
+- Service introductions
+
+### Structure
+
+```html
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+  <!-- wp:columns {"verticalAlignment":"center"} -->
+    <!-- wp:column -->
+      <!-- wp:heading {"level":1} /-->
+      <!-- wp:paragraph /-->
+      <!-- wp:buttons /-->
+    <!-- /wp:column -->
+    
+    <!-- wp:column -->
+      <!-- wp:image /-->
+    <!-- /wp:column -->
+  <!-- /wp:columns -->
+<!-- /wp:group -->
+```
+
+## Hero Full
+
+A full-viewport hero for maximum impact:
+
+- Full-screen height
+- Background image with overlay
+- Centered content
+- Scroll indicator option
+
+### Structure
+
+```html
+<!-- wp:cover {"minHeight":100,"minHeightUnit":"vh","dimRatio":60} -->
+<div class="wp-block-cover" style="min-height:100vh">
+  <!-- wp:group {"layout":{"type":"constrained"}} -->
+    <!-- Centered hero content -->
+  <!-- /wp:group -->
+</div>
+<!-- /wp:cover -->
+```
+
+## Using Hero Patterns
+
+<Steps>
+  <Step title="Create or edit page">
+    Open a page in the block editor.
+  </Step>
+  <Step title="Select template">
+    Choose **No Page Title** template to avoid duplicate headings.
+  </Step>
+  <Step title="Insert hero">
+    Add a hero pattern at the top of the page.
+  </Step>
+  <Step title="Customize">
+    Update text, images, and colors.
+  </Step>
+</Steps>
+
+## Customizing Heroes
+
+### Background Images
+
+1. Select the Cover block
+2. Click **Replace** in the toolbar
+3. Choose or upload an image
+4. Adjust the overlay opacity
+
+### Overlay Colors
+
+1. Select the Cover block
+2. Open **Color** settings
+3. Choose overlay color
+4. Adjust **Dim ratio** for opacity
+
+### Text Colors
+
+Ensure sufficient contrast:
+
+- Use light text on dark backgrounds
+- Use dark text on light backgrounds
+- Test with accessibility tools
+
+### Button Styles
+
+Aegis provides button variations:
+
+- **Fill** - Solid background (default)
+- **Outline** - Border only
+- Custom colors via block settings
+
+## Responsive Considerations
+
+<Note>
+Hero patterns automatically adapt to mobile screens. Test your heroes on different devices to ensure readability and proper image cropping.
+</Note>
+
+### Mobile Optimizations
+
+- Stack columns vertically on mobile
+- Reduce font sizes for smaller screens
+- Ensure buttons are tap-friendly
+- Consider mobile-specific background images
+
+<Tip>
+For split heroes, consider which column should appear first on mobile. Use the **Reverse columns on mobile** option if needed.
+</Tip>

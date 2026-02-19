@@ -1,0 +1,162 @@
+---
+title: "CTA Patterns"
+description: "Call-to-action sections to drive conversions"
+---
+
+## Available CTA Patterns
+
+Aegis includes 3 CTA (Call-to-Action) patterns:
+
+| Pattern | Description |
+|---------|-------------|
+| CTA Default | Standard CTA with heading and button |
+| CTA Split | Two-column CTA with image |
+| CTA Banner | Full-width banner CTA |
+
+## CTA Default
+
+A centered call-to-action section:
+
+- Compelling heading
+- Supporting text
+- Primary action button
+- Optional secondary button
+
+### Structure
+
+```html
+<!-- wp:group {"backgroundColor":"primary-100","layout":{"type":"constrained"}} -->
+  <!-- wp:heading {"textAlign":"center"} -->
+  <h2>Ready to Get Started?</h2>
+  <!-- /wp:heading -->
+  
+  <!-- wp:paragraph {"align":"center"} -->
+  <p>Join thousands of satisfied customers today.</p>
+  <!-- /wp:paragraph -->
+  
+  <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+    <!-- wp:button -->Start Free Trial<!-- /wp:button -->
+    <!-- wp:button {"className":"is-style-outline"} -->Contact Sales<!-- /wp:button -->
+  <!-- /wp:buttons -->
+<!-- /wp:group -->
+```
+
+## CTA Split
+
+A two-column layout with visual element:
+
+- Image or illustration on one side
+- CTA content on the other
+- More visual interest
+- Good for product CTAs
+
+### Structure
+
+```html
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+  <!-- wp:columns {"verticalAlignment":"center"} -->
+    <!-- wp:column -->
+      <!-- wp:heading /-->
+      <!-- wp:paragraph /-->
+      <!-- wp:buttons /-->
+    <!-- /wp:column -->
+    
+    <!-- wp:column -->
+      <!-- wp:image /-->
+    <!-- /wp:column -->
+  <!-- /wp:columns -->
+<!-- /wp:group -->
+```
+
+## CTA Banner
+
+A full-width banner for maximum visibility:
+
+- Spans entire viewport width
+- Bold background color or image
+- Concise message
+- Single clear action
+
+### Structure
+
+```html
+<!-- wp:cover {"dimRatio":80,"overlayColor":"primary-700","align":"full"} -->
+  <!-- wp:group {"layout":{"type":"flex","justifyContent":"space-between"}} -->
+    <!-- wp:group -->
+      <!-- wp:heading {"level":3} -->Limited Time Offer<!-- /wp:heading -->
+      <!-- wp:paragraph -->Get 50% off your first month.<!-- /wp:paragraph -->
+    <!-- /wp:group -->
+    
+    <!-- wp:buttons -->
+      <!-- wp:button -->Claim Offer<!-- /wp:button -->
+    <!-- /wp:buttons -->
+  <!-- /wp:group -->
+<!-- /wp:cover -->
+```
+
+## Customizing CTAs
+
+### Headlines
+
+Write compelling headlines:
+
+- **Action-oriented**: "Start Building Today"
+- **Benefit-focused**: "Save Hours Every Week"
+- **Urgency**: "Limited Time Offer"
+- **Question**: "Ready to Transform Your Business?"
+
+### Button Text
+
+Use clear, action-oriented button text:
+
+| Instead of | Use |
+|------------|-----|
+| Submit | Get Started |
+| Click Here | Learn More |
+| Buy | Start Free Trial |
+| OK | Yes, I Want This |
+
+### Colors
+
+Make CTAs stand out:
+
+- Use contrasting background colors
+- Ensure button colors pop
+- Maintain brand consistency
+- Test for accessibility
+
+### Placement
+
+Strategic CTA placement:
+
+- After explaining value (features section)
+- At natural decision points
+- End of page (final push)
+- Sticky/floating for persistent visibility
+
+## Best Practices
+
+<Tip>
+Every CTA should answer: "What will the user get by clicking this button?"
+</Tip>
+
+### Design Principles
+
+- **One primary action**: Don't overwhelm with choices
+- **Visual contrast**: CTA should stand out from surrounding content
+- **White space**: Give CTAs room to breathe
+- **Mobile-friendly**: Buttons should be easy to tap
+
+### Copy Guidelines
+
+- Keep headlines under 10 words
+- Supporting text: 1-2 sentences max
+- Button text: 2-4 words
+- Create urgency without being pushy
+
+### A/B Testing Ideas
+
+- Button color variations
+- Headline wording
+- CTA placement on page
+- Single vs. dual buttons

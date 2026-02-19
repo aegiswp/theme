@@ -1,0 +1,322 @@
+---
+title: "theme.json Styles"
+description: "Complete reference for Aegis theme.json styles configuration"
+---
+
+## Overview
+
+The `styles` section of `theme.json` defines default styling for the site, elements, and blocks.
+
+## Root Styles
+
+```json
+{
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--neutral-0)",
+      "text": "var(--wp--preset--color--neutral-600)"
+    },
+    "spacing": {
+      "blockGap": "var(--wp--preset--spacing--sm)"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--lexend)",
+      "fontSize": "var(--wp--preset--font-size--16)",
+      "fontWeight": "var(--wp--custom--font-weight--regular)",
+      "lineHeight": "1.6"
+    }
+  }
+}
+```
+
+## Element Styles
+
+### Button
+
+```json
+{
+  "styles": {
+    "elements": {
+      "button": {
+        "color": {
+          "text": "var(--wp--preset--color--primary-25)",
+          "background": "var(--wp--preset--color--primary-500)"
+        },
+        "border": {
+          "radius": "var(--wp--custom--border--radius)"
+        },
+        "spacing": {
+          "padding": {
+            "top": "10px",
+            "right": "16px",
+            "bottom": "10px",
+            "left": "16px"
+          }
+        },
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--14)",
+          "fontWeight": "var(--wp--custom--font-weight--semi-bold)",
+          "lineHeight": "20px"
+        }
+      }
+    }
+  }
+}
+```
+
+### Headings
+
+```json
+{
+  "styles": {
+    "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--lexend)",
+          "fontWeight": "var(--wp--custom--font-weight--semi-bold)",
+          "lineHeight": "1.4"
+        },
+        "color": {
+          "text": "var(--wp--preset--color--neutral-800)"
+        }
+      },
+      "h1": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--44)",
+          "lineHeight": "var(--wp--preset--font-size--52)"
+        }
+      },
+      "h2": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--36)",
+          "lineHeight": "var(--wp--preset--font-size--44)"
+        }
+      },
+      "h3": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--32)",
+          "lineHeight": "var(--wp--preset--font-size--40)"
+        }
+      },
+      "h4": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--28)",
+          "lineHeight": "var(--wp--preset--font-size--36)"
+        }
+      },
+      "h5": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--24)",
+          "lineHeight": "var(--wp--preset--font-size--32)"
+        }
+      },
+      "h6": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--20)",
+          "lineHeight": "var(--wp--preset--font-size--28)"
+        }
+      }
+    }
+  }
+}
+```
+
+### Links
+
+```json
+{
+  "styles": {
+    "elements": {
+      "link": {
+        "color": {
+          "text": "inherit"
+        },
+        "typography": {
+          "textDecoration": "underline"
+        },
+        ":hover": {
+          "color": {
+            "text": "var(--wp--preset--color--primary-500)"
+          }
+        },
+        ":focus": {
+          "color": {
+            "text": "var(--wp--preset--color--primary-500)"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### Form Elements
+
+```json
+{
+  "styles": {
+    "elements": {
+      "textInput": {
+        "border": {
+          "color": "var(--wp--custom--border--color)",
+          "radius": "var(--wp--custom--border--radius)",
+          "style": "solid",
+          "width": "1px"
+        },
+        "color": {
+          "background": "transparent",
+          "text": "var(--wp--preset--color--neutral-800)"
+        },
+        "spacing": {
+          "padding": {
+            "top": "var(--wp--preset--spacing--sm)",
+            "right": "var(--wp--preset--spacing--sm)",
+            "bottom": "var(--wp--preset--spacing--sm)",
+            "left": "var(--wp--preset--spacing--sm)"
+          }
+        }
+      },
+      "select": {
+        // Same as textInput
+      },
+      "caption": {
+        "typography": {
+          "textAlign": "left",
+          "fontSize": "var(--wp--preset--font-size--12)"
+        }
+      }
+    }
+  }
+}
+```
+
+## Block Styles
+
+### Layout Blocks
+
+```json
+{
+  "styles": {
+    "blocks": {
+      "core/columns": {
+        "border": { "radius": "var(--wp--custom--border--radius)" },
+        "spacing": { "margin": { "bottom": "0" } }
+      },
+      "core/column": {
+        "border": { "radius": "var(--wp--custom--border--radius)" }
+      },
+      "core/buttons": {
+        "border": { "radius": "var(--wp--custom--border--radius)" },
+        "spacing": { "blockGap": "var(--wp--preset--spacing--xs)" }
+      },
+      "core/cover": {
+        "spacing": { "margin": { "top": "0", "bottom": "0" } }
+      }
+    }
+  }
+}
+```
+
+### Content Blocks
+
+```json
+{
+  "styles": {
+    "blocks": {
+      "core/code": {
+        "border": { "width": "0px", "radius": "var(--wp--custom--border--radius)" },
+        "color": { "background": "var(--wp--preset--color--neutral-100)" },
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--jetbrains-mono)",
+          "fontSize": "var(--wp--preset--font-size--14)"
+        }
+      },
+      "core/quote": {
+        "border": {
+          "left": {
+            "style": "var(--wp--custom--border--style)",
+            "color": "var(--wp--custom--border--color)",
+            "width": "2px"
+          }
+        }
+      },
+      "core/pullquote": {
+        "border": {
+          "top": { "width": "var(--wp--custom--border--width, 2px)" },
+          "bottom": { "width": "var(--wp--custom--border--width, 2px)" }
+        }
+      }
+    }
+  }
+}
+```
+
+### Media Blocks
+
+```json
+{
+  "styles": {
+    "blocks": {
+      "core/image": {
+        "border": { "radius": "var(--wp--custom--border--radius)" }
+      },
+      "core/video": {
+        "border": { "radius": "var(--wp--custom--border--radius)" },
+        "color": { "background": "var(--wp--preset--color--neutral-100)" }
+      },
+      "core/audio": {
+        "border": { "radius": "var(--wp--custom--border--radius)" },
+        "color": { "background": "var(--wp--preset--color--neutral-100)" }
+      }
+    }
+  }
+}
+```
+
+### Navigation Blocks
+
+```json
+{
+  "styles": {
+    "blocks": {
+      "core/navigation": {
+        "typography": {
+          "fontWeight": "var(--wp--custom--font-weight--medium)",
+          "fontSize": "var(--wp--preset--font-size--14)"
+        }
+      },
+      "core/page-list": {
+        "spacing": { "blockGap": "var(--wp--preset--spacing--sm)" }
+      }
+    }
+  }
+}
+```
+
+### Post Blocks
+
+```json
+{
+  "styles": {
+    "blocks": {
+      "core/post-featured-image": {
+        "border": { "radius": "var(--wp--custom--border--radius)" },
+        "spacing": { "margin": { "bottom": "var(--wp--preset--spacing--sm)" } }
+      },
+      "core/post-date": {
+        "typography": { "fontSize": "var(--wp--preset--font-size--12)" }
+      },
+      "core/post-terms": {
+        "typography": {
+          "textDecoration": "none",
+          "fontSize": "var(--wp--preset--font-size--14)"
+        }
+      }
+    }
+  }
+}
+```
+
+<Tip>
+Block styles in `theme.json` are applied globally. Use the Site Editor to customize individual block instances.
+</Tip>

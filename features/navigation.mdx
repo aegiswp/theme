@@ -1,0 +1,149 @@
+---
+title: "Navigation & Mega Menu"
+description: "Extended navigation with mega menu support and flexible header configurations"
+---
+
+## Overview
+
+Aegis extends the WordPress Navigation block with mega menu support, advanced styling, and flexible header configurations.
+
+## Navigation Block
+
+The core Navigation block (`core/navigation`) is enhanced with:
+
+- **Mega menu support** — Multi-column dropdown menus
+- **Advanced styles** — Custom typography and spacing
+- **Responsive behavior** — Automatic mobile hamburger menu
+- **Submenu shadows** — Uses the `xl` shadow preset
+
+### Default Navigation Styles
+
+```
+Font: Lexend, 14px, medium weight (500)
+```
+
+## Mega Menu
+
+Create sophisticated multi-column dropdown menus using the core Submenu block:
+
+<Steps>
+  <Step title="Edit header">
+    Edit your **Header** template part in the Site Editor.
+  </Step>
+  <Step title="Add Navigation">
+    Add a **Navigation** block.
+  </Step>
+  <Step title="Add Submenu">
+    Add a **Submenu** item for the top-level menu item.
+  </Step>
+  <Step title="Add Columns">
+    Inside the submenu, add a **Columns** block.
+  </Step>
+  <Step title="Add content">
+    Add content blocks (links, images, text) inside each column.
+  </Step>
+</Steps>
+
+### Mega Menu Styling
+
+```css
+--wp--custom--submenu--box-shadow: var(--wp--preset--shadow--xl);
+```
+
+## Header Styles
+
+### Standard Header
+
+The default header with a solid background, logo, navigation, and optional search.
+
+### Transparent Header
+
+An overlay header with a transparent background that sits on top of the page content:
+
+1. Edit the Header template part
+2. Set the Group block's background to `transparent`
+3. Enable absolute positioning via the block supports
+
+### Sticky Header
+
+A header that sticks to the top of the viewport on scroll:
+
+- Controlled via CSS and the header z-index token: `--wp--custom--header--z-index: 2`
+- Aegis provides its own sticky implementation (WordPress sticky positioning is disabled by default)
+
+## CSS-Only Search Toggle
+
+Aegis includes a full-screen search overlay implemented entirely with CSS — no JavaScript required:
+
+1. Add a **Search** block to your header
+2. The search block is enhanced with a CSS-only toggle mechanism
+3. Clicking the search icon opens a full-screen search overlay
+4. The overlay closes when clicking outside or pressing Escape
+
+<Tip>
+The CSS-only implementation means zero JavaScript overhead, instant response time, and works with JavaScript disabled.
+</Tip>
+
+## Mobile Navigation
+
+On smaller screens, the Navigation block automatically converts to a responsive hamburger menu:
+
+- The toggle button appears at the configured breakpoint
+- The mobile menu slides in as an overlay
+- All submenu items are collapsible
+- Touch-friendly tap targets
+
+## Navigation Overlay Styles
+
+Aegis provides three CSS-only overlay styles for the mobile navigation menu. Apply a style by adding a `className` to the Navigation block in your header pattern.
+
+### Default
+
+The standard WordPress overlay behavior. No additional class needed.
+
+```html
+<!-- wp:navigation {"icon":"menu"} /-->
+```
+
+### Slide-in Drawer
+
+A narrow side panel that slides in from the right with a dark backdrop overlay.
+
+```html
+<!-- wp:navigation {"icon":"menu","className":"is-style-slide-in"} /-->
+```
+
+- **Width:** 360px max
+- **Backdrop:** Semi-transparent dark overlay
+- **Animation:** Slide-in from right
+- **Menu items:** Bordered list with left-bordered submenu indentation
+- **Scrollable:** Content scrolls independently when it overflows
+
+### Fullscreen
+
+A full-viewport overlay with large, centered typography.
+
+```html
+<!-- wp:navigation {"icon":"menu","className":"is-style-fullscreen"} /-->
+```
+
+- **Layout:** Centered vertically and horizontally
+- **Typography:** Large fluid font size (`clamp(24px, 5vw, 42px)`), 700 weight
+- **Submenus:** Centered with smaller font size
+- **Close button:** Enlarged (2em SVG)
+
+### Accessibility
+
+All overlay styles include:
+
+- **Dark mode support** — Colors adapt via theme tokens
+- **Reduced motion** — Slide-in animation and item transitions are disabled when `prefers-reduced-motion: reduce` is active
+- **Keyboard navigation** — Focus trapping and Escape key support
+
+## Customization
+
+Navigation styles can be customized via:
+
+- **Site Editor** — Appearance → Editor → Styles → Blocks → Navigation
+- **theme.json** — Override in `styles.blocks.core/navigation`
+- **CSS** — Target `.wp-block-navigation` classes

@@ -1,0 +1,75 @@
+---
+title: "Block Themes"
+description: "Understanding how Aegis works as a WordPress block theme"
+---
+
+## What is a Block Theme?
+
+A block theme is a WordPress theme built entirely with blocks. Unlike traditional themes, block themes allow you to edit every component of your website—headers, footers, templates, and content—using the block editor.
+
+Aegis is a **Full Site Editing (FSE)** theme that leverages the full power of WordPress blocks while delivering exceptional performance.
+
+## Key Differences from Classic Themes
+
+| Feature | Classic Theme | Block Theme (Aegis) |
+|---------|---------------|---------------------|
+| Template editing | PHP files only | Visual Site Editor |
+| Styling | CSS files | `theme.json` + Site Editor |
+| Header/Footer | `header.php`/`footer.php` | Template Parts (blocks) |
+| Menus | `wp_nav_menu()` | Navigation block |
+| Widgets | Widget areas | Block-based sidebars |
+
+## Aegis Architecture
+
+Aegis follows a zero-asset-loading philosophy:
+
+<Note>
+By default, Aegis loads **zero CSS, JavaScript, or font assets**. All styling is handled through `theme.json` and the block editor's Global Styles system.
+</Note>
+
+### File Structure
+
+```
+aegis/
+├── functions.php      # Theme bootstrap
+├── style.css          # Theme metadata only
+├── theme.json         # Design system configuration
+├── templates/         # Page templates (HTML)
+├── parts/             # Template parts (header, footer)
+├── patterns/          # Block patterns
+└── vendor/aegis/      # Aegis Framework
+```
+
+### How Styling Works
+
+1. **`theme.json`** defines all design tokens (colors, typography, spacing)
+2. **Global Styles** in the Site Editor allow visual customization
+3. **Block styles** are applied per-block through the editor
+4. **Custom CSS** is conditionally loaded only when needed
+
+## Performance Benefits
+
+Aegis achieves exceptional performance through:
+
+- **No render-blocking resources** by default
+- **Conditional asset loading** - styles load only when blocks are used
+- **Native WordPress APIs** - no jQuery or external dependencies
+- **Optimized `theme.json`** - CSS custom properties for efficient styling
+
+<Tip>
+Test your Aegis site with [PageSpeed Insights](https://pagespeed.web.dev/) to see the performance benefits of the zero-asset approach.
+</Tip>
+
+## Accessibility
+
+Aegis is designed with accessibility as a core principle:
+
+- **WCAG 2.1 AA compliant** color contrast ratios
+- **Semantic HTML** structure throughout
+- **Keyboard navigation** support
+- **Screen reader optimized** markup
+- **Color vision deficiency** considerations in the color palette
+
+<Check>
+Aegis is tagged as `accessibility-ready` and follows WordPress accessibility guidelines.
+</Check>

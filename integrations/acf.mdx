@@ -1,0 +1,124 @@
+---
+title: "Advanced Custom Fields"
+description: "ACF integration with JSON paths and Block Bindings"
+---
+
+## Overview
+
+Aegis provides Advanced Custom Fields (ACF) integration including JSON save/load paths, theme color palette integration, and Block Bindings support for Query Loop.
+
+## Features
+
+- ACF JSON save/load paths
+- Theme color palette in ACF fields
+- Block Bindings source for Query Loop
+- Consistent field styling
+
+## ACF JSON
+
+Aegis configures ACF JSON paths for version control:
+
+### Save Path
+
+Field groups are saved to the theme:
+
+```php
+// acf-json/ directory in theme
+add_filter('acf/settings/save_json', function($path) {
+    return get_stylesheet_directory() . '/acf-json';
+});
+```
+
+### Load Path
+
+Field groups load from theme and child theme:
+
+```php
+add_filter('acf/settings/load_json', function($paths) {
+    $paths[] = get_stylesheet_directory() . '/acf-json';
+    $paths[] = get_template_directory() . '/acf-json';
+    return $paths;
+});
+```
+
+## Color Palette Integration
+
+ACF color picker fields can use the Aegis color palette:
+
+```php
+// Register theme colors with ACF
+add_filter('acf/input/admin_footer', function() {
+    ?>
+    <script>
+    acf.add_filter('color_picker_args', function(args) {
+        args.palettes = [
+            '#6c757d', // primary-500
+            '#495057', // primary-600
+            '#f8f9fa', // neutral-0
+            '#50555b', // neutral-600
+            // ... more colors
+        ];
+        return args;
+    });
+    </script>
+    <?php
+});
+```
+
+## Block Bindings
+
+Aegis registers ACF as a Block Bindings source for dynamic content in Query Loop:
+
+### Usage
+
+Bind block attributes to ACF fields:
+
+```html
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"acf/field","args":{"key":"custom_field"}}}}} -->
+<p></p>
+<!-- /wp:paragraph -->
+```
+
+### Supported Bindings
+
+- Text fields → Paragraph, Heading content
+- Image fields → Image src
+- URL fields → Button href
+- Number fields → Counter values
+
+## Field Styling
+
+ACF fields inherit Aegis form styling:
+
+```css
+.acf-field input[type="text"],
+.acf-field textarea,
+.acf-field select {
+    border: 1px solid var(--wp--custom--border--color);
+    border-radius: var(--wp--custom--border--radius);
+}
+```
+
+## Best Practices
+
+<Tip>
+Store ACF field groups in the `acf-json/` directory for version control and easier deployment.
+</Tip>
+
+### Organization
+
+- Use consistent field naming conventions
+- Group related fields logically
+- Document field purposes
+
+### Performance
+
+- Use field caching
+- Avoid excessive field queries
+- Consider local JSON for production
+
+### Block Bindings
+
+- Test bindings in Query Loop context
+- Provide fallback content
+- Use appropriate field types for bindings

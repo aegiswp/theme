@@ -1,0 +1,61 @@
+---
+title: "Block Settings"
+description: "Additional block settings provided by Aegis"
+---
+
+## Overview
+
+Aegis extends WordPress blocks with additional settings through the BlockSettings system.
+
+## Box Shadow
+
+Add shadow effects to blocks via the Styles panel.
+
+### Presets
+
+- None, XXS, XS, SM, MD, LG, XL, XXL
+
+### CSS Output
+
+```css
+.wp-block-group {
+    box-shadow: var(--wp--preset--shadow--md);
+}
+```
+
+## Position
+
+Control block positioning within containers.
+
+### Options
+
+- Position type: static, relative, absolute, fixed, sticky
+- Offset values: top, right, bottom, left
+- Z-index control
+
+## Transform
+
+Apply CSS transforms to blocks.
+
+### Controls
+
+- Scale (X, Y)
+- Rotate (degrees)
+- Translate (X, Y)
+- Skew (X, Y)
+
+## Filter
+
+Apply CSS filters to blocks.
+
+### Controls
+
+- Blur
+- Brightness
+- Contrast
+- Grayscale
+- Saturate
+
+<Tip>
+These settings are available in the block sidebar under Styles or in dedicated panels.
+</Tip>

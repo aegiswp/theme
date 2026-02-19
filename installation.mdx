@@ -1,0 +1,75 @@
+---
+title: "Installation"
+description: "Install and activate the Aegis theme on your WordPress site"
+---
+
+## Prerequisites
+
+Before installing Aegis, ensure your environment meets these requirements:
+
+- WordPress 6.6 or higher
+- PHP 7.4 or higher
+- A modern web browser
+
+<Note>
+Some features may require the latest WordPress version or the [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/) for full functionality.
+</Note>
+
+## Installation Methods
+
+<Tabs>
+  <Tab title="WordPress Admin">
+    <Steps>
+      <Step title="Download the theme">
+        Download the latest release from [GitHub Releases](https://github.com/aegiswp/theme/releases).
+      </Step>
+      <Step title="Upload to WordPress">
+        Navigate to **Appearance → Themes → Add New → Upload Theme** in your WordPress admin.
+      </Step>
+      <Step title="Install and activate">
+        Select the downloaded `.zip` file and click **Install Now**, then **Activate**.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Manual Upload">
+    <Steps>
+      <Step title="Download and extract">
+        Download the theme from [GitHub](https://github.com/aegiswp/theme/releases) and extract the `.zip` file.
+      </Step>
+      <Step title="Upload via FTP/SFTP">
+        Upload the extracted `aegis` folder to `/wp-content/themes/` on your server.
+      </Step>
+      <Step title="Activate">
+        Go to **Appearance → Themes** and activate Aegis.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Composer">
+    ```bash
+    composer require aegiswp/theme
+    ```
+  </Tab>
+</Tabs>
+
+## Post-Installation
+
+After activating Aegis:
+
+1. Navigate to **Appearance → Editor** to access the Site Editor
+2. Customize your site's global styles, templates, and patterns
+3. Create pages using the pre-built patterns
+
+<Check>
+Aegis is now installed and ready to use. Visit the [Site Editor guide](/core/site-editor) to start customizing your site.
+</Check>
+
+## Updating Aegis
+
+Aegis includes a built-in theme updater that checks for new releases on GitHub. When an update is available:
+
+1. You'll see a notification in **Appearance → Themes**
+2. Click **Update Now** to install the latest version
+
+<Warning>
+Always backup your site before updating. If you've made customizations, consider using a [child theme](/development/child-themes) to preserve your changes.
+</Warning>

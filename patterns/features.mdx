@@ -1,0 +1,157 @@
+---
+title: "Feature Patterns"
+description: "Showcase features and benefits with pre-designed layouts"
+---
+
+## Available Feature Patterns
+
+Aegis includes 3 feature patterns:
+
+| Pattern | Description |
+|---------|-------------|
+| Features Grid | Multi-column feature grid |
+| Features Alternating | Alternating image/text rows |
+| Features Icons | Icon-based feature list |
+
+## Features Grid
+
+A grid layout for displaying multiple features:
+
+- 2, 3, or 4 column layouts
+- Icon or image for each feature
+- Heading and description
+- Optional link/button
+
+### Structure
+
+```html
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+  <!-- wp:heading {"textAlign":"center"} -->
+  <h2>Our Features</h2>
+  <!-- /wp:heading -->
+  
+  <!-- wp:columns -->
+    <!-- wp:column -->
+      <!-- wp:image {"className":"is-style-icon"} /-->
+      <!-- wp:heading {"level":3} -->Feature 1<!-- /wp:heading -->
+      <!-- wp:paragraph -->Description text.<!-- /wp:paragraph -->
+    <!-- /wp:column -->
+    
+    <!-- Repeat for additional features -->
+  <!-- /wp:columns -->
+<!-- /wp:group -->
+```
+
+## Features Alternating
+
+Alternating rows with image on one side, text on the other:
+
+- Visual variety
+- More space for descriptions
+- Great for detailed feature explanations
+
+### Structure
+
+```html
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+  <!-- Row 1: Image left, text right -->
+  <!-- wp:columns {"verticalAlignment":"center"} -->
+    <!-- wp:column -->
+      <!-- wp:image /-->
+    <!-- /wp:column -->
+    <!-- wp:column -->
+      <!-- wp:heading {"level":3} /-->
+      <!-- wp:paragraph /-->
+    <!-- /wp:column -->
+  <!-- /wp:columns -->
+  
+  <!-- Row 2: Text left, image right -->
+  <!-- wp:columns {"verticalAlignment":"center"} -->
+    <!-- wp:column -->
+      <!-- wp:heading {"level":3} /-->
+      <!-- wp:paragraph /-->
+    <!-- /wp:column -->
+    <!-- wp:column -->
+      <!-- wp:image /-->
+    <!-- /wp:column -->
+  <!-- /wp:columns -->
+<!-- /wp:group -->
+```
+
+## Features Icons
+
+A compact list with icons:
+
+- SVG icons for each feature
+- Horizontal or vertical layout
+- Minimal, clean design
+
+### Using Icons
+
+Aegis includes an Icon block variation:
+
+1. Insert an Image block
+2. Search for "icon" in the block inserter
+3. Choose from WordPress, Dashicons, or Social icons
+4. Or upload custom SVG icons
+
+## Customizing Feature Patterns
+
+### Icons
+
+Replace placeholder icons:
+
+<Steps>
+  <Step title="Select the icon/image">
+    Click on the icon placeholder.
+  </Step>
+  <Step title="Replace">
+    Click **Replace** and choose a new icon.
+  </Step>
+  <Step title="Adjust size">
+    Set appropriate dimensions (e.g., 48x48, 64x64).
+  </Step>
+</Steps>
+
+### Colors
+
+Coordinate colors with your brand:
+
+- Icon colors using the Icon block's color settings
+- Background colors for feature cards
+- Text colors for headings and descriptions
+
+### Layout
+
+Adjust the grid layout:
+
+- Change column count for different densities
+- Adjust gap spacing between items
+- Modify alignment (center, left, etc.)
+
+## Best Practices
+
+<Tip>
+Keep feature descriptions concise. Use bullet points or short paragraphs for easy scanning.
+</Tip>
+
+### Content Guidelines
+
+- **Headings**: Clear, benefit-focused titles
+- **Descriptions**: 1-2 sentences maximum
+- **Icons**: Relevant, recognizable imagery
+- **Consistency**: Same style across all features
+
+### Accessibility
+
+- Include alt text for feature images
+- Use proper heading hierarchy (H2 for section, H3 for features)
+- Ensure sufficient color contrast
+
+### Responsive Design
+
+Feature grids automatically stack on mobile:
+
+- 3-4 columns → 2 columns on tablet
+- 2 columns → 1 column on mobile
+- Maintain readability at all sizes

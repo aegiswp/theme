@@ -1,0 +1,161 @@
+---
+title: "Team Patterns"
+description: "Team member display layouts"
+---
+
+## Available Team Patterns
+
+Aegis includes team display patterns:
+
+| Pattern | Description |
+|---------|-------------|
+| Team Grid | Team member grid layout |
+
+## Team Grid
+
+Display team members in a responsive grid:
+
+- Photo/avatar
+- Name and title
+- Bio or description
+- Social links
+
+### Structure
+
+```html
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+  <!-- wp:heading {"textAlign":"center"} -->
+  <h2>Meet Our Team</h2>
+  <!-- /wp:heading -->
+  
+  <!-- wp:paragraph {"align":"center"} -->
+  <p>The people behind our success.</p>
+  <!-- /wp:paragraph -->
+  
+  <!-- wp:columns -->
+    <!-- Team Member 1 -->
+    <!-- wp:column -->
+      <!-- wp:group {"className":"team-card"} -->
+        <!-- wp:image {"className":"team-photo"} /-->
+        <!-- wp:heading {"level":3,"textAlign":"center"} -->Jane Doe<!-- /wp:heading -->
+        <!-- wp:paragraph {"align":"center","className":"team-title"} -->
+        <p>CEO & Founder</p>
+        <!-- /wp:paragraph -->
+        <!-- wp:paragraph {"align":"center"} -->
+        <p>Brief bio about Jane and her role.</p>
+        <!-- /wp:paragraph -->
+        <!-- wp:social-links {"layout":{"type":"flex","justifyContent":"center"}} -->
+          <!-- wp:social-link {"url":"#","service":"linkedin"} /-->
+          <!-- wp:social-link {"url":"#","service":"twitter"} /-->
+        <!-- /wp:social-links -->
+      <!-- /wp:group -->
+    <!-- /wp:column -->
+    
+    <!-- Additional team members -->
+  <!-- /wp:columns -->
+<!-- /wp:group -->
+```
+
+## Layout Variations
+
+### Grid Layouts
+
+- **3 columns**: Standard for 3-6 team members
+- **4 columns**: For larger teams
+- **2 columns**: More detailed bios
+
+### Card Styles
+
+- **Minimal**: Photo, name, title only
+- **Standard**: Includes short bio
+- **Detailed**: Full bio with social links
+- **Hover reveal**: Bio appears on hover
+
+## Customizing Team Patterns
+
+### Photos
+
+<Steps>
+  <Step title="Prepare images">
+    Use consistent dimensions (e.g., 400x400px square).
+  </Step>
+  <Step title="Apply styling">
+    Use border-radius for circular or rounded photos.
+  </Step>
+  <Step title="Optimize">
+    Compress images for fast loading.
+  </Step>
+</Steps>
+
+### Photo Styles
+
+```css
+/* Circular photos */
+.team-photo img {
+  border-radius: 50%;
+}
+
+/* Rounded corners */
+.team-photo img {
+  border-radius: var(--wp--custom--border--radius);
+}
+```
+
+### Content Elements
+
+Customize what information to display:
+
+- **Name**: Full name or first name only
+- **Title**: Job title or role
+- **Bio**: 1-2 sentences about the person
+- **Social links**: Professional profiles
+- **Email**: Direct contact (optional)
+- **Skills**: Areas of expertise
+
+### Social Links
+
+Use the Social Links block:
+
+```html
+<!-- wp:social-links {"iconColor":"primary-500","iconColorValue":"#6c757d"} -->
+<ul class="wp-block-social-links has-icon-color">
+  <!-- wp:social-link {"url":"https://linkedin.com/in/username","service":"linkedin"} /-->
+  <!-- wp:social-link {"url":"https://twitter.com/username","service":"twitter"} /-->
+  <!-- wp:social-link {"url":"mailto:email@example.com","service":"mail"} /-->
+</ul>
+<!-- /wp:social-links -->
+```
+
+## Best Practices
+
+### Photos
+
+- **Consistent style**: Same background, lighting, framing
+- **Professional quality**: High-resolution, well-lit
+- **Approachable**: Friendly expressions
+- **Current**: Recent photos
+
+### Content
+
+- **Concise bios**: 2-3 sentences maximum
+- **Personality**: Let individual voices shine
+- **Relevant info**: Focus on role and expertise
+- **Updated**: Keep information current
+
+<Tip>
+Consider adding a fun fact or personal interest to make team members more relatable.
+</Tip>
+
+### Accessibility
+
+- Include alt text describing each photo
+- Use proper heading hierarchy
+- Ensure social links are keyboard accessible
+- Provide sufficient color contrast
+
+### Privacy
+
+- Get consent for photos and bios
+- Consider what personal info to share
+- Allow team members to review their content
+- Provide opt-out for social links

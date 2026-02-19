@@ -1,0 +1,153 @@
+---
+title: "Archive Templates"
+description: "Templates for post archives, categories, tags, and search results"
+---
+
+## Archive Template
+
+The `archive.html` template displays post listings for categories, tags, dates, and other archives.
+
+### Structure
+
+```html
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group">
+  <!-- wp:query-title {"type":"archive"} /-->
+  <!-- wp:term-description /-->
+  
+  <!-- wp:query {"queryId":0,"query":{"inherit":true}} -->
+  <div class="wp-block-query">
+    <!-- wp:post-template -->
+      <!-- Post loop content -->
+    <!-- /wp:post-template -->
+    
+    <!-- wp:query-pagination /-->
+    <!-- wp:query-no-results -->
+      <!-- No results message -->
+    <!-- /wp:query-no-results -->
+  </div>
+  <!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
+```
+
+### Key Blocks
+
+| Block | Purpose |
+|-------|---------|
+| Query Title | Displays archive title (category name, tag, etc.) |
+| Term Description | Shows category/tag description |
+| Query | Contains the post loop |
+| Post Template | Defines how each post is displayed |
+| Query Pagination | Page navigation |
+| Query No Results | Message when no posts found |
+
+## Author Template
+
+The `author.html` template displays posts by a specific author:
+
+- Shows author name as title
+- Can include author bio and avatar
+- Lists all posts by that author
+
+## Date Template
+
+The `date.html` template displays posts from a specific date range:
+
+- Year archives (e.g., /2024/)
+- Month archives (e.g., /2024/01/)
+- Day archives (e.g., /2024/01/15/)
+
+## Search Template
+
+The `search.html` template displays search results:
+
+```html
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group">
+  <!-- wp:query-title {"type":"search"} /-->
+  
+  <!-- wp:query {"queryId":0,"query":{"inherit":true}} -->
+  <div class="wp-block-query">
+    <!-- wp:post-template -->
+      <!-- Search result items -->
+    <!-- /wp:post-template -->
+    
+    <!-- wp:query-pagination /-->
+    <!-- wp:query-no-results -->
+      <!-- wp:paragraph -->
+      <p>No results found. Try a different search term.</p>
+      <!-- /wp:paragraph -->
+      <!-- wp:search /-->
+    <!-- /wp:query-no-results -->
+  </div>
+  <!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
+```
+
+## 404 Template
+
+The `404.html` template displays when a page is not found:
+
+```html
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group">
+  <!-- wp:heading {"level":1} -->
+  <h1>Page Not Found</h1>
+  <!-- /wp:heading -->
+  
+  <!-- wp:paragraph -->
+  <p>The page you're looking for doesn't exist.</p>
+  <!-- /wp:paragraph -->
+  
+  <!-- wp:search /-->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
+```
+
+## Index Template
+
+The `index.html` template is the ultimate fallback for any content type:
+
+- Used when no more specific template exists
+- Typically displays a blog-style post listing
+- Should handle both single items and archives gracefully
+
+## Customizing Archive Layouts
+
+### Grid Layout
+
+Display posts in a grid:
+
+```html
+<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+  <!-- Post content -->
+<!-- /wp:post-template -->
+```
+
+### List Layout
+
+Display posts in a list:
+
+```html
+<!-- wp:post-template {"layout":{"type":"default"}} -->
+  <!-- Post content -->
+<!-- /wp:post-template -->
+```
+
+<Tip>
+Use the Query Loop block's layout settings to switch between grid and list views, and adjust the number of columns for responsive designs.
+</Tip>

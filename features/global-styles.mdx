@@ -1,0 +1,101 @@
+---
+title: "Global Styles"
+description: "Customize your site's visual appearance through the WordPress Global Styles interface"
+---
+
+## Overview
+
+Global Styles is the visual interface for editing your site's design tokens — colors, typography, spacing, and more. Aegis provides a comprehensive set of defaults that you can customize through the Site Editor.
+
+## Accessing Global Styles
+
+<Steps>
+  <Step title="Open Site Editor">
+    Navigate to **Appearance → Editor**.
+  </Step>
+  <Step title="Open Styles panel">
+    Click the **Styles** icon (half-filled circle) in the top-right toolbar.
+  </Step>
+  <Step title="Browse options">
+    Browse available style options.
+  </Step>
+</Steps>
+
+## Style Categories
+
+### Typography
+
+- **Font families** — Lexend (body/headings) and JetBrains Mono (code)
+- **Font sizes** — 22 fluid presets from 8px to 96px
+- **Font weights** — 9 weight tokens from Thin (100) to Black (900)
+- **Line heights** — Configured per heading level
+
+### Colors
+
+- **Palette** — 36 colors across Primary, Neutral, and Semantic scales
+- **Gradients** — 12 gradient presets including utility patterns
+- **Duotone** — Custom duotone filter support
+- **Link colors** — Inherit by default, primary-500 on hover/focus
+
+### Layout
+
+- **Content width** — Responsive `min()` formula capped at 720px
+- **Wide width** — Responsive `min()` formula capped at 1620px
+- **Block gap** — Default `sm` (24px fluid)
+- **Root padding** — Aware alignments enabled
+
+### Blocks
+
+Individual block styles can be customized:
+
+- **Buttons** — Colors, border radius, padding, typography
+- **Headings** — Font sizes, weights, line heights per level (H1–H6)
+- **Images** — Border radius
+- **Code** — Font family, background color, border radius
+- **Navigation** — Font weight, font size
+- **Quotes** — Border styles
+
+## Aegis Default Styles
+
+| Element | Default |
+|---------|---------|
+| Background | `neutral-0` (#f8f9fa) |
+| Body text | `neutral-600` (#50555b) |
+| Headings | `neutral-800` (#313539) |
+| Links | Inherit color, underline decoration |
+| Buttons | `primary-25` text on `primary-500` background |
+| Block gap | `sm` spacing preset |
+| Font family | Lexend |
+| Body font size | 16px fluid |
+| Line height | 1.6 |
+
+## Style Variations
+
+Aegis supports style variations — alternative design presets that change the entire look of your site:
+
+<Steps>
+  <Step title="Open Styles">
+    Open **Styles** in the Site Editor.
+  </Step>
+  <Step title="Browse styles">
+    Click **Browse styles** at the top.
+  </Step>
+  <Step title="Select variation">
+    Select a variation to preview.
+  </Step>
+  <Step title="Apply">
+    Click to apply.
+  </Step>
+</Steps>
+
+## Resetting Styles
+
+To reset customizations back to Aegis defaults:
+
+1. Open **Styles** in the Site Editor
+2. Click the **Options** menu (⋮)
+3. Select **Reset to defaults**
+
+<Note>
+This resets all Global Styles customizations. Individual block customizations made in templates or posts are not affected.
+</Note>

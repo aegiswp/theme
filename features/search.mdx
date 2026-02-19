@@ -1,0 +1,61 @@
+---
+title: "Search"
+description: "CSS-only full-screen search toggle for optimal performance"
+---
+
+## Overview
+
+Aegis enhances the WordPress Search block with a CSS-only full-screen search toggle for optimal performance.
+
+## CSS-Only Search Toggle
+
+The search block is enhanced with a pure CSS implementation that provides a full-screen search overlay:
+
+- **No JavaScript** — Entirely CSS-driven
+- **Full-screen overlay** — Covers the viewport for focused search
+- **Keyboard accessible** — Escape key closes the overlay
+- **Instant** — No loading or animation delay
+
+## How to Add Search
+
+### In the Header
+
+<Steps>
+  <Step title="Edit header">
+    Edit your **Header** template part in the Site Editor.
+  </Step>
+  <Step title="Add Search block">
+    Add a **Search** block.
+  </Step>
+  <Step title="Automatic enhancement">
+    The CSS-only toggle is automatically applied.
+  </Step>
+</Steps>
+
+### In Content
+
+Add a Search block anywhere in your content. The standard inline search form is used outside of the header context.
+
+## Search Block Styles
+
+Default search block styles from `theme.json`:
+
+```
+Padding: 0 on all sides
+Block Gap: XXS (8px)
+```
+
+## Search Templates
+
+Aegis includes a dedicated search results template (`search.html`) that displays results in a clean, readable layout.
+
+For WooCommerce sites, a separate product search template (`search-product.html`) is also available.
+
+## Aegis Docs Search
+
+The Aegis Docs plugin adds a dedicated documentation search with:
+
+- REST API-powered search (`/aegis-docs/v1/search`)
+- Space-scoped search filtering
+- Relevance-based ordering
+- Excerpt generation

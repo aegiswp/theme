@@ -1,0 +1,192 @@
+---
+title: "Custom Blocks"
+description: "Custom blocks built specifically for Aegis"
+---
+
+## Overview
+
+Aegis includes 3 custom blocks that provide functionality not available in WordPress core:
+
+| Block | Name | Description |
+|-------|------|-------------|
+| Modal | `aegis/modal` | Accessible modal dialogs |
+| Slider | `aegis/slider` | Responsive carousels |
+| Slide | `aegis/slide` | Individual slides within sliders |
+
+## Modal Block
+
+An accessible modal dialog with multiple display modes.
+
+### Features
+
+- **Popup mode** - Centered overlay dialog
+- **Off-canvas mode** - Slide-in from edge
+- **Bottom sheet mode** - Mobile-friendly bottom panel
+- **Fullscreen mode** - Full viewport coverage
+
+### Usage
+
+```html
+<!-- wp:aegis/modal {"mode":"popup"} -->
+<div class="wp-block-aegis-modal">
+  <!-- Trigger button -->
+  <!-- Modal content -->
+</div>
+<!-- /wp:aegis/modal -->
+```
+
+### Settings
+
+| Setting | Options | Description |
+|---------|---------|-------------|
+| Mode | popup, off-canvas, bottom-sheet, fullscreen | Display style |
+| Trigger | button, link, auto | How modal opens |
+| Close on overlay | true/false | Click outside to close |
+| Close on escape | true/false | ESC key closes modal |
+
+### Accessibility
+
+The Modal block is built with accessibility in mind:
+
+- Focus trapping within modal
+- ESC key to close
+- ARIA attributes for screen readers
+- Focus returns to trigger on close
+
+## Slider Block
+
+A responsive slider/carousel for showcasing content.
+
+### Features
+
+- Multiple slide types (content, image, video)
+- Various transition effects
+- Navigation arrows and dots
+- Auto-play with pause on hover
+- Touch/swipe support
+- Responsive breakpoints
+
+### Usage
+
+```html
+<!-- wp:aegis/slider {"autoplay":true,"speed":5000} -->
+<div class="wp-block-aegis-slider">
+  <!-- wp:aegis/slide -->
+  <!-- Slide 1 content -->
+  <!-- /wp:aegis/slide -->
+  
+  <!-- wp:aegis/slide -->
+  <!-- Slide 2 content -->
+  <!-- /wp:aegis/slide -->
+</div>
+<!-- /wp:aegis/slider -->
+```
+
+### Settings
+
+| Setting | Options | Description |
+|---------|---------|-------------|
+| Autoplay | true/false | Auto-advance slides |
+| Speed | milliseconds | Time between slides |
+| Transition | slide, fade, none | Animation type |
+| Navigation | arrows, dots, both, none | Navigation controls |
+| Loop | true/false | Infinite loop |
+| Slides to show | number | Visible slides |
+
+### Responsive
+
+Configure different settings per breakpoint:
+
+- Desktop: 3 slides visible
+- Tablet: 2 slides visible
+- Mobile: 1 slide visible
+
+## Slide Block
+
+Individual slides within a Slider block.
+
+### Features
+
+- Content slides (any blocks)
+- Image slides
+- Video slides
+- Custom backgrounds
+
+### Usage
+
+```html
+<!-- wp:aegis/slide {"type":"content"} -->
+<div class="wp-block-aegis-slide">
+  <!-- wp:heading -->
+  <h2>Slide Title</h2>
+  <!-- /wp:heading -->
+  
+  <!-- wp:paragraph -->
+  <p>Slide content goes here.</p>
+  <!-- /wp:paragraph -->
+</div>
+<!-- /wp:aegis/slide -->
+```
+
+### Slide Types
+
+| Type | Description |
+|------|-------------|
+| Content | Any block content |
+| Image | Full-slide image |
+| Video | Video background |
+
+<Note>
+The Slide block can only be used inside a Slider block. It won't appear in the inserter outside of a slider context.
+</Note>
+
+## Map Block
+
+An interactive Google Maps block with marker support.
+
+### Features
+
+- Google Maps integration with API key
+- Custom markers with info windows
+- Configurable zoom, center, and map type
+- Facade/placeholder for performance (loads map on interaction)
+
+### Usage
+
+```html
+<!-- wp:aegis/map {"lat":40.7128,"lng":-74.006,"zoom":12} -->
+<div class="wp-block-aegis-map"></div>
+<!-- /wp:aegis/map -->
+```
+
+<Note>
+Aegis Pro adds custom markers, clustering, directions, store locator, geolocation, heatmap, drawing tools, data import, Schema.org output, and dynamic markers.
+</Note>
+
+## Best Practices
+
+### Modal
+
+- Use sparingly—modals interrupt user flow
+- Keep content focused and concise
+- Provide clear close mechanism
+- Test keyboard navigation
+
+### Slider
+
+- Limit to 5-7 slides maximum
+- Ensure content is readable at all sizes
+- Provide navigation controls
+- Consider auto-play carefully (can be annoying)
+- Test touch interactions on mobile
+
+### Performance
+
+- Optimize images within sliders
+- Use lazy loading for off-screen slides
+- Minimize JavaScript in modal content
+- Test on slower devices
+
+<Tip>
+For testimonials or simple image galleries, consider using patterns with the Query Loop block instead of sliders for better performance and accessibility.
+</Tip>

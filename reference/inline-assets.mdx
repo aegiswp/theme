@@ -1,0 +1,42 @@
+---
+title: "Inline Assets"
+description: "Conditional asset loading in Aegis"
+---
+
+## Overview
+
+Aegis uses an inline assets system to conditionally load CSS and JavaScript only when needed.
+
+## How It Works
+
+1. **Detection** - Aegis scans page content for blocks
+2. **Matching** - Identifies which assets each block needs
+3. **Loading** - Injects only required assets
+
+## Benefits
+
+- **Performance** - No unused CSS/JS loaded
+- **Efficiency** - Smaller page sizes
+- **Speed** - Faster page loads
+
+## Asset Types
+
+### CSS
+
+Block-specific styles loaded inline or via `<style>` tags.
+
+### JavaScript
+
+Scripts loaded only when interactive blocks are present.
+
+### Fonts
+
+Fonts loaded based on typography selections in Global Styles.
+
+## Configuration
+
+Assets are managed through the InlineAssets service in `vendor/aegis/framework/src/InlineAssets/`.
+
+<Tip>
+This zero-asset-by-default approach is key to Aegis's performance philosophy.
+</Tip>

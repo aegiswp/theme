@@ -1,0 +1,158 @@
+---
+title: "Footer Patterns"
+description: "Pre-designed footer patterns for site footers"
+---
+
+## Available Footer Patterns
+
+Aegis includes 4 footer patterns:
+
+| Pattern | Description |
+|---------|-------------|
+| Footer Default | Standard multi-column footer |
+| Footer Simple | Minimal single-row footer |
+| Footer Centered | Centered content layout |
+| Footer Dark | Dark background variant |
+
+## Footer Default
+
+A comprehensive footer with:
+
+- Multiple columns for links and content
+- Site logo or title
+- Navigation links
+- Social media icons
+- Copyright notice
+
+### Structure
+
+```html
+<!-- wp:group {"tagName":"footer","className":"site-footer"} -->
+<footer class="wp-block-group site-footer">
+  <!-- wp:group {"layout":{"type":"constrained"}} -->
+    <!-- wp:columns -->
+      <!-- Column 1: Logo and description -->
+      <!-- Column 2: Navigation links -->
+      <!-- Column 3: Contact info -->
+      <!-- Column 4: Social links -->
+    <!-- /wp:columns -->
+    
+    <!-- wp:separator /-->
+    
+    <!-- wp:paragraph {"className":"copyright"} -->
+    <p>© 2024 Your Site. All rights reserved.</p>
+    <!-- /wp:paragraph -->
+  <!-- /wp:group -->
+</footer>
+<!-- /wp:group -->
+```
+
+## Footer Simple
+
+A minimal footer for clean designs:
+
+- Single row layout
+- Copyright text
+- Optional social icons
+- Compact spacing
+
+## Footer Centered
+
+A centered layout with:
+
+- Centered logo
+- Horizontal navigation
+- Social icons
+- Copyright below
+
+## Footer Dark
+
+A dark-themed footer:
+
+- Dark background color
+- Light text
+- Contrast-appropriate links
+- Suitable for light-themed sites
+
+## Using Footer Patterns
+
+### As Template Part
+
+<Steps>
+  <Step title="Open Site Editor">
+    Go to **Appearance → Editor**.
+  </Step>
+  <Step title="Edit Footer">
+    Click **Template Parts → Footer**.
+  </Step>
+  <Step title="Replace content">
+    Clear existing content and insert a footer pattern.
+  </Step>
+  <Step title="Save">
+    Save the template part.
+  </Step>
+</Steps>
+
+### In Templates
+
+Footers are included via template parts:
+
+```html
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
+```
+
+## Customizing Footers
+
+### Content
+
+Edit footer content directly in the Site Editor:
+
+- Update copyright text
+- Modify navigation links
+- Add or remove columns
+- Update contact information
+
+### Colors
+
+Adjust footer colors through:
+
+- Block background and text colors
+- Global Styles for consistency
+- Custom CSS for advanced styling
+
+### Social Links
+
+Use the Social Links block to add social media icons:
+
+```html
+<!-- wp:social-links -->
+<ul class="wp-block-social-links">
+  <!-- wp:social-link {"url":"https://twitter.com/yoursite","service":"twitter"} /-->
+  <!-- wp:social-link {"url":"https://facebook.com/yoursite","service":"facebook"} /-->
+  <!-- wp:social-link {"url":"https://instagram.com/yoursite","service":"instagram"} /-->
+</ul>
+<!-- /wp:social-links -->
+```
+
+## Footer Navigation
+
+Create footer-specific menus:
+
+<Steps>
+  <Step title="Create menu">
+    Go to **Appearance → Editor → Navigation**.
+  </Step>
+  <Step title="Add new menu">
+    Create a new navigation menu for the footer.
+  </Step>
+  <Step title="Add links">
+    Add pages like Privacy Policy, Terms, Contact.
+  </Step>
+  <Step title="Use in footer">
+    Insert the Navigation block in your footer pattern.
+  </Step>
+</Steps>
+
+<Tip>
+Keep footer navigation concise. Include essential links like Privacy Policy, Terms of Service, and Contact information.
+</Tip>

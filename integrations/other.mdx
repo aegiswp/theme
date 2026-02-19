@@ -1,0 +1,82 @@
+---
+title: "Other Integrations"
+description: "Code highlighting, CDN, booking, and form plugin integrations"
+---
+
+## Overview
+
+Aegis includes integrations for several additional plugins to ensure consistent styling and functionality.
+
+## Code Highlighting
+
+### Code Block Pro
+
+- **Class:** `Integrations\CodeBlockPro`
+- **Features:** Syntax highlighting blocks styled with Aegis design tokens, JetBrains Mono font integration
+
+### Syntax Highlighting Code Block
+
+- **Class:** `Integrations\SyntaxHighlightingCodeBlock`
+- **Features:** Code blocks receive Aegis styling (border radius, background color, padding)
+
+## CDN
+
+### Bunny CDN
+
+- **Class:** `Integrations\BunnyCDN`
+- **Features:** CDN URL rewriting compatibility, asset optimization support
+
+## Booking & Forms
+
+### Fluent Booking
+
+- **Class:** `Integrations\FluentBooking`
+- **Features:** Booking forms styled with Aegis input and button tokens
+
+### Fluent Forms
+
+- **Class:** `Integrations\FluentForms`
+- **Features:** Form elements receive Aegis styling (inputs, selects, buttons, validation messages)
+
+## How Integrations Load
+
+All integrations follow the same pattern:
+
+1. **Plugin detection** — Each integration checks if its target plugin is active
+2. **Conditional loading** — Integration code runs only when the plugin is present
+3. **Hook registration** — Styles and scripts are enqueued via WordPress hooks
+4. **Design token application** — Plugin elements receive Aegis CSS custom properties
+
+## Adding Custom Integrations
+
+In a child theme, you can add integrations for additional plugins:
+
+```php
+add_action( 'after_setup_theme', function() {
+    if ( class_exists( 'SomePlugin' ) ) {
+        add_action( 'wp_enqueue_scripts', function() {
+            wp_enqueue_style(
+                'aegis-child-some-plugin',
+                get_stylesheet_directory_uri() . '/assets/css/some-plugin.css',
+                [],
+                wp_get_theme()->get( 'Version' )
+            );
+        });
+    }
+});
+```
+
+Use Aegis CSS custom properties in your integration stylesheet for consistency:
+
+```css
+.some-plugin-element {
+    color: var(--wp--preset--color--neutral-800);
+    background: var(--wp--preset--color--neutral-50);
+    border-radius: var(--wp--custom--border--radius);
+    padding: var(--wp--preset--spacing--sm);
+}
+```
+
+<Tip>
+All integrations use Aegis design tokens for styling. This means your plugin elements will automatically adapt to style variations and dark mode.
+</Tip>

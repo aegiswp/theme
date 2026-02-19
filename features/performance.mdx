@@ -1,0 +1,108 @@
+---
+title: "Performance"
+description: "Zero-asset architecture engineered for maximum speed"
+---
+
+## Overview
+
+Every aspect of Aegis is engineered for speed. The theme is designed to achieve excellent Core Web Vitals scores out of the box.
+
+## Zero Default Assets
+
+Aegis loads **zero CSS and zero JavaScript** by default. All styling is managed through `theme.json` and the WordPress block system:
+
+- No monolithic stylesheet
+- No jQuery dependency
+- No render-blocking scripts
+
+## Conditional Asset Loading
+
+Stylesheets and scripts are loaded only when required by a page:
+
+- **Block-specific CSS** — Each block's styles are loaded only when that block is present
+- **Feature-specific JS** — JavaScript modules (e.g., Slider, Modal) load only when their blocks are used
+- **Integration CSS** — Plugin integration styles load only when the plugin is active
+
+## Optimized CSS Framework
+
+The minimal CSS framework addresses common core CSS issues while maintaining performance:
+
+- Styles are scoped to specific blocks and features
+- No unused CSS is delivered to the browser
+- Critical styles are inlined where possible
+
+## Font Loading
+
+Fonts are optimized for performance:
+
+- **Local hosting** — All fonts are served from the theme (no external requests to Google Fonts)
+- **Variable fonts** — Single font files cover all weights (300–900)
+- **WOFF2 format** — Maximum compression
+- **Conditional loading** — Fonts load only when selected in Site Editor → Styles
+- **`font-display: block`** — Prevents layout shift from font swapping
+
+## Image Optimization
+
+- **Lazy loading** — Video blocks include lazy loading support
+- **WebP format** — Recommended for all pattern images
+- **No fixed dimensions** — Images use responsive sizing
+- **Border radius** — Applied via CSS tokens, not image manipulation
+
+## Interactivity API
+
+Custom blocks use the WordPress Interactivity API instead of traditional JavaScript:
+
+- **Server-side rendering** — Initial HTML is rendered on the server
+- **Progressive enhancement** — Content is visible before JS loads
+- **Module scripts** — Loaded as ES modules with automatic deferred loading
+- **Shared state** — Efficient state management across blocks
+
+## No Build Process
+
+Aegis has no unnecessary build process for the theme itself:
+
+- Theme files are production-ready as shipped
+- No compilation step required for deployment
+- Reduces complexity and potential build-related issues
+
+## Transition Performance
+
+The global transition defaults are optimized for perceived performance:
+
+```css
+--wp--custom--transition--property: all;
+--wp--custom--transition--duration: 0.1s;
+--wp--custom--transition--timing-function: ease-in;
+```
+
+The 100ms duration is fast enough to feel instant while providing smooth visual feedback.
+
+## Measuring Performance
+
+<Steps>
+  <Step title="Lighthouse">
+    Run a Lighthouse audit in Chrome DevTools.
+  </Step>
+  <Step title="PageSpeed Insights">
+    Test at [pagespeed.web.dev](https://pagespeed.web.dev/).
+  </Step>
+  <Step title="WebPageTest">
+    Detailed waterfall analysis at [webpagetest.org](https://www.webpagetest.org/).
+  </Step>
+  <Step title="Core Web Vitals">
+    Monitor via Google Search Console.
+  </Step>
+</Steps>
+
+## Tips for Maintaining Performance
+
+<Tip>
+Use `theme.json` tokens instead of additional stylesheets to maintain zero-asset performance.
+</Tip>
+
+1. **Use patterns** — Pre-optimized layouts maintain performance
+2. **Minimize plugins** — Each plugin adds potential overhead
+3. **Optimize images** — Use WebP, appropriate sizes, and lazy loading
+4. **Use object caching** — Redis or Memcached for database query caching
+5. **Enable CDN** — Serve static assets from a CDN
+6. **Avoid custom CSS** — Use `theme.json` tokens instead of additional stylesheets

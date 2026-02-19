@@ -1,0 +1,108 @@
+---
+title: "Integrations Overview"
+description: "Plugin integrations and compatibility in Aegis"
+---
+
+## Overview
+
+Aegis provides seamless integration with popular WordPress plugins, automatically applying theme styling and enhancing compatibility.
+
+## Supported Plugins
+
+| Plugin | Category | Integration Level |
+|--------|----------|-------------------|
+| [WooCommerce](/integrations/woocommerce) | E-commerce | Full |
+| [LearnDash](/integrations/learndash) | LMS | Full |
+| [LifterLMS](/integrations/lifterlms) | LMS | Full |
+| [Advanced Custom Fields](/integrations/acf) | Custom Fields | Full |
+| [Rank Math](/integrations/rankmath) | SEO | Partial |
+| Sensei LMS | LMS | Full |
+| Fluent Forms | Forms | Styling |
+| Fluent Booking | Scheduling | Styling |
+| Code Block Pro | Development | Styling |
+| BunnyCDN | Media/CDN | Styling |
+| Syntax Highlighting Code Block | Development | Styling |
+
+## How Integrations Work
+
+Aegis detects installed plugins and conditionally loads integration code:
+
+1. **Detection** - Checks if plugin is active
+2. **Hook Registration** - Adds necessary filters and actions
+3. **Style Loading** - Applies theme-consistent styling
+4. **Pattern Registration** - Adds plugin-specific patterns
+
+## Integration Features
+
+### Styling
+
+Aegis applies consistent styling to plugin elements:
+
+- Form inputs match theme design
+- Buttons use theme colors
+- Typography follows theme settings
+- Spacing uses theme presets
+
+### Patterns
+
+Some integrations include custom patterns:
+
+- WooCommerce product grids
+- LMS course layouts
+- Booking calendars
+
+### Templates
+
+WooCommerce integrations include custom templates:
+
+- `archive-product.html`
+- `single-product.html`
+- `taxonomy-product_cat.html`
+- `taxonomy-product_tag.html`
+
+## Conditional Loading
+
+Integration code only loads when the plugin is active:
+
+```php
+// Example: WooCommerce detection
+if (class_exists('WooCommerce')) {
+    // Load WooCommerce integration
+}
+```
+
+This ensures:
+- No unnecessary code execution
+- No errors if plugin is deactivated
+- Optimal performance
+
+## Adding Custom Integrations
+
+In a child theme, add plugin integrations:
+
+```php
+// functions.php
+add_action('after_setup_theme', function() {
+    if (class_exists('My_Plugin')) {
+        // Add custom integration code
+        add_filter('my_plugin_option', 'my_custom_handler');
+    }
+});
+```
+
+## Styling Plugin Output
+
+Use theme CSS variables for consistency:
+
+```css
+/* Style plugin elements with theme tokens */
+.my-plugin-element {
+    background: var(--wp--preset--color--neutral-100);
+    border-radius: var(--wp--custom--border--radius);
+    padding: var(--wp--preset--spacing--sm);
+}
+```
+
+<Tip>
+Check individual integration pages for specific features and configuration options.
+</Tip>

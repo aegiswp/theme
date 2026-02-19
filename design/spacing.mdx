@@ -1,0 +1,115 @@
+---
+title: "Spacing"
+description: "Fluid spacing system with 7 presets that scale with typography"
+---
+
+## Overview
+
+Aegis employs a fluid spacing system that scales intelligently across viewport sizes. Spacing presets are tied to the typography scale for visual harmony.
+
+## Spacing Presets
+
+| Name | Slug | CSS Variable | Size |
+|------|------|--------------|------|
+| XXS (8px) | `xxs` | `--wp--preset--spacing--xxs` | `var(--wp--preset--font-size--8)` |
+| XS (16px) | `xs` | `--wp--preset--spacing--xs` | `var(--wp--preset--font-size--16)` |
+| S (24px) | `sm` | `--wp--preset--spacing--sm` | `var(--wp--preset--font-size--24)` |
+| M (32px) | `md` | `--wp--preset--spacing--md` | `var(--wp--preset--font-size--32)` |
+| L (48px) | `lg` | `--wp--preset--spacing--lg` | `var(--wp--preset--font-size--48)` |
+| XL (64px) | `xl` | `--wp--preset--spacing--xl` | `var(--wp--preset--font-size--64)` |
+| XXL (96px) | `xxl` | `--wp--preset--spacing--xxl` | `var(--wp--preset--font-size--96)` |
+
+<Note>
+Spacing values reference font size presets, creating a unified scale where spacing and typography grow proportionally.
+</Note>
+
+## Default Block Gap
+
+The default block gap (space between blocks) is set to **24px** (`spacing-sm`):
+
+```json
+{
+  "styles": {
+    "spacing": {
+      "blockGap": "var(--wp--preset--spacing--sm)"
+    }
+  }
+}
+```
+
+## Spacing Units
+
+Aegis supports these CSS units for custom spacing:
+
+- `%` - Percentage
+- `em` - Relative to font size
+- `px` - Pixels
+- `rem` - Relative to root font size
+- `vh` - Viewport height
+- `vw` - Viewport width
+
+## Usage in Blocks
+
+Apply spacing in the block editor:
+
+<Steps>
+  <Step title="Select a block">
+    Click on any block that supports spacing controls.
+  </Step>
+  <Step title="Open Dimensions">
+    In the Settings sidebar, expand the **Dimensions** section.
+  </Step>
+  <Step title="Choose preset or custom">
+    Select a spacing preset or enter a custom value.
+  </Step>
+</Steps>
+
+### Available Controls
+
+- **Padding** - Inner spacing
+- **Margin** - Outer spacing
+- **Block Gap** - Space between child blocks (for container blocks)
+
+## Usage in CSS
+
+```css
+.my-section {
+  padding: var(--wp--preset--spacing--lg);
+  margin-bottom: var(--wp--preset--spacing--xl);
+}
+
+.my-grid {
+  gap: var(--wp--preset--spacing--md);
+}
+
+.my-card {
+  padding: var(--wp--preset--spacing--sm) var(--wp--preset--spacing--md);
+}
+```
+
+## Custom Spacing Token
+
+A custom `gap` token mirrors the block gap for use in custom CSS:
+
+```css
+/* Available as */
+--wp--custom--spacing--gap: var(--wp--style--block-gap);
+```
+
+## Responsive Behavior
+
+Because spacing presets use the fluid typography scale, they automatically adjust on smaller screens:
+
+| Preset | Desktop | Mobile (approx) |
+|--------|---------|-----------------|
+| XXL | 96px | 80px |
+| XL | 64px | 52px |
+| L | 48px | 40px |
+| M | 32px | 28px |
+| S | 24px | 22px |
+| XS | 16px | 16px |
+| XXS | 8px | 8px |
+
+<Tip>
+Use larger spacing presets (L, XL, XXL) for section padding and smaller presets (XS, S, M) for component-level spacing.
+</Tip>

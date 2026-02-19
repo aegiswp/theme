@@ -1,0 +1,115 @@
+---
+title: "Colors"
+description: "Aegis color palette with Primary, Neutral, and Semantic color scales"
+---
+
+## Overview
+
+Aegis features a comprehensive color system optimized for accessibility and visual hierarchy. All colors are defined in `theme.json` and available as CSS custom properties.
+
+<Note>
+Aegis disables WordPress core colors (`defaultPalette: false`) to provide a consistent, curated palette.
+</Note>
+
+## Primary Colors
+
+The primary scale provides brand colors for accents, buttons, and interactive elements.
+
+| Name | Slug | Value | CSS Variable |
+|------|------|-------|--------------|
+| Primary 950 | `primary-950` | `#1e2225` | `--wp--preset--color--primary-950` |
+| Primary 900 | `primary-900` | `#212528` | `--wp--preset--color--primary-900` |
+| Primary 800 | `primary-800` | `#24282c` | `--wp--preset--color--primary-800` |
+| Primary 700 | `primary-700` | `#343a40` | `--wp--preset--color--primary-700` |
+| Primary 600 | `primary-600` | `#495057` | `--wp--preset--color--primary-600` |
+| Primary 500 | `primary-500` | `#6c757d` | `--wp--preset--color--primary-500` |
+| Primary 400 | `primary-400` | `#8d959d` | `--wp--preset--color--primary-400` |
+| Primary 300 | `primary-300` | `#a9b1b9` | `--wp--preset--color--primary-300` |
+| Primary 200 | `primary-200` | `#9da5ad` | `--wp--preset--color--primary-200` |
+| Primary 100 | `primary-100` | `#a5adb5` | `--wp--preset--color--primary-100` |
+| Primary 50 | `primary-50` | `#c9cfd4` | `--wp--preset--color--primary-50` |
+| Primary 25 | `primary-25` | `#edf0f2` | `--wp--preset--color--primary-25` |
+
+## Neutral Colors
+
+The neutral scale provides colors for text, backgrounds, borders, and surfaces.
+
+| Name | Slug | Value | CSS Variable |
+|------|------|-------|--------------|
+| Neutral 950 | `neutral-950` | `#202427` | `--wp--preset--color--neutral-950` |
+| Neutral 900 | `neutral-900` | `#25292d` | `--wp--preset--color--neutral-900` |
+| Neutral 800 | `neutral-800` | `#313539` | `--wp--preset--color--neutral-800` |
+| Neutral 700 | `neutral-700` | `#40454a` | `--wp--preset--color--neutral-700` |
+| Neutral 600 | `neutral-600` | `#50555b` | `--wp--preset--color--neutral-600` |
+| Neutral 500 | `neutral-500` | `#7e858c` | `--wp--preset--color--neutral-500` |
+| Neutral 400 | `neutral-400` | `#8e959d` | `--wp--preset--color--neutral-400` |
+| Neutral 300 | `neutral-300` | `#dee2e6` | `--wp--preset--color--neutral-300` |
+| Neutral 200 | `neutral-200` | `#e4e7eb` | `--wp--preset--color--neutral-200` |
+| Neutral 100 | `neutral-100` | `#e9ecef` | `--wp--preset--color--neutral-100` |
+| Neutral 50 | `neutral-50` | `#f1f3f5` | `--wp--preset--color--neutral-50` |
+| Neutral 0 | `neutral-0` | `#f8f9fa` | `--wp--preset--color--neutral-0` |
+
+## Semantic Colors
+
+Semantic colors communicate meaning and status.
+
+### Success
+
+| Name | Slug | Value | CSS Variable |
+|------|------|-------|--------------|
+| Success 600 | `success-600` | `#40916c` | `--wp--preset--color--success-600` |
+| Success 500 | `success-500` | `#52b788` | `--wp--preset--color--success-500` |
+| Success 100 | `success-100` | `#d8f3dc` | `--wp--preset--color--success-100` |
+
+### Warning
+
+| Name | Slug | Value | CSS Variable |
+|------|------|-------|--------------|
+| Warning 600 | `warning-600` | `#e85d04` | `--wp--preset--color--warning-600` |
+| Warning 500 | `warning-500` | `#f48c06` | `--wp--preset--color--warning-500` |
+| Warning 100 | `warning-100` | `#ffdd00` | `--wp--preset--color--warning-100` |
+
+### Error
+
+| Name | Slug | Value | CSS Variable |
+|------|------|-------|--------------|
+| Error 600 | `error-600` | `#dc2f02` | `--wp--preset--color--error-600` |
+| Error 500 | `error-500` | `#ec5766` | `--wp--preset--color--error-500` |
+| Error 100 | `error-100` | `#f4998d` | `--wp--preset--color--error-100` |
+
+## Utility Colors
+
+Special-purpose colors for specific use cases.
+
+| Name | Slug | Value | CSS Variable |
+|------|------|-------|--------------|
+| Transparent | `transparent` | `transparent` | `--wp--preset--color--transparent` |
+| Current | `current` | `currentcolor` | `--wp--preset--color--current` |
+| Inherit | `inherit` | `inherit` | `--wp--preset--color--inherit` |
+
+## Usage in Blocks
+
+Select colors in the block editor:
+
+1. Select a block
+2. Open the **Settings** sidebar
+3. Expand the **Color** section
+4. Choose from the Aegis palette
+
+## Usage in CSS
+
+Reference colors using CSS custom properties:
+
+```css
+.my-element {
+  background-color: var(--wp--preset--color--primary-500);
+  color: var(--wp--preset--color--neutral-0);
+  border-color: var(--wp--preset--color--neutral-200);
+}
+```
+
+## Accessibility
+
+<Check>
+All color combinations in Aegis meet WCAG 2.1 AA contrast requirements. The palette is also optimized for users with color vision deficiency.
+</Check>

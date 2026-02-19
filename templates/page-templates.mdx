@@ -1,0 +1,139 @@
+---
+title: "Page Templates"
+description: "Templates for static pages in Aegis"
+---
+
+## Default Page Template
+
+The `page.html` template provides the standard layout for static pages:
+
+```html
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main"} -->
+<main class="wp-block-group">
+  <!-- wp:post-title {"level":1} /-->
+  <!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
+```
+
+### Structure
+
+1. **Header** - Site header template part
+2. **Main content** - Page title and content
+3. **Footer** - Site footer template part
+
+## Blank Template
+
+The `blank.html` template provides a minimal canvas with no header, footer, or title:
+
+```html
+<!-- wp:post-content {"layout":{"type":"default"}} /-->
+```
+
+<Note>
+Use the Blank template for landing pages, sales pages, or any page where you want complete control over the layout.
+</Note>
+
+### When to Use
+
+- Landing pages
+- Sales pages
+- Custom layouts built entirely with patterns
+- Pages that need a unique header/footer
+
+## Full Width Template
+
+The `full-width.html` template displays content at the wide width:
+
+```html
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","layout":{"type":"constrained","contentSize":"wide"}} -->
+<main class="wp-block-group">
+  <!-- wp:post-title {"level":1} /-->
+  <!-- wp:post-content {"layout":{"type":"constrained","contentSize":"wide"}} /-->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
+```
+
+### When to Use
+
+- Portfolio pages
+- Gallery pages
+- Pages with wide images or media
+- Dashboard-style layouts
+
+## Page No Title Template
+
+The `page-no-title.html` template removes the automatic page title:
+
+```html
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main"} -->
+<main class="wp-block-group">
+  <!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
+```
+
+<Warning>
+When using this template, include an H1 heading within your page content for SEO purposes.
+</Warning>
+
+### When to Use
+
+- Pages using hero patterns with built-in titles
+- Custom page designs
+- Pages where you want to style the title differently
+
+## Assigning Templates
+
+<Steps>
+  <Step title="Edit the page">
+    Open the page in the block editor.
+  </Step>
+  <Step title="Open Page settings">
+    In the Settings sidebar, find the **Template** section.
+  </Step>
+  <Step title="Select template">
+    Choose from the available templates.
+  </Step>
+  <Step title="Update">
+    Save or publish the page.
+  </Step>
+</Steps>
+
+## Creating Custom Page Templates
+
+Create a new template in the Site Editor:
+
+<Steps>
+  <Step title="Open Templates">
+    Go to **Appearance → Editor → Templates**.
+  </Step>
+  <Step title="Add new">
+    Click **Add New** and select **Page** as the template type.
+  </Step>
+  <Step title="Name your template">
+    Give it a descriptive name (e.g., "Landing Page").
+  </Step>
+  <Step title="Build the layout">
+    Add blocks to create your custom layout.
+  </Step>
+  <Step title="Save">
+    Save the template.
+  </Step>
+</Steps>
+
+<Tip>
+Custom templates you create in the Site Editor are stored in the database. Export your site to save them as files in your theme.
+</Tip>

@@ -1,0 +1,224 @@
+---
+title: "Testing"
+description: "Testing strategies and tools for Aegis development"
+---
+
+## Overview
+
+Aegis uses multiple testing approaches to ensure quality:
+
+- **PHP Unit Tests** - Test PHP functionality
+- **End-to-End Tests** - Test user interactions
+- **Linting** - Code style and syntax checking
+- **Static Analysis** - Find bugs before runtime
+
+## PHP Testing
+
+### Running Tests
+
+```bash
+npm run test:php
+```
+
+### Test Structure
+
+Tests are located in the `tests/` directory:
+
+```
+tests/
+├── php/
+│   ├── bootstrap.php
+│   ├── unit/
+│   └── integration/
+```
+
+### Writing Tests
+
+```php
+<?php
+class Test_My_Feature extends WP_UnitTestCase {
+    
+    public function test_feature_works() {
+        $result = my_function();
+        $this->assertTrue($result);
+    }
+    
+    public function test_returns_expected_value() {
+        $result = get_value();
+        $this->assertEquals('expected', $result);
+    }
+}
+```
+
+## End-to-End Testing
+
+### Running E2E Tests
+
+```bash
+npm run test:e2e
+```
+
+### E2E Test Structure
+
+E2E tests verify user workflows in a real browser:
+
+- Page loading
+- Block insertion
+- Pattern usage
+- Template rendering
+
+## Linting
+
+### CSS Linting
+
+Check CSS for errors and style issues:
+
+```bash
+npm run lint:css
+```
+
+Configuration in `.stylelintrc.json`:
+
+```json
+{
+  "extends": ["stylelint-config-standard"],
+  "rules": {
+    "selector-class-pattern": null
+  }
+}
+```
+
+### PHP Linting
+
+Check PHP syntax:
+
+```bash
+composer run lint
+```
+
+## Coding Standards
+
+### WordPress Coding Standards
+
+Check compliance with WordPress standards:
+
+```bash
+composer run standards:check
+```
+
+Auto-fix issues:
+
+```bash
+composer run standards:fix
+```
+
+Configuration in `phpcs.xml.dist`:
+
+```xml
+<?xml version="1.0"?>
+<ruleset name="Aegis">
+    <rule ref="WordPress"/>
+    <rule ref="WordPress-Core"/>
+    <rule ref="WordPress-Docs"/>
+</ruleset>
+```
+
+## Static Analysis
+
+### PHPStan
+
+Find bugs through static analysis:
+
+```bash
+composer run analyze
+```
+
+Analyze specific file:
+
+```bash
+composer run analyze path/to/file.php
+```
+
+## Pre-Commit Checklist
+
+Before committing changes, run:
+
+<Steps>
+  <Step title="Lint CSS">
+    ```bash
+    npm run lint:css
+    ```
+  </Step>
+  <Step title="Check PHP standards">
+    ```bash
+    composer run standards:check
+    ```
+  </Step>
+  <Step title="Run static analysis">
+    ```bash
+    composer run analyze
+    ```
+  </Step>
+  <Step title="Run tests">
+    ```bash
+    npm run test:php
+    ```
+  </Step>
+</Steps>
+
+## Continuous Integration
+
+Aegis uses GitHub Actions for CI:
+
+- Runs on every pull request
+- Checks coding standards
+- Runs test suites
+- Validates theme structure
+
+### CI Configuration
+
+Located in `.github/workflows/`:
+
+```yaml
+name: CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          npm install
+          composer install
+      - name: Run tests
+        run: |
+          npm run lint:css
+          composer run standards:check
+          npm run test:php
+```
+
+## Best Practices
+
+<Tip>
+Write tests for new features before implementing them (TDD). This helps clarify requirements and ensures coverage.
+</Tip>
+
+### Test Coverage
+
+- Test public APIs
+- Test edge cases
+- Test error handling
+- Don't test implementation details
+
+### Naming Conventions
+
+- Test files: `test-{feature}.php`
+- Test methods: `test_{what_it_tests}`
+- Be descriptive: `test_returns_empty_array_when_no_posts`
+
+### Isolation
+
+- Each test should be independent
+- Use setUp/tearDown for common setup
+- Don't rely on test execution order

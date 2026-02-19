@@ -1,0 +1,269 @@
+---
+title: "Child Themes"
+description: "Create and customize child themes for Aegis"
+---
+
+## Overview
+
+A child theme allows you to customize Aegis without modifying the parent theme files. Your customizations are preserved when Aegis is updated.
+
+## Official Child Theme
+
+Aegis provides an official starter child theme:
+
+<Card
+  title="Aegis Child Theme"
+  icon="github"
+  href="https://github.com/aegiswp/theme-child"
+>
+  Official starter child theme for Aegis customization.
+</Card>
+
+## Creating a Child Theme
+
+### Minimum Requirements
+
+A child theme needs two files:
+
+1. `style.css` - Theme header and styles
+2. `theme.json` - Design customizations (optional but recommended)
+
+### Directory Structure
+
+```
+aegis-child/
+├── style.css
+├── theme.json
+├── functions.php (optional)
+├── templates/ (optional)
+├── parts/ (optional)
+└── patterns/ (optional)
+```
+
+### style.css
+
+```css
+/*
+ Theme Name: Aegis Child
+ Theme URI: https://example.com/aegis-child
+ Description: A child theme for Aegis
+ Author: Your Name
+ Author URI: https://example.com
+ Template: aegis
+ Version: 1.0.0
+ License: GPL v3.0
+ License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ Text Domain: aegis-child
+*/
+```
+
+<Warning>
+The `Template: aegis` line is required. It must match the parent theme's folder name exactly.
+</Warning>
+
+### theme.json
+
+Extend or override parent theme settings:
+
+```json
+{
+  "$schema": "https://schemas.wp.org/wp/6.8/theme.json",
+  "version": 3,
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "name": "Brand Primary",
+          "slug": "brand-primary",
+          "color": "#ff6b6b"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--brand-primary)"
+    }
+  }
+}
+```
+
+### functions.php
+
+Add custom functionality:
+
+```php
+<?php
+/**
+ * Aegis Child Theme Functions
+ */
+
+// Enqueue child theme styles
+add_action('wp_enqueue_scripts', function() {
+    wp_enqueue_style(
+        'aegis-child-style',
+        get_stylesheet_uri(),
+        ['aegis-style'],
+        wp_get_theme()->get('Version')
+    );
+});
+
+// Add custom functionality
+add_action('after_setup_theme', function() {
+    // Your customizations here
+});
+```
+
+## Customization Options
+
+### Colors
+
+Add or override colors in `theme.json`:
+
+```json
+{
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "name": "Brand Blue",
+          "slug": "brand-blue",
+          "color": "#0066cc"
+        }
+      ]
+    }
+  }
+}
+```
+
+### Typography
+
+Add custom fonts:
+
+```json
+{
+  "settings": {
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "Inter, sans-serif",
+          "name": "Inter",
+          "slug": "inter",
+          "fontFace": [
+            {
+              "fontFamily": "Inter",
+              "fontWeight": "400 700",
+              "src": ["file:./assets/fonts/inter.woff2"]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+
+### Templates
+
+Override parent templates by creating files with the same name:
+
+```
+aegis-child/
+└── templates/
+    └── single.html  # Overrides parent's single.html
+```
+
+### Patterns
+
+Add custom patterns:
+
+```
+aegis-child/
+└── patterns/
+    └── my-pattern.php
+```
+
+```php
+<?php
+/**
+ * Title: My Custom Pattern
+ * Slug: aegis-child/my-pattern
+ * Categories: featured
+ */
+?>
+<!-- wp:group -->
+<div class="wp-block-group">
+  <!-- Pattern content -->
+</div>
+<!-- /wp:group -->
+```
+
+## Best Practices
+
+<Tip>
+Only override what you need to change. The less you override, the easier updates will be.
+</Tip>
+
+### Do
+
+- Use `theme.json` for design changes
+- Create custom patterns for reusable layouts
+- Use hooks and filters in `functions.php`
+- Keep customizations organized
+
+### Don't
+
+- Copy entire parent theme files
+- Modify parent theme directly
+- Duplicate functionality that exists in parent
+- Ignore parent theme updates
+
+## Code Snippets
+
+For small customizations, consider using code snippets instead of a full child theme:
+
+<Card
+  title="Aegis Code Snippets"
+  icon="github"
+  href="https://github.com/aegiswp/code-snippets"
+>
+  Collection of code snippets for Aegis customization.
+</Card>
+
+## Best Practices
+
+### Do
+
+- Use `theme.json` for design changes
+- Create custom patterns for reusable layouts
+- Use hooks and filters in `functions.php`
+- Keep customizations organized
+- Only override what you need to change
+
+### Don't
+
+- Copy entire parent theme files
+- Modify parent theme directly
+- Duplicate functionality that exists in parent
+- Ignore parent theme updates
+
+## Updating
+
+When Aegis is updated:
+
+1. Your child theme customizations are preserved
+2. Test your site after parent theme updates
+3. Check for deprecated functions or changed hooks
+4. Review the changelog for breaking changes
+
+## Code Snippets
+
+For small customizations, consider using code snippets instead of a full child theme:
+
+<Card
+  title="Aegis Code Snippets"
+  icon="github"
+  href="https://github.com/aegiswp/code-snippets"
+>
+  Collection of code snippets for Aegis customization.
+</Card>

@@ -1,0 +1,158 @@
+---
+title: "Architecture"
+description: "Theme architecture, directory structure, and bootstrap flow"
+---
+
+## Overview
+
+Aegis is built on a modular PHP framework with a service provider pattern, leveraging Composer autoloading and WordPress hooks.
+
+## Directory Structure
+
+```
+aegis/
+├── assets/
+│   ├── css/              # Theme stylesheets (wc-blocks/)
+│   └── fonts/            # Variable font files (WOFF2)
+├── docs/                 # Documentation
+├── inc/                  # Procedural PHP (WC block styles)
+├── parts/                # Template parts (HTML)
+│   ├── header.html
+│   ├── footer.html
+│   └── mini-cart.html
+├── patterns/             # Block patterns (PHP)
+│   ├── header/
+│   ├── footer/
+│   ├── hero/
+│   └── ...
+├── src/
+│   ├── Admin/            # Admin settings (OOP + co-located css/js)
+│   ├── Blocks/           # Custom block source (block.json + assets)
+│   │   ├── slider/
+│   │   ├── slide/
+│   │   └── map/
+│   ├── Checkout/         # Multi-step checkout (OOP + co-located css/js)
+│   └── Navigation/       # Navigation overlay (OOP + co-located css)
+├── styles/               # Style variations (JSON)
+├── templates/            # Block templates (HTML)
+├── vendor/
+│   └── aegis/
+│       └── framework/    # Aegis Framework package
+│           └── src/
+│               ├── Aegis.php
+│               ├── ServiceProvider.php
+│               ├── BlockVariations/
+│               ├── CoreBlocks/
+│               ├── DesignSystem/
+│               └── Integrations/
+├── composer.json         # PHP dependencies + PSR-4 autoloading
+├── functions.php         # Theme bootstrap
+├── style.css             # Theme metadata
+└── theme.json            # Design tokens & settings
+```
+
+## Bootstrap Flow
+
+```
+functions.php
+  → Composer autoloader (vendor/autoload.php)
+  → Aegis::register(__FILE__)
+    → ServiceProvider::register()
+      → Hook::annotations() on all service classes
+        → CoreBlocks registered on 'init'
+        → BlockVariations registered on 'init'
+        → DesignSystem features registered
+        → Integrations conditionally loaded
+```
+
+## Key Classes
+
+### `Aegis\Framework\Aegis`
+
+Singleton entry point. Ensures the framework is initialized only once:
+
+```php
+Aegis::register( __FILE__ );
+```
+
+### `Aegis\Framework\ServiceProvider`
+
+Registers all framework services:
+
+- Core block enhancements
+- Block variations
+- Design system features (shadows, transforms, filters, etc.)
+- Plugin integrations (conditional)
+
+### Hook System
+
+The framework uses annotation-based hook registration:
+
+```php
+/**
+ * @hook init
+ */
+public function register_block(): void { ... }
+```
+
+The `Hook::annotations()` method reads PHPDoc `@hook` annotations and automatically registers WordPress hooks.
+
+## Design System Architecture
+
+Design tokens flow from `theme.json` through the WordPress system:
+
+```
+theme.json (tokens)
+  → WordPress generates CSS custom properties
+    → Blocks reference properties via presets
+      → Frontend renders with resolved values
+```
+
+### Token Categories
+
+| Category | Source | CSS Prefix |
+|----------|--------|-----------|
+| Colors | `settings.color.palette` | `--wp--preset--color--` |
+| Font Sizes | `settings.typography.fontSizes` | `--wp--preset--font-size--` |
+| Font Families | `settings.typography.fontFamilies` | `--wp--preset--font-family--` |
+| Spacing | `settings.spacing.spacingSizes` | `--wp--preset--spacing--` |
+| Shadows | `settings.shadow.presets` | `--wp--preset--shadow--` |
+| Gradients | `settings.color.gradients` | `--wp--preset--gradient--` |
+| Custom | `settings.custom` | `--wp--custom--` |
+
+## Block Architecture
+
+### Core Block Enhancements
+
+```
+CoreBlocks/{BlockName}.php
+  → @hook register_block_type_args  (add attributes/supports)
+  → @hook render_block_{name}       (modify HTML output)
+  → @hook enqueue_block_editor_assets (add editor controls)
+```
+
+### Custom Blocks
+
+```
+src/Blocks/{block-name}/
+  ├── block.json          # Block metadata
+  ├── index.js            # Editor script
+  ├── view.js             # Frontend script (Interactivity API)
+  ├── style.css           # Block styles
+  └── render.php          # Server-side render callback
+```
+
+### Block Variations
+
+```
+BlockVariations/{Name}.php
+  → Registers variation via JS (registerBlockVariation)
+  → Modifies render output via PHP (render_block filter)
+  → Adds editor controls via JS (InspectorControls)
+```
+
+## Dependency Management
+
+- **Composer** — PHP dependencies and autoloading
+- **npm** — JavaScript build tooling (development only)
+- **No runtime build** — Theme ships production-ready

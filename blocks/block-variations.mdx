@@ -1,0 +1,304 @@
+---
+title: "Block Variations"
+description: "Specialized block variations that extend WordPress core blocks"
+---
+
+## Overview
+
+Block variations are specialized versions of existing blocks with pre-configured settings and styles. Aegis includes 9 block variations:
+
+## Accordion List
+
+**Base Block:** `core/list`
+
+Transforms list blocks into interactive accordion/collapsible elements.
+
+### Usage
+
+1. Insert a List block
+2. Select the "Accordion List" variation
+3. Each list item becomes an expandable section
+
+### Structure
+
+```html
+<!-- wp:list {"className":"is-style-accordion"} -->
+<ul class="is-style-accordion">
+  <li>
+    <details>
+      <summary>Question or heading</summary>
+      <p>Expandable content here.</p>
+    </details>
+  </li>
+</ul>
+<!-- /wp:list -->
+```
+
+### Customization
+
+Aegis provides custom properties for accordion styling:
+
+```css
+--wp--custom--accordion--height: 1.5px;
+--wp--custom--accordion--width: 12px;
+--wp--custom--accordion--animation-duration: 0s;
+```
+
+## Counter
+
+**Base Block:** `core/paragraph`
+
+Animated number counter with customizable values.
+
+### Features
+
+- Start and end values
+- Animation duration
+- Number formatting
+- Prefix/suffix support
+
+### Usage
+
+```html
+<!-- wp:paragraph {"className":"is-style-counter","data-start":"0","data-end":"1000"} -->
+<p class="is-style-counter">1000+</p>
+<!-- /wp:paragraph -->
+```
+
+### Settings
+
+| Attribute | Description |
+|-----------|-------------|
+| `data-start` | Starting number |
+| `data-end` | Ending number |
+| `data-duration` | Animation duration (ms) |
+| `data-prefix` | Text before number |
+| `data-suffix` | Text after number |
+
+## Curved Text
+
+**Base Block:** `core/paragraph`
+
+Text displayed along a curved SVG path.
+
+### Usage
+
+```html
+<!-- wp:paragraph {"className":"is-style-curved-text"} -->
+<p class="is-style-curved-text">Your curved text here</p>
+<!-- /wp:paragraph -->
+```
+
+### Customization
+
+- Curve radius
+- Text direction
+- Letter spacing
+
+## Grid
+
+**Base Block:** `core/group`
+
+Advanced CSS grid layout with responsive column controls.
+
+### Features
+
+- Define grid columns
+- Gap control
+- Auto-fit/auto-fill options
+- Responsive breakpoints
+
+### Usage
+
+```html
+<!-- wp:group {"className":"is-style-grid","style":{"grid":{"columns":"repeat(3, 1fr)"}}} -->
+<div class="wp-block-group is-style-grid">
+  <!-- Grid items -->
+</div>
+<!-- /wp:group -->
+```
+
+## Icon
+
+**Base Block:** `core/image`
+
+Inline SVG icons with extensive icon library.
+
+### Features
+
+- WordPress icons
+- Dashicons
+- Social icons
+- Custom SVG upload
+
+### Usage
+
+<Steps>
+  <Step title="Insert Image block">
+    Add an Image block to your content.
+  </Step>
+  <Step title="Select Icon variation">
+    Choose the "Icon" style or search for "icon" in inserter.
+  </Step>
+  <Step title="Choose icon">
+    Select from the icon library or upload custom SVG.
+  </Step>
+  <Step title="Customize">
+    Adjust size and color.
+  </Step>
+</Steps>
+
+### Icon Library
+
+Aegis includes 338+ icons in the `vendor/aegis/icons/` directory:
+
+- WordPress brand icons
+- Dashicons set
+- Social media icons
+- Custom Aegis icons
+
+## Marquee
+
+**Base Block:** `core/group`
+
+Continuously scrolling horizontal content ticker.
+
+### Features
+
+- Infinite scroll animation
+- Configurable speed
+- Pause on hover
+- Reverse direction option
+
+### Usage
+
+```html
+<!-- wp:group {"className":"is-style-marquee"} -->
+<div class="wp-block-group is-style-marquee">
+  <!-- Scrolling content -->
+</div>
+<!-- /wp:group -->
+```
+
+### Settings
+
+- **Animation speed** — Configurable scroll speed
+- **Direction** — Left or right scrolling
+- **Pause on hover** — Stops animation on mouse hover
+- **Gap between items** — Space between scrolling elements
+
+## Newsletter
+
+**Base Block:** `core/group`
+
+Pre-styled newsletter signup form layout.
+
+### Features
+
+- Email input field
+- Submit button
+- Inline or stacked layout
+- Integration-ready
+
+### Usage
+
+```html
+<!-- wp:group {"className":"is-style-newsletter"} -->
+<div class="wp-block-group is-style-newsletter">
+  <!-- Form elements -->
+</div>
+<!-- /wp:group -->
+```
+
+## Related Posts
+
+**Base Block:** `core/query`
+
+Automatically queries and displays related posts based on taxonomy.
+
+### Features
+
+- Same category/tag matching
+- Configurable post count
+- Excludes current post
+- Grid or list layout
+
+### Usage
+
+```html
+<!-- wp:query {"className":"is-style-related-posts"} -->
+<div class="wp-block-query is-style-related-posts">
+  <!-- wp:post-template -->
+    <!-- Related post display -->
+  <!-- /wp:post-template -->
+</div>
+<!-- /wp:query -->
+```
+
+## SVG
+
+**Base Block:** `core/image`
+
+Inline SVG rendering with sanitization and styling support.
+
+### Features
+
+- Inline SVG output (not img tag)
+- CSS styling support
+- Sanitization for security
+- Preserves SVG attributes
+
+### Usage
+
+1. Insert Image block
+2. Select "SVG" variation
+3. Upload or select SVG file
+4. SVG renders inline in HTML
+
+<Warning>
+SVG files are sanitized on upload to prevent security issues. Some complex SVGs may have features removed.
+</Warning>
+
+## Creating Custom Variations
+
+In a child theme or plugin, register custom variations:
+
+```php
+// Register a block variation
+add_action('init', function() {
+    wp_register_block_style('core/group', [
+        'name' => 'my-variation',
+        'label' => 'My Variation',
+    ]);
+});
+```
+
+## Creating Custom Variations
+
+In a child theme or plugin, register custom variations via PHP:
+
+```php
+add_action( 'init', function() {
+    wp_register_block_style( 'core/group', [
+        'name'  => 'my-variation',
+        'label' => 'My Variation',
+    ] );
+} );
+```
+
+Or via JavaScript:
+
+```javascript
+wp.blocks.registerBlockVariation( 'core/group', {
+    name: 'my-custom-variation',
+    title: 'My Custom Variation',
+    attributes: {
+        className: 'is-style-my-variation',
+    },
+    scope: [ 'inserter', 'block', 'transform' ],
+} );
+```
+
+<Tip>
+Block variations are a powerful way to create reusable, pre-configured block setups without building custom blocks from scratch.
+</Tip>

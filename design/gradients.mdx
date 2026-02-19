@@ -1,0 +1,147 @@
+---
+title: "Gradients"
+description: "Pre-configured gradient presets for sophisticated visual effects"
+---
+
+## Overview
+
+Aegis includes 12 pre-configured gradients for backgrounds, overlays, and decorative effects. These gradients use the theme's color tokens for consistency.
+
+<Note>
+Aegis disables WordPress core gradients (`defaultGradients: false`) to provide a curated gradient system.
+</Note>
+
+## Gradient Presets
+
+### Primary Gradients
+
+| Name | Slug | Direction |
+|------|------|-----------|
+| Primary 700/500 | `primary-700-500` | 135° diagonal |
+| Primary 500/300 | `primary-500-300` | 135° diagonal |
+| Primary Transparent | `primary-transparent` | 180° vertical |
+| Primary Foreground | `primary-foreground` | 135° diagonal |
+
+### Neutral Gradients
+
+| Name | Slug | Direction |
+|------|------|-----------|
+| Body/Heading | `body-heading` | 135° diagonal |
+| Surface/Border | `surface-border` | 135° diagonal |
+
+### Utility Gradients
+
+| Name | Slug | Use Case |
+|------|------|----------|
+| Background/Transparent | `background-transparent` | Fade from bottom |
+| Transparent/Background | `transparent-background` | Fade from top |
+| Fade Left | `fade-left` | Horizontal fade |
+| Fade Right | `fade-right` | Horizontal fade |
+
+### Pattern Gradients
+
+| Name | Slug | Effect |
+|------|------|--------|
+| Checkerboard | `checkerboard` | Repeating checker pattern |
+| Grid | `grid` | CSS grid lines pattern |
+
+## Gradient Values
+
+```css
+/* Primary 700/500 */
+linear-gradient(135deg, var(--wp--preset--color--primary-700) 0%, 
+                        var(--wp--preset--color--primary-500) 100%)
+
+/* Primary 500/300 */
+linear-gradient(135deg, var(--wp--preset--color--primary-500) 0%, 
+                        var(--wp--preset--color--primary-300) 100%)
+
+/* Primary Transparent */
+linear-gradient(180deg, var(--wp--preset--color--transparent) 0%, 
+                        var(--wp--preset--color--primary-100) 100%)
+
+/* Primary Foreground */
+linear-gradient(135deg, var(--wp--preset--color--primary-900) 0%, 
+                        var(--wp--preset--color--neutral-950) 100%)
+
+/* Body/Heading */
+linear-gradient(135deg, var(--wp--preset--color--neutral-600) 0%, 
+                        var(--wp--preset--color--neutral-950) 100%)
+
+/* Surface/Border */
+linear-gradient(135deg, var(--wp--preset--color--neutral-100) 0%, 
+                        var(--wp--preset--color--neutral-200) 100%)
+
+/* Background/Transparent */
+linear-gradient(0deg, var(--wp--custom--body--background) 50%, transparent 50%)
+
+/* Transparent/Background */
+linear-gradient(180deg, var(--wp--custom--body--background) 50%, transparent 50%)
+
+/* Fade Left */
+linear-gradient(90deg, var(--wp--preset--color--neutral-0) 0%, transparent 100%)
+
+/* Fade Right */
+linear-gradient(-90deg, var(--wp--preset--color--neutral-0) 0%, transparent 100%)
+
+/* Checkerboard */
+repeating-conic-gradient(var(--wp--preset--color--neutral-200) 0% 25%, 
+                         transparent 0% 50%) 50% / 16px 16px
+
+/* Grid */
+conic-gradient(from 90deg at 1px 1px, transparent 90deg, 
+               var(--wp--custom--gradient-grid--color, var(--wp--preset--color--neutral-100)) 0) 
+               -1px -1px / var(--wp--custom--gradient-grid--size, 40px) 
+               var(--wp--custom--gradient-grid--size, 40px)
+```
+
+## Usage in Blocks
+
+Apply gradients in the block editor:
+
+<Steps>
+  <Step title="Select a block">
+    Click on a block that supports background gradients (Group, Cover, Columns, etc.).
+  </Step>
+  <Step title="Open Color settings">
+    In the Settings sidebar, expand the **Color** section.
+  </Step>
+  <Step title="Select Background">
+    Click on **Background** and switch to the **Gradient** tab.
+  </Step>
+  <Step title="Choose a preset">
+    Select from the available gradient presets or create a custom gradient.
+  </Step>
+</Steps>
+
+## Usage in CSS
+
+```css
+.my-hero {
+  background: var(--wp--preset--gradient--primary-700-500);
+}
+
+.my-overlay {
+  background: var(--wp--preset--gradient--transparent-background);
+}
+
+.my-pattern-bg {
+  background: var(--wp--preset--gradient--grid);
+}
+```
+
+## Grid Gradient Customization
+
+The grid gradient supports custom properties for size and color:
+
+```css
+.custom-grid {
+  --wp--custom--gradient-grid--size: 60px;
+  --wp--custom--gradient-grid--color: var(--wp--preset--color--primary-100);
+  background: var(--wp--preset--gradient--grid);
+}
+```
+
+<Tip>
+Use the fade gradients (Fade Left, Fade Right, Background/Transparent) for smooth transitions and overlay effects on images and sections.
+</Tip>

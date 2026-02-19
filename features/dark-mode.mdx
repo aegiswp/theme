@@ -1,0 +1,52 @@
+---
+title: "Dark Mode"
+description: "Intelligent dark mode that adapts to user system preferences"
+---
+
+## Overview
+
+Dark mode in Aegis is:
+
+- **Automatic** — Detects `prefers-color-scheme: dark` from the user's OS
+- **Zero JavaScript** — Default behavior requires no JS toggle
+- **Token-based** — All color tokens remap automatically
+- **FOUC-free** — No flash of light mode on page load
+
+## Configuration
+
+Dark mode settings are available in the page editor sidebar under Aegis settings:
+
+| Setting | Description |
+|---------|-------------|
+| **Enable/Disable** | Toggle dark mode support globally |
+| **Per-Page Override** | Disable dark mode on specific pages |
+| **Custom Colors** | Override specific dark mode color mappings |
+
+## Best Practices
+
+1. **Always use Aegis color tokens** — Hardcoded hex values won't adapt to dark mode
+2. **Test both modes** — Use OS settings or browser DevTools to toggle `prefers-color-scheme`
+3. **Check contrast** — Ensure text remains readable in both modes
+4. **Consider images** — Some images may need alternate versions or CSS filters for dark backgrounds
+
+## For Developers
+
+To detect dark mode in custom CSS:
+
+```css
+@media (prefers-color-scheme: dark) {
+  .my-custom-element {
+    background: var(--wp--preset--color--neutral-900);
+  }
+}
+```
+
+To detect dark mode in JavaScript:
+
+```js
+const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+```
+
+<Tip>
+For the design token details of dark mode color mappings, see the Design System → Dark Mode section.
+</Tip>

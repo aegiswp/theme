@@ -1,0 +1,170 @@
+---
+title: "Commands"
+description: "Development commands for building, testing, and managing Aegis"
+---
+
+## Build Commands
+
+| Command | Description |
+|---------|-------------|
+| `npm run build` | Build production assets |
+| `npm run build:dev` | Build development assets |
+| `npm run dev` | Watch for changes and rebuild |
+
+## Environment Commands
+
+| Command | Description |
+|---------|-------------|
+| `npm run env:start` | Start WordPress environment |
+| `npm run env:stop` | Stop WordPress environment |
+| `npm run env:restart` | Restart WordPress environment |
+| `npm run env:install` | Install WordPress (first time setup) |
+| `npm run env:destroy` | Remove environment and data |
+
+## WP-CLI Commands
+
+Run WP-CLI commands through npm:
+
+```bash
+npm run env:cli <command>
+```
+
+### Examples
+
+```bash
+# Get help
+npm run env:cli help
+
+# List plugins
+npm run env:cli plugin list
+
+# Activate a plugin
+npm run env:cli plugin activate plugin-name
+
+# Export database
+npm run env:cli db export backup.sql
+
+# Clear cache
+npm run env:cli cache flush
+```
+
+## Linting Commands
+
+### CSS
+
+```bash
+# Lint CSS files
+npm run lint:css
+
+# Auto-fix CSS issues
+npm run lint:css -- --fix
+```
+
+### PHP
+
+```bash
+# Check PHP syntax
+composer run lint
+
+# Check coding standards
+composer run standards:check
+
+# Auto-fix standards issues
+composer run standards:fix
+
+# Static analysis
+composer run analyze
+composer run analyze path/to/file.php
+```
+
+## Testing Commands
+
+```bash
+# Run PHP tests
+npm run test:php
+
+# Run end-to-end tests
+npm run test:e2e
+```
+
+## Translation Commands
+
+```bash
+# Generate POT file
+npm run env:cli i18n make-pot . languages/aegis.pot --domain=aegis
+```
+
+## Package Commands
+
+```bash
+# Create distribution zip
+npm run package
+
+# Clean build artifacts
+npm run clean
+```
+
+## Composer Scripts
+
+| Command | Description |
+|---------|-------------|
+| `composer install` | Install PHP dependencies |
+| `composer update` | Update PHP dependencies |
+| `composer run lint` | Check PHP syntax |
+| `composer run analyze` | Static analysis with PHPStan |
+| `composer run standards:check` | Check WordPress coding standards |
+| `composer run standards:fix` | Fix coding standards issues |
+
+## npm Scripts Reference
+
+Full list of available npm scripts:
+
+```json
+{
+  "scripts": {
+    "build": "Build production assets",
+    "build:dev": "Build development assets",
+    "dev": "Watch and rebuild on changes",
+    "lint:css": "Lint stylesheets",
+    "env:start": "Start Docker environment",
+    "env:stop": "Stop Docker environment",
+    "env:restart": "Restart Docker environment",
+    "env:install": "Install WordPress",
+    "env:destroy": "Remove environment",
+    "env:cli": "Run WP-CLI command",
+    "test:php": "Run PHP unit tests",
+    "test:e2e": "Run end-to-end tests"
+  }
+}
+```
+
+## Common Workflows
+
+### Starting Development
+
+```bash
+# Start environment and watch for changes
+npm run env:start
+npm run dev
+```
+
+### Before Committing
+
+```bash
+# Run all checks
+npm run lint:css
+composer run standards:check
+npm run test:php
+```
+
+### Creating a Release
+
+```bash
+# Build and package
+npm run build
+npm run package
+```
+
+<Tip>
+Create shell aliases for frequently used commands to speed up your workflow.
+</Tip>

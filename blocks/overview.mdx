@@ -1,0 +1,131 @@
+---
+title: "Blocks Overview"
+description: "Understanding blocks in Aegis: enhanced core blocks, custom blocks, and variations"
+---
+
+## Block Architecture
+
+Aegis extends WordPress blocks in three ways:
+
+1. **Enhanced Core Blocks** - Extended functionality for WordPress core blocks
+2. **Custom Blocks** - New blocks built specifically for Aegis
+3. **Block Variations** - Specialized versions of existing blocks
+
+## Enhanced Core Blocks
+
+Aegis extends 37 WordPress core blocks with additional features:
+
+| Category | Blocks |
+|----------|--------|
+| Text | Paragraph, Heading, List, Code, Preformatted, Quote, Pullquote |
+| Media | Image, Video, Audio, Cover |
+| Layout | Group, Columns, Column, Buttons, Button, Spacer |
+| Navigation | Navigation, Navigation Submenu, Page List |
+| Query | Query, Post Template, Post Title, Post Content, Post Excerpt, Post Featured Image, Post Date, Post Author, Post Terms |
+| Theme | Site Logo, Site Title, Template Part |
+| Other | Search, Separator, Social Links, Social Link, Table of Contents, Tag Cloud |
+
+See [Enhanced Core Blocks](/blocks/enhanced-core-blocks) for details.
+
+## Custom Blocks
+
+Aegis includes 3 custom blocks:
+
+| Block | Name | Description |
+|-------|------|-------------|
+| Modal | `aegis/modal` | Accessible modal dialogs |
+| Slider | `aegis/slider` | Responsive carousels |
+| Slide | `aegis/slide` | Individual slides |
+
+See [Custom Blocks](/blocks/custom-blocks) for details.
+
+## Block Variations
+
+Aegis provides 9 block variations:
+
+| Variation | Base Block | Purpose |
+|-----------|------------|---------|
+| Accordion List | `core/list` | Collapsible content |
+| Counter | `core/paragraph` | Animated numbers |
+| Curved Text | `core/paragraph` | Text on curved path |
+| Grid | `core/group` | CSS Grid layouts |
+| Icon | `core/image` | Inline SVG icons |
+| Marquee | `core/group` | Scrolling ticker |
+| Newsletter | `core/group` | Signup forms |
+| Related Posts | `core/query` | Related content |
+| SVG | `core/image` | Inline SVG rendering |
+
+See [Block Variations](/blocks/block-variations) for details.
+
+## Block Settings
+
+Aegis adds additional settings to blocks through the BlockSettings system:
+
+- **Box Shadows** - Apply shadow presets to any block
+- **Absolute Positioning** - Position blocks absolutely within containers
+- **CSS Transforms** - Scale, rotate, and translate blocks
+- **CSS Filters** - Apply blur, brightness, contrast effects
+
+## Using Blocks
+
+### In the Editor
+
+<Steps>
+  <Step title="Open inserter">
+    Click **+** or press `/` to open the block inserter.
+  </Step>
+  <Step title="Search or browse">
+    Find blocks by name or browse categories.
+  </Step>
+  <Step title="Insert">
+    Click to add the block at cursor position.
+  </Step>
+  <Step title="Configure">
+    Use the toolbar and sidebar to customize.
+  </Step>
+</Steps>
+
+### Block Categories
+
+Aegis blocks appear in these inserter categories:
+
+- **Aegis** - Custom Aegis blocks
+- **Text** - Enhanced text blocks
+- **Media** - Enhanced media blocks
+- **Design** - Layout and design blocks
+
+## Block Supports
+
+Aegis enables comprehensive block supports:
+
+```json
+{
+  "settings": {
+    "appearanceTools": true,
+    "border": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true
+    },
+    "color": {
+      "link": true,
+      "customGradient": true
+    },
+    "spacing": {
+      "blockGap": true,
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "customFontSize": true,
+      "lineHeight": true,
+      "dropCap": true
+    }
+  }
+}
+```
+
+<Tip>
+Most blocks in Aegis support the full range of appearance controls. Check the block's sidebar settings for available options.
+</Tip>

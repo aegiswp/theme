@@ -1,0 +1,237 @@
+---
+title: "theme.json Settings"
+description: "Complete reference for Aegis theme.json settings configuration"
+---
+
+## Overview
+
+The `settings` section of `theme.json` defines available options, presets, and controls in the Site Editor.
+
+## Schema and Version
+
+```json
+{
+  "$schema": "https://schemas.wp.org/wp/6.8/theme.json",
+  "version": 3
+}
+```
+
+## Appearance Tools
+
+```json
+{
+  "settings": {
+    "appearanceTools": true
+  }
+}
+```
+
+Enables: border, color link, spacing (margin, padding, blockGap), typography (lineHeight), and dimensions (minHeight).
+
+## Border Settings
+
+```json
+{
+  "settings": {
+    "border": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true
+    }
+  }
+}
+```
+
+## Color Settings
+
+```json
+{
+  "settings": {
+    "color": {
+      "customDuotone": true,
+      "defaultDuotone": false,
+      "customGradient": true,
+      "defaultGradients": false,
+      "defaultPalette": false,
+      "link": true,
+      "palette": [...],
+      "duotone": [],
+      "gradients": [...]
+    }
+  }
+}
+```
+
+### Palette
+
+36 colors organized into:
+
+- **Primary** (12): `primary-950` to `primary-25`
+- **Neutral** (12): `neutral-950` to `neutral-0`
+- **Semantic** (9): Success, Warning, Error variants
+- **Utility** (3): `transparent`, `current`, `inherit`
+
+### Gradients
+
+12 gradient presets including:
+
+- Primary gradients
+- Neutral gradients
+- Fade effects
+- Pattern gradients (checkerboard, grid)
+
+## Layout Settings
+
+```json
+{
+  "settings": {
+    "layout": {
+      "contentSize": "min(calc(100dvw - var(--wp--preset--spacing--lg,2rem) * 2), 720px)",
+      "wideSize": "min(calc(100vw - var(--wp--preset--spacing--lg,2rem) * 2), 1620px)"
+    },
+    "useRootPaddingAwareAlignments": true
+  }
+}
+```
+
+## Position Settings
+
+```json
+{
+  "settings": {
+    "position": {
+      "sticky": false
+    }
+  }
+}
+```
+
+## Shadow Settings
+
+```json
+{
+  "settings": {
+    "shadow": {
+      "defaultPresets": false,
+      "presets": [
+        { "name": "None", "slug": "none", "shadow": "none" },
+        { "name": "XX Small", "slug": "xxs", "shadow": "..." },
+        { "name": "X Small", "slug": "xs", "shadow": "..." },
+        { "name": "Small", "slug": "sm", "shadow": "..." },
+        { "name": "Medium", "slug": "md", "shadow": "..." },
+        { "name": "Large", "slug": "lg", "shadow": "..." },
+        { "name": "X Large", "slug": "xl", "shadow": "..." },
+        { "name": "XX Large", "slug": "xxl", "shadow": "..." }
+      ]
+    }
+  }
+}
+```
+
+## Spacing Settings
+
+```json
+{
+  "settings": {
+    "spacing": {
+      "blockGap": true,
+      "margin": true,
+      "padding": true,
+      "units": ["%", "em", "px", "rem", "vh", "vw"],
+      "customSpacingSize": true,
+      "spacingScale": {
+        "operator": "*",
+        "increment": 0,
+        "steps": 0,
+        "mediumStep": 0,
+        "unit": "px"
+      },
+      "spacingSizes": [
+        { "name": "XXS (8px)", "slug": "xxs", "size": "var(--wp--preset--font-size--8)" },
+        { "name": "XS (16px)", "slug": "xs", "size": "var(--wp--preset--font-size--16)" },
+        { "name": "S (24px)", "slug": "sm", "size": "var(--wp--preset--font-size--24)" },
+        { "name": "M (32px)", "slug": "md", "size": "var(--wp--preset--font-size--32)" },
+        { "name": "L (48px)", "slug": "lg", "size": "var(--wp--preset--font-size--48)" },
+        { "name": "XL (64px)", "slug": "xl", "size": "var(--wp--preset--font-size--64)" },
+        { "name": "XXL (96px)", "slug": "xxl", "size": "var(--wp--preset--font-size--96)" }
+      ]
+    }
+  }
+}
+```
+
+## Typography Settings
+
+```json
+{
+  "settings": {
+    "typography": {
+      "customFontSize": true,
+      "defaultFontSizes": false,
+      "dropCap": true,
+      "lineHeight": true,
+      "writingMode": true,
+      "fluid": false,
+      "fontSizes": [...],
+      "fontFamilies": [...]
+    }
+  }
+}
+```
+
+### Font Sizes
+
+22 fluid font sizes from 8px to 96px plus `inherit`.
+
+### Font Families
+
+| Name | Slug | Stack |
+|------|------|-------|
+| Lexend | `lexend` | `Lexend, sans-serif` |
+| JetBrains | `jetbrains` | `JetBrains, monospace` |
+
+## Custom Settings
+
+```json
+{
+  "settings": {
+    "custom": {
+      "spacing": { "gap": "var(--wp--style--block-gap)" },
+      "border": {
+        "width": "1px",
+        "style": "solid",
+        "color": "var(--wp--preset--color--neutral-200)",
+        "radius": "6px"
+      },
+      "boxShadow": {
+        "color": "var(--wp--preset--color--custom-shadow,#6b728011)",
+        "x": "0",
+        "y": "4px",
+        "blur": "16px",
+        "spread": "0"
+      },
+      "fontWeight": {
+        "black": 900,
+        "extraBold": 800,
+        "bold": 700,
+        "semiBold": 600,
+        "medium": 500,
+        "regular": 400,
+        "light": 300,
+        "extraLight": 200,
+        "thin": 100
+      },
+      "transition": {
+        "property": "all",
+        "duration": "0.1s",
+        "timingFunction": "ease-in"
+      }
+    }
+  }
+}
+```
+
+<Tip>
+Custom settings generate CSS custom properties prefixed with `--wp--custom--`.
+</Tip>

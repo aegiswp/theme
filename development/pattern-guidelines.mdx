@@ -1,0 +1,297 @@
+---
+title: "Pattern Guidelines"
+description: "Guidelines for creating block patterns in Aegis"
+---
+
+## Overview
+
+This guide covers best practices for creating block patterns that are consistent, accessible, and maintainable.
+
+## Pattern File Structure
+
+```php
+<?php
+/**
+ * Title: Pattern Name
+ * Slug: aegis/pattern-name
+ * Categories: category-slug
+ * Description: Brief description of the pattern.
+ * Keywords: search, keywords
+ * Viewport Width: 1280
+ * Block Types: core/template-part/header
+ * Post Types: page, post
+ * Template Types: front-page
+ * Inserter: yes
+ */
+?>
+<!-- Block markup -->
+```
+
+## Category Selection
+
+Use WordPress default categories:
+
+| Slug | Use For |
+|------|---------|
+| `featured` | Highlighted patterns |
+| `header` | Site headers |
+| `footer` | Site footers |
+| `call-to-action` | CTA sections |
+| `testimonials` | Testimonials |
+| `team` | Team displays |
+| `gallery` | Image galleries |
+| `posts` | Blog layouts |
+| `text` | Text-focused sections |
+| `about` | About sections |
+| `contact` | Contact sections |
+
+Multiple categories:
+
+```php
+* Categories: featured, call-to-action
+```
+
+## Hidden Patterns
+
+For utility patterns not shown in inserter:
+
+```php
+/**
+ * Title: Hidden Utility
+ * Slug: aegis/hidden-utility
+ * Inserter: no
+ */
+```
+
+<Note>
+Prefix hidden pattern filenames with `hidden-` for easy identification.
+</Note>
+
+## Translation Functions
+
+### esc_html_x()
+
+For text with translation context:
+
+```php
+<?php echo esc_html_x('Read More', 'Button text', 'aegis'); ?>
+```
+
+### esc_html__()
+
+For simple translatable text:
+
+```php
+<?php echo esc_html__('Welcome to our site', 'aegis'); ?>
+```
+
+### esc_attr__() and esc_attr_x()
+
+For HTML attributes:
+
+```php
+alt="<?php echo esc_attr_x('Hero image', 'Image alt text', 'aegis'); ?>"
+```
+
+### esc_html_e()
+
+For direct output:
+
+```php
+<p><?php esc_html_e('Contact us today.', 'aegis'); ?></p>
+```
+
+### HTML in Translations
+
+For strings with HTML:
+
+```php
+<?php echo wp_kses_post(__('Learn <em>more</em> about us.', 'aegis')); ?>
+```
+
+## Images in Patterns
+
+### Dynamic Paths
+
+Use `get_template_directory_uri()`:
+
+```php
+<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/hero.webp" 
+     alt="<?php echo esc_attr_x('Hero background', 'alt text', 'aegis'); ?>"/>
+```
+
+### Image Requirements
+
+- Include alt text for accessibility
+- Remove image IDs for portability
+- Use WebP format when possible
+- Optimize file sizes
+
+### Before/After
+
+```html
+<!-- Before (not portable) -->
+<!-- wp:image {"id":125,"sizeSlug":"large"} -->
+<figure class="wp-block-image size-large">
+    <img src="https://example.com/wp-content/uploads/image.jpg" alt="" class="wp-image-125"/>
+</figure>
+<!-- /wp:image -->
+
+<!-- After (portable) -->
+<!-- wp:image {"sizeSlug":"large"} -->
+<figure class="wp-block-image size-large">
+    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/image.webp" 
+         alt="<?php echo esc_attr_x('Description', 'alt text', 'aegis'); ?>"/>
+</figure>
+<!-- /wp:image -->
+```
+
+## Block Attributes
+
+### Remove queryId
+
+```html
+<!-- Before -->
+<!-- wp:query {"queryId":18,"query":{...}} -->
+
+<!-- After -->
+<!-- wp:query {"query":{...}} -->
+```
+
+### Remove theme Attribute
+
+```html
+<!-- Before -->
+<!-- wp:template-part {"slug":"header","theme":"aegis","area":"header"} /-->
+
+<!-- After -->
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+```
+
+## Using Presets
+
+### Colors
+
+```html
+<!-- Good: Uses preset -->
+{"backgroundColor":"primary-100"}
+
+<!-- Bad: Hardcoded -->
+{"style":{"color":{"background":"#edf0f2"}}}
+```
+
+### Spacing
+
+```html
+<!-- Good: Uses preset -->
+{"style":{"spacing":{"padding":"var:preset|spacing|lg"}}}
+
+<!-- Bad: Hardcoded -->
+{"style":{"spacing":{"padding":"48px"}}}
+```
+
+### Typography
+
+```html
+<!-- Good: Uses preset -->
+{"fontSize":"24"}
+
+<!-- Bad: Hardcoded -->
+{"style":{"typography":{"fontSize":"24px"}}}
+```
+
+## Block Types and Template Types
+
+### Block Types
+
+Suggest pattern for specific blocks:
+
+```php
+* Block Types: core/post-content
+```
+
+For template parts:
+
+```php
+* Block Types: core/template-part/header
+* Block Types: core/template-part/footer
+```
+
+### Template Types
+
+Suggest for specific templates:
+
+```php
+* Template Types: front-page, home
+* Template Types: 404
+* Template Types: single
+```
+
+### Post Types
+
+Limit to specific post types:
+
+```php
+* Post Types: page
+* Post Types: page, post
+```
+
+## File Naming
+
+### Conventions
+
+- Lowercase with hyphens
+- Descriptive names
+- Category prefix for organization
+
+### Examples
+
+```
+patterns/
+├── header/
+│   ├── header-default.php
+│   ├── header-centered.php
+│   └── header-transparent.php
+├── hero/
+│   ├── hero-default.php
+│   └── hero-split.php
+└── hidden/
+    └── hidden-utility.php
+```
+
+## Inserter Order
+
+Patterns appear alphabetically by filename. To control order:
+
+```
+01-featured-pattern.php
+02-secondary-pattern.php
+03-tertiary-pattern.php
+```
+
+## Best Practices
+
+<Tip>
+Centralize common properties in `theme.json` instead of repeating them in patterns.
+</Tip>
+
+### Consistency
+
+- Use consistent spacing
+- Follow color system
+- Maintain typography hierarchy
+- Match existing pattern styles
+
+### Accessibility
+
+- Proper heading hierarchy (start with H2 in patterns)
+- Alt text for all images
+- Sufficient color contrast
+- Keyboard-accessible interactions
+
+### Performance
+
+- Optimize images
+- Minimize nested blocks
+- Use efficient markup
+- Test loading performance

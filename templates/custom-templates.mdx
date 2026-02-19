@@ -1,0 +1,198 @@
+---
+title: "Custom Templates"
+description: "Create and manage custom templates for specific use cases"
+---
+
+## Registered Custom Templates
+
+Aegis registers these custom templates in `theme.json`:
+
+```json
+{
+  "customTemplates": [
+    {
+      "title": "Blank",
+      "name": "blank",
+      "postTypes": ["page", "post"]
+    },
+    {
+      "title": "Full Width",
+      "name": "full-width",
+      "postTypes": ["page", "post"]
+    },
+    {
+      "title": "Archive: Product",
+      "name": "archive-product"
+    },
+    {
+      "title": "Single item: Product",
+      "name": "single-product"
+    }
+  ]
+}
+```
+
+## Creating Custom Templates
+
+### Via Site Editor
+
+<Steps>
+  <Step title="Open Site Editor">
+    Navigate to **Appearance → Editor**.
+  </Step>
+  <Step title="Go to Templates">
+    Click **Templates** in the sidebar.
+  </Step>
+  <Step title="Add New Template">
+    Click the **+** button or **Add New**.
+  </Step>
+  <Step title="Choose template type">
+    Select the post type or create a general template.
+  </Step>
+  <Step title="Build your layout">
+    Add blocks to create your custom design.
+  </Step>
+  <Step title="Save">
+    Give it a name and save.
+  </Step>
+</Steps>
+
+### Via Theme Files
+
+Create a new HTML file in the `templates/` directory:
+
+```html
+<!-- templates/my-custom-template.html -->
+
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group">
+  <!-- Your custom layout here -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
+```
+
+Register it in `theme.json`:
+
+```json
+{
+  "customTemplates": [
+    {
+      "title": "My Custom Template",
+      "name": "my-custom-template",
+      "postTypes": ["page"]
+    }
+  ]
+}
+```
+
+## WooCommerce Templates
+
+Aegis includes templates for WooCommerce integration:
+
+### Archive: Product
+
+Displays the shop page and product category listings:
+
+- Product grid layout
+- Filtering and sorting
+- Pagination
+
+### Single: Product
+
+Displays individual product pages:
+
+- Product images
+- Title and price
+- Add to cart
+- Product details
+
+### Search: Product
+
+Displays product search results with WooCommerce-specific formatting.
+
+### Taxonomy Templates
+
+- **taxonomy-product_cat.html** - Product category archives
+- **taxonomy-product_tag.html** - Product tag archives
+
+## Template Best Practices
+
+### Use Template Parts
+
+Keep templates DRY by using template parts for repeated sections:
+
+```html
+<!-- Good: Use template parts -->
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- Bad: Duplicate header code in every template -->
+```
+
+### Semantic HTML
+
+Use appropriate HTML elements:
+
+```html
+<!-- wp:group {"tagName":"main"} -->
+<main class="wp-block-group">
+  <!-- Main content -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:group {"tagName":"article"} -->
+<article class="wp-block-group">
+  <!-- Article content -->
+</article>
+<!-- /wp:group -->
+```
+
+### Constrained Layouts
+
+Use constrained layouts for content areas:
+
+```html
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+<div class="wp-block-group">
+  <!-- Content respects contentSize -->
+</div>
+<!-- /wp:group -->
+```
+
+### Inherit Query
+
+For archive templates, inherit the main query:
+
+```html
+<!-- wp:query {"query":{"inherit":true}} -->
+```
+
+<Warning>
+Remove `queryId` attributes from query blocks to ensure templates work correctly across different contexts.
+</Warning>
+
+## Exporting Templates
+
+Export your custom templates to use in other sites:
+
+<Steps>
+  <Step title="Open Site Editor">
+    Go to **Appearance → Editor**.
+  </Step>
+  <Step title="Open Options">
+    Click the three-dot menu (⋮).
+  </Step>
+  <Step title="Export">
+    Select **Export** under Tools.
+  </Step>
+  <Step title="Download">
+    Save the `.zip` file containing all templates.
+  </Step>
+</Steps>
+
+<Tip>
+The exported templates can be added to a child theme's `templates/` directory for version control and portability.
+</Tip>

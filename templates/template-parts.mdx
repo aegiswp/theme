@@ -1,0 +1,155 @@
+---
+title: "Template Parts"
+description: "Reusable template sections for headers, footers, and other common areas"
+---
+
+## Overview
+
+Template parts are reusable sections of a template that can be shared across multiple templates. Aegis defines template parts for the header, footer, and other common areas.
+
+## Available Template Parts
+
+| Part | File | Area | Description |
+|------|------|------|-------------|
+| **Header** | `parts/header.html` | `header` | Site header with logo, navigation, and search |
+| **Footer** | `parts/footer.html` | `footer` | Site footer with links and copyright |
+| **Main** | — | `uncategorized` | Main content area (registered but no default file) |
+| **Mini Cart** | `parts/mini-cart.html` | `uncategorized` | WooCommerce mini cart sidebar |
+
+## Template Part Areas
+
+WordPress defines three standard template part areas:
+
+| Area | Description |
+|------|-------------|
+| `header` | Site header — appears at the top of templates |
+| `footer` | Site footer — appears at the bottom of templates |
+| `uncategorized` | General purpose — for any reusable section |
+
+## Registration
+
+Template parts are registered in `theme.json` under `templateParts`:
+
+```json
+{
+  "templateParts": [
+    {
+      "area": "header",
+      "name": "header",
+      "title": "Header"
+    },
+    {
+      "area": "footer",
+      "name": "footer",
+      "title": "Footer"
+    },
+    {
+      "area": "uncategorized",
+      "name": "main",
+      "title": "Main"
+    },
+    {
+      "area": "uncategorized",
+      "name": "mini-cart",
+      "title": "Mini Cart"
+    }
+  ]
+}
+```
+
+## Using Template Parts in Templates
+
+Reference a template part in any template using the Template Part block:
+
+```html
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+```
+
+<Warning>
+Do not include the `theme` attribute — this makes the template part portable across themes.
+</Warning>
+
+```html
+<!-- Correct -->
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- Incorrect -->
+<!-- wp:template-part {"slug":"header","theme":"aegis","area":"header"} /-->
+```
+
+## Editing Template Parts
+
+### Via Site Editor
+
+<Steps>
+  <Step title="Navigate to template parts">
+    Go to **Appearance → Editor → Patterns → Template Parts**.
+  </Step>
+  <Step title="Select a part">
+    Click any template part to edit it.
+  </Step>
+  <Step title="Save changes">
+    Changes are saved to the database, overriding the theme file.
+  </Step>
+  <Step title="Reset if needed">
+    Click **Reset** to revert to the theme's original.
+  </Step>
+</Steps>
+
+### Via Theme Files
+
+Edit the HTML files in the `parts/` directory. Changes take effect immediately unless a database override exists.
+
+## Creating Custom Template Parts
+
+### 1. Create the HTML File
+
+Add a new `.html` file in the `parts/` directory:
+
+```html
+<!-- parts/sidebar.html -->
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+<div class="wp-block-group">
+  <!-- Sidebar content blocks -->
+</div>
+<!-- /wp:group -->
+```
+
+### 2. Register in theme.json
+
+Add the template part to the `templateParts` array:
+
+```json
+{
+  "templateParts": [
+    {
+      "area": "uncategorized",
+      "name": "sidebar",
+      "title": "Sidebar"
+    }
+  ]
+}
+```
+
+### 3. Use in Templates
+
+Reference the new template part in any template:
+
+```html
+<!-- wp:template-part {"slug":"sidebar"} /-->
+```
+
+## Header Styles
+
+Aegis supports multiple header configurations:
+
+- **Default** — Standard header with navigation
+- **Transparent** — Overlay header with transparent background
+- **Absolute** — Absolutely positioned header overlaying content
+- **Sticky** — Header that sticks to the top on scroll
+
+These are achieved through block supports (absolute positioning, background color) and CSS classes applied to the header template part.
+
+## Pattern Suggestions
+
+When editing a template part in the Site Editor, WordPress suggests patterns that match the template part's area. For example, editing the header template part will suggest all patterns with `Block Types: core/template-part/header`.

@@ -1,0 +1,172 @@
+---
+title: "Shadow Tokens"
+description: "Complete reference of shadow CSS custom properties in Aegis"
+---
+
+## Overview
+
+Aegis provides 8 shadow presets for creating depth and elevation effects.
+
+## Shadow Tokens
+
+| Token | Name | Value |
+|-------|------|-------|
+| `--wp--preset--shadow--none` | None | `none` |
+| `--wp--preset--shadow--xxs` | XX Small | `0 1px 2px 0 var(--wp--custom--box-shadow--color)` |
+| `--wp--preset--shadow--xs` | X Small | `0 1px 2px var(--wp--custom--box-shadow--color), 0 2px 4px 0 var(--wp--custom--box-shadow--color)` |
+| `--wp--preset--shadow--sm` | Small | `0 1px 2px 0 var(--wp--custom--box-shadow--color), 0 4px 12px -4px var(--wp--custom--box-shadow--color)` |
+| `--wp--preset--shadow--md` | Medium | `0 1px 2px 0 var(--wp--custom--box-shadow--color), 0 4px 8px var(--wp--custom--box-shadow--color)` |
+| `--wp--preset--shadow--lg` | Large | `0 2px 4px 0 var(--wp--custom--box-shadow--color), 0 8px 24px var(--wp--custom--box-shadow--color)` |
+| `--wp--preset--shadow--xl` | X Large | `0 4px 8px -4px var(--wp--custom--box-shadow--color), 0 16px 24px -4px var(--wp--custom--box-shadow--color)` |
+| `--wp--preset--shadow--xxl` | XX Large | `0 4px 8px 0 var(--wp--custom--box-shadow--color), 0 24px 48px 0 var(--wp--custom--box-shadow--color)` |
+
+## Shadow Color
+
+All shadows use a customizable color token:
+
+```css
+--wp--custom--box-shadow--color: var(--wp--preset--color--custom-shadow, #6b728011);
+```
+
+Default is a semi-transparent gray.
+
+## Usage Examples
+
+### CSS
+
+```css
+.card {
+    box-shadow: var(--wp--preset--shadow--sm);
+}
+
+.card:hover {
+    box-shadow: var(--wp--preset--shadow--md);
+}
+
+.modal {
+    box-shadow: var(--wp--preset--shadow--xxl);
+}
+
+.dropdown {
+    box-shadow: var(--wp--preset--shadow--xl);
+}
+```
+
+### Block Editor
+
+In block attributes:
+
+```json
+{
+    "shadow": "var:preset|shadow|md"
+}
+```
+
+### theme.json
+
+```json
+{
+    "styles": {
+        "blocks": {
+            "core/group": {
+                "shadow": "var(--wp--preset--shadow--sm)"
+            }
+        }
+    }
+}
+```
+
+## Shadow Scale
+
+| Level | Use Case |
+|-------|----------|
+| None | Remove shadow |
+| XXS | Subtle depth for small elements |
+| XS | Light depth for cards |
+| SM | Default card shadow |
+| MD | Elevated cards, hover states |
+| LG | Floating elements |
+| XL | Dropdowns, popovers |
+| XXL | Modals, dialogs |
+
+## Custom Shadow Color
+
+Override the shadow color:
+
+### CSS
+
+```css
+:root {
+    --wp--custom--box-shadow--color: rgba(0, 0, 0, 0.15);
+}
+```
+
+### Per-element
+
+```css
+.dark-shadow {
+    --wp--custom--box-shadow--color: rgba(0, 0, 0, 0.25);
+    box-shadow: var(--wp--preset--shadow--md);
+}
+```
+
+### theme.json
+
+```json
+{
+    "settings": {
+        "custom": {
+            "boxShadow": {
+                "color": "rgba(0, 0, 0, 0.1)"
+            }
+        }
+    }
+}
+```
+
+## Component Defaults
+
+| Component | Default Shadow |
+|-----------|----------------|
+| Surface overlay | `sm` |
+| Submenu dropdown | `xl` |
+| Input focus | `sm` |
+
+## Hover Transitions
+
+Create smooth shadow transitions:
+
+```css
+.card {
+    box-shadow: var(--wp--preset--shadow--sm);
+    transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: var(--wp--preset--shadow--lg);
+}
+```
+
+## Combining with Other Effects
+
+### With Border Radius
+
+```css
+.elevated-card {
+    border-radius: var(--wp--custom--border--radius);
+    box-shadow: var(--wp--preset--shadow--md);
+}
+```
+
+### With Background
+
+```css
+.floating-element {
+    background: var(--wp--preset--color--neutral-0);
+    box-shadow: var(--wp--preset--shadow--xl);
+}
+```
+
+<Tip>
+Use smaller shadows (XXS, XS, SM) for subtle depth and larger shadows (LG, XL, XXL) for elements that need to appear elevated above the page.
+</Tip>

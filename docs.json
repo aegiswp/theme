@@ -1,0 +1,245 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Aegis Theme",
+  "colors": {
+    "primary": "#6c757d",
+    "light": "#8d959d",
+    "dark": "#495057"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "index",
+              "quickstart",
+              "installation",
+              "requirements"
+            ]
+          },
+          {
+            "group": "Core Concepts",
+            "pages": [
+              "core/block-themes",
+              "core/site-editor",
+              "core/global-styles",
+              "core/theme-json"
+            ]
+          },
+          {
+            "group": "Design System",
+            "pages": [
+              "design/colors",
+              "design/typography",
+              "design/spacing",
+              "design/shadows",
+              "design/gradients",
+              "design/layout"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Features",
+        "groups": [
+          {
+            "group": "Templates",
+            "pages": [
+              "templates/overview",
+              "templates/templates",
+              "templates/template-parts",
+              "templates/page-templates",
+              "templates/archive-templates",
+              "templates/custom-templates"
+            ]
+          },
+          {
+            "group": "Patterns",
+            "pages": [
+              "patterns/overview",
+              "patterns/headers",
+              "patterns/footers",
+              "patterns/heroes",
+              "patterns/features",
+              "patterns/testimonials",
+              "patterns/cta",
+              "patterns/faq",
+              "patterns/blog",
+              "patterns/contact",
+              "patterns/pricing",
+              "patterns/team",
+              "patterns/portfolio",
+              "patterns/categories",
+              "patterns/creating-patterns"
+            ]
+          },
+          {
+            "group": "Blocks",
+            "pages": [
+              "blocks/overview",
+              "blocks/enhanced-core-blocks",
+              "blocks/custom-blocks",
+              "blocks/block-variations",
+              "features/block-supports"
+            ]
+          },
+          {
+            "group": "Theme Features",
+            "pages": [
+              "features/admin-panel",
+              "features/hook-patterns",
+              "features/conditional-logic",
+              "features/global-styles",
+              "features/navigation",
+              "features/search",
+              "features/svg-icons",
+              "features/dark-mode",
+              "features/responsive",
+              "features/performance",
+              "features/accessibility"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/overview",
+              "integrations/woocommerce",
+              "integrations/learndash",
+              "integrations/lifterlms",
+              "integrations/acf",
+              "integrations/rankmath",
+              "integrations/lms",
+              "integrations/seo",
+              "integrations/other"
+            ]
+          },
+          {
+            "group": "Plugins",
+            "pages": [
+              "plugins/aegis-docs",
+              "plugins/aegis-pro"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Development",
+        "groups": [
+          {
+            "group": "Setup",
+            "pages": [
+              "development/local-environment",
+              "development/commands",
+              "development/testing",
+              "development/architecture"
+            ]
+          },
+          {
+            "group": "Customization",
+            "pages": [
+              "development/child-themes",
+              "development/extending-blocks",
+              "development/custom-patterns",
+              "development/hooks-filters",
+              "development/rest-api"
+            ]
+          },
+          {
+            "group": "Contributing",
+            "pages": [
+              "development/contributing",
+              "development/code-standards",
+              "development/pattern-guidelines"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Reference",
+        "groups": [
+          {
+            "group": "Theme.json",
+            "pages": [
+              "reference/theme-json-settings",
+              "reference/theme-json-styles",
+              "reference/custom-properties"
+            ]
+          },
+          {
+            "group": "CSS Variables",
+            "pages": [
+              "reference/color-tokens",
+              "reference/typography-tokens",
+              "reference/spacing-tokens",
+              "reference/shadow-tokens"
+            ]
+          },
+          {
+            "group": "Framework",
+            "pages": [
+              "reference/framework-overview",
+              "reference/service-providers",
+              "reference/block-settings",
+              "reference/inline-assets"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "GitHub",
+          "href": "https://github.com/aegiswp/theme",
+          "icon": "github"
+        },
+        {
+          "anchor": "Releases",
+          "href": "https://github.com/aegiswp/theme/releases",
+          "icon": "rocket"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Community",
+        "href": "https://www.facebook.com/groups/aegiswp"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Download",
+      "href": "https://github.com/aegiswp/theme/releases"
+    }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/aegiswp",
+      "github": "https://github.com/aegiswp",
+      "facebook": "https://www.facebook.com/groups/aegiswp"
+    }
+  }
+}
