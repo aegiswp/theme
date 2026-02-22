@@ -6,3 +6,9 @@ contact_links:
   - name: Discussions
     url: https://github.com/aegiswp/theme/discussions
     about: For general questions and open discussion, use GitHub Discussions.
+  - name: Block Development Guide
+    url: https://github.com/aegiswp/theme/wiki/Block-Development
+    about: Learn how to develop custom blocks for the Aegis framework.
+  - name: Theme Setup Guide
+    url: https://github.com/aegiswp/theme/wiki/Theme-Setup
+    about: Step-by-step guide for setting up the Aegis theme.
