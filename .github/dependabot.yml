@@ -5,20 +5,61 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
+      time: "09:00"
     target-branch: "dev"
     open-pull-requests-limit: 5
+    reviewers:
+      - "aegiswp/core-team"
+    assignees:
+      - "aegiswp/core-team"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+    groups:
+      wordpress-dependencies:
+        patterns:
+          - "@wordpress/*"
+        dependency-type: "production"
+      development-dependencies:
+        dependency-type: "development"
 
   # Maintain Composer dependencies for PHP and WPCS
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "tuesday"
+      time: "09:00"
     target-branch: "dev"
     open-pull-requests-limit: 5
+    reviewers:
+      - "aegiswp/core-team"
+    assignees:
+      - "aegiswp/core-team"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+    groups:
+      php-coding-standards:
+        patterns:
+          - "wp-coding-standards/*"
+          - "dealerdirect/*"
+          - "squizlabs/*"
 
   # Keep GitHub Actions workflows up to date
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "monthly"
-    open-pull-requests-limit: 5
+      day: "wednesday"
+      time: "09:00"
+    target-branch: "dev"
+    open-pull-requests-limit: 3
+    reviewers:
+      - "aegiswp/core-team"
+    assignees:
+      - "aegiswp/core-team"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
