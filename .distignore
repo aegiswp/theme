@@ -53,13 +53,22 @@ phpunit.xml.dist
 stylelintrc.json
 .typos.toml
 tests/
+.nyc_output/
+coverage/
 
-# Block/editor source files (compiled output ships in src/blocks/*/index.js etc.)
-src/blocks/*/*.tsx
-src/blocks/*/*.ts
-src/blocks/*/*.scss
-src/editor/*.tsx
-src/editor/*.scss
+# Build artifacts and cache
+.cache/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+src/Blocks/editor/
+
+# Block/editor source files (compiled output ships in src/Blocks/*/index.js etc.)
+src/Blocks/*/*.tsx
+src/Blocks/*/*.ts
+src/Blocks/*/*.scss
+src/Admin/*.js
+src/Admin/*.scss
 
 # Playground/WordPress.org specific
 _playground/
