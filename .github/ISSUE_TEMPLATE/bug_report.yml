@@ -21,9 +21,28 @@ body:
       options:
         - Front-end (Live Site)
         - Site Editor (Admin UI)
+        - Block Editor
         - Both
     validations:
       required: true
+  - type: dropdown
+    id: affected-block
+    attributes:
+      label: Which block is affected? (if applicable)
+      options:
+        - "Not block-related"
+        - Countdown
+        - Map
+        - Modal
+        - Related Posts
+        - Slider
+        - Slide
+        - Toggle
+        - Toggle Content
+        - Video
+        - Multiple blocks
+    validations:
+      required: false
   - type: textarea
     id: steps
     attributes:
