@@ -18,7 +18,10 @@
 	"autoload": {
 		"psr-4": {
 			"Aegis\\": "src/"
-		}
+		},
+		"files": [
+			"src/bootstrap.php"
+		]
 	},
 	"require": {
 		"php": ">=7.4"
