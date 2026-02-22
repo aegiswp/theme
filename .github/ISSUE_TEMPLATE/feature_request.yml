@@ -22,13 +22,30 @@ body:
       label: Feature Scope
       description: What part of the theme does this primarily affect?
       options:
+        - New Block
+        - Existing Block Enhancement
         - Block Pattern (Layout)
         - Global Styles (theme.json / Design Tokens)
         - Template / Parts
         - Core Functionality (PHP / JS)
         - Documentation
+        - Developer Tooling
     validations:
       required: true
+  - type: dropdown
+    id: block-type
+    attributes:
+      label: Block Type (if applicable)
+      description: Which block category does this relate to?
+      options:
+        - "Not block-related"
+        - Content Blocks (Countdown, Modal, etc.)
+        - Media Blocks (Video, Slider, etc.)
+        - Navigation Blocks
+        - Layout Blocks
+        - Utility Blocks
+    validations:
+      required: false
   - type: textarea
     id: solution
     attributes:
