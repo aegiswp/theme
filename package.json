@@ -10,7 +10,7 @@
     "lint:css": "wp-scripts lint-style",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
     "format": "wp-scripts format",
-    "translate": "node scripts/translate.js"
+    "translate": "wp-scripts make-pot . languages/aegis.pot"
   },
   "keywords": [
     "WordPress",
