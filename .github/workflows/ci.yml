@@ -46,8 +46,9 @@ jobs:
       # Linting ensures theme.json and JS follow standards
       - name: Lint JS/TS & CSS
         run: |
-          npm run lint:ts --if-present
+          npm run lint:js --if-present
           npm run lint:css --if-present
+          npm run lint:pkg-json --if-present
 
       - name: Build theme
         run: npm run build --if-present
