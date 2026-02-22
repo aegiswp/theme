@@ -25,7 +25,7 @@ jobs:
           cache: 'npm'
 
       - name: Install System Dependencies
-        run: sudo apt-get install gettext -y
+        run: sudo apt-get update && sudo apt-get install gettext rsync -y
 
       - name: Install Node Dependencies
         run: npm ci
