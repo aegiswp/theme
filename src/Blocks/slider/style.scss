@@ -61,7 +61,7 @@
 
 // Editor styles.
 .aegis-slider-editor {
-	border: 1px dashed currentColor;
+	border: 1px dashed currentcolor;
 	border-radius: 4px;
 	padding: 16px;
 	opacity: 0.8;
@@ -84,6 +84,7 @@
 	}
 
 	&__preview {
+
 		.block-editor-inner-blocks {
 			display: flex;
 			gap: 8px;
@@ -112,7 +113,9 @@
 
 // Reduced motion.
 @media (prefers-reduced-motion: reduce) {
+
 	.wp-block-aegis-slider {
+
 		.splide__arrow,
 		.splide__pagination__page {
 			transition: none;
@@ -126,7 +129,9 @@
 
 // High contrast.
 @media (forced-colors: active) {
+
 	.wp-block-aegis-slider {
+
 		.splide__arrow {
 			border: 1px solid ButtonText;
 		}
