@@ -35,6 +35,9 @@ class ConditionalLogicSettings
 			'screen_size' => false,
 			'custom_breakpoints' => false,
 			'browser_device' => false,
+			'lockdown' => false,
+			'query_string' => false,
+			'specific_users' => false,
 		],
 		'accessibility' => [
 			'reduced_motion' => false,
@@ -49,6 +52,53 @@ class ConditionalLogicSettings
 		],
 		'schedule' => [
 			'date_time' => false,
+		],
+		'pro_conditions' => [
+			'cookie' => false,
+			'referral' => false,
+			'acf_field' => false,
+			'metabox_field' => false,
+			'post_meta' => false,
+			'user_meta' => false,
+			'advanced_location' => false,
+		],
+		'woocommerce' => [
+			'woo_cart' => false,
+			'woo_customer' => false,
+			'woo_product' => false,
+		],
+		'learndash' => [
+			'ld_enrollment' => false,
+			'ld_completion' => false,
+			'ld_progress' => false,
+			'ld_quiz' => false,
+			'ld_group' => false,
+		],
+		'lifterlms' => [
+			'llms_enrollment' => false,
+			'llms_completion' => false,
+			'llms_progress' => false,
+			'llms_membership' => false,
+		],
+		'sensei' => [
+			'sensei_enrollment' => false,
+			'sensei_completion' => false,
+			'sensei_progress' => false,
+			'sensei_quiz' => false,
+		],
+		'fluentforms' => [
+			'ff_submitted' => false,
+			'ff_count' => false,
+			'ff_field' => false,
+		],
+		'fluentbooking' => [
+			'fb_has_booking' => false,
+			'fb_upcoming' => false,
+			'fb_past' => false,
+			'fb_status' => false,
+		],
+		'image_source' => [
+			'image_source_order' => false,
 		],
 	];
 
@@ -69,6 +119,7 @@ class ConditionalLogicSettings
 		'fluent_forms' => false,
 		'learndash' => false,
 		'lifter_lms' => false,
+		'meta_box' => false,
 		'rank_math' => false,
 		'rank_math_video_sitemap' => false,
 		'sensei_lms' => false,
@@ -101,10 +152,22 @@ class ConditionalLogicSettings
 	];
 
 	/**
-	 * Custom blocks defaults - all disabled by default.
+	 * Option name for Google Maps API settings.
+	 */
+	public const GOOGLE_MAPS_OPTION = 'aegis_google_maps';
+
+	/**
+	 * Google Maps API settings defaults.
+	 */
+	public const GOOGLE_MAPS_DEFAULTS = [
+		'api_key' => '',
+	];
+
+	/**
+	 * Custom blocks defaults - parent blocks enabled, sub-features disabled by default.
 	 */
 	public const BLOCKS_DEFAULTS = [
-		'modal' => false,
+		'modal' => true,
 		'modal_click' => false,
 		'modal_icon' => false,
 		'modal_text' => false,
@@ -118,7 +181,7 @@ class ConditionalLogicSettings
 		'modal_auto_close' => false,
 		'modal_show_once' => false,
 		'modal_device_visibility' => false,
-		'slider' => false,
+		'slider' => true,
 		'slider_slide' => false,
 		'slider_fade' => false,
 		'slider_navigation' => false,
@@ -135,7 +198,7 @@ class ConditionalLogicSettings
 		'slider_lazy_load' => false,
 		'slider_arrow_styles' => false,
 		'slider_dot_styles' => false,
-		'toggle' => false,
+		'toggle' => true,
 		'toggle_pill' => false,
 		'toggle_switch' => false,
 		'toggle_buttons' => false,
@@ -157,7 +220,7 @@ class ConditionalLogicSettings
 		// 'global_styles_library' => false,
 		// 'global_styles_transfer' => false,
 		// 'global_styles_export' => false,
-		'query_loop' => false,
+		'query_loop' => true,
 		'query_loop_post_types' => false,
 		'query_loop_taxonomy' => false,
 		'query_loop_include_exclude' => false,
@@ -171,7 +234,6 @@ class ConditionalLogicSettings
 		'query_loop_extended_order' => false,
 		'query_loop_advanced_meta' => false,
 		'query_loop_date_query' => false,
-		'query_loop_related_posts' => false,
 		'query_loop_parent_child' => false,
 		'query_loop_acf_integration' => false,
 		'query_loop_ajax_pagination' => false,
@@ -180,6 +242,12 @@ class ConditionalLogicSettings
 		'query_loop_carousel_layout' => false,
 		'query_loop_woocommerce' => false,
 		'query_loop_performance' => false,
+		'related_posts' => true,
+		'related_posts_taxonomy_source' => false,
+		'related_posts_fallback' => false,
+		'related_posts_style_variants' => false,
+		'related_posts_excerpt_length' => false,
+		'related_posts_image_ratio' => false,
 		'video_custom_player' => false,
 		'video_theater_mode' => false,
 		'video_keyboard_shortcuts' => false,
@@ -197,41 +265,70 @@ class ConditionalLogicSettings
 		'video_multi_audio' => false,
 		'video_privacy' => false,
 		'video_sitemap' => false,
-		'accordion' => false,
+		'accordion' => true,
 		'accordion_open_first' => false,
 		'accordion_open_all' => false,
 		'accordion_icon' => false,
 		'accordion_border' => false,
 		'accordion_faq_schema' => false,
 		'accordion_single_open' => false,
-		'counter' => false,
+		'counter' => true,
 		'counter_prefix' => false,
 		'counter_suffix' => false,
 		'counter_delay' => false,
 		'counter_duration' => false,
 		'counter_intersection' => false,
-		'icon' => false,
+		'countdown' => true,
+		'countdown_segments' => false,
+		'countdown_labels' => false,
+		'countdown_separator' => false,
+		'countdown_layout' => false,
+		'countdown_expiry_message' => false,
+		'countdown_timezone' => false,
+		'icon' => true,
 		'icon_gradient' => false,
 		'icon_animation' => false,
 		'icon_custom_svg' => false,
 		'icon_gallery' => false,
 		'icon_responsive' => false,
 		'icon_rest_api' => false,
-		'marquee' => false,
+		'image_lightbox' => true,
+		'image_lightbox_gallery_nav' => false,
+		'image_lightbox_captions' => false,
+		'image_lightbox_zoom' => false,
+		'image_lightbox_thumbnails' => false,
+		'image_lightbox_swipe' => false,
+		'marquee' => true,
 		'marquee_pause_hover' => false,
 		'marquee_direction' => false,
 		'marquee_speed' => false,
 		'marquee_repeat' => false,
 		'marquee_responsive_speed' => false,
-		'newsletter' => false,
+		'newsletter' => true,
 		'newsletter_email_validation' => false,
 		'newsletter_success_message' => false,
 		'newsletter_placeholder' => false,
-		'svg' => false,
+		'svg' => true,
 		'svg_mask' => false,
 		'svg_onclick' => false,
 		'svg_inline' => false,
 		'svg_inline_file' => false,
+		'map' => true,
+		'map_markers' => false,
+		'map_styles' => false,
+		'map_controls' => false,
+		'map_osm_fallback' => false,
+		'map_directions' => false,
+		'map_store_locator' => false,
+		'map_geolocation' => false,
+		'map_heatmap' => false,
+		'map_drawing' => false,
+		'map_kml_geojson' => false,
+		'map_schema' => false,
+		'map_dynamic_markers' => false,
+		'map_custom_styles' => false,
+		'map_custom_icons' => false,
+		'map_clustering' => false,
 	];
 
 	/**
@@ -248,6 +345,8 @@ class ConditionalLogicSettings
 		add_action('wp_ajax_aegis_save_integrations', [$this, 'ajax_save_integrations']);
 		add_action('wp_ajax_aegis_save_blocks', [$this, 'ajax_save_blocks']);
 		add_action('wp_ajax_aegis_save_bunnycdn', [$this, 'ajax_save_bunnycdn']);
+		add_action('wp_ajax_aegis_save_google_maps', [$this, 'ajax_save_google_maps']);
+		add_action('wp_ajax_aegis_test_google_maps', [$this, 'ajax_test_google_maps']);
 		add_action('wp_ajax_aegis_export_settings', [$this, 'ajax_export_settings']);
 		add_action('wp_ajax_aegis_import_settings', [$this, 'ajax_import_settings']);
 
@@ -430,6 +529,97 @@ class ConditionalLogicSettings
 	}
 
 	/**
+	 * Handle AJAX save Google Maps settings.
+	 *
+	 * @return void
+	 */
+	public function ajax_save_google_maps(): void
+	{
+		if (!check_ajax_referer('aegis_settings_nonce', 'nonce', false)) {
+			wp_send_json_error(['message' => __('Security check failed.', 'aegis')]);
+		}
+
+		if (!current_user_can('manage_options')) {
+			wp_send_json_error(['message' => __('Permission denied.', 'aegis')]);
+		}
+
+		$settings = isset($_POST['settings']) ? $_POST['settings'] : [];
+		$sanitized = $this->sanitize_google_maps($settings);
+
+		update_option(self::GOOGLE_MAPS_OPTION, $sanitized);
+
+		wp_send_json_success(['message' => __('Settings saved.', 'aegis')]);
+	}
+
+	/**
+	 * Handle AJAX test Google Maps API key.
+	 *
+	 * @return void
+	 */
+	public function ajax_test_google_maps(): void
+	{
+		if (!check_ajax_referer('aegis_settings_nonce', 'nonce', false)) {
+			wp_send_json_error(['message' => __('Security check failed.', 'aegis')]);
+		}
+
+		if (!current_user_can('manage_options')) {
+			wp_send_json_error(['message' => __('Permission denied.', 'aegis')]);
+		}
+
+		$google_maps = get_option(self::GOOGLE_MAPS_OPTION, self::GOOGLE_MAPS_DEFAULTS);
+		$api_key = $google_maps['api_key'] ?? '';
+
+		if (empty($api_key)) {
+			wp_send_json_error(['message' => __('No API key configured.', 'aegis')]);
+		}
+
+		$response = wp_remote_get(
+			add_query_arg(
+				[
+					'address' => 'Google HQ, Mountain View, CA',
+					'key'     => $api_key,
+				],
+				'https://maps.googleapis.com/maps/api/geocode/json'
+			),
+			['timeout' => 10]
+		);
+
+		if (is_wp_error($response)) {
+			wp_send_json_error(['message' => $response->get_error_message()]);
+		}
+
+		$body = json_decode(wp_remote_retrieve_body($response), true);
+
+		if (isset($body['status']) && $body['status'] === 'OK') {
+			wp_send_json_success(['message' => __('API key is valid. Connection successful.', 'aegis')]);
+		}
+
+		$error_message = $body['error_message'] ?? $body['status'] ?? __('Unknown error.', 'aegis');
+		wp_send_json_error(['message' => $error_message]);
+	}
+
+	/**
+	 * Sanitize Google Maps settings.
+	 *
+	 * @param array $input Input settings.
+	 * @return array Sanitized settings.
+	 */
+	public function sanitize_google_maps(array $input): array
+	{
+		$sanitized = [];
+
+		foreach (self::GOOGLE_MAPS_DEFAULTS as $key => $default) {
+			if (isset($input[$key])) {
+				$sanitized[$key] = sanitize_text_field($input[$key]);
+			} else {
+				$sanitized[$key] = $default;
+			}
+		}
+
+		return $sanitized;
+	}
+
+	/**
 	 * Handle AJAX export settings.
 	 *
 	 * @return void
@@ -449,6 +639,7 @@ class ConditionalLogicSettings
 		$export_data = [
 			'conditional_logic' => self::get_settings(),
 			'integrations' => self::get_integration_settings(),
+			'blocks' => get_option(self::BLOCKS_OPTION, self::BLOCKS_DEFAULTS),
 			'version' => '1.0.0',
 			'exported_at' => current_time('mysql'),
 		];
@@ -493,6 +684,12 @@ class ConditionalLogicSettings
 			update_option(self::INTEGRATIONS_OPTION, $sanitized);
 		}
 
+		// Import blocks settings
+		if (isset($settings['blocks']) && is_array($settings['blocks'])) {
+			$sanitized = $this->sanitize_blocks($settings['blocks']);
+			update_option(self::BLOCKS_OPTION, $sanitized);
+		}
+
 		wp_send_json_success(['message' => __('Settings imported successfully.', 'aegis')]);
 	}
 
@@ -515,16 +712,6 @@ class ConditionalLogicSettings
 			[$this, 'render_dashboard_page'],
 			$icon,
 			59
-		);
-
-		// Dashboard submenu (default)
-		add_submenu_page(
-			'aegis-dashboard',
-			esc_html__('Dashboard', 'aegis'),
-			esc_html__('Dashboard', 'aegis'),
-			'manage_options',
-			'aegis-dashboard',
-			[$this, 'render_dashboard_page']
 		);
 
 		// Hidden pages for tabs (accessed via page tabs, not sidebar)
@@ -553,6 +740,24 @@ class ConditionalLogicSettings
 			'manage_options',
 			'aegis-blocks',
 			[$this, 'render_blocks_page']
+		);
+
+		add_submenu_page(
+			null,
+			esc_html__('Hooks', 'aegis'),
+			esc_html__('Hooks', 'aegis'),
+			'manage_options',
+			'aegis-hook-patterns',
+			[$this, 'render_hook_patterns_page']
+		);
+
+		add_submenu_page(
+			null,
+			esc_html__('Modals', 'aegis'),
+			esc_html__('Modals', 'aegis'),
+			'manage_options',
+			'aegis-modals',
+			[$this, 'render_modals_page']
 		);
 	}
 
@@ -605,7 +810,11 @@ class ConditionalLogicSettings
 		$sanitized = [];
 
 		foreach (self::BLOCKS_DEFAULTS as $key => $default) {
-			$sanitized[$key] = isset($input[$key]) ? (bool) $input[$key] : false;
+			if (in_array($key, self::PARENT_BLOCK_KEYS, true)) {
+				$sanitized[$key] = $default;
+			} else {
+				$sanitized[$key] = isset($input[$key]) ? (bool) $input[$key] : $default;
+			}
 		}
 
 		return $sanitized;
@@ -668,36 +877,43 @@ class ConditionalLogicSettings
 			// Load built/minified assets from webpack build.
 			$asset = require $asset_file;
 
-			wp_enqueue_style(
+			// Use centralized AssetManager for consistent loading
+			\Aegis\Core\AssetManager::register_style(
 				'aegis-admin-settings',
 				$theme_url . '/src/Admin/build/index.css',
-				[],
+				['wp-components'],
 				$asset['version']
 			);
 
-			wp_enqueue_script(
+			\Aegis\Core\AssetManager::register_script(
 				'aegis-admin-settings',
 				$theme_url . '/src/Admin/build/index.js',
 				array_merge($asset['dependencies'], ['jquery']),
 				$asset['version'],
 				true
 			);
+
+			\Aegis\Core\AssetManager::enqueue_style('aegis-admin-settings');
+			\Aegis\Core\AssetManager::enqueue_script('aegis-admin-settings');
 		} else {
 			// Fallback to source files (development without build).
-			wp_enqueue_style(
+			\Aegis\Core\AssetManager::register_style(
 				'aegis-admin-settings',
 				$theme_url . '/src/Admin/css/admin-settings.css',
-				[],
+				['wp-components'],
 				time()
 			);
 
-			wp_enqueue_script(
+			\Aegis\Core\AssetManager::register_script(
 				'aegis-admin-settings',
 				$theme_url . '/src/Admin/js/admin-settings.js',
 				['jquery'],
 				time(),
 				true
 			);
+
+			\Aegis\Core\AssetManager::enqueue_style('aegis-admin-settings');
+			\Aegis\Core\AssetManager::enqueue_script('aegis-admin-settings');
 		}
 
 		// Force Aegis menu active state via inline CSS (matches WP admin dark theme)
@@ -734,7 +950,18 @@ class ConditionalLogicSettings
 		';
 		wp_add_inline_style('aegis-admin-settings', $menu_active_css);
 
-		wp_localize_script('aegis-admin-settings', 'aegisAdmin', [
+		// Load hook-patterns styles on the Hooks and Modals settings pages.
+		if (isset($_GET['page']) && in_array($_GET['page'], ['aegis-hook-patterns', 'aegis-modals'], true)) {
+			\Aegis\Core\AssetManager::register_style(
+				'aegis-hook-patterns-admin',
+				$theme_url . '/src/Admin/css/hook-patterns.css',
+				['aegis-admin-settings'],
+				'1.0.0'
+			);
+			\Aegis\Core\AssetManager::enqueue_style('aegis-hook-patterns-admin');
+		}
+
+		\Aegis\Core\AssetManager::localize_script('aegis-admin-settings', 'aegisAdmin', [
 			'ajaxUrl' => admin_url('admin-ajax.php'),
 			'nonce' => wp_create_nonce('aegis_settings_nonce'),
 			'saving' => __('Saving...', 'aegis'),
@@ -752,7 +979,7 @@ class ConditionalLogicSettings
 	{
 		?>
 		<div class="wrap aegis-admin-wrap">
-			<h1><?php esc_html_e('Aegis Theme Settings', 'aegis'); ?></h1>
+			<h1><?php esc_html_e('Aegis Settings', 'aegis'); ?></h1>
 			<p><?php esc_html_e('Welcome to Aegis. Use the submenu to access specific settings.', 'aegis'); ?></p>
 		</div>
 		<?php
@@ -802,11 +1029,17 @@ class ConditionalLogicSettings
 			<a href="<?php echo esc_url(admin_url('admin.php?page=aegis-dashboard')); ?>" class="aegis-page-tab <?php echo $active_tab === 'dashboard' ? 'active' : ''; ?>">
 				<?php esc_html_e('Dashboard', 'aegis'); ?>
 			</a>
-			<a href="<?php echo esc_url(admin_url('admin.php?page=aegis-settings')); ?>" class="aegis-page-tab <?php echo $active_tab === 'conditional-logic' ? 'active' : ''; ?>">
-				<?php esc_html_e('Conditionals', 'aegis'); ?>
-			</a>
 			<a href="<?php echo esc_url(admin_url('admin.php?page=aegis-blocks')); ?>" class="aegis-page-tab <?php echo $active_tab === 'blocks' ? 'active' : ''; ?>">
 				<?php esc_html_e('Blocks', 'aegis'); ?>
+			</a>
+			<a href="<?php echo esc_url(admin_url('admin.php?page=aegis-modals')); ?>" class="aegis-page-tab <?php echo $active_tab === 'modals' ? 'active' : ''; ?>">
+				<?php esc_html_e('Modals', 'aegis'); ?>
+			</a>
+			<a href="<?php echo esc_url(admin_url('admin.php?page=aegis-hook-patterns')); ?>" class="aegis-page-tab <?php echo $active_tab === 'hook-patterns' ? 'active' : ''; ?>">
+				<?php esc_html_e('Hooks', 'aegis'); ?>
+			</a>
+			<a href="<?php echo esc_url(admin_url('admin.php?page=aegis-settings')); ?>" class="aegis-page-tab <?php echo $active_tab === 'conditional-logic' ? 'active' : ''; ?>">
+				<?php esc_html_e('Conditionals', 'aegis'); ?>
 			</a>
 			<a href="<?php echo esc_url(admin_url('admin.php?page=aegis-integrations')); ?>" class="aegis-page-tab <?php echo $active_tab === 'integrations' ? 'active' : ''; ?>">
 				<?php esc_html_e('Integrations', 'aegis'); ?>
@@ -1048,6 +1281,38 @@ class ConditionalLogicSettings
 								<span class="dashicons dashicons-calendar-alt"></span>
 								<?php esc_html_e('Schedule', 'aegis'); ?>
 							</a>
+							<a href="#pro-conditions" class="aegis-nav-item">
+								<span class="dashicons dashicons-lock"></span>
+								<?php esc_html_e('Pro Conditions', 'aegis'); ?>
+							</a>
+							<a href="#woocommerce" class="aegis-nav-item">
+								<span class="dashicons dashicons-cart"></span>
+								<?php esc_html_e('WooCommerce', 'aegis'); ?>
+							</a>
+							<a href="#learndash" class="aegis-nav-item">
+								<span class="dashicons dashicons-welcome-learn-more"></span>
+								<?php esc_html_e('LearnDash', 'aegis'); ?>
+							</a>
+							<a href="#lifterlms" class="aegis-nav-item">
+								<span class="dashicons dashicons-book"></span>
+								<?php esc_html_e('LifterLMS', 'aegis'); ?>
+							</a>
+							<a href="#sensei" class="aegis-nav-item">
+								<span class="dashicons dashicons-mortarboard"></span>
+								<?php esc_html_e('Sensei LMS', 'aegis'); ?>
+							</a>
+							<a href="#fluentforms" class="aegis-nav-item">
+								<span class="dashicons dashicons-feedback"></span>
+								<?php esc_html_e('Fluent Forms', 'aegis'); ?>
+							</a>
+							<a href="#fluentbooking" class="aegis-nav-item">
+								<span class="dashicons dashicons-calendar-alt"></span>
+								<?php esc_html_e('Fluent Booking', 'aegis'); ?>
+							</a>
+							<a href="#image-source" class="aegis-nav-item">
+								<span class="dashicons dashicons-format-image"></span>
+								<?php esc_html_e('Image Source', 'aegis'); ?>
+							</a>
 						</nav>
 
 					<div class="aegis-settings-content">
@@ -1059,6 +1324,9 @@ class ConditionalLogicSettings
 								<?php $this->render_toggle('visibility', 'screen_size', __('Screen Size', 'aegis'), __('Hide blocks on mobile, tablet, or desktop.', 'aegis'), $options); ?>
 								<?php $this->render_toggle('visibility', 'custom_breakpoints', __('Custom Breakpoints', 'aegis'), __('Define custom min/max width breakpoints.', 'aegis'), $options); ?>
 								<?php $this->render_toggle('visibility', 'browser_device', __('Browser & Device', 'aegis'), __('Target specific browsers and devices.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('visibility', 'lockdown', __('Lockdown', 'aegis'), __('Hide blocks from all users on the frontend (draft mode).', 'aegis'), $options); ?>
+								<?php $this->render_toggle('visibility', 'query_string', __('URL Query String', 'aegis'), __('Show or hide blocks based on URL query parameters.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('visibility', 'specific_users', __('Specific Users', 'aegis'), __('Show or hide blocks for specific user IDs.', 'aegis'), $options); ?>
 							</div>
 						</section>
 
@@ -1091,6 +1359,101 @@ class ConditionalLogicSettings
 
 							<div class="aegis-settings-grid">
 								<?php $this->render_toggle('schedule', 'date_time', __('Date & Time', 'aegis'), __('Show content during specific dates and times.', 'aegis'), $options); ?>
+							</div>
+						</section>
+
+						<!-- Pro Conditions Section -->
+						<section id="pro-conditions" class="aegis-settings-section">
+							<?php $this->render_section_header(__('Pro Conditions', 'aegis'), __('Advanced block-level conditions available with Aegis Pro.', 'aegis')); ?>
+
+							<div class="aegis-settings-grid">
+								<?php $this->render_toggle('pro_conditions', 'cookie', __('Cookie', 'aegis'), __('Show or hide blocks based on browser cookie values.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('pro_conditions', 'referral', __('Referral Source', 'aegis'), __('Show or hide blocks based on the referring domain.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('pro_conditions', 'acf_field', __('ACF Field', 'aegis'), __('Show or hide blocks based on Advanced Custom Fields values.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('pro_conditions', 'metabox_field', __('MetaBox Field', 'aegis'), __('Show or hide blocks based on MetaBox field values.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('pro_conditions', 'post_meta', __('Post Meta', 'aegis'), __('Show or hide blocks based on raw post meta key/value.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('pro_conditions', 'user_meta', __('User Meta', 'aegis'), __('Show or hide blocks based on current user meta key/value.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('pro_conditions', 'advanced_location', __('Advanced Location', 'aegis'), __('Show or hide blocks by post type, post IDs, taxonomy terms, URL path, or archive type.', 'aegis'), $options); ?>
+							</div>
+						</section>
+
+						<!-- WooCommerce Section -->
+						<section id="woocommerce" class="aegis-settings-section">
+							<?php $this->render_section_header(__('WooCommerce Conditions', 'aegis'), __('Block-level conditions based on WooCommerce cart, customer history, and product context.', 'aegis')); ?>
+
+							<div class="aegis-settings-grid">
+								<?php $this->render_toggle('woocommerce', 'woo_cart', __('Cart Conditions', 'aegis'), __('Show or hide blocks based on cart contents, total value, item count, and product quantities.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('woocommerce', 'woo_customer', __('Customer History', 'aegis'), __('Show or hide blocks based on lifetime spend, order count, purchase history, and recency.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('woocommerce', 'woo_product', __('Product Context', 'aegis'), __('Show or hide blocks based on current product stock status, quantity, sale, or featured state.', 'aegis'), $options); ?>
+							</div>
+						</section>
+
+						<!-- LearnDash Section -->
+						<section id="learndash" class="aegis-settings-section">
+							<?php $this->render_section_header(__('LearnDash Conditions', 'aegis'), __('Block-level conditions based on LearnDash enrollment, completion, progress, quiz results, and group membership.', 'aegis')); ?>
+
+							<div class="aegis-settings-grid">
+								<?php $this->render_toggle('learndash', 'ld_enrollment', __('Enrollment', 'aegis'), __('Show or hide blocks based on course or lesson enrollment status.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('learndash', 'ld_completion', __('Completion', 'aegis'), __('Show or hide blocks based on course or lesson completion status.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('learndash', 'ld_progress', __('Course Progress', 'aegis'), __('Show or hide blocks based on course progress percentage.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('learndash', 'ld_quiz', __('Quiz Results', 'aegis'), __('Show or hide blocks based on quiz pass/fail status or score.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('learndash', 'ld_group', __('Group Membership', 'aegis'), __('Show or hide blocks based on LearnDash group membership.', 'aegis'), $options); ?>
+							</div>
+						</section>
+
+						<!-- LifterLMS Section -->
+						<section id="lifterlms" class="aegis-settings-section">
+							<?php $this->render_section_header(__('LifterLMS Conditions', 'aegis'), __('Block-level conditions based on LifterLMS enrollment, completion, progress, and membership.', 'aegis')); ?>
+
+							<div class="aegis-settings-grid">
+								<?php $this->render_toggle('lifterlms', 'llms_enrollment', __('Enrollment', 'aegis'), __('Show or hide blocks based on course enrollment status.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('lifterlms', 'llms_completion', __('Completion', 'aegis'), __('Show or hide blocks based on course or lesson completion.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('lifterlms', 'llms_progress', __('Course Progress', 'aegis'), __('Show or hide blocks based on course progress percentage.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('lifterlms', 'llms_membership', __('Membership', 'aegis'), __('Show or hide blocks based on membership plan enrollment.', 'aegis'), $options); ?>
+							</div>
+						</section>
+
+						<!-- Sensei LMS Section -->
+						<section id="sensei" class="aegis-settings-section">
+							<?php $this->render_section_header(__('Sensei LMS Conditions', 'aegis'), __('Block-level conditions based on Sensei LMS enrollment, completion, progress, and quiz grades.', 'aegis')); ?>
+
+							<div class="aegis-settings-grid">
+								<?php $this->render_toggle('sensei', 'sensei_enrollment', __('Enrollment', 'aegis'), __('Show or hide blocks based on course enrollment status.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('sensei', 'sensei_completion', __('Completion', 'aegis'), __('Show or hide blocks based on course or lesson completion.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('sensei', 'sensei_progress', __('Course Progress', 'aegis'), __('Show or hide blocks based on course progress percentage.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('sensei', 'sensei_quiz', __('Quiz Grade', 'aegis'), __('Show or hide blocks based on quiz grade for a specific lesson.', 'aegis'), $options); ?>
+							</div>
+						</section>
+
+						<!-- Fluent Forms Section -->
+						<section id="fluentforms" class="aegis-settings-section">
+							<?php $this->render_section_header(__('Fluent Forms Conditions', 'aegis'), __('Block-level conditions based on Fluent Forms submission status, count, and field values.', 'aegis')); ?>
+
+							<div class="aegis-settings-grid">
+								<?php $this->render_toggle('fluentforms', 'ff_submitted', __('Has Submitted', 'aegis'), __('Show or hide blocks based on whether the user has submitted a specific form.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('fluentforms', 'ff_count', __('Submission Count', 'aegis'), __('Show or hide blocks based on the number of submissions for a form.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('fluentforms', 'ff_field', __('Field Value', 'aegis'), __('Show or hide blocks based on a specific field value in a submission.', 'aegis'), $options); ?>
+							</div>
+						</section>
+
+						<!-- Fluent Booking Section -->
+						<section id="fluentbooking" class="aegis-settings-section">
+							<?php $this->render_section_header(__('Fluent Booking Conditions', 'aegis'), __('Block-level conditions based on Fluent Booking status and booking counts.', 'aegis')); ?>
+
+							<div class="aegis-settings-grid">
+								<?php $this->render_toggle('fluentbooking', 'fb_has_booking', __('Has Booking', 'aegis'), __('Show or hide blocks based on whether the user has any booking.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('fluentbooking', 'fb_upcoming', __('Upcoming Count', 'aegis'), __('Show or hide blocks based on the number of upcoming bookings.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('fluentbooking', 'fb_past', __('Past Count', 'aegis'), __('Show or hide blocks based on the number of past bookings.', 'aegis'), $options); ?>
+								<?php $this->render_toggle('fluentbooking', 'fb_status', __('Booking Status', 'aegis'), __('Show or hide blocks based on a specific booking status.', 'aegis'), $options); ?>
+							</div>
+						</section>
+
+						<!-- Image Source Section -->
+						<section id="image-source" class="aegis-settings-section">
+							<?php $this->render_section_header(__('Image Source Order', 'aegis'), __('Choose which image to display in Post Featured Image blocks instead of the default featured image.', 'aegis')); ?>
+
+							<div class="aegis-settings-grid">
+								<?php $this->render_toggle('image_source', 'image_source_order', __('Image Source Order', 'aegis'), __('Select content images by position, ACF fields, or MetaBox fields with fallback chain support.', 'aegis'), $options); ?>
 							</div>
 						</section>
 
@@ -1156,6 +1519,14 @@ class ConditionalLogicSettings
 								<span class="dashicons dashicons-performance"></span>
 								<?php esc_html_e('Performance', 'aegis'); ?>
 							</a>
+							<a href="#maps" class="aegis-nav-item">
+								<span class="dashicons dashicons-location"></span>
+								<?php esc_html_e('Maps', 'aegis'); ?>
+							</a>
+							<a href="#patterns" class="aegis-nav-item">
+								<span class="dashicons dashicons-layout"></span>
+								<?php esc_html_e('Patterns & Templates', 'aegis'); ?>
+							</a>
 						</nav>
 
 						<div class="aegis-settings-content">
@@ -1218,6 +1589,79 @@ class ConditionalLogicSettings
 								</div>
 							</section>
 
+							<!-- Maps Section -->
+							<section id="maps" class="aegis-settings-section">
+								<?php $this->render_section_header(__('Maps', 'aegis'), __('Google Maps API configuration for the Map block.', 'aegis'), false); ?>
+
+								<?php
+								$google_maps_settings = get_option(self::GOOGLE_MAPS_OPTION, self::GOOGLE_MAPS_DEFAULTS);
+								$google_maps_settings = wp_parse_args($google_maps_settings, self::GOOGLE_MAPS_DEFAULTS);
+								?>
+								<div class="aegis-api-config">
+									<div class="aegis-api-config-header">
+										<div class="aegis-api-config-title">
+											<span class="dashicons dashicons-location"></span>
+											<span><?php esc_html_e('Google Maps API', 'aegis'); ?></span>
+										</div>
+									</div>
+
+									<!-- API Key -->
+									<div class="aegis-api-field-row">
+										<div class="aegis-api-field-info">
+											<div class="aegis-api-field-icon">
+												<span class="dashicons dashicons-admin-network"></span>
+											</div>
+											<div class="aegis-api-field-text">
+												<label><?php esc_html_e('API Key', 'aegis'); ?></label>
+												<p><?php esc_html_e('Enter your Google Maps API key. Get one from the Google Cloud Console.', 'aegis'); ?></p>
+											</div>
+										</div>
+										<div class="aegis-api-field-input">
+											<input type="password" 
+												name="<?php echo esc_attr(self::GOOGLE_MAPS_OPTION . '[api_key]'); ?>" 
+												value="<?php echo esc_attr($google_maps_settings['api_key']); ?>" 
+												class="aegis-google-maps-field"
+												placeholder="<?php esc_attr_e('Enter API Key', 'aegis'); ?>">
+										</div>
+									</div>
+
+									<div class="aegis-settings-notice" style="margin-top: 12px; padding: 12px; background: #f0f0f1; border-left: 4px solid #2271b1; border-radius: 4px;">
+										<p style="margin: 0;">
+											<strong><?php esc_html_e('Security Recommendation', 'aegis'); ?></strong><br>
+											<?php esc_html_e('Restrict your API key to your domain in the Google Cloud Console under Application Restrictions → HTTP referrers. This prevents unauthorized usage.', 'aegis'); ?>
+										</p>
+									</div>
+
+									<!-- Actions -->
+									<div class="aegis-api-config-footer">
+										<button type="button" class="button button-primary aegis-save-google-maps">
+											<span class="dashicons dashicons-saved"></span>
+											<?php esc_html_e('Save API Settings', 'aegis'); ?>
+										</button>
+										<button type="button" class="button aegis-test-google-maps">
+											<span class="dashicons dashicons-yes-alt"></span>
+											<?php esc_html_e('Test Connection', 'aegis'); ?>
+										</button>
+									</div>
+								</div>
+							</section>
+
+							<!-- Patterns & Templates Section -->
+							<section id="patterns" class="aegis-settings-section">
+								<?php $this->render_section_header(__('Patterns & Templates', 'aegis'), __('Control which block patterns and templates are available in the editor.', 'aegis')); ?>
+
+								<div class="aegis-settings-grid">
+									<?php $this->render_toggle('aegis_pattern_control', 'woocommerce_keep_patterns', __('Keep WooCommerce Patterns', 'aegis'), __('Retain default WooCommerce block patterns instead of removing them.', 'aegis'), $options); ?>
+									<?php $this->render_toggle('aegis_pattern_control', 'woocommerce_keep_templates', __('Keep WooCommerce Templates', 'aegis'), __('Retain default WooCommerce block templates instead of removing them.', 'aegis'), $options); ?>
+									<?php $this->render_toggle('aegis_pattern_control', 'learndash_keep_patterns', __('Keep LearnDash Patterns', 'aegis'), __('Retain default LearnDash block patterns instead of removing them.', 'aegis'), $options); ?>
+									<?php $this->render_toggle('aegis_pattern_control', 'lifterlms_keep_patterns', __('Keep LifterLMS Patterns', 'aegis'), __('Retain default LifterLMS block patterns instead of removing them.', 'aegis'), $options); ?>
+									<?php $this->render_toggle('aegis_pattern_control', 'sensei_keep_patterns', __('Keep Sensei LMS Patterns', 'aegis'), __('Retain default Sensei LMS block patterns instead of removing them.', 'aegis'), $options); ?>
+									<?php $this->render_toggle('aegis_pattern_control', 'fluentforms_keep_patterns', __('Keep Fluent Forms Patterns', 'aegis'), __('Retain default Fluent Forms block patterns instead of removing them.', 'aegis'), $options); ?>
+									<?php $this->render_toggle('aegis_pattern_control', 'fluentbooking_keep_patterns', __('Keep Fluent Booking Patterns', 'aegis'), __('Retain default Fluent Booking block patterns instead of removing them.', 'aegis'), $options); ?>
+									<?php $this->render_toggle('aegis_pattern_control', 'disable_theme_patterns', __('Disable Theme Patterns', 'aegis'), __('Remove all theme-provided block patterns from the editor.', 'aegis'), $options); ?>
+								</div>
+							</section>
+
 							<div class="aegis-settings-footer">
 								<?php submit_button(__('Save Settings', 'aegis'), 'primary', 'submit', false); ?>
 							</div>
@@ -1260,6 +1704,10 @@ class ConditionalLogicSettings
 								<span class="dashicons dashicons-list-view"></span>
 								<?php esc_html_e('Accordion', 'aegis'); ?>
 							</a>
+							<a href="#countdown" class="aegis-nav-item">
+								<span class="dashicons dashicons-clock"></span>
+								<?php esc_html_e('Countdown', 'aegis'); ?>
+							</a>
 							<a href="#counter" class="aegis-nav-item">
 								<span class="dashicons dashicons-editor-ol"></span>
 								<?php esc_html_e('Counter', 'aegis'); ?>
@@ -1267,6 +1715,14 @@ class ConditionalLogicSettings
 							<a href="#icon" class="aegis-nav-item">
 								<span class="dashicons dashicons-star-filled"></span>
 								<?php esc_html_e('Icon', 'aegis'); ?>
+							</a>
+							<a href="#image-lightbox" class="aegis-nav-item">
+								<span class="dashicons dashicons-format-image"></span>
+								<?php esc_html_e('Image Lightbox', 'aegis'); ?>
+							</a>
+							<a href="#map" class="aegis-nav-item">
+								<span class="dashicons dashicons-location"></span>
+								<?php esc_html_e('Map', 'aegis'); ?>
 							</a>
 							<a href="#marquee" class="aegis-nav-item">
 								<span class="dashicons dashicons-minus"></span>
@@ -1283,6 +1739,10 @@ class ConditionalLogicSettings
 							<a href="#query-loop" class="aegis-nav-item">
 								<span class="dashicons dashicons-database"></span>
 								<?php esc_html_e('Query Loop', 'aegis'); ?>
+							</a>
+							<a href="#related-posts" class="aegis-nav-item">
+								<span class="dashicons dashicons-admin-links"></span>
+								<?php esc_html_e('Related Posts', 'aegis'); ?>
 							</a>
 							<a href="#slider" class="aegis-nav-item">
 								<span class="dashicons dashicons-slides"></span>
@@ -1324,6 +1784,21 @@ class ConditionalLogicSettings
 								</div>
 							</section>
 
+							<!-- Countdown Section -->
+							<section id="countdown" class="aegis-settings-section">
+								<?php $this->render_section_header(__('Countdown Block', 'aegis'), __('Countdown timer block that counts down to a specific date and time.', 'aegis'), true, 'clock'); ?>
+								<div class="aegis-settings-section__content">
+									<div class="aegis-settings-grid aegis-settings-grid--features">
+										<?php $this->render_block_feature_toggle('countdown_segments', __('Segment Toggles', 'aegis'), __('Show or hide individual segments (days, hours, minutes, seconds).', 'aegis'), $options, 'visibility'); ?>
+										<?php $this->render_block_feature_toggle('countdown_labels', __('Custom Labels', 'aegis'), __('Customize the text labels below each countdown segment.', 'aegis'), $options, 'editor-textcolor'); ?>
+										<?php $this->render_block_feature_toggle('countdown_separator', __('Separator Style', 'aegis'), __('Choose separator between segments: colon, dot, dash, or none.', 'aegis'), $options, 'minus'); ?>
+										<?php $this->render_block_feature_toggle('countdown_layout', __('Layout Options', 'aegis'), __('Switch between inline and stacked layout modes.', 'aegis'), $options, 'layout'); ?>
+										<?php $this->render_block_feature_toggle('countdown_expiry_message', __('Expiry Message', 'aegis'), __('Display a custom message when the countdown reaches zero.', 'aegis'), $options, 'warning'); ?>
+										<?php $this->render_block_feature_toggle('countdown_timezone', __('Timezone Control', 'aegis'), __('Choose between UTC and visitor local timezone.', 'aegis'), $options, 'admin-site-alt3'); ?>
+									</div>
+								</div>
+							</section>
+
 							<!-- Counter Section -->
 							<section id="counter" class="aegis-settings-section">
 								<?php $this->render_section_header(__('Counter Block', 'aegis'), __('Paragraph block variation that animates numbers with counting effects.', 'aegis'), true, 'editor-ol'); ?>
@@ -1349,6 +1824,56 @@ class ConditionalLogicSettings
 										<?php $this->render_block_feature_toggle('icon_gallery', __('Icon Gallery', 'aegis'), __('Display all available icons in a grid gallery view.', 'aegis'), $options, 'format-gallery'); ?>
 										<?php $this->render_block_feature_toggle('icon_responsive', __('Responsive Sizing', 'aegis'), __('Different icon sizes per breakpoint.', 'aegis'), $options, 'smartphone', true); ?>
 										<?php $this->render_block_feature_toggle('icon_rest_api', __('REST API Endpoint', 'aegis'), __('Expose icon sets via REST API for editor integration.', 'aegis'), $options, 'rest-api', true); ?>
+									</div>
+								</div>
+							</section>
+
+							<!-- Image Lightbox Section -->
+							<section id="image-lightbox" class="aegis-settings-section">
+								<?php $this->render_section_header(__('Image Lightbox', 'aegis'), __('Enhances the native WordPress image lightbox with gallery navigation, zoom, captions, and more.', 'aegis'), true, 'format-image'); ?>
+								<div class="aegis-settings-section__content">
+									<div class="aegis-settings-grid aegis-settings-grid--features">
+										<?php $this->render_block_feature_toggle('image_lightbox_gallery_nav', __('Gallery Navigation', 'aegis'), __('Navigate between images in the same group with prev/next arrows and keyboard.', 'aegis'), $options, 'arrow-left-alt2'); ?>
+										<?php $this->render_block_feature_toggle('image_lightbox_captions', __('Captions', 'aegis'), __('Display image captions in the lightbox overlay.', 'aegis'), $options, 'editor-textcolor'); ?>
+										<?php $this->render_block_feature_toggle('image_lightbox_zoom', __('Zoom', 'aegis'), __('Double-click, scroll wheel, and pinch-to-zoom with pan support.', 'aegis'), $options, 'search'); ?>
+										<?php $this->render_block_feature_toggle('image_lightbox_thumbnails', __('Thumbnail Strip', 'aegis'), __('Show a thumbnail navigation strip for galleries with 4+ images.', 'aegis'), $options, 'format-gallery'); ?>
+										<?php $this->render_block_feature_toggle('image_lightbox_swipe', __('Swipe Gestures', 'aegis'), __('Navigate between images with touch swipe on mobile devices.', 'aegis'), $options, 'smartphone'); ?>
+									</div>
+								</div>
+							</section>
+
+							<!-- Map Section -->
+							<section id="map" class="aegis-settings-section">
+								<?php $this->render_section_header(__('Map Block', 'aegis'), __('Google Maps and OpenStreetMap block with markers, styles, and interactive controls.', 'aegis'), true, 'location'); ?>
+								<div class="aegis-settings-section__content">
+									<div class="aegis-settings-grid aegis-settings-grid--features">
+										<?php $this->render_block_feature_toggle('map_markers', __('Multiple Markers', 'aegis'), __('Add multiple markers with title and description info windows.', 'aegis'), $options, 'location-alt'); ?>
+										<?php $this->render_block_feature_toggle('map_styles', __('Map Style Presets', 'aegis'), __('Silver, Dark, Retro, Night, Aubergine style presets.', 'aegis'), $options, 'art'); ?>
+										<?php $this->render_block_feature_toggle('map_controls', __('Map Controls', 'aegis'), __('Zoom, map type, street view, and fullscreen controls.', 'aegis'), $options, 'admin-settings'); ?>
+										<?php $this->render_block_feature_toggle('map_osm_fallback', __('OpenStreetMap Fallback', 'aegis'), __('Use OpenStreetMap when no Google Maps API key is configured.', 'aegis'), $options, 'admin-site-alt3'); ?>
+										<?php $this->render_block_feature_toggle('map_directions', __('Directions', 'aegis'), __('Route directions with travel mode selector.', 'aegis'), $options, 'randomize', true); ?>
+										<?php $this->render_block_feature_toggle('map_store_locator', __('Store Locator', 'aegis'), __('Search with radius filter and CPT markers.', 'aegis'), $options, 'store', true); ?>
+										<?php $this->render_block_feature_toggle('map_geolocation', __('Geolocation', 'aegis'), __('Show user current position on the map.', 'aegis'), $options, 'location', true); ?>
+										<?php $this->render_block_feature_toggle('map_heatmap', __('Heatmap Layer', 'aegis'), __('Visualize density data on the map.', 'aegis'), $options, 'chart-area', true); ?>
+										<?php $this->render_block_feature_toggle('map_drawing', __('Drawing Tools', 'aegis'), __('Polygon, circle, and rectangle overlays.', 'aegis'), $options, 'edit', true); ?>
+										<?php $this->render_block_feature_toggle('map_kml_geojson', __('KML/GeoJSON Import', 'aegis'), __('Load external geographic data layers.', 'aegis'), $options, 'upload', true); ?>
+										<?php $this->render_block_feature_toggle('map_schema', __('Schema.org Markup', 'aegis'), __('Auto-generate LocalBusiness structured data.', 'aegis'), $options, 'admin-site-alt3', true); ?>
+										<?php $this->render_block_feature_toggle('map_dynamic_markers', __('Dynamic CPT Markers', 'aegis'), __('Pull markers from custom post types with lat/lng fields.', 'aegis'), $options, 'database', true); ?>
+										<?php $this->render_block_feature_toggle('map_custom_styles', __('Custom Style JSON', 'aegis'), __('Paste raw Google Maps style array for full control.', 'aegis'), $options, 'editor-code', true); ?>
+										<?php $this->render_block_feature_toggle('map_custom_icons', __('Custom Marker Icons', 'aegis'), __('Upload custom marker icons from the media library.', 'aegis'), $options, 'format-image', true); ?>
+										<?php $this->render_block_feature_toggle('map_clustering', __('Marker Clustering', 'aegis'), __('Group nearby markers at lower zoom levels.', 'aegis'), $options, 'networking', true); ?>
+									</div>
+									<div class="aegis-settings-notice" style="margin-top: 16px; padding: 12px; background: #f0f0f1; border-left: 4px solid #2271b1; border-radius: 4px;">
+										<p style="margin: 0;">
+											<strong><?php esc_html_e('Google Maps API', 'aegis'); ?></strong><br>
+											<?php 
+											printf(
+												/* translators: %s: link to Integrations page */
+												esc_html__('Configure your Google Maps API key in %s.', 'aegis'),
+												'<a href="' . esc_url(admin_url('admin.php?page=aegis-integrations#maps')) . '">' . esc_html__('Integrations → Maps', 'aegis') . '</a>'
+											);
+											?>
+										</p>
 									</div>
 								</div>
 							</section>
@@ -1419,7 +1944,6 @@ class ConditionalLogicSettings
 										<?php $this->render_block_feature_toggle('query_loop_extended_order', __('Extended Ordering', 'aegis'), __('Random, comment count, modified date, etc.', 'aegis'), $options, 'sort'); ?>
 										<?php $this->render_block_feature_toggle('query_loop_advanced_meta', __('Advanced Meta Query', 'aegis'), __('Multiple meta queries with AND/OR relation.', 'aegis'), $options, 'filter', true); ?>
 										<?php $this->render_block_feature_toggle('query_loop_date_query', __('Date Query', 'aegis'), __('Filter by date ranges and relative dates.', 'aegis'), $options, 'calendar-alt', true); ?>
-										<?php $this->render_block_feature_toggle('query_loop_related_posts', __('Related Posts', 'aegis'), __('Show posts related by category, tag, or field.', 'aegis'), $options, 'admin-links', true); ?>
 										<?php $this->render_block_feature_toggle('query_loop_parent_child', __('Parent/Child Posts', 'aegis'), __('Query child pages of current or specific post.', 'aegis'), $options, 'networking', true); ?>
 										<?php $this->render_block_feature_toggle('query_loop_acf_integration', __('ACF/MetaBox Integration', 'aegis'), __('Field picker for ACF and Meta Box plugins.', 'aegis'), $options, 'admin-plugins', true); ?>
 										<?php $this->render_block_feature_toggle('query_loop_ajax_pagination', __('AJAX Pagination', 'aegis'), __('Load more, infinite scroll, AJAX page nav.', 'aegis'), $options, 'update', true); ?>
@@ -1428,6 +1952,20 @@ class ConditionalLogicSettings
 										<?php $this->render_block_feature_toggle('query_loop_carousel_layout', __('Carousel Layout', 'aegis'), __('Slider with navigation, pagination, autoplay.', 'aegis'), $options, 'slides', true); ?>
 										<?php $this->render_block_feature_toggle('query_loop_woocommerce', __('WooCommerce Integration', 'aegis'), __('Product filtering, sorting, and display options.', 'aegis'), $options, 'cart', true); ?>
 										<?php $this->render_block_feature_toggle('query_loop_performance', __('Performance Optimization', 'aegis'), __('Caching, lazy loading, skeleton loading.', 'aegis'), $options, 'performance', true); ?>
+									</div>
+								</div>
+							</section>
+
+							<!-- Related Posts Section -->
+							<section id="related-posts" class="aegis-settings-section">
+								<?php $this->render_section_header(__('Related Posts Block', 'aegis'), __('Display posts related to the current content by shared taxonomy terms.', 'aegis'), true, 'admin-links'); ?>
+								<div class="aegis-settings-section__content">
+									<div class="aegis-settings-grid aegis-settings-grid--features">
+										<?php $this->render_block_feature_toggle('related_posts_taxonomy_source', __('Taxonomy Source', 'aegis'), __('Choose specific taxonomy or auto-detect from current post type.', 'aegis'), $options, 'tag'); ?>
+										<?php $this->render_block_feature_toggle('related_posts_fallback', __('Fallback Behavior', 'aegis'), __('Show latest posts or hide block when no related matches found.', 'aegis'), $options, 'backup'); ?>
+										<?php $this->render_block_feature_toggle('related_posts_style_variants', __('Style Variants', 'aegis'), __('Grid, list, cards, and minimal layout options.', 'aegis'), $options, 'layout'); ?>
+										<?php $this->render_block_feature_toggle('related_posts_excerpt_length', __('Excerpt Length', 'aegis'), __('Custom excerpt word count for related post summaries.', 'aegis'), $options, 'editor-textcolor'); ?>
+										<?php $this->render_block_feature_toggle('related_posts_image_ratio', __('Image Aspect Ratio', 'aegis'), __('Custom featured image aspect ratio for related posts.', 'aegis'), $options, 'image-crop'); ?>
 									</div>
 								</div>
 							</section>
@@ -2425,6 +2963,248 @@ class ConditionalLogicSettings
 	}
 
 	/**
+	 * Render the Modals overview page.
+	 *
+	 * Scans published content for aegis/modal blocks and displays
+	 * a stats bar, action buttons, and a feature reference.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+	public function render_modals_page(): void
+	{
+		global $wpdb;
+
+		// Count aegis/modal blocks across all published content.
+		$modal_count = (int) $wpdb->get_var(
+			"SELECT COUNT(*) FROM {$wpdb->posts}
+			 WHERE post_status = 'publish'
+			   AND post_content LIKE '%<!-- wp:aegis/modal %'"
+		);
+
+		// Modal feature definitions for the reference table.
+		$block_settings = self::get_block_settings();
+		$modal_features = [
+			'modal_click'             => __('Button Trigger', 'aegis'),
+			'modal_icon'              => __('Icon Trigger', 'aegis'),
+			'modal_text'              => __('Text Trigger', 'aegis'),
+			'modal_image'             => __('Image Trigger', 'aegis'),
+			'modal_offcanvas'         => __('Off-Canvas Modes', 'aegis'),
+			'modal_fullscreen'        => __('Fullscreen Mode', 'aegis'),
+			'modal_animations'        => __('Animations', 'aegis'),
+			'modal_exit_intent'       => __('Exit Intent', 'aegis'),
+			'modal_scroll_depth'      => __('Scroll Depth', 'aegis'),
+			'modal_time_delay'        => __('Time Delay', 'aegis'),
+			'modal_auto_close'        => __('Auto Close', 'aegis'),
+			'modal_show_once'         => __('Show Once', 'aegis'),
+			'modal_device_visibility' => __('Device Visibility', 'aegis'),
+		];
+		?>
+		<div class="aegis-admin-page">
+			<?php $this->render_top_bar(); ?>
+			<?php $this->render_page_tabs('modals'); ?>
+
+			<div class="aegis-settings-wrap">
+				<div class="aegis-settings-header">
+					<h1><?php esc_html_e('Modals', 'aegis'); ?></h1>
+					<p><?php esc_html_e('Create and manage modal overlays, drawers, and popups using the Modal block.', 'aegis'); ?></p>
+				</div>
+
+				<!-- Quick Stats + Actions -->
+				<div class="aegis-hooks-overview">
+					<div class="aegis-hooks-stats">
+						<div class="aegis-hooks-stat">
+							<span class="aegis-hooks-stat-value"><?php echo esc_html((string) $modal_count); ?></span>
+							<span class="aegis-hooks-stat-label"><?php esc_html_e('Modal Blocks', 'aegis'); ?></span>
+						</div>
+						<div class="aegis-hooks-stat">
+							<span class="aegis-hooks-stat-value"><?php echo esc_html((string) count(array_filter($modal_features, function ($key) use ($block_settings) {
+								return ! empty($block_settings[$key]);
+							}, ARRAY_FILTER_USE_KEY))); ?></span>
+							<span class="aegis-hooks-stat-label"><?php esc_html_e('Active Features', 'aegis'); ?></span>
+						</div>
+					</div>
+					<div class="aegis-hooks-actions">
+						<a href="<?php echo esc_url(admin_url('post-new.php?post_type=page')); ?>"
+						   class="aegis-btn aegis-btn-primary">
+							<span class="dashicons dashicons-plus-alt2"></span>
+							<?php esc_html_e('Add New', 'aegis'); ?>
+						</a>
+						<a href="<?php echo esc_url(admin_url('admin.php?page=aegis-blocks')); ?>"
+						   class="aegis-btn aegis-btn-secondary">
+							<span class="dashicons dashicons-admin-generic"></span>
+							<?php esc_html_e('Manage All', 'aegis'); ?>
+						</a>
+					</div>
+				</div>
+
+				<!-- Feature Reference -->
+				<div class="aegis-hooks-reference">
+					<div class="aegis-hooks-reference-header">
+						<span class="dashicons dashicons-editor-expand"></span>
+						<span><?php esc_html_e('Feature Reference', 'aegis'); ?></span>
+					</div>
+
+					<div class="aegis-hooks-group">
+						<div class="aegis-hooks-group-header">
+							<span class="dashicons dashicons-editor-expand"></span>
+							<span class="aegis-hooks-group-title"><?php esc_html_e('Modal Features', 'aegis'); ?></span>
+							<span class="aegis-hooks-group-count"><?php echo esc_html((string) count($modal_features)); ?></span>
+						</div>
+						<?php foreach ($modal_features as $key => $label): ?>
+							<div class="aegis-hooks-row">
+								<code class="aegis-hooks-row-name"><?php echo esc_html($label); ?></code>
+								<span class="aegis-hooks-row-desc">
+									<?php if (! empty($block_settings[$key])): ?>
+										<span style="color: #16a34a;">&#10003; <?php esc_html_e('Enabled', 'aegis'); ?></span>
+									<?php else: ?>
+										<span style="color: #9ca3af;">&mdash; <?php esc_html_e('Disabled', 'aegis'); ?></span>
+									<?php endif; ?>
+								</span>
+							</div>
+						<?php endforeach; ?>
+					</div>
+				</div>
+
+				<!-- Info callout -->
+				<div class="aegis-hooks-info">
+					<span class="dashicons dashicons-info-outline"></span>
+					<div>
+						<strong><?php esc_html_e('How it works', 'aegis'); ?></strong>
+						<p><?php esc_html_e('Add a Modal block to any page or post, configure its trigger and display options, and publish. Visitors will see the modal based on the trigger you set. Enable or disable individual features from the Blocks tab.', 'aegis'); ?></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Render hook patterns settings page.
+	 *
+	 * @return void
+	 */
+	public function render_hook_patterns_page(): void
+	{
+		$hook_patterns_manager = new \Aegis\Admin\HookPatternsManager();
+		$available_hooks       = $hook_patterns_manager->get_available_hooks();
+		$active_patterns       = \get_posts([
+			'post_type'      => \Aegis\Admin\HookPatternsManager::POST_TYPE,
+			'post_status'    => 'publish',
+			'posts_per_page' => -1,
+			'meta_query'     => [['key' => '_aegis_enabled', 'value' => '1']],
+		]);
+		$active_count = count($active_patterns);
+		$total_hooks  = 0;
+		foreach ($available_hooks as $hooks) {
+			$total_hooks += count($hooks);
+		}
+		?>
+		<div class="aegis-admin-page">
+			<?php $this->render_top_bar(); ?>
+			<?php $this->render_page_tabs('hook-patterns'); ?>
+
+			<div class="aegis-settings-wrap">
+				<div class="aegis-settings-header">
+					<h1><?php esc_html_e('Hooks', 'aegis'); ?></h1>
+					<p><?php esc_html_e('Inject custom block patterns at specific locations throughout your theme.', 'aegis'); ?></p>
+				</div>
+
+				<!-- Quick Stats + Actions -->
+				<div class="aegis-hooks-overview">
+					<div class="aegis-hooks-stats">
+						<div class="aegis-hooks-stat">
+							<span class="aegis-hooks-stat-value"><?php echo esc_html((string) $total_hooks); ?></span>
+							<span class="aegis-hooks-stat-label"><?php esc_html_e('Available Hooks', 'aegis'); ?></span>
+						</div>
+						<div class="aegis-hooks-stat">
+							<span class="aegis-hooks-stat-value"><?php echo esc_html((string) $active_count); ?></span>
+							<span class="aegis-hooks-stat-label"><?php esc_html_e('Active Patterns', 'aegis'); ?></span>
+						</div>
+					</div>
+					<div class="aegis-hooks-actions">
+						<a href="<?php echo esc_url(admin_url('post-new.php?post_type=' . \Aegis\Admin\HookPatternsManager::POST_TYPE)); ?>"
+						   class="aegis-btn aegis-btn-primary">
+							<span class="dashicons dashicons-plus-alt2"></span>
+							<?php esc_html_e('Add New', 'aegis'); ?>
+						</a>
+						<a href="<?php echo esc_url(admin_url('edit.php?post_type=' . \Aegis\Admin\HookPatternsManager::POST_TYPE)); ?>"
+						   class="aegis-btn aegis-btn-secondary">
+							<span class="dashicons dashicons-list-view"></span>
+							<?php esc_html_e('Manage All', 'aegis'); ?>
+						</a>
+					</div>
+				</div>
+
+				<!-- Hook Reference -->
+				<div class="aegis-hooks-reference">
+					<div class="aegis-hooks-reference-header">
+						<span class="dashicons dashicons-editor-code"></span>
+						<span><?php esc_html_e('Hook Reference', 'aegis'); ?></span>
+					</div>
+
+					<?php foreach ($available_hooks as $group => $hooks): ?>
+						<?php if (empty($hooks)) continue; ?>
+						<div class="aegis-hooks-group">
+							<div class="aegis-hooks-group-header">
+								<?php
+								$icons = [
+									'template-parts' => 'dashicons-layout',
+									'content'        => 'dashicons-text-page',
+									'custom'         => 'dashicons-admin-generic',
+								];
+								$icon = $icons[$group] ?? 'dashicons-admin-generic';
+								?>
+								<span class="dashicons <?php echo esc_attr($icon); ?>"></span>
+								<span class="aegis-hooks-group-title"><?php echo esc_html(ucfirst(str_replace('-', ' ', $group))); ?></span>
+								<span class="aegis-hooks-group-count"><?php echo esc_html((string) count($hooks)); ?></span>
+							</div>
+							<?php foreach ($hooks as $hook => $description): ?>
+								<div class="aegis-hooks-row">
+									<code class="aegis-hooks-row-name"><?php echo esc_html($hook); ?></code>
+									<span class="aegis-hooks-row-desc"><?php echo esc_html($description); ?></span>
+								</div>
+							<?php endforeach; ?>
+						</div>
+					<?php endforeach; ?>
+				</div>
+
+				<!-- Info callout -->
+				<div class="aegis-hooks-info">
+					<span class="dashicons dashicons-info-outline"></span>
+					<div>
+						<strong><?php esc_html_e('How it works', 'aegis'); ?></strong>
+						<p><?php esc_html_e('Create a hook pattern, choose a hook location from the list above, add your block content, and publish. The pattern will render at that hook location on every page load.', 'aegis'); ?></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Parent block keys that always use their default value.
+	 *
+	 * These keys have no UI toggle and act as master switches for block
+	 * variation rendering. They must always be true so the render methods
+	 * are not bypassed.
+	 */
+	private const PARENT_BLOCK_KEYS = [
+		'modal',
+		'slider',
+		'toggle',
+		'query_loop',
+		'accordion',
+		'counter',
+		'icon',
+		'marquee',
+		'newsletter',
+		'svg',
+		'map',
+	];
+
+	/**
 	 * Get block settings.
 	 *
 	 * @return array
@@ -2441,7 +3221,11 @@ class ConditionalLogicSettings
 
 		$merged = [];
 		foreach (self::BLOCKS_DEFAULTS as $key => $default) {
-			$merged[$key] = isset($options[$key]) ? (bool) $options[$key] : $default;
+			if (in_array($key, self::PARENT_BLOCK_KEYS, true)) {
+				$merged[$key] = $default;
+			} else {
+				$merged[$key] = isset($options[$key]) ? (bool) $options[$key] : $default;
+			}
 		}
 
 		$cached = $merged;
