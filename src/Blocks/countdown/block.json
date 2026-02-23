@@ -1,0 +1,116 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aegis/countdown",
+  "version": "1.0.0",
+  "title": "Countdown",
+  "category": "design",
+  "description": "A countdown timer block that counts down to a specific date and time with customizable segments, labels, and expiry behavior.",
+  "icon": "clock",
+  "textdomain": "aegis",
+  "keywords": [
+    "countdown",
+    "timer",
+    "clock",
+    "deadline",
+    "event"
+  ],
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "className": true,
+    "anchor": true,
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
+  },
+  "attributes": {
+    "datetime": {
+      "type": "string",
+      "default": ""
+    },
+    "showDays": {
+      "type": "boolean",
+      "default": true
+    },
+    "showHours": {
+      "type": "boolean",
+      "default": true
+    },
+    "showMinutes": {
+      "type": "boolean",
+      "default": true
+    },
+    "showSeconds": {
+      "type": "boolean",
+      "default": true
+    },
+    "labels": {
+      "type": "object",
+      "default": {
+        "days": "Days",
+        "hours": "Hours",
+        "minutes": "Minutes",
+        "seconds": "Seconds"
+      }
+    },
+    "separator": {
+      "type": "string",
+      "default": "colon",
+      "enum": [
+        "colon",
+        "dot",
+        "dash",
+        "none"
+      ]
+    },
+    "layout": {
+      "type": "string",
+      "default": "inline",
+      "enum": [
+        "inline",
+        "stacked"
+      ]
+    },
+    "expiryMessage": {
+      "type": "string",
+      "default": ""
+    },
+    "timezone": {
+      "type": "string",
+      "default": "utc",
+      "enum": [
+        "utc",
+        "local"
+      ]
+    }
+  },
+  "example": {
+    "attributes": {
+      "datetime": "2026-12-31T23:59:59",
+      "showDays": true,
+      "showHours": true,
+      "showMinutes": true,
+      "showSeconds": true,
+      "separator": "colon",
+      "layout": "inline"
+    }
+  },
+  "editorScript": "file:index.js",
+  "editorStyle": "file:index.css",
+  "style": "file:style-index.css",
+  "viewScript": "file:view.js",
+  "render": "file:render.php"
+}
