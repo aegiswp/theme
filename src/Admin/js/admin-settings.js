@@ -307,6 +307,88 @@
 				$btn.text( originalText ).prop( 'disabled', false );
 			}, 1000 );
 		} );
+
+		// Handle Google Maps API settings save
+		$( document ).on( 'click', '.aegis-save-google-maps', function( e ) {
+			e.preventDefault();
+			const $btn = $( this );
+
+			if ( typeof aegisAdmin === 'undefined' ) {
+				return;
+			}
+
+			const originalText = $btn.text();
+			$btn.text( aegisAdmin.saving ).prop( 'disabled', true );
+
+			// Collect Google Maps settings
+			const settings = {};
+			$( '.aegis-google-maps-field' ).each( function() {
+				const name = $( this ).attr( 'name' );
+				const match = name.match( /aegis_google_maps\[(\w+)\]/ );
+
+				if ( match ) {
+					settings[ match[1] ] = $( this ).val();
+				}
+			} );
+
+			$.ajax( {
+				url: aegisAdmin.ajaxUrl,
+				type: 'POST',
+				data: {
+					action: 'aegis_save_google_maps',
+					nonce: aegisAdmin.nonce,
+					settings: settings
+				},
+				success: function( response ) {
+					if ( response.success ) {
+						showNotice( aegisAdmin.saved, 'success' );
+					} else {
+						showNotice( response.data.message || aegisAdmin.error, 'error' );
+					}
+				},
+				error: function() {
+					showNotice( aegisAdmin.error, 'error' );
+				},
+				complete: function() {
+					$btn.text( originalText ).prop( 'disabled', false );
+				}
+			} );
+		} );
+
+		// Handle Google Maps test connection
+		$( document ).on( 'click', '.aegis-test-google-maps', function( e ) {
+			e.preventDefault();
+			const $btn = $( this );
+
+			if ( typeof aegisAdmin === 'undefined' ) {
+				return;
+			}
+
+			const originalText = $btn.text();
+			$btn.text( 'Testing...' ).prop( 'disabled', true );
+
+			$.ajax( {
+				url: aegisAdmin.ajaxUrl,
+				type: 'POST',
+				data: {
+					action: 'aegis_test_google_maps',
+					nonce: aegisAdmin.nonce
+				},
+				success: function( response ) {
+					if ( response.success ) {
+						showNotice( response.data.message, 'success' );
+					} else {
+						showNotice( response.data.message || aegisAdmin.error, 'error' );
+					}
+				},
+				error: function() {
+					showNotice( aegisAdmin.error, 'error' );
+				},
+				complete: function() {
+					$btn.text( originalText ).prop( 'disabled', false );
+				}
+			} );
+		} );
 	}
 
 	/**
