@@ -47,6 +47,7 @@
 		outline-offset: -2px;
 	}
 
+	/* stylelint-disable no-descending-specificity */
 	&:focus:not(:focus-visible) {
 		outline: none;
 	}
@@ -74,12 +75,13 @@
 	svg {
 		width: 20px;
 		height: 20px;
-		fill: currentColor;
+		fill: currentcolor;
 	}
 }
 
 // Icon position variants.
 .aegis-toggle--icon-left {
+
 	.aegis-toggle__trigger {
 		flex-direction: row-reverse;
 	}
@@ -87,12 +89,14 @@
 
 // Open state.
 .aegis-toggle--open {
+
 	.aegis-toggle__icon {
 		transform: rotate(180deg);
 	}
 }
 
 .aegis-toggle--icon-plus {
+
 	&.aegis-toggle--open .aegis-toggle__icon {
 		transform: rotate(45deg);
 	}
@@ -100,6 +104,7 @@
 
 // Content.
 .aegis-toggle__content {
+
 	&[hidden] {
 		display: none;
 	}
@@ -119,6 +124,7 @@
 
 // Reduced motion.
 @media (prefers-reduced-motion: reduce) {
+
 	.aegis-toggle__icon,
 	.aegis-toggle__trigger {
 		transition: none !important;
@@ -131,6 +137,7 @@
 
 // High contrast.
 @media (forced-colors: active) {
+
 	.wp-block-aegis-toggle {
 		border: 1px solid CanvasText;
 	}
