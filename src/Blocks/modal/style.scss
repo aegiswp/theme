@@ -50,6 +50,7 @@
 	}
 
 	&--image {
+
 		.aegis-modal-trigger__image {
 			max-width: 100%;
 			height: auto;
@@ -81,7 +82,7 @@
 		position: absolute;
 		inset: 0;
 		background: var(--aegis-modal-overlay-color, rgba(0, 0, 0, 0.5));
-		backdrop-filter: blur(var(--aegis-modal-overlay-blur, 0px));
+		backdrop-filter: blur(var(--aegis-modal-overlay-blur, 0));
 	}
 
 	// Container
@@ -127,7 +128,7 @@
 		svg {
 			width: 20px;
 			height: 20px;
-			fill: currentColor;
+			fill: currentcolor;
 		}
 
 		&:hover {
@@ -167,6 +168,7 @@
 
 	// Body
 	&__body {
+
 		> *:first-child {
 			margin-top: 0;
 		}
@@ -208,6 +210,7 @@
 }
 
 .aegis-modal--fullscreen {
+
 	.aegis-modal__container {
 		width: 100%;
 		max-width: 100%;
@@ -224,6 +227,7 @@
 
 // Animations
 .aegis-modal--fade {
+
 	.aegis-modal__overlay,
 	.aegis-modal__container {
 		animation: aegis-modal-fade-in var(--aegis-modal-duration, 200ms) ease;
@@ -231,67 +235,119 @@
 }
 
 .aegis-modal--slide-up {
+
 	.aegis-modal__container {
 		animation: aegis-modal-slide-up var(--aegis-modal-duration, 200ms) ease;
 	}
 }
 
 .aegis-modal--slide-down {
+
 	.aegis-modal__container {
 		animation: aegis-modal-slide-down var(--aegis-modal-duration, 200ms) ease;
 	}
 }
 
 .aegis-modal--slide-left {
+
 	.aegis-modal__container {
 		animation: aegis-modal-slide-left var(--aegis-modal-duration, 200ms) ease;
 	}
 }
 
 .aegis-modal--slide-right {
+
 	.aegis-modal__container {
 		animation: aegis-modal-slide-right var(--aegis-modal-duration, 200ms) ease;
 	}
 }
 
 .aegis-modal--zoom {
+
 	.aegis-modal__container {
 		animation: aegis-modal-zoom var(--aegis-modal-duration, 200ms) ease;
 	}
 }
 
 @keyframes aegis-modal-fade-in {
-	from { opacity: 0; }
-	to { opacity: 1; }
+
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
 }
 
 @keyframes aegis-modal-slide-up {
-	from { transform: translateY(20px); opacity: 0; }
-	to { transform: translateY(0); opacity: 1; }
+
+	from {
+		transform: translateY(20px);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
 }
 
 @keyframes aegis-modal-slide-down {
-	from { transform: translateY(-20px); opacity: 0; }
-	to { transform: translateY(0); opacity: 1; }
+
+	from {
+		transform: translateY(-20px);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
 }
 
 @keyframes aegis-modal-slide-left {
-	from { transform: translateX(20px); opacity: 0; }
-	to { transform: translateX(0); opacity: 1; }
+
+	from {
+		transform: translateX(20px);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
 }
 
 @keyframes aegis-modal-slide-right {
-	from { transform: translateX(-20px); opacity: 0; }
-	to { transform: translateX(0); opacity: 1; }
+
+	from {
+		transform: translateX(-20px);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
 }
 
 @keyframes aegis-modal-zoom {
-	from { transform: scale(0.9); opacity: 0; }
-	to { transform: scale(1); opacity: 1; }
+
+	from {
+		transform: scale(0.9);
+		opacity: 0;
+	}
+
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
 }
 
 // Reduced motion
 @media (prefers-reduced-motion: reduce) {
+
 	.aegis-modal__overlay,
 	.aegis-modal__container,
 	.aegis-modal__close,
@@ -303,6 +359,7 @@
 
 // High contrast mode
 @media (forced-colors: active) {
+
 	.aegis-modal__close {
 		border: 1px solid ButtonText;
 	}
