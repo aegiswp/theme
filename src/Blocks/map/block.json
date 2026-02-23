@@ -1,0 +1,114 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aegis/map",
+  "version": "1.0.0",
+  "title": "Map",
+  "category": "design",
+  "description": "An interactive map block with Google Maps and OpenStreetMap support, markers, style presets, and map controls.",
+  "icon": "location-alt",
+  "textdomain": "aegis",
+  "keywords": [
+    "map",
+    "google maps",
+    "openstreetmap",
+    "location",
+    "marker"
+  ],
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "className": true,
+    "anchor": true
+  },
+  "attributes": {
+    "address": {
+      "type": "string",
+      "default": ""
+    },
+    "lat": {
+      "type": "number",
+      "default": 4.6495
+    },
+    "lng": {
+      "type": "number",
+      "default": -74.0627
+    },
+    "zoom": {
+      "type": "number",
+      "default": 15
+    },
+    "height": {
+      "type": "string",
+      "default": "400px"
+    },
+    "mapType": {
+      "type": "string",
+      "default": "roadmap",
+      "enum": [
+        "roadmap",
+        "satellite",
+        "hybrid",
+        "terrain"
+      ]
+    },
+    "mapStyle": {
+      "type": "string",
+      "default": "default",
+      "enum": [
+        "default",
+        "silver",
+        "dark",
+        "retro",
+        "night",
+        "aubergine"
+      ]
+    },
+    "markers": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object"
+      }
+    },
+    "showZoomControl": {
+      "type": "boolean",
+      "default": true
+    },
+    "showMapType": {
+      "type": "boolean",
+      "default": false
+    },
+    "showStreetView": {
+      "type": "boolean",
+      "default": false
+    },
+    "showFullscreen": {
+      "type": "boolean",
+      "default": false
+    },
+    "scrollWheel": {
+      "type": "boolean",
+      "default": false
+    },
+    "draggable": {
+      "type": "boolean",
+      "default": true
+    },
+    "provider": {
+      "type": "string",
+      "default": "google",
+      "enum": [
+        "google",
+        "openstreetmap"
+      ]
+    }
+  },
+  "editorScript": "file:index.js",
+  "style": "file:style-index.css",
+  "viewScript": "file:view.js",
+  "render": "file:render.php"
+}
