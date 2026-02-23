@@ -1,0 +1,271 @@
+/**
+ * Related Posts Block - Frontend Styles
+ *
+ * @package Aegis
+ * @since   1.0.0
+ */
+
+.wp-block-aegis-related-posts {
+	margin-block: var(--wp--preset--spacing--50, 2rem);
+}
+
+.wp-block-aegis-related-posts__heading {
+	margin-block-end: var(--wp--preset--spacing--30, 1rem);
+}
+
+.wp-block-aegis-related-posts__grid {
+	display: grid;
+	gap: var(--wp--preset--spacing--30, 1.5rem);
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.wp-block-aegis-related-posts__post {
+	min-width: 0;
+}
+
+.wp-block-aegis-related-posts__image {
+	display: block;
+	overflow: hidden;
+	border-radius: 4px;
+	text-decoration: none;
+
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+		transition: transform 0.3s ease;
+	}
+
+	&:hover img,
+	&:focus img {
+		transform: scale(1.03);
+	}
+}
+
+.wp-block-aegis-related-posts__content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.wp-block-aegis-related-posts__category {
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+
+	a {
+		text-decoration: none;
+		color: var(--wp--preset--color--primary-500, currentColor);
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+	}
+}
+
+/* stylelint-disable no-descending-specificity */
+.wp-block-aegis-related-posts__title {
+	font-size: 1rem;
+	font-weight: 600;
+	line-height: 1.4;
+	margin: 0;
+
+	a {
+		text-decoration: none;
+		color: inherit;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+	}
+}
+
+.wp-block-aegis-related-posts__date {
+	font-size: 0.8125rem;
+	color: var(--wp--preset--color--neutral-500, #6b7280);
+}
+
+.wp-block-aegis-related-posts__excerpt {
+	font-size: 0.875rem;
+	line-height: 1.6;
+	color: var(--wp--preset--color--neutral-600, #4b5563);
+	margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+ * Column variants
+ * ----------------------------------------------------------------------- */
+
+.wp-block-aegis-related-posts.columns-1 .wp-block-aegis-related-posts__grid {
+	grid-template-columns: 1fr;
+}
+
+.wp-block-aegis-related-posts.columns-2 .wp-block-aegis-related-posts__grid {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.wp-block-aegis-related-posts.columns-3 .wp-block-aegis-related-posts__grid {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.wp-block-aegis-related-posts.columns-4 .wp-block-aegis-related-posts__grid {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+/* --------------------------------------------------------------------------
+ * Style: Grid (default)
+ * ----------------------------------------------------------------------- */
+
+.wp-block-aegis-related-posts.is-style-grid {
+
+	.wp-block-aegis-related-posts__post {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.wp-block-aegis-related-posts__content {
+		padding-block-start: 0.75rem;
+	}
+}
+
+/* --------------------------------------------------------------------------
+ * Style: List
+ * ----------------------------------------------------------------------- */
+
+.wp-block-aegis-related-posts.is-style-list {
+
+	.wp-block-aegis-related-posts__grid {
+		grid-template-columns: 1fr;
+		gap: var(--wp--preset--spacing--20, 1rem);
+	}
+
+	.wp-block-aegis-related-posts__post {
+		display: grid;
+		grid-template-columns: 120px 1fr;
+		gap: var(--wp--preset--spacing--20, 1rem);
+		align-items: center;
+	}
+
+	.wp-block-aegis-related-posts__image img {
+		aspect-ratio: 1 / 1;
+		object-fit: cover;
+	}
+
+	.wp-block-aegis-related-posts__excerpt {
+		display: none;
+	}
+}
+
+/* --------------------------------------------------------------------------
+ * Style: Cards
+ * ----------------------------------------------------------------------- */
+
+.wp-block-aegis-related-posts.is-style-cards {
+
+	.wp-block-aegis-related-posts__post {
+		display: flex;
+		flex-direction: column;
+		background: var(--wp--preset--color--neutral-50, #f9fafb);
+		border-radius: 8px;
+		overflow: hidden;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+		transition: box-shadow 0.2s ease;
+
+		&:hover {
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+		}
+	}
+
+	.wp-block-aegis-related-posts__image {
+		border-radius: 0;
+	}
+
+	.wp-block-aegis-related-posts__content {
+		padding: var(--wp--preset--spacing--30, 1.25rem);
+	}
+}
+
+/* --------------------------------------------------------------------------
+ * Style: Minimal
+ * ----------------------------------------------------------------------- */
+
+.wp-block-aegis-related-posts.is-style-minimal {
+
+	.wp-block-aegis-related-posts__grid {
+		grid-template-columns: 1fr;
+		gap: 0;
+	}
+
+	.wp-block-aegis-related-posts__post {
+		padding-block: var(--wp--preset--spacing--20, 1rem);
+		border-bottom: 1px solid var(--wp--preset--color--neutral-200, #e5e7eb);
+
+		&:first-child {
+			border-top: 1px solid var(--wp--preset--color--neutral-200, #e5e7eb);
+		}
+	}
+
+	.wp-block-aegis-related-posts__image {
+		display: none;
+	}
+
+	.wp-block-aegis-related-posts__content {
+		flex-direction: row;
+		align-items: baseline;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.wp-block-aegis-related-posts__title {
+		flex: 1;
+	}
+
+	.wp-block-aegis-related-posts__excerpt {
+		display: none;
+	}
+}
+
+/* --------------------------------------------------------------------------
+ * Responsive
+ * ----------------------------------------------------------------------- */
+
+@media (max-width: 781px) {
+
+	.wp-block-aegis-related-posts.columns-3 .wp-block-aegis-related-posts__grid,
+	.wp-block-aegis-related-posts.columns-4 .wp-block-aegis-related-posts__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 599px) {
+
+	.wp-block-aegis-related-posts.columns-2 .wp-block-aegis-related-posts__grid,
+	.wp-block-aegis-related-posts.columns-3 .wp-block-aegis-related-posts__grid,
+	.wp-block-aegis-related-posts.columns-4 .wp-block-aegis-related-posts__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.wp-block-aegis-related-posts.is-style-list .wp-block-aegis-related-posts__post {
+		grid-template-columns: 80px 1fr;
+	}
+}
+
+/* --------------------------------------------------------------------------
+ * Reduced motion
+ * ----------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+	.wp-block-aegis-related-posts__image img {
+		transition: none;
+	}
+
+	.wp-block-aegis-related-posts.is-style-cards .wp-block-aegis-related-posts__post {
+		transition: none;
+	}
+}
