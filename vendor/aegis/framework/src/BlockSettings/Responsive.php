@@ -34,15 +34,72 @@ use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
 use function _wp_to_kebab_case;
 use function array_merge;
+use function class_exists;
+use function current_time;
+use function in_array;
+use function intval;
 use function is_admin;
+use function is_numeric;
+use function is_user_logged_in;
 use function sprintf;
 use function str_contains;
 use function str_replace;
+use function strtotime;
+use function wp_get_current_user;
+use function wp_unique_id;
 
 // Implements the Responsive class to support responsive settings and controls for blocks.
 
 class Responsive implements Renderable, Scriptable, Styleable
 {
+
+	/**
+	 * Visibility toggle settings for hiding blocks on specific breakpoints.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var array
+	 */
+	public const VISIBILITY = [
+		'hideOnMobile' => [
+			'property' => 'hide-on-mobile',
+			'label' => 'Hide on Mobile',
+			'breakpoint' => 'mobile',
+		],
+		'hideOnTablet' => [
+			'property' => 'hide-on-tablet',
+			'label' => 'Hide on Tablet',
+			'breakpoint' => 'tablet',
+		],
+		'hideOnDesktop' => [
+			'property' => 'hide-on-desktop',
+			'label' => 'Hide on Desktop',
+			'breakpoint' => 'desktop',
+		],
+	];
+
+	/**
+	 * Accessibility settings for visibility controls.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var array
+	 */
+	public const ACCESSIBILITY = [
+		'hideReducedMotion' => [
+			'property' => 'hide-reduced-motion',
+			'label' => 'Hide with Reduced Motion',
+		],
+		'screenReaderOnly' => [
+			'property' => 'screen-reader-only',
+			'label' => 'Screen Reader Only',
+		],
+		'colorScheme' => [
+			'property' => 'color-scheme',
+			'label' => 'Color Scheme',
+			'options' => ['light', 'dark'],
+		],
+	];
 
 	public const SETTINGS = [
 		'position' => [
@@ -104,10 +161,6 @@ class Responsive implements Renderable, Scriptable, Styleable
 					'value' => '',
 				],
 				[
-					'label' => 'None',
-					'value' => 'none',
-				],
-				[
 					'label' => 'Flex',
 					'value' => 'flex',
 				],
@@ -138,6 +191,10 @@ class Responsive implements Renderable, Scriptable, Styleable
 				[
 					'label' => 'Contents',
 					'value' => 'contents',
+				],
+				[
+					'label' => 'None',
+					'value' => 'none',
 				],
 			],
 		],
@@ -318,6 +375,8 @@ class Responsive implements Renderable, Scriptable, Styleable
 			return $block_content;
 		}
 
+		$new_styles = [];
+
 		foreach ($options as $key => $args) {
 
 			if (!isset($style[$key])) {
@@ -329,14 +388,6 @@ class Responsive implements Renderable, Scriptable, Styleable
 				continue;
 			}
 
-			$dom = DOM::create($block_content);
-			$first = DOM::get_element('*', $dom);
-
-			if (!$first) {
-				continue;
-			}
-
-			$styles = CSS::string_to_array($first->getAttribute('style'));
 			$property = _wp_to_kebab_case($key);
 			$both = $style[$key]['all'] ?? '';
 			$mobile = $style[$key]['mobile'] ?? '';
@@ -345,35 +396,45 @@ class Responsive implements Renderable, Scriptable, Styleable
 			$desktop = $style[$key]['desktop'] ?? '';
 
 			if ($both) {
-				$styles['--' . $property] = $both;
+				$new_styles['--' . $property] = $both;
 			}
 
 			if ($mobile) {
-				$styles['--' . $property . '-mobile'] = $mobile;
+				$new_styles['--' . $property . '-mobile'] = $mobile;
 			}
 
 			if ($landscape) {
-				$styles['--' . $property . '-landscape'] = $landscape;
+				$new_styles['--' . $property . '-landscape'] = $landscape;
 			}
 
 			if ($tablet) {
-				$styles['--' . $property . '-tablet'] = $tablet;
+				$new_styles['--' . $property . '-tablet'] = $tablet;
 			}
 
 			if ($desktop) {
-				$styles['--' . $property . '-desktop'] = $desktop;
+				$new_styles['--' . $property . '-desktop'] = $desktop;
 			}
-
-			$first->setAttribute('style', CSS::array_to_string($styles));
-
-			$block_content = $dom->saveHTML();
 		}
 
-		return $block_content;
+		if (!$new_styles) {
+			return $block_content;
+		}
+
+		$dom = DOM::create($block_content);
+		$first = DOM::get_element('*', $dom);
+
+		if (!$first) {
+			return $block_content;
+		}
+
+		$styles = array_merge(CSS::string_to_array($first->getAttribute('style')), $new_styles);
+		$first->setAttribute('style', CSS::array_to_string($styles));
+
+		return $dom->saveHTML();
 	}
 
 	/**
-	 * Adds inline block positioning classes.
+	 * Modifies front end HTML output of block.
 	 *
 	 * @since 1.0.0
 	 *
@@ -388,6 +449,30 @@ class Responsive implements Renderable, Scriptable, Styleable
 	public function render(string $block_content, array $block, WP_Block $instance): string
 	{
 		$style = $block['attrs']['style'] ?? [];
+		$visibility = $block['attrs']['visibility'] ?? [];
+
+		// Check device/browser rules - hide block if rules match
+		if ($this->should_hide_for_device($visibility)) {
+			return '';
+		}
+
+		// Check user status - hide block if user status doesn't match
+		if ($this->should_hide_for_user_status($visibility)) {
+			return '';
+		}
+
+		// Check user role rules - hide block if role rules match
+		if ($this->should_hide_for_user_role($visibility)) {
+			return '';
+		}
+
+		// Check schedule - hide block if outside scheduled time
+		if ($this->should_hide_for_schedule($visibility)) {
+			return '';
+		}
+
+		// Add visibility classes for hide toggles
+		$block_content = $this->add_visibility_classes($block_content, $visibility);
 
 		if (!$style) {
 			return $block_content;
@@ -409,6 +494,349 @@ class Responsive implements Renderable, Scriptable, Styleable
 	}
 
 	/**
+	 * Check if block should be hidden based on user login status.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $visibility Visibility settings.
+	 *
+	 * @return bool True if block should be hidden.
+	 */
+	private function should_hide_for_user_status(array $visibility): bool
+	{
+		$user_status = $visibility['userStatus'] ?? '';
+
+		if (empty($user_status)) {
+			return false;
+		}
+
+		$is_logged_in = is_user_logged_in();
+
+		// Hide if set to logged_in only but user is not logged in
+		if ($user_status === 'logged_in' && !$is_logged_in) {
+			return true;
+		}
+
+		// Hide if set to logged_out only but user is logged in
+		if ($user_status === 'logged_out' && $is_logged_in) {
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Check if block should be hidden based on user role rules.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $visibility Visibility settings.
+	 *
+	 * @return bool True if block should be hidden.
+	 */
+	private function should_hide_for_user_role(array $visibility): bool
+	{
+		$role_rules = $visibility['userRoleRules'] ?? [];
+
+		if (empty($role_rules)) {
+			return false;
+		}
+
+		$current_user = wp_get_current_user();
+		$user_roles = $current_user->roles ?? [];
+
+		foreach ($role_rules as $rule) {
+			$role = $rule['role'] ?? '';
+			$operator = $rule['operator'] ?? 'is';
+
+			if (empty($role)) {
+				continue;
+			}
+
+			$has_role = in_array($role, $user_roles, true);
+
+			// "is" operator: hide if user HAS this role
+			if ($operator === 'is' && $has_role) {
+				return true;
+			}
+
+			// "isNot" operator: hide if user does NOT have this role
+			if ($operator === 'isNot' && !$has_role) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Check if block should be hidden based on schedule.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $visibility Visibility settings.
+	 *
+	 * @return bool True if block should be hidden.
+	 */
+	private function should_hide_for_schedule(array $visibility): bool
+	{
+		$schedule_start = $visibility['scheduleStart'] ?? '';
+		$schedule_end = $visibility['scheduleEnd'] ?? '';
+
+		if (empty($schedule_start) && empty($schedule_end)) {
+			return false;
+		}
+
+		$current_time = current_time('timestamp');
+
+		// Check start time - hide if current time is before start
+		if (!empty($schedule_start)) {
+			$start_timestamp = strtotime($schedule_start);
+			if ($start_timestamp && $current_time < $start_timestamp) {
+				return true;
+			}
+		}
+
+		// Check end time - hide if current time is after end
+		if (!empty($schedule_end)) {
+			$end_timestamp = strtotime($schedule_end);
+			if ($end_timestamp && $current_time > $end_timestamp) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Check if block should be hidden based on device/browser rules.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $visibility Visibility settings.
+	 *
+	 * @return bool True if block should be hidden.
+	 */
+	private function should_hide_for_device(array $visibility): bool
+	{
+		$device_rules = $visibility['deviceRules'] ?? [];
+
+		if (empty($device_rules)) {
+			return false;
+		}
+
+		$user_agent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+
+		if (empty($user_agent)) {
+			return false;
+		}
+
+		$user_agent_lower = strtolower($user_agent);
+
+		foreach ($device_rules as $rule) {
+			$device = $rule['device'] ?? '';
+			$operator = $rule['operator'] ?? 'is';
+
+			if (empty($device)) {
+				continue;
+			}
+
+			$is_match = $this->detect_device($device, $user_agent_lower);
+
+			// "is" operator: hide if device matches
+			// "isNot" operator: hide if device does NOT match
+			if ($operator === 'is' && $is_match) {
+				return true;
+			}
+
+			if ($operator === 'isNot' && !$is_match) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Detect if user agent matches a specific device/browser.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $device     Device/browser identifier.
+	 * @param string $user_agent Lowercase user agent string.
+	 *
+	 * @return bool True if device/browser is detected.
+	 */
+	private function detect_device(string $device, string $user_agent): bool
+	{
+		switch ($device) {
+			case 'ios':
+				return str_contains($user_agent, 'iphone') ||
+					   str_contains($user_agent, 'ipad') ||
+					   str_contains($user_agent, 'ipod');
+
+			case 'android':
+				return str_contains($user_agent, 'android');
+
+			case 'chrome':
+				// Chrome but not Edge (Edge contains "chrome" in UA)
+				return str_contains($user_agent, 'chrome') &&
+					   !str_contains($user_agent, 'edg');
+
+			case 'safari':
+				// Safari but not Chrome (Chrome contains "safari" in UA)
+				return str_contains($user_agent, 'safari') &&
+					   !str_contains($user_agent, 'chrome') &&
+					   !str_contains($user_agent, 'chromium');
+
+			case 'firefox':
+				return str_contains($user_agent, 'firefox');
+
+			case 'edge':
+				return str_contains($user_agent, 'edg');
+
+			default:
+				return false;
+		}
+	}
+
+	/**
+	 * Adds visibility classes for responsive hide toggles.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $block_content Block content.
+	 * @param array  $visibility    Visibility settings.
+	 *
+	 * @return string
+	 */
+	private function add_visibility_classes(string $block_content, array $visibility): string
+	{
+		if (empty($visibility) || empty($block_content)) {
+			return $block_content;
+		}
+
+		// Check if any visibility toggles are actually set
+		$has_visibility = false;
+		$classes_to_add = [];
+
+		foreach (self::VISIBILITY as $key => $args) {
+			if (!empty($visibility[$key])) {
+				$has_visibility = true;
+				$classes_to_add[] = $args['property'];
+			}
+		}
+
+		// Check for accessibility settings
+		if (!empty($visibility['hideReducedMotion'])) {
+			$has_visibility = true;
+			$classes_to_add[] = 'hide-reduced-motion';
+		}
+
+		if (!empty($visibility['screenReaderOnly'])) {
+			$has_visibility = true;
+			$classes_to_add[] = 'screen-reader-only';
+		}
+
+		$color_scheme = $visibility['colorScheme'] ?? '';
+		if (!empty($color_scheme)) {
+			$has_visibility = true;
+			$classes_to_add[] = 'show-' . $color_scheme . '-mode-only';
+		}
+
+		if (!empty($visibility['hideHighContrast'])) {
+			$has_visibility = true;
+			$classes_to_add[] = 'hide-high-contrast';
+		}
+
+		if (!empty($visibility['hideForcedColors'])) {
+			$has_visibility = true;
+			$classes_to_add[] = 'hide-forced-colors';
+		}
+
+		// Check for custom breakpoints
+		$custom_breakpoints = $visibility['customBreakpoints'] ?? [];
+		$custom_css = '';
+
+		if (!empty($custom_breakpoints)) {
+			$unique_id = 'aegis-bp-' . wp_unique_id();
+			$classes_to_add[] = $unique_id;
+			$has_visibility = true;
+
+			foreach ($custom_breakpoints as $breakpoint) {
+				$min_width = $breakpoint['minWidth'] ?? '';
+				$max_width = $breakpoint['maxWidth'] ?? '';
+
+				if (empty($min_width) && empty($max_width)) {
+					continue;
+				}
+
+				$media_query = $this->build_media_query($min_width, $max_width);
+				if ($media_query) {
+					$custom_css .= sprintf('%s{.%s{display:none !important}}', $media_query, $unique_id);
+				}
+			}
+		}
+
+		if (!$has_visibility) {
+			return $block_content;
+		}
+
+		// Use regex to add classes to avoid DOM manipulation issues
+		$classes_string = implode(' ', $classes_to_add);
+
+		// Match the first HTML tag with a class attribute
+		$pattern = '/^(<[^>]+\sclass=["\'])([^"\']*)(["\']\s*[^>]*>)/';
+		if (preg_match($pattern, $block_content, $matches)) {
+			$existing_classes = $matches[2];
+			$new_classes = trim($existing_classes . ' ' . $classes_string);
+			$block_content = preg_replace($pattern, '$1' . $new_classes . '$3', $block_content, 1);
+		} else {
+			// No class attribute, try to add one to the first tag
+			$pattern = '/^(<\w+)(\s|>)/';
+			if (preg_match($pattern, $block_content)) {
+				$block_content = preg_replace($pattern, '$1 class="' . $classes_string . '"$2', $block_content, 1);
+			}
+		}
+
+		// Add inline style tag for custom breakpoints
+		if ($custom_css) {
+			$block_content .= '<style>' . $custom_css . '</style>';
+		}
+
+		return $block_content;
+	}
+
+	/**
+	 * Build media query string from min/max width values.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $min_width Minimum width in pixels.
+	 * @param string $max_width Maximum width in pixels.
+	 *
+	 * @return string Media query string or empty if invalid.
+	 */
+	private function build_media_query(string $min_width, string $max_width): string
+	{
+		$conditions = [];
+
+		if (!empty($min_width) && is_numeric($min_width)) {
+			$conditions[] = '(min-width:' . intval($min_width) . 'px)';
+		}
+
+		if (!empty($max_width) && is_numeric($max_width)) {
+			$conditions[] = '(max-width:' . intval($max_width) . 'px)';
+		}
+
+		if (empty($conditions)) {
+			return '';
+		}
+
+		return '@media ' . implode(' and ', $conditions);
+	}
+
+	/**
 	 * Add default block supports.
 	 *
 	 * @since 1.0.0
@@ -425,6 +853,70 @@ class Responsive implements Renderable, Scriptable, Styleable
 			[],
 			is_admin()
 		);
+
+		$scripts->add_data(
+			'visibilityOptions',
+			self::VISIBILITY,
+			[],
+			is_admin()
+		);
+
+		// Pass conditional logic settings to editor
+		$scripts->add_data(
+			'conditionalLogicSettings',
+			$this->get_conditional_logic_settings(),
+			[],
+			is_admin()
+		);
+	}
+
+	/**
+	 * Get conditional logic settings for the editor.
+	 *
+	 * Single source of truth used by both Responsive and EditorAssets.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return array
+	 */
+	public static function get_conditional_logic_settings(): array
+	{
+		static $cached = null;
+
+		if ($cached !== null) {
+			return $cached;
+		}
+
+		// Use the theme-level settings class if available
+		if (class_exists('\Aegis\Admin\ConditionalLogicSettings')) {
+			$cached = \Aegis\Admin\ConditionalLogicSettings::get_settings();
+			return $cached;
+		}
+
+		// Fallback defaults - all disabled
+		$cached = [
+			'visibility' => [
+				'screen_size' => false,
+				'custom_breakpoints' => false,
+				'browser_device' => false,
+			],
+			'accessibility' => [
+				'reduced_motion' => false,
+				'screen_reader_only' => false,
+				'color_scheme' => false,
+				'high_contrast' => false,
+				'forced_colors' => false,
+			],
+			'user' => [
+				'user_status' => false,
+				'user_role' => false,
+			],
+			'schedule' => [
+				'date_time' => false,
+			],
+		];
+
+		return $cached;
 	}
 
 	/**
@@ -586,6 +1078,71 @@ class Responsive implements Renderable, Scriptable, Styleable
 
 		if ($desktop) {
 			$css .= sprintf('@media(min-width:1024px){%s}', $desktop);
+		}
+
+		// Add visibility toggle CSS
+		$css .= $this->get_visibility_styles($template_html, $load_all);
+
+		return $css;
+	}
+
+	/**
+	 * Returns inline styles for visibility toggle classes.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $template_html Template HTML.
+	 * @param bool   $load_all      Load all assets.
+	 *
+	 * @return string
+	 */
+	private function get_visibility_styles(string $template_html, bool $load_all): string
+	{
+		$css = '';
+
+		// Hide on mobile (max-width: 479px)
+		if ($load_all || str_contains($template_html, 'hide-on-mobile')) {
+			$css .= '@media(max-width:479px){.hide-on-mobile{display:none !important}}';
+		}
+
+		// Hide on tablet (768px - 1023px)
+		if ($load_all || str_contains($template_html, 'hide-on-tablet')) {
+			$css .= '@media(min-width:768px) and (max-width:1023px){.hide-on-tablet{display:none !important}}';
+		}
+
+		// Hide on desktop (min-width: 1024px)
+		if ($load_all || str_contains($template_html, 'hide-on-desktop')) {
+			$css .= '@media(min-width:1024px){.hide-on-desktop{display:none !important}}';
+		}
+
+		// Accessibility: Hide with reduced motion preference
+		if ($load_all || str_contains($template_html, 'hide-reduced-motion')) {
+			$css .= '@media(prefers-reduced-motion:reduce){.hide-reduced-motion{display:none !important}}';
+		}
+
+		// Accessibility: Screen reader only (visually hidden but accessible)
+		if ($load_all || str_contains($template_html, 'screen-reader-only')) {
+			$css .= '.screen-reader-only{position:absolute !important;width:1px !important;height:1px !important;padding:0 !important;margin:-1px !important;overflow:hidden !important;clip:rect(0,0,0,0) !important;white-space:nowrap !important;border:0 !important}';
+		}
+
+		// Accessibility: Show only in light mode
+		if ($load_all || str_contains($template_html, 'show-light-mode-only')) {
+			$css .= '@media(prefers-color-scheme:dark){.show-light-mode-only{display:none !important}}';
+		}
+
+		// Accessibility: Show only in dark mode
+		if ($load_all || str_contains($template_html, 'show-dark-mode-only')) {
+			$css .= '@media(prefers-color-scheme:light){.show-dark-mode-only{display:none !important}}';
+		}
+
+		// Accessibility: Hide in high contrast mode
+		if ($load_all || str_contains($template_html, 'hide-high-contrast')) {
+			$css .= '@media(prefers-contrast:more){.hide-high-contrast{display:none !important}}';
+		}
+
+		// Accessibility: Hide in forced colors mode (Windows High Contrast)
+		if ($load_all || str_contains($template_html, 'hide-forced-colors')) {
+			$css .= '@media(forced-colors:active){.hide-forced-colors{display:none !important}}';
 		}
 
 		return $css;
