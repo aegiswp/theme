@@ -41,6 +41,7 @@ use function implode;
 use function in_array;
 use function method_exists;
 use function property_exists;
+use function realpath;
 use function str_contains;
 use function str_replace;
 use function trim;
@@ -84,6 +85,12 @@ class InlineSvg implements Renderable
 	 */
 	public function render(string $block_content, array $block, WP_Block $instance): string
 	{
+		// Check if block is enabled in admin settings.
+		if (class_exists('\Aegis\Admin\ConditionalLogicSettings') &&
+			!\Aegis\Admin\ConditionalLogicSettings::is_block_enabled('svg')) {
+			return $block_content;
+		}
+
 		// As a performance optimization, only parse the DOM if the class is present.
 		if (!str_contains($block_content, 'has-inline-svg')) {
 			return $block_content;
@@ -99,8 +106,14 @@ class InlineSvg implements Renderable
 			return $block_content;
 		}
 
-		// Iterate through all images in the block.
+		// Performance: collect into static array to avoid live NodeList issues.
+		$image_list = [];
 		foreach ($images as $img) {
+			$image_list[] = $img;
+		}
+
+		// Iterate through all images in the block.
+		foreach ($image_list as $img) {
 			// Check for the CSS mask style.
 			$style = CSS::string_to_array($img->getAttribute('style'));
 			$mask = $style['-webkit-mask-image'] ?? '';
@@ -122,7 +135,11 @@ class InlineSvg implements Renderable
 			$imported->removeAttribute('height');
 			$imported->removeAttribute('width');
 
-			// Transfer all attributes from the original <img> to the new <svg>,
+			// Security: allowlist of safe HTML attributes to transfer.
+			$safe_attrs = ['id', 'class', 'style', 'title', 'lang', 'dir', 'role',
+				'aria-label', 'aria-hidden', 'aria-describedby', 'data-*', 'tabindex'];
+
+			// Transfer all safe attributes from the original <img> to the new <svg>,
 			// except for the -webkit-mask-image style.
 			foreach ($img->attributes as $attribute) {
 				if ('style' === $attribute->name) {
@@ -130,7 +147,12 @@ class InlineSvg implements Renderable
 					$imported->setAttribute('style', CSS::array_to_string($style));
 					continue;
 				}
-				$imported->setAttribute(esc_attr($attribute->name), esc_attr($attribute->value));
+				// Validate attribute name against allowlist.
+				$is_safe = in_array($attribute->name, $safe_attrs, true)
+					|| str_contains($attribute->name, 'data-');
+				if ($is_safe) {
+					$imported->setAttribute($attribute->name, esc_attr($attribute->value));
+				}
 			}
 
 			// Set fill to currentColor to allow CSS color control.
@@ -172,6 +194,12 @@ class InlineSvg implements Renderable
 	 */
 	public function render_inline_svg(string $block_content, array $block, WP_Block $instance): string
 	{
+		// Check if block is enabled in admin settings.
+		if (class_exists('\Aegis\Admin\ConditionalLogicSettings') &&
+			!\Aegis\Admin\ConditionalLogicSettings::is_block_enabled('svg')) {
+			return $block_content;
+		}
+
 		$blocks_to_check = ['core/button', 'core/image', 'core/site-logo', 'core/post-featured-image'];
 		$name = $block['blockName'] ?? '';
 
@@ -191,8 +219,13 @@ class InlineSvg implements Renderable
 		}
 
 		// Construct the absolute server path to the SVG file.
-		$file = str_replace(content_url(), dirname(get_template_directory(), 2), $img->getAttribute('src'));
-		if (!file_exists($file)) {
+		$content_dir = dirname(get_template_directory(), 2);
+		$file = str_replace(content_url(), $content_dir, $img->getAttribute('src'));
+
+		// Security: resolve real path and verify it stays within the content directory.
+		$real_file = realpath($file);
+		$real_content_dir = realpath($content_dir);
+		if (!$real_file || !$real_content_dir || !str_contains($real_file, $real_content_dir)) {
 			return $block_content;
 		}
 
@@ -232,8 +265,12 @@ class InlineSvg implements Renderable
 		if ($height) {
 			$svg->setAttribute('height', trim(str_replace('px', '', (string) $height)));
 		}
+		// Accessibility: set appropriate ARIA attributes based on alt text.
 		if ($alt) {
-			$svg->setAttribute('aria-label', $alt);
+			$svg->setAttribute('role', 'img');
+			$svg->setAttribute('aria-label', esc_attr($alt));
+		} else {
+			$svg->setAttribute('aria-hidden', 'true');
 		}
 
 		// Transfer the class attribute.
