@@ -6,6 +6,11 @@
 # GitHub files
 .github/
 
+# AI tool directories
+.claude/
+.kiro/
+.windsurf/
+
 # Node.js files
 node_modules/
 package.json
@@ -33,9 +38,14 @@ vendor/wptrt/
 .vscode/
 .idea/
 .editorconfig
+.prettierrc
 .env
 .env.*
 docker-compose.yml
+
+# Documentation directories (separate repos)
+docs/
+GitBook/
 
 # Documentation files
 README.md
@@ -67,8 +77,19 @@ src/Blocks/editor/
 src/Blocks/*/*.tsx
 src/Blocks/*/*.ts
 src/Blocks/*/*.scss
-src/Admin/*.js
-src/Admin/*.scss
+
+# Admin source files (compiled to src/Admin/build/)
+src/Admin/index.js
+src/Admin/css/
+src/Admin/js/
+src/Admin/REFACTOR-PLAN.md
+
+# Editor source files (compiled by webpack)
+src/Editor/*.tsx
+src/Editor/*.scss
+
+# Empty directories
+src/DesignSystem/
 
 # Playground/WordPress.org specific
 _playground/
