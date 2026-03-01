@@ -14,11 +14,11 @@
     <!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"600px"}} -->
     <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--lg)">
         <!-- wp:paragraph {"align":"center","className":"is-style-sub-heading"} -->
-        <p class="aligncenter has-text-align-center is-style-sub-heading aligncenter">Why Choose Us</p>
+        <p class="aligncenter has-text-align-center is-style-sub-heading aligncenter"><?php echo esc_html__( 'Why Choose Us', 'aegis' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:heading {"textAlign":"center","fontSize":"40"} -->
-        <h2 class="wp-block-heading has-text-align-center has-40-font-size">Features That Set Us Apart</h2>
+        <h2 class="wp-block-heading has-text-align-center has-40-font-size"><?php echo esc_html__( 'Features That Set Us Apart', 'aegis' ); ?></h2>
         <!-- /wp:heading -->
     </div>
     <!-- /wp:group -->
@@ -37,12 +37,11 @@
             <!-- /wp:group -->
 
             <!-- wp:heading {"level":3,"fontSize":"20"} -->
-            <h3 class="wp-block-heading has-20-font-size">Lightning Fast</h3>
+            <h3 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'Lightning Fast', 'aegis' ); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"textColor":"neutral-600","fontSize":"15"} -->
-            <p class="has-neutral-600-color has-text-color has-15-font-size">Optimized for speed with zero-dependency
-                architecture. Your site loads in milliseconds, not seconds.</p>
+            <p class="has-neutral-600-color has-text-color has-15-font-size"><?php echo esc_html__( 'Optimized for speed with zero-dependency architecture. Your site loads in milliseconds, not seconds.', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
@@ -59,12 +58,11 @@
             <!-- /wp:group -->
 
             <!-- wp:heading {"level":3,"fontSize":"20"} -->
-            <h3 class="wp-block-heading has-20-font-size">Fully Customizable</h3>
+            <h3 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'Fully Customizable', 'aegis' ); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"textColor":"neutral-600","fontSize":"15"} -->
-            <p class="has-neutral-600-color has-text-color has-15-font-size">Every element is designed to be modified.
-                Create unique designs without touching code.</p>
+            <p class="has-neutral-600-color has-text-color has-15-font-size"><?php echo esc_html__( 'Every element is designed to be modified. Create unique designs without touching code.', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
@@ -81,12 +79,11 @@
             <!-- /wp:group -->
 
             <!-- wp:heading {"level":3,"fontSize":"20"} -->
-            <h3 class="wp-block-heading has-20-font-size">Secure by Default</h3>
+            <h3 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'Secure by Default', 'aegis' ); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"textColor":"neutral-600","fontSize":"15"} -->
-            <p class="has-neutral-600-color has-text-color has-15-font-size">Built with security best practices. Regular
-                updates keep your site protected against vulnerabilities.</p>
+            <p class="has-neutral-600-color has-text-color has-15-font-size"><?php echo esc_html__( 'Built with security best practices. Regular updates keep your site protected against vulnerabilities.', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
@@ -107,12 +104,11 @@
             <!-- /wp:group -->
 
             <!-- wp:heading {"level":3,"fontSize":"20"} -->
-            <h3 class="wp-block-heading has-20-font-size">Responsive Design</h3>
+            <h3 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'Responsive Design', 'aegis' ); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"textColor":"neutral-600","fontSize":"15"} -->
-            <p class="has-neutral-600-color has-text-color has-15-font-size">Looks perfect on every device. From mobile
-                phones to ultra-wide monitors, your content adapts seamlessly.</p>
+            <p class="has-neutral-600-color has-text-color has-15-font-size"><?php echo esc_html__( 'Looks perfect on every device. From mobile phones to ultra-wide monitors, your content adapts seamlessly.', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
@@ -129,12 +125,11 @@
             <!-- /wp:group -->
 
             <!-- wp:heading {"level":3,"fontSize":"20"} -->
-            <h3 class="wp-block-heading has-20-font-size">SEO Optimized</h3>
+            <h3 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'SEO Optimized', 'aegis' ); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"textColor":"neutral-600","fontSize":"15"} -->
-            <p class="has-neutral-600-color has-text-color has-15-font-size">Clean semantic markup and optimized
-                structure help search engines understand and rank your content.</p>
+            <p class="has-neutral-600-color has-text-color has-15-font-size"><?php echo esc_html__( 'Clean semantic markup and optimized structure help search engines understand and rank your content.', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
@@ -151,12 +146,11 @@
             <!-- /wp:group -->
 
             <!-- wp:heading {"level":3,"fontSize":"20"} -->
-            <h3 class="wp-block-heading has-20-font-size">Developer Friendly</h3>
+            <h3 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'Developer Friendly', 'aegis' ); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"textColor":"neutral-600","fontSize":"15"} -->
-            <p class="has-neutral-600-color has-text-color has-15-font-size">Clean, well-documented code that developers
-                love. Extend and customize with confidence.</p>
+            <p class="has-neutral-600-color has-text-color has-15-font-size"><?php echo esc_html__( 'Clean, well-documented code that developers love. Extend and customize with confidence.', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
