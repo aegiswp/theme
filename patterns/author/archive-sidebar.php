@@ -71,7 +71,7 @@
 
                 <!-- wp:post-author-biography {"textAlign":"center","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|xs"}}},"textColor":"neutral-400","fontSize":"14"} /-->
 
-                <!-- wp:social-links {"iconColor":"neutral-500","iconColorValue":"#5d6b98","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"center"}} -->
+                <!-- wp:social-links {"iconColor":"neutral-500","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"center"}} -->
                 <ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only"><!-- wp:social-link {"url":"#","service":"facebook"} /-->
 
                     <!-- wp:social-link {"url":"#","service":"linkedin"} /-->
