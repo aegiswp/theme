@@ -35,7 +35,7 @@
         <!-- /wp:column -->
 
         <!-- wp:column {"verticalAlignment":"center","width":"160px","animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
-        <div class="wp-block-column is-vertically-aligned-center has-animation" style="flex-basis:160px;animation-iteration-count:"><!-- wp:social-links {"iconColor":"neutral-500","iconColorValue":"#5d6b98","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"right"}} -->
+        <div class="wp-block-column is-vertically-aligned-center has-animation" style="flex-basis:160px;animation-iteration-count:"><!-- wp:social-links {"iconColor":"neutral-500","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"right"}} -->
             <ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only"><!-- wp:social-link {"url":"#","service":"linkedin"} /-->
 
                 <!-- wp:social-link {"url":"#","service":"bluesky"} /-->
