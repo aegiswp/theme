@@ -38,22 +38,21 @@
         <div class="wp-block-column is-vertically-aligned-center">
             <!-- wp:group {"metadata":{"name":"Heading"},"layout":{"type":"constrained","justifyContent":"left"}} -->
             <div class="wp-block-group"><!-- wp:paragraph {"align":"left","className":"is-style-sub-heading"} -->
-                <p class="alignleft has-text-align-left is-style-sub-heading alignleft">Patterns</p>
+                <p class="alignleft has-text-align-left is-style-sub-heading alignleft"><?php echo esc_html__( 'Our Approach', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->
 
             <!-- wp:heading {"textAlign":"left","style":{"display":{"all":"","mobile":""}},"fontSize":"48"} -->
-            <h2 class="wp-block-heading has-text-align-left has-48-font-size">Modular Architecture</h2>
+            <h2 class="wp-block-heading has-text-align-left has-48-font-size"><?php echo esc_html__( 'Crafted with Precision and Purpose', 'aegis' ); ?></h2>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"fontSize":"18"} -->
-            <p class="has-18-font-size">Build with velocity using pre-engineered layout blocks.</p>
+            <p class="has-18-font-size"><?php echo esc_html__( 'We believe great design is invisible. Every component in our framework has been meticulously crafted to work harmoniously, creating seamless experiences that feel natural and intuitive.', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
 
             <!-- wp:paragraph {"fontSize":"18"} -->
-            <p class="has-18-font-size">These responsive patterns adapt intelligently to your global rules, allowing you
-                to assemble complex interfaces rapidly without starting from zero.</p>
+            <p class="has-18-font-size"><?php echo esc_html__( 'Our attention to detail extends beyond aesthetics. Performance, accessibility, and maintainability are woven into every decision, ensuring your project stands the test of time.', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
