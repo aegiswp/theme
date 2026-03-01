@@ -101,25 +101,14 @@ const blocksConfig = {
     optimization: {
         ...defaultConfig.optimization,
         runtimeChunk: false,
-        splitChunks: {
-            chunks: 'all',
-            cacheGroups: {
-                default: false,
-                vendors: false,
-                wordpress: {
-                    name: 'wordpress',
-                    chunks: 'all',
-                    test: /[\\/]node_modules[\\/](@wordpress|react|react-dom|moment|lodash)[\\/]/,
-                    priority: 10,
-                },
-            },
-        },
+        splitChunks: false,
     },
 };
 
 // Admin config — outputs to src/Admin/build/
 const adminConfig = {
     ...defaultConfig,
+    plugins: filteredPlugins,
     externals: {
         ...defaultConfig.externals,
         ...wordpressExternals,
@@ -134,19 +123,7 @@ const adminConfig = {
     optimization: {
         ...defaultConfig.optimization,
         runtimeChunk: false,
-        splitChunks: {
-            chunks: 'all',
-            cacheGroups: {
-                default: false,
-                vendors: false,
-                wordpress: {
-                    name: 'wordpress',
-                    chunks: 'all',
-                    test: /[\\/]node_modules[\\/](@wordpress|react|react-dom|moment|lodash)[\\/]/,
-                    priority: 10,
-                },
-            },
-        },
+        splitChunks: false,
     },
 };
 
