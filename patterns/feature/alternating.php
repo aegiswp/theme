@@ -23,29 +23,28 @@
         <!-- wp:column {"verticalAlignment":"center"} -->
         <div class="wp-block-column is-vertically-aligned-center">
             <!-- wp:paragraph {"className":"is-style-sub-heading"} -->
-            <p class="is-style-sub-heading">Intuitive Design</p>
+            <p class="is-style-sub-heading"><?php echo esc_html__( 'Intuitive Design', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
 
             <!-- wp:heading {"fontSize":"32"} -->
-            <h2 class="wp-block-heading has-32-font-size">Create Without Limitations</h2>
+            <h2 class="wp-block-heading has-32-font-size"><?php echo esc_html__( 'Create Without Limitations', 'aegis' ); ?></h2>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"textColor":"neutral-600"} -->
-            <p class="has-neutral-600-color has-text-color">Our visual editor puts the power of professional design in
-                your hands. Drag, drop, and customize every element to match your vision perfectly.</p>
+            <p class="has-neutral-600-color has-text-color"><?php echo esc_html__( 'Our visual editor puts the power of professional design in your hands. Drag, drop, and customize every element to match your vision perfectly.', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
 
             <!-- wp:list {"textColor":"neutral-600"} -->
             <ul class="wp-block-list has-neutral-600-color has-text-color"><!-- wp:list-item -->
-                <li>Real-time preview as you build</li>
+                <li><?php echo esc_html__( 'Real-time preview as you build', 'aegis' ); ?></li>
                 <!-- /wp:list-item -->
 
                 <!-- wp:list-item -->
-                <li>Pre-built patterns for quick starts</li>
+                <li><?php echo esc_html__( 'Pre-built patterns for quick starts', 'aegis' ); ?></li>
                 <!-- /wp:list-item -->
 
                 <!-- wp:list-item -->
-                <li>Global styles for consistency</li>
+                <li><?php echo esc_html__( 'Global styles for consistency', 'aegis' ); ?></li>
                 <!-- /wp:list-item -->
             </ul>
             <!-- /wp:list -->
@@ -59,29 +58,28 @@
         <!-- wp:column {"verticalAlignment":"center"} -->
         <div class="wp-block-column is-vertically-aligned-center">
             <!-- wp:paragraph {"className":"is-style-sub-heading"} -->
-            <p class="is-style-sub-heading">Performance First</p>
+            <p class="is-style-sub-heading"><?php echo esc_html__( 'Performance First', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
 
             <!-- wp:heading {"fontSize":"32"} -->
-            <h2 class="wp-block-heading has-32-font-size">Speed That Converts</h2>
+            <h2 class="wp-block-heading has-32-font-size"><?php echo esc_html__( 'Speed That Converts', 'aegis' ); ?></h2>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"textColor":"neutral-600"} -->
-            <p class="has-neutral-600-color has-text-color">Every millisecond counts. Our optimized codebase ensures
-                your site loads instantly, keeping visitors engaged and improving your search rankings.</p>
+            <p class="has-neutral-600-color has-text-color"><?php echo esc_html__( 'Every millisecond counts. Our optimized codebase ensures your site loads instantly, keeping visitors engaged and improving your search rankings.', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
 
             <!-- wp:list {"textColor":"neutral-600"} -->
             <ul class="wp-block-list has-neutral-600-color has-text-color"><!-- wp:list-item -->
-                <li>Zero external dependencies</li>
+                <li><?php echo esc_html__( 'Zero external dependencies', 'aegis' ); ?></li>
                 <!-- /wp:list-item -->
 
                 <!-- wp:list-item -->
-                <li>Optimized asset delivery</li>
+                <li><?php echo esc_html__( 'Optimized asset delivery', 'aegis' ); ?></li>
                 <!-- /wp:list-item -->
 
                 <!-- wp:list-item -->
-                <li>Core Web Vitals optimized</li>
+                <li><?php echo esc_html__( 'Core Web Vitals optimized', 'aegis' ); ?></li>
                 <!-- /wp:list-item -->
             </ul>
             <!-- /wp:list -->
