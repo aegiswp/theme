@@ -44,7 +44,7 @@
 	}
 
 	/**
-	 * Initialize sidebar navigation.
+	 * Initialize sidebar navigation with ARIA support and keyboard nav.
 	 */
 	function initNavigation() {
 		const navItems = document.querySelectorAll( '.aegis-nav-item' );
@@ -54,42 +54,133 @@
 			return;
 		}
 
+		// Set ARIA attributes on nav container and items
+		var navContainer = navItems[0] && navItems[0].parentElement;
+		if ( navContainer ) {
+			navContainer.setAttribute( 'role', 'tablist' );
+			navContainer.setAttribute( 'aria-orientation', 'vertical' );
+		}
+
+		navItems.forEach( function( item ) {
+			var targetId = item.getAttribute( 'href' ).substring( 1 );
+			item.setAttribute( 'role', 'tab' );
+			item.setAttribute( 'aria-controls', targetId );
+			item.setAttribute( 'aria-selected', item.classList.contains( 'active' ) ? 'true' : 'false' );
+			item.setAttribute( 'tabindex', item.classList.contains( 'active' ) ? '0' : '-1' );
+		} );
+
+		sections.forEach( function( section ) {
+			section.setAttribute( 'role', 'tabpanel' );
+			section.setAttribute( 'tabindex', '0' );
+		} );
+
+		function activateTab( item ) {
+			var targetId = item.getAttribute( 'href' ).substring( 1 );
+			var targetSection = document.getElementById( targetId );
+
+			if ( ! targetSection ) {
+				return;
+			}
+
+			navItems.forEach( function( nav ) {
+				nav.classList.remove( 'active' );
+				nav.setAttribute( 'aria-selected', 'false' );
+				nav.setAttribute( 'tabindex', '-1' );
+			} );
+			item.classList.add( 'active' );
+			item.setAttribute( 'aria-selected', 'true' );
+			item.setAttribute( 'tabindex', '0' );
+
+			sections.forEach( function( section ) {
+				section.classList.remove( 'active' );
+			} );
+			targetSection.classList.add( 'active' );
+
+			history.pushState( null, null, '#' + targetId );
+		}
+
 		navItems.forEach( function( item ) {
 			item.addEventListener( 'click', function( e ) {
 				e.preventDefault();
+				activateTab( this );
+			} );
 
-				const targetId = this.getAttribute( 'href' ).substring( 1 );
-				const targetSection = document.getElementById( targetId );
+			item.addEventListener( 'keydown', function( e ) {
+				var index = Array.prototype.indexOf.call( navItems, this );
+				var newIndex = -1;
 
-				if ( ! targetSection ) {
-					return;
+				if ( e.key === 'ArrowDown' || e.key === 'ArrowRight' ) {
+					e.preventDefault();
+					newIndex = ( index + 1 ) % navItems.length;
+				} else if ( e.key === 'ArrowUp' || e.key === 'ArrowLeft' ) {
+					e.preventDefault();
+					newIndex = ( index - 1 + navItems.length ) % navItems.length;
+				} else if ( e.key === 'Home' ) {
+					e.preventDefault();
+					newIndex = 0;
+				} else if ( e.key === 'End' ) {
+					e.preventDefault();
+					newIndex = navItems.length - 1;
 				}
 
-				// Update active nav item
-				navItems.forEach( function( nav ) {
-					nav.classList.remove( 'active' );
-				} );
-				this.classList.add( 'active' );
-
-				// Update active section
-				sections.forEach( function( section ) {
-					section.classList.remove( 'active' );
-				} );
-				targetSection.classList.add( 'active' );
-
-				// Update URL hash without scrolling
-				history.pushState( null, null, '#' + targetId );
+				if ( newIndex >= 0 ) {
+					navItems[ newIndex ].focus();
+					activateTab( navItems[ newIndex ] );
+				}
 			} );
 		} );
 
 		// Handle initial hash
-		const hash = window.location.hash.substring( 1 );
+		var hash = window.location.hash.substring( 1 );
 		if ( hash ) {
-			const targetNav = document.querySelector( '.aegis-nav-item[href="#' + hash + '"]' );
+			var targetNav = document.querySelector( '.aegis-nav-item[href="#' + hash + '"]' );
 			if ( targetNav ) {
-				targetNav.click();
+				activateTab( targetNav );
 			}
 		}
+
+		// Page tabs keyboard navigation
+		initPageTabsKeyboard();
+	}
+
+	/**
+	 * Initialize keyboard navigation for page-level tabs.
+	 */
+	function initPageTabsKeyboard() {
+		var pageTabs = document.querySelectorAll( '.aegis-page-tab' );
+		if ( ! pageTabs.length ) {
+			return;
+		}
+
+		pageTabs.forEach( function( tab, index ) {
+			tab.setAttribute( 'tabindex', tab.classList.contains( 'active' ) ? '0' : '-1' );
+
+			tab.addEventListener( 'keydown', function( e ) {
+				var newIndex = -1;
+
+				if ( e.key === 'ArrowRight' ) {
+					e.preventDefault();
+					newIndex = ( index + 1 ) % pageTabs.length;
+				} else if ( e.key === 'ArrowLeft' ) {
+					e.preventDefault();
+					newIndex = ( index - 1 + pageTabs.length ) % pageTabs.length;
+				} else if ( e.key === 'Home' ) {
+					e.preventDefault();
+					newIndex = 0;
+				} else if ( e.key === 'End' ) {
+					e.preventDefault();
+					newIndex = pageTabs.length - 1;
+				} else if ( e.key === 'Enter' || e.key === ' ' ) {
+					e.preventDefault();
+					this.click();
+					return;
+				}
+
+				if ( newIndex >= 0 ) {
+					pageTabs[ newIndex ].focus();
+				}
+			} );
+		} );
 	}
 
 	/**
@@ -583,6 +674,42 @@
 			}
 		} );
 	}
+
+	/**
+	 * Reset settings to defaults.
+	 */
+	$( document ).on( 'click', '.aegis-reset-settings', function( e ) {
+		e.preventDefault();
+		var group = $( this ).data( 'group' );
+		if ( ! group ) return;
+
+		if ( ! confirm( aegisAdmin.resetConfirm || 'Are you sure you want to reset these settings to defaults? This cannot be undone.' ) ) {
+			return;
+		}
+
+		$.ajax( {
+			url: aegisAdmin.ajaxUrl,
+			type: 'POST',
+			data: {
+				action: 'aegis_reset_settings',
+				nonce: aegisAdmin.nonce,
+				group: group
+			},
+			success: function( response ) {
+				if ( response.success ) {
+					showNotice( response.data.message || 'Settings reset to defaults.', 'success' );
+					setTimeout( function() {
+						window.location.reload();
+					}, 1500 );
+				} else {
+					showNotice( response.data.message || aegisAdmin.error, 'error' );
+				}
+			},
+			error: function() {
+				showNotice( aegisAdmin.error, 'error' );
+			}
+		} );
+	} );
 
 	/**
 	 * Show a notice message.
