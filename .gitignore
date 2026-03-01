@@ -78,6 +78,8 @@ Desktop.ini
 .vscode/
 .idea/
 .windsurf/
+.claude/
+.kiro/
 *.sublime-project
 *.sublime-workspace
 *.swp
@@ -126,8 +128,11 @@ debug.log
 error_log
 php_errorlog
 
+# Documentation submodules (separate repos)
+docs/
+GitBook/
+
 # Backup files
-*~
 *.backup
 
 # === End of WordPress Theme Ignore ===
