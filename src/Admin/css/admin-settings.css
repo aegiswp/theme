@@ -128,6 +128,11 @@
 	border-bottom-color: #2271b1;
 }
 
+.aegis-page-tab:focus-visible {
+	outline: 2px solid #2271b1;
+	outline-offset: -2px;
+}
+
 /* Settings Wrap */
 .aegis-settings-wrap {
 	max-width: 1200px;
@@ -214,6 +219,11 @@
 	color: #fff;
 	background: rgba(255, 255, 255, 0.1);
 	border-left-color: #2271b1;
+}
+
+.aegis-nav-item:focus-visible {
+	outline: 2px solid #2271b1;
+	outline-offset: -2px;
 }
 
 .aegis-nav-item .dashicons {
@@ -1193,5 +1203,234 @@
 
 	.aegis-api-config-footer .button {
 		justify-content: center;
+	}
+}
+
+/* ==========================================================================
+   Dashboard Overview
+   ========================================================================== */
+
+.aegis-dashboard-stats {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 16px;
+	margin-bottom: 24px;
+}
+
+.aegis-stat-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4px;
+	padding: 20px 16px;
+	background: #fff;
+	border: 1px solid #e5e7eb;
+	border-radius: 8px;
+	text-decoration: none;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.aegis-stat-card:hover {
+	border-color: #2271b1;
+	box-shadow: 0 2px 8px rgba(34, 113, 177, 0.1);
+}
+
+.aegis-stat-value {
+	font-size: 28px;
+	font-weight: 700;
+	color: #1d2327;
+	line-height: 1;
+}
+
+.aegis-stat-label {
+	font-size: 12px;
+	font-weight: 500;
+	color: #6b7280;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.aegis-dashboard-section {
+	margin-bottom: 24px;
+}
+
+.aegis-dashboard-section h2 {
+	font-size: 14px;
+	font-weight: 600;
+	color: #1d2327;
+	margin: 0 0 12px 0;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.aegis-dashboard-actions {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 12px;
+}
+
+.aegis-action-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+	padding: 20px 12px;
+	background: #fff;
+	border: 1px solid #e5e7eb;
+	border-radius: 8px;
+	text-decoration: none;
+	color: #1d2327;
+	font-size: 12px;
+	font-weight: 500;
+	text-align: center;
+	transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.aegis-action-card:hover {
+	border-color: #2271b1;
+	background-color: #f0f6fc;
+	color: #1d2327;
+}
+
+.aegis-action-card .dashicons {
+	font-size: 24px;
+	width: 24px;
+	height: 24px;
+	color: #2271b1;
+}
+
+.aegis-dashboard-columns {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 24px;
+}
+
+.aegis-system-table {
+	background: #fff;
+	border: 1px solid #e5e7eb;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.aegis-system-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 12px 16px;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.aegis-system-row:last-child {
+	border-bottom: none;
+}
+
+.aegis-system-label {
+	font-size: 13px;
+	color: #6b7280;
+}
+
+.aegis-system-value {
+	font-size: 13px;
+	font-weight: 600;
+	color: #1d2327;
+}
+
+.aegis-pro-status {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	padding: 16px;
+	border-radius: 8px;
+	border: 1px solid;
+}
+
+.aegis-pro-status--active {
+	background: #f0fdf4;
+	border-color: #bbf7d0;
+}
+
+.aegis-pro-status--active .dashicons {
+	color: #16a34a;
+}
+
+.aegis-pro-status--inactive {
+	background: #fffbeb;
+	border-color: #fde68a;
+}
+
+.aegis-pro-status--inactive .dashicons {
+	color: #d97706;
+}
+
+.aegis-pro-status .dashicons {
+	font-size: 20px;
+	width: 20px;
+	height: 20px;
+	margin-top: 1px;
+}
+
+.aegis-pro-status strong {
+	display: block;
+	font-size: 13px;
+	color: #1d2327;
+	margin-bottom: 2px;
+}
+
+.aegis-pro-status p {
+	font-size: 12px;
+	color: #6b7280;
+	margin: 0;
+}
+
+.aegis-license-key {
+	font-family: monospace;
+	font-size: 12px !important;
+}
+
+.aegis-pro-upsell {
+	background: #fff;
+	border: 1px solid #e5e7eb;
+	border-radius: 8px;
+	padding: 16px;
+}
+
+.aegis-pro-upsell p {
+	font-size: 13px;
+	color: #1d2327;
+	margin: 0 0 8px 0;
+}
+
+.aegis-pro-upsell ul {
+	margin: 0 0 12px 0;
+	padding: 0 0 0 16px;
+}
+
+.aegis-pro-upsell li {
+	font-size: 12px;
+	color: #6b7280;
+	line-height: 1.6;
+}
+
+@media (max-width: 960px) {
+	.aegis-dashboard-stats {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.aegis-dashboard-actions {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.aegis-dashboard-columns {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 600px) {
+	.aegis-dashboard-stats {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.aegis-dashboard-actions {
+		grid-template-columns: repeat(2, 1fr);
 	}
 }
