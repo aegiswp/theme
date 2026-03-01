@@ -20,16 +20,15 @@
                 <!-- wp:group {"metadata":{"name":"Heading"},"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|lg"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"},"animation":{"duration":"1","iterationCount":"1"}} -->
                 <div class="wp-block-group has-animation" style="margin-bottom:var(--wp--preset--spacing--lg);animation-duration:1s;animation-iteration-count:1">
                     <!-- wp:paragraph {"align":"center","className":"is-style-sub-heading","animation":{"duration":"1","iterationCount":"1"}} -->
-                    <p class="aligncenter has-text-align-center is-style-sub-heading aligncenter has-animation" style="animation-duration:1s;animation-iteration-count:1">Features</p>
+                    <p class="aligncenter has-text-align-center is-style-sub-heading aligncenter has-animation" style="animation-duration:1s;animation-iteration-count:1"><?php echo esc_html__( 'Features', 'aegis' ); ?></p>
                     <!-- /wp:paragraph -->
 
                     <!-- wp:heading {"textAlign":"center","style":{"display":{"all":"","mobile":""}},"fontSize":"48"} -->
-                    <h2 class="wp-block-heading has-text-align-center has-48-font-size">Editor Evolved</h2>
+                    <h2 class="wp-block-heading has-text-align-center has-48-font-size"><?php echo esc_html__( 'Editor Evolved', 'aegis' ); ?></h2>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph {"align":"center","fontSize":"18","animation":{"duration":"1","iterationCount":"1"}} -->
-                    <p class="aligncenter has-text-align-center has-18-font-size aligncenter has-animation" style="animation-duration:1s;animation-iteration-count:1">Enhance the native experience with
-                        lightweight blocks engineered to integrate seamlessly without bloating the core.</p>
+                    <p class="aligncenter has-text-align-center has-18-font-size aligncenter has-animation" style="animation-duration:1s;animation-iteration-count:1"><?php echo esc_html__( 'Enhance the native experience with lightweight blocks engineered to integrate seamlessly without bloating the core.', 'aegis' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:group -->
@@ -48,17 +47,17 @@
                         <!-- /wp:image -->
 
                         <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","animation":{"duration":"0","iterationCount":"0"}} -->
-                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0">Navigation</p>
+                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0"><?php echo esc_html__( 'Navigation', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
 
                     <!-- wp:heading {"textAlign":"left","level":3,"style":{"display":{"all":"","mobile":""},"typography":{"fontStyle":"normal","fontWeight":"500"}}} -->
-                    <h3 class="wp-block-heading has-text-align-left" style="font-style:normal;font-weight:500">Visual Nav</h3>
+                    <h3 class="wp-block-heading has-text-align-left" style="font-style:normal;font-weight:500"><?php echo esc_html__( 'Visual Nav', 'aegis' ); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xs"}}}} -->
-                    <p style="padding-top:var(--wp--preset--spacing--xs)">Construct rich dropdowns with images and widgets directly in the canvas, requiring zero code.</p>
+                    <p style="padding-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Construct rich dropdowns with images and widgets directly in the canvas, requiring zero code.', 'aegis' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:column -->
@@ -73,17 +72,17 @@
                         <!-- /wp:image -->
 
                         <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","animation":{"duration":"0","iterationCount":"0"}} -->
-                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0">Typography</p>
+                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0"><?php echo esc_html__( 'Typography', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
 
                     <!-- wp:heading {"textAlign":"left","level":3,"style":{"display":{"all":"","mobile":""},"typography":{"fontStyle":"normal","fontWeight":"500"}}} -->
-                    <h3 class="wp-block-heading has-text-align-left" style="font-style:normal;font-weight:500">Fluid Text</h3>
+                    <h3 class="wp-block-heading has-text-align-left" style="font-style:normal;font-weight:500"><?php echo esc_html__( 'Fluid Text', 'aegis' ); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xs"}}}} -->
-                    <p style="padding-top:var(--wp--preset--spacing--xs)">Break linear constraints by wrapping typography along organic paths for high-impact editorial design.</p>
+                    <p style="padding-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Break linear constraints by wrapping typography along organic paths for high-impact editorial design.', 'aegis' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:column -->
@@ -98,17 +97,17 @@
                         <!-- /wp:image -->
 
                         <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","animation":{"duration":"0","iterationCount":"0"}} -->
-                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0">kinetics</p>
+                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0"><?php echo esc_html__( 'Kinetics', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
 
                     <!-- wp:heading {"textAlign":"left","level":3,"style":{"display":{"all":"","mobile":""},"typography":{"fontStyle":"normal","fontWeight":"500"}}} -->
-                    <h3 class="wp-block-heading has-text-align-left" style="font-style:normal;font-weight:500">Motion Loop</h3>
+                    <h3 class="wp-block-heading has-text-align-left" style="font-style:normal;font-weight:500"><?php echo esc_html__( 'Motion Loop', 'aegis' ); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xs"}}}} -->
-                    <p style="padding-top:var(--wp--preset--spacing--xs)">Inject kinetic energy with smooth scrolling marquees of text or images that drive user engagement.</p>
+                    <p style="padding-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Inject kinetic energy with smooth scrolling marquees of text or images that drive user engagement.', 'aegis' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:column -->
@@ -127,17 +126,17 @@
                         <!-- /wp:image -->
 
                         <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","animation":{"duration":"0","iterationCount":"0"}} -->
-                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0">Structure</p>
+                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0"><?php echo esc_html__( 'Structure', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
 
                     <!-- wp:heading {"textAlign":"left","level":3,"style":{"display":{"all":"","mobile":""},"typography":{"fontStyle":"normal","fontWeight":"500"}}} -->
-                    <h3 class="wp-block-heading has-text-align-left" style="font-style:normal;font-weight:500">Smart Grid</h3>
+                    <h3 class="wp-block-heading has-text-align-left" style="font-style:normal;font-weight:500"><?php echo esc_html__( 'Smart Grid', 'aegis' ); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xs"}}}} -->
-                    <p style="padding-top:var(--wp--preset--spacing--xs)">Manage alignment automatically, transcending basic columns with an intrinsic responsive system.</p>
+                    <p style="padding-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Manage alignment automatically, transcending basic columns with an intrinsic responsive system.', 'aegis' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:column -->
@@ -152,17 +151,17 @@
                         <!-- /wp:image -->
 
                         <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","animation":{"duration":"0","iterationCount":"0"}} -->
-                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0">Growth</p>
+                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0"><?php echo esc_html__( 'Growth', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
 
                     <!-- wp:heading {"textAlign":"left","level":3,"style":{"display":{"all":"","mobile":""},"typography":{"fontStyle":"normal","fontWeight":"500"}}} -->
-                    <h3 class="wp-block-heading has-text-align-left" style="font-style:normal;font-weight:500">Live Data</h3>
+                    <h3 class="wp-block-heading has-text-align-left" style="font-style:normal;font-weight:500"><?php echo esc_html__( 'Live Data', 'aegis' ); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xs"}}}} -->
-                    <p style="padding-top:var(--wp--preset--spacing--xs)">Visualize growth by animating critical metrics as they scroll into view for dynamic polish.</p>
+                    <p style="padding-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Visualize growth by animating critical metrics as they scroll into view for dynamic polish.', 'aegis' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:column -->
@@ -177,17 +176,17 @@
                         <!-- /wp:image -->
 
                         <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","animation":{"duration":"0","iterationCount":"0"}} -->
-                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0">Curation</p>
+                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0"><?php echo esc_html__( 'Curation', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
 
                     <!-- wp:heading {"textAlign":"left","level":3,"style":{"display":{"all":"","mobile":""},"typography":{"fontStyle":"normal","fontWeight":"500"}}} -->
-                    <h3 class="wp-block-heading has-text-align-left" style="font-style:normal;font-weight:500">Query Logic</h3>
+                    <h3 class="wp-block-heading has-text-align-left" style="font-style:normal;font-weight:500"><?php echo esc_html__( 'Query Logic', 'aegis' ); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xs"}}}} -->
-                    <p style="padding-top:var(--wp--preset--spacing--xs)">Filter content with precision, controlling display parameters to arrange portfolios effortlessly.</p>
+                    <p style="padding-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Filter content with precision, controlling display parameters to arrange portfolios effortlessly.', 'aegis' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:column -->
@@ -205,17 +204,17 @@
                         <!-- /wp:image -->
 
                         <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","animation":{"duration":"0","iterationCount":"0"}} -->
-                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0">Local</p>
+                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0"><?php echo esc_html__( 'Local', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
 
                     <!-- wp:heading {"textAlign":"left","level":3,"style":{"display":{"all":"","mobile":""},"typography":{"fontStyle":"normal","fontWeight":"500"}}} -->
-                    <h3 class="wp-block-heading has-text-align-left" style="font-style:normal;font-weight:500">Safe Maps</h3>
+                    <h3 class="wp-block-heading has-text-align-left" style="font-style:normal;font-weight:500"><?php echo esc_html__( 'Safe Maps', 'aegis' ); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xs"}}}} -->
-                    <p style="padding-top:var(--wp--preset--spacing--xs)">Guide visitors without tracking using lightweight, GDPR-compliant maps embedded locally.</p>
+                    <p style="padding-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Guide visitors without tracking using lightweight, GDPR-compliant maps embedded locally.', 'aegis' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:column -->
@@ -230,17 +229,17 @@
                         <!-- /wp:image -->
 
                         <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","animation":{"duration":"0","iterationCount":"0"}} -->
-                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0">Hierarchy</p>
+                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0"><?php echo esc_html__( 'Hierarchy', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
 
                     <!-- wp:heading {"textAlign":"left","level":3,"style":{"display":{"all":"","mobile":""},"typography":{"fontStyle":"normal","fontWeight":"500"}}} -->
-                    <h3 class="wp-block-heading has-text-align-left" style="font-style:normal;font-weight:500">Site Path</h3>
+                    <h3 class="wp-block-heading has-text-align-left" style="font-style:normal;font-weight:500"><?php echo esc_html__( 'Site Path', 'aegis' ); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xs"}}}} -->
-                    <p style="padding-top:var(--wp--preset--spacing--xs)">Boost SEO and usability by generating clear structural links to define hierarchy instantly.</p>
+                    <p style="padding-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Boost SEO and usability by generating clear structural links to define hierarchy instantly.', 'aegis' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:column -->
@@ -255,17 +254,17 @@
                         <!-- /wp:image -->
 
                         <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","animation":{"duration":"0","iterationCount":"0"}} -->
-                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0">Clarity</p>
+                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0"><?php echo esc_html__( 'Clarity', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
 
                     <!-- wp:heading {"textAlign":"left","level":3,"style":{"display":{"all":"","mobile":""},"typography":{"fontStyle":"normal","fontWeight":"500"}}} -->
-                    <h3 class="wp-block-heading has-text-align-left" style="font-style:normal;font-weight:500">SVG Icons</h3>
+                    <h3 class="wp-block-heading has-text-align-left" style="font-style:normal;font-weight:500"><?php echo esc_html__( 'SVG Icons', 'aegis' ); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xs"}}}} -->
-                    <p style="padding-top:var(--wp--preset--spacing--xs)">Keep interfaces razor-sharp with scalable vectors that break up dense text on any resolution.</p>
+                    <p style="padding-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Keep interfaces razor-sharp with scalable vectors that break up dense text on any resolution.', 'aegis' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:column -->
