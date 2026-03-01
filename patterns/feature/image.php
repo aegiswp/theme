@@ -25,19 +25,17 @@
         <div class="wp-block-column is-vertically-aligned-center">
             <!-- wp:group {"metadata":{"name":"Heading"},"layout":{"type":"constrained","justifyContent":"left"}} -->
             <div class="wp-block-group"><!-- wp:paragraph {"align":"left","className":"is-style-sub-heading"} -->
-                <p class="alignleft has-text-align-left is-style-sub-heading alignleft">Patterns</p>
+                <p class="alignleft has-text-align-left is-style-sub-heading alignleft"><?php echo esc_html__( 'Patterns', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->
 
             <!-- wp:heading {"textAlign":"left","style":{"display":{"all":"","mobile":""}},"fontSize":"48"} -->
-            <h2 class="wp-block-heading has-text-align-left has-48-font-size">Modular Architecture</h2>
+            <h2 class="wp-block-heading has-text-align-left has-48-font-size"><?php echo esc_html__( 'Modular Architecture', 'aegis' ); ?></h2>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"fontSize":"18"} -->
-            <p class="has-18-font-size">Build with velocity using pre-engineered layout blocks. These responsive
-                patterns adapt intelligently to your global rules, allowing you to assemble complex interfaces rapidly
-                without starting from zero.</p>
+            <p class="has-18-font-size"><?php echo esc_html__( 'Build with velocity using pre-engineered layout blocks. These responsive patterns adapt intelligently to your global rules, allowing you to assemble complex interfaces rapidly without starting from zero.', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
