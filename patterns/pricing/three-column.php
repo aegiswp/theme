@@ -21,17 +21,16 @@
                 style="margin-bottom:var(--wp--preset--spacing--lg);animation-duration:1s;animation-iteration-count:1">
                 <!-- wp:paragraph {"align":"center","className":"is-style-sub-heading","animation":{"duration":"1","iterationCount":"1"}} -->
                 <p class="aligncenter has-text-align-center is-style-sub-heading aligncenter has-animation"
-                    style="animation-duration:1s;animation-iteration-count:1">Upgrade</p>
+                    style="animation-duration:1s;animation-iteration-count:1"><?php echo esc_html__( 'Upgrade', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:heading {"textAlign":"center","style":{"display":{"all":"","mobile":""}},"fontSize":"48"} -->
-                <h2 class="wp-block-heading has-text-align-center has-48-font-size">Simple Pricing</h2>
+                <h2 class="wp-block-heading has-text-align-center has-48-font-size"><?php echo esc_html__( 'Simple Pricing', 'aegis' ); ?></h2>
                 <!-- /wp:heading -->
 
                 <!-- wp:paragraph {"align":"center","fontSize":"18","animation":{"duration":"1","iterationCount":"1"}} -->
                 <p class="aligncenter has-text-align-center has-18-font-size aligncenter has-animation"
-                    style="animation-duration:1s;animation-iteration-count:1">Activate the professional core to remove
-                    usage limits, enable white-labeling, and access advanced architectural modules.</p>
+                    style="animation-duration:1s;animation-iteration-count:1"><?php echo esc_html__( 'Activate the professional core to remove usage limits, enable white-labeling, and access advanced architectural modules.', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->
@@ -46,7 +45,7 @@
                 <div class="wp-block-column is-vertically-aligned-center is-style-surface"
                     style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm);filter:brightness(%) hue-rotate(deg)">
                     <!-- wp:heading {"level":3,"fontSize":"48"} -->
-                    <h3 class="wp-block-heading has-48-font-size">Basic</h3>
+                    <h3 class="wp-block-heading has-48-font-size"><?php echo esc_html__( 'Basic', 'aegis' ); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"bottom"},"onclick":""} -->
@@ -57,7 +56,7 @@
                         <!-- /wp:paragraph -->
 
                         <!-- wp:paragraph -->
-                        <p>/ yearly</p>
+                        <p><?php echo esc_html__( '/ yearly', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
@@ -75,23 +74,23 @@
                     <!-- wp:list {"className":"is-style-checklist","style":{"spacing":{"blockGap":"var:preset|spacing|xs","margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left"}} -->
                     <ul style="margin-top:var(--wp--preset--spacing--sm)" class="wp-block-list is-style-checklist">
                         <!-- wp:list-item -->
-                        <li>Feature or benefit</li>
+                        <li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
                         <!-- /wp:list-item -->
 
                         <!-- wp:list-item -->
-                        <li>Feature or benefit</li>
+                        <li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
                         <!-- /wp:list-item -->
 
                         <!-- wp:list-item -->
-                        <li>Feature or benefit</li>
+                        <li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
                         <!-- /wp:list-item -->
 
                         <!-- wp:list-item -->
-                        <li>Feature or benefit</li>
+                        <li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
                         <!-- /wp:list-item -->
 
                         <!-- wp:list-item -->
-                        <li>Feature or benefit</li>
+                        <li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
                         <!-- /wp:list-item -->
                     </ul>
                     <!-- /wp:list -->
@@ -102,8 +101,7 @@
                         <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-ghost"
                             style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)">
                             <a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button"
-                                style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)">Choose
-                                Plan</a></div>
+                                style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Choose Plan', 'aegis' ); ?></a></div>
                         <!-- /wp:button -->
                     </div>
                     <!-- /wp:buttons -->
@@ -115,13 +113,13 @@
                     style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm);filter:brightness(%) hue-rotate(deg)">
                     <!-- wp:group {"fontSize":"48","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"},"onclick":""} -->
                     <div class="wp-block-group has-48-font-size"><!-- wp:heading {"level":3,"fontSize":"48"} -->
-                        <h3 class="wp-block-heading has-48-font-size">Pro</h3>
+                        <h3 class="wp-block-heading has-48-font-size"><?php echo esc_html__( 'Pro', 'aegis' ); ?></h3>
                         <!-- /wp:heading -->
 
                         <!-- wp:paragraph {"className":"is-style-notice","style":{"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontStyle":"normal","fontWeight":"500"},"border":{"width":"0px","style":"none","radius":"99px"}},"backgroundColor":"neutral-800","textColor":"primary-25","fontSize":"12"} -->
                         <p class="is-style-notice has-primary-25-color has-neutral-800-background-color has-text-color has-background has-12-font-size"
                             style="border-style:none;border-width:0px;border-radius:99px;padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-style:normal;font-weight:500;line-height:1">
-                            Most Popular</p>
+                            <?php echo esc_html__( 'Most Popular', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
@@ -134,7 +132,7 @@
                         <!-- /wp:paragraph -->
 
                         <!-- wp:paragraph -->
-                        <p>/ yearly</p>
+                        <p><?php echo esc_html__( '/ yearly', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
@@ -152,23 +150,23 @@
                     <!-- wp:list {"className":"is-style-checklist","style":{"spacing":{"blockGap":"var:preset|spacing|xs","margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left"}} -->
                     <ul style="margin-top:var(--wp--preset--spacing--sm)" class="wp-block-list is-style-checklist">
                         <!-- wp:list-item -->
-                        <li>Feature or benefit</li>
+                        <li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
                         <!-- /wp:list-item -->
 
                         <!-- wp:list-item -->
-                        <li>Feature or benefit</li>
+                        <li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
                         <!-- /wp:list-item -->
 
                         <!-- wp:list-item -->
-                        <li>Feature or benefit</li>
+                        <li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
                         <!-- /wp:list-item -->
 
                         <!-- wp:list-item -->
-                        <li>Feature or benefit</li>
+                        <li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
                         <!-- /wp:list-item -->
 
                         <!-- wp:list-item -->
-                        <li>Feature or benefit</li>
+                        <li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
                         <!-- /wp:list-item -->
                     </ul>
                     <!-- /wp:list -->
@@ -179,8 +177,7 @@
                         <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-fill"
                             style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)">
                             <a class="wp-block-button__link has-neutral-800-background-color has-background has-16-font-size has-custom-font-size wp-element-button"
-                                style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)">Choose
-                                Plan</a></div>
+                                style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Choose Plan', 'aegis' ); ?></a></div>
                         <!-- /wp:button -->
                     </div>
                     <!-- /wp:buttons -->
@@ -191,7 +188,7 @@
                 <div class="wp-block-column is-vertically-aligned-center is-style-surface"
                     style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm);filter:brightness(%) hue-rotate(deg)">
                     <!-- wp:heading {"level":3,"fontSize":"48"} -->
-                    <h3 class="wp-block-heading has-48-font-size">Team</h3>
+                    <h3 class="wp-block-heading has-48-font-size"><?php echo esc_html__( 'Team', 'aegis' ); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"bottom"},"onclick":""} -->
@@ -202,7 +199,7 @@
                         <!-- /wp:paragraph -->
 
                         <!-- wp:paragraph -->
-                        <p>/ yearly</p>
+                        <p><?php echo esc_html__( '/ yearly', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
@@ -220,23 +217,23 @@
                     <!-- wp:list {"className":"is-style-checklist","style":{"spacing":{"blockGap":"var:preset|spacing|xs","margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left"}} -->
                     <ul style="margin-top:var(--wp--preset--spacing--sm)" class="wp-block-list is-style-checklist">
                         <!-- wp:list-item -->
-                        <li>Feature or benefit</li>
+                        <li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
                         <!-- /wp:list-item -->
 
                         <!-- wp:list-item -->
-                        <li>Feature or benefit</li>
+                        <li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
                         <!-- /wp:list-item -->
 
                         <!-- wp:list-item -->
-                        <li>Feature or benefit</li>
+                        <li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
                         <!-- /wp:list-item -->
 
                         <!-- wp:list-item -->
-                        <li>Feature or benefit</li>
+                        <li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
                         <!-- /wp:list-item -->
 
                         <!-- wp:list-item -->
-                        <li>Feature or benefit</li>
+                        <li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
                         <!-- /wp:list-item -->
                     </ul>
                     <!-- /wp:list -->
@@ -247,8 +244,7 @@
                         <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-ghost"
                             style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)">
                             <a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button"
-                                style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)">Choose
-                                Plan</a></div>
+                                style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Choose Plan', 'aegis' ); ?></a></div>
                         <!-- /wp:button -->
                     </div>
                     <!-- /wp:buttons -->
@@ -261,8 +257,7 @@
             <div class="wp-block-group">
                 <!-- wp:paragraph {"align":"center","metadata":{"name":"CTA"},"className":"","style":{"typography":{"textDecoration":"none"},"spacing":{"margin":{"top":"var:preset|spacing|lg"}},"display":{"all":"none"}},"fontSize":"14"} -->
                 <p class="aligncenter has-text-align-center has-14-font-size aligncenter"
-                    style="margin-top:var(--wp--preset--spacing--lg);text-decoration:none">Looking for a custom
-                    solution? Enter the Creative Studio →</p>
+                    style="margin-top:var(--wp--preset--spacing--lg);text-decoration:none"><?php echo esc_html__( 'Looking for a custom solution? Enter the Creative Studio', 'aegis' ); ?> →</p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->
@@ -278,8 +273,7 @@
             <!-- /wp:image -->
 
             <!-- wp:paragraph {"align":"center","fontSize":"14"} -->
-            <p class="aligncenter has-text-align-center has-14-font-size aligncenter">100% no-risk money back guarantee
-            </p>
+            <p class="aligncenter has-text-align-center has-14-font-size aligncenter"><?php echo esc_html__( '100% no-risk money back guarantee', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:group -->
