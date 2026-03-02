@@ -21,17 +21,16 @@
                 style="margin-bottom:var(--wp--preset--spacing--lg);animation-duration:1s;animation-iteration-count:1">
                 <!-- wp:paragraph {"align":"center","className":"is-style-sub-heading","animation":{"duration":"1","iterationCount":"1"}} -->
                 <p class="aligncenter has-text-align-center is-style-sub-heading aligncenter has-animation"
-                    style="animation-duration:1s;animation-iteration-count:1">Portfolio</p>
+                    style="animation-duration:1s;animation-iteration-count:1"><?php echo esc_html__( 'Portfolio', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:heading {"textAlign":"center","style":{"display":{"all":"","mobile":""}},"fontSize":"48"} -->
-                <h2 class="wp-block-heading has-text-align-center has-48-font-size">Latest Projects</h2>
+                <h2 class="wp-block-heading has-text-align-center has-48-font-size"><?php echo esc_html__( 'Latest Projects', 'aegis' ); ?></h2>
                 <!-- /wp:heading -->
 
                 <!-- wp:paragraph {"align":"center","fontSize":"18","animation":{"duration":"1","iterationCount":"1"}} -->
                 <p class="aligncenter has-text-align-center has-18-font-size aligncenter has-animation"
-                    style="animation-duration:1s;animation-iteration-count:1">Enhance the native experience with
-                    lightweight blocks engineered to integrate seamlessly without bloating the core.</p>
+                    style="animation-duration:1s;animation-iteration-count:1"><?php echo esc_html__( 'Enhance the native experience with lightweight blocks engineered to integrate seamlessly without bloating the core.', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->
