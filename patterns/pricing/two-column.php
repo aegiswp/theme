@@ -14,15 +14,15 @@
     <!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"600px"}} -->
     <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--lg)">
         <!-- wp:paragraph {"align":"center","className":"is-style-sub-heading"} -->
-        <p class="aligncenter has-text-align-center is-style-sub-heading aligncenter">Pricing</p>
+        <p class="aligncenter has-text-align-center is-style-sub-heading aligncenter"><?php echo esc_html__( 'Pricing', 'aegis' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:heading {"textAlign":"center","fontSize":"40"} -->
-        <h2 class="wp-block-heading has-text-align-center has-40-font-size">Simple, Transparent Pricing</h2>
+        <h2 class="wp-block-heading has-text-align-center has-40-font-size"><?php echo esc_html__( 'Simple, Transparent Pricing', 'aegis' ); ?></h2>
         <!-- /wp:heading -->
 
         <!-- wp:paragraph {"align":"center","textColor":"neutral-600"} -->
-        <p class="aligncenter has-text-align-center has-neutral-600-color has-text-color aligncenter">Choose the plan that fits your needs. No hidden fees, cancel anytime.</p>
+        <p class="aligncenter has-text-align-center has-neutral-600-color has-text-color aligncenter"><?php echo esc_html__( 'Choose the plan that fits your needs. No hidden fees, cancel anytime.', 'aegis' ); ?></p>
         <!-- /wp:paragraph -->
     </div>
     <!-- /wp:group -->
@@ -32,21 +32,21 @@
         <!-- wp:column {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}}} -->
         <div class="wp-block-column is-style-surface" style="padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
             <!-- wp:heading {"level":3,"fontSize":"24"} -->
-            <h3 class="wp-block-heading has-24-font-size">Starter</h3>
+            <h3 class="wp-block-heading has-24-font-size"><?php echo esc_html__( 'Starter', 'aegis' ); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"textColor":"neutral-600","fontSize":"15"} -->
-            <p class="has-neutral-600-color has-text-color has-15-font-size">Perfect for individuals and small projects getting started.</p>
+            <p class="has-neutral-600-color has-text-color has-15-font-size"><?php echo esc_html__( 'Perfect for individuals and small projects getting started.', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
 
             <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md"}}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"bottom"}} -->
             <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--md);margin-bottom:var(--wp--preset--spacing--md)">
                 <!-- wp:paragraph {"className":"is-style-heading","fontSize":"48"} -->
-                <p class="is-style-heading has-48-font-size">$29</p>
+                <p class="is-style-heading has-48-font-size"><?php echo esc_html__( '$29', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph {"textColor":"neutral-500"} -->
-                <p class="has-neutral-500-color has-text-color">/month</p>
+                <p class="has-neutral-500-color has-text-color"><?php echo esc_html__( '/month', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->
@@ -54,19 +54,19 @@
             <!-- wp:list {"style":{"spacing":{"padding":{"left":"var:preset|spacing|sm"}}},"textColor":"neutral-600"} -->
             <ul class="has-neutral-600-color has-text-color" style="padding-left:var(--wp--preset--spacing--sm)">
                 <!-- wp:list-item -->
-                <li>Up to 5 projects</li>
+                <li><?php echo esc_html__( 'Up to 5 projects', 'aegis' ); ?></li>
                 <!-- /wp:list-item -->
                 <!-- wp:list-item -->
-                <li>Basic analytics</li>
+                <li><?php echo esc_html__( 'Basic analytics', 'aegis' ); ?></li>
                 <!-- /wp:list-item -->
                 <!-- wp:list-item -->
-                <li>Email support</li>
+                <li><?php echo esc_html__( 'Email support', 'aegis' ); ?></li>
                 <!-- /wp:list-item -->
                 <!-- wp:list-item -->
-                <li>1GB storage</li>
+                <li><?php echo esc_html__( '1GB storage', 'aegis' ); ?></li>
                 <!-- /wp:list-item -->
                 <!-- wp:list-item -->
-                <li>Community access</li>
+                <li><?php echo esc_html__( 'Community access', 'aegis' ); ?></li>
                 <!-- /wp:list-item -->
             </ul>
             <!-- /wp:list -->
@@ -74,7 +74,7 @@
             <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
             <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
                 <!-- wp:button {"width":100,"className":"is-style-ghost"} -->
-                <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-ghost"><a class="wp-block-button__link wp-element-button">Get Started</a></div>
+                <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-ghost"><a class="wp-block-button__link wp-element-button"><?php echo esc_html__( 'Get Started', 'aegis' ); ?></a></div>
                 <!-- /wp:button -->
             </div>
             <!-- /wp:buttons -->
@@ -86,27 +86,27 @@
             <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
             <div class="wp-block-group">
                 <!-- wp:heading {"level":3,"fontSize":"24"} -->
-                <h3 class="wp-block-heading has-24-font-size">Professional</h3>
+                <h3 class="wp-block-heading has-24-font-size"><?php echo esc_html__( 'Professional', 'aegis' ); ?></h3>
                 <!-- /wp:heading -->
 
                 <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"4px","bottom":"4px","left":"12px","right":"12px"}},"border":{"radius":"20px"}},"backgroundColor":"primary-500","textColor":"white","fontSize":"12"} -->
-                <p class="has-white-color has-primary-500-background-color has-text-color has-background has-12-font-size" style="border-radius:20px;padding-top:4px;padding-right:12px;padding-bottom:4px;padding-left:12px">Popular</p>
+                <p class="has-white-color has-primary-500-background-color has-text-color has-background has-12-font-size" style="border-radius:20px;padding-top:4px;padding-right:12px;padding-bottom:4px;padding-left:12px"><?php echo esc_html__( 'Popular', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->
 
             <!-- wp:paragraph {"textColor":"neutral-600","fontSize":"15"} -->
-            <p class="has-neutral-600-color has-text-color has-15-font-size">For growing teams that need more power and flexibility.</p>
+            <p class="has-neutral-600-color has-text-color has-15-font-size"><?php echo esc_html__( 'For growing teams that need more power and flexibility.', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
 
             <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md"}}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"bottom"}} -->
             <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--md);margin-bottom:var(--wp--preset--spacing--md)">
                 <!-- wp:paragraph {"className":"is-style-heading","fontSize":"48"} -->
-                <p class="is-style-heading has-48-font-size">$79</p>
+                <p class="is-style-heading has-48-font-size"><?php echo esc_html__( '$79', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph {"textColor":"neutral-500"} -->
-                <p class="has-neutral-500-color has-text-color">/month</p>
+                <p class="has-neutral-500-color has-text-color"><?php echo esc_html__( '/month', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->
@@ -114,22 +114,22 @@
             <!-- wp:list {"style":{"spacing":{"padding":{"left":"var:preset|spacing|sm"}}},"textColor":"neutral-600"} -->
             <ul class="has-neutral-600-color has-text-color" style="padding-left:var(--wp--preset--spacing--sm)">
                 <!-- wp:list-item -->
-                <li>Unlimited projects</li>
+                <li><?php echo esc_html__( 'Unlimited projects', 'aegis' ); ?></li>
                 <!-- /wp:list-item -->
                 <!-- wp:list-item -->
-                <li>Advanced analytics</li>
+                <li><?php echo esc_html__( 'Advanced analytics', 'aegis' ); ?></li>
                 <!-- /wp:list-item -->
                 <!-- wp:list-item -->
-                <li>Priority support</li>
+                <li><?php echo esc_html__( 'Priority support', 'aegis' ); ?></li>
                 <!-- /wp:list-item -->
                 <!-- wp:list-item -->
-                <li>50GB storage</li>
+                <li><?php echo esc_html__( '50GB storage', 'aegis' ); ?></li>
                 <!-- /wp:list-item -->
                 <!-- wp:list-item -->
-                <li>API access</li>
+                <li><?php echo esc_html__( 'API access', 'aegis' ); ?></li>
                 <!-- /wp:list-item -->
                 <!-- wp:list-item -->
-                <li>Custom integrations</li>
+                <li><?php echo esc_html__( 'Custom integrations', 'aegis' ); ?></li>
                 <!-- /wp:list-item -->
             </ul>
             <!-- /wp:list -->
@@ -137,7 +137,7 @@
             <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
             <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
                 <!-- wp:button {"width":100} -->
-                <div class="wp-block-button has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button">Get Started</a></div>
+                <div class="wp-block-button has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button"><?php echo esc_html__( 'Get Started', 'aegis' ); ?></a></div>
                 <!-- /wp:button -->
             </div>
             <!-- /wp:buttons -->
