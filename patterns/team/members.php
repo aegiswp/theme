@@ -3,7 +3,9 @@
  * Title: Team Members
  * Slug: members
  * Categories: team
- * ID: 635
+ * Keywords: team, members, staff, people
+ * Description: A team members section.
+ * Viewport Width: 1280
  */
 ?>
 
@@ -15,17 +17,16 @@
         style="margin-bottom:var(--wp--preset--spacing--lg);animation-duration:1s;animation-iteration-count:1">
         <!-- wp:paragraph {"align":"center","className":"is-style-sub-heading","animation":{"duration":"1","iterationCount":"1"}} -->
         <p class="aligncenter has-text-align-center is-style-sub-heading aligncenter has-animation"
-            style="animation-duration:1s;animation-iteration-count:1">About</p>
+            style="animation-duration:1s;animation-iteration-count:1"><?php echo esc_html__( 'About', 'aegis' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:heading {"textAlign":"center","style":{"display":{"all":"","mobile":""}},"fontSize":"48"} -->
-        <h2 class="wp-block-heading has-text-align-center has-48-font-size">Architects</h2>
+        <h2 class="wp-block-heading has-text-align-center has-48-font-size"><?php echo esc_html__( 'Architects', 'aegis' ); ?></h2>
         <!-- /wp:heading -->
 
         <!-- wp:paragraph {"align":"center","fontSize":"18","animation":{"duration":"1","iterationCount":"1"}} -->
         <p class="aligncenter has-text-align-center has-18-font-size aligncenter has-animation"
-            style="animation-duration:1s;animation-iteration-count:1">The minds behind the machine. A multidisciplinary
-            collective dedicated to engineering the future of digital expression.</p>
+            style="animation-duration:1s;animation-iteration-count:1"><?php echo esc_html__( 'The minds behind the machine. A multidisciplinary collective dedicated to engineering the future of digital expression.', 'aegis' ); ?></p>
         <!-- /wp:paragraph -->
     </div>
     <!-- /wp:group -->
@@ -39,21 +40,19 @@
                 <!-- /wp:image -->
 
                 <!-- wp:paragraph {"className":"is-style-heading"} -->
-                <p class="is-style-heading">Elena Voss</p>
+                <p class="is-style-heading"><?php echo esc_html__( 'Elena Voss', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph -->
-                <p>Principal Director</p>
+                <p><?php echo esc_html__( 'Principal Director', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|xxs"}}},"fontSize":"14"} -->
-                <p class="has-14-font-size" style="margin-bottom:var(--wp--preset--spacing--xxs)">Guiding the strategic
-                    vision. She ensures every project remains true to the core philosophy of reduction, clarity, and
-                    purpose.</p>
+                <p class="has-14-font-size" style="margin-bottom:var(--wp--preset--spacing--xxs)"><?php echo esc_html__( 'Guiding the strategic vision. She ensures every project remains true to the core philosophy of reduction, clarity, and purpose.', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
 
-                <!-- wp:social-links {"iconColor":"neutral-500","iconColorValue":"#5d6b98","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
-                <ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
+                <!-- wp:social-links {"iconColor":"neutral-500","iconColorValue":"#6b7280","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
+                <ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="color:#6b7280">
                     <!-- wp:social-link {"url":"#","service":"facebook"} /-->
 
                     <!-- wp:social-link {"url":"#","service":"linkedin"} /-->
@@ -75,21 +74,19 @@
                 <!-- /wp:image -->
 
                 <!-- wp:paragraph {"className":"is-style-heading"} -->
-                <p class="is-style-heading">Kaelen M.</p>
+                <p class="is-style-heading"><?php echo esc_html__( 'Kaelen M.', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph -->
-                <p>Technical Lead</p>
+                <p><?php echo esc_html__( 'Technical Lead', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|xxs"}}},"fontSize":"14"} -->
-                <p class="has-14-font-size" style="margin-bottom:var(--wp--preset--spacing--xxs)">The guardian of the
-                    codebase. He enforces strict performance budgets to guarantee sub-millisecond load times across all
-                    deployments.</p>
+                <p class="has-14-font-size" style="margin-bottom:var(--wp--preset--spacing--xxs)"><?php echo esc_html__( 'The guardian of the codebase. He enforces strict performance budgets to guarantee sub-millisecond load times across all deployments.', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
 
-                <!-- wp:social-links {"iconColor":"neutral-500","iconColorValue":"#5d6b98","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
-                <ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
+                <!-- wp:social-links {"iconColor":"neutral-500","iconColorValue":"#6b7280","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
+                <ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="color:#6b7280">
                     <!-- wp:social-link {"url":"#","service":"facebook"} /-->
 
                     <!-- wp:social-link {"url":"#","service":"linkedin"} /-->
@@ -111,21 +108,19 @@
                 <!-- /wp:image -->
 
                 <!-- wp:paragraph {"className":"is-style-heading"} -->
-                <p class="is-style-heading">Junaid A.</p>
+                <p class="is-style-heading"><?php echo esc_html__( 'Junaid A.', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph -->
-                <p>Design Systems</p>
+                <p><?php echo esc_html__( 'Design Systems', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|xxs"}}},"fontSize":"14"} -->
-                <p class="has-14-font-size" style="margin-bottom:var(--wp--preset--spacing--xxs)">Crafting the visual
-                    vernacular. He builds the scalable token libraries that allow interfaces to adapt seamlessly to any
-                    device.</p>
+                <p class="has-14-font-size" style="margin-bottom:var(--wp--preset--spacing--xxs)"><?php echo esc_html__( 'Crafting the visual vernacular. He builds the scalable token libraries that allow interfaces to adapt seamlessly to any device.', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
 
-                <!-- wp:social-links {"iconColor":"neutral-500","iconColorValue":"#5d6b98","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
-                <ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
+                <!-- wp:social-links {"iconColor":"neutral-500","iconColorValue":"#6b7280","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
+                <ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="color:#6b7280">
                     <!-- wp:social-link {"url":"#","service":"facebook"} /-->
 
                     <!-- wp:social-link {"url":"#","service":"linkedin"} /-->
