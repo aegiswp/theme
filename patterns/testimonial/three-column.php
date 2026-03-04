@@ -3,7 +3,9 @@
  * Title: Testimonial Three Column
  * Slug: three-column
  * Categories: testimonial
- * ID: 686
+ * Keywords: testimonial, three column, quotes, reviews
+ * Description: A three-column testimonial section.
+ * Viewport Width: 1280
  */
 ?>
 
@@ -19,26 +21,24 @@
                     <!-- wp:group {"metadata":{"name":"Heading"},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left"}} -->
                     <div class="wp-block-group">
                         <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading"} -->
-                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft">SOCIAL PROOF</p>
+                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft"><?php echo esc_html__( 'SOCIAL PROOF', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
 
                         <!-- wp:heading {"textAlign":"left","style":{"display":{"all":"","mobile":""}},"fontSize":"48"} -->
-                        <h2 class="wp-block-heading has-text-align-left has-48-font-size">Trusted Voices</h2>
+                        <h2 class="wp-block-heading has-text-align-left has-48-font-size"><?php echo esc_html__( 'Trusted Voices', 'aegis' ); ?></h2>
                         <!-- /wp:heading -->
                     </div>
                     <!-- /wp:group -->
 
                     <!-- wp:paragraph {"fontSize":"18"} -->
-                    <p class="has-18-font-size">Highlight success stories with verified reviews. This responsive grid
-                        adapts perfectly to showcase impactful user feedback.</p>
+                    <p class="has-18-font-size"><?php echo esc_html__( 'Highlight success stories with verified reviews. This responsive grid adapts perfectly to showcase impactful user feedback.', 'aegis' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:column -->
 
                 <!-- wp:column {"className":"is-style-surface"} -->
                 <div class="wp-block-column is-style-surface"><!-- wp:paragraph -->
-                    <p>‘‘A true zero-dependency framework. It gave us the freedom to build custom layouts without
-                        fighting against bloated legacy code.’’</p>
+                    <p><?php echo esc_html__( "''A true zero-dependency framework. It gave us the freedom to build custom layouts without fighting against bloated legacy code.''", 'aegis' ); ?></p>
                     <!-- /wp:paragraph -->
 
                     <!-- wp:group {"style":{"spacing":{"blockGap":{"top":"0","left":"0"},"padding":{"right":"0","left":"0","top":"0","bottom":"0"}},"dimensions":{"minHeight":""}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
@@ -86,11 +86,11 @@
                         <!-- wp:group {"style":{"layout":{"selfStretch":"fit","flexSize":null}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"wrap"}} -->
                         <div class="wp-block-group">
                             <!-- wp:paragraph {"className":"is-style-sub-heading","style":{"typography":{"lineHeight":"0.9"}}} -->
-                            <p class="is-style-sub-heading" style="line-height:0.9">Sarah L.</p>
+                            <p class="is-style-sub-heading" style="line-height:0.9"><?php echo esc_html__( 'Sarah L.', 'aegis' ); ?></p>
                             <!-- /wp:paragraph -->
 
                             <!-- wp:paragraph {"className":"is-style-default","style":{"typography":{"lineHeight":"0.9"}}} -->
-                            <p class="is-style-default" style="line-height:0.9">Studio Lead</p>
+                            <p class="is-style-default" style="line-height:0.9"><?php echo esc_html__( 'Studio Lead', 'aegis' ); ?></p>
                             <!-- /wp:paragraph -->
                         </div>
                         <!-- /wp:group -->
@@ -101,8 +101,7 @@
 
                 <!-- wp:column {"className":"is-style-surface"} -->
                 <div class="wp-block-column is-style-surface"><!-- wp:paragraph -->
-                    <p>‘‘The architectural precision is unmatched. We migrated our entire stack and saw immediate
-                        performance gains across the board.’’</p>
+                    <p><?php echo esc_html__( "''The architectural precision is unmatched. We migrated our entire stack and saw immediate performance gains across the board.''", 'aegis' ); ?></p>
                     <!-- /wp:paragraph -->
 
                     <!-- wp:group {"style":{"spacing":{"blockGap":{"top":"0","left":"0"},"padding":{"right":"0","left":"0","top":"0","bottom":"0"}},"dimensions":{"minHeight":""}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
@@ -150,11 +149,11 @@
                         <!-- wp:group {"style":{"spacing":{"blockGap":{"top":"4px","left":"4px"}}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"wrap"}} -->
                         <div class="wp-block-group">
                             <!-- wp:paragraph {"className":"is-style-sub-heading","style":{"typography":{"lineHeight":"0.9"}}} -->
-                            <p class="is-style-sub-heading" style="line-height:0.9">Alex V.</p>
+                            <p class="is-style-sub-heading" style="line-height:0.9"><?php echo esc_html__( 'Alex V.', 'aegis' ); ?></p>
                             <!-- /wp:paragraph -->
 
                             <!-- wp:paragraph {"className":"is-style-default","style":{"typography":{"lineHeight":"0.9"}}} -->
-                            <p class="is-style-default" style="line-height:0.9">Senior Developer</p>
+                            <p class="is-style-default" style="line-height:0.9"><?php echo esc_html__( 'Senior Developer', 'aegis' ); ?></p>
                             <!-- /wp:paragraph -->
                         </div>
                         <!-- /wp:group -->
