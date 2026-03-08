@@ -1,45 +1,27 @@
 {
-	"name": "aegiswp/theme",
-	"type": "wordpress-theme",
-	"description": "Aegis - Native Block Framework",
-	"keywords": [
-		"WordPress",
-		"Block",
-		"Theme"
-	],
-	"homepage": "https://github.com/aegiswp/theme",
-	"license": "GPL-3.0",
-	"authors": [
-		{
-			"name": "Contributors",
-			"homepage": "https://github.com/aegiswp/theme/contributors.md"
-		}
-	],
-	"autoload": {
-		"psr-4": {
-			"Aegis\\": "src/"
-		},
-		"files": [
-			"src/bootstrap.php"
-		]
-	},
-	"require": {
-		"php": ">=7.4"
-	},
-	"require-dev": {
-		"dealerdirect/phpcodesniffer-composer-installer": "^1.2.0",
-		"wptrt/wpthemereview": "^0.2.1",
-		"squizlabs/php_codesniffer": "^3.10",
-		"wp-coding-standards/wpcs": "^3.1"
-	},
-	"config": {
-		"allow-plugins": {
-			"dealerdirect/phpcodesniffer-composer-installer": true
-		}
-	},
-	"scripts": {
-		"format": "phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
-		"lint": "phpcs --standard=phpcs.xml.dist"
-	},
-	"version": "1.0.0-rc.3"
+    "name": "aegiswp/theme",
+    "description": "Aegis — Native Block Framework for WordPress",
+    "type": "wordpress-theme",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Atmostfear Entertainment",
+            "homepage": "https://www.atmostfear-entertainment.com/"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aegis\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
 }
