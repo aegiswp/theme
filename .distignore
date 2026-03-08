@@ -11,16 +11,12 @@
 .kiro/
 .windsurf/
 
-# Node.js files (not needed for PHP library)
+# Node.js / build tooling (not needed in distribution)
 node_modules/
 package.json
 package-lock.json
 webpack.config.js
-babel.config.js
-.babelrc
-.eslintrc.js
 tsconfig.json
-.prettierrc
 
 # Composer dev files
 composer.lock
@@ -35,16 +31,20 @@ vendor/squizlabs/
 vendor/wp-coding-standards/
 vendor/wptrt/
 
-# Editor and environment files
+# Editor, linting, and environment files
 .vscode/
 .idea/
 .editorconfig
 .prettierrc
+.stylelintignore
+.typos.toml
+stylelintrc.json
 .env
 .env.*
 
-# Documentation
+# Documentation and community files
 docs/
+GitBook/
 README.md
 CHANGELOG.md
 CONTRIBUTING.md
@@ -52,28 +52,40 @@ CONTRIBUTORS.md
 CODE_OF_CONDUCT.md
 
 # Development/testing files
+Makefile
 phpcs.xml
 phpcs.xml.dist
 phpunit.xml
 phpunit.xml.dist
-.stylelintignore
-.typos.toml
 tests/
 .nyc_output/
 coverage/
 
-# Build artifacts and cache
+# Build artifacts, source maps, and cache
 .cache/
 .eslintcache
 .stylelintcache
 build/
 dist/
+src/Blocks/*/*.js.map
+src/Blocks/*/*.css.map
+src/Blocks/editor/
 
-# Audit outputs (examples/test data)
-audit-report.*
-.wpaudit-backup/
-audit-results/
-*.audit.json
+# Audit tool code (not part of the theme runtime)
+src/Analyzers/
+src/Models/
+src/Enums/
+src/Interfaces/
+src/ConfigurationManager.php
+src/DesignSystem/
 
-# Project setup documentation
-PROJECT_SETUP.md
+# Block source files (only compiled output needed)
+src/Blocks/*/index.tsx
+src/Blocks/*/edit.tsx
+src/Blocks/*/save.tsx
+src/Blocks/*/view.ts
+src/Blocks/*/style.scss
+src/Editor/
+
+# Empty directories
+config/
