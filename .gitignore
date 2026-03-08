@@ -1,5 +1,4 @@
 # Dependencies
-/vendor/
 node_modules/
 
 # IDE
@@ -18,9 +17,20 @@ node_modules/
 .DS_Store
 Thumbs.db
 
-# Documentation submodules (separate repos)
+# Documentation (separate repos / submodules)
 docs/
 GitBook/
+
+# Audit tool leftovers (not part of theme)
+config/
+tests/
+phpunit.xml
+src/Analyzers/
+src/Models/
+src/Enums/
+src/Interfaces/
+src/ConfigurationManager.php
+src/DesignSystem/
 
 # Test coverage
 .phpunit.result.cache
@@ -28,19 +38,27 @@ coverage/
 *.coverage
 phpunit-report.xml
 
-# Audit outputs (from integrated audit tool)
-audit-report.*
-.wpaudit-backup/
-audit-results/
-*.audit.json
+# Build artifacts — src/Blocks/ (webpack output)
+src/Blocks/*/index.js
+src/Blocks/*/view.js
+src/Blocks/*/style.js
+src/Blocks/*/index.css
+src/Blocks/*/style.css
+src/Blocks/*/style-style.css
+src/Blocks/*/*.asset.php
+src/Blocks/*/*.js.map
+src/Blocks/*/*.css.map
+src/Blocks/*/*-rtl.css
 
-# Build artifacts
+# Build artifacts — src/Blocks/editor/ (webpack output)
+src/Blocks/editor/
+
+# Build artifacts — src/Admin/build/ (webpack output)
+src/Admin/build/
+
+# Build artifacts — general
 /build/
 /dist/
-src/Blocks/*/index.js
-src/Blocks/*/index.asset.php
-src/Blocks/*/style-index.css
-src/Admin/build/
 
 # Logs
 *.log
