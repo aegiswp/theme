@@ -21,6 +21,10 @@ Welcome to the Aegis Theme development repository.
   - [Shadow Presets](#shadow-presets)
   - [Gradient Presets](#gradient-presets)
 - [Features](#features)
+  - [Enhanced Core Blocks](#enhanced-core-blocks)
+  - [Custom Blocks](#custom-blocks)
+  - [Block Variations](#block-variations)
+  - [Plugin Integrations](#plugin-integrations)
 - [Getting Started](#getting-started-with-aegis)
   - [Requirements](#requirements)
 - [Deploying WordPress Locally](#deploying-wordpress-locally)
@@ -41,6 +45,8 @@ Welcome to the Aegis Theme development repository.
   - [Pull Requests and Reviews](#pull-requests-and-reviews)
   - [Final Checks](#final-checks)
 - [Development Philosophy](#development)
+- [Technical Architecture](#technical-architecture)
+- [Integration Capabilities](#integration-capabilities)
 - [Pattern Creation Guidelines](#pattern-creation-guidelines)
 - [Experimenting](#experimenting)
 - [Resources](#resources)
@@ -169,11 +175,10 @@ Aegis features a comprehensive fluid typography system with 22 font size presets
 
 **Font Families**
 
-| Name | Slug | Font Family | Weight Range | Usage |
-|------|------|-------------|-------------|-------|
-| Lexend | `lexend` | `Lexend, sans-serif` | 300–900 | Body |
-| Lexend Deca | `lexend-deca` | `Lexend Deca, sans-serif` | 300–900 | Headings |
-| JetBrains | `jetbrains` | `JetBrains, monospace` | 100–900 | Code |
+| Name | Slug | Font Family | Weight Range |
+|------|------|-------------|-------------|
+| Lexend | `lexend` | `Lexend, sans-serif` | 300–900 |
+| JetBrains | `jetbrains` | `JetBrains, monospace` | 100–900 |
 
 ### Shadow Presets
 
@@ -279,7 +284,7 @@ Aegis is a comprehensive Full Site Editing (FSE) theme that extends the capabili
 
 **Enhanced Block Supports**: Aegis extends WordPress core blocks with additional appearance controls including box shadows, absolute positioning, CSS transforms, and CSS filters. These enhancements provide granular control over block presentation without requiring custom code.
 
-**Advanced Global Styles**: Leveraging the full power of `theme.json`, Aegis implements a sophisticated design system with comprehensive color palettes, fluid typography scales, intelligent spacing presets, and responsive layout constraints. All styling is managed through the Site Editor for a seamless customization experience.
+**Advanced Global Styles**: Leveraging the full power of `theme.json`, Aegis implements a sophisticated design system with comprehensive color palettes, fluid typography scales, intelligent spacing presets, and responsive layout constraints. Includes 60 style variations with Tailwind-aligned color palettes and dark mode support. All styling is managed through the Site Editor for a seamless customization experience.
 
 **Optimized CSS Framework**: The theme features a minimal, performance-focused CSS framework where all stylesheets are conditionally loaded only when required by a page. This intelligent asset loading ensures optimal performance while addressing common core CSS issues.
 
@@ -293,25 +298,7 @@ Aegis is a comprehensive Full Site Editing (FSE) theme that extends the capabili
 
 **Advanced Text Formats**: Extended text formatting options including clear formatting, underline, gradient text, dynamic font sizes, and more. These formatting tools provide fine-grained control over typography and text presentation.
 
-### Layout & Navigation
-
-**Full Site Editing Support**: Enhanced page, post, and template part settings make customizing individual pages intuitive and powerful. Aegis provides additional controls and options beyond core WordPress FSE capabilities.
-
-**Responsive Controls**: Built-in responsive utilities including reverse-on-mobile layouts, hide-on-mobile visibility controls, and intelligent breakpoint management ensure your designs look perfect on all devices.
-
-**Flexible Header Styles**: Support for absolute positioned headers, transparent header overlays, and sticky navigation styles. These options enable sophisticated header designs that adapt to different page contexts.
-
-**Mega Menu System**: Create sophisticated multi-column dropdown menus using the core submenu block. Aegis's mega menu implementation leverages native WordPress blocks for maximum compatibility and ease of use.
-
-**CSS-Only Search Toggle**: Full-screen search functionality with a pure CSS implementation—no JavaScript required. This search toggle provides an elegant user experience while maintaining optimal performance.
-
-### User Experience
-
-**Intelligent Dark Mode**: Automatic dark mode support that adapts to user preferences and system settings. Dark mode can be customized or deactivated through the Blockify settings in the page editor, providing flexibility for different use cases.
-
-**Accessibility First**: Designed with accessibility at its core, Aegis prioritizes WCAG compliance, semantic HTML, proper heading hierarchies, and keyboard navigation. The theme is optimized for users with color vision deficiency.
-
-**Performance Optimized**: Every aspect of Aegis is engineered for speed. From conditional asset loading to optimized CSS delivery and minimal JavaScript footprint, the theme ensures fast page loads and excellent Core Web Vitals scores.
+**Pattern Library**: Comprehensive collection of 145+ block patterns organized across 15 categories including author pages, blog layouts, commerce templates, contact forms, CTAs, FAQs, features, footers, headers, heroes, modals, page layouts, portfolios, pricing, testimonials, and utility patterns. All patterns are designed for performance and accessibility.
 
 ### Enhanced Core Blocks
 
@@ -362,9 +349,15 @@ Aegis includes the following custom blocks built specifically for the theme:
 
 | Block | Block Name | Description |
 |-------|------------|-------------|
+| Countdown | `aegis/countdown` | Animated countdown timer with customizable target dates and styling |
+| Map | `aegis/map` | Interactive Google Maps with custom markers, styles, and geolocation |
 | Modal | `aegis/modal` | An accessible modal dialog with popup, off-canvas, bottom sheet, and fullscreen modes |
+| Related Posts | `aegis/related-posts` | Automatically displays related posts based on taxonomy or custom criteria |
 | Slider | `aegis/slider` | A responsive slider/carousel with multiple slide types, transitions, and navigation options |
 | Slide | `aegis/slide` | An individual slide within a slider block with support for content, image, and video slide types |
+| Toggle | `aegis/toggle` | Collapsible content toggle with smooth animations |
+| Toggle Content | `aegis/toggle-content` | Nested toggle content for complex accordion structures |
+| Video | `aegis/video` | Advanced video player with custom controls and features |
 
 ### Block Variations
 
@@ -399,6 +392,49 @@ Aegis provides seamless integration with popular WordPress plugins, automaticall
 | Sensei LMS | LMS | Theme support declaration, colors and typography, custom block patterns |
 | Syntax Highlighting Code Block | Development | Theme color integration for code highlighting |
 | WooCommerce | E-commerce | Plugin detection and conditional hook registration |
+
+### Layout & Navigation
+
+**Full Site Editing Support**: Enhanced page, post, and template part settings make customizing individual pages intuitive and powerful. Aegis provides additional controls and options beyond core WordPress FSE capabilities.
+
+**Responsive Controls**: Built-in responsive utilities including reverse-on-mobile layouts, hide-on-mobile visibility controls, and intelligent breakpoint management ensure your designs look perfect on all devices.
+
+**Flexible Header Styles**: Support for absolute positioned headers, transparent header overlays, and sticky navigation styles. These options enable sophisticated header designs that adapt to different page contexts.
+
+**Mega Menu System**: Create sophisticated multi-column dropdown menus using the core submenu block. Aegis's mega menu implementation leverages native WordPress blocks for maximum compatibility and ease of use.
+
+**CSS-Only Search Toggle**: Full-screen search functionality with a pure CSS implementation—no JavaScript required. This search toggle provides an elegant user experience while maintaining optimal performance.
+
+### User Experience
+
+**Intelligent Dark Mode**: Automatic dark mode support that adapts to user preferences and system settings. Dark mode can be customized or deactivated through the Blockify settings in the page editor, providing flexibility for different use cases.
+
+**Accessibility First**: Designed with accessibility at its core, Aegis prioritizes WCAG compliance, semantic HTML, proper heading hierarchies, and keyboard navigation. The theme is optimized for users with color vision deficiency.
+
+**Performance Optimized**: Every aspect of Aegis is engineered for speed. From conditional asset loading to optimized CSS delivery and minimal JavaScript footprint, the theme ensures fast page loads and excellent Core Web Vitals scores.
+
+### Developer Tools & Framework
+
+**Custom Block Collection**: Aegis includes 9 custom blocks built for modern web development: Countdown, Map, Modal, Related Posts, Slider, Slide, Toggle, Toggle Content, and Video. Each block is engineered for performance and extensibility.
+
+**Analytics System**: Privacy-first analytics framework with Tracker and ScriptProxy components. Provides comprehensive site analytics while respecting user privacy and GDPR compliance. 
+
+**Supported Analytics Services**:
+- **Free Tier**: Google Analytics 4 (GA4), Google Tag Manager (GTM), Microsoft Clarity, Plausible Analytics, Fathom Analytics, basic GDPR compliance
+- **Pro Tier**: Matomo Analytics, Meta Pixel, Google Consent Mode v2, Data Layer integration, Debug Mode
+- **Script Proxy**: Secure proxy for external scripts with additional privacy controls
+
+**Hook Patterns System**: Dynamic content injection framework with Manager and Renderer components. Enables sophisticated content manipulation and conditional display logic.
+
+**Conditional Logic Settings**: Advanced conditional settings system for blocks and patterns. Provides granular control over content display based on user roles, device types, and custom conditions.
+
+**Framework Architecture**: Built on the Aegis Framework (`vendor/aegis/framework`) with ServiceProvider pattern. Provides a robust foundation for theme development and extensibility.
+
+**Core Block Extensions**: Enhanced core WordPress blocks including advanced Breadcrumbs with taxonomy support. Extends block functionality while maintaining compatibility.
+
+**Video Editor Extensions**: Advanced video editing capabilities in the block editor. Provides comprehensive video controls and customization options.
+
+**WooCommerce Integration**: Full WooCommerce support with store templates, mini-cart variants, and multi-step checkout enhancements. Optimized for e-commerce performance.
 
 ## Pattern Creation Guidelines
 
@@ -530,7 +566,7 @@ If you find setting up WordPress locally overwhelming, consider using [wp-env](h
 #### Requirements
 
 - [Aegis](https://github.com/aegiswp/theme/releases/)
-- [WordPress 6.6+](https://wordpress.org/download/)
+- [WordPress 6.6+](https://wordpress.org/download/) (Tested up to 6.9)
 - PHP 7.4+
 - License: [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) or later.
 
@@ -743,6 +779,23 @@ Avoid building custom PHP or JavaScript workarounds for functionality already pr
 Aegis has no unnecessary build process, maintaining simplicity and performance.
 
 If you have [contributed](CONTRIBUTORS.md) to Aegis, you will receive proper credit. We update [CONTRIBUTORS.md](CONTRIBUTORS.md) periodically. If we have missed anyone, please open a [pull request](https://github.com/aegiswp/theme/pulls) or [issue](https://github.com/aegiswp/theme/issues).
+
+## Technical Architecture
+
+- **Zero-Base Loading Strategy** — Assets loaded conditionally based on page content
+- **Conditional Asset Loading** — Smart asset enqueuing via AssetManager
+- **Hook Patterns System** — Dynamic content injection with Manager/Renderer pattern
+- **PSR-4 Autoloading** — Modern PHP class loading with Composer
+- **ServiceProvider Pattern** — Framework service registration and management
+- **Interactivity API Usage** — WordPress Interactivity API integration
+- **TypeScript Support** — Type-safe block development with TSX
+
+## Integration Capabilities
+
+- **Plugin Integration Framework** — Extensible architecture for third-party plugins
+- **Block Extension System** — Core block enhancements via filters and hooks
+- **Template System** — Full template hierarchy with block markup support
+- **Asset Pipeline** — Webpack-based build system with WordPress externals
 
 
 ## Experimenting
