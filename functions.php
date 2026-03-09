@@ -32,3 +32,20 @@ add_filter('aegis_theme_updater_config', function () {
 
 // Registers the Aegis Framework, initializing all its components and services.
 Aegis::register(__FILE__);
+
+// Bootstraps theme-level classes (admin settings, analytics, navigation, etc.).
+require_once __DIR__ . '/src/bootstrap.php';
+
+// Add resource hints for external resources (Performance Optimization).
+add_filter('wp_resource_hints', function ($urls, $relation_type) {
+	if ('dns-prefetch' === $relation_type) {
+		// Add any external domains used by the theme.
+		// Example: $urls[] = '//fonts.googleapis.com';
+	}
+	return $urls;
+}, 10, 2);
+
+// Ensure title-tag support is explicitly declared (SEO).
+add_action('after_setup_theme', function () {
+	add_theme_support('title-tag');
+});
