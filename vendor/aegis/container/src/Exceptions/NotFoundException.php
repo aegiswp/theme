@@ -31,6 +31,7 @@ use Exception;
 use Psr\Container\NotFoundExceptionInterface;
 use function __;
 use function sprintf;
+
 /**
  * Not Found Exception for the Aegis Dependency Injection Container.
  *
