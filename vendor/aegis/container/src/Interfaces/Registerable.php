@@ -38,6 +38,7 @@ use Aegis\Container\Container;
  * @package Aegis\Container\Interfaces
  * @since   1.0.0
  */
+
 // Declares the Registerable interface for service registration.
 interface Registerable
 {
@@ -55,5 +56,6 @@ interface Registerable
 	 *
 	 * @return void
 	 */
+	
 	public function register(Container $container): void;
 }
