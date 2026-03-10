@@ -10,8 +10,25 @@
         }
     ],
     "require": {
-        "php": ">=7.4"
+        "php": ">=7.4",
+        "aegis/framework": "dev-main",
+        "aegis/container": "dev-main",
+        "aegis/dom": "dev-main",
+        "aegis/hooks": "dev-main",
+        "aegis/icons": "dev-main",
+        "aegis/utilities": "dev-main",
+        "enshrined/svg-sanitize": "dev-master",
+        "psr/container": "^2.0@dev"
     },
+    "require-dev": {
+        "aegis/wpaudit": "@dev"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "tools/wpaudit"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Aegis\\": "src/"
