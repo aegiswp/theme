@@ -33,8 +33,7 @@ add_filter('aegis_theme_updater_config', function () {
 // Registers the Aegis Framework, initializing all its components and services.
 Aegis::register(__FILE__);
 
-// Bootstraps theme-level classes (admin settings, analytics, navigation, etc.).
-require_once __DIR__ . '/src/bootstrap.php';
+// Theme-level classes are bootstrapped via Composer files autoload (src/bootstrap.php).
 
 // Add resource hints for external resources (Performance Optimization).
 add_filter('wp_resource_hints', function ($urls, $relation_type) {
