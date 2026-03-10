@@ -1028,7 +1028,7 @@
           }
         },
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--jetbrains-mono)",
+          "fontFamily": "var(--wp--preset--font-family--jetbrains)",
           "fontSize": "var(--wp--preset--font-size--14)",
           "fontWeight": "var(--wp--custom--font-weight--medium)"
         }
@@ -1365,8 +1365,8 @@
     },
     {
       "area": "uncategorized",
-      "name": "main",
-      "title": "Main"
+      "name": "sidebar",
+      "title": "Sidebar"
     },
     {
       "area": "footer",
