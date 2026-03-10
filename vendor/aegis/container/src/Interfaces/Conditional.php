@@ -36,6 +36,7 @@ namespace Aegis\Container\Interfaces;
  * @package Aegis\Container\Interfaces
  * @since   1.0.0
  */
+
 // Declares the Conditional interface for conditional service registration.
 interface Conditional
 {
