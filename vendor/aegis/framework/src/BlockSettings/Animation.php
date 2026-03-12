@@ -237,10 +237,17 @@ class Animation implements Renderable, Styleable, Scriptable
 	 *
 	 * @return array An associative array of animation names and their CSS content.
 	 */
+	private static ?array $parsed_animations = null;
+
 	private function get_animations(): array
 	{
+		if (self::$parsed_animations !== null) {
+			return self::$parsed_animations;
+		}
+
 		$file = $this->css_dir . 'block-extensions/animations.css';
 		if (!file_exists($file)) {
+			self::$parsed_animations = [];
 			return [];
 		}
 
@@ -255,6 +262,7 @@ class Animation implements Renderable, Styleable, Scriptable
 			$animations[$name] = trim(str_replace($name, '', $animation));
 		}
 
+		self::$parsed_animations = $animations;
 		return $animations;
 	}
 }
