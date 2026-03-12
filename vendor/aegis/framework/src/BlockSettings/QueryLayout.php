@@ -2,19 +2,33 @@
 /**
  * Query Layout Block Setting
  *
- * Provides responsive layout controls for the core/query block including
- * responsive columns, gap controls, featured first post, and equal height.
+ * Provides responsive layout controls for the core/query block.
+ *
+ * Responsibilities:
+ * - Registers layout attributes on the core/query block for responsive
+ *   columns, gap controls, featured-first post, and equal-height cards
+ * - Renders CSS custom properties and modifier classes onto the query
+ *   wrapper element via DOM manipulation
+ * - Injects inline CSS for the grid layout, featured-first span,
+ *   and equal-height flex rules via the Styleable interface
+ * - Supplies breakpoint data to the editor via the Scriptable interface
  *
  * @package    Aegis\Framework\BlockSettings
  * @since      1.0.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file.
 declare( strict_types=1 );
 
+// Declares the namespace for block settings within the Aegis Framework.
 namespace Aegis\Framework\BlockSettings;
 
+// Imports classes, interfaces, and functions used throughout this file.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\InlineAssets\Scriptable;
@@ -26,12 +40,23 @@ use WP_Block;
 use function add_filter;
 use function array_merge;
 use function explode;
+use function file_exists;
+use function file_get_contents;
 use function implode;
 use function is_admin;
-use function sprintf;
 
 /**
- * Handles Query Loop layout enhancements.
+ * Query Loop layout enhancements.
+ *
+ * Extends the core/query block with responsive grid layout controls.
+ * Column counts for mobile, tablet, and desktop breakpoints are stored
+ * as block attributes and output as CSS custom properties consumed by
+ * the inline grid stylesheet. Additional features include configurable
+ * row/column gaps, a featured-first post spanning multiple columns,
+ * and equal-height card layout using flexbox.
+ *
+ * All CSS values are sanitized against injection patterns before being
+ * written to the DOM. Column counts are clamped to 0–12.
  *
  * @since 1.0.0
  */
@@ -40,7 +65,13 @@ class QueryLayout implements Renderable, Scriptable, Styleable {
 	/**
 	 * Query block layout attributes to register.
 	 *
-	 * @var array
+	 * Merged into the core/query block's attribute schema via the
+	 * `register_block_type_args` filter. Each key maps to a CSS
+	 * custom property or modifier class applied by {@see render()}.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var array<string, array{type: string, default: mixed}>
 	 */
 	private array $attributes = [
 		// Responsive columns
@@ -82,7 +113,10 @@ class QueryLayout implements Renderable, Scriptable, Styleable {
 	];
 
 	/**
-	 * Constructor - registers filters.
+	 * Constructor.
+	 *
+	 * Registers the `register_block_type_args` filter to inject
+	 * layout attributes into the core/query block.
 	 *
 	 * @since 1.0.0
 	 */
@@ -91,14 +125,20 @@ class QueryLayout implements Renderable, Scriptable, Styleable {
 	}
 
 	/**
-	 * Add custom attributes to core/query block.
+	 * Add custom attributes to the core/query block.
+	 *
+	 * Merges the layout attributes into the block's schema.
+	 * Only targets `core/query`; all other block types pass
+	 * through unmodified.
 	 *
 	 * @since 1.0.0
+	 *
+	 * @hook  register_block_type_args
 	 *
 	 * @param array  $args       Block type arguments.
 	 * @param string $block_type Block type name.
 	 *
-	 * @return array
+	 * @return array Modified block type arguments.
 	 */
 	public function add_attributes( array $args, string $block_type ): array {
 		if ( $block_type !== 'core/query' ) {
@@ -115,17 +155,25 @@ class QueryLayout implements Renderable, Scriptable, Styleable {
 	}
 
 	/**
-	 * Renders the block with layout enhancements.
+	 * Render the block with layout enhancements.
+	 *
+	 * Reads layout attributes, sanitizes them, and applies the
+	 * corresponding CSS custom properties and modifier classes to
+	 * the query wrapper `<div>`. Returns unmodified content when
+	 * no layout enhancements are active.
+	 *
+	 * Processing order: responsive columns → gap values →
+	 * featured-first span → equal-height class.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string   $block_content The original block content.
-	 * @param array    $block         The full block object.
+	 * @hook  render_block_core/query
+	 *
+	 * @param string   $block_content The original block HTML.
+	 * @param array    $block         The parsed block array.
 	 * @param WP_Block $instance      The block instance.
 	 *
-	 * @hook render_block_core/query
-	 *
-	 * @return string The modified block content.
+	 * @return string Modified block HTML with layout properties.
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
 		$attrs = $block['attrs'] ?? [];
@@ -205,9 +253,13 @@ class QueryLayout implements Renderable, Scriptable, Styleable {
 	/**
 	 * Add editor data for layout controls.
 	 *
+	 * Passes the responsive breakpoint values to the editor script
+	 * so the column controls can display the corresponding viewport
+	 * widths. Only loaded in the admin context.
+	 *
 	 * @since 1.0.0
 	 *
-	 * @param Scripts $scripts Scripts service.
+	 * @param Scripts $scripts Inline scripts service instance.
 	 *
 	 * @return void
 	 */
@@ -229,25 +281,35 @@ class QueryLayout implements Renderable, Scriptable, Styleable {
 	/**
 	 * Add layout styles.
 	 *
+	 * Loads the query layout CSS from an external file following
+	 * the framework's separation of concerns pattern. The CSS file
+	 * contains grid layout rules, responsive breakpoints,
+	 * featured-first span, and equal-height flex styles.
+	 *
 	 * @since 1.0.0
 	 *
-	 * @param Styles $styles Styles service.
+	 * @param Styles $styles Inline styles service instance.
 	 *
 	 * @return void
 	 */
 	public function styles( Styles $styles ): void {
-		$css = $this->get_layout_css();
-		$styles->add_callback( fn() => $css );
+		$file = $styles->dir . 'core-blocks/query-layout.css';
+		if ( file_exists( $file ) ) {
+			$styles->add_callback( fn() => file_get_contents( $file ) );
+		}
 	}
 
 	/**
 	 * Sanitize a column count to a positive integer within range.
 	 *
+	 * Casts the input to an integer and clamps it between 0 and 12.
+	 * A value of 0 indicates no override for that breakpoint.
+	 *
 	 * @since 1.0.0
 	 *
-	 * @param mixed $value Raw value.
+	 * @param mixed $value Raw value from block attributes.
 	 *
-	 * @return int
+	 * @return int Clamped column count (0–12).
 	 */
 	private function sanitize_column_count( mixed $value ): int {
 		$count = (int) $value;
@@ -255,17 +317,19 @@ class QueryLayout implements Renderable, Scriptable, Styleable {
 	}
 
 	/**
-	 * Sanitize a CSS value to prevent injection (QL1).
+	 * Sanitize a CSS value to prevent injection.
 	 *
-	 * Allows only safe CSS value patterns: numbers, units, CSS functions,
-	 * and custom properties. Rejects anything containing semicolons,
-	 * braces, or other injection vectors.
+	 * Allows only safe CSS value patterns: numbers with units,
+	 * `var()` / `calc()` / `clamp()` / `min()` / `max()` functions,
+	 * and WordPress preset format (`var:preset|spacing|50`). Rejects
+	 * anything containing semicolons, braces, or other injection
+	 * vectors by returning an empty string.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $value Raw CSS value.
+	 * @param string $value Raw CSS value from block attributes.
 	 *
-	 * @return string Sanitized value or empty string.
+	 * @return string Validated CSS value or empty string on failure.
 	 */
 	private function sanitize_css_value( string $value ): string {
 		$value = trim( $value );
@@ -295,53 +359,5 @@ class QueryLayout implements Renderable, Scriptable, Styleable {
 		}
 
 		return '';
-	}
-
-	private function get_layout_css(): string {
-		return '
-/* Query Layout Enhancements */
-.aegis-query-layout .wp-block-post-template {
-	display: grid;
-	gap: var(--aegis-query-row-gap, var(--wp--style--block-gap, 1.5rem)) var(--aegis-query-column-gap, var(--wp--style--block-gap, 1.5rem));
-	grid-template-columns: repeat(var(--aegis-query-columns-mobile, 1), 1fr);
-}
-
-@media (min-width: 782px) {
-	.aegis-query-layout .wp-block-post-template {
-		grid-template-columns: repeat(var(--aegis-query-columns-tablet, 2), 1fr);
-	}
-}
-
-@media (min-width: 1024px) {
-	.aegis-query-layout .wp-block-post-template {
-		grid-template-columns: repeat(var(--aegis-query-columns-desktop, 3), 1fr);
-	}
-}
-
-/* Featured First Post */
-.aegis-query-featured-first .wp-block-post-template > .wp-block-post:first-child {
-	grid-column: span var(--aegis-query-featured-span, 2);
-}
-
-@media (max-width: 781px) {
-	.aegis-query-featured-first .wp-block-post-template > .wp-block-post:first-child {
-		grid-column: span 1;
-	}
-}
-
-/* Equal Height */
-.aegis-query-equal-height .wp-block-post-template > .wp-block-post {
-	display: flex;
-	flex-direction: column;
-}
-
-.aegis-query-equal-height .wp-block-post-template > .wp-block-post > * {
-	flex-shrink: 0;
-}
-
-.aegis-query-equal-height .wp-block-post-template > .wp-block-post > *:last-child {
-	margin-top: auto;
-}
-';
 	}
 }
