@@ -2,19 +2,34 @@
 /**
  * Visibility Block Setting
  *
- * Provides conditional visibility controls for blocks within the Aegis Framework.
- * Free features include: user status, date/time scheduling, and page location conditions.
+ * Provides conditional visibility controls for all blocks in the Aegis Framework.
+ *
+ * Responsibilities:
+ * - Evaluates visibility conditions on every block at render time and
+ *   suppresses output when conditions dictate the block should be hidden
+ * - Supports six condition types: user status, date/time scheduling,
+ *   page location, lockdown, URL query string rules, and specific user IDs
+ * - Each condition uses show/hide logic so authors can include or exclude
+ *   blocks based on the evaluated result
+ * - Lockdown takes absolute priority, hiding the block from all users
+ *   regardless of other conditions
  *
  * @package    Aegis\Framework\BlockSettings
  * @since      1.0.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file.
 declare(strict_types=1);
 
+// Declares the namespace for block settings within the Aegis Framework.
 namespace Aegis\Framework\BlockSettings;
 
+// Imports classes, interfaces, and functions used throughout this file.
 use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
 use function absint;
@@ -32,7 +47,16 @@ use function strtotime;
 use function wp_unslash;
 
 /**
- * Visibility class for conditional block display.
+ * Conditional block visibility.
+ *
+ * Implements the {@see Renderable} interface to intercept every block's
+ * output and evaluate its `visibility` attribute array. When any
+ * condition resolves to "hide", the block content is replaced with an
+ * empty string, effectively removing it from the front-end.
+ *
+ * Evaluation order: lockdown (absolute) → user status → schedule →
+ * location → query string → specific users. The first condition that
+ * triggers hiding short-circuits the remaining checks.
  *
  * @since 1.0.0
  */
@@ -40,11 +64,18 @@ class Visibility implements Renderable
 {
 
 	/**
-	 * Condition types available in the free version.
+	 * Condition types and their configuration.
+	 *
+	 * Defines every visibility condition exposed to the editor.
+	 * Each key is a condition slug whose value describes the UI
+	 * control: either an `options` array for select-style inputs
+	 * or a `fields` map for free-form inputs (datetime, boolean,
+	 * string, array). This constant is consumed by the editor
+	 * script to render inspector panel controls.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @var array
+	 * @var array<string, array{label: string, options?: array, fields?: array}>
 	 */
 	public const CONDITIONS = [
 		'userStatus' => [
@@ -96,17 +127,22 @@ class Visibility implements Renderable
 	];
 
 	/**
-	 * Renders block with visibility conditions applied.
+	 * Render block with visibility conditions applied.
+	 *
+	 * Returns an empty string when the block should be hidden,
+	 * or the original content when all conditions pass. Lockdown
+	 * is evaluated first for absolute priority, followed by all
+	 * other conditions via {@see is_hidden()}.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string   $block_content Block content.
-	 * @param array    $block         Block data.
-	 * @param WP_Block $instance      Block instance.
-	 *
 	 * @hook  render_block 10
 	 *
-	 * @return string
+	 * @param string   $block_content The original block HTML.
+	 * @param array    $block         The parsed block array.
+	 * @param WP_Block $instance      The block instance.
+	 *
+	 * @return string Block HTML or empty string when hidden.
 	 */
 	public function render(string $block_content, array $block, WP_Block $instance): string
 	{
@@ -130,13 +166,17 @@ class Visibility implements Renderable
 	}
 
 	/**
-	 * Checks if the block should be hidden based on visibility conditions.
+	 * Check if the block should be hidden based on visibility conditions.
+	 *
+	 * Evaluates each condition in order: user status → schedule →
+	 * location → query string → specific users. Returns true on
+	 * the first condition that triggers hiding.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $visibility Visibility settings.
+	 * @param array $visibility Visibility attribute array from the block.
 	 *
-	 * @return bool True if block should be hidden.
+	 * @return bool True if the block should be hidden.
 	 */
 	protected function is_hidden(array $visibility): bool
 	{
@@ -171,11 +211,15 @@ class Visibility implements Renderable
 	/**
 	 * Check user status condition.
 	 *
+	 * Hides the block when the current user's authentication state
+	 * does not match the required value (`logged-in` or `logged-out`).
+	 * An empty value means no restriction.
+	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $visibility Visibility settings.
+	 * @param array $visibility Visibility attribute array.
 	 *
-	 * @return bool True if block should be hidden.
+	 * @return bool True if the block should be hidden.
 	 */
 	protected function check_user_status(array $visibility): bool
 	{
@@ -199,11 +243,15 @@ class Visibility implements Renderable
 	/**
 	 * Check schedule condition.
 	 *
+	 * Hides the block when the current WordPress local time falls
+	 * outside the optional start/end datetime window. Either bound
+	 * may be omitted for an open-ended schedule.
+	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $visibility Visibility settings.
+	 * @param array $visibility Visibility attribute array.
 	 *
-	 * @return bool True if block should be hidden.
+	 * @return bool True if the block should be hidden.
 	 */
 	protected function check_schedule(array $visibility): bool
 	{
@@ -238,11 +286,16 @@ class Visibility implements Renderable
 	/**
 	 * Check location condition.
 	 *
+	 * Evaluates whether the current page matches the chosen location
+	 * slug and applies show/hide logic. With `show` logic the block
+	 * is hidden when the location does *not* match; with `hide`
+	 * logic the block is hidden when it *does* match.
+	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $visibility Visibility settings.
+	 * @param array $visibility Visibility attribute array.
 	 *
-	 * @return bool True if block should be hidden.
+	 * @return bool True if the block should be hidden.
 	 */
 	protected function check_location(array $visibility): bool
 	{
@@ -265,13 +318,17 @@ class Visibility implements Renderable
 	}
 
 	/**
-	 * Check if current page matches the location condition.
+	 * Check if the current page matches the location slug.
+	 *
+	 * Maps each location value to its corresponding WordPress
+	 * conditional tag (`is_front_page()`, `is_home()`, etc.).
+	 * Returns false for unrecognised slugs.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $location Location value.
+	 * @param string $location Location slug from the CONDITIONS constant.
 	 *
-	 * @return bool True if current page matches location.
+	 * @return bool True if the current page matches.
 	 */
 	protected function matches_location(string $location): bool
 	{
@@ -302,13 +359,15 @@ class Visibility implements Renderable
 	/**
 	 * Check lockdown condition.
 	 *
-	 * When enabled, the block is hidden from all users on the frontend.
+	 * When the `hideFromAll` flag is set, the block is unconditionally
+	 * hidden from every user on the front end. This takes absolute
+	 * priority over all other visibility conditions.
 	 *
 	 * @since 1.1.0
 	 *
-	 * @param array $visibility Visibility settings.
+	 * @param array $visibility Visibility attribute array.
 	 *
-	 * @return bool True if block should be hidden.
+	 * @return bool True if the block should be hidden.
 	 */
 	protected function check_lockdown(array $visibility): bool
 	{
@@ -318,14 +377,17 @@ class Visibility implements Renderable
 	/**
 	 * Check URL query string condition.
 	 *
-	 * Evaluates rules against current URL query parameters.
-	 * Each rule has a param name, operator (is/isNot/exists/notExists), and value.
+	 * Evaluates an array of rules against the current `$_GET`
+	 * parameters. Each rule specifies a parameter name, an
+	 * operator (`is`, `isNot`, `exists`, `notExists`, `contains`),
+	 * and an expected value. Rules are combined using either `all`
+	 * (AND) or `any` (OR) relation, then show/hide logic is applied.
 	 *
 	 * @since 1.1.0
 	 *
-	 * @param array $visibility Visibility settings.
+	 * @param array $visibility Visibility attribute array.
 	 *
-	 * @return bool True if block should be hidden.
+	 * @return bool True if the block should be hidden.
 	 */
 	protected function check_query_string(array $visibility): bool
 	{
@@ -403,13 +465,16 @@ class Visibility implements Renderable
 	/**
 	 * Check specific user IDs condition.
 	 *
-	 * Shows or hides the block for a comma-separated list of user IDs.
+	 * Parses a comma-separated list of WordPress user IDs and
+	 * determines whether the current user is in that list.
+	 * Show/hide logic controls whether membership means the
+	 * block is displayed or suppressed.
 	 *
 	 * @since 1.1.0
 	 *
-	 * @param array $visibility Visibility settings.
+	 * @param array $visibility Visibility attribute array.
 	 *
-	 * @return bool True if block should be hidden.
+	 * @return bool True if the block should be hidden.
 	 */
 	protected function check_specific_users(array $visibility): bool
 	{
