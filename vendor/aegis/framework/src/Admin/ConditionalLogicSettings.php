@@ -4,16 +4,29 @@
  *
  * Provides an admin settings page for managing Conditional Logic features.
  *
+ * Responsibilities:
+ * - Registers the top-level Aegis admin menu and Conditional Logic submenu
+ * - Enqueues admin-specific scripts and styles for the settings UI
+ * - Renders the settings page with toggle controls for each feature group
+ * - Handles form submission, sanitization, and persistence of settings
+ * - Exposes static helpers for querying feature-enabled state site-wide
+ *
  * @package    Aegis\Framework\Admin
  * @since      1.0.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file.
 declare(strict_types=1);
 
+// Declares the namespace for admin components within the Aegis Framework.
 namespace Aegis\Framework\Admin;
 
+// Imports WordPress functions used throughout this file.
 use function add_action;
 use function add_menu_page;
 use function add_submenu_page;
@@ -22,6 +35,7 @@ use function current_user_can;
 use function esc_html__;
 use function get_option;
 use function update_option;
+use function wp_unslash;
 use function file_exists;
 use function get_template_directory;
 use function get_template_directory_uri;
@@ -32,17 +46,42 @@ use function wp_create_nonce;
 use function wp_localize_script;
 
 /**
- * Conditional Logic Settings class.
+ * Conditional Logic Settings.
+ *
+ * Manages the WordPress admin interface for configuring which conditional
+ * logic features are available in the block editor. Features are organized
+ * into four groups: visibility, accessibility, user, and schedule.
+ *
+ * Settings are stored as a single serialized option keyed by
+ * {@see OPTION_NAME}. Defaults are defined in {@see DEFAULTS} and
+ * merged on retrieval to ensure forward-compatible key coverage.
+ *
+ * @since 1.0.0
  */
 class ConditionalLogicSettings
 {
 	/**
 	 * Option name for storing settings.
+	 *
+	 * A single serialized array stored in the wp_options table
+	 * containing all feature-group toggle states.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var string
 	 */
 	public const OPTION_NAME = 'aegis_conditional_logic';
 
 	/**
 	 * Default settings.
+	 *
+	 * Nested array keyed by group → feature → enabled boolean.
+	 * Used as the fallback when no saved option exists and to
+	 * ensure new features are included after updates.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var array<string, array<string, bool>>
 	 */
 	public const DEFAULTS = [
 		'visibility' => [
@@ -67,9 +106,14 @@ class ConditionalLogicSettings
 	];
 
 	/**
-	 * Register hooks.
+	 * Register the Aegis admin menu and Conditional Logic submenu.
 	 *
-	 * @hook admin_menu
+	 * Creates the top-level "Aegis" menu page and adds the
+	 * "Conditional Logic" submenu underneath it.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @hook  admin_menu
 	 *
 	 * @return void
 	 */
@@ -98,9 +142,16 @@ class ConditionalLogicSettings
 	/**
 	 * Enqueue admin assets.
 	 *
-	 * @hook admin_enqueue_scripts
+	 * Loads the settings page stylesheet and script only on Aegis
+	 * admin screens. The asset manifest is read from the compiled
+	 * build output to resolve dependencies and cache-busting version.
+	 * Localizes the current settings and defaults for the JS UI.
 	 *
-	 * @param string $hook_suffix Current admin page.
+	 * @since 1.0.0
+	 *
+	 * @hook  admin_enqueue_scripts
+	 *
+	 * @param string $hook_suffix Current admin page hook suffix.
 	 *
 	 * @return void
 	 */
@@ -145,7 +196,12 @@ class ConditionalLogicSettings
 	/**
 	 * Get menu icon SVG.
 	 *
-	 * @return string
+	 * Returns a base64-encoded data URI of the Aegis layers icon
+	 * used in the WordPress admin sidebar menu.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return string Base64-encoded SVG data URI.
 	 */
 	private function get_menu_icon(): string
 	{
@@ -156,6 +212,11 @@ class ConditionalLogicSettings
 
 	/**
 	 * Render main settings page.
+	 *
+	 * Outputs a root container for the React-powered Aegis
+	 * settings dashboard. Requires `manage_options` capability.
+	 *
+	 * @since 1.0.0
 	 *
 	 * @return void
 	 */
@@ -170,6 +231,12 @@ class ConditionalLogicSettings
 
 	/**
 	 * Render conditional logic settings page.
+	 *
+	 * Outputs the full admin UI including sidebar navigation,
+	 * feature-group sections with toggle cards, and the save
+	 * button. Processes any pending form submission first.
+	 *
+	 * @since 1.0.0
 	 *
 	 * @return void
 	 */
@@ -294,13 +361,18 @@ class ConditionalLogicSettings
 	}
 
 	/**
-	 * Render a toggle setting.
+	 * Render a toggle setting card.
 	 *
-	 * @param string $group    Setting group.
-	 * @param string $key      Setting key.
-	 * @param string $label    Setting label.
-	 * @param string $desc     Setting description.
-	 * @param array  $settings Current settings.
+	 * Outputs a labeled toggle switch with a hidden input fallback
+	 * to ensure unchecked values are submitted as '0'.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $group    Setting group (e.g. 'visibility').
+	 * @param string $key      Setting key within the group (e.g. 'screen_size').
+	 * @param string $label    Human-readable setting label.
+	 * @param string $desc     Explanatory description shown below the label.
+	 * @param array  $settings Current merged settings array.
 	 *
 	 * @return void
 	 */
@@ -337,6 +409,12 @@ class ConditionalLogicSettings
 	/**
 	 * Handle form submission.
 	 *
+	 * Processes the save request by verifying the nonce and
+	 * capability, sanitizing the posted settings, persisting
+	 * them to the database, and enqueuing a success notice.
+	 *
+	 * @since 1.0.0
+	 *
 	 * @return void
 	 */
 	private function handle_form_submission(): void
@@ -353,7 +431,8 @@ class ConditionalLogicSettings
 			return;
 		}
 
-		$settings = $_POST['aegis_settings'] ?? [];
+		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		$settings = isset( $_POST['aegis_settings'] ) ? wp_unslash( $_POST['aegis_settings'] ) : [];
 		$sanitized = $this->sanitize_settings($settings);
 
 		update_option(self::OPTION_NAME, $sanitized);
@@ -366,9 +445,14 @@ class ConditionalLogicSettings
 	/**
 	 * Sanitize settings array.
 	 *
-	 * @param array $settings Raw settings.
+	 * Iterates over the known defaults and casts each submitted
+	 * value to a boolean. Unknown keys are silently discarded.
 	 *
-	 * @return array
+	 * @since 1.0.0
+	 *
+	 * @param array $settings Raw $_POST settings data.
+	 *
+	 * @return array<string, array<string, bool>> Sanitized settings.
 	 */
 	private function sanitize_settings(array $settings): array
 	{
@@ -387,7 +471,13 @@ class ConditionalLogicSettings
 	/**
 	 * Get current settings.
 	 *
-	 * @return array
+	 * Retrieves the stored option and merges it with the
+	 * defaults to ensure all expected keys are present.
+	 * Returns the full defaults if no option exists yet.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return array<string, array<string, bool>> Merged settings.
 	 */
 	public static function get_settings(): array
 	{
@@ -412,10 +502,15 @@ class ConditionalLogicSettings
 	/**
 	 * Check if a specific feature is enabled.
 	 *
-	 * @param string $group Feature group.
-	 * @param string $key   Feature key.
+	 * Convenience method used by block-editor integrations to
+	 * conditionally register controls based on admin settings.
 	 *
-	 * @return bool
+	 * @since 1.0.0
+	 *
+	 * @param string $group Feature group (e.g. 'accessibility').
+	 * @param string $key   Feature key within the group (e.g. 'reduced_motion').
+	 *
+	 * @return bool True if the feature is enabled.
 	 */
 	public static function is_enabled(string $group, string $key): bool
 	{
