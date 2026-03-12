@@ -24,6 +24,7 @@ declare(strict_types=1);
 namespace Aegis\Framework\BlockVariations;
 
 // Imports utility classes and interfaces for DOM manipulation, CSS helpers, and renderable blocks.
+use Aegis\Framework\ServiceProvider;
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
@@ -74,8 +75,7 @@ class AccordionList implements Renderable
 	public function render(string $block_content, array $block, WP_Block $instance): string
 	{
 		// Check if block is enabled in admin settings.
-		if (class_exists('\Aegis\Admin\ConditionalLogicSettings') &&
-			!\Aegis\Admin\ConditionalLogicSettings::is_block_enabled('accordion')) {
+		if ( ! ServiceProvider::is_block_enabled( 'accordion' ) ) {
 			return $block_content;
 		}
 
@@ -215,6 +215,48 @@ class AccordionList implements Renderable
 		$dom->removeChild($list);
 		$dom->appendChild($imported);
 
-		return $dom->saveHTML();
+		$html = $dom->saveHTML();
+
+		// Output FAQPage JSON-LD if FAQ Schema is enabled in admin settings
+		// and Rank Math is not handling it.
+		if (
+			ServiceProvider::is_block_enabled( 'accordion_faq_schema' ) &&
+			! ServiceProvider::is_schema_handled_by_rank_math( 'rank_math_faq_schema' )
+		) {
+			$faq_entities = [];
+			$final_dom = DOM::create($html);
+			foreach ($final_dom->getElementsByTagName('details') as $details_el) {
+				if (!$details_el instanceof DOMElement) {
+					continue;
+				}
+				$summary_el = DOM::get_element('summary', $details_el);
+				$section_el = DOM::get_element('section', $details_el);
+				if (!$summary_el || !$section_el) {
+					continue;
+				}
+				$question = wp_strip_all_tags($final_dom->saveHTML($summary_el));
+				$answer   = wp_strip_all_tags($final_dom->saveHTML($section_el));
+				if (!empty($question) && !empty($answer)) {
+					$faq_entities[] = [
+						'@type'          => 'Question',
+						'name'           => $question,
+						'acceptedAnswer' => [
+							'@type' => 'Answer',
+							'text'  => $answer,
+						],
+					];
+				}
+			}
+			if (!empty($faq_entities)) {
+				$schema = [
+					'@context'   => 'https://schema.org',
+					'@type'      => 'FAQPage',
+					'mainEntity' => $faq_entities,
+				];
+				$html .= '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES) . '</script>';
+			}
+		}
+
+		return $html;
 	}
 }
