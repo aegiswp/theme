@@ -24,6 +24,7 @@ declare(strict_types=1);
 namespace Aegis\Framework\BlockVariations;
 
 // Imports utility classes and interfaces for asset management, DOM manipulation, and renderable blocks.
+use Aegis\Framework\ServiceProvider;
 use Aegis\Framework\InlineAssets\Scriptable;
 use Aegis\Framework\InlineAssets\Scripts;
 use Aegis\Dom\DOM;
@@ -71,8 +72,7 @@ class Counter implements Renderable, Scriptable
 	public function render(string $block_content, array $block, WP_Block $instance): string
 	{
 		// Check if block is enabled in admin settings.
-		if (class_exists('\Aegis\Admin\ConditionalLogicSettings') &&
-			!\Aegis\Admin\ConditionalLogicSettings::is_block_enabled('counter')) {
+		if ( ! ServiceProvider::is_block_enabled( 'counter' ) ) {
 			return $block_content;
 		}
 
