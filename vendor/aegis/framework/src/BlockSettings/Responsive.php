@@ -31,6 +31,7 @@ use Aegis\Framework\InlineAssets\Scripts;
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
 use Aegis\Framework\Interfaces\Renderable;
+use Aegis\Utilities\UserAgent;
 use WP_Block;
 use function _wp_to_kebab_case;
 use function array_merge;
@@ -41,7 +42,9 @@ use function intval;
 use function is_admin;
 use function is_numeric;
 use function is_user_logged_in;
+use function sanitize_text_field;
 use function sprintf;
+use function wp_unslash;
 use function str_contains;
 use function str_replace;
 use function strtotime;
@@ -456,7 +459,7 @@ class Responsive implements Renderable, Scriptable, Styleable
 			return '';
 		}
 
-		// Check user status - hide block if user status doesn't match
+		// Check user status - hide block if user status does not match
 		if ($this->should_hide_for_user_status($visibility)) {
 			return '';
 		}
@@ -625,7 +628,8 @@ class Responsive implements Renderable, Scriptable, Styleable
 			return false;
 		}
 
-		$user_agent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
+		$user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ) : '';
 
 		if (empty($user_agent)) {
 			return false;
@@ -641,7 +645,7 @@ class Responsive implements Renderable, Scriptable, Styleable
 				continue;
 			}
 
-			$is_match = $this->detect_device($device, $user_agent_lower);
+			$is_match = UserAgent::matches_device($user_agent_lower, $device);
 
 			// "is" operator: hide if device matches
 			// "isNot" operator: hide if device does NOT match
@@ -660,7 +664,8 @@ class Responsive implements Renderable, Scriptable, Styleable
 	/**
 	 * Detect if user agent matches a specific device/browser.
 	 *
-	 * @since 1.0.0
+	 * @since      1.0.0
+	 * @deprecated 1.1.0 Use {@see UserAgent::matches_device()} instead.
 	 *
 	 * @param string $device     Device/browser identifier.
 	 * @param string $user_agent Lowercase user agent string.
@@ -669,35 +674,7 @@ class Responsive implements Renderable, Scriptable, Styleable
 	 */
 	private function detect_device(string $device, string $user_agent): bool
 	{
-		switch ($device) {
-			case 'ios':
-				return str_contains($user_agent, 'iphone') ||
-					   str_contains($user_agent, 'ipad') ||
-					   str_contains($user_agent, 'ipod');
-
-			case 'android':
-				return str_contains($user_agent, 'android');
-
-			case 'chrome':
-				// Chrome but not Edge (Edge contains "chrome" in UA)
-				return str_contains($user_agent, 'chrome') &&
-					   !str_contains($user_agent, 'edg');
-
-			case 'safari':
-				// Safari but not Chrome (Chrome contains "safari" in UA)
-				return str_contains($user_agent, 'safari') &&
-					   !str_contains($user_agent, 'chrome') &&
-					   !str_contains($user_agent, 'chromium');
-
-			case 'firefox':
-				return str_contains($user_agent, 'firefox');
-
-			case 'edge':
-				return str_contains($user_agent, 'edg');
-
-			default:
-				return false;
-		}
+		return UserAgent::matches_device($user_agent, $device);
 	}
 
 	/**
