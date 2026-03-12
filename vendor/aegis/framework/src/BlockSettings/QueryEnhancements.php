@@ -2,19 +2,33 @@
 /**
  * Query Enhancements Block Setting
  *
- * Provides advanced query parameters for the core/query block including
- * multiple post types, taxonomy filtering, meta queries, and custom ordering.
+ * Provides advanced query parameters for the core/query block.
+ *
+ * Responsibilities:
+ * - Registers custom attributes on the core/query block for post types,
+ *   taxonomy queries, meta queries, include/exclude lists, offsets, sticky
+ *   post handling, and extended ordering options
+ * - Modifies the Query Loop's WP_Query arguments at render time based on
+ *   the stored attribute values with full input validation
+ * - Supplies editor-side data (post types, taxonomies, operators, order-by
+ *   options) via the Scriptable interface for the inspector UI
  *
  * @package    Aegis\Framework\BlockSettings
  * @since      1.0.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file.
 declare( strict_types=1 );
 
+// Declares the namespace for block settings within the Aegis Framework.
 namespace Aegis\Framework\BlockSettings;
 
+// Imports classes, interfaces, and functions used throughout this file.
 use Aegis\Framework\InlineAssets\Scriptable;
 use Aegis\Framework\InlineAssets\Scripts;
 use WP_Block;
@@ -40,7 +54,16 @@ use function taxonomy_exists;
 use function trim;
 
 /**
- * Handles Query Loop enhancements.
+ * Query Loop enhancements.
+ *
+ * Extends the core/query block with additional query parameters
+ * exposed through custom block attributes. Each attribute maps to
+ * a corresponding WP_Query argument and is validated against
+ * allowlists before being applied.
+ *
+ * All user-facing values (meta keys, taxonomy slugs, post type
+ * names) are sanitized and checked against registered WordPress
+ * objects to prevent arbitrary query injection.
  *
  * @since 1.0.0
  */
@@ -48,6 +71,13 @@ class QueryEnhancements implements Scriptable {
 
 	/**
 	 * Allowed meta compare operators.
+	 *
+	 * Validated against user input before being passed to
+	 * WP_Meta_Query. Covers all operators supported by WordPress.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var string[]
 	 */
 	private const ALLOWED_META_COMPARE = [
 		'=', '!=', '>', '>=', '<', '<=',
@@ -57,6 +87,14 @@ class QueryEnhancements implements Scriptable {
 
 	/**
 	 * Allowed meta value types.
+	 *
+	 * Controls the CAST type used by WP_Meta_Query when comparing
+	 * meta values. Also determines whether `meta_value_num` is
+	 * used for ordering.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var string[]
 	 */
 	private const ALLOWED_META_TYPES = [
 		'CHAR', 'NUMERIC', 'DECIMAL', 'DATE',
@@ -65,6 +103,13 @@ class QueryEnhancements implements Scriptable {
 
 	/**
 	 * Allowed taxonomy query operators.
+	 *
+	 * Validated against user input before being passed to
+	 * WP_Tax_Query. Only public taxonomies are accepted.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var string[]
 	 */
 	private const ALLOWED_TAX_OPERATORS = [
 		'IN', 'NOT IN', 'AND', 'EXISTS', 'NOT EXISTS',
@@ -73,7 +118,13 @@ class QueryEnhancements implements Scriptable {
 	/**
 	 * Query block attributes to register.
 	 *
-	 * @var array
+	 * Merged into the core/query block's attribute schema via the
+	 * `register_block_type_args` filter. Each key corresponds to a
+	 * custom attribute consumed by {@see modify_query()}.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var array<string, array{type: string, default: mixed}>
 	 */
 	private array $attributes = [
 		// Multiple post types
@@ -154,7 +205,10 @@ class QueryEnhancements implements Scriptable {
 	];
 
 	/**
-	 * Constructor - registers filters.
+	 * Constructor.
+	 *
+	 * Registers the attribute injection filter and the query
+	 * modification filter for the Query Loop block.
 	 *
 	 * @since 1.0.0
 	 */
@@ -164,14 +218,20 @@ class QueryEnhancements implements Scriptable {
 	}
 
 	/**
-	 * Add custom attributes to core/query block.
+	 * Add custom attributes to the core/query block.
+	 *
+	 * Merges the enhancement attributes into the block's schema.
+	 * Only targets `core/query`; all other block types pass through
+	 * unmodified.
 	 *
 	 * @since 1.0.0
+	 *
+	 * @hook  register_block_type_args
 	 *
 	 * @param array  $args       Block type arguments.
 	 * @param string $block_type Block type name.
 	 *
-	 * @return array
+	 * @return array Modified block type arguments.
 	 */
 	public function add_attributes( array $args, string $block_type ): array {
 		if ( $block_type !== 'core/query' ) {
@@ -190,13 +250,22 @@ class QueryEnhancements implements Scriptable {
 	/**
 	 * Modify query variables based on custom attributes.
 	 *
+	 * Reads each enhancement attribute from the block instance and
+	 * translates it into the corresponding WP_Query argument.
+	 * Processing order: post types → taxonomy query → include/exclude
+	 * → offset → sticky posts → meta query → meta ordering →
+	 * extended orderby. All values are sanitized and validated
+	 * against allowlists or registered WordPress objects.
+	 *
 	 * @since 1.0.0
 	 *
-	 * @param array    $query    Query arguments.
-	 * @param WP_Block $block    Block instance.
-	 * @param int      $page     Current page.
+	 * @hook  query_loop_block_query_vars
 	 *
-	 * @return array
+	 * @param array    $query WP_Query arguments.
+	 * @param WP_Block $block Block instance with attributes.
+	 * @param int      $page  Current pagination page number.
+	 *
+	 * @return array Modified WP_Query arguments.
 	 */
 	public function modify_query( array $query, WP_Block $block, int $page ): array {
 		$attrs = $block->attributes ?? [];
@@ -348,11 +417,17 @@ class QueryEnhancements implements Scriptable {
 	/**
 	 * Build taxonomy query from attribute data.
 	 *
+	 * Converts the `aegisTaxQuery` attribute array into a
+	 * WP_Tax_Query-compatible structure. Each clause is validated:
+	 * taxonomy must exist and be public, operator must be in the
+	 * allowlist, and term IDs are cast to integers. Clauses are
+	 * joined with an AND relation.
+	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $tax_query_data Taxonomy query data from attribute.
+	 * @param array $tax_query_data Taxonomy query data from block attribute.
 	 *
-	 * @return array
+	 * @return array WP_Tax_Query-compatible array with 'relation' key.
 	 */
 	private function build_tax_query( array $tax_query_data ): array {
 		$tax_query = [ 'relation' => 'AND' ];
@@ -394,9 +469,14 @@ class QueryEnhancements implements Scriptable {
 	/**
 	 * Add editor data for query enhancements.
 	 *
+	 * Lazily provides the editor with lists of available post types,
+	 * taxonomies, meta compare operators, meta types, and order-by
+	 * options for the inspector panel controls. Only loaded in the
+	 * admin context.
+	 *
 	 * @since 1.0.0
 	 *
-	 * @param Scripts $scripts Scripts service.
+	 * @param Scripts $scripts Inline scripts service instance.
 	 *
 	 * @return void
 	 */
@@ -418,9 +498,13 @@ class QueryEnhancements implements Scriptable {
 	/**
 	 * Get available post types for the editor.
 	 *
+	 * Returns all public, REST-visible post types as value/label
+	 * pairs suitable for a select control. The `attachment` post
+	 * type is excluded.
+	 *
 	 * @since 1.0.0
 	 *
-	 * @return array
+	 * @return array<int, array{value: string, label: string}> Post type options.
 	 */
 	private function get_post_types(): array {
 		$post_types = get_post_types(
@@ -449,9 +533,13 @@ class QueryEnhancements implements Scriptable {
 	/**
 	 * Get available taxonomies for the editor.
 	 *
+	 * Returns all public, REST-visible taxonomies as value/label
+	 * pairs with their associated post types and REST base for
+	 * dynamic term fetching in the editor.
+	 *
 	 * @since 1.0.0
 	 *
-	 * @return array
+	 * @return array<int, array{value: string, label: string, postTypes: string[], restBase: string}> Taxonomy options.
 	 */
 	private function get_taxonomies(): array {
 		$taxonomies = get_taxonomies(
@@ -478,9 +566,12 @@ class QueryEnhancements implements Scriptable {
 	/**
 	 * Get meta compare operators.
 	 *
+	 * Returns all supported WP_Meta_Query compare operators as
+	 * translatable value/label pairs for the editor select control.
+	 *
 	 * @since 1.0.0
 	 *
-	 * @return array
+	 * @return array<int, array{value: string, label: string}> Operator options.
 	 */
 	private function get_meta_compare_operators(): array {
 		return [
@@ -504,9 +595,12 @@ class QueryEnhancements implements Scriptable {
 	/**
 	 * Get meta value types.
 	 *
+	 * Returns all supported WP_Meta_Query CAST types as
+	 * translatable value/label pairs for the editor select control.
+	 *
 	 * @since 1.0.0
 	 *
-	 * @return array
+	 * @return array<int, array{value: string, label: string}> Type options.
 	 */
 	private function get_meta_types(): array {
 		return [
@@ -524,9 +618,13 @@ class QueryEnhancements implements Scriptable {
 	/**
 	 * Get extended order by options.
 	 *
+	 * Returns the available orderby values beyond the core block's
+	 * built-in date/title options. Includes random, comment count,
+	 * menu order, author, slug, and parent.
+	 *
 	 * @since 1.0.0
 	 *
-	 * @return array
+	 * @return array<int, array{value: string, label: string}> Order-by options.
 	 */
 	private function get_order_by_options(): array {
 		return [
