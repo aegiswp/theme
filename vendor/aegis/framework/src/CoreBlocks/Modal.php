@@ -24,6 +24,8 @@ declare(strict_types=1);
 namespace Aegis\Framework\CoreBlocks;
 
 // Imports WordPress functions for file system checks and block registration.
+use Aegis\Framework\ServiceProvider;
+use WP_Block_Type_Registry;
 use function file_exists;
 use function get_template_directory;
 use function register_block_type;
@@ -56,15 +58,19 @@ class Modal
 	 */
 	public function register_block(): void
 	{
-		// Build the path to the modal block directory.
-		$block_path = get_template_directory() . '/src/blocks/modal';
-
-		// Verify block.json exists before attempting registration.
-		if (!file_exists($block_path . '/block.json')) {
+		// Check if block is enabled in admin settings.
+		if ( ! ServiceProvider::is_block_enabled( 'modal' ) ) {
 			return;
 		}
 
-		// Register the block using WordPress block registration API.
-		register_block_type($block_path);
+		$registry = WP_Block_Type_Registry::get_instance();
+
+		// Build the path to the modal block directory.
+		$block_path = get_template_directory() . '/src/Blocks/modal';
+
+		// Verify block.json exists and block is not already registered.
+		if ( ! $registry->is_registered( 'aegis/modal' ) && file_exists( $block_path . '/block.json' ) ) {
+			register_block_type( $block_path );
+		}
 	}
 }
