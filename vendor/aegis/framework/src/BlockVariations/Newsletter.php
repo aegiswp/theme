@@ -24,9 +24,11 @@ declare(strict_types=1);
 namespace Aegis\Framework\BlockVariations;
 
 // Imports utility classes and interfaces for DOM manipulation and renderable blocks.
+use Aegis\Framework\ServiceProvider;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
+use function __;
 use function str_contains;
 
 // Implements the Newsletter class to support newsletter block rendering.
@@ -64,6 +66,11 @@ class Newsletter implements Renderable
 	 */
 	public function render(string $block_content, array $block, WP_Block $instance): string
 	{
+		// Check if block is enabled in admin settings.
+		if ( ! ServiceProvider::is_block_enabled( 'newsletter' ) ) {
+			return $block_content;
+		}
+
 		$attrs = $block['attrs'] ?? [];
 		$class_name = $attrs['className'] ?? '';
 
@@ -85,14 +92,18 @@ class Newsletter implements Renderable
 		// Remove standard form attributes.
 		$form->removeAttribute('action');
 		$form->removeAttribute('method');
-		$form->removeAttribute('role');
 
-		// Prevent the form from submitting via a page reload.
-		$form->setAttribute('onsubmit', 'event.preventDefault();');
+		// Accessibility: set role and label for the newsletter form.
+		$form->setAttribute('role', 'form');
+		$form->setAttribute('aria-label', __('Newsletter signup', 'aegis'));
 
-		// Change the input to a standard text field named "newsletter".
-		$input->setAttribute('type', 'text');
+		// Security: use data attribute instead of inline onsubmit handler (CSP-safe).
+		$form->setAttribute('data-newsletter', 'true');
+
+		// Change the input to an email field for proper validation and mobile keyboard.
+		$input->setAttribute('type', 'email');
 		$input->setAttribute('name', 'newsletter');
+		$input->setAttribute('autocomplete', 'email');
 
 		return $dom->saveHTML();
 	}
