@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for design system components.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
@@ -128,6 +128,11 @@ class BaseCss implements Styleable
 			'search-toggle' => ['is-style-toggle'],
 			'square-list' => ['is-style-square'],
 			'sub-heading' => ['is-style-sub-heading'],
+			'bordered' => ['is-style-bordered'],
+			'callout' => ['is-style-callout'],
+			'card' => ['is-style-card'],
+			'highlight-block' => ['is-style-highlight'],
+			'pill' => ['is-style-pill', 'is-style-pills'],
 			'surface' => ['is-style-surface'],
 		];
 
