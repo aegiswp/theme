@@ -24,6 +24,7 @@ declare(strict_types=1);
 namespace Aegis\Framework\BlockSettings;
 
 // Imports utility classes and interfaces for DOM manipulation, SVG handling, and renderable blocks.
+use Aegis\Framework\ServiceProvider;
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
@@ -86,8 +87,7 @@ class InlineSvg implements Renderable
 	public function render(string $block_content, array $block, WP_Block $instance): string
 	{
 		// Check if block is enabled in admin settings.
-		if (class_exists('\Aegis\Admin\ConditionalLogicSettings') &&
-			!\Aegis\Admin\ConditionalLogicSettings::is_block_enabled('svg')) {
+		if ( ! ServiceProvider::is_block_enabled( 'svg' ) ) {
 			return $block_content;
 		}
 
@@ -195,8 +195,7 @@ class InlineSvg implements Renderable
 	public function render_inline_svg(string $block_content, array $block, WP_Block $instance): string
 	{
 		// Check if block is enabled in admin settings.
-		if (class_exists('\Aegis\Admin\ConditionalLogicSettings') &&
-			!\Aegis\Admin\ConditionalLogicSettings::is_block_enabled('svg')) {
+		if ( ! ServiceProvider::is_block_enabled( 'svg' ) ) {
 			return $block_content;
 		}
 
