@@ -2,19 +2,36 @@
 /**
  * Query No Results Block Setting
  *
- * Provides customizable "no results" template for the core/query block
- * when no posts match the query criteria.
+ * Provides a customizable "no results" template for the core/query block.
+ *
+ * Responsibilities:
+ * - Registers no-results attributes on the core/query block for enable
+ *   toggle, custom message, template style, icon choice, and search form
+ * - Detects empty query results at render time and replaces the empty
+ *   post template with a styled no-results container
+ * - Builds accessible HTML output with role="status", aria-hidden icons,
+ *   and optional inline search form via the core/search block
+ * - Injects inline CSS for four template variants (default, minimal,
+ *   card, centered) via the Styleable interface
+ * - Supplies template and icon options to the editor via the Scriptable
+ *   interface
  *
  * @package    Aegis\Framework\BlockSettings
  * @since      1.0.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
+ *
+ * For developer documentation and onboarding. No logic changes in this
+ * documentation update.
  */
 
+// Enforces strict type checking for all code in this file.
 declare( strict_types=1 );
 
+// Declares the namespace for block settings within the Aegis Framework.
 namespace Aegis\Framework\BlockSettings;
 
+// Imports classes, interfaces, and functions used throughout this file.
 use Aegis\Dom\DOM;
 use Aegis\Framework\InlineAssets\Scriptable;
 use Aegis\Framework\InlineAssets\Scripts;
@@ -25,23 +42,41 @@ use WP_Block;
 use function add_filter;
 use function array_merge;
 use function do_blocks;
+use function esc_attr__;
 use function esc_html__;
+use function file_exists;
+use function file_get_contents;
 use function is_admin;
-use function sprintf;
 use function str_contains;
 use function wp_kses_post;
 
 /**
- * Handles Query Loop no results template.
+ * Query Loop no-results template.
+ *
+ * Replaces the empty post template inside the core/query block with
+ * a configurable "no results" container when no posts match the query.
+ * Supports four visual template variants, five icon choices, an optional
+ * custom message, and an inline search form rendered via `do_blocks()`.
+ *
+ * Template and icon values are validated against internal allowlists
+ * before rendering. The no-results container uses `role="status"` for
+ * screen-reader announcements.
  *
  * @since 1.0.0
  */
 class QueryNoResults implements Renderable, Scriptable, Styleable {
 
 	/**
-	 * Query block no results attributes to register.
+	 * Query block no-results attributes to register.
 	 *
-	 * @var array
+	 * Merged into the core/query block's attribute schema via the
+	 * `register_block_type_args` filter. Controls whether the
+	 * no-results template is active, its message, visual template,
+	 * icon, and whether to include a search form.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var array<string, array{type: string, default: mixed}>
 	 */
 	private array $attributes = [
 		'aegisNoResultsEnabled' => [
@@ -67,9 +102,15 @@ class QueryNoResults implements Renderable, Scriptable, Styleable {
 	];
 
 	/**
-	 * Available no results templates.
+	 * Available no-results templates.
 	 *
-	 * @var array
+	 * Maps template slug to display label. Used as an allowlist
+	 * for validating the `aegisNoResultsTemplate` attribute and
+	 * as the source for editor select options.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var array<string, string>
 	 */
 	private array $templates = [
 		'default'  => 'default',
@@ -81,7 +122,13 @@ class QueryNoResults implements Renderable, Scriptable, Styleable {
 	/**
 	 * Available icons.
 	 *
-	 * @var array
+	 * Maps icon slug to display label. Used as an allowlist for
+	 * validating the `aegisNoResultsIcon` attribute. The 'none'
+	 * value suppresses icon output entirely.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var array<string, string>
 	 */
 	private array $icons = [
 		'search'   => 'Search',
@@ -92,7 +139,10 @@ class QueryNoResults implements Renderable, Scriptable, Styleable {
 	];
 
 	/**
-	 * Constructor - registers filters.
+	 * Constructor.
+	 *
+	 * Registers the `register_block_type_args` filter to inject
+	 * no-results attributes into the core/query block.
 	 *
 	 * @since 1.0.0
 	 */
@@ -101,14 +151,20 @@ class QueryNoResults implements Renderable, Scriptable, Styleable {
 	}
 
 	/**
-	 * Add custom attributes to core/query block.
+	 * Add custom attributes to the core/query block.
+	 *
+	 * Merges the no-results attributes into the block's schema.
+	 * Only targets `core/query`; all other block types pass
+	 * through unmodified.
 	 *
 	 * @since 1.0.0
+	 *
+	 * @hook  register_block_type_args
 	 *
 	 * @param array  $args       Block type arguments.
 	 * @param string $block_type Block type name.
 	 *
-	 * @return array
+	 * @return array Modified block type arguments.
 	 */
 	public function add_attributes( array $args, string $block_type ): array {
 		if ( $block_type !== 'core/query' ) {
@@ -125,17 +181,23 @@ class QueryNoResults implements Renderable, Scriptable, Styleable {
 	}
 
 	/**
-	 * Renders the block with no results template.
+	 * Render the block with no-results template.
+	 *
+	 * When the feature is enabled and the query yields no posts,
+	 * builds the no-results HTML, imports it into the block's DOM
+	 * via `DOMDocument::importNode()`, and replaces the empty post
+	 * template `<ul>`. Returns unmodified content when disabled or
+	 * when posts exist.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string   $block_content The original block content.
-	 * @param array    $block         The full block object.
+	 * @hook  render_block_core/query
+	 *
+	 * @param string   $block_content The original block HTML.
+	 * @param array    $block         The parsed block array.
 	 * @param WP_Block $instance      The block instance.
 	 *
-	 * @hook render_block_core/query
-	 *
-	 * @return string The modified block content.
+	 * @return string Modified block HTML with no-results container.
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
 		$attrs = $block['attrs'] ?? [];
@@ -214,16 +276,20 @@ class QueryNoResults implements Renderable, Scriptable, Styleable {
 	/**
 	 * Check if the query has no results.
 	 *
+	 * Detects an empty query by looking for a post template class
+	 * without any `<li>` elements, or by checking whether the
+	 * entire content is empty after stripping tags.
+	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $content Block content.
+	 * @param string $content Block HTML content.
 	 *
-	 * @return bool
+	 * @return bool True if the query produced no posts.
 	 */
 	private function has_no_results( string $content ): bool {
 		// Check for empty post template (no list items)
 		if ( str_contains( $content, 'wp-block-post-template' ) ) {
-			// If there's a post template class but no list items, it's empty
+			// If there is a post template class but no list items, it is empty
 			if ( ! str_contains( $content, '<li' ) ) {
 				return true;
 			}
@@ -239,16 +305,21 @@ class QueryNoResults implements Renderable, Scriptable, Styleable {
 	}
 
 	/**
-	 * Build the no results HTML.
+	 * Build the no-results HTML.
+	 *
+	 * Assembles the container `<div>` with the chosen template
+	 * modifier class, an optional decorative SVG icon, the
+	 * sanitized message, and an optional inline search form.
+	 * The container uses `role="status"` for accessibility.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $message     The message to display.
-	 * @param string $template    The template style.
-	 * @param string $icon        The icon to display.
-	 * @param bool   $show_search Whether to show search form.
+	 * @param string $message     User-facing message (supports wp_kses_post HTML).
+	 * @param string $template    Template variant slug (validated).
+	 * @param string $icon        Icon slug (validated).
+	 * @param bool   $show_search Whether to append an inline search form.
 	 *
-	 * @return string
+	 * @return string Complete no-results HTML string.
 	 */
 	private function build_no_results_html( string $message, string $template, string $icon, bool $show_search ): string {
 		$icon_svg = $this->get_icon_svg( $icon );
@@ -284,11 +355,16 @@ class QueryNoResults implements Renderable, Scriptable, Styleable {
 	/**
 	 * Get SVG icon markup.
 	 *
+	 * Returns a 48×48 Lucide-style SVG for the given icon slug.
+	 * Each SVG includes `aria-hidden="true"` and `focusable="false"`
+	 * to keep icons decorative. Returns an empty string for
+	 * unrecognized slugs.
+	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $icon Icon name.
+	 * @param string $icon Icon slug from {@see $icons}.
 	 *
-	 * @return string
+	 * @return string SVG markup or empty string.
 	 */
 	private function get_icon_svg( string $icon ): string {
 		// QNR3: Add aria-hidden="true" and focusable="false" to all SVGs.
@@ -305,20 +381,27 @@ class QueryNoResults implements Renderable, Scriptable, Styleable {
 	/**
 	 * Get search form HTML.
 	 *
+	 * Renders the core/search block via `do_blocks()` with a
+	 * hidden label, translatable placeholder, and button text.
+	 *
 	 * @since 1.0.0
 	 *
-	 * @return string
+	 * @return string Rendered search form HTML.
 	 */
 	private function get_search_form(): string {
 		return do_blocks( '<!-- wp:search {"label":"","showLabel":false,"placeholder":"' . esc_attr__( 'Search...', 'aegis' ) . '","buttonText":"' . esc_attr__( 'Search', 'aegis' ) . '"} /-->' );
 	}
 
 	/**
-	 * Add editor data for no results controls.
+	 * Add editor data for no-results controls.
+	 *
+	 * Passes the available template variants and icon choices to
+	 * the editor script as value/label pairs for select controls.
+	 * Only loaded in the admin context.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param Scripts $scripts Scripts service.
+	 * @param Scripts $scripts Inline scripts service instance.
 	 *
 	 * @return void
 	 */
@@ -343,89 +426,23 @@ class QueryNoResults implements Renderable, Scriptable, Styleable {
 	}
 
 	/**
-	 * Add no results styles.
+	 * Add no-results styles.
+	 *
+	 * Loads the query no-results CSS from an external file following
+	 * the framework's separation of concerns pattern. The CSS file
+	 * contains styles for the base container, icon, message, and
+	 * four template variants (default, minimal, card, centered).
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param Styles $styles Styles service.
+	 * @param Styles $styles Inline styles service instance.
 	 *
 	 * @return void
 	 */
 	public function styles( Styles $styles ): void {
-		$css = $this->get_no_results_css();
-		$styles->add_callback( fn() => $css );
-	}
-
-	/**
-	 * Get no results CSS.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return string
-	 */
-	private function get_no_results_css(): string {
-		return '
-/* Query No Results */
-.aegis-query-no-results {
-	padding: 3rem 2rem;
-	text-align: center;
-	color: var(--wp--preset--color--contrast, #333);
-}
-
-.aegis-query-no-results__icon {
-	margin-bottom: 1rem;
-	opacity: 0.5;
-}
-
-.aegis-query-no-results__icon svg {
-	width: 48px;
-	height: 48px;
-}
-
-.aegis-query-no-results__message {
-	font-size: 1.125rem;
-	margin-bottom: 1.5rem;
-	color: var(--wp--preset--color--contrast, #666);
-}
-
-/* Template: Minimal */
-.aegis-query-no-results--minimal {
-	padding: 2rem 1rem;
-}
-
-.aegis-query-no-results--minimal .aegis-query-no-results__icon svg {
-	width: 32px;
-	height: 32px;
-}
-
-.aegis-query-no-results--minimal .aegis-query-no-results__message {
-	font-size: 1rem;
-}
-
-/* Template: Card */
-.aegis-query-no-results--card {
-	background: var(--wp--preset--color--base, #fff);
-	border: 1px solid var(--wp--preset--color--contrast, #e0e0e0);
-	border-radius: 8px;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-	max-width: 500px;
-	margin: 2rem auto;
-}
-
-/* Template: Centered */
-.aegis-query-no-results--centered {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	min-height: 300px;
-}
-
-/* Search form within no results */
-.aegis-query-no-results .wp-block-search {
-	max-width: 400px;
-	margin: 0 auto;
-}
-';
+		$file = $styles->dir . 'core-blocks/query-no-results.css';
+		if ( file_exists( $file ) ) {
+			$styles->add_callback( fn() => file_get_contents( $file ) );
+		}
 	}
 }
