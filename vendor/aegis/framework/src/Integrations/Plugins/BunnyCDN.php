@@ -2,7 +2,7 @@
 /**
  * BunnyCDN Media Player Integration Component
  *
- * Provides integration for BunnyCDN Stream Media Player in the Aegis Framework.
+ * Provides integration for BunnyCDN Stream media player in the Aegis Framework.
  *
  * Responsibilities:
  * - Applies theme border radius to BunnyCDN iframe embeds
@@ -10,7 +10,7 @@
  * - Ensures consistent styling with theme images
  * - Integrates with the Aegis container and inline assets system
  *
- * @package    Aegis\Framework\Integrations
+ * @package    Aegis\Framework\Integrations\Plugins
  * @since      1.0.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
@@ -20,10 +20,10 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for integration components.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for integration components within the Aegis Framework.
-namespace Aegis\Framework\Integrations;
+namespace Aegis\Framework\Integrations\Plugins;
 
 // Imports interfaces and helpers for conditional logic and inline assets.
 use Aegis\Container\Interfaces\Conditional;
@@ -32,8 +32,7 @@ use Aegis\Framework\InlineAssets\Styles;
 
 // Implements the BunnyCDN integration class for the design system.
 
-class BunnyCDN implements Conditional, Styleable
-{
+class BunnyCDN implements Conditional, Styleable {
 
 	/**
 	 * Condition.
@@ -45,8 +44,7 @@ class BunnyCDN implements Conditional, Styleable
 	 *
 	 * @return bool
 	 */
-	public static function condition(): bool
-	{
+	public static function condition(): bool {
 		return true;
 	}
 
@@ -59,8 +57,7 @@ class BunnyCDN implements Conditional, Styleable
 	 *
 	 * @return void
 	 */
-	public function styles(Styles $styles): void
-	{
+	public function styles( Styles $styles ): void {
 		$styles->add_file(
 			'plugins/bunnycdn.css',
 			[
