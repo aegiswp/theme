@@ -10,17 +10,17 @@
  * - Allows FluentBooking patterns to load with theme styling
  * - Integrates with the Aegis container and inline assets system
  *
- * @package    Aegis\Framework\Integrations
+ * @package    Aegis\Framework\Integrations\Plugins
  * @since      1.0.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for integration components.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for integration components within the Aegis Framework.
-namespace Aegis\Framework\Integrations;
+namespace Aegis\Framework\Integrations\Plugins;
 
 // Imports interfaces and helpers for conditional logic and style registration.
 use Aegis\Container\Interfaces\Conditional;
@@ -39,11 +39,10 @@ use function defined;
  * scheduling plugin, including Dark/Light mode support and allowing the plugin's
  * own patterns to load with proper theme styling.
  *
- * @package Aegis\Framework\Integrations
+ * @package Aegis\Framework\Integrations\Plugins
  * @since   1.0.0
  */
-class FluentBooking implements Conditional, Styleable
-{
+class FluentBooking implements Conditional, Styleable {
 
 	/**
 	 * Condition.
@@ -70,8 +69,7 @@ class FluentBooking implements Conditional, Styleable
 	 *
 	 * @return void
 	 */
-	public function styles(Styles $styles): void
-	{
+	public function styles( Styles $styles ): void {
 		$styles->add_file(
 			'plugins/fluentbooking.css',
 			[
@@ -97,8 +95,7 @@ class FluentBooking implements Conditional, Styleable
 	 *
 	 * @return bool
 	 */
-	public function allow_plugin_patterns(bool $load): bool
-	{
+	public function allow_plugin_patterns( bool $load ): bool {
 		return $load;
 	}
 
@@ -116,8 +113,7 @@ class FluentBooking implements Conditional, Styleable
 	 *
 	 * @return array
 	 */
-	public function register_pattern_source(array $sources): array
-	{
+	public function register_pattern_source( array $sources ): array {
 		$sources[] = 'fluent-booking';
 		$sources[] = 'fluentbooking';
 
