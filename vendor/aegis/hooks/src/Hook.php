@@ -8,6 +8,8 @@
  * - Parses docblock annotations and registers methods as WordPress hooks
  * - Integrates with the Aegis Framework's onboarding and developer experience
  *
+ * Based on Hook Annotations by Viktor Szépe.
+ *
  * @package    Aegis\Hooks
  * @since      1.0.0
  * @author     Atmostfear Entertainment
@@ -15,10 +17,12 @@
  *
  * For developer documentation and onboarding. No logic changes in this
  * documentation update.
+ *
+ * Original: https://github.com/szepeviktor/SentencePress
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for hook utilities.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for hook utilities within the Aegis Framework.
 namespace Aegis\Hooks;
@@ -34,8 +38,14 @@ use function trim;
 
 // Implements the Aegis hook utility class for annotation-driven hook registration.
 
-class Hook
-{
+class Hook {
+
+	/**
+	 * Cache of parsed annotations keyed by class name.
+	 *
+	 * @var array
+	 */
+	private static array $cache = [];
 
 	/**
 	 * Hook methods based on annotation.
@@ -44,33 +54,59 @@ class Hook
 	 *
 	 * @return void
 	 */
-	public static function annotations(object $object): void
-	{
-		$reflection = new ReflectionClass($object);
-		$public_methods = $reflection->getMethods(ReflectionMethod::IS_PUBLIC);
+	public static function annotations( object $object ): void {
+		$class = get_class( $object );
 
-		foreach ($public_methods as $method) {
+		if ( ! isset( self::$cache[ $class ] ) ) {
+			self::$cache[ $class ] = self::parse_annotations( $class );
+		}
+
+		foreach ( self::$cache[ $class ] as $entry ) {
+			add_filter(
+				$entry['tag'],
+				[ $object, $entry['method'] ],
+				$entry['priority'],
+				$entry['params']
+			);
+		}
+	}
+
+	/**
+	 * Parse annotations for a class and return hook entries.
+	 *
+	 * @param string $class Fully qualified class name.
+	 *
+	 * @return array
+	 */
+	private static function parse_annotations( string $class ): array {
+		$entries        = [];
+		$reflection     = new ReflectionClass( $class );
+		$public_methods = $reflection->getMethods( ReflectionMethod::IS_PUBLIC );
+
+		foreach ( $public_methods as $method ) {
 
 			// Do not hook constructors.
-			if ($method->isConstructor()) {
+			if ( $method->isConstructor() ) {
 				continue;
 			}
 
-			$annotations = self::get_annotations((string) $method->getDocComment());
+			$annotations = self::get_annotations( (string) $method->getDocComment() );
 
-			if (!$annotations) {
+			if ( ! $annotations ) {
 				continue;
 			}
 
-			foreach ($annotations as $annotation) {
-				add_filter(
-					$annotation['tag'],
-					[$object, $method->name],
-					$annotation['priority'],
-					$method->getNumberOfParameters()
-				);
+			foreach ( $annotations as $annotation ) {
+				$entries[] = [
+					'tag'      => $annotation['tag'],
+					'method'   => $method->name,
+					'priority' => $annotation['priority'],
+					'params'   => $method->getNumberOfParameters(),
+				];
 			}
 		}
+
+		return $entries;
 	}
 
 	/**
@@ -80,26 +116,25 @@ class Hook
 	 *
 	 * @return ?array
 	 */
-	private static function get_annotations(string $doc_block): ?array
-	{
+	private static function get_annotations( string $doc_block ): ?array {
 		$pattern = '/@hook\s+([^\s]+)(\s+[0-9]+)?/';
 
-		preg_match_all($pattern, $doc_block, $matches);
+		preg_match_all( $pattern, $doc_block, $matches );
 
-		if (!isset($matches[0])) {
+		if ( ! isset( $matches[0] ) ) {
 			return null;
 		}
 
 		$annotations = [];
 
-		foreach ($matches[0] as $annotation) {
-			$annotation = str_replace('@hook', '', $annotation);
-			$parts = explode(' ', trim($annotation));
-			$tag = trim($parts[0] ?? '');
+		foreach ( $matches[0] as $annotation ) {
+			$annotation = str_replace( '@hook', '', $annotation );
+			$parts      = explode( ' ', trim( $annotation ) );
+			$tag        = trim( $parts[0] ?? '' );
 
 			$annotations[] = [
-				'tag' => $tag,
-				'priority' => $parts[1] ?? 10,
+				'tag'      => $tag,
+				'priority' => (int) ($parts[1] ?? 10),
 			];
 		}
 
