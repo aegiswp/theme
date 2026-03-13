@@ -19,7 +19,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for design system components.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
@@ -31,8 +31,7 @@ use function ob_start;
 
 // Implements the Hooks class to provide classic theme-style action hooks for block themes.
 
-class Hooks
-{
+class Hooks {
 
 	/**
 	 * Inject hooks into template parts.
@@ -49,16 +48,15 @@ class Hooks
 	 *
 	 * @return string
 	 */
-	public function template_part_hooks(string $block_content, array $block): string
-	{
+	public function template_part_hooks( string $block_content, array $block ): string {
 		$slug = $block['attrs']['slug'] ?? '';
 
-		if (!$slug) {
+		if ( ! $slug ) {
 			return $block_content;
 		}
 
-		$before = $this->capture_hook("aegis_before_{$slug}");
-		$after = $this->capture_hook("aegis_after_{$slug}");
+		$before = $this->capture_hook( "aegis_before_{$slug}" );
+		$after  = $this->capture_hook( "aegis_after_{$slug}" );
 
 		return $before . $block_content . $after;
 	}
@@ -78,10 +76,9 @@ class Hooks
 	 *
 	 * @return string
 	 */
-	public function post_content_hooks(string $block_content, array $block): string
-	{
-		$before = $this->capture_hook('aegis_before_content');
-		$after = $this->capture_hook('aegis_after_content');
+	public function post_content_hooks( string $block_content, array $block ): string {
+		$before = $this->capture_hook( 'aegis_before_content' );
+		$after  = $this->capture_hook( 'aegis_after_content' );
 
 		return $before . $block_content . $after;
 	}
@@ -95,10 +92,9 @@ class Hooks
 	 *
 	 * @return string The captured output.
 	 */
-	private function capture_hook(string $hook): string
-	{
+	private function capture_hook( string $hook ): string {
 		ob_start();
-		do_action($hook);
+		do_action( $hook );
 
 		return ob_get_clean() ?: '';
 	}
