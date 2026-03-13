@@ -11,7 +11,7 @@
  * - Unregisters default Sensei block patterns in favor of theme patterns
  * - Integrates with the Aegis container and inline assets system
  *
- * @package    Aegis\Framework\Integrations
+ * @package    Aegis\Framework\Integrations\Plugins
  * @since      1.0.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
@@ -21,10 +21,10 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for integration components.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for integration components within the Aegis Framework.
-namespace Aegis\Framework\Integrations;
+namespace Aegis\Framework\Integrations\Plugins;
 
 // Imports interfaces and helpers for conditional logic, inline assets, and hook management.
 use Aegis\Container\Interfaces\Conditional;
@@ -42,8 +42,7 @@ use function str_contains;
 
 // Implements the Sensei LMS integration class for the design system.
 
-class SenseiLMS implements Conditional, Styleable
-{
+class SenseiLMS implements Conditional, Styleable {
 
 	/**
 	 * Condition.
@@ -52,9 +51,8 @@ class SenseiLMS implements Conditional, Styleable
 	 *
 	 * @return bool
 	 */
-	public static function condition(): bool
-	{
-		return class_exists('Sensei_Main') || function_exists('Sensei');
+	public static function condition(): bool {
+		return class_exists( 'Sensei_Main' ) || function_exists( 'Sensei' );
 	}
 
 	/**
@@ -64,12 +62,11 @@ class SenseiLMS implements Conditional, Styleable
 	 *
 	 * @return void
 	 */
-	public function hooks(): void
-	{
-		add_action('after_setup_theme', [$this, 'declare_sensei_support']);
-		add_action('init', [$this, 'unregister_sensei_block_patterns'], 11);
-		add_filter('body_class', [$this, 'add_body_classes']);
-		add_filter('sensei_video_embed_html', [$this, 'wrap_video_embed'], 10, 2);
+	public function hooks(): void {
+		add_action( 'after_setup_theme', [ $this, 'declare_sensei_support' ] );
+		add_action( 'init', [ $this, 'unregister_sensei_block_patterns' ], 11 );
+		add_filter( 'body_class', [ $this, 'add_body_classes' ] );
+		add_filter( 'sensei_video_embed_html', [ $this, 'wrap_video_embed' ], 10, 2 );
 	}
 
 	/**
@@ -81,8 +78,7 @@ class SenseiLMS implements Conditional, Styleable
 	 *
 	 * @return void
 	 */
-	public function styles(Styles $styles): void
-	{
+	public function styles( Styles $styles ): void {
 		$styles->add_file(
 			'plugins/senseilms.css',
 			[
@@ -109,9 +105,8 @@ class SenseiLMS implements Conditional, Styleable
 	 *
 	 * @return void
 	 */
-	public function declare_sensei_support(): void
-	{
-		add_theme_support('sensei');
+	public function declare_sensei_support(): void {
+		add_theme_support( 'sensei' );
 	}
 
 	/**
@@ -121,16 +116,15 @@ class SenseiLMS implements Conditional, Styleable
 	 *
 	 * @return void
 	 */
-	public function unregister_sensei_block_patterns(): void
-	{
-		$registry = WP_Block_Patterns_Registry::get_instance();
+	public function unregister_sensei_block_patterns(): void {
+		$registry   = WP_Block_Patterns_Registry::get_instance();
 		$registered = $registry->get_all_registered();
 
-		foreach ($registered as $pattern) {
+		foreach ( $registered as $pattern ) {
 			$name = $pattern['name'];
 
-			if (str_contains($name, 'sensei')) {
-				$registry->unregister($name);
+			if ( str_contains( $name, 'sensei' ) ) {
+				$registry->unregister( $name );
 			}
 		}
 	}
@@ -146,9 +140,8 @@ class SenseiLMS implements Conditional, Styleable
 	 *
 	 * @return array
 	 */
-	public function add_body_classes(array $classes): array
-	{
-		if ($this->is_sensei_page()) {
+	public function add_body_classes( array $classes ): array {
+		if ( $this->is_sensei_page() ) {
 			$classes[] = 'aegis-sensei-page';
 		}
 
@@ -167,8 +160,7 @@ class SenseiLMS implements Conditional, Styleable
 	 *
 	 * @return string
 	 */
-	public function wrap_video_embed(string $html, string $video_url): string
-	{
+	public function wrap_video_embed( string $html, string $video_url ): string {
 		return '<div class="aegis-sensei-video-wrapper">' . $html . '</div>';
 	}
 
@@ -179,9 +171,8 @@ class SenseiLMS implements Conditional, Styleable
 	 *
 	 * @return bool
 	 */
-	private function is_sensei_page(): bool
-	{
-		if (!function_exists('get_post_type')) {
+	private function is_sensei_page(): bool {
+		if ( ! function_exists( 'get_post_type' ) ) {
 			return false;
 		}
 
@@ -196,12 +187,12 @@ class SenseiLMS implements Conditional, Styleable
 
 		$post_type = get_post_type();
 
-		if (in_array($post_type, $sensei_post_types, true)) {
+		if ( in_array( $post_type, $sensei_post_types, true ) ) {
 			return true;
 		}
 
 		// Check for Sensei pages using functions if available.
-		if (function_exists('Sensei') && method_exists(Sensei(), 'is_sensei')) {
+		if ( function_exists( 'Sensei' ) && method_exists( Sensei(), 'is_sensei' ) ) {
 			return Sensei()->is_sensei();
 		}
 
