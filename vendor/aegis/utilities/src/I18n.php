@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for utility classes within the Aegis Framework.
 namespace Aegis\Utilities;
@@ -29,8 +29,7 @@ use function load_plugin_textdomain;
 
 // Implements the Aegis i18n utility class for reusable internationalization operations.
 
-class I18n
-{
+class I18n {
 
 	private Data $plugin;
 
@@ -43,8 +42,7 @@ class I18n
 	 *
 	 * @return void
 	 */
-	public function __construct(Data $plugin)
-	{
+	public function __construct( Data $plugin ) {
 		$this->plugin = $plugin;
 	}
 
@@ -57,8 +55,7 @@ class I18n
 	 *
 	 * @return void
 	 */
-	public function load_textdomain(): void
-	{
+	public function load_textdomain(): void {
 		load_plugin_textdomain(
 			$this->plugin->slug,
 			false,
