@@ -8,7 +8,7 @@
  * - Checks for Code Block Pro plugin presence and conditionally registers styles
  * - Integrates with the Aegis container and inline assets system
  *
- * @package    Aegis\Framework\Integrations
+ * @package    Aegis\Framework\Integrations\Plugins
  * @since      1.0.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
@@ -18,10 +18,10 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for integration components.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for integration components within the Aegis Framework.
-namespace Aegis\Framework\Integrations;
+namespace Aegis\Framework\Integrations\Plugins;
 
 // Imports interfaces and helpers for conditional logic and inline assets.
 use Aegis\Container\Interfaces\Conditional;
@@ -31,8 +31,7 @@ use function defined;
 
 // Implements the Code Block Pro integration class for the design system.
 
-class CodeBlockPro implements Conditional, Styleable
-{
+class CodeBlockPro implements Conditional, Styleable {
 
 	/**
 	 * Condition.
@@ -41,9 +40,8 @@ class CodeBlockPro implements Conditional, Styleable
 	 *
 	 * @return bool
 	 */
-	public static function condition(): bool
-	{
-		return defined('CODE_BLOCK_PRO_VERSION');
+	public static function condition(): bool {
+		return defined( 'CODE_BLOCK_PRO_VERSION' );
 	}
 
 	/**
@@ -55,11 +53,10 @@ class CodeBlockPro implements Conditional, Styleable
 	 *
 	 * @return void
 	 */
-	public function styles(Styles $styles): void
-	{
+	public function styles( Styles $styles ): void {
 		$styles->add_file(
 			'plugins/code-block-pro.css',
-			['wp-block-kevinbatdorf-code-block-pro'],
+			[ 'wp-block-kevinbatdorf-code-block-pro' ],
 			static::condition()
 		);
 	}
