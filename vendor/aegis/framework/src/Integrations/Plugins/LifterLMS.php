@@ -1,6 +1,6 @@
 <?php
 /**
- * LifterLMS Plugin Integration Component
+ * LifterLMS Integration Component
  *
  * Provides deep integration for LifterLMS plugin compatibility in the Aegis Framework.
  *
@@ -10,7 +10,7 @@
  * - Unregisters default LifterLMS block patterns in favor of theme patterns
  * - Integrates with the Aegis container and inline assets system
  *
- * @package    Aegis\Framework\Integrations
+ * @package    Aegis\Framework\Integrations\Plugins
  * @since      1.0.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
@@ -23,7 +23,7 @@
 declare( strict_types=1 );
 
 // Declares the namespace for integration components within the Aegis Framework.
-namespace Aegis\Framework\Integrations;
+namespace Aegis\Framework\Integrations\Plugins;
 
 // Imports interfaces and helpers for conditional logic, inline assets, and hook management.
 use Aegis\Container\Interfaces\Conditional;
