@@ -6,88 +6,115 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitbb2b041c8729e310010fb8540dd43d49
 {
-    public static $prefixLengthsPsr4 = array(
+    public static $files = array (
+        '0b885bfb05ddaf7f1ca487c8180f0373' => __DIR__ . '/../..' . '/src/bootstrap.php',
+    );
+
+    public static $prefixLengthsPsr4 = array (
         'e' =>
-            array(
-                'enshrined\\svgSanitize\\' => 22,
-            ),
+        array (
+            'enshrined\\svgSanitize\\' => 22,
+        ),
         'P' =>
-            array(
-                'Psr\\Container\\' => 14,
-            ),
-        'B' =>
-            array(
-                'Aegis\\Utilities\\' => 19,
-                'Aegis\\Icons\\' => 15,
-                'Aegis\\Hooks\\' => 15,
-                'Aegis\\Framework\\' => 19,
-                'Aegis\\Dom\\' => 13,
-                'Aegis\\Container\\' => 19,
-            ),
+        array (
+            'Psr\\Container\\' => 14,
+        ),
+        'A' =>
+        array (
+            'Aegis\\Utilities\\' => 16,
+            'Aegis\\Icons\\' => 12,
+            'Aegis\\Hooks\\' => 12,
+            'Aegis\\Framework\\' => 16,
+            'Aegis\\Dom\\' => 10,
+            'Aegis\\Container\\' => 16,
+            'Aegis\\' => 6,
+        ),
     );
 
-    public static $prefixDirsPsr4 = array(
+    public static $prefixDirsPsr4 = array (
         'enshrined\\svgSanitize\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/enshrined/svg-sanitize/src',
-            ),
+        array (
+            0 => __DIR__ . '/..' . '/enshrined/svg-sanitize/src',
+        ),
         'Psr\\Container\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/psr/container/src',
-            ),
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
         'Aegis\\Utilities\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/aegis/utilities/src',
-            ),
+        array (
+            0 => __DIR__ . '/..' . '/aegis/utilities/src',
+        ),
         'Aegis\\Icons\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/aegis/icons/src',
-            ),
+        array (
+            0 => __DIR__ . '/..' . '/aegis/icons/src',
+        ),
         'Aegis\\Hooks\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/aegis/hooks/src',
-            ),
+        array (
+            0 => __DIR__ . '/..' . '/aegis/hooks/src',
+        ),
         'Aegis\\Framework\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/aegis/framework/src',
-            ),
+        array (
+            0 => __DIR__ . '/..' . '/aegis/framework/src',
+        ),
         'Aegis\\Dom\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/aegis/dom/src',
-            ),
+        array (
+            0 => __DIR__ . '/..' . '/aegis/dom/src',
+        ),
         'Aegis\\Container\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/aegis/container/src',
-            ),
+        array (
+            0 => __DIR__ . '/..' . '/aegis/container/src',
+        ),
+        'Aegis\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
     );
 
-    public static $classMap = array(
+    public static $classMap = array (
         'Aegis' => __DIR__ . '/..' . '/aegis/framework/src/Aegis.php',
+        'Aegis\\Admin\\AdminMenu' => __DIR__ . '/../..' . '/src/Admin/AdminMenu.php',
+        'Aegis\\Admin\\AdminRenderer' => __DIR__ . '/../..' . '/src/Admin/AdminRenderer.php',
+        'Aegis\\Admin\\ConditionalLogicSettings' => __DIR__ . '/../..' . '/src/Admin/ConditionalLogicSettings.php',
+        'Aegis\\Admin\\HookPatternsManager' => __DIR__ . '/../..' . '/src/Admin/HookPatternsManager.php',
+        'Aegis\\Admin\\SettingsController' => __DIR__ . '/../..' . '/src/Admin/SettingsController.php',
+        'Aegis\\Admin\\SettingsMigration' => __DIR__ . '/../..' . '/src/Admin/SettingsMigration.php',
+        'Aegis\\Admin\\SettingsRepository' => __DIR__ . '/../..' . '/src/Admin/SettingsRepository.php',
+        'Aegis\\Analytics\\ScriptProxy' => __DIR__ . '/../..' . '/src/Analytics/ScriptProxy.php',
+        'Aegis\\Analytics\\Tracker' => __DIR__ . '/../..' . '/src/Analytics/Tracker.php',
+        'Aegis\\Checkout\\MultiStep' => __DIR__ . '/../..' . '/src/Checkout/MultiStep.php',
         'Aegis\\Container\\Container' => __DIR__ . '/..' . '/aegis/container/src/Container.php',
         'Aegis\\Container\\Exceptions\\ContainerException' => __DIR__ . '/..' . '/aegis/container/src/Exceptions/ContainerException.php',
         'Aegis\\Container\\Exceptions\\NotFoundException' => __DIR__ . '/..' . '/aegis/container/src/Exceptions/NotFoundException.php',
         'Aegis\\Container\\Interfaces\\Conditional' => __DIR__ . '/..' . '/aegis/container/src/Interfaces/Conditional.php',
         'Aegis\\Container\\Interfaces\\Registerable' => __DIR__ . '/..' . '/aegis/container/src/Interfaces/Registerable.php',
+        'Aegis\\CoreBlocks\\Breadcrumbs' => __DIR__ . '/../..' . '/src/CoreBlocks/Breadcrumbs.php',
+        'Aegis\\Core\\AssetManager' => __DIR__ . '/../..' . '/src/Core/AssetManager.php',
         'Aegis\\Dom\\CSS' => __DIR__ . '/..' . '/aegis/dom/src/CSS.php',
         'Aegis\\Dom\\DOM' => __DIR__ . '/..' . '/aegis/dom/src/DOM.php',
         'Aegis\\Dom\\JS' => __DIR__ . '/..' . '/aegis/dom/src/JS.php',
+        'Aegis\\Framework\\Admin\\ConditionalLogicSettings' => __DIR__ . '/..' . '/aegis/framework/src/Admin/ConditionalLogicSettings.php',
         'Aegis\\Framework\\BlockSettings\\AdditionalStyles' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/AdditionalStyles.php',
         'Aegis\\Framework\\BlockSettings\\Animation' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/Animation.php',
         'Aegis\\Framework\\BlockSettings\\BackdropBlur' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/BackdropBlur.php',
         'Aegis\\Framework\\BlockSettings\\BoxShadow' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/BoxShadow.php',
         'Aegis\\Framework\\BlockSettings\\CopyToClipboard' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/CopyToClipboard.php',
         'Aegis\\Framework\\BlockSettings\\CssFilter' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/CssFilter.php',
+        'Aegis\\Framework\\BlockSettings\\GlobalClasses' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/GlobalClasses.php',
         'Aegis\\Framework\\BlockSettings\\Image' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/Image.php',
         'Aegis\\Framework\\BlockSettings\\InlineColor' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/InlineColor.php',
         'Aegis\\Framework\\BlockSettings\\InlineSvg' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/InlineSvg.php',
         'Aegis\\Framework\\BlockSettings\\Onclick' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/Onclick.php',
         'Aegis\\Framework\\BlockSettings\\Opacity' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/Opacity.php',
         'Aegis\\Framework\\BlockSettings\\Placeholder' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/Placeholder.php',
+        'Aegis\\Framework\\BlockSettings\\QueryEnhancements' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/QueryEnhancements.php',
+        'Aegis\\Framework\\BlockSettings\\QueryLayout' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/QueryLayout.php',
+        'Aegis\\Framework\\BlockSettings\\QueryNoResults' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/QueryNoResults.php',
         'Aegis\\Framework\\BlockSettings\\Responsive' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/Responsive.php',
         'Aegis\\Framework\\BlockSettings\\SubHeading' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/SubHeading.php',
         'Aegis\\Framework\\BlockSettings\\TemplateTags' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/TemplateTags.php',
         'Aegis\\Framework\\BlockSettings\\TextShadow' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/TextShadow.php',
         'Aegis\\Framework\\BlockSettings\\Transform' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/Transform.php',
+        'Aegis\\Framework\\BlockSettings\\Visibility' => __DIR__ . '/..' . '/aegis/framework/src/BlockSettings/Visibility.php',
         'Aegis\\Framework\\BlockVariations\\AccordionList' => __DIR__ . '/..' . '/aegis/framework/src/BlockVariations/AccordionList.php',
         'Aegis\\Framework\\BlockVariations\\Counter' => __DIR__ . '/..' . '/aegis/framework/src/BlockVariations/Counter.php',
         'Aegis\\Framework\\BlockVariations\\CurvedText' => __DIR__ . '/..' . '/aegis/framework/src/BlockVariations/CurvedText.php',
@@ -95,20 +122,21 @@ class ComposerStaticInitbb2b041c8729e310010fb8540dd43d49
         'Aegis\\Framework\\BlockVariations\\Icon' => __DIR__ . '/..' . '/aegis/framework/src/BlockVariations/Icon.php',
         'Aegis\\Framework\\BlockVariations\\Marquee' => __DIR__ . '/..' . '/aegis/framework/src/BlockVariations/Marquee.php',
         'Aegis\\Framework\\BlockVariations\\Newsletter' => __DIR__ . '/..' . '/aegis/framework/src/BlockVariations/Newsletter.php',
-        'Aegis\\Framework\\BlockVariations\\RelatedPosts' => __DIR__ . '/..' . '/aegis/framework/src/BlockVariations/RelatedPosts.php',
         'Aegis\\Framework\\BlockVariations\\Svg' => __DIR__ . '/..' . '/aegis/framework/src/BlockVariations/Svg.php',
         'Aegis\\Framework\\CoreBlocks\\Button' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Button.php',
         'Aegis\\Framework\\CoreBlocks\\Buttons' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Buttons.php',
         'Aegis\\Framework\\CoreBlocks\\Calendar' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Calendar.php',
         'Aegis\\Framework\\CoreBlocks\\Code' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Code.php',
         'Aegis\\Framework\\CoreBlocks\\Columns' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Columns.php',
+        'Aegis\\Framework\\CoreBlocks\\Countdown' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Countdown.php',
         'Aegis\\Framework\\CoreBlocks\\Cover' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Cover.php',
         'Aegis\\Framework\\CoreBlocks\\Details' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Details.php',
         'Aegis\\Framework\\CoreBlocks\\Group' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Group.php',
         'Aegis\\Framework\\CoreBlocks\\Heading' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Heading.php',
         'Aegis\\Framework\\CoreBlocks\\Image' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Image.php',
         'Aegis\\Framework\\CoreBlocks\\ListBlock' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/ListBlock.php',
-        // 1.0.0-RC.3: 'Aegis\\Framework\\CoreBlocks\\Modal' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Modal.php',
+        'Aegis\\Framework\\CoreBlocks\\Map' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Map.php',
+        'Aegis\\Framework\\CoreBlocks\\Modal' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Modal.php',
         'Aegis\\Framework\\CoreBlocks\\Navigation' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Navigation.php',
         'Aegis\\Framework\\CoreBlocks\\NavigationSubmenu' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/NavigationSubmenu.php',
         'Aegis\\Framework\\CoreBlocks\\PageList' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/PageList.php',
@@ -125,14 +153,17 @@ class ComposerStaticInitbb2b041c8729e310010fb8540dd43d49
         'Aegis\\Framework\\CoreBlocks\\Query' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Query.php',
         'Aegis\\Framework\\CoreBlocks\\QueryPagination' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/QueryPagination.php',
         'Aegis\\Framework\\CoreBlocks\\QueryTitle' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/QueryTitle.php',
+        'Aegis\\Framework\\CoreBlocks\\RelatedPosts' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/RelatedPosts.php',
         'Aegis\\Framework\\CoreBlocks\\Search' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Search.php',
         'Aegis\\Framework\\CoreBlocks\\Shortcode' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Shortcode.php',
+        'Aegis\\Framework\\CoreBlocks\\Slider' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Slider.php',
         'Aegis\\Framework\\CoreBlocks\\SocialLink' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/SocialLink.php',
         'Aegis\\Framework\\CoreBlocks\\SocialLinks' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/SocialLinks.php',
         'Aegis\\Framework\\CoreBlocks\\Spacer' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Spacer.php',
         'Aegis\\Framework\\CoreBlocks\\TableOfContents' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/TableOfContents.php',
         'Aegis\\Framework\\CoreBlocks\\TagCloud' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/TagCloud.php',
         'Aegis\\Framework\\CoreBlocks\\TemplatePart' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/TemplatePart.php',
+        'Aegis\\Framework\\CoreBlocks\\Toggle' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Toggle.php',
         'Aegis\\Framework\\CoreBlocks\\Video' => __DIR__ . '/..' . '/aegis/framework/src/CoreBlocks/Video.php',
         'Aegis\\Framework\\DesignSystem\\AdminBar' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/AdminBar.php',
         'Aegis\\Framework\\DesignSystem\\BaseCss' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/BaseCss.php',
@@ -140,49 +171,62 @@ class ComposerStaticInitbb2b041c8729e310010fb8540dd43d49
         'Aegis\\Framework\\DesignSystem\\BlockScripts' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/BlockScripts.php',
         'Aegis\\Framework\\DesignSystem\\BlockStyles' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/BlockStyles.php',
         'Aegis\\Framework\\DesignSystem\\BlockSupports' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/BlockSupports.php',
+        'Aegis\\Framework\\DesignSystem\\BuilderNotice' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/BuilderNotice.php',
         'Aegis\\Framework\\DesignSystem\\ChildTheme' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/ChildTheme.php',
         'Aegis\\Framework\\DesignSystem\\ConicGradient' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/ConicGradient.php',
         'Aegis\\Framework\\DesignSystem\\CustomProperties' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/CustomProperties.php',
         'Aegis\\Framework\\DesignSystem\\DarkMode' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/DarkMode.php',
         'Aegis\\Framework\\DesignSystem\\EditorAssets' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/EditorAssets.php',
+        'Aegis\\Framework\\DesignSystem\\Embed' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/Embed.php',
         'Aegis\\Framework\\DesignSystem\\Emojis' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/Emojis.php',
         'Aegis\\Framework\\DesignSystem\\Hooks' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/Hooks.php',
         'Aegis\\Framework\\DesignSystem\\Layout' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/Layout.php',
         'Aegis\\Framework\\DesignSystem\\Patterns' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/Patterns.php',
+        'Aegis\\Framework\\DesignSystem\\SkipLink' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/SkipLink.php',
+        'Aegis\\Framework\\DesignSystem\\SvgUpload' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/SvgUpload.php',
         'Aegis\\Framework\\DesignSystem\\SystemFonts' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/SystemFonts.php',
         'Aegis\\Framework\\DesignSystem\\Templates' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/Templates.php',
+        'Aegis\\Framework\\DesignSystem\\UtilityClasses' => __DIR__ . '/..' . '/aegis/framework/src/DesignSystem/UtilityClasses.php',
         'Aegis\\Framework\\InlineAssets\\AssetsTrait' => __DIR__ . '/..' . '/aegis/framework/src/InlineAssets/AssetsTrait.php',
         'Aegis\\Framework\\InlineAssets\\Inlinable' => __DIR__ . '/..' . '/aegis/framework/src/InlineAssets/Inlinable.php',
         'Aegis\\Framework\\InlineAssets\\Scriptable' => __DIR__ . '/..' . '/aegis/framework/src/InlineAssets/Scriptable.php',
         'Aegis\\Framework\\InlineAssets\\Scripts' => __DIR__ . '/..' . '/aegis/framework/src/InlineAssets/Scripts.php',
         'Aegis\\Framework\\InlineAssets\\Styleable' => __DIR__ . '/..' . '/aegis/framework/src/InlineAssets/Styleable.php',
         'Aegis\\Framework\\InlineAssets\\Styles' => __DIR__ . '/..' . '/aegis/framework/src/InlineAssets/Styles.php',
-        'Aegis\\Framework\\Integrations\\AdvancedCustomFields' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/AdvancedCustomFields.php',
-        'Aegis\\Framework\\Integrations\\BunnyCDN' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/BunnyCDN.php',
-        'Aegis\\Framework\\Integrations\\CodeBlockPro' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/CodeBlockPro.php',
-        'Aegis\\Framework\\Integrations\\FluentForms' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/FluentForms.php',
-        'Aegis\\Framework\\Integrations\\LearnDash' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/LearnDash.php',
-        'Aegis\\Framework\\Integrations\\LifterLMS' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/LifterLMS.php',
-        'Aegis\\Framework\\Integrations\\RankMath' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/RankMath.php',
-        'Aegis\\Framework\\Integrations\\SenseiLMS' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/SenseiLMS.php',
-        'Aegis\\Framework\\Integrations\\SyntaxHighlightingCodeBlock' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/SyntaxHighlightingCodeBlock.php',
-        'Aegis\\Framework\\Integrations\\WooCommerce' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/WooCommerce.php',
+        'Aegis\\Framework\\Integrations\\Plugins\\AdvancedCustomFields' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/Plugins/AdvancedCustomFields.php',
+        'Aegis\\Framework\\Integrations\\Plugins\\BunnyCDN' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/Plugins/BunnyCDN.php',
+        'Aegis\\Framework\\Integrations\\Plugins\\CoAuthorsPlus' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/Plugins/CoAuthorsPlus.php',
+        'Aegis\\Framework\\Integrations\\Plugins\\CodeBlockPro' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/Plugins/CodeBlockPro.php',
+        'Aegis\\Framework\\Integrations\\Plugins\\FluentBooking' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/Plugins/FluentBooking.php',
+        'Aegis\\Framework\\Integrations\\Plugins\\FluentForms' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/Plugins/FluentForms.php',
+        'Aegis\\Framework\\Integrations\\Plugins\\LearnDash' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/Plugins/LearnDash.php',
+        'Aegis\\Framework\\Integrations\\Plugins\\LifterLMS' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/Plugins/LifterLMS.php',
+        'Aegis\\Framework\\Integrations\\Plugins\\MetaBox' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/Plugins/MetaBox.php',
+        'Aegis\\Framework\\Integrations\\Plugins\\RankMath' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/Plugins/RankMath.php',
+        'Aegis\\Framework\\Integrations\\Plugins\\SenseiLMS' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/Plugins/SenseiLMS.php',
+        'Aegis\\Framework\\Integrations\\Plugins\\SyntaxHighlightingCodeBlock' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/Plugins/SyntaxHighlightingCodeBlock.php',
+        'Aegis\\Framework\\Integrations\\Plugins\\WooCommerce' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/Plugins/WooCommerce.php',
+        'Aegis\\Framework\\Integrations\\Plugins\\WooCommerce\\BlockStyles' => __DIR__ . '/..' . '/aegis/framework/src/Integrations/Plugins/WooCommerce/BlockStyles.php',
         'Aegis\\Framework\\Interfaces\\Renderable' => __DIR__ . '/..' . '/aegis/framework/src/Interfaces/Renderable.php',
         'Aegis\\Framework\\ServiceProvider' => __DIR__ . '/..' . '/aegis/framework/src/ServiceProvider.php',
         'Aegis\\Framework\\ThemeUpdater\\GitHubApi' => __DIR__ . '/..' . '/aegis/framework/src/ThemeUpdater/GitHubApi.php',
         'Aegis\\Framework\\ThemeUpdater\\Parsedown' => __DIR__ . '/..' . '/aegis/framework/src/ThemeUpdater/Parsedown.php',
         'Aegis\\Framework\\ThemeUpdater\\ThemeUpdater' => __DIR__ . '/..' . '/aegis/framework/src/ThemeUpdater/ThemeUpdater.php',
+        'Aegis\\HookPatternsRenderer' => __DIR__ . '/../..' . '/src/HookPatternsRenderer.php',
         'Aegis\\Hooks\\Hook' => __DIR__ . '/..' . '/aegis/hooks/src/Hook.php',
         'Aegis\\Icons\\Icon' => __DIR__ . '/..' . '/aegis/icons/src/Icon.php',
+        'Aegis\\Navigation\\Overlay' => __DIR__ . '/../..' . '/src/Navigation/Overlay.php',
         'Aegis\\Utilities\\Arr' => __DIR__ . '/..' . '/aegis/utilities/src/Arr.php',
         'Aegis\\Utilities\\Block' => __DIR__ . '/..' . '/aegis/utilities/src/Block.php',
         'Aegis\\Utilities\\Color' => __DIR__ . '/..' . '/aegis/utilities/src/Color.php',
         'Aegis\\Utilities\\Data' => __DIR__ . '/..' . '/aegis/utilities/src/Data.php',
         'Aegis\\Utilities\\Debug' => __DIR__ . '/..' . '/aegis/utilities/src/Debug.php',
+        'Aegis\\Utilities\\I18n' => __DIR__ . '/..' . '/aegis/utilities/src/I18n.php',
         'Aegis\\Utilities\\JSON' => __DIR__ . '/..' . '/aegis/utilities/src/JSON.php',
         'Aegis\\Utilities\\Path' => __DIR__ . '/..' . '/aegis/utilities/src/Path.php',
         'Aegis\\Utilities\\Pattern' => __DIR__ . '/..' . '/aegis/utilities/src/Pattern.php',
         'Aegis\\Utilities\\Str' => __DIR__ . '/..' . '/aegis/utilities/src/Str.php',
+        'Aegis\\Utilities\\UserAgent' => __DIR__ . '/..' . '/aegis/utilities/src/UserAgent.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
         'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
