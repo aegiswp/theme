@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for design system components.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
@@ -63,15 +63,17 @@ class BlockStyles implements Scriptable
 		$register = [
 			'core/archive-title' => ['sub-heading'],
 			'core/buttons' => ['surface'],
-			'core/button' => ['ghost'],
+			'core/button' => ['ghost', 'pill'],
 			'core/code' => ['surface'],
-			'core/columns' => ['surface'],
-			'core/column' => ['surface'],
+			'core/columns' => ['surface', 'callout', 'card', 'bordered'],
+			'core/column' => ['surface', 'card', 'bordered'],
 			'core/comment-author-name' => ['heading'],
 			'core/details' => [
 				['summary-heading' => 'Heading'],
+				'card',
 			],
-			'core/group' => ['surface'],
+			'core/group' => ['surface', 'callout', 'card', 'bordered'],
+			'core/heading' => ['highlight'],
 			'core/list' => [
 				'checklist',
 				'check-outline',
@@ -82,18 +84,20 @@ class BlockStyles implements Scriptable
 				'none',
 			],
 			'core/list-item' => ['surface'],
+			'core/image' => ['bordered'],
 			'core/navigation' => ['heading'],
 			'core/page-list' => ['none'],
-			'core/paragraph' => ['sub-heading', 'notice', 'heading'],
+			'core/paragraph' => ['sub-heading', 'notice', 'heading', 'callout', 'highlight'],
 			'core/post-author-name' => ['heading'],
-			'core/post-terms' => ['list', 'sub-heading', 'badges'],
+			'core/post-terms' => ['list', 'sub-heading', 'badges', 'pills'],
 			'core/post-title' => ['sub-heading'],
-			'core/query-pagination' => ['badges'],
+			'core/query-pagination' => ['badges', 'pills'],
 			'core/read-more' => ['button'],
 			'core/site-title' => ['heading'],
 			'core/spacer' => ['angle', 'curve', 'round', 'wave', 'fade'],
-			'core/tag-cloud' => ['badges'],
+			'core/tag-cloud' => ['badges', 'pills'],
 			'core/quote' => ['surface'],
+			'core/video' => ['bordered'],
 		];
 
 		$register['core/code'][] = 'light';
@@ -118,4 +122,3 @@ class BlockStyles implements Scriptable
 		];
 	}
 }
-
