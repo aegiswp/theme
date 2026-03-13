@@ -246,11 +246,6 @@
                     "color": "inherit"
                 }
             ]
-        },
-        "custom": {
-            "icon": {
-                "color": "var(--wp--preset--color--primary-300)"
-            }
         }
     },
     "styles": {
