@@ -61,6 +61,10 @@ interface MapAttributes {
 	scrollWheel: boolean;
 	draggable: boolean;
 	provider: string;
+	schemaEnabled: boolean;
+	schemaBusinessName: string;
+	schemaPhone: string;
+	schemaAddress: string;
 }
 
 interface EditProps {
@@ -609,6 +613,36 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 						checked={ attributes.draggable }
 						onChange={ ( value ) => setAttributes( { draggable: value } ) }
 					/>
+				</PanelBody>
+
+				{ /* Schema.org */ }
+				<PanelBody title={ __( 'Schema.org LocalBusiness', 'aegis' ) } initialOpen={ false }>
+					<ToggleControl
+						label={ __( 'Enable Schema Markup', 'aegis' ) }
+						checked={ attributes.schemaEnabled }
+						onChange={ ( value ) => setAttributes( { schemaEnabled: value } ) }
+						help={ __( 'Add LocalBusiness structured data for search engines.', 'aegis' ) }
+					/>
+					{ attributes.schemaEnabled && (
+						<>
+							<TextControl
+								label={ __( 'Business Name', 'aegis' ) }
+								value={ attributes.schemaBusinessName }
+								onChange={ ( value ) => setAttributes( { schemaBusinessName: value } ) }
+							/>
+							<TextControl
+								label={ __( 'Phone', 'aegis' ) }
+								value={ attributes.schemaPhone }
+								onChange={ ( value ) => setAttributes( { schemaPhone: value } ) }
+								type="tel"
+							/>
+							<TextControl
+								label={ __( 'Address', 'aegis' ) }
+								value={ attributes.schemaAddress }
+								onChange={ ( value ) => setAttributes( { schemaAddress: value } ) }
+							/>
+						</>
+					) }
 				</PanelBody>
 			</InspectorControls>
 
