@@ -10,14 +10,10 @@ declare(strict_types=1);
 
 defined('ABSPATH') || exit;
 
-$wrapper_classes = array( 'wp-block-aegis-slide', 'splide__slide' );
-
-if ( ! empty( $attributes['className'] ) ) {
-	$wrapper_classes[] = $attributes['className'];
-}
-
-$wrapper_class = implode( ' ', $wrapper_classes );
+$wrapper_attributes = get_block_wrapper_attributes( [
+	'class' => 'splide__slide',
+] );
 ?>
-<div class="<?php echo esc_attr( $wrapper_class ); ?>">
+<div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped by get_block_wrapper_attributes(). ?>>
 	<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 </div>
