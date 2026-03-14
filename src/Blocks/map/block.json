@@ -105,6 +105,22 @@
         "google",
         "openstreetmap"
       ]
+    },
+    "schemaEnabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "schemaBusinessName": {
+      "type": "string",
+      "default": ""
+    },
+    "schemaPhone": {
+      "type": "string",
+      "default": ""
+    },
+    "schemaAddress": {
+      "type": "string",
+      "default": ""
     }
   },
   "editorScript": "file:index.js",
