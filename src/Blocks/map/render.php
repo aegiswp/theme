@@ -39,21 +39,12 @@ $provider          = $attributes['provider'] ?? 'google';
 // Determine effective provider.
 $use_google = ( 'google' === $provider && $has_key );
 
-// Wrapper classes.
-$wrapper_classes = [
-	'wp-block-aegis-map',
-	'aegis-map',
+// Build shared wrapper attributes using get_block_wrapper_attributes()
+// to handle className / anchor / align automatically.
+$shared_attrs = [
+	'class' => 'aegis-map',
+	'style' => '--aegis-map-height: ' . esc_attr( $height ) . ';',
 ];
-
-if ( ! empty( $attributes['className'] ) ) {
-	$wrapper_classes[] = $attributes['className'];
-}
-
-if ( ! empty( $attributes['align'] ) ) {
-	$wrapper_classes[] = 'align' . $attributes['align'];
-}
-
-$wrapper_class = implode( ' ', $wrapper_classes );
 
 if ( $use_google ) :
 
@@ -69,22 +60,23 @@ if ( $use_google ) :
 		];
 	}, $markers ) );
 
-	// Build data attributes for view.ts.
-	$data_attrs = sprintf(
-		'data-lat="%s" data-lng="%s" data-zoom="%s" data-map-type="%s" data-map-style="%s" data-provider="google" data-zoom-control="%s" data-map-type-control="%s" data-street-view="%s" data-fullscreen="%s" data-scroll-wheel="%s" data-draggable="%s" data-markers="%s"',
-		esc_attr( (string) $lat ),
-		esc_attr( (string) $lng ),
-		esc_attr( (string) $zoom ),
-		esc_attr( $map_type ),
-		esc_attr( $map_style ),
-		$show_zoom_control ? 'true' : 'false',
-		$show_map_type ? 'true' : 'false',
-		$show_street_view ? 'true' : 'false',
-		$show_fullscreen ? 'true' : 'false',
-		$scroll_wheel ? 'true' : 'false',
-		$draggable ? 'true' : 'false',
-		esc_attr( $markers_json ?: '[]' )
-	);
+	// Build wrapper attributes with data attrs for view.ts.
+	$google_attrs = array_merge( $shared_attrs, [
+		'data-lat'              => esc_attr( (string) $lat ),
+		'data-lng'              => esc_attr( (string) $lng ),
+		'data-zoom'             => esc_attr( (string) $zoom ),
+		'data-map-type'         => esc_attr( $map_type ),
+		'data-map-style'        => esc_attr( $map_style ),
+		'data-provider'         => 'google',
+		'data-zoom-control'     => $show_zoom_control ? 'true' : 'false',
+		'data-map-type-control' => $show_map_type ? 'true' : 'false',
+		'data-street-view'      => $show_street_view ? 'true' : 'false',
+		'data-fullscreen'       => $show_fullscreen ? 'true' : 'false',
+		'data-scroll-wheel'     => $scroll_wheel ? 'true' : 'false',
+		'data-draggable'        => $draggable ? 'true' : 'false',
+		'data-markers'          => esc_attr( $markers_json ?: '[]' ),
+	] );
+	$wrapper_attributes = get_block_wrapper_attributes( $google_attrs );
 
 	// Build static map image URL for facade.
 	$static_params = [
@@ -106,8 +98,7 @@ if ( $use_google ) :
 	$static_url = add_query_arg( $static_params, 'https://maps.googleapis.com/maps/api/staticmap' );
 
 ?>
-<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $data_attrs is built entirely from esc_attr() calls. ?>
-<div class="<?php echo esc_attr( $wrapper_class ); ?>" <?php echo $data_attrs; ?> style="--aegis-map-height: <?php echo esc_attr( $height ); ?>;">
+<div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped by get_block_wrapper_attributes(). ?>>
 
 	<?php // Facade: static image placeholder that loads interactive map on click. ?>
 	<div class="aegis-map__facade" role="img" aria-label="<?php echo esc_attr( $address ?: __( 'Interactive map', 'aegis' ) ); ?>">
@@ -156,8 +147,9 @@ if ( $use_google ) :
 		$lng
 	);
 
+	$wrapper_attributes = get_block_wrapper_attributes( $shared_attrs );
 ?>
-<div class="<?php echo esc_attr( $wrapper_class ); ?>" style="--aegis-map-height: <?php echo esc_attr( $height ); ?>;">
+<div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped by get_block_wrapper_attributes(). ?>>
 	<iframe
 		class="aegis-map__embed"
 		title="<?php echo esc_attr( $address ?: __( 'OpenStreetMap', 'aegis' ) ); ?>"
