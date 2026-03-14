@@ -6,9 +6,9 @@
  * @since   1.0.0
  */
 
-declare( strict_types=1 );
+declare(strict_types=1);
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 // Extract attributes with defaults.
 $datetime     = $attributes['datetime'] ?? '';
@@ -36,40 +36,28 @@ $separator_chars = [
 ];
 $sep_char = $separator_chars[ $separator ] ?? '';
 
-// Build wrapper classes.
-$wrapper_classes = [
-	'wp-block-aegis-countdown',
-	'aegis-countdown',
-	'aegis-countdown--' . $layout,
-];
-
-if ( ! empty( $attributes['className'] ) ) {
-	$wrapper_classes[] = $attributes['className'];
-}
-
-if ( ! empty( $attributes['align'] ) ) {
-	$wrapper_classes[] = 'align' . $attributes['align'];
-}
-
-$wrapper_class = implode( ' ', $wrapper_classes );
-
-// Build data attributes for the frontend JS.
-$data_attrs = sprintf(
-	'data-datetime="%s" data-show-days="%s" data-show-hours="%s" data-show-minutes="%s" data-show-seconds="%s" data-separator="%s" data-layout="%s" data-expiry-message="%s" data-timezone="%s" data-label-days="%s" data-label-hours="%s" data-label-minutes="%s" data-label-seconds="%s"',
-	esc_attr( $datetime ),
-	$show_days ? 'true' : 'false',
-	$show_hours ? 'true' : 'false',
-	$show_minutes ? 'true' : 'false',
-	$show_seconds ? 'true' : 'false',
-	esc_attr( $separator ),
-	esc_attr( $layout ),
-	esc_attr( $expiry_message ),
-	esc_attr( $timezone ),
-	esc_attr( $labels['days'] ?? 'Days' ),
-	esc_attr( $labels['hours'] ?? 'Hours' ),
-	esc_attr( $labels['minutes'] ?? 'Minutes' ),
-	esc_attr( $labels['seconds'] ?? 'Seconds' )
-);
+// Build wrapper attributes using get_block_wrapper_attributes() to
+// honour block supports (color, spacing, typography) and handle
+// className / anchor / align automatically.
+$wrapper_attributes = get_block_wrapper_attributes( [
+	'class'              => 'aegis-countdown aegis-countdown--' . esc_attr( $layout ),
+	'data-datetime'      => esc_attr( $datetime ),
+	'data-show-days'     => $show_days ? 'true' : 'false',
+	'data-show-hours'    => $show_hours ? 'true' : 'false',
+	'data-show-minutes'  => $show_minutes ? 'true' : 'false',
+	'data-show-seconds'  => $show_seconds ? 'true' : 'false',
+	'data-separator'     => esc_attr( $separator ),
+	'data-layout'        => esc_attr( $layout ),
+	'data-expiry-message' => esc_attr( $expiry_message ),
+	'data-timezone'      => esc_attr( $timezone ),
+	'data-label-days'    => esc_attr( $labels['days'] ?? 'Days' ),
+	'data-label-hours'   => esc_attr( $labels['hours'] ?? 'Hours' ),
+	'data-label-minutes'  => esc_attr( $labels['minutes'] ?? 'Minutes' ),
+	'data-label-seconds'  => esc_attr( $labels['seconds'] ?? 'Seconds' ),
+	'role'               => 'timer',
+	'aria-label'         => esc_attr__( 'Countdown timer', 'aegis' ),
+	'aria-atomic'        => 'true',
+] );
 
 // Build visible segments list.
 $segments = [];
@@ -108,17 +96,7 @@ if ( $datetime ) {
 }
 
 ?>
-<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $data_attrs built from esc_attr() calls. ?>
-<div
-	class="<?php echo esc_attr( $wrapper_class ); ?>"
-	<?php echo $data_attrs; ?>
-	<?php if ( ! empty( $attributes['anchor'] ) ) : ?>
-		id="<?php echo esc_attr( $attributes['anchor'] ); ?>"
-	<?php endif; ?>
-	role="timer"
-	aria-label="<?php esc_attr_e( 'Countdown timer', 'aegis' ); ?>"
-	aria-atomic="true"
->
+<div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped by get_block_wrapper_attributes(). ?>>
 	<div class="aegis-countdown__segments">
 		<?php foreach ( $segments as $index => $segment ) : ?>
 			<?php if ( $index > 0 && $sep_char !== '' ) : ?>
