@@ -42,6 +42,7 @@ interface ModalConfig {
 ( function () {
 	'use strict';
 
+	const INIT_FLAG = 'data-aegis-modal-init';
 	const modals: Map<string, ModalInstance> = new Map();
 
 	/**
@@ -51,6 +52,72 @@ interface ModalConfig {
 		const selector =
 			'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
 		return Array.from( container.querySelectorAll<HTMLElement>( selector ) );
+	}
+
+	/**
+	 * Get current device type based on viewport width.
+	 */
+	function getDeviceType(): string {
+		const width = window.innerWidth;
+		if ( width >= 1024 ) return 'desktop';
+		if ( width >= 768 ) return 'tablet';
+		return 'mobile';
+	}
+
+	/**
+	 * Check if modal should be shown based on "show once" setting.
+	 */
+	function shouldShowModal( config: ModalConfig ): boolean {
+		if ( ! config.showOnce ) {
+			return true;
+		}
+
+		const storageKey = `aegis-modal-${ config.modalId }-shown`;
+		const lastShown = localStorage.getItem( storageKey );
+
+		if ( ! lastShown ) {
+			return true;
+		}
+
+		try {
+			const shownDate = new Date( lastShown );
+			const expiryDate = new Date( shownDate );
+			expiryDate.setDate( expiryDate.getDate() + config.showOnceExpiry );
+
+			if ( new Date() >= expiryDate ) {
+				// Expiry passed, clear storage and allow showing
+				localStorage.removeItem( storageKey );
+				return true;
+			}
+
+			// Still within expiry period
+			return false;
+		} catch ( e ) {
+			// Invalid date, clear and allow showing
+			localStorage.removeItem( storageKey );
+			return true;
+		}
+	}
+
+	/**
+	 * Mark modal as shown in localStorage.
+	 */
+	function markModalAsShown( config: ModalConfig ): void {
+		if ( config.showOnce ) {
+			const storageKey = `aegis-modal-${ config.modalId }-shown`;
+			localStorage.setItem( storageKey, new Date().toISOString() );
+		}
+	}
+
+	/**
+	 * Debounce function for performance optimization.
+	 */
+	function debounce( func: Function, wait: number ): ( ...args: any[] ) => void {
+		let timeout: number;
+		return function ( ...args: any[] ) {
+			clearTimeout( timeout );
+			timeout = setTimeout( () => func( ...args ), wait );
+		};
 	}
 
 	/**
@@ -85,6 +152,11 @@ interface ModalConfig {
 	function openModal( instance: ModalInstance ): void {
 		const { dialog, config } = instance;
 
+		// Check if modal should be shown (show once logic)
+		if ( ! shouldShowModal( config ) ) {
+			return;
+		}
+
 		instance.previousFocus = document.activeElement as HTMLElement;
 
 		dialog.removeAttribute( 'hidden' );
@@ -109,6 +181,9 @@ interface ModalConfig {
 			instance.trigger.setAttribute( 'aria-expanded', 'true' );
 		}
 
+		// Mark modal as shown (for show once feature)
+		markModalAsShown( config );
+
 		// Dispatch opened event.
 		instance.wrapper.dispatchEvent(
 			new CustomEvent( 'aegis-modal-opened', { bubbles: true, detail: { modalId: config.modalId } } )
@@ -116,6 +191,11 @@ interface ModalConfig {
 
 		// Announce to screen readers.
 		dialog.setAttribute( 'role', 'dialog' );
+
+		// Auto-close after delay if configured
+		if ( config.autoCloseDelay > 0 ) {
+			setTimeout( () => closeModal( instance ), config.autoCloseDelay );
+		}
 	}
 
 	/**
@@ -185,11 +265,25 @@ interface ModalConfig {
 	 * Initialize a single modal instance.
 	 */
 	function initModal( wrapper: HTMLElement ): void {
+		// Prevent double initialization
+		if ( wrapper.hasAttribute( INIT_FLAG ) ) {
+			return;
+		}
+		wrapper.setAttribute( INIT_FLAG, '' );
+
 		const config = parseConfig( wrapper );
 		const dialog = wrapper.querySelector<HTMLElement>( '.aegis-modal' );
 		const trigger = wrapper.querySelector<HTMLElement>( '.aegis-modal-trigger' );
 
 		if ( ! dialog ) return;
+
+		// Check device visibility
+		const deviceType = getDeviceType();
+		if ( ! config.deviceVisibility.includes( deviceType ) ) {
+			// Hide modal wrapper on this device
+			wrapper.style.display = 'none';
+			return;
+		}
 
 		const instance: ModalInstance = {
 			wrapper,
@@ -230,10 +324,10 @@ interface ModalConfig {
 	function initAdvancedTriggers( instance: ModalInstance ): void {
 		const { config } = instance;
 
-		// Scroll trigger.
+		// Scroll trigger with debouncing for performance.
 		if ( config.triggerType === 'scroll' ) {
 			let triggered = false;
-			window.addEventListener( 'scroll', () => {
+			const handleScroll = debounce( () => {
 				if ( triggered && config.scrollTriggerOnce ) return;
 
 				const scrollPercent =
@@ -243,7 +337,9 @@ interface ModalConfig {
 					triggered = true;
 					openModal( instance );
 				}
-			}, { passive: true } );
+			}, 100 );
+
+			window.addEventListener( 'scroll', handleScroll, { passive: true } );
 		}
 
 		// Exit intent trigger.
