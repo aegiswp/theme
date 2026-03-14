@@ -37,9 +37,9 @@ $width                = $attributes['width'] ?? '500px';
 $max_width            = $attributes['maxWidth'] ?? '90vw';
 $height               = $attributes['height'] ?? 'auto';
 $max_height           = $attributes['maxHeight'] ?? '90vh';
-$overlay_color        = $attributes['overlayColor'] ?? 'rgba(0, 0, 0, 0.5)';
+$overlay_color        = $attributes['overlayColor'] ?? 'var(--wp--preset--color--neutral-950, rgba(0, 0, 0, 0.5))';
 $overlay_blur         = $attributes['overlayBlur'] ?? 0;
-$background_color     = $attributes['backgroundColor'] ?? '#ffffff';
+$background_color     = $attributes['backgroundColor'] ?? 'var(--wp--preset--color--neutral-0, #ffffff)';
 $border_radius        = $attributes['borderRadius'] ?? '8px';
 $padding              = $attributes['padding'] ?? '24px';
 
@@ -133,29 +133,55 @@ $allowed_svg = [
 <?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $data_attrs is built entirely from esc_attr() calls in sprintf above. ?>
 <div class="<?php echo esc_attr( $wrapper_class ); ?>" <?php echo $data_attrs; ?> style="<?php echo esc_attr( $modal_styles ); ?>">
 	
-	<?php // Trigger Button/Element. ?>
-	<button
-		type="button"
-		class="aegis-modal-trigger aegis-modal-trigger--<?php echo esc_attr( $trigger_type ); ?>"
-		aria-haspopup="dialog"
-		aria-expanded="false"
-		aria-controls="<?php echo esc_attr( $modal_id ); ?>"
-	>
-		<?php if ( 'button' === $trigger_type || 'text' === $trigger_type ) : ?>
-			<span class="aegis-modal-trigger__text"><?php echo esc_html( $trigger_text ); ?></span>
+	<?php // Trigger Button/Element - Only render for manual trigger types. ?>
+	<?php if ( in_array( $trigger_type, array( 'button', 'text', 'icon', 'image' ), true ) ) : ?>
+		<?php if ( 'button' === $trigger_type ) : ?>
+			<button
+				type="button"
+				class="aegis-modal-trigger aegis-modal-trigger--button wp-element-button"
+				aria-haspopup="dialog"
+				aria-expanded="false"
+				aria-controls="<?php echo esc_attr( $modal_id ); ?>"
+			>
+				<span class="aegis-modal-trigger__text"><?php echo esc_html( $trigger_text ); ?></span>
+			</button>
+		<?php elseif ( 'text' === $trigger_type ) : ?>
+			<button
+				type="button"
+				class="aegis-modal-trigger aegis-modal-trigger--text"
+				aria-haspopup="dialog"
+				aria-expanded="false"
+				aria-controls="<?php echo esc_attr( $modal_id ); ?>"
+			>
+				<span class="aegis-modal-trigger__text"><?php echo esc_html( $trigger_text ); ?></span>
+			</button>
 		<?php elseif ( 'icon' === $trigger_type && $trigger_icon ) : ?>
-			<span class="aegis-modal-trigger__icon" aria-hidden="true"><?php echo wp_kses_post( $trigger_icon ); ?></span>
-			<span class="screen-reader-text"><?php echo esc_html( $trigger_text ); ?></span>
+			<button
+				type="button"
+				class="aegis-modal-trigger aegis-modal-trigger--icon"
+				aria-haspopup="dialog"
+				aria-expanded="false"
+				aria-controls="<?php echo esc_attr( $modal_id ); ?>"
+			>
+				<span class="aegis-modal-trigger__icon" aria-hidden="true"><?php echo wp_kses_post( $trigger_icon ); ?></span>
+				<span class="screen-reader-text"><?php echo esc_html( $trigger_text ); ?></span>
+			</button>
 		<?php elseif ( 'image' === $trigger_type && $trigger_image_url ) : ?>
-			<img 
-				src="<?php echo esc_url( $trigger_image_url ); ?>" 
-				alt="<?php echo esc_attr( $trigger_image_alt ?: $trigger_text ); ?>"
-				class="aegis-modal-trigger__image"
-			/>
-		<?php else : ?>
-			<span class="aegis-modal-trigger__text"><?php echo esc_html( $trigger_text ); ?></span>
+			<button
+				type="button"
+				class="aegis-modal-trigger aegis-modal-trigger--image"
+				aria-haspopup="dialog"
+				aria-expanded="false"
+				aria-controls="<?php echo esc_attr( $modal_id ); ?>"
+			>
+				<img 
+					src="<?php echo esc_url( $trigger_image_url ); ?>" 
+					alt="<?php echo esc_attr( $trigger_image_alt ?: $trigger_text ); ?>"
+					class="aegis-modal-trigger__image"
+				/>
+			</button>
 		<?php endif; ?>
-	</button>
+	<?php endif; ?>
 
 	<?php // Modal Dialog (hidden by default, rendered in DOM for SEO/accessibility). ?>
 	<div
