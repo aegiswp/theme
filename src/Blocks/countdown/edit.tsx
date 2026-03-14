@@ -34,6 +34,11 @@ interface CountdownAttributes {
 	layout: string;
 	expiryMessage: string;
 	timezone: string;
+	schemaEnabled: boolean;
+	schemaEventName: string;
+	schemaEventDescription: string;
+	schemaEventLocation: string;
+	schemaEventUrl: string;
 }
 
 interface EditProps {
@@ -97,6 +102,11 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 		layout,
 		expiryMessage,
 		timezone,
+		schemaEnabled,
+		schemaEventName,
+		schemaEventDescription,
+		schemaEventLocation,
+		schemaEventUrl,
 	} = attributes;
 
 	const [ time, setTime ] = useState<TimeRemaining>( () =>
@@ -234,6 +244,40 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 						onChange={ ( value ) => setAttributes( { expiryMessage: value } ) }
 						help={ __( 'Text displayed when the countdown reaches zero. Leave empty to keep showing 00:00:00.', 'aegis' ) }
 					/>
+				</PanelBody>
+
+				<PanelBody title={ __( 'Schema.org Event', 'aegis' ) } initialOpen={ false }>
+					<ToggleControl
+						label={ __( 'Enable Event Schema', 'aegis' ) }
+						checked={ schemaEnabled }
+						onChange={ ( value ) => setAttributes( { schemaEnabled: value } ) }
+						help={ __( 'Add Schema.org Event structured data for search engines.', 'aegis' ) }
+					/>
+					{ schemaEnabled && (
+						<>
+							<TextControl
+								label={ __( 'Event Name', 'aegis' ) }
+								value={ schemaEventName }
+								onChange={ ( value ) => setAttributes( { schemaEventName: value } ) }
+							/>
+							<TextControl
+								label={ __( 'Description', 'aegis' ) }
+								value={ schemaEventDescription }
+								onChange={ ( value ) => setAttributes( { schemaEventDescription: value } ) }
+							/>
+							<TextControl
+								label={ __( 'Location', 'aegis' ) }
+								value={ schemaEventLocation }
+								onChange={ ( value ) => setAttributes( { schemaEventLocation: value } ) }
+							/>
+							<TextControl
+								label={ __( 'Event URL', 'aegis' ) }
+								value={ schemaEventUrl }
+								onChange={ ( value ) => setAttributes( { schemaEventUrl: value } ) }
+								type="url"
+							/>
+						</>
+					) }
 				</PanelBody>
 			</InspectorControls>
 
