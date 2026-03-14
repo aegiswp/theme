@@ -142,19 +142,22 @@
 
 /* Header */
 .aegis-settings-header {
-	margin-bottom: 30px;
+	margin-bottom: 0;
+	background: #1d2327;
+	padding: 20px 24px;
+	border-radius: 8px 8px 0 0;
 }
 
 .aegis-settings-header h1 {
 	font-size: 24px;
 	font-weight: 600;
 	margin: 0 0 8px;
-	color: #1e1e1e;
+	color: #fff;
 }
 
 .aegis-settings-header p {
 	font-size: 14px;
-	color: #666;
+	color: #a7aaad;
 	margin: 0;
 }
 
@@ -188,6 +191,11 @@
 	border: 1px solid #e0e0e0;
 	border-radius: 8px;
 	overflow: hidden;
+}
+
+/* Layout without sidebar nav */
+.aegis-settings-layout--no-nav {
+	display: block;
 }
 
 /* Navigation */
@@ -305,8 +313,8 @@
 .aegis-toggle-icon {
 	width: 40px;
 	height: 40px;
-	background: #f0f0f0;
-	border-radius: 4px;
+	background: #f0f6fc;
+	border-radius: 8px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -317,12 +325,12 @@
 	font-size: 20px;
 	width: 20px;
 	height: 20px;
-	color: #1e1e1e;
+	color: #2271b1;
 }
 
 .aegis-toggle-text h3 {
 	font-size: 14px;
-	font-weight: 600;
+	font-weight: 500;
 	margin: 0 0 2px;
 	color: #1f2937;
 }
@@ -407,9 +415,22 @@
 	gap: 15px;
 	margin-bottom: 20px;
 	padding: 15px;
-	background: #fff;
-	border: 1px solid #e0e0e0;
-	border-radius: 8px;
+	background: #2c3338;
+	border: 1px solid #3c4349;
+	border-top: none;
+	border-radius: 0 0 8px 8px;
+}
+
+.aegis-toolbar .aegis-btn-secondary {
+	background: transparent;
+	border-color: #3c4349;
+	color: #a7aaad;
+}
+
+.aegis-toolbar .aegis-btn-secondary:hover {
+	background: rgba(255, 255, 255, 0.1);
+	border-color: #3c4349;
+	color: #fff;
 }
 
 .aegis-toolbar-left {
@@ -426,19 +447,24 @@
 
 .aegis-search-input {
 	padding: 8px 12px !important;
-	border: 1px solid #ddd !important;
+	border: 1px solid #3c4349 !important;
 	border-radius: 4px !important;
 	font-size: 14px !important;
 	min-width: 280px;
 	height: 36px !important;
 	box-sizing: border-box !important;
 	transition: border-color 0.2s ease;
-	background: #fff !important;
+	background: #1d2327 !important;
+	color: #fff !important;
+}
+
+.aegis-search-input::placeholder {
+	color: #a7aaad;
 }
 
 .aegis-search-input:focus {
 	outline: none;
-	border-color: #2271b1;
+	border-color: #2271b1 !important;
 }
 
 .aegis-export-btn,
@@ -461,8 +487,10 @@
 	justify-content: space-between;
 	align-items: flex-start;
 	margin-bottom: 24px;
-	padding-bottom: 0;
+	padding: 16px 20px;
 	border-bottom: none;
+	background: #2c3338;
+	border-radius: 8px;
 }
 
 .aegis-section-title {
@@ -473,12 +501,16 @@
 	margin: 0 0 8px 0;
 	font-size: 20px;
 	font-weight: 600;
-	color: #1f2937;
+	color: #fff;
+}
+
+.aegis-section-title h2 .dashicons {
+	color: #fff;
 }
 
 .aegis-section-title .description {
 	margin: 0;
-	color: #6b7280;
+	color: #a7aaad;
 	font-size: 14px;
 	line-height: 1.5;
 }
@@ -506,16 +538,17 @@
 	font-size: 13px;
 	padding: 6px 16px;
 	border-radius: 6px;
-	border: 1px solid #e5e7eb;
-	background: #fff;
-	color: #374151;
+	border: 1px solid #3c4349;
+	background: transparent;
+	color: #a7aaad;
 	cursor: pointer;
 	transition: all 0.2s ease;
 }
 
 .aegis-bulk-actions .button:hover {
-	background: #f9fafb;
-	border-color: #d1d5db;
+	background: rgba(255, 255, 255, 0.1);
+	border-color: #3c4349;
+	color: #fff;
 }
 
 /* Nav item search states */
@@ -577,7 +610,7 @@
 	background: transparent;
 	border: none;
 	border-bottom: 1px solid #e5e7eb;
-	padding: 16px 20px 16px 56px;
+	padding: 16px 20px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -588,15 +621,28 @@
 }
 
 /* Pro feature styling */
-.aegis-toggle-subcard.aegis-pro-feature {
+.aegis-toggle-subcard.aegis-pro-feature,
+.aegis-toggle-card.aegis-pro-feature {
 	background: #fffbeb;
 }
 
-.aegis-toggle-subcard.aegis-pro-feature.aegis-toggle-disabled {
+.aegis-toggle-subcard.aegis-pro-feature .aegis-toggle-icon,
+.aegis-toggle-card.aegis-pro-feature .aegis-toggle-icon {
+	background: #fffbeb;
+}
+
+.aegis-toggle-subcard.aegis-pro-feature .aegis-toggle-icon .dashicons,
+.aegis-toggle-card.aegis-pro-feature .aegis-toggle-icon .dashicons {
+	color: #d97706;
+}
+
+.aegis-toggle-subcard.aegis-pro-feature.aegis-toggle-disabled,
+.aegis-toggle-card.aegis-pro-feature.aegis-toggle-disabled {
 	opacity: 0.7;
 }
 
-.aegis-toggle-subcard.aegis-pro-feature.aegis-toggle-disabled .aegis-toggle-slider {
+.aegis-toggle-subcard.aegis-pro-feature.aegis-toggle-disabled .aegis-toggle-slider,
+.aegis-toggle-card.aegis-pro-feature.aegis-toggle-disabled .aegis-toggle-slider {
 	background-color: #d1d5db;
 	cursor: not-allowed;
 }
@@ -635,7 +681,7 @@
 	width: 40px;
 	height: 40px;
 	min-width: 40px;
-	background: #f3f4f6;
+	background: #f0f6fc;
 	border-radius: 8px;
 	display: flex;
 	align-items: center;
@@ -646,7 +692,7 @@
 	font-size: 20px;
 	width: 20px;
 	height: 20px;
-	color: #6b7280;
+	color: #2271b1;
 }
 
 .aegis-toggle-subcard .aegis-toggle-text {
@@ -989,6 +1035,15 @@
 	border-bottom: 1px solid #3c4349;
 }
 
+.aegis-api-config.aegis-pro-feature .aegis-api-config-header {
+	background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+	border-bottom: 1px solid #d97706;
+}
+
+.aegis-api-config.aegis-pro-feature .aegis-api-config-title .dashicons {
+	color: #fde68a;
+}
+
 .aegis-api-config-title {
 	display: flex;
 	align-items: center;
@@ -1055,7 +1110,7 @@
 	width: 36px;
 	height: 36px;
 	min-width: 36px;
-	background: #f3f4f6;
+	background: #f0f6fc;
 	border-radius: 8px;
 	display: flex;
 	align-items: center;
@@ -1066,7 +1121,7 @@
 	font-size: 18px;
 	width: 18px;
 	height: 18px;
-	color: #6b7280;
+	color: #2271b1;
 }
 
 .aegis-api-field-text {
@@ -1076,8 +1131,8 @@
 
 .aegis-api-field-text label {
 	display: block;
-	font-size: 13px;
-	font-weight: 600;
+	font-size: 14px;
+	font-weight: 500;
 	color: #1f2937;
 	margin: 0 0 2px 0;
 }
@@ -1210,6 +1265,58 @@
    Dashboard Overview
    ========================================================================== */
 
+/* Hero Welcome Card */
+.aegis-dashboard-hero-card {
+	background: #fff;
+	border: 1px solid #e5e7eb;
+	border-radius: 8px;
+	overflow: hidden;
+	margin-bottom: 24px;
+}
+
+.aegis-dashboard-hero-card-header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 16px 20px;
+	background: linear-gradient(135deg, #1d2327 0%, #2c3338 100%);
+	border-bottom: 1px solid #3c4349;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.aegis-dashboard-hero-card-header svg {
+	width: 20px;
+	height: 20px;
+	fill: #72aee6;
+}
+
+.aegis-dashboard-hero-card-body {
+	padding: 32px 24px;
+}
+
+.aegis-dashboard-hero-card-body h1 {
+	font-size: 28px;
+	font-weight: 700;
+	color: #1f2937;
+	margin: 0 0 8px;
+	line-height: 1.2;
+}
+
+.aegis-dashboard-hero-card-body p {
+	font-size: 15px;
+	color: #6b7280;
+	margin: 0 0 20px;
+	line-height: 1.5;
+}
+
+.aegis-dashboard-hero-card-actions {
+	display: flex;
+	gap: 12px;
+}
+
+/* At-a-Glance Stat Cards */
 .aegis-dashboard-stats {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
@@ -1219,10 +1326,9 @@
 
 .aegis-stat-card {
 	display: flex;
-	flex-direction: column;
 	align-items: center;
-	gap: 4px;
-	padding: 20px 16px;
+	gap: 16px;
+	padding: 20px;
 	background: #fff;
 	border: 1px solid #e5e7eb;
 	border-radius: 8px;
@@ -1233,6 +1339,60 @@
 .aegis-stat-card:hover {
 	border-color: #2271b1;
 	box-shadow: 0 2px 8px rgba(34, 113, 177, 0.1);
+}
+
+.aegis-stat-icon {
+	width: 44px;
+	height: 44px;
+	min-width: 44px;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.aegis-stat-icon .dashicons {
+	font-size: 22px;
+	width: 22px;
+	height: 22px;
+}
+
+.aegis-stat-icon--blue {
+	background: #f0f6fc;
+}
+
+.aegis-stat-icon--blue .dashicons {
+	color: #2271b1;
+}
+
+.aegis-stat-icon--purple {
+	background: #f3f0ff;
+}
+
+.aegis-stat-icon--purple .dashicons {
+	color: #7c3aed;
+}
+
+.aegis-stat-icon--green {
+	background: #ecfdf5;
+}
+
+.aegis-stat-icon--green .dashicons {
+	color: #059669;
+}
+
+.aegis-stat-icon--amber {
+	background: #fffbeb;
+}
+
+.aegis-stat-icon--amber .dashicons {
+	color: #d97706;
+}
+
+.aegis-stat-content {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
 }
 
 .aegis-stat-value {
@@ -1250,6 +1410,7 @@
 	letter-spacing: 0.5px;
 }
 
+/* Dashboard Sections */
 .aegis-dashboard-section {
 	margin-bottom: 24px;
 }
@@ -1263,6 +1424,7 @@
 	letter-spacing: 0.5px;
 }
 
+/* Quick Actions Grid */
 .aegis-dashboard-actions {
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
@@ -1273,42 +1435,112 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 8px;
-	padding: 20px 12px;
+	gap: 6px;
+	padding: 24px 12px 20px;
 	background: #fff;
 	border: 1px solid #e5e7eb;
 	border-radius: 8px;
 	text-decoration: none;
 	color: #1d2327;
-	font-size: 12px;
-	font-weight: 500;
 	text-align: center;
-	transition: border-color 0.2s ease, background-color 0.2s ease;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .aegis-action-card:hover {
 	border-color: #2271b1;
-	background-color: #f0f6fc;
+	box-shadow: 0 2px 8px rgba(34, 113, 177, 0.08);
 	color: #1d2327;
 }
 
-.aegis-action-card .dashicons {
-	font-size: 24px;
-	width: 24px;
-	height: 24px;
+.aegis-action-card-icon {
+	width: 44px;
+	height: 44px;
+	background: #f0f6fc;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 4px;
+}
+
+.aegis-action-card-icon .dashicons {
+	font-size: 22px;
+	width: 22px;
+	height: 22px;
 	color: #2271b1;
 }
 
+.aegis-action-card-title {
+	font-size: 13px;
+	font-weight: 600;
+	color: #1f2937;
+}
+
+.aegis-action-card-desc {
+	font-size: 12px;
+	color: #9ca3af;
+	line-height: 1.3;
+}
+
+/* Getting Started Cards */
+.aegis-dashboard-getting-started {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 16px;
+}
+
+.aegis-dashboard-getting-started .aegis-license-feature-card {
+	text-decoration: none;
+	display: block;
+}
+
+/* Two-Column Layout */
 .aegis-dashboard-columns {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 24px;
 }
 
-.aegis-system-table {
+/* System / Pro Cards with Gradient Headers */
+.aegis-dashboard-system-card {
 	background: #fff;
 	border: 1px solid #e5e7eb;
 	border-radius: 8px;
+	overflow: hidden;
+}
+
+.aegis-dashboard-system-card-header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 16px 20px;
+	background: linear-gradient(135deg, #1d2327 0%, #2c3338 100%);
+	border-bottom: 1px solid #3c4349;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.aegis-dashboard-system-card-header .dashicons {
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+	color: #72aee6;
+}
+
+.aegis-dashboard-system-card-body {
+	padding: 20px;
+}
+
+.aegis-dashboard-pro-desc {
+	font-size: 14px;
+	color: #6b7280;
+	margin: 0 0 16px;
+	line-height: 1.5;
+}
+
+/* System Table (inside system card) */
+.aegis-system-table {
 	overflow: hidden;
 }
 
@@ -1316,7 +1548,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 12px 16px;
+	padding: 12px 20px;
 	border-bottom: 1px solid #f0f0f0;
 }
 
@@ -1420,8 +1652,16 @@
 		grid-template-columns: repeat(3, 1fr);
 	}
 
+	.aegis-dashboard-getting-started {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
 	.aegis-dashboard-columns {
 		grid-template-columns: 1fr;
+	}
+
+	.aegis-license-links {
+		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
@@ -1432,5 +1672,429 @@
 
 	.aegis-dashboard-actions {
 		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.aegis-dashboard-getting-started {
+		grid-template-columns: 1fr;
+	}
+
+	.aegis-dashboard-hero-card-actions {
+		flex-direction: column;
+	}
+
+	.aegis-dashboard-hero-card-body h1 {
+		font-size: 22px;
+	}
+
+	.aegis-license-links {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+/* ==========================================================================
+   License Page
+   ========================================================================== */
+
+/* Section spacing */
+.aegis-license-section {
+	margin-bottom: 32px;
+}
+
+.aegis-license-section h2 {
+	font-size: 20px;
+	font-weight: 600;
+	color: #1f2937;
+	margin: 0 0 8px;
+}
+
+.aegis-license-section-desc {
+	font-size: 14px;
+	color: #6b7280;
+	margin: 0 0 20px;
+	line-height: 1.5;
+}
+
+/* License Activation Card */
+.aegis-license-activation {
+	background: #fff;
+	border: 1px solid #e5e7eb;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.aegis-license-activation-header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 16px 20px;
+	background: linear-gradient(135deg, #1d2327 0%, #2c3338 100%);
+	border-bottom: 1px solid #3c4349;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.aegis-license-activation-header .dashicons {
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+	color: #72aee6;
+}
+
+.aegis-license-activation-body {
+	padding: 24px 20px;
+}
+
+.aegis-license-status-row {
+	margin-bottom: 24px;
+}
+
+.aegis-license-form-row {
+	max-width: 560px;
+}
+
+.aegis-license-label {
+	display: block;
+	font-weight: 600;
+	font-size: 13px;
+	margin-bottom: 8px;
+	color: #1e1e1e;
+}
+
+.aegis-license-input-group {
+	display: flex;
+	gap: 8px;
+}
+
+.aegis-license-input {
+	flex: 1;
+	padding: 10px 14px;
+	border: 1px solid #d1d5db;
+	border-radius: 6px;
+	font-size: 14px;
+	background: #fff;
+	color: #1f2937;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.aegis-license-input:focus {
+	outline: none;
+	border-color: #2271b1;
+	box-shadow: 0 0 0 3px rgba(34, 113, 177, 0.15);
+}
+
+.aegis-license-input:disabled {
+	background: #f9fafb;
+	color: #9ca3af;
+	cursor: not-allowed;
+}
+
+.aegis-license-help {
+	margin-top: 12px;
+	font-size: 13px;
+	color: #6b7280;
+	line-height: 1.5;
+}
+
+/* Large button variant */
+.aegis-btn-lg {
+	padding: 14px 28px;
+	font-size: 15px;
+}
+
+.aegis-btn-lg .dashicons {
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+}
+
+/* Feature Cards Grid */
+.aegis-license-features {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 16px;
+	margin-bottom: 24px;
+}
+
+.aegis-license-feature-card {
+	background: #fff;
+	border: 1px solid #e5e7eb;
+	border-radius: 8px;
+	padding: 24px;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.aegis-license-feature-card:hover {
+	border-color: #d1d5db;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.aegis-license-feature-icon {
+	width: 44px;
+	height: 44px;
+	background: #fffbeb;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 14px;
+}
+
+.aegis-license-feature-icon .dashicons {
+	font-size: 22px;
+	width: 22px;
+	height: 22px;
+	color: #d97706;
+}
+
+.aegis-license-feature-card h3 {
+	font-size: 14px;
+	font-weight: 600;
+	color: #1f2937;
+	margin: 0 0 6px;
+}
+
+.aegis-license-feature-card p {
+	font-size: 13px;
+	color: #6b7280;
+	line-height: 1.5;
+	margin: 0;
+}
+
+/* Purchase CTA */
+.aegis-license-purchase-cta {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.aegis-license-purchase-note {
+	font-size: 13px;
+	color: #6b7280;
+}
+
+/* Donation Card */
+.aegis-license-donate-card {
+	display: flex;
+	align-items: flex-start;
+	gap: 20px;
+	padding: 24px;
+	background: #fff;
+	border: 1px solid #e5e7eb;
+	border-radius: 8px;
+}
+
+.aegis-license-donate-icon {
+	width: 48px;
+	height: 48px;
+	min-width: 48px;
+	background: #fdf2f8;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.aegis-license-donate-icon .dashicons {
+	font-size: 24px;
+	width: 24px;
+	height: 24px;
+	color: #ec4899;
+}
+
+.aegis-license-donate-content h3 {
+	font-size: 16px;
+	font-weight: 600;
+	color: #1f2937;
+	margin: 0 0 8px;
+}
+
+.aegis-license-donate-content p {
+	font-size: 14px;
+	color: #6b7280;
+	line-height: 1.6;
+	margin: 0 0 16px;
+}
+
+/* Comparison Table */
+.aegis-license-comparison {
+	background: #fff;
+	border: 1px solid #e5e7eb;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.aegis-license-comparison-header {
+	display: grid;
+	grid-template-columns: 1fr 80px 80px;
+	gap: 0;
+	padding: 12px 20px;
+	background: #f6f7f7;
+	border-bottom: 1px solid #e5e7eb;
+	font-size: 12px;
+	font-weight: 600;
+	color: #1d2327;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.aegis-license-comparison-row {
+	display: grid;
+	grid-template-columns: 1fr 80px 80px;
+	gap: 0;
+	padding: 12px 20px;
+	border-bottom: 1px solid #f0f0f0;
+	transition: background-color 0.2s ease;
+}
+
+.aegis-license-comparison-row:last-child {
+	border-bottom: none;
+}
+
+.aegis-license-comparison-row:hover {
+	background-color: #f9fafb;
+}
+
+.aegis-license-comparison-feature {
+	font-size: 13px;
+	color: #1f2937;
+}
+
+.aegis-license-comparison-header .aegis-license-comparison-feature {
+	color: #1d2327;
+}
+
+.aegis-license-comparison-free,
+.aegis-license-comparison-pro {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.aegis-comparison-yes {
+	color: #16a34a;
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+}
+
+.aegis-comparison-no {
+	color: #d1d5db;
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+}
+
+/* Quick Links - override grid for 4 columns */
+.aegis-license-links {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+/* FAQ */
+.aegis-license-faq {
+	background: #fff;
+	border: 1px solid #e5e7eb;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.aegis-license-faq-item {
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.aegis-license-faq-item:last-child {
+	border-bottom: none;
+}
+
+.aegis-license-faq-item summary {
+	padding: 16px 20px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #1f2937;
+	cursor: pointer;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	transition: background-color 0.2s ease;
+}
+
+.aegis-license-faq-item summary:hover {
+	background-color: #f9fafb;
+}
+
+.aegis-license-faq-item summary::-webkit-details-marker {
+	display: none;
+}
+
+.aegis-license-faq-item summary::after {
+	content: "\f140";
+	font-family: dashicons;
+	font-size: 20px;
+	color: #9ca3af;
+	transition: transform 0.2s ease;
+}
+
+.aegis-license-faq-item[open] summary::after {
+	transform: rotate(180deg);
+}
+
+.aegis-license-faq-answer {
+	padding: 0 20px 16px;
+}
+
+.aegis-license-faq-answer p {
+	font-size: 13px;
+	color: #6b7280;
+	line-height: 1.6;
+	margin: 0;
+}
+
+/* License Page Responsive */
+@media (max-width: 960px) {
+	.aegis-license-features {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.aegis-license-links {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.aegis-license-comparison-header,
+	.aegis-license-comparison-row {
+		grid-template-columns: 1fr 60px 60px;
+	}
+}
+
+@media (max-width: 600px) {
+	.aegis-license-features {
+		grid-template-columns: 1fr;
+	}
+
+	.aegis-license-links {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.aegis-license-input-group {
+		flex-direction: column;
+	}
+
+	.aegis-license-purchase-cta {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.aegis-license-donate-card {
+		flex-direction: column;
+	}
+
+	.aegis-license-comparison-header,
+	.aegis-license-comparison-row {
+		grid-template-columns: 1fr 50px 50px;
+		padding: 12px 12px;
+	}
+
+	.aegis-license-comparison-feature {
+		font-size: 12px;
 	}
 }
