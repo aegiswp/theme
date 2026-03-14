@@ -1,294 +1,170 @@
 /**
  * Map Block - Frontend View Script
  *
- * Implements the facade pattern for Google Maps: renders a static image
- * placeholder, then loads the interactive map on user interaction.
- * OpenStreetMap uses a simple iframe embed (no JS needed).
+ * Handles Google Maps facade pattern: loads interactive map on click.
+ * OpenStreetMap uses iframe embed (no JS needed).
  *
  * @package Aegis
  * @since   1.0.0
  */
 
-declare namespace google.maps {
-	class Map {
-		constructor( el: HTMLElement, opts?: MapOptions );
-	}
-	class Marker {
-		constructor( opts?: MarkerOptions );
-		addListener( event: string, handler: () => void ): void;
-		setMap( map: Map | null ): void;
-	}
-	class InfoWindow {
-		constructor( opts?: { content?: string } );
-		open( map: Map, anchor?: Marker ): void;
-	}
-	interface MapOptions {
-		center?: { lat: number; lng: number };
-		zoom?: number;
-		mapTypeId?: string;
-		styles?: MapTypeStyle[];
-		zoomControl?: boolean;
-		mapTypeControl?: boolean;
-		streetViewControl?: boolean;
-		fullscreenControl?: boolean;
-		scrollwheel?: boolean;
-		draggable?: boolean;
-		gestureHandling?: string;
-	}
-	interface MarkerOptions {
-		position?: { lat: number; lng: number };
-		map?: Map;
-		title?: string;
-	}
-	interface MapTypeStyle {
-		elementType?: string;
-		featureType?: string;
-		stylers: Record<string, unknown>[];
-	}
-	type MapTypeId = string;
-}
-
-interface MapMarker {
-	lat: number;
-	lng: number;
-	title: string;
-	description: string;
-}
-
-interface MapConfig {
-	lat: number;
-	lng: number;
-	zoom: number;
-	mapType: string;
-	mapStyle: string;
-	provider: string;
-	zoomControl: boolean;
-	mapTypeControl: boolean;
-	streetView: boolean;
-	fullscreen: boolean;
-	scrollWheel: boolean;
-	draggable: boolean;
-	markers: MapMarker[];
-	apiSrc: string;
-}
-
-/**
- * Google Maps style presets (matching edit.tsx).
- */
-const MAP_STYLES: Record<string, google.maps.MapTypeStyle[]> = {
-	default: [],
-	silver: [
-		{ elementType: 'geometry', stylers: [ { color: '#f5f5f5' } ] },
-		{ elementType: 'labels.icon', stylers: [ { visibility: 'off' } ] },
-		{ elementType: 'labels.text.fill', stylers: [ { color: '#616161' } ] },
-		{ elementType: 'labels.text.stroke', stylers: [ { color: '#f5f5f5' } ] },
-		{ featureType: 'poi', elementType: 'geometry', stylers: [ { color: '#eeeeee' } ] },
-		{ featureType: 'road', elementType: 'geometry', stylers: [ { color: '#ffffff' } ] },
-		{ featureType: 'road.highway', elementType: 'geometry', stylers: [ { color: '#dadada' } ] },
-		{ featureType: 'water', elementType: 'geometry', stylers: [ { color: '#c9c9c9' } ] },
-	],
-	dark: [
-		{ elementType: 'geometry', stylers: [ { color: '#212121' } ] },
-		{ elementType: 'labels.icon', stylers: [ { visibility: 'off' } ] },
-		{ elementType: 'labels.text.fill', stylers: [ { color: '#757575' } ] },
-		{ elementType: 'labels.text.stroke', stylers: [ { color: '#212121' } ] },
-		{ featureType: 'poi', elementType: 'geometry', stylers: [ { color: '#181818' } ] },
-		{ featureType: 'road', elementType: 'geometry.fill', stylers: [ { color: '#2c2c2c' } ] },
-		{ featureType: 'road.highway', elementType: 'geometry', stylers: [ { color: '#3c3c3c' } ] },
-		{ featureType: 'water', elementType: 'geometry', stylers: [ { color: '#000000' } ] },
-	],
-	retro: [
-		{ elementType: 'geometry', stylers: [ { color: '#ebe3cd' } ] },
-		{ elementType: 'labels.text.fill', stylers: [ { color: '#523735' } ] },
-		{ elementType: 'labels.text.stroke', stylers: [ { color: '#f5f1e6' } ] },
-		{ featureType: 'road', elementType: 'geometry', stylers: [ { color: '#f5f1e6' } ] },
-		{ featureType: 'road.highway', elementType: 'geometry', stylers: [ { color: '#f8c967' } ] },
-		{ featureType: 'water', elementType: 'geometry.fill', stylers: [ { color: '#b9d3c2' } ] },
-	],
-	night: [
-		{ elementType: 'geometry', stylers: [ { color: '#242f3e' } ] },
-		{ elementType: 'labels.text.fill', stylers: [ { color: '#746855' } ] },
-		{ elementType: 'labels.text.stroke', stylers: [ { color: '#242f3e' } ] },
-		{ featureType: 'road', elementType: 'geometry', stylers: [ { color: '#38414e' } ] },
-		{ featureType: 'road.highway', elementType: 'geometry', stylers: [ { color: '#746855' } ] },
-		{ featureType: 'water', elementType: 'geometry', stylers: [ { color: '#17263c' } ] },
-	],
-	aubergine: [
-		{ elementType: 'geometry', stylers: [ { color: '#1d2c4d' } ] },
-		{ elementType: 'labels.text.fill', stylers: [ { color: '#8ec3b9' } ] },
-		{ elementType: 'labels.text.stroke', stylers: [ { color: '#1a3646' } ] },
-		{ featureType: 'poi', elementType: 'geometry', stylers: [ { color: '#283d6a' } ] },
-		{ featureType: 'road', elementType: 'geometry', stylers: [ { color: '#304a7d' } ] },
-		{ featureType: 'road.highway', elementType: 'geometry', stylers: [ { color: '#2c6675' } ] },
-		{ featureType: 'water', elementType: 'geometry', stylers: [ { color: '#0e1626' } ] },
-	],
-};
+declare const google: any;
 
 ( function () {
 	'use strict';
 
-	/**
-	 * Parse config from data attributes.
-	 */
-	function parseConfig( wrapper: HTMLElement ): MapConfig {
-		let markers: MapMarker[] = [];
-		try {
-			markers = JSON.parse( wrapper.getAttribute( 'data-markers' ) || '[]' );
-		} catch {
-			markers = [];
+	const INIT_FLAG = 'data-aegis-map-init';
+
+	interface MapConfig {
+		lat: number;
+		lng: number;
+		zoom: number;
+		mapType: string;
+		mapStyle: string;
+		provider: string;
+		markers: Array<{ lat: number; lng: number; title: string; description: string }>;
+		zoomControl: boolean;
+		mapTypeControl: boolean;
+		streetView: boolean;
+		fullscreen: boolean;
+		scrollWheel: boolean;
+		draggable: boolean;
+	}
+
+	function parseConfig( el: HTMLElement ): MapConfig {
+		const markersData = el.getAttribute( 'data-markers' );
+		let markers: Array<{ lat: number; lng: number; title: string; description: string }> = [];
+
+		if ( markersData ) {
+			try {
+				markers = JSON.parse( markersData );
+			} catch ( e ) {
+				console.error( 'Failed to parse map markers:', e );
+			}
 		}
 
-		const template = wrapper.querySelector<HTMLTemplateElement>( '.aegis-map__api-src' );
-
 		return {
-			lat: parseFloat( wrapper.getAttribute( 'data-lat' ) || '4.6495' ),
-			lng: parseFloat( wrapper.getAttribute( 'data-lng' ) || '-74.0627' ),
-			zoom: parseInt( wrapper.getAttribute( 'data-zoom' ) || '15', 10 ),
-			mapType: wrapper.getAttribute( 'data-map-type' ) || 'roadmap',
-			mapStyle: wrapper.getAttribute( 'data-map-style' ) || 'default',
-			provider: wrapper.getAttribute( 'data-provider' ) || 'openstreetmap',
-			zoomControl: wrapper.getAttribute( 'data-zoom-control' ) !== 'false',
-			mapTypeControl: wrapper.getAttribute( 'data-map-type-control' ) !== 'false',
-			streetView: wrapper.getAttribute( 'data-street-view' ) !== 'false',
-			fullscreen: wrapper.getAttribute( 'data-fullscreen' ) !== 'false',
-			scrollWheel: wrapper.getAttribute( 'data-scroll-wheel' ) === 'true',
-			draggable: wrapper.getAttribute( 'data-draggable' ) !== 'false',
+			lat: parseFloat( el.getAttribute( 'data-lat' ) || '0' ),
+			lng: parseFloat( el.getAttribute( 'data-lng' ) || '0' ),
+			zoom: parseInt( el.getAttribute( 'data-zoom' ) || '15', 10 ),
+			mapType: el.getAttribute( 'data-map-type' ) || 'roadmap',
+			mapStyle: el.getAttribute( 'data-map-style' ) || 'default',
+			provider: el.getAttribute( 'data-provider' ) || 'google',
 			markers,
-			apiSrc: template?.getAttribute( 'data-src' ) || '',
+			zoomControl: el.getAttribute( 'data-zoom-control' ) !== 'false',
+			mapTypeControl: el.getAttribute( 'data-map-type-control' ) === 'true',
+			streetView: el.getAttribute( 'data-street-view' ) === 'true',
+			fullscreen: el.getAttribute( 'data-fullscreen' ) === 'true',
+			scrollWheel: el.getAttribute( 'data-scroll-wheel' ) === 'true',
+			draggable: el.getAttribute( 'data-draggable' ) !== 'false',
 		};
 	}
 
-	/**
-	 * Load a script dynamically.
-	 */
-	function loadScript( src: string, id: string ): Promise<void> {
-		return new Promise( ( resolve, reject ) => {
-			if ( document.getElementById( id ) ) {
-				resolve();
-				return;
-			}
-			const script = document.createElement( 'script' );
-			script.id = id;
-			script.src = src;
-			script.async = true;
-			script.onload = () => resolve();
-			script.onerror = () => reject( new Error( `Failed to load: ${ src }` ) );
-			document.head.appendChild( script );
+	function initMap( wrapper: HTMLElement ): void {
+		if ( wrapper.hasAttribute( INIT_FLAG ) ) {
+			return;
+		}
+		wrapper.setAttribute( INIT_FLAG, '' );
+
+		const config = parseConfig( wrapper );
+
+		// Only Google Maps needs JS initialization (facade pattern).
+		if ( config.provider !== 'google' ) {
+			return;
+		}
+
+		const facade = wrapper.querySelector<HTMLElement>( '.aegis-map__facade' );
+		const canvas = wrapper.querySelector<HTMLElement>( '.aegis-map__canvas' );
+		const activateBtn = wrapper.querySelector<HTMLButtonElement>( '.aegis-map__activate' );
+		const apiTemplate = wrapper.querySelector<HTMLTemplateElement>( '.aegis-map__api-src' );
+
+		if ( ! facade || ! canvas || ! activateBtn || ! apiTemplate ) {
+			return;
+		}
+
+		const apiSrc = apiTemplate.getAttribute( 'data-src' );
+		if ( ! apiSrc ) {
+			return;
+		}
+
+		activateBtn.addEventListener( 'click', () => {
+			loadGoogleMapsAPI( apiSrc, () => {
+				renderGoogleMap( canvas, config );
+				facade.setAttribute( 'hidden', '' );
+				canvas.removeAttribute( 'hidden' );
+			} );
 		} );
 	}
 
-	/**
-	 * Initialize Google Maps on the canvas element.
-	 */
-	function initGoogleMap( canvas: HTMLElement, config: MapConfig ): void {
-		const map = new google.maps.Map( canvas, {
+	function loadGoogleMapsAPI( src: string, callback: () => void ): void {
+		if ( typeof google !== 'undefined' && google.maps ) {
+			callback();
+			return;
+		}
+
+		if ( document.querySelector( `script[src="${ src }"]` ) ) {
+			const checkInterval = setInterval( () => {
+				if ( typeof google !== 'undefined' && google.maps ) {
+					clearInterval( checkInterval );
+					callback();
+				}
+			}, 100 );
+			return;
+		}
+
+		const script = document.createElement( 'script' );
+		script.src = src;
+		script.async = true;
+		script.defer = true;
+		script.onload = callback;
+		document.head.appendChild( script );
+	}
+
+	function renderGoogleMap( canvas: HTMLElement, config: MapConfig ): void {
+		const mapOptions: any = {
 			center: { lat: config.lat, lng: config.lng },
 			zoom: config.zoom,
-			mapTypeId: config.mapType as google.maps.MapTypeId,
-			styles: MAP_STYLES[ config.mapStyle ] || [],
+			mapTypeId: config.mapType,
 			zoomControl: config.zoomControl,
 			mapTypeControl: config.mapTypeControl,
 			streetViewControl: config.streetView,
 			fullscreenControl: config.fullscreen,
 			scrollwheel: config.scrollWheel,
 			draggable: config.draggable,
-			gestureHandling: config.scrollWheel ? 'auto' : 'cooperative',
-		} );
+		};
+
+		const map = new google.maps.Map( canvas, mapOptions );
 
 		// Add markers.
 		config.markers.forEach( ( marker ) => {
-			const gMarker = new google.maps.Marker( {
+			const mapMarker = new google.maps.Marker( {
 				position: { lat: marker.lat, lng: marker.lng },
 				map,
 				title: marker.title,
 			} );
 
-			if ( marker.title || marker.description ) {
+			if ( marker.description ) {
 				const infoWindow = new google.maps.InfoWindow( {
-					content:
-						`<div class="aegis-map-info-window">` +
-						( marker.title ? `<strong>${ escapeHtml( marker.title ) }</strong>` : '' ) +
-						( marker.description ? `<p>${ escapeHtml( marker.description ) }</p>` : '' ) +
-						`</div>`,
+					content: `<div><strong>${ marker.title }</strong><p>${ marker.description }</p></div>`,
 				} );
-				gMarker.addListener( 'click', () => {
-					infoWindow.open( map, gMarker );
+
+				mapMarker.addListener( 'click', () => {
+					infoWindow.open( map, mapMarker );
 				} );
 			}
 		} );
 	}
 
-	/**
-	 * Escape HTML entities for safe insertion.
-	 */
-	function escapeHtml( str: string ): string {
-		const div = document.createElement( 'div' );
-		div.appendChild( document.createTextNode( str ) );
-		return div.innerHTML;
+	function initAll(): void {
+		const maps = document.querySelectorAll<HTMLElement>(
+			'.aegis-map:not([' + INIT_FLAG + '])'
+		);
+		maps.forEach( initMap );
 	}
 
-	/**
-	 * Activate a map instance: hide facade, show canvas, load interactive map.
-	 */
-	async function activateMap( wrapper: HTMLElement ): Promise<void> {
-		const config = parseConfig( wrapper );
-		const facade = wrapper.querySelector<HTMLElement>( '.aegis-map__facade' );
-		const canvas = wrapper.querySelector<HTMLElement>( '.aegis-map__canvas' );
-
-		if ( ! canvas ) return;
-
-		// Show canvas, hide facade.
-		if ( facade ) {
-			facade.hidden = true;
-		}
-		canvas.hidden = false;
-
-		// Load and initialize Google Maps.
-		if ( config.apiSrc ) {
-			try {
-				await loadScript( config.apiSrc, 'aegis-google-maps-api' );
-				initGoogleMap( canvas, config );
-			} catch {
-				// Google Maps failed to load — canvas remains empty.
-			}
-		}
-
-		// Mark as activated.
-		wrapper.classList.add( 'is-activated' );
-	}
-
-	/**
-	 * Initialize all map blocks on the page.
-	 */
-	function initAllMaps(): void {
-		const wrappers = document.querySelectorAll<HTMLElement>( '.aegis-map:not(.is-activated)' );
-
-		wrappers.forEach( ( wrapper ) => {
-			// Activate on click of the facade button.
-			const activateBtn = wrapper.querySelector<HTMLButtonElement>( '.aegis-map__activate' );
-			if ( activateBtn ) {
-				activateBtn.addEventListener( 'click', () => activateMap( wrapper ) );
-			}
-
-			// Also activate on hover (preload).
-			let hoverTimeout: ReturnType<typeof setTimeout> | null = null;
-			wrapper.addEventListener( 'mouseenter', () => {
-				if ( wrapper.classList.contains( 'is-activated' ) ) return;
-				hoverTimeout = setTimeout( () => activateMap( wrapper ), 200 );
-			} );
-			wrapper.addEventListener( 'mouseleave', () => {
-				if ( hoverTimeout ) {
-					clearTimeout( hoverTimeout );
-					hoverTimeout = null;
-				}
-			} );
-		} );
-	}
-
-	// Initialize when DOM is ready.
 	if ( document.readyState === 'loading' ) {
-		document.addEventListener( 'DOMContentLoaded', initAllMaps );
+		document.addEventListener( 'DOMContentLoaded', initAll );
 	} else {
-		initAllMaps();
+		initAll();
 	}
 } )();
