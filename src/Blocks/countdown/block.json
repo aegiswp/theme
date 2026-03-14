@@ -95,6 +95,26 @@
         "utc",
         "local"
       ]
+    },
+    "schemaEnabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "schemaEventName": {
+      "type": "string",
+      "default": ""
+    },
+    "schemaEventDescription": {
+      "type": "string",
+      "default": ""
+    },
+    "schemaEventLocation": {
+      "type": "string",
+      "default": ""
+    },
+    "schemaEventUrl": {
+      "type": "string",
+      "default": ""
     }
   },
   "example": {
