@@ -16,27 +16,18 @@
 	display: inline-flex;
 	align-items: center;
 	gap: 0.5em;
-	background: none;
-	border: none;
-	padding: 0;
-	font: inherit;
-	color: inherit;
 
 	&--button {
-		padding: 0.6em 1.2em;
-		background: var(--wp--preset--color--primary, #0073aa);
-		color: #fff;
-		border-radius: 4px;
-		font-weight: 500;
-		transition: background 0.2s ease;
-
-		&:hover {
-			background: var(--wp--preset--color--primary, #005a87);
-			filter: brightness(0.9);
-		}
+		// Inherits from .wp-element-button (theme global styles)
+		// No custom styling needed
 	}
 
 	&--text {
+		background: none;
+		border: none;
+		padding: 0;
+		font: inherit;
+		color: inherit;
 		text-decoration: underline;
 		text-underline-offset: 2px;
 
@@ -46,10 +37,17 @@
 	}
 
 	&--icon {
+		background: none;
+		border: none;
+		padding: 0.5em;
 		font-size: 1.5em;
+		color: inherit;
 	}
 
 	&--image {
+		background: none;
+		border: none;
+		padding: 0;
 
 		.aegis-modal-trigger__image {
 			max-width: 100%;
@@ -81,7 +79,7 @@
 	&__overlay {
 		position: absolute;
 		inset: 0;
-		background: var(--aegis-modal-overlay-color, rgba(0, 0, 0, 0.5));
+		background: var(--aegis-modal-overlay-color, var(--wp--preset--color--neutral-950, rgba(0, 0, 0, 0.5)));
 		backdrop-filter: blur(var(--aegis-modal-overlay-blur, 0));
 	}
 
@@ -98,12 +96,12 @@
 	// Content
 	&__content {
 		position: relative;
-		background: var(--aegis-modal-bg, #fff);
+		background: var(--aegis-modal-bg, var(--wp--preset--color--neutral-0, #fff));
 		border-radius: var(--aegis-modal-radius, 8px);
 		padding: var(--aegis-modal-padding, 24px);
 		overflow-y: auto;
 		max-height: var(--aegis-modal-max-height, 90vh);
-		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+		color: var(--wp--preset--color--neutral-950, inherit);
 
 		&:focus {
 			outline: none;
@@ -123,7 +121,7 @@
 		cursor: pointer;
 		border-radius: 50%;
 		transition: background 0.15s ease;
-		color: inherit;
+		color: var(--wp--preset--color--neutral-950, currentColor);
 
 		svg {
 			width: 20px;
@@ -132,7 +130,7 @@
 		}
 
 		&:hover {
-			background: rgba(0, 0, 0, 0.08);
+			background: var(--wp--preset--color--neutral-100, rgba(0, 0, 0, 0.08));
 		}
 
 		&:focus-visible {
@@ -151,10 +149,10 @@
 			position: absolute;
 			top: -44px;
 			right: 0;
-			color: #fff;
+			color: var(--wp--preset--color--neutral-0, #fff);
 
 			&:hover {
-				background: rgba(255, 255, 255, 0.15);
+				background: var(--wp--preset--color--neutral-800, rgba(255, 255, 255, 0.15));
 			}
 		}
 	}
