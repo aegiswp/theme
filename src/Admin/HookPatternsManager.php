@@ -70,6 +70,10 @@ use function wp_json_encode;
 use function json_decode;
 use function esc_textarea;
 use function wp_style_is;
+use function get_transient;
+use function set_transient;
+use function delete_transient;
+use const HOUR_IN_SECONDS;
 
 /**
  * Hook Patterns Manager Class
@@ -115,9 +119,24 @@ class HookPatternsManager {
 		$this->register_post_type();
 		$this->register_meta_fields();
 
+		// Invalidate available hooks cache when template parts change.
+		add_action( 'save_post_wp_template_part', [ __CLASS__, 'flush_hooks_cache' ] );
+
 		if (is_admin()) {
 			$this->register_admin_hooks();
 		}
+	}
+
+	/**
+	 * Flush the available hooks transient cache.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+	public static function flush_hooks_cache(): void {
+		delete_transient( 'aegis_available_hooks' );
+		self::$available_hooks = null;
 	}
 
 	/**
@@ -627,6 +646,12 @@ class HookPatternsManager {
 			return self::$available_hooks;
 		}
 
+		$cached = get_transient( 'aegis_available_hooks' );
+		if ( is_array( $cached ) ) {
+			self::$available_hooks = $cached;
+			return $cached;
+		}
+
 		$hooks = [
 			'template-parts' => [],
 			'content'        => [],
@@ -649,12 +674,10 @@ class HookPatternsManager {
 			'post_type'      => 'wp_template_part',
 			'post_status'    => 'publish',
 			'posts_per_page' => 100,
-			'fields'         => 'ids',
 		]);
-		foreach ($db_parts as $part_id) {
-			$post = get_post($part_id);
-			if ($post && $post->post_name) {
-				$slugs[] = $post->post_name;
+		foreach ($db_parts as $part) {
+			if ($part->post_name) {
+				$slugs[] = $part->post_name;
 			}
 		}
 
@@ -687,6 +710,7 @@ class HookPatternsManager {
 		}
 
 		self::$available_hooks = $hooks;
+		set_transient( 'aegis_available_hooks', $hooks, HOUR_IN_SECONDS );
 		return $hooks;
 	}
 
@@ -701,24 +725,27 @@ class HookPatternsManager {
 	 */
 	public function get_active_patterns_for_hook(string $hook): array {
 		$args = [
-			'post_type' => self::POST_TYPE,
-			'post_status' => 'publish',
+			'post_type'      => self::POST_TYPE,
+			'post_status'    => 'publish',
 			'posts_per_page' => -1,
-			'meta_query' => [
+			'meta_query'     => [
 				[
-					'key' => '_aegis_hook_name',
+					'key'   => '_aegis_hook_name',
 					'value' => $hook,
 				],
 				[
-					'key' => '_aegis_enabled',
+					'key'   => '_aegis_enabled',
 					'value' => '1',
+				],
+				'priority_clause' => [
+					'key'  => '_aegis_priority',
+					'type' => 'NUMERIC',
 				],
 			],
 			'orderby' => [
-				'meta_value_num' => 'ASC',
-				'date' => 'DESC',
+				'priority_clause' => 'ASC',
+				'date'            => 'DESC',
 			],
-			'meta_key' => '_aegis_priority',
 		];
 
 		return get_posts($args);
