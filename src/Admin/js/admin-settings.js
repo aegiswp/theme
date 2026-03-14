@@ -188,7 +188,7 @@
 	 */
 	function initAjaxSave() {
 		// Handle Conditional Logic form
-		$( '.aegis-settings-form:not(.aegis-integrations-form):not(.aegis-blocks-form)' ).on( 'submit', function( e ) {
+		$( '.aegis-settings-form:not(.aegis-integrations-form):not(.aegis-blocks-form):not(.aegis-general-settings-form):not(.aegis-analytics-form)' ).on( 'submit', function( e ) {
 			e.preventDefault();
 			const $form = $( this );
 			const $submitBtn = $form.find( 'input[type="submit"]' );
@@ -319,6 +319,111 @@
 				type: 'POST',
 				data: {
 					action: 'aegis_save_integrations',
+					nonce: aegisAdmin.nonce,
+					settings: settings
+				},
+				success: function( response ) {
+					if ( response.success ) {
+						showNotice( aegisAdmin.saved, 'success' );
+					} else {
+						showNotice( response.data.message || aegisAdmin.error, 'error' );
+					}
+				},
+				error: function() {
+					showNotice( aegisAdmin.error, 'error' );
+				},
+				complete: function() {
+					$submitBtn.val( originalText ).prop( 'disabled', false );
+				}
+			} );
+		} );
+
+		// Handle General Settings form
+		$( '.aegis-general-settings-form' ).on( 'submit', function( e ) {
+			e.preventDefault();
+			const $form = $( this );
+			const $submitBtn = $form.find( 'input[type="submit"]' );
+
+			if ( typeof aegisAdmin === 'undefined' ) {
+				return;
+			}
+
+			const originalText = $submitBtn.val();
+			$submitBtn.val( aegisAdmin.saving ).prop( 'disabled', true );
+
+			// Collect general settings
+			const settings = {};
+			$form.find( 'input[type="checkbox"]' ).each( function() {
+				const name = $( this ).attr( 'name' );
+				const match = name.match( /aegis_settings\[(\w+)\]/ );
+
+				if ( match ) {
+					settings[ match[1] ] = $( this ).is( ':checked' ) ? '1' : '0';
+				}
+			} );
+
+			$.ajax( {
+				url: aegisAdmin.ajaxUrl,
+				type: 'POST',
+				data: {
+					action: 'aegis_save_general_settings',
+					nonce: aegisAdmin.nonce,
+					settings: settings
+				},
+				success: function( response ) {
+					if ( response.success ) {
+						showNotice( aegisAdmin.saved, 'success' );
+					} else {
+						showNotice( response.data.message || aegisAdmin.error, 'error' );
+					}
+				},
+				error: function() {
+					showNotice( aegisAdmin.error, 'error' );
+				},
+				complete: function() {
+					$submitBtn.val( originalText ).prop( 'disabled', false );
+				}
+			} );
+		} );
+
+		// Handle Analytics form
+		$( '.aegis-analytics-form' ).on( 'submit', function( e ) {
+			e.preventDefault();
+			const $form = $( this );
+			const $submitBtn = $form.find( 'input[type="submit"]' );
+
+			if ( typeof aegisAdmin === 'undefined' ) {
+				return;
+			}
+
+			const originalText = $submitBtn.val();
+			$submitBtn.val( aegisAdmin.saving ).prop( 'disabled', true );
+
+			// Collect analytics settings (checkboxes + text/url inputs)
+			const settings = {};
+			$form.find( 'input[type="checkbox"]' ).each( function() {
+				const name = $( this ).attr( 'name' );
+				const match = name.match( /aegis_analytics\[(\w+)\]/ );
+
+				if ( match ) {
+					settings[ match[1] ] = $( this ).is( ':checked' ) ? '1' : '0';
+				}
+			} );
+
+			$form.find( 'input[type="text"], input[type="url"], input[type="password"]' ).each( function() {
+				const name = $( this ).attr( 'name' );
+				const match = name.match( /aegis_analytics\[(\w+)\]/ );
+
+				if ( match ) {
+					settings[ match[1] ] = $( this ).val();
+				}
+			} );
+
+			$.ajax( {
+				url: aegisAdmin.ajaxUrl,
+				type: 'POST',
+				data: {
+					action: 'aegis_save_analytics',
 					nonce: aegisAdmin.nonce,
 					settings: settings
 				},
