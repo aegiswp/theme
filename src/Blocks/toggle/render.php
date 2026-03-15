@@ -6,9 +6,9 @@
  * @since   1.0.0
  */
 
-declare( strict_types=1 );
+declare(strict_types=1);
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 $heading            = $attributes['heading'] ?? '';
 $heading_tag        = $attributes['headingTag'] ?? 'h3';
@@ -17,6 +17,7 @@ $icon_position      = $attributes['iconPosition'] ?? 'right';
 $icon_type          = $attributes['iconType'] ?? 'chevron';
 $allow_multiple     = $attributes['allowMultiple'] ?? true;
 $animation_duration = $attributes['animationDuration'] ?? 300;
+$faq_schema         = $attributes['faqSchema'] ?? false;
 
 // Sanitize heading tag against allowlist.
 $allowed_heading_tags = array( 'h2', 'h3', 'h4', 'h5', 'h6', 'p' );
@@ -113,3 +114,28 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		</div>
 	</div>
 </div>
+<?php
+if ( $faq_schema && ! empty( $heading ) &&
+	class_exists( '\Aegis\Admin\ConditionalLogicSettings' ) &&
+	\Aegis\Admin\ConditionalLogicSettings::is_block_enabled( 'accordion_faq_schema' )
+) {
+	$answer_text = wp_strip_all_tags( $content );
+	if ( ! empty( $answer_text ) ) {
+		$schema = [
+			'@context'   => 'https://schema.org',
+			'@type'      => 'FAQPage',
+			'mainEntity' => [
+				[
+					'@type'          => 'Question',
+					'name'           => wp_strip_all_tags( $heading ),
+					'acceptedAnswer' => [
+						'@type' => 'Answer',
+						'text'  => $answer_text,
+					],
+				],
+			],
+		];
+		echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES ) . '</script>';
+	}
+}
+?>
