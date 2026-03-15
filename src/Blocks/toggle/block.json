@@ -77,6 +77,10 @@
     "animationDuration": {
       "type": "number",
       "default": 300
+    },
+    "faqSchema": {
+      "type": "boolean",
+      "default": false
     }
   },
   "example": {
