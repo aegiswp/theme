@@ -19,7 +19,6 @@ use function add_action;
 use function is_admin;
 use function is_checkout;
 use function wp_localize_script;
-use function wp_script_add_data;
 use function esc_html__;
 
 class MultiStep {
@@ -30,30 +29,14 @@ class MultiStep {
 	 * @return void
 	 */
 	public function init(): void {
-		add_action( 'init', [ $this, 'localize_assets' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_assets' ], 11 );
-	}
-
-	/**
-	 * Localize multi-step checkout script data.
-	 *
-	 * Asset registration is handled centrally by AssetManager.
-	 *
-	 * @return void
-	 */
-	public function localize_assets(): void {
-		wp_script_add_data( 'aegis-checkout-multi-step', 'defer', true );
-
-		wp_localize_script( 'aegis-checkout-multi-step', 'aegisCheckout', [
-			'continueToPayment' => esc_html__( 'Continue to Payment →', 'aegis' ),
-			'reviewOrder'       => esc_html__( 'Review Order →', 'aegis' ),
-		] );
 	}
 
 	/**
 	 * Conditionally enqueue multi-step checkout assets.
 	 *
 	 * Uses WordPress conditional functions and block detection for optimal loading.
+	 * Localization is done here (after enqueue) to guarantee the script is registered.
 	 *
 	 * @return void
 	 */
@@ -66,6 +49,11 @@ class MultiStep {
 		if ( function_exists( 'is_checkout' ) && is_checkout() ) {
 			AssetManager::enqueue_style( 'aegis-checkout-multi-step' );
 			AssetManager::enqueue_script( 'aegis-checkout-multi-step' );
+
+			wp_localize_script( 'aegis-checkout-multi-step', 'aegisCheckout', [
+				'continueToPayment' => esc_html__( 'Continue to Payment →', 'aegis' ),
+				'reviewOrder'       => esc_html__( 'Review Order →', 'aegis' ),
+			] );
 		}
 	}
 }
