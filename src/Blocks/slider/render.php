@@ -34,55 +34,33 @@ if ( class_exists( '\Aegis\Admin\ConditionalLogicSettings' ) ) {
 	$lightbox = \Aegis\Admin\ConditionalLogicSettings::is_block_enabled( 'slider_lightbox' );
 }
 
-// Build wrapper classes.
-$wrapper_classes = array(
-	'wp-block-aegis-slider',
-	'splide',
-);
-
-if ( ! empty( $attributes['className'] ) ) {
-	$wrapper_classes[] = $attributes['className'];
-}
-
-if ( ! empty( $attributes['align'] ) ) {
-	$wrapper_classes[] = 'align' . $attributes['align'];
-}
-
-$wrapper_class = implode( ' ', $wrapper_classes );
-
-// Build data attributes for the frontend JS.
-$data_attrs = sprintf(
-	'data-type="%s" data-per-page="%s" data-per-move="%s" data-autoplay="%s" data-pause-on-hover="%s" data-loop="%s" data-drag="%s" data-show-arrows="%s" data-show-dots="%s" data-speed="%s" data-interval="%s" data-direction="%s" data-height="%s" data-breakpoints="%s" data-gap="%s" data-lightbox="%s"',
-	esc_attr( $type ),
-	esc_attr( (string) $per_page ),
-	esc_attr( (string) $per_move ),
-	$autoplay ? 'true' : 'false',
-	$pause_on_hover ? 'true' : 'false',
-	$loop ? 'true' : 'false',
-	$drag ? 'true' : 'false',
-	$show_arrows ? 'true' : 'false',
-	$show_dots ? 'true' : 'false',
-	esc_attr( (string) $speed ),
-	esc_attr( (string) $interval ),
-	esc_attr( $direction ),
-	esc_attr( $height ),
-	$breakpoints ? 'true' : 'false',
-	esc_attr( $gap ),
-	$lightbox ? 'true' : 'false'
-);
+// Build wrapper attributes using get_block_wrapper_attributes() to
+// honour block supports (spacing) and handle className / anchor / align.
+$wrapper_attributes = get_block_wrapper_attributes( [
+	'class'                  => 'splide',
+	'data-type'              => esc_attr( $type ),
+	'data-per-page'          => esc_attr( (string) $per_page ),
+	'data-per-move'          => esc_attr( (string) $per_move ),
+	'data-autoplay'          => $autoplay ? 'true' : 'false',
+	'data-pause-on-hover'    => $pause_on_hover ? 'true' : 'false',
+	'data-loop'              => $loop ? 'true' : 'false',
+	'data-drag'              => $drag ? 'true' : 'false',
+	'data-show-arrows'       => $show_arrows ? 'true' : 'false',
+	'data-show-dots'         => $show_dots ? 'true' : 'false',
+	'data-speed'             => esc_attr( (string) $speed ),
+	'data-interval'          => esc_attr( (string) $interval ),
+	'data-direction'         => esc_attr( $direction ),
+	'data-height'            => esc_attr( $height ),
+	'data-breakpoints'       => $breakpoints ? 'true' : 'false',
+	'data-gap'               => esc_attr( $gap ),
+	'data-lightbox'          => $lightbox ? 'true' : 'false',
+	'role'                   => 'region',
+	'aria-roledescription'   => esc_attr__( 'carousel', 'aegis' ),
+	'aria-label'             => esc_attr( ! empty( $attributes['anchor'] ) ? $attributes['anchor'] : __( 'Slider', 'aegis' ) ),
+] );
 
 ?>
-<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $data_attrs built from esc_attr() calls. ?>
-<div
-	class="<?php echo esc_attr( $wrapper_class ); ?>"
-	<?php echo $data_attrs; ?>
-	<?php if ( ! empty( $attributes['anchor'] ) ) : ?>
-		id="<?php echo esc_attr( $attributes['anchor'] ); ?>"
-	<?php endif; ?>
-	role="region"
-	aria-roledescription="<?php esc_attr_e( 'carousel', 'aegis' ); ?>"
-	aria-label="<?php echo esc_attr( ! empty( $attributes['anchor'] ) ? $attributes['anchor'] : __( 'Slider', 'aegis' ) ); ?>"
->
+<div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped by get_block_wrapper_attributes(). ?>>
 	<div class="splide__track">
 		<div class="splide__list">
 			<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
