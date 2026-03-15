@@ -31,6 +31,7 @@ interface ToggleAttributes {
 	iconType: string;
 	allowMultiple: boolean;
 	animationDuration: number;
+	faqSchema: boolean;
 }
 
 interface EditProps {
@@ -103,6 +104,12 @@ function Edit( { attributes, setAttributes }: EditProps ) {
 						checked={ attributes.allowMultiple }
 						onChange={ ( value ) => setAttributes( { allowMultiple: value } ) }
 						help={ __( 'Allow multiple toggles to be open at the same time.', 'aegis' ) }
+					/>
+					<ToggleControl
+						label={ __( 'FAQ Schema', 'aegis' ) }
+						checked={ attributes.faqSchema }
+						onChange={ ( value ) => setAttributes( { faqSchema: value } ) }
+						help={ __( 'Add FAQPage structured data markup for SEO.', 'aegis' ) }
 					/>
 				</PanelBody>
 			</InspectorControls>
