@@ -6,9 +6,9 @@
  * @since   1.0.0
  */
 
-declare( strict_types=1 );
+declare(strict_types=1);
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
