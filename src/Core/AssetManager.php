@@ -13,6 +13,8 @@ declare( strict_types=1 );
 
 namespace Aegis\Core;
 
+use Aegis\Utilities\Debug;
+
 use function add_action;
 use function get_template_directory_uri;
 use function has_block;
@@ -34,6 +36,15 @@ class AssetManager {
 	private static array $registered = [];
 
 	/**
+	 * Get version string: bust cache in debug mode.
+	 *
+	 * @return string
+	 */
+	private static function version(): string {
+		return Debug::is_enabled() ? (string) time() : '1.0.0';
+	}
+
+	/**
 	 * Initialize hooks and register core assets.
 	 *
 	 * @return void
@@ -53,11 +64,13 @@ class AssetManager {
 		$base_uri = get_template_directory_uri();
 
 		// Navigation overlay assets
+		$version = self::version();
+
 		self::register_style(
 			'aegis-navigation-overlay',
 			$base_uri . '/src/Navigation/css/overlay.css',
 			[ 'wp-blocks', 'wp-navigation' ],
-			'1.0.0'
+			$version
 		);
 
 		// Checkout multi-step assets (only when WooCommerce is active)
@@ -66,14 +79,14 @@ class AssetManager {
 				'aegis-checkout-multi-step',
 				$base_uri . '/src/Checkout/css/multi-step.css',
 				[ 'wc-checkout', 'woocommerce-general' ],
-				'1.0.0'
+				$version
 			);
 
 			self::register_script(
 				'aegis-checkout-multi-step',
 				$base_uri . '/src/Checkout/js/multi-step.js',
-				[ 'jquery', 'wc-checkout', 'wp-blocks' ],
-				'1.0.0',
+				[ 'jquery', 'wc-checkout' ],
+				$version,
 				true
 			);
 		}
@@ -83,7 +96,7 @@ class AssetManager {
 			'aegis-breadcrumbs',
 			$base_uri . '/src/CoreBlocks/css/breadcrumbs.css',
 			[ 'wp-blocks' ],
-			'1.0.0'
+			$version
 		);
 
 	}
