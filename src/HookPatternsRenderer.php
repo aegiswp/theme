@@ -16,7 +16,6 @@ namespace Aegis;
 
 use function add_action;
 use function add_filter;
-use function do_action;
 use function get_post_meta;
 use function wp_cache_get;
 use function wp_cache_set;
@@ -31,7 +30,7 @@ use function get_posts;
 use function wp_cache_flush_group;
 use function is_user_logged_in;
 use function wp_get_current_user;
-use function current_time;
+use function current_datetime;
 use function strtotime;
 use function is_front_page;
 use function is_home;
@@ -56,6 +55,9 @@ use function str_contains;
 use function str_starts_with;
 use function function_exists;
 use function wp_parse_url;
+use function sanitize_text_field;
+use function wp_unslash;
+use Aegis\Utilities\UserAgent;
 
 /**
  * Hook Patterns Renderer Class
@@ -112,54 +114,6 @@ class HookPatternsRenderer {
 		}
 
 		$this->register_hook_callbacks();
-		$this->register_block_hooks();
-	}
-
-	/**
-	 * Register render_block filter to fire action hooks around
-	 * core/template-part and core/post-content blocks.
-	 *
-	 * This enables aegis_before_{slug} / aegis_after_{slug} for every
-	 * template part, and aegis_before_content / aegis_after_content
-	 * for the post content block — all without needing PHP template files.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return void
-	 */
-	private function register_block_hooks(): void {
-		add_filter('render_block', function (string $block_content, array $block): string {
-			$name = $block['blockName'] ?? '';
-
-			if ($name === 'core/template-part') {
-				$slug = $block['attrs']['slug'] ?? '';
-				if ($slug !== '') {
-					ob_start();
-					do_action("aegis_before_{$slug}"); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
-					$before = ob_get_clean();
-
-					ob_start();
-					do_action("aegis_after_{$slug}"); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
-					$after = ob_get_clean();
-
-					$block_content = $before . $block_content . $after;
-				}
-			}
-
-			if ($name === 'core/post-content') {
-				ob_start();
-				do_action('aegis_before_content');
-				$before = ob_get_clean();
-
-				ob_start();
-				do_action('aegis_after_content');
-				$after = ob_get_clean();
-
-				$block_content = $before . $block_content . $after;
-			}
-
-			return $block_content;
-		}, 10, 2);
 	}
 
 	/**
@@ -213,32 +167,34 @@ class HookPatternsRenderer {
 			return;
 		}
 
-		// Group patterns by hook name
+		// Group patterns by hook name and priority.
 		$grouped = [];
 		foreach ( $patterns as $pattern ) {
 			$hook = get_post_meta( $pattern->ID, '_aegis_hook_name', true );
 			if ( ! $hook ) {
 				continue;
 			}
-			$grouped[ $hook ][] = $pattern;
+			$priority = (int) ( get_post_meta( $pattern->ID, '_aegis_priority', true ) ?: $this->settings['default_priority'] );
+			$grouped[ $hook ][ $priority ][] = $pattern;
 		}
 
-		// Register one closure per hook that renders all its patterns
-		foreach ( $grouped as $hook => $hook_patterns ) {
-			$priority = (int) ( get_post_meta( $hook_patterns[0]->ID, '_aegis_priority', true ) ?: $this->settings['default_priority'] );
-			$renderer = $this;
+		// Register one closure per hook+priority combination.
+		foreach ( $grouped as $hook => $priorities ) {
+			foreach ( $priorities as $priority => $priority_patterns ) {
+				$renderer = $this;
 
-			add_action( $hook, static function () use ( $renderer, $hook_patterns ): void {
-				foreach ( $hook_patterns as $pattern ) {
-					if ( ! $renderer->should_render_pattern( $pattern->ID ) ) {
-						continue;
+				add_action( $hook, static function () use ( $renderer, $priority_patterns ): void {
+					foreach ( $priority_patterns as $pattern ) {
+						if ( ! $renderer->should_render_pattern( $pattern->ID ) ) {
+							continue;
+						}
+						$content = $renderer->get_pattern_content( $pattern->ID );
+						if ( $content !== '' ) {
+							echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						}
 					}
-					$content = $renderer->get_pattern_content( $pattern->ID );
-					if ( $content !== '' ) {
-						echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					}
-				}
-			}, $priority );
+				}, $priority );
+			}
 		}
 	}
 
@@ -253,29 +209,48 @@ class HookPatternsRenderer {
 		$cache_key = 'all_active_patterns';
 
 		if ( $this->settings['cache_patterns'] ) {
+			// Try object cache first (fast, in-memory).
 			$cached = wp_cache_get( $cache_key, self::CACHE_GROUP );
 			if ( $cached !== false ) {
 				return $cached;
 			}
+
+			// Transient fallback when no persistent object cache is available.
+			if ( ! wp_using_ext_object_cache() ) {
+				$cached = get_transient( 'aegis_' . $cache_key );
+				if ( $cached !== false ) {
+					return $cached;
+				}
+			}
 		}
+
+		/** @var int $limit Maximum number of active hook patterns to query. */
+		$limit = (int) apply_filters( 'aegis_hook_patterns_limit', 100 );
 
 		$patterns = get_posts( [
 			'post_type'      => 'aegis_hook_pattern',
 			'post_status'    => 'publish',
-			'posts_per_page' => 100,
-			'meta_query'     => [
+			'posts_per_page' => $limit,
+			'meta_query'     => [ // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+				'relation' => 'AND',
 				[
 					'key'   => '_aegis_enabled',
 					'value' => '1',
 				],
+				'priority_clause' => [
+					'key'  => '_aegis_priority',
+					'type' => 'NUMERIC',
+				],
 			],
-			'orderby'  => 'meta_value_num',
-			'meta_key' => '_aegis_priority',
-			'order'    => 'ASC',
+			'orderby' => [ 'priority_clause' => 'ASC' ],
 		] );
 
 		if ( $this->settings['cache_patterns'] ) {
 			wp_cache_set( $cache_key, $patterns, self::CACHE_GROUP, self::CACHE_EXPIRY );
+
+			if ( ! wp_using_ext_object_cache() ) {
+				set_transient( 'aegis_' . $cache_key, $patterns, self::CACHE_EXPIRY );
+			}
 		}
 
 		return $patterns;
@@ -378,7 +353,7 @@ class HookPatternsRenderer {
 
 		// Schedule.
 		if ( ! empty( $c['scheduleStart'] ) || ! empty( $c['scheduleEnd'] ) ) {
-			$now = current_time( 'timestamp' );
+			$now = current_datetime()->getTimestamp();
 			if ( ! empty( $c['scheduleStart'] ) ) {
 				$start_ts = strtotime( $c['scheduleStart'] );
 				if ( $start_ts && $now < $start_ts ) {
@@ -429,7 +404,7 @@ class HookPatternsRenderer {
 					if ( $param === '' ) {
 						return false;
 					}
-					$actual = $_GET[ $param ] ?? null; // phpcs:ignore WordPress.Security.NonceVerification
+					$actual = isset( $_GET[ $param ] ) ? sanitize_text_field( wp_unslash( $_GET[ $param ] ) ) : null; // phpcs:ignore WordPress.Security.NonceVerification
 					return $this->compare( $actual, $rule['operator'] ?? 'is', $rule['value'] ?? '' );
 				}
 			);
@@ -445,8 +420,8 @@ class HookPatternsRenderer {
 				$c['deviceLogic'] ?? 'show',
 				$c['deviceRelation'] ?? 'all',
 				function ( array $rule ): bool {
-					$ua    = $_SERVER['HTTP_USER_AGENT'] ?? '';
-					$match = $this->ua_matches_device( $ua, $rule['device'] ?? '' );
+					$ua    = isset( $_SERVER['HTTP_USER_AGENT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ) : '';
+					$match = UserAgent::matches_device( $ua, $rule['device'] ?? '' );
 					return ( $rule['operator'] ?? 'is' ) === 'is' ? $match : ! $match;
 				}
 			);
@@ -466,7 +441,7 @@ class HookPatternsRenderer {
 					if ( $name === '' ) {
 						return false;
 					}
-					$actual = $_COOKIE[ $name ] ?? null; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+						$actual = isset( $_COOKIE[ $name ] ) ? sanitize_text_field( wp_unslash( $_COOKIE[ $name ] ) ) : null; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
 					return $this->compare( $actual, $rule['operator'] ?? 'is', $rule['value'] ?? '' );
 				}
 			);
@@ -482,7 +457,7 @@ class HookPatternsRenderer {
 				$c['referralLogic'] ?? 'show',
 				$c['referralRelation'] ?? 'all',
 				function ( array $rule ): bool {
-					$referer = $_SERVER['HTTP_REFERER'] ?? '';
+					$referer = isset( $_SERVER['HTTP_REFERER'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_REFERER'] ) ) : '';
 					$domain  = $rule['domain'] ?? '';
 					if ( $domain === '' ) {
 						return false;
@@ -741,7 +716,7 @@ class HookPatternsRenderer {
 				return $op === 'is' ? $match : ! $match;
 
 			case 'urlPath':
-				$path = $_SERVER['REQUEST_URI'] ?? '';
+				$path = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
 				switch ( $op ) {
 					case 'is':
 						return $path === $value;
@@ -787,7 +762,8 @@ class HookPatternsRenderer {
 	/**
 	 * Check if user-agent string matches a device/browser identifier.
 	 *
-	 * @since 1.0.0
+	 * @since      1.0.0
+	 * @deprecated 1.1.0 Use {@see UserAgent::matches_device()} instead.
 	 *
 	 * @param string $ua     User-Agent string.
 	 * @param string $device Device identifier.
@@ -795,29 +771,7 @@ class HookPatternsRenderer {
 	 * @return bool
 	 */
 	private function ua_matches_device( string $ua, string $device ): bool {
-		$ua = strtolower( $ua );
-		switch ( $device ) {
-			case 'ios':
-				return str_contains( $ua, 'iphone' ) || str_contains( $ua, 'ipad' );
-			case 'android':
-				return str_contains( $ua, 'android' );
-			case 'windows':
-				return str_contains( $ua, 'windows' );
-			case 'macos':
-				return str_contains( $ua, 'macintosh' );
-			case 'linux':
-				return str_contains( $ua, 'linux' ) && ! str_contains( $ua, 'android' );
-			case 'chrome':
-				return str_contains( $ua, 'chrome' ) && ! str_contains( $ua, 'edg' );
-			case 'firefox':
-				return str_contains( $ua, 'firefox' );
-			case 'safari':
-				return str_contains( $ua, 'safari' ) && ! str_contains( $ua, 'chrome' );
-			case 'edge':
-				return str_contains( $ua, 'edg' );
-			default:
-				return false;
-		}
+		return UserAgent::matches_device( $ua, $device );
 	}
 
 	/**
