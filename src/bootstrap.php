@@ -19,16 +19,20 @@ use Aegis\HookPatternsRenderer;
 use Aegis\Checkout\MultiStep;
 use Aegis\CoreBlocks\Breadcrumbs;
 use Aegis\Navigation\Overlay;
+use Aegis\Analytics\Tracker;
 
 // Initialize centralized asset management first.
 AssetManager::init();
 
 add_action( 'init', static function (): void {
-	( new ConditionalLogicSettings() )->init();
-	( new HookPatternsManager() )->init();
+	if ( is_admin() ) {
+		ConditionalLogicSettings::get_instance()->init();
+		( new HookPatternsManager() )->init();
+	}
 	( new MultiStep() )->init();
 	( new Overlay() )->init();
 	( new Breadcrumbs() )->init();
+	( new Tracker() )->init();
 } );
 
 // Register hook pattern rendering on template_redirect (frontend only).
