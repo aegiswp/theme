@@ -3,7 +3,9 @@
  * Title: Wide
  * Slug: wide
  * Categories: footer
- * ID: 
+ * Keywords: footer, wide, columns, navigation
+ * Description: A wide footer with multiple columns.
+ * Viewport Width: 1280 
  * Block Types: core/template-part/footer
  */
 ?>
@@ -36,8 +38,7 @@
             <div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column -->
                 <div class="wp-block-column">
                     <!-- wp:heading {"level":6,"className":"has-text-align-left is-style-heading","fontSize":"inherit"} -->
-                    <h6 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size">Navigation
-                    </h6>
+                    <h6 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size"><?php echo esc_html__( 'Navigation', 'aegis' ); ?></h6>
                     <!-- /wp:heading -->
 
                     <!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} /-->
@@ -47,8 +48,7 @@
                 <!-- wp:column -->
                 <div class="wp-block-column">
                     <!-- wp:heading {"level":6,"className":"has-text-align-left is-style-heading","fontSize":"inherit"} -->
-                    <h6 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size">Navigation
-                    </h6>
+                    <h6 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size"><?php echo esc_html__( 'Navigation', 'aegis' ); ?></h6>
                     <!-- /wp:heading -->
 
                     <!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} /-->
@@ -64,8 +64,7 @@
             <div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column -->
                 <div class="wp-block-column">
                     <!-- wp:heading {"level":6,"className":"has-text-align-left is-style-heading","fontSize":"inherit"} -->
-                    <h6 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size">Navigation
-                    </h6>
+                    <h6 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size"><?php echo esc_html__( 'Navigation', 'aegis' ); ?></h6>
                     <!-- /wp:heading -->
 
                     <!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} /-->
@@ -75,8 +74,7 @@
                 <!-- wp:column -->
                 <div class="wp-block-column">
                     <!-- wp:heading {"level":6,"className":"has-text-align-left is-style-heading","fontSize":"inherit"} -->
-                    <h6 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size">Navigation
-                    </h6>
+                    <h6 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size"><?php echo esc_html__( 'Navigation', 'aegis' ); ?></h6>
                     <!-- /wp:heading -->
 
                     <!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} /-->
@@ -92,8 +90,7 @@
             <div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column -->
                 <div class="wp-block-column">
                     <!-- wp:heading {"level":6,"className":"has-text-align-left is-style-heading","fontSize":"inherit"} -->
-                    <h6 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size">Navigation
-                    </h6>
+                    <h6 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size"><?php echo esc_html__( 'Navigation', 'aegis' ); ?></h6>
                     <!-- /wp:heading -->
 
                     <!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} /-->
@@ -103,8 +100,7 @@
                 <!-- wp:column -->
                 <div class="wp-block-column">
                     <!-- wp:heading {"level":6,"className":"has-text-align-left is-style-heading","fontSize":"inherit"} -->
-                    <h6 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size">Navigation
-                    </h6>
+                    <h6 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size"><?php echo esc_html__( 'Navigation', 'aegis' ); ?></h6>
                     <!-- /wp:heading -->
 
                     <!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} /-->
@@ -120,7 +116,7 @@
     <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|md","top":"var:preset|spacing|md"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
     <div class="wp-block-group alignwide"
         style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md)">
-        <!-- wp:social-links {"iconColor":"neutral-400","iconColorValue":"#94a3b8","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"top":"20px","left":"20px"}}},"layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
+        <!-- wp:social-links {"iconColor":"neutral-400","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"top":"20px","left":"20px"}}},"layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
         <ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
             <!-- wp:social-link {"url":"#","service":"facebook"} /-->
 
@@ -137,13 +133,13 @@
             <!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"0.2em","margin":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"left"}} -->
             <div class="wp-block-group alignwide" style="margin-top:0;margin-bottom:0">
                 <!-- wp:paragraph {"align":"center"} -->
-                <p class="aligncenter has-text-align-center aligncenter">© Copyright {year}</p>
+                <p class="aligncenter has-text-align-center aligncenter"><?php echo esc_html__( '© Copyright {year}', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:site-title {"level":0} /-->
 
                 <!-- wp:paragraph {"align":"center"} -->
-                <p class="aligncenter has-text-align-center aligncenter">· All rights reserved.</p>
+                <p class="aligncenter has-text-align-center aligncenter"><?php echo esc_html__( '· All rights reserved.', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->
@@ -155,7 +151,7 @@
                     <div class="wp-block-button is-style-fill has-shadow has-none-shadow has-sm-shadow-hover"
                         style="padding-top:0;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:0;padding-left:var(--wp--preset--spacing--xxs);--wp--custom--icon--background:var(--wp--preset--color--transparent, currentColor);--wp--custom--icon--color:var(--wp--preset--color--current,currentColor);--wp--custom--icon--padding:0 var(--wp--preset--spacing--xxs) 0 var(--wp--preset--spacing--xxs);--wp--custom--icon--size:20px;--wp--custom--icon--url:url('data:image/svg+xml;utf8,<svg viewBox=&quot;0 0 24 24&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;<path d=&quot;M6.5 12.4 12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z&quot;/&gt;</svg&gt;')">
                         <a class="wp-block-button__link has-current-color has-transparent-background-color has-text-color has-background wp-element-button"
-                            style="padding-top:0;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:0;padding-left:var(--wp--preset--spacing--xxs)">Back to Top</a>
+                            style="padding-top:0;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:0;padding-left:var(--wp--preset--spacing--xxs)"><?php echo esc_html__( 'Back to Top', 'aegis' ); ?></a>
                     </div>
                     <!-- /wp:button -->
                 </div>
