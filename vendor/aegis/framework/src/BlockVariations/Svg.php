@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for blocks variations.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for block variations within the Aegis Framework.
 namespace Aegis\Framework\BlockVariations;
@@ -120,7 +120,7 @@ class Svg implements Renderable
 		$on_click = $attrs['onclick'] ?? '';
 
 		// Check if mask rendering is enabled and requested.
-		if ($mask) {
+		if ($mask && $img) {
 			// Check if mask feature is enabled in admin settings.
 			if ( ServiceProvider::is_block_enabled( 'svg_mask' ) ) {
 				return $this->render_mask($img, $svg_string, $dom, $width, $height);
