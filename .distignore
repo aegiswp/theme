@@ -71,7 +71,10 @@ src/Blocks/*/*.js.map
 src/Blocks/*/*.css.map
 src/Blocks/editor/
 
-# Audit tool code (not part of the theme runtime)
+# Audit tool (standalone dev package, not part of theme runtime)
+tools/
+
+# Legacy audit source paths (not part of the theme runtime)
 src/Analyzers/
 src/Models/
 src/Enums/
