@@ -368,14 +368,14 @@ class AdminMenu
 				'aegis-admin-settings',
 				$theme_url . '/src/Admin/css/admin-settings.css',
 				['wp-components'],
-				time()
+				(string) time()
 			);
 
 			\Aegis\Core\AssetManager::register_script(
 				'aegis-admin-settings',
 				$theme_url . '/src/Admin/js/admin-settings.js',
 				['jquery'],
-				time(),
+				(string) time(),
 				true
 			);
 
