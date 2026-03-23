@@ -3115,8 +3115,10 @@ class AdminRenderer
 	 */
 	public function render_hook_patterns_page(): void
 	{
-		$hook_patterns_manager = new \Aegis\Admin\HookPatternsManager();
-		$available_hooks       = $hook_patterns_manager->get_available_hooks();
+		$available_hooks = [];
+		if ( class_exists( \Aegis\Pro\HookPatterns::class ) ) {
+			$available_hooks = ( new \Aegis\Pro\HookPatterns() )->get_available_hooks();
+		}
 		$active_patterns       = \get_posts([
 			'post_type'      => \Aegis\Admin\HookPatternsManager::POST_TYPE,
 			'post_status'    => 'publish',
