@@ -69,12 +69,6 @@ class AdminMenu
 		// Fix admin menu highlighting for hidden submenu pages
 		add_filter('parent_file', [$this, 'fix_admin_parent_file']);
 		add_filter('submenu_file', [$this, 'fix_admin_submenu_file']);
-
-		// Gate SVG uploads behind the general setting
-		if (!SettingsRepository::is_svg_upload_enabled()) {
-			add_filter('upload_mimes', [$this, 'disallow_svg_upload'], 99);
-			add_filter('wp_check_filetype_and_ext', [$this, 'block_svg_filetype'], 99, 5);
-		}
 	}
 
 	/**
@@ -125,48 +119,14 @@ class AdminMenu
 	}
 
 	/**
-	 * Remove SVG mime types when SVG uploads are disabled.
-	 *
-	 * @param array $mimes Allowed mime types.
-	 * @return array
-	 */
-	public function disallow_svg_upload(array $mimes): array
-	{
-		unset($mimes['svg'], $mimes['svgz']);
-		return $mimes;
-	}
-
-	/**
-	 * Block SVG file type detection when SVG uploads are disabled.
-	 *
-	 * @param array       $data     File data.
-	 * @param string      $file     Full path to the file.
-	 * @param string      $filename The name of the file.
-	 * @param array|null  $mimes    Allowed mime types.
-	 * @param string|bool $real_mime The real mime type.
-	 * @return array
-	 */
-	public function block_svg_filetype(array $data, string $file, string $filename, ?array $mimes, $real_mime): array
-	{
-		$ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-
-		if ($ext === 'svg' || $ext === 'svgz') {
-			$data['ext'] = false;
-			$data['type'] = false;
-		}
-
-		return $data;
-	}
-
-	/**
 	 * Register admin menu.
 	 *
 	 * @return void
 	 */
 	public function register_menu(): void
 	{
-		// SVG icon encoded as base64 data URI
-		$icon = 'data:image/svg+xml;base64,' . base64_encode('<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.06 7.75 L12.02 3.87 L13.95 7.72 L16.65 9.29 L12.03 0 L7.34 9.3 L10.06 7.75 Z M18.37 12.72 L18.2 12.36 L15.5 10.79 L17.02 13.68 L20.05 18.61 L12.02 15.17 L3.98 18.62 L6.96 13.68 L8.39 10.81 L5.67 12.39 L5.5 12.71 L0 22.87 L12.01 16.87 L24 22.94 L18.37 12.72 Z"/></svg>');
+		// SVG icon as pre-encoded base64 data URI
+		$icon = 'data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9ImN1cnJlbnRDb2xvciIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMC4wNiA3Ljc1IEwxMi4wMiAzLjg3IEwxMy45NSA3LjcyIEwxNi42NSA5LjI5IEwxMi4wMyAwIEw3LjM0IDkuMyBMMTAuMDYgNy43NSBaIE0xOC4zNyAxMi43MiBMMTguMiAxMi4zNiBMMTUuNSAxMC43OSBMMTcuMDIgMTMuNjggTDIwLjA1IDE4LjYxIEwxMi4wMiAxNS4xNyBMMy45OCAxOC42MiBMNi45NiAxMy42OCBMOC4zOSAxMC44MSBMNS42NyAxMi4zOSBMNS41IDEyLjcxIEwwIDIyLjg3IEwxMi4wMSAxNi44NyBMMjQgMjIuOTQgTDE4LjM3IDEyLjcyIFoiLz48L3N2Zz4=';
 
 		// Main menu - Dashboard as default
 		add_menu_page(
