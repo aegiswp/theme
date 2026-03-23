@@ -147,6 +147,7 @@ return array(
     'Aegis\\Framework\\ThemeUpdater\\GitHubApi' => $vendorDir . '/aegis/framework/src/ThemeUpdater/GitHubApi.php',
     'Aegis\\Framework\\ThemeUpdater\\Parsedown' => $vendorDir . '/aegis/framework/src/ThemeUpdater/Parsedown.php',
     'Aegis\\Framework\\ThemeUpdater\\ThemeUpdater' => $vendorDir . '/aegis/framework/src/ThemeUpdater/ThemeUpdater.php',
+    'Aegis\\ConditionsEvaluator' => $baseDir . '/src/ConditionsEvaluator.php',
     'Aegis\\HookPatternsRenderer' => $baseDir . '/src/HookPatternsRenderer.php',
     'Aegis\\Hooks\\Hook' => $vendorDir . '/aegis/hooks/src/Hook.php',
     'Aegis\\Icons\\Icon' => $vendorDir . '/aegis/icons/src/Icon.php',
