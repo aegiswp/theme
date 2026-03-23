@@ -212,6 +212,7 @@ class ComposerStaticInitbb2b041c8729e310010fb8540dd43d49
         'Aegis\\Framework\\ThemeUpdater\\GitHubApi' => __DIR__ . '/..' . '/aegis/framework/src/ThemeUpdater/GitHubApi.php',
         'Aegis\\Framework\\ThemeUpdater\\Parsedown' => __DIR__ . '/..' . '/aegis/framework/src/ThemeUpdater/Parsedown.php',
         'Aegis\\Framework\\ThemeUpdater\\ThemeUpdater' => __DIR__ . '/..' . '/aegis/framework/src/ThemeUpdater/ThemeUpdater.php',
+        'Aegis\\ConditionsEvaluator' => __DIR__ . '/../..' . '/src/ConditionsEvaluator.php',
         'Aegis\\HookPatternsRenderer' => __DIR__ . '/../..' . '/src/HookPatternsRenderer.php',
         'Aegis\\Hooks\\Hook' => __DIR__ . '/..' . '/aegis/hooks/src/Hook.php',
         'Aegis\\Icons\\Icon' => __DIR__ . '/..' . '/aegis/icons/src/Icon.php',
