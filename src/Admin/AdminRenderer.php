@@ -433,28 +433,25 @@ class AdminRenderer
 		</div>
 		<?php endif; ?>
 		<?php 
-		// Co-Authors Plus sub-options
-		if ($key === 'co_authors_plus'): 
+		// Co-Authors Plus sub-options — only show when the Aegis plugin is active.
+		if ($key === 'co_authors_plus' && defined( 'Aegis\\Plugin\\VERSION' )): 
 			$pro_active = $this->is_aegis_pro_active();
-			$companion_active = defined( 'AegisCompanion\\VERSION' );
 			$cap_social_checked = $options['cap_social_links'] ?? false;
 			$cap_roles_checked = $options['cap_role_badges'] ?? false;
 			$cap_pattern_options = get_option('aegis_pattern_control', []);
 			$cap_keep_patterns = $cap_pattern_options['coauthors_keep_patterns'] ?? false;
 		?>
 		<div class="aegis-toggle-suboptions">
-			<?php if ($companion_active): ?>
 			<div class="aegis-toggle-card aegis-toggle-subcard" style="border-left: 3px solid #2271b1;">
 				<div class="aegis-toggle-info">
 					<div class="aegis-toggle-icon">
 						<span class="dashicons dashicons-info"></span>
 					</div>
 					<div class="aegis-toggle-text">
-						<p style="margin:0;"><?php esc_html_e('Co-Authors Plus integration is provided by Aegis Companion with improved guest author support.', 'aegis'); ?></p>
+						<p style="margin:0;"><?php esc_html_e('Co-Authors Plus integration is provided by the Aegis plugin with improved guest author support.', 'aegis'); ?></p>
 					</div>
 				</div>
 			</div>
-			<?php endif; ?>
 			<div class="aegis-toggle-card aegis-toggle-subcard">
 				<div class="aegis-toggle-info">
 					<div class="aegis-toggle-icon">
