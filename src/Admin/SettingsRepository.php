@@ -495,6 +495,12 @@ class SettingsRepository
 	 */
 	public static function is_integration_enabled(string $integration): bool
 	{
+		// Co-Authors Plus is handled by Aegis Companion when active.
+		// Returning false prevents the framework from registering its hooks.
+		if ( 'co_authors_plus' === $integration && defined( 'AegisCompanion\\VERSION' ) ) {
+			return false;
+		}
+
 		$settings = self::get_integration_settings();
 		return $settings[$integration] ?? true;
 	}
