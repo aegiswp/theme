@@ -21,6 +21,9 @@ Thumbs.db
 docs/
 GitBook/
 
+# Dev tooling (standalone packages, not part of theme)
+tools/
+
 # Audit tool leftovers (not part of theme)
 config/
 tests/
@@ -75,4 +78,3 @@ yarn-error.log*
 .cache/
 .eslintcache
 .stylelintcache
-/tools
