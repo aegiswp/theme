@@ -10,8 +10,8 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["commerce"],"patternName":"size-guide","name":"Size Guide"},"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md"}}},"layout":{"type":"constrained","contentSize":"800px"},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
-<div class="wp-block-group alignwide has-animation" style="padding-top:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);animation-iteration-count:"><!-- wp:details {"expandIcon":"chevron"} -->
+<!-- wp:group {"metadata":{"categories":["commerce"],"patternName":"size-guide","name":"Size Guide"},"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md"}}},"layout":{"type":"constrained","contentSize":"800px"}} -->
+<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md)"><!-- wp:details {"expandIcon":"chevron"} -->
 	<details class="wp-block-details">
 		<summary><?php echo esc_html__( 'Size Guide', 'aegis' ); ?></summary><!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"default"}} -->
 		<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--sm)"><!-- wp:paragraph {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}},"textColor":"neutral-600","fontSize":"14"} -->
