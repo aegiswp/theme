@@ -2,14 +2,13 @@
 .git/
 .gitattributes
 .gitignore
+.distignore
 
 # GitHub files
 .github/
 
 # AI tool directories
 .claude/
-.kiro/
-.windsurf/
 
 # Node.js / build tooling (not needed in distribution)
 node_modules/
@@ -18,7 +17,8 @@ package-lock.json
 webpack.config.js
 tsconfig.json
 
-# Composer dev files
+# Composer files (vendor/ runtime deps are included; manifest files are not needed by end users)
+composer.json
 composer.lock
 
 # Vendor dev dependencies
@@ -32,6 +32,7 @@ vendor/wp-coding-standards/
 vendor/wptrt/
 
 # Editor, linting, and environment files
+.wp-env.json
 .vscode/
 .idea/
 .editorconfig
@@ -43,8 +44,6 @@ stylelintrc.json
 .env.*
 
 # Documentation and community files
-docs/
-GitBook/
 README.md
 CHANGELOG.md
 CONTRIBUTING.md
