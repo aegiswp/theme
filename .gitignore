@@ -1,12 +1,11 @@
 # Dependencies
 node_modules/
+vendor/
 
 # IDE
 .vscode/
 .idea/
-.windsurf/
 .claude/
-.kiro/
 *.sublime-project
 *.sublime-workspace
 *.swp
@@ -17,17 +16,11 @@ node_modules/
 .DS_Store
 Thumbs.db
 
-# Documentation (separate repos / submodules)
-docs/
-GitBook/
-
-# Dev tooling (standalone packages, not part of theme)
+# Dev tooling (standalone packages, not part of theme runtime)
 tools/
 
-# Audit tool leftovers (not part of theme)
+# Audit tool legacy paths (moved to tools/wpaudit)
 config/
-tests/
-phpunit.xml
 src/Analyzers/
 src/Models/
 src/Enums/
