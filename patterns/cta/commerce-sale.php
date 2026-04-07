@@ -9,8 +9,8 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["cta"],"patternName":"commerce-sale","name":"Commerce Sale CTA"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}},"backgroundColor":"primary-900","textColor":"white","layout":{"type":"constrained","contentSize":"720px"},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
-<div class="wp-block-group alignfull has-white-color has-primary-900-background-color has-text-color has-background has-animation" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);animation-iteration-count:"><!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
+<!-- wp:group {"metadata":{"categories":["cta"],"patternName":"commerce-sale","name":"Commerce Sale CTA"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}},"backgroundColor":"primary-900","textColor":"white","layout":{"type":"constrained","contentSize":"720px"}} -->
+<div class="wp-block-group alignfull has-white-color has-primary-900-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)"><!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 	<div class="wp-block-group"><!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase","letterSpacing":"3px"}},"fontSize":"14"} -->
 		<p class="aligncenter has-text-align-center has-14-font-size aligncenter" style="letter-spacing:3px;text-transform:uppercase"><?php echo esc_html__( 'Limited Time Offer', 'aegis' ); ?></p>
 		<!-- /wp:paragraph -->
