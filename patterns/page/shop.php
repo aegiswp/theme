@@ -17,18 +17,17 @@
         style="padding-top:var(--wp--preset--spacing--xxl);padding-bottom:var(--wp--preset--spacing--lg)">
         <!-- wp:group {"layout":{"type":"constrained","contentSize":"720px"}} -->
         <div class="wp-block-group"><!-- wp:paragraph {"align":"center","className":"is-style-sub-heading"} -->
-            <p class="aligncenter has-text-align-center is-style-sub-heading aligncenter">Our Store</p>
+            <p class="aligncenter has-text-align-center is-style-sub-heading aligncenter"><?php echo esc_html__( 'Our Store', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
 
             <!-- wp:heading {"textAlign":"center","level":1,"fontSize":"52"} -->
-            <h1 class="wp-block-heading has-text-align-center has-52-font-size">Premium Digital Products</h1>
+            <h1 class="wp-block-heading has-text-align-center has-52-font-size"><?php echo esc_html__( 'Premium Digital Products', 'aegis' ); ?></h1>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"align":"center","textColor":"neutral-600","fontSize":"18"} -->
             <p
                 class="aligncenter has-text-align-center has-neutral-600-color has-text-color has-18-font-size aligncenter">
-                Discover our curated collection of templates, themes, and digital resources designed to elevate your
-                projects.</p>
+                <?php echo esc_html__( 'Discover our curated collection of templates, themes, and digital resources designed to elevate your projects.', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:group -->
@@ -54,13 +53,13 @@
                 <!-- /wp:group -->
 
                 <!-- wp:heading {"textAlign":"center","level":3,"fontSize":"18"} -->
-                <h3 class="wp-block-heading has-text-align-center has-18-font-size">Design Templates</h3>
+                <h3 class="wp-block-heading has-text-align-center has-18-font-size"><?php echo esc_html__( 'Design Templates', 'aegis' ); ?></h3>
                 <!-- /wp:heading -->
 
                 <!-- wp:paragraph {"align":"center","textColor":"neutral-600","fontSize":"14"} -->
                 <p
                     class="aligncenter has-text-align-center has-neutral-600-color has-text-color has-14-font-size aligncenter">
-                    Professional designs ready to customize</p>
+                    <?php echo esc_html__( 'Professional designs ready to customize', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:column -->
@@ -79,13 +78,13 @@
                 <!-- /wp:group -->
 
                 <!-- wp:heading {"textAlign":"center","level":3,"fontSize":"18"} -->
-                <h3 class="wp-block-heading has-text-align-center has-18-font-size">WordPress Themes</h3>
+                <h3 class="wp-block-heading has-text-align-center has-18-font-size"><?php echo esc_html__( 'WordPress Themes', 'aegis' ); ?></h3>
                 <!-- /wp:heading -->
 
                 <!-- wp:paragraph {"align":"center","textColor":"neutral-600","fontSize":"14"} -->
                 <p
                     class="aligncenter has-text-align-center has-neutral-600-color has-text-color has-14-font-size aligncenter">
-                    Fast, responsive, and SEO-optimized</p>
+                    <?php echo esc_html__( 'Fast, responsive, and SEO-optimized', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:column -->
@@ -104,13 +103,13 @@
                 <!-- /wp:group -->
 
                 <!-- wp:heading {"textAlign":"center","level":3,"fontSize":"18"} -->
-                <h3 class="wp-block-heading has-text-align-center has-18-font-size">UI Kits</h3>
+                <h3 class="wp-block-heading has-text-align-center has-18-font-size"><?php echo esc_html__( 'UI Kits', 'aegis' ); ?></h3>
                 <!-- /wp:heading -->
 
                 <!-- wp:paragraph {"align":"center","textColor":"neutral-600","fontSize":"14"} -->
                 <p
                     class="aligncenter has-text-align-center has-neutral-600-color has-text-color has-14-font-size aligncenter">
-                    Complete component libraries</p>
+                    <?php echo esc_html__( 'Complete component libraries', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:column -->
@@ -123,13 +122,13 @@
                 <!-- /wp:paragraph -->
 
                 <!-- wp:heading {"textAlign":"center","level":3,"fontSize":"18"} -->
-                <h3 class="wp-block-heading has-text-align-center has-18-font-size">E-Books</h3>
+                <h3 class="wp-block-heading has-text-align-center has-18-font-size"><?php echo esc_html__( 'E-Books', 'aegis' ); ?></h3>
                 <!-- /wp:heading -->
 
                 <!-- wp:paragraph {"align":"center","textColor":"neutral-600","fontSize":"14"} -->
                 <p
                     class="aligncenter has-text-align-center has-neutral-600-color has-text-color has-14-font-size aligncenter">
-                    In-depth guides and tutorials</p>
+                    <?php echo esc_html__( 'In-depth guides and tutorials', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:column -->
@@ -143,7 +142,7 @@
         style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
         <!-- wp:heading {"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|md"}}},"fontSize":"32"} -->
         <h2 class="wp-block-heading alignwide has-32-font-size" style="margin-bottom:var(--wp--preset--spacing--md)">
-            Featured Products</h2>
+            <?php echo esc_html__( 'Featured Products', 'aegis' ); ?></h2>
         <!-- /wp:heading -->
 
         <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|md"}}}} -->
@@ -160,16 +159,15 @@
                     <div class="wp-block-group"
                         style="padding-right:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
                         <!-- wp:paragraph {"textColor":"primary-500","fontSize":"12"} -->
-                        <p class="has-primary-500-color has-text-color has-12-font-size">WORDPRESS THEME</p>
+                        <p class="has-primary-500-color has-text-color has-12-font-size"><?php echo esc_html__( 'WORDPRESS THEME', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
 
                         <!-- wp:heading {"level":3,"fontSize":"20"} -->
-                        <h3 class="wp-block-heading has-20-font-size">Starter Theme Pro</h3>
+                        <h3 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'Starter Theme Pro', 'aegis' ); ?></h3>
                         <!-- /wp:heading -->
 
                         <!-- wp:paragraph {"textColor":"neutral-600","fontSize":"14"} -->
-                        <p class="has-neutral-600-color has-text-color has-14-font-size">A minimal, performance-focused
-                            theme for modern websites.</p>
+                        <p class="has-neutral-600-color has-text-color has-14-font-size"><?php echo esc_html__( 'A minimal, performance-focused theme for modern websites.', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
 
                         <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
@@ -181,8 +179,7 @@
                             <!-- wp:buttons -->
                             <div class="wp-block-buttons"><!-- wp:button {"fontSize":"14"} -->
                                 <div class="wp-block-button"><a
-                                        class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button">Add
-                                        to Cart</a></div>
+                                        class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button"><?php echo esc_html__( 'Add to Cart', 'aegis' ); ?></a></div>
                                 <!-- /wp:button -->
                             </div>
                             <!-- /wp:buttons -->
@@ -208,16 +205,15 @@
                     <div class="wp-block-group"
                         style="padding-right:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
                         <!-- wp:paragraph {"textColor":"primary-500","fontSize":"12"} -->
-                        <p class="has-primary-500-color has-text-color has-12-font-size">UI KIT</p>
+                        <p class="has-primary-500-color has-text-color has-12-font-size"><?php echo esc_html__( 'UI KIT', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
 
                         <!-- wp:heading {"level":3,"fontSize":"20"} -->
-                        <h3 class="wp-block-heading has-20-font-size">Design System Bundle</h3>
+                        <h3 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'Design System Bundle', 'aegis' ); ?></h3>
                         <!-- /wp:heading -->
 
                         <!-- wp:paragraph {"textColor":"neutral-600","fontSize":"14"} -->
-                        <p class="has-neutral-600-color has-text-color has-14-font-size">500+ components for Figma with
-                            auto-layout support.</p>
+                        <p class="has-neutral-600-color has-text-color has-14-font-size"><?php echo esc_html__( '500+ components for Figma with auto-layout support.', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
 
                         <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
@@ -229,8 +225,7 @@
                             <!-- wp:buttons -->
                             <div class="wp-block-buttons"><!-- wp:button {"fontSize":"14"} -->
                                 <div class="wp-block-button"><a
-                                        class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button">Add
-                                        to Cart</a></div>
+                                        class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button"><?php echo esc_html__( 'Add to Cart', 'aegis' ); ?></a></div>
                                 <!-- /wp:button -->
                             </div>
                             <!-- /wp:buttons -->
@@ -256,16 +251,15 @@
                     <div class="wp-block-group"
                         style="padding-right:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
                         <!-- wp:paragraph {"textColor":"primary-500","fontSize":"12"} -->
-                        <p class="has-primary-500-color has-text-color has-12-font-size">E-BOOK</p>
+                        <p class="has-primary-500-color has-text-color has-12-font-size"><?php echo esc_html__( 'E-BOOK', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
 
                         <!-- wp:heading {"level":3,"fontSize":"20"} -->
-                        <h3 class="wp-block-heading has-20-font-size">Web Design Mastery</h3>
+                        <h3 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'Web Design Mastery', 'aegis' ); ?></h3>
                         <!-- /wp:heading -->
 
                         <!-- wp:paragraph {"textColor":"neutral-600","fontSize":"14"} -->
-                        <p class="has-neutral-600-color has-text-color has-14-font-size">Complete guide to modern web
-                            design principles.</p>
+                        <p class="has-neutral-600-color has-text-color has-14-font-size"><?php echo esc_html__( 'Complete guide to modern web design principles.', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
 
                         <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
@@ -277,8 +271,7 @@
                             <!-- wp:buttons -->
                             <div class="wp-block-buttons"><!-- wp:button {"fontSize":"14"} -->
                                 <div class="wp-block-button"><a
-                                        class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button">Add
-                                        to Cart</a></div>
+                                        class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button"><?php echo esc_html__( 'Add to Cart', 'aegis' ); ?></a></div>
                                 <!-- /wp:button -->
                             </div>
                             <!-- /wp:buttons -->
@@ -296,8 +289,7 @@
         <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|lg"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
         <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--lg)">
             <!-- wp:button {"className":"is-style-ghost"} -->
-            <div class="wp-block-button is-style-ghost"><a class="wp-block-button__link wp-element-button">View All
-                    Products</a></div>
+            <div class="wp-block-button is-style-ghost"><a class="wp-block-button__link wp-element-button"><?php echo esc_html__( 'View All Products', 'aegis' ); ?></a></div>
             <!-- /wp:button -->
         </div>
         <!-- /wp:buttons -->
@@ -317,8 +309,7 @@
                 <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph {"align":"center","textColor":"neutral-600"} -->
-                <p class="aligncenter has-text-align-center has-neutral-600-color has-text-color aligncenter">Happy
-                    Customers</p>
+                <p class="aligncenter has-text-align-center has-neutral-600-color has-text-color aligncenter"><?php echo esc_html__( 'Happy Customers', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:column -->
@@ -332,8 +323,7 @@
                 <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph {"align":"center","textColor":"neutral-600"} -->
-                <p class="aligncenter has-text-align-center has-neutral-600-color has-text-color aligncenter">Digital
-                    Products</p>
+                <p class="aligncenter has-text-align-center has-neutral-600-color has-text-color aligncenter"><?php echo esc_html__( 'Digital Products', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:column -->
@@ -347,8 +337,7 @@
                 <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph {"align":"center","textColor":"neutral-600"} -->
-                <p class="aligncenter has-text-align-center has-neutral-600-color has-text-color aligncenter">Average
-                    Rating</p>
+                <p class="aligncenter has-text-align-center has-neutral-600-color has-text-color aligncenter"><?php echo esc_html__( 'Average Rating', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:column -->
@@ -360,8 +349,7 @@
                 <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph {"align":"center","textColor":"neutral-600"} -->
-                <p class="aligncenter has-text-align-center has-neutral-600-color has-text-color aligncenter">Customer
-                    Support</p>
+                <p class="aligncenter has-text-align-center has-neutral-600-color has-text-color aligncenter"><?php echo esc_html__( 'Customer Support', 'aegis' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:column -->
