@@ -17,18 +17,18 @@
         <div class="wp-block-column is-vertically-aligned-center">
             <!-- wp:group {"style":{"spacing":{"padding":{"bottom":"var:preset|spacing|sm"}}},"layout":{"type":"constrained","contentSize":"640px"}} -->
             <div class="wp-block-group" style="padding-bottom:var(--wp--preset--spacing--sm)">
-                <!-- wp:group {"metadata":{"name":"Heading"},"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|lg"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"},"animation":{"duration":"1","iterationCount":"1"}} -->
-                <div class="wp-block-group has-animation" style="margin-bottom:var(--wp--preset--spacing--lg);animation-duration:1s;animation-iteration-count:1">
-                    <!-- wp:paragraph {"align":"center","className":"is-style-sub-heading","animation":{"duration":"1","iterationCount":"1"}} -->
-                    <p class="aligncenter has-text-align-center is-style-sub-heading aligncenter has-animation" style="animation-duration:1s;animation-iteration-count:1"><?php echo esc_html__( 'Features', 'aegis' ); ?></p>
+                <!-- wp:group {"metadata":{"name":"Heading"},"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|lg"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
+                <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--lg)">
+                    <!-- wp:paragraph {"align":"center","className":"is-style-sub-heading"} -->
+                    <p class="aligncenter has-text-align-center is-style-sub-heading aligncenter"><?php echo esc_html__( 'Features', 'aegis' ); ?></p>
                     <!-- /wp:paragraph -->
 
                     <!-- wp:heading {"textAlign":"center","style":{"display":{"all":"","mobile":""}},"fontSize":"48"} -->
                     <h2 class="wp-block-heading has-text-align-center has-48-font-size"><?php echo esc_html__( 'Editor Evolved', 'aegis' ); ?></h2>
                     <!-- /wp:heading -->
 
-                    <!-- wp:paragraph {"align":"center","fontSize":"18","animation":{"duration":"1","iterationCount":"1"}} -->
-                    <p class="aligncenter has-text-align-center has-18-font-size aligncenter has-animation" style="animation-duration:1s;animation-iteration-count:1"><?php echo esc_html__( 'Enhance the native experience with lightweight blocks engineered to integrate seamlessly without bloating the core.', 'aegis' ); ?></p>
+                    <!-- wp:paragraph {"align":"center","fontSize":"18"} -->
+                    <p class="aligncenter has-text-align-center has-18-font-size aligncenter"><?php echo esc_html__( 'Enhance the native experience with lightweight blocks engineered to integrate seamlessly without bloating the core.', 'aegis' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:group -->
@@ -46,8 +46,8 @@
                             <img alt="" /></figure>
                         <!-- /wp:image -->
 
-                        <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","animation":{"duration":"0","iterationCount":"0"}} -->
-                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0"><?php echo esc_html__( 'Navigation', 'aegis' ); ?></p>
+                        <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading"} -->
+                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft"><?php echo esc_html__( 'Navigation', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
@@ -71,8 +71,8 @@
                             <img alt="" /></figure>
                         <!-- /wp:image -->
 
-                        <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","animation":{"duration":"0","iterationCount":"0"}} -->
-                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0"><?php echo esc_html__( 'Typography', 'aegis' ); ?></p>
+                        <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading"} -->
+                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft"><?php echo esc_html__( 'Typography', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
@@ -96,8 +96,8 @@
                             <img alt="" /></figure>
                         <!-- /wp:image -->
 
-                        <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","animation":{"duration":"0","iterationCount":"0"}} -->
-                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0"><?php echo esc_html__( 'Kinetics', 'aegis' ); ?></p>
+                        <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading"} -->
+                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft"><?php echo esc_html__( 'Kinetics', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
@@ -125,8 +125,8 @@
                             <img alt="" /></figure>
                         <!-- /wp:image -->
 
-                        <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","animation":{"duration":"0","iterationCount":"0"}} -->
-                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0"><?php echo esc_html__( 'Structure', 'aegis' ); ?></p>
+                        <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading"} -->
+                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft"><?php echo esc_html__( 'Structure', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
@@ -150,8 +150,8 @@
                             <img alt="" /></figure>
                         <!-- /wp:image -->
 
-                        <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","animation":{"duration":"0","iterationCount":"0"}} -->
-                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0"><?php echo esc_html__( 'Growth', 'aegis' ); ?></p>
+                        <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading"} -->
+                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft"><?php echo esc_html__( 'Growth', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
@@ -175,8 +175,8 @@
                             <img alt="" /></figure>
                         <!-- /wp:image -->
 
-                        <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","animation":{"duration":"0","iterationCount":"0"}} -->
-                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0"><?php echo esc_html__( 'Curation', 'aegis' ); ?></p>
+                        <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading"} -->
+                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft"><?php echo esc_html__( 'Curation', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
@@ -203,8 +203,8 @@
                         <figure class="wp-block-image is-style-icon" style="--wp--custom--icon--size:20px"><img alt="" /></figure>
                         <!-- /wp:image -->
 
-                        <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","animation":{"duration":"0","iterationCount":"0"}} -->
-                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0"><?php echo esc_html__( 'Local', 'aegis' ); ?></p>
+                        <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading"} -->
+                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft"><?php echo esc_html__( 'Local', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
@@ -228,8 +228,8 @@
                             <img alt="" /></figure>
                         <!-- /wp:image -->
 
-                        <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","animation":{"duration":"0","iterationCount":"0"}} -->
-                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0"><?php echo esc_html__( 'Hierarchy', 'aegis' ); ?></p>
+                        <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading"} -->
+                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft"><?php echo esc_html__( 'Hierarchy', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
@@ -253,8 +253,8 @@
                             <img alt="" /></figure>
                         <!-- /wp:image -->
 
-                        <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","animation":{"duration":"0","iterationCount":"0"}} -->
-                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft has-animation" style="animation-duration:0s;animation-iteration-count:0"><?php echo esc_html__( 'Clarity', 'aegis' ); ?></p>
+                        <!-- wp:paragraph {"align":"left","className":"is-style-sub-heading"} -->
+                        <p class="alignleft has-text-align-left is-style-sub-heading alignleft"><?php echo esc_html__( 'Clarity', 'aegis' ); ?></p>
                         <!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:group -->
