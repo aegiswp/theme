@@ -9,15 +9,15 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["contact"],"patternName":"two-column","name":"Contact Two Column"},"align":"wide","layout":{"type":"constrained"},"animation":{"event":"","iterationCount":"","delay":"","duration":""}} -->
-<div class="wp-block-group alignwide has-animation" style="animation-iteration-count:"><!-- wp:columns {"align":"wide","style":{"spacing":{"padding":{"top":"5em","bottom":"5em"},"blockGap":"5em"}},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
-    <div class="wp-block-columns alignwide has-animation" style="padding-top:5em;padding-bottom:5em;animation-iteration-count:"><!-- wp:column -->
-        <div class="wp-block-column"><!-- wp:heading {"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
-            <h2 class="wp-block-heading has-animation" style="animation-iteration-count:"><?php echo esc_html__( 'Contact Us', 'aegis' ); ?></h2>
+<!-- wp:group {"metadata":{"categories":["contact"],"patternName":"two-column","name":"Contact Two Column"},"align":"wide","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide"><!-- wp:columns {"align":"wide","style":{"spacing":{"padding":{"top":"5em","bottom":"5em"},"blockGap":"5em"}}} -->
+    <div class="wp-block-columns alignwide" style="padding-top:5em;padding-bottom:5em"><!-- wp:column -->
+        <div class="wp-block-column"><!-- wp:heading {} -->
+            <h2 class="wp-block-heading"><?php echo esc_html__( 'Contact Us', 'aegis' ); ?></h2>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
-            <p class="undefined has-animation" style="animation-iteration-count:"><?php echo esc_html__( 'Submit detailed briefs, or partnership proposals directly to us for immediate triage.', 'aegis' ); ?></p>
+            <!-- wp:paragraph {} -->
+            <p class="undefined"><?php echo esc_html__( 'Submit detailed briefs, or partnership proposals directly to us for immediate triage.', 'aegis' ); ?></p>
             <!-- /wp:paragraph -->
 
             <!-- wp:buttons {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xs"}}}} -->
