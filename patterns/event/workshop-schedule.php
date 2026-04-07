@@ -9,8 +9,8 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["event"],"patternName":"workshop-schedule","name":"Workshop Schedule"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained"},"animation":{"event":"","iterationCount":"","duration":"","delay":""}} -->
-<div class="wp-block-group alignfull has-neutral-50-background-color has-background has-animation" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl);animation-iteration-count:"><!-- wp:heading {"textAlign":"center","fontSize":"32"} -->
+<!-- wp:group {"metadata":{"categories":["event"],"patternName":"workshop-schedule","name":"Workshop Schedule"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull has-neutral-50-background-color has-background" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)"><!-- wp:heading {"textAlign":"center","fontSize":"32"} -->
     <h2 class="wp-block-heading has-text-align-center has-32-font-size"><?php echo esc_html__( 'Workshop Schedule', 'aegis' ); ?></h2>
     <!-- /wp:heading -->
 
