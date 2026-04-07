@@ -25,9 +25,9 @@ declare(strict_types=1);
 <!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group">
 	<!-- wp:html -->
-	<form class="newsletter-form" style="display:flex;gap:8px;max-width:400px;margin:0 auto;">
-		<input type="email" placeholder="<?php echo esc_attr__('Enter your email', 'aegis'); ?>" required style="flex:1;padding:12px;border:1px solid;border-color:var(--wp--preset--color--neutral-200);border-radius:4px;background:var(--wp--preset--color--neutral-0);color:var(--wp--preset--color--neutral-950);">
-		<button type="submit" style="padding:12px 24px;background:var(--wp--preset--color--primary-500);color:var(--wp--preset--color--neutral-0);border:none;border-radius:4px;cursor:pointer;"><?php echo esc_html__('Subscribe', 'aegis'); ?></button>
+	<form class="newsletter-form" style="display:flex;gap:8px;max-width:400px;margin:0 auto">
+		<input type="email" placeholder="<?php echo esc_attr__('Enter your email', 'aegis'); ?>" required style="flex:1;padding:12px;border:1px solid;border-color:var(--wp--preset--color--neutral-200);border-radius:4px;background:var(--wp--preset--color--neutral-0);color:var(--wp--preset--color--neutral-950)">
+		<button type="submit" style="padding:12px 24px;background:var(--wp--preset--color--primary-500);color:var(--wp--preset--color--neutral-0);border:none;border-radius:4px;cursor:pointer"><?php echo esc_html__('Subscribe', 'aegis'); ?></button>
 	</form>
 	<!-- /wp:html -->
 </div>
