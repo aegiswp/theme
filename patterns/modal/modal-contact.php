@@ -23,11 +23,11 @@ declare(strict_types=1);
 <!-- /wp:paragraph -->
 
 <!-- wp:html -->
-<form class="contact-form" style="display:flex;flex-direction:column;gap:16px;">
-	<input type="text" placeholder="<?php echo esc_attr__('Your Name', 'aegis'); ?>" required style="padding:12px;border:1px solid;border-color:var(--wp--preset--color--neutral-200);border-radius:4px;background:var(--wp--preset--color--neutral-0);color:var(--wp--preset--color--neutral-950);">
-	<input type="email" placeholder="<?php echo esc_attr__('Your Email', 'aegis'); ?>" required style="padding:12px;border:1px solid;border-color:var(--wp--preset--color--neutral-200);border-radius:4px;background:var(--wp--preset--color--neutral-0);color:var(--wp--preset--color--neutral-950);">
-	<textarea placeholder="<?php echo esc_attr__('Your Message', 'aegis'); ?>" rows="4" required style="padding:12px;border:1px solid;border-color:var(--wp--preset--color--neutral-200);border-radius:4px;resize:vertical;background:var(--wp--preset--color--neutral-0);color:var(--wp--preset--color--neutral-950);"></textarea>
-	<button type="submit" style="padding:12px 24px;background:var(--wp--preset--color--primary-500);color:var(--wp--preset--color--neutral-0);border:none;border-radius:4px;cursor:pointer;"><?php echo esc_html__('Send Message', 'aegis'); ?></button>
+<form class="contact-form" style="display:flex;flex-direction:column;gap:16px">
+	<input type="text" placeholder="<?php echo esc_attr__('Your Name', 'aegis'); ?>" required style="padding:12px;border:1px solid;border-color:var(--wp--preset--color--neutral-200);border-radius:4px;background:var(--wp--preset--color--neutral-0);color:var(--wp--preset--color--neutral-950)">
+	<input type="email" placeholder="<?php echo esc_attr__('Your Email', 'aegis'); ?>" required style="padding:12px;border:1px solid;border-color:var(--wp--preset--color--neutral-200);border-radius:4px;background:var(--wp--preset--color--neutral-0);color:var(--wp--preset--color--neutral-950)">
+	<textarea placeholder="<?php echo esc_attr__('Your Message', 'aegis'); ?>" rows="4" required style="padding:12px;border:1px solid;border-color:var(--wp--preset--color--neutral-200);border-radius:4px;resize:vertical;background:var(--wp--preset--color--neutral-0);color:var(--wp--preset--color--neutral-950)"></textarea>
+	<button type="submit" style="padding:12px 24px;background:var(--wp--preset--color--primary-500);color:var(--wp--preset--color--neutral-0);border:none;border-radius:4px;cursor:pointer"><?php echo esc_html__('Send Message', 'aegis'); ?></button>
 </form>
 <!-- /wp:html -->
 <!-- /wp:aegis/modal -->
