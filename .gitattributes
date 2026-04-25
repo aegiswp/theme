@@ -78,6 +78,7 @@ package-lock.json export-ignore
 composer.json export-ignore
 composer.lock export-ignore
 README.md export-ignore
+INSTRUCTIONS.md export-ignore
 CHANGELOG.md export-ignore
 CONTRIBUTING.md export-ignore
 CONTRIBUTORS.md export-ignore

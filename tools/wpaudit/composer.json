@@ -1,0 +1,32 @@
+{
+    "name": "aegis/wpaudit",
+    "description": "WordPress theme audit tool",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "WPAudit\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WPAudit\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:coverage": "phpunit --coverage-html=coverage",
+        "lint": "phpcs",
+        "analyze": "phpstan analyse"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}

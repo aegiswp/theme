@@ -6,6 +6,7 @@ vendor/
 .vscode/
 .idea/
 .claude/
+.fleet/
 *.sublime-project
 *.sublime-workspace
 *.swp
@@ -15,9 +16,19 @@ vendor/
 # OS
 .DS_Store
 Thumbs.db
+Desktop.ini
+
+# Ephemeral / scratch (e.g. *.pretty.tmp from local formatting)
+*.tmp
+*.temp
+*.bak
+*.backup
 
 # Dev tooling (standalone packages, not part of theme runtime)
-tools/
+# Track tools/wpaudit so CI can run its PHPUnit suite (aegis/wpaudit path repo).
+tools/*
+!tools/wpaudit/
+!tools/wpaudit/**
 
 # Audit tool legacy paths (moved to tools/wpaudit)
 config/
@@ -30,9 +41,14 @@ src/DesignSystem/
 
 # Test coverage
 .phpunit.result.cache
+.phpunit.cache/
 coverage/
 *.coverage
 phpunit-report.xml
+
+# E2E / browser testing (if added under the theme)
+playwright-report/
+test-results/
 
 # Build artifacts — src/Blocks/ (webpack output)
 src/Blocks/*/index.js
@@ -67,7 +83,18 @@ yarn-error.log*
 .env.local
 .env.*.local
 
+# wp-env (local-only overrides; base config is .wp-env.json in repo)
+.wp-env.override.json
+
+# Composer HTTP basic auth (private packages) — never commit
+auth.json
+
+# Local dev stacks (keep machine-specific config out of git)
+.ddev/
+.vagrant/
+
 # Cache
 .cache/
 .eslintcache
 .stylelintcache
+.pnpm-store/
