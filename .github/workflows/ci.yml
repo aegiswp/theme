@@ -62,6 +62,16 @@ jobs:
             vendor/bin/phpunit --testsuite unit --coverage-clover coverage.xml
           fi
 
+      # aegis/wpaudit — path repo tools/wpaudit; tracked in git (see .gitignore exception).
+      - name: WPAudit (aegis/wpaudit) unit tests
+        run: |
+          if [ ! -f tools/wpaudit/composer.json ]; then
+            echo "::error::tools/wpaudit is missing. It must be committed so CI can run aegis/wpaudit (dev dependency). Un-ignore it in .gitignore and add the directory."
+            exit 1
+          fi
+          composer install --no-interaction --no-progress --working-dir=tools/wpaudit
+          tools/wpaudit/vendor/bin/phpunit -c tools/wpaudit/phpunit.xml
+
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
