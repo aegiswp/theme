@@ -56,8 +56,8 @@ jobs:
       - name: PHPCS quick check (errors only)
         run: vendor/bin/phpcs --report=summary --warning-severity=0
 
-      - name: Run audit tool unit tests
-        run: composer test:unit --if-present
+      - name: Run PHP unit tests
+        run: composer test:php --if-present
 
   audit-tool-tests:
     name: Audit Tool Tests
@@ -78,4 +78,4 @@ jobs:
         run: composer install --prefer-dist --no-progress
 
       - name: Run all audit tool tests
-        run: composer test --if-present
+        run: composer test:wpaudit --if-present
