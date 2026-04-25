@@ -82,3 +82,23 @@ CHANGELOG.md export-ignore
 CONTRIBUTING.md export-ignore
 CONTRIBUTORS.md export-ignore
 CODE_OF_CONDUCT.md export-ignore
+
+# Dev-only and tooling (align with .distignore for `git archive` / source exports)
+.nvmrc export-ignore
+.vscode export-ignore
+.idea export-ignore
+.cursor export-ignore
+.fleet export-ignore
+.wp-env.override.json export-ignore
+node_modules/ export-ignore
+tests/ export-ignore
+patterns/README.txt export-ignore
+.phpunit.result.cache export-ignore
+.phpunit.cache/ export-ignore
+*.log export-ignore
+auth.json export-ignore
+playwright-report/ export-ignore
+test-results/ export-ignore
+*.code-workspace export-ignore
+docker-compose*.yml export-ignore
+docker-compose*.yaml export-ignore
