@@ -6,10 +6,10 @@
  Description: A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes.
  Requires at least: 6.6
  Tested up to: 6.9
- Requires PHP: 7.4
+ Requires PHP: 8.1
  Version: 1.0.0-rc.3
- License: GPL v3.0
- License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ License: GNU General Public License v2 or later
+ License URI: https://www.gnu.org/licenses/gpl-2.0.html
  Text Domain: aegis
  Domain Path: /languages
  Tags: accessibility-ready, block-patterns, block-styles, blog, custom-colors, custom-logo, custom-menu, e-commerce, editor-style, featured-images, footer-widgets, full-site-editing, full-width-template, grid-layout, one-column, portfolio, rtl-language-support, sticky-post, style-variations, template-editing, threaded-comments, three-columns, translation-ready, two-columns, wide-blocks
@@ -19,15 +19,14 @@
 */
 
 /**
- * Block Theme Styling
+ * Optional global CSS (most design lives in `theme.json`)
  *
- * In a block theme, this file is primarily used for the theme's header
- * information. Most styling is handled by `theme.json` and through the
- * block editor's Styles interface.
+ * The WordPress header comment above is required. Use this file only for
+ * small global rules that are awkward in `theme.json` or for editor-only
+ * notes; prefer the Site Editor, style variations, and block styles.
  *
- * Custom CSS can still be added here if needed, but the recommended
- * approach is to use `theme.json` for global styles and block-specific
- * styles for components.
- *
+ * @package Aegis
+ * @since 1.0.0
  * @link https://developer.wordpress.org/themes/advanced-topics/theme-json/
+ * @link https://github.com/aegiswp/theme
  */
