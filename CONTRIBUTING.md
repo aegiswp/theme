@@ -200,31 +200,31 @@ style: format CSS files according to standards
 
 ## Types of Contributions
 
-### 🎨 Design & UI
+### Design & UI
 - Block patterns and templates
 - Style variations
 - Color palettes and typography
 - Icon designs
 
-### 🔧 Development
+### Development
 - Custom blocks
 - Block variations
 - Core block enhancements
 - Performance optimizations
 
-### 📝 Documentation
+### Documentation
 - README improvements
 - Code comments
 - User guides
 - Developer documentation
 
-### 🐛 Bug Reports
+### Bug Reports
 - Detailed issue reports
 - Steps to reproduce
 - Environment details
 - Screenshots when applicable
 
-### 🌐 Internationalization
+### Internationalization
 - Translation updates
 - RTL language support
 - Localization improvements
@@ -279,7 +279,7 @@ Contributors who make significant contributions will be:
 
 ## License
 
-By contributing to Aegis, you agree that your contributions will be licensed under the same license as the project (GPL v3.0).
+By contributing to Aegis, you agree that your contributions will be licensed under the same license as the project (GPL v2.0 or later).
 
 ## Questions?
 
@@ -287,4 +287,4 @@ Feel free to open an issue for questions or discussions. We welcome contributors
 
 ---
 
-Thank you for contributing to Aegis! 🎉
+Thank you for contributing to Aegis!
