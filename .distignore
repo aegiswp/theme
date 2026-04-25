@@ -1,4 +1,10 @@
-# Git files
+# Installable theme zip (WordPress) — not the full dev repository.
+# Consumed by: .github/workflows/release.yml (rsync --exclude-from=.distignore).
+# Keep: templates, parts, patterns markup, theme.json, style.css, functions.php,
+# compiled block JS/CSS, languages, runtime `vendor/`, and theme `assets/`.
+# After changes here, align export-ignore in .gitattributes for `git archive` parity.
+#
+# Git / VCS
 .git/
 .gitattributes
 .gitignore
@@ -7,15 +13,21 @@
 # GitHub files
 .github/
 
-# AI tool directories
+# AI / IDE
 .claude/
+.cursor/
+.fleet/
+.vscode/
+.idea/
 
-# Node.js / build tooling (not needed in distribution)
+# Node.js / build tooling
 node_modules/
 package.json
 package-lock.json
 webpack.config.js
 tsconfig.json
+.nvmrc
+*.code-workspace
 
 # Composer files (vendor/ runtime deps are included; manifest files are not needed by end users)
 composer.json
@@ -31,10 +43,9 @@ vendor/squizlabs/
 vendor/wp-coding-standards/
 vendor/wptrt/
 
-# Editor, linting, and environment files
+# Editor, lint, env
 .wp-env.json
-.vscode/
-.idea/
+.wp-env.override.json
 .editorconfig
 .prettierrc
 .stylelintignore
@@ -42,6 +53,11 @@ vendor/wptrt/
 stylelintrc.json
 .env
 .env.*
+auth.json
+docker-compose*.yml
+docker-compose*.yaml
+playwright-report/
+test-results/
 
 # Documentation and community files
 README.md
@@ -50,7 +66,7 @@ CONTRIBUTING.md
 CONTRIBUTORS.md
 CODE_OF_CONDUCT.md
 
-# Development/testing files
+# Development / test tooling
 Makefile
 phpcs.xml
 phpcs.xml.dist
@@ -59,6 +75,9 @@ phpunit.xml.dist
 tests/
 .nyc_output/
 coverage/
+.phpunit.result.cache
+.phpunit.cache/
+*.log
 
 # Build artifacts, source maps, and cache
 .cache/
@@ -89,5 +108,8 @@ src/Blocks/*/view.ts
 src/Blocks/*/style.scss
 src/Editor/
 
-# Empty directories
+# Dev-only pattern docs (optional; safe to include on disk, omit from dist)
+patterns/README.txt
+
+# Empty / legacy
 config/
