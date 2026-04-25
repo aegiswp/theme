@@ -52,19 +52,24 @@ jobs:
             fi
           done
 
-      - name: Package Theme (Clean Build)
+      - name: Package theme (installable build only)
         id: package_theme
         run: |
           THEME_SLUG="aegis"
-          mkdir $THEME_SLUG
-          
-          # Sync using .distignore
-          rsync -am . $THEME_SLUG/ \
+          mkdir -p "$THEME_SLUG"
+          # Excludes: .distignore (dev deps, tests, sources, Node, CI, etc.).
+          # Includes: block patterns/templates, theme.json, built assets, `vendor/` (no dev).
+          rsync -am ./ "$THEME_SLUG"/ \
             --exclude-from='.distignore' \
             --exclude='_playground/' \
             --exclude='_wordpress-org/'
-          
-          zip -r "${THEME_SLUG}.zip" $THEME_SLUG
+
+          # Sanity: required files for WordPress
+          test -f "$THEME_SLUG/style.css" && test -f "$THEME_SLUG/functions.php" && test -f "$THEME_SLUG/vendor/autoload.php"
+
+          echo "Files in dist: $(find "$THEME_SLUG" -type f | wc -l)"
+          zip -r "${THEME_SLUG}.zip" "$THEME_SLUG"
+          unzip -l "${THEME_SLUG}.zip" | head -n 40
           echo "zip_path=${THEME_SLUG}.zip" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
