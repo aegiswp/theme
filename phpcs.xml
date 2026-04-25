@@ -2,6 +2,15 @@
 <ruleset name="Aegis Theme">
     <description>WordPress Coding Standards for the Aegis Block Theme</description>
 
+    <arg name="extensions" value="php"/>
+    <arg name="cache"/>
+    <arg name="basepath" value="./"/>
+    <arg name="parallel" value="20"/>
+    <arg value="ps"/>
+    <arg name="colors"/>
+
+    <ini name="memory_limit" value="256M"/>
+
     <file>./src</file>
     <file>./functions.php</file>
 
@@ -16,6 +25,7 @@
     <rule ref="WordPress-Core"/>
     <rule ref="WordPress-Docs"/>
     <rule ref="WordPress-Extra"/>
+    <rule ref="WordPress.CodeAnalysis.EmptyStatement"/>
 
     <rule ref="WordPress.WP.I18n">
         <properties>
@@ -25,9 +35,34 @@
         </properties>
     </rule>
 
-    <config name="testVersion" value="7.4-"/>
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <properties>
+            <property name="prefixes" type="array">
+                <element value="aegis"/>
+            </property>
+        </properties>
+    </rule>
 
-    <arg value="ps"/>
-    <arg value="ns"/>
-    <arg name="colors"/>
+    <rule ref="WordPress.PHP.YodaConditions.NotYoda">
+        <type>warning</type>
+    </rule>
+    <rule ref="WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase">
+        <type>warning</type>
+    </rule>
+    <rule ref="WordPress.DB.PreparedSQL.InterpolatedNotPrepared">
+        <type>warning</type>
+    </rule>
+    <rule ref="WordPress.DB.PreparedSQL.NotPrepared">
+        <type>warning</type>
+    </rule>
+
+    <rule ref="WordPress.Files.FileName">
+        <exclude-pattern>*</exclude-pattern>
+    </rule>
+
+    <rule ref="WordPress.CodeAnalysis.AssignmentInCondition.FoundInWhileCondition">
+        <exclude-pattern>*</exclude-pattern>
+    </rule>
+
+    <config name="testVersion" value="8.1-"/>
 </ruleset>
