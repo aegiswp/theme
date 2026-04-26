@@ -1,0 +1,68 @@
+name: Security Vulnerability
+description: ⚠️ REPORT SECURITY ISSUES VIA GITHUB SECURITY ADVISORY
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # ⚠️ Security Vulnerability Report
+
+        **Do NOT post security vulnerabilities as public GitHub issues!**
+
+        Public issues can expose vulnerabilities to malicious actors before a fix is available.
+
+        ---
+
+        ## How to Report Security Vulnerabilities
+
+        ### Option 1: GitHub Security Advisory (Recommended)
+        This is the **private and recommended way** to report security issues:
+
+        1. Go to: **Security → Advisories → Report a vulnerability**
+           - Link: https://github.com/aegiswp/theme/security/advisories
+        2. Fill out the vulnerability details privately
+        3. Our team will respond and coordinate a fix
+        4. A security patch will be released before public disclosure
+
+        ### Option 2: Private Disclosure Email
+        Email: security@aegiswp.com
+
+        Include:
+        - Description of the vulnerability
+        - Affected versions
+        - Steps to reproduce (if applicable)
+        - Potential impact
+        - Your contact information (optional)
+
+        ---
+
+        ## What Counts as a Security Issue?
+
+        ✅ **Report as security issue:**
+        - SQL injection vulnerabilities
+        - Cross-site scripting (XSS) vulnerabilities
+        - Cross-site request forgery (CSRF) vulnerabilities
+        - Authentication/authorization bypasses
+        - Sensitive information disclosure
+        - Arbitrary file upload/execution
+        - Remote code execution (RCE)
+        - Privilege escalation
+        - Cryptographic weaknesses
+
+        ❌ **Do NOT report as security issue:**
+        - Broken features or bugs (use Bug Report instead)
+        - Performance issues
+        - Missing documentation
+        - UI/UX concerns
+        - Feature requests
+
+        ---
+
+        ## Security Support Policy
+
+        - **Response Time:** We aim to respond within 48 hours
+        - **Disclosure Timeline:** 90 days after a fix is available
+        - **Credit:** Reporters will be credited in security advisories (unless they request anonymity)
+
+        ---
+
+        **Thank you for helping us keep Aegis secure! 🔒**
