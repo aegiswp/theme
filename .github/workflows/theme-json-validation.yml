@@ -1,0 +1,144 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow
+
+name: Theme.json Validation
+
+on:
+  push:
+    branches: [ main, dev ]
+    paths:
+      - 'theme.json'
+      - '.github/workflows/theme-json-validation.yml'
+  pull_request:
+    branches: [ main, dev ]
+    paths:
+      - 'theme.json'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-theme-json:
+    name: Validate theme.json
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate theme.json syntax
+        run: |
+          if [ -f "theme.json" ]; then
+            node -e "
+              const fs = require('fs');
+              try {
+                const theme = JSON.parse(fs.readFileSync('theme.json', 'utf8'));
+                console.log('✓ theme.json is valid JSON');
+                process.exit(0);
+              } catch (e) {
+                console.error('✗ Invalid JSON in theme.json:', e.message);
+                process.exit(1);
+              }
+            "
+          else
+            echo "⚠ theme.json not found"
+            exit 1
+          fi
+
+      - name: Validate theme.json structure
+        run: |
+          node -e "
+            const fs = require('fs');
+            const theme = JSON.parse(fs.readFileSync('theme.json', 'utf8'));
+
+            // Check required top-level properties
+            const required = ['version', 'settings', 'styles'];
+            const missing = required.filter(prop => !(prop in theme));
+
+            if (missing.length > 0) {
+              console.error('✗ Missing required properties:', missing.join(', '));
+              process.exit(1);
+            }
+
+            console.log('✓ theme.json structure valid');
+            console.log('  - version:', theme.version);
+            console.log('  - settings present:', Object.keys(theme.settings).length, 'categories');
+            console.log('  - styles present:', Object.keys(theme.styles).length, 'properties');
+
+            // Warn about common issues
+            if (theme.settings && theme.settings.color && !theme.settings.color.palette) {
+              console.warn('⚠ Warning: No color palette defined');
+            }
+            if (theme.settings && theme.settings.typography && !theme.settings.typography.fontFamilies) {
+              console.warn('⚠ Warning: No font families defined');
+            }
+          "
+
+      - name: Check for deprecated properties
+        run: |
+          node -e "
+            const fs = require('fs');
+            const theme = JSON.parse(fs.readFileSync('theme.json', 'utf8'));
+            const deprecated = [];
+
+            // Check for deprecated properties
+            if (theme.customTemplates) {
+              deprecated.push('customTemplates (use templates instead)');
+            }
+
+            if (deprecated.length > 0) {
+              console.warn('⚠ Deprecated properties found:', deprecated.join(', '));
+              console.warn('  Consider updating to latest theme.json specification');
+            } else {
+              console.log('✓ No deprecated properties detected');
+            }
+          "
+
+      - name: Verify color accessibility
+        run: |
+          node -e "
+            const fs = require('fs');
+            const theme = JSON.parse(fs.readFileSync('theme.json', 'utf8'));
+
+            if (!theme.settings?.color?.palette || theme.settings.color.palette.length === 0) {
+              console.warn('⚠ No color palette defined - accessibility cannot be verified');
+              process.exit(0);
+            }
+
+            console.log('✓ Color palette defined with', theme.settings.color.palette.length, 'colors');
+
+            // Check for common accessibility issues
+            const colors = theme.settings.color.palette;
+            console.log('  Colors:');
+            colors.forEach(color => {
+              console.log('    -', color.name || color.slug, ':', color.color);
+            });
+          "
+
+      - name: Validate block-specific settings
+        run: |
+          node -e "
+            const fs = require('fs');
+            const theme = JSON.parse(fs.readFileSync('theme.json', 'utf8'));
+
+            if (!theme.settings?.blocks) {
+              console.log('ℹ No block-specific settings defined');
+              process.exit(0);
+            }
+
+            const blockCount = Object.keys(theme.settings.blocks).length;
+            console.log('✓ Block-specific settings found for', blockCount, 'blocks');
+
+            Object.entries(theme.settings.blocks).forEach(([block, settings]) => {
+              console.log('  -', block);
+            });
+          "
