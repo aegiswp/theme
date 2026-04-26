@@ -30,6 +30,10 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
 
+      - name: Audit npm dependencies
+        run: npm audit --audit-level=moderate
+        continue-on-error: true
+
       # Linting ensures theme.json and JS follow standards
       - name: Lint JS/TS & CSS
         run: |
@@ -50,6 +54,10 @@ jobs:
 
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-progress
+
+      - name: Audit Composer dependencies
+        run: composer audit --no-interaction
+        continue-on-error: true
 
       # PHPCS for theme PHP files and integrated audit tool
       - name: PHPCS (WordPress Coding Standards)
