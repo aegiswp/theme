@@ -1,0 +1,122 @@
+name: Documentation Issue
+description: Report missing, unclear, or outdated documentation
+labels:
+  - documentation
+  - triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Help us improve the Aegis documentation
+        Use this template to suggest improvements, report missing docs, or flag outdated information.
+
+        **For support questions**, please use [Support/Question](support_question.yml) instead.
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Documentation Issue Type
+      description: What type of documentation issue is this?
+      options:
+        - Missing documentation (topic not covered)
+        - Unclear or confusing explanation
+        - Outdated information (no longer accurate)
+        - Broken or dead links
+        - Missing code examples
+        - Missing screenshots or diagrams
+        - Typos or grammar issues
+        - Incomplete information
+        - Other
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "### Documentation Location"
+
+  - type: dropdown
+    id: doc-location
+    attributes:
+      label: Where is the documentation issue?
+      description: Which documentation resource is affected?
+      options:
+        - README.md (root)
+        - CONTRIBUTING.md
+        - Wiki (GitHub Wiki)
+        - Block Development Guide
+        - Theme Setup Guide
+        - API Documentation
+        - Inline code comments
+        - Comments in this repository
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: doc-page
+    attributes:
+      label: Documentation Page or File
+      description: Direct link or file path to the documentation
+      placeholder: "https://github.com/aegiswp/theme/wiki/Block-Development"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "### Issue Details"
+
+  - type: textarea
+    id: current-state
+    attributes:
+      label: Current Documentation (if applicable)
+      description: Quote the current text or describe what's currently documented
+    validations:
+      required: false
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Why is this an issue?
+      description: Explain what's confusing, missing, or incorrect
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested Improvement
+      description: What should the documentation say instead? How should it be improved?
+    validations:
+      required: true
+
+  - type: textarea
+    id: code-example
+    attributes:
+      label: Code Example (if applicable)
+      description: Provide code examples if you're suggesting a new documentation topic
+      render: markdown
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Screenshots, links to external resources, or other context
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: "### Would you like to contribute?"
+
+  - type: dropdown
+    id: contribute
+    attributes:
+      label: Are you interested in submitting a pull request to fix this?
+      options:
+        - "Yes, I'd like to contribute"
+        - "No, I just wanted to report it"
+        - "Maybe, with guidance"
+    validations:
+      required: false
