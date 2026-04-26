@@ -1,0 +1,43 @@
+# GitHub CODEOWNERS file for Aegis Theme
+# Automatically route pull requests to the appropriate reviewers
+# See https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default: Core team reviews all changes
+* @aegiswp/core-team
+
+# GitHub Actions and CI/CD workflows
+.github/ @aegiswp/core-team
+
+# Theme configuration and core PHP
+theme.json @aegiswp/core-team
+functions.php @aegiswp/core-team
+style.css @aegiswp/core-team
+
+# Composer dependencies and PHP code
+composer.json @aegiswp/core-team
+composer.lock @aegiswp/core-team
+src/ @aegiswp/core-team
+vendor/ @aegiswp/core-team
+
+# NPM dependencies and JavaScript/CSS
+package.json @aegiswp/core-team
+package-lock.json @aegiswp/core-team
+webpack.config.js @aegiswp/core-team
+assets/ @aegiswp/core-team
+
+# Block patterns and templates
+patterns/ @aegiswp/core-team
+templates/ @aegiswp/core-team
+parts/ @aegiswp/core-team
+
+# Documentation and configuration
+README.md @aegiswp/core-team
+CONTRIBUTING.md @aegiswp/core-team
+CHANGELOG.md @aegiswp/core-team
+CODE_OF_CONDUCT.md @aegiswp/core-team
+
+# Tests and tooling
+tests/ @aegiswp/core-team
+tools/ @aegiswp/core-team
+phpunit.xml @aegiswp/core-team
+phpcs.xml @aegiswp/core-team
