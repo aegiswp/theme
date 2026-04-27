@@ -40,41 +40,23 @@ Aegis::register( __FILE__ );
 // Theme-level classes are bootstrapped via Composer files autoload (src/bootstrap.php).
 
 /**
- * Block editor: core `metadata.blockVisibility` UI alignment with Aegis.
+ * Block editor: suppress core `metadata.blockVisibility` support.
  *
- * - Registers `aegis-editor-block-visibility-canvas` script + style (priority `1` so
- *   gettext filters run before most editor code).
- * - JS: renames default-domain Hide/Show/Hidden/Visible strings; hides duplicate
- *   items in the block Options menu and the core inspector "Visibility" panel
- *   (Aegis's `.aegis-visibility-panel` is left intact).
+ * WordPress 6.9+ adds a built-in "Visibility" inspector panel and Options-menu
+ * entry via `supports.metadata.blockVisibility`. Aegis ships its own visibility
+ * UI (`.aegis-visibility-panel`), so we strip the core support at registration
+ * time to prevent duplicate controls. No client-side DOM hiding required.
  *
- * Assets: `assets/js/editor-block-visibility-canvas.js`, `assets/css/editor-block-visibility-canvas.css`.
+ * @see https://make.wordpress.org/core/2025/12/01/ability-to-hide-blocks/
  */
-add_action(
-	'enqueue_block_editor_assets',
-	static function (): void {
-		$path = get_template_directory() . '/assets/js/editor-block-visibility-canvas.js';
-		if (! is_readable($path)) {
-			return;
+add_filter(
+	'block_type_metadata',
+	static function (array $metadata): array {
+		if (isset($metadata['supports']['metadata']['blockVisibility'])) {
+			unset($metadata['supports']['metadata']['blockVisibility']);
 		}
-		wp_enqueue_script(
-			'aegis-editor-block-visibility-canvas',
-			get_template_directory_uri() . '/assets/js/editor-block-visibility-canvas.js',
-			[ 'wp-hooks', 'wp-i18n', 'wp-dom-ready' ],
-			(string) filemtime($path),
-			true
-		);
-		$style_path = get_template_directory() . '/assets/css/editor-block-visibility-canvas.css';
-		if (is_readable($style_path)) {
-			wp_enqueue_style(
-				'aegis-editor-block-visibility-canvas',
-				get_template_directory_uri() . '/assets/css/editor-block-visibility-canvas.css',
-				[],
-				(string) filemtime($style_path)
-			);
-		}
-	},
-	1
+		return $metadata;
+	}
 );
 
 // Add resource hints for external resources (Performance Optimization).
