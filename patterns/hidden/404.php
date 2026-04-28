@@ -7,6 +7,7 @@
  * Description: A 404 error page layout.
  * Viewport Width: 1280
  * Block Types: core/post-content
+ * Inserter: false
  */
 ?>
 
