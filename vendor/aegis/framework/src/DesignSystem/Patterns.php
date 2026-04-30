@@ -34,6 +34,7 @@ use function array_unique;
 use function basename;
 use function do_blocks;
 use function get_stylesheet_directory;
+use function get_template_directory;
 use function glob;
 use function in_array;
 use function is_dir;
@@ -63,6 +64,26 @@ class Patterns implements Renderable {
 	 */
 	function remove_core_patterns(): void {
 		remove_theme_support( 'core-block-patterns' );
+	}
+
+	/**
+	 * Prevents WordPress built-in pattern loader from registering theme patterns.
+	 *
+	 * Since WordPress 6.8, the built-in loader recursively scans the /patterns
+	 * directory and registers patterns using bare slugs from file headers. This
+	 * conflicts with the framework's own registration which uses category-prefixed
+	 * slugs. Returning an empty array disables the built-in loader entirely.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @hook  theme_block_pattern_files
+	 *
+	 * @param array $files Array of pattern files found by WordPress.
+	 *
+	 * @return array Empty array to prevent built-in registration.
+	 */
+	public function disable_builtin_pattern_loader( array $files ): array {
+		return [];
 	}
 
 	/**

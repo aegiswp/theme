@@ -28,26 +28,24 @@ body:
         - Asset Size (JS/CSS Bloat)
     validations:
       required: true
-  - type: group
-    id: core-web-vitals
+  - type: markdown
     attributes:
-      label: Core Web Vitals Data
-    body:
-      - type: input
-        id: lcp
-        attributes:
-          label: Largest Contentful Paint (LCP)
-          description: e.g., 3.2s
-      - type: input
-        id: inp
-        attributes:
-          label: Interaction to Next Paint (INP)
-          description: e.g., 250ms
-      - type: input
-        id: cls
-        attributes:
-          label: Cumulative Layout Shift (CLS)
-          description: e.g., 0.15
+      value: "### Core Web Vitals Data"
+  - type: input
+    id: lcp
+    attributes:
+      label: Largest Contentful Paint (LCP)
+      description: e.g., 3.2s
+  - type: input
+    id: inp
+    attributes:
+      label: Interaction to Next Paint (INP)
+      description: e.g., 250ms
+  - type: input
+    id: cls
+    attributes:
+      label: Cumulative Layout Shift (CLS)
+      description: e.g., 0.15
   - type: textarea
     id: tools
     attributes:

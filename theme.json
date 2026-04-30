@@ -11,8 +11,11 @@
       "style": true,
       "width": true
     },
+    "behaviors": {
+      "lightbox": true
+    },
     "position": {
-      "sticky": false
+      "sticky": true
     },
     "color": {
       "customDuotone": true,
@@ -25,137 +28,197 @@
         {
           "name": "Primary 950",
           "slug": "primary-950",
-          "color": "#1e2225"
+          "color": "#09090b"
         },
         {
           "name": "Primary 900",
           "slug": "primary-900",
-          "color": "#212528"
+          "color": "#18181b"
         },
         {
           "name": "Primary 800",
           "slug": "primary-800",
-          "color": "#24282c"
+          "color": "#27272a"
         },
         {
           "name": "Primary 700",
           "slug": "primary-700",
-          "color": "#343a40"
+          "color": "#3f3f47"
         },
         {
           "name": "Primary 600",
           "slug": "primary-600",
-          "color": "#495057"
+          "color": "#52525c"
         },
         {
           "name": "Primary 500",
           "slug": "primary-500",
-          "color": "#6c757d"
+          "color": "#71717b"
         },
         {
           "name": "Primary 400",
           "slug": "primary-400",
-          "color": "#8d959d"
+          "color": "#9f9fa9"
         },
         {
           "name": "Primary 300",
           "slug": "primary-300",
-          "color": "#a9b1b9"
+          "color": "#d4d4d8"
         },
         {
           "name": "Primary 200",
           "slug": "primary-200",
-          "color": "#9da5ad"
+          "color": "#e4e4e7"
         },
         {
           "name": "Primary 100",
           "slug": "primary-100",
-          "color": "#a5adb5"
+          "color": "#f4f4f5"
         },
         {
           "name": "Primary 50",
           "slug": "primary-50",
-          "color": "#c9cfd4"
+          "color": "#fafafa"
         },
         {
           "name": "Primary 25",
           "slug": "primary-25",
-          "color": "#edf0f2"
+          "color": "#fcfcfd"
         },
         {
           "name": "Neutral 950",
           "slug": "neutral-950",
-          "color": "#202427"
+          "color": "#0a0a0a"
         },
         {
           "name": "Neutral 900",
           "slug": "neutral-900",
-          "color": "#25292d"
+          "color": "#171717"
         },
         {
           "name": "Neutral 800",
           "slug": "neutral-800",
-          "color": "#313539"
+          "color": "#262626"
         },
         {
           "name": "Neutral 700",
           "slug": "neutral-700",
-          "color": "#40454a"
+          "color": "#404040"
         },
         {
           "name": "Neutral 600",
           "slug": "neutral-600",
-          "color": "#50555b"
+          "color": "#525252"
         },
         {
           "name": "Neutral 500",
           "slug": "neutral-500",
-          "color": "#7e858c"
+          "color": "#737373"
         },
         {
           "name": "Neutral 400",
           "slug": "neutral-400",
-          "color": "#8e959d"
+          "color": "#a1a1aa"
         },
         {
           "name": "Neutral 300",
           "slug": "neutral-300",
-          "color": "#dee2e6"
+          "color": "#d4d4d4"
         },
         {
           "name": "Neutral 200",
           "slug": "neutral-200",
-          "color": "#e4e7eb"
+          "color": "#e5e5e5"
         },
         {
           "name": "Neutral 100",
           "slug": "neutral-100",
-          "color": "#e9ecef"
+          "color": "#f5f5f5"
         },
         {
           "name": "Neutral 50",
           "slug": "neutral-50",
-          "color": "#f1f3f5"
+          "color": "#fafaf9"
         },
         {
           "name": "Neutral 0",
           "slug": "neutral-0",
-          "color": "#f8f9fa"
+          "color": "#ffffff"
+        },
+        {
+          "name": "Success 950",
+          "slug": "success-950",
+          "color": "#032e15"
+        },
+        {
+          "name": "Success 900",
+          "slug": "success-900",
+          "color": "#0d542b"
+        },
+        {
+          "name": "Success 800",
+          "slug": "success-800",
+          "color": "#016630"
+        },
+        {
+          "name": "Success 700",
+          "slug": "success-700",
+          "color": "#008236"
         },
         {
           "name": "Success 600",
           "slug": "success-600",
-          "color": "#40916c"
+          "color": "#00a63e"
         },
         {
           "name": "Success 500",
           "slug": "success-500",
-          "color": "#52b788"
+          "color": "#00c950"
+        },
+        {
+          "name": "Success 400",
+          "slug": "success-400",
+          "color": "#05df72"
+        },
+        {
+          "name": "Success 300",
+          "slug": "success-300",
+          "color": "#7bf1a8"
+        },
+        {
+          "name": "Success 200",
+          "slug": "success-200",
+          "color": "#b9f8cf"
         },
         {
           "name": "Success 100",
           "slug": "success-100",
-          "color": "#d8f3dc"
+          "color": "#dcfce7"
+        },
+        {
+          "name": "Success 50",
+          "slug": "success-50",
+          "color": "#f0fdf4"
+        },
+        {
+          "name": "Warning 950",
+          "slug": "warning-950",
+          "color": "#451605"
+        },
+        {
+          "name": "Warning 900",
+          "slug": "warning-900",
+          "color": "#80310e"
+        },
+        {
+          "name": "Warning 800",
+          "slug": "warning-800",
+          "color": "#9f390d"
+        },
+        {
+          "name": "Warning 700",
+          "slug": "warning-700",
+          "color": "#c84806"
         },
         {
           "name": "Warning 600",
@@ -165,27 +228,87 @@
         {
           "name": "Warning 500",
           "slug": "warning-500",
-          "color": "#f48c06"
+          "color": "#ff7c0e"
+        },
+        {
+          "name": "Warning 400",
+          "slug": "warning-400",
+          "color": "#ff9a35"
+        },
+        {
+          "name": "Warning 300",
+          "slug": "warning-300",
+          "color": "#ffbf6f"
+        },
+        {
+          "name": "Warning 200",
+          "slug": "warning-200",
+          "color": "#ffdaa7"
         },
         {
           "name": "Warning 100",
           "slug": "warning-100",
-          "color": "#ffdd00"
+          "color": "#ffefd4"
+        },
+        {
+          "name": "Warning 50",
+          "slug": "warning-50",
+          "color": "#fff7ec"
+        },
+        {
+          "name": "Error 950",
+          "slug": "error-950",
+          "color": "#460d04"
+        },
+        {
+          "name": "Error 900",
+          "slug": "error-900",
+          "color": "#82200c"
+        },
+        {
+          "name": "Error 800",
+          "slug": "error-800",
+          "color": "#a2230a"
+        },
+        {
+          "name": "Error 700",
+          "slug": "error-700",
+          "color": "#dc2f02"
         },
         {
           "name": "Error 600",
           "slug": "error-600",
-          "color": "#dc2f02"
+          "color": "#f63f00"
         },
         {
           "name": "Error 500",
           "slug": "error-500",
-          "color": "#ec5766"
+          "color": "#ff5909"
+        },
+        {
+          "name": "Error 400",
+          "slug": "error-400",
+          "color": "#ff7c31"
+        },
+        {
+          "name": "Error 300",
+          "slug": "error-300",
+          "color": "#ffab6c"
+        },
+        {
+          "name": "Error 200",
+          "slug": "error-200",
+          "color": "#ffcea5"
         },
         {
           "name": "Error 100",
           "slug": "error-100",
-          "color": "#f4998d"
+          "color": "#ffe8d3"
+        },
+        {
+          "name": "Error 50",
+          "slug": "error-50",
+          "color": "#fff5ec"
         },
         {
           "name": "Transparent",
@@ -203,7 +326,58 @@
           "color": "inherit"
         }
       ],
-      "duotone": [],
+      "duotone": [
+        {
+          "name": "Primary Dark/Light",
+          "slug": "primary-dark-light",
+          "colors": ["#09090b", "#fafafa"]
+        },
+        {
+          "name": "Primary Dark/Mid",
+          "slug": "primary-dark-mid",
+          "colors": ["#09090b", "#71717b"]
+        },
+        {
+          "name": "Neutral Dark/Light",
+          "slug": "neutral-dark-light",
+          "colors": ["#0a0a0a", "#ffffff"]
+        },
+        {
+          "name": "Neutral Dark/Warm",
+          "slug": "neutral-dark-warm",
+          "colors": ["#0a0a0a", "#ffdaa7"]
+        },
+        {
+          "name": "Success Dark/Light",
+          "slug": "success-dark-light",
+          "colors": ["#032e15", "#f0fdf4"]
+        },
+        {
+          "name": "Success Dark/Bright",
+          "slug": "success-dark-bright",
+          "colors": ["#032e15", "#00c950"]
+        },
+        {
+          "name": "Warning Dark/Light",
+          "slug": "warning-dark-light",
+          "colors": ["#451605", "#fff7ec"]
+        },
+        {
+          "name": "Warning Dark/Bright",
+          "slug": "warning-dark-bright",
+          "colors": ["#451605", "#ff7c0e"]
+        },
+        {
+          "name": "Error Dark/Light",
+          "slug": "error-dark-light",
+          "colors": ["#460d04", "#fff5ec"]
+        },
+        {
+          "name": "Error Dark/Bright",
+          "slug": "error-dark-bright",
+          "colors": ["#460d04", "#ff5909"]
+        }
+      ],
       "gradients": [
         {
           "gradient": "linear-gradient(135deg,var(--wp--preset--color--primary-700) 0%,var(--wp--preset--color--primary-500) 100%)",
@@ -264,6 +438,101 @@
           "gradient": "conic-gradient(from 90deg at 1px 1px,transparent 90deg,var(--wp--custom--gradient-grid--color,var(--wp--preset--color--neutral-100)) 0) -1px -1px / var(--wp--custom--gradient-grid--size,40px) var(--wp--custom--gradient-grid--size,40px)",
           "name": "Grid",
           "slug": "grid"
+        },
+        {
+          "gradient": "linear-gradient(135deg,var(--wp--preset--color--primary-950) 0%,var(--wp--preset--color--primary-950) 50%,transparent 50%)",
+          "name": "Diagonal Cut Dark Left",
+          "slug": "diagonal-cut-dark-left"
+        },
+        {
+          "gradient": "linear-gradient(-135deg,var(--wp--preset--color--primary-950) 0%,var(--wp--preset--color--primary-950) 50%,transparent 50%)",
+          "name": "Diagonal Cut Dark Right",
+          "slug": "diagonal-cut-dark-right"
+        },
+        {
+          "gradient": "linear-gradient(135deg,transparent 0%,transparent 50%,var(--wp--preset--color--neutral-0) 50%)",
+          "name": "Diagonal Cut Light Left",
+          "slug": "diagonal-cut-light-left"
+        },
+        {
+          "gradient": "linear-gradient(-135deg,transparent 0%,transparent 50%,var(--wp--preset--color--neutral-0) 50%)",
+          "name": "Diagonal Cut Light Right",
+          "slug": "diagonal-cut-light-right"
+        },
+        {
+          "gradient": "linear-gradient(180deg,rgba(9,9,11,0.80) 0%,rgba(9,9,11,0.4) 50%,transparent 100%)",
+          "name": "Fade Dark Top",
+          "slug": "fade-dark-top"
+        },
+        {
+          "gradient": "linear-gradient(0deg,rgba(9,9,11,0.80) 0%,rgba(9,9,11,0.4) 50%,transparent 100%)",
+          "name": "Fade Dark Bottom",
+          "slug": "fade-dark-bottom"
+        },
+        {
+          "gradient": "linear-gradient(180deg,var(--wp--preset--color--primary-950) 0%,var(--wp--preset--color--primary-950) 70%,transparent 70%)",
+          "name": "Long Top Short Bottom",
+          "slug": "long-top-short-bottom"
+        },
+        {
+          "gradient": "linear-gradient(0deg,var(--wp--preset--color--primary-950) 0%,var(--wp--preset--color--primary-950) 70%,transparent 70%)",
+          "name": "Short Top Long Bottom",
+          "slug": "short-top-long-bottom"
+        },
+        {
+          "gradient": "linear-gradient(180deg,rgba(9,9,11,0.9) 0%,rgba(9,9,11,0.6) 30%,transparent 60%,rgba(9,9,11,0.6) 80%,rgba(9,9,11,0.9) 100%)",
+          "name": "Vignette Vertical",
+          "slug": "vignette-vertical"
+        },
+        {
+          "gradient": "radial-gradient(ellipse at center,transparent 0%,rgba(9,9,11,0.8) 100%)",
+          "name": "Vignette Radial",
+          "slug": "vignette-radial"
+        },
+        {
+          "gradient": "linear-gradient(135deg,rgba(9,9,11,0.9) 0%,transparent 50%,rgba(9,9,11,0.9) 100%)",
+          "name": "Diagonal Vignette",
+          "slug": "diagonal-vignette"
+        },
+        {
+          "gradient": "linear-gradient(180deg,transparent 0%,transparent 60%,rgba(9,9,11,0.95) 100%)",
+          "name": "Scrim Bottom",
+          "slug": "scrim-bottom"
+        },
+        {
+          "gradient": "linear-gradient(0deg,transparent 0%,transparent 60%,rgba(9,9,11,0.95) 100%)",
+          "name": "Scrim Top",
+          "slug": "scrim-top"
+        },
+        {
+          "gradient": "linear-gradient(135deg,var(--wp--preset--color--primary-950) 0%,var(--wp--preset--color--primary-950) 33%,var(--wp--preset--color--primary-700) 33%,var(--wp--preset--color--primary-700) 66%,transparent 66%)",
+          "name": "Diagonal Triple",
+          "slug": "diagonal-triple"
+        },
+        {
+          "gradient": "linear-gradient(180deg,var(--wp--preset--color--primary-950) 0%,var(--wp--preset--color--primary-950) 25%,rgba(9,9,11,0.5) 25%,rgba(9,9,11,0.5) 75%,transparent 75%)",
+          "name": "Layered Bands",
+          "slug": "layered-bands"
+        },
+        {
+          "gradient": "radial-gradient(circle at 0% 100%,rgba(9,9,11,0.9) 0%,transparent 70%)",
+          "name": "Spotlight Bottom Left",
+          "slug": "spotlight-bottom-left"
+        },
+        {
+          "gradient": "radial-gradient(circle at 100% 0%,rgba(9,9,11,0.9) 0%,transparent 70%)",
+          "name": "Spotlight Top Right",
+          "slug": "spotlight-top-right"
+        },
+        {
+          "gradient": "linear-gradient(90deg,rgba(9,9,11,0.9) 0%,transparent 40%,transparent 60%,rgba(9,9,11,0.9) 100%)",
+          "name": "Cinematic Bars",
+          "slug": "cinematic-bars"
+        },
+        {
+          "gradient": "repeating-linear-gradient(135deg,transparent 0px,transparent 10px,rgba(9,9,11,0.1) 10px,rgba(9,9,11,0.1) 20px)",
+          "name": "Diagonal Stripes",
+          "slug": "diagonal-stripes"
         }
       ]
     },
@@ -402,6 +671,21 @@
       "notice": {
         "color": "var(--wp--preset--color--primary-500)"
       },
+      "callout": {
+        "borderWidth": "4px",
+        "padding": "1em 1em 1em 1.5em",
+        "backgroundOpacity": "0.06"
+      },
+      "card": {
+        "padding": "var(--wp--preset--spacing--sm)",
+        "borderRadius": "var(--wp--custom--border--radius)",
+        "boxShadow": "var(--wp--preset--shadow--md)"
+      },
+      "highlight": {
+        "background": "var(--wp--preset--color--primary-100)",
+        "padding": "0.1em 0.4em",
+        "borderRadius": "0.25em"
+      },
       "accordion": {
         "height": "1.5px",
         "width": "12px",
@@ -425,7 +709,7 @@
     },
     "layout": {
       "contentSize": "min(calc(100dvw - var(--wp--preset--spacing--lg,2rem) * 2), 720px)",
-      "wideSize": "min(calc(100vw - var(--wp--preset--spacing--lg,2rem) * 2), 1620px)"
+      "wideSize": "min(calc(100dvw - var(--wp--preset--spacing--lg,2rem) * 2), 1620px)"
     },
     "typography": {
       "customFontSize": true,
@@ -433,7 +717,6 @@
       "dropCap": true,
       "lineHeight": true,
       "writingMode": true,
-      "fluid": false,
       "fontSizes": [
         {
           "name": "96px",
@@ -477,7 +760,7 @@
           "size": "clamp(52px,6.4vw,64px)",
           "fluid": {
             "min": "52px",
-            "max": "60px"
+            "max": "64px"
           }
         },
         {
@@ -591,47 +874,32 @@
         {
           "name": "16px",
           "slug": "16",
-          "size": "clamp(16px,1.6vw,16px)",
-          "fluid": {
-            "min": "16px",
-            "max": "16px"
-          }
+          "size": "16px",
+          "fluid": false
         },
         {
           "name": "14px",
           "slug": "14",
-          "size": "clamp(14px,1.4vw,14px)",
-          "fluid": {
-            "min": "14px",
-            "max": "14px"
-          }
+          "size": "14px",
+          "fluid": false
         },
         {
           "name": "12px",
           "slug": "12",
-          "size": "clamp(12px,1.2vw,12px)",
-          "fluid": {
-            "min": "12px",
-            "max": "12px"
-          }
+          "size": "12px",
+          "fluid": false
         },
         {
           "name": "10px",
           "slug": "10",
-          "size": "clamp(10px,1.0vw,10px)",
-          "fluid": {
-            "min": "10px",
-            "max": "10px"
-          }
+          "size": "10px",
+          "fluid": false
         },
         {
           "name": "8px",
           "slug": "8",
-          "size": "clamp(8px,0.8vw,8px)",
-          "fluid": {
-            "min": "8px",
-            "max": "8px"
-          }
+          "size": "8px",
+          "fluid": false
         },
         {
           "name": "Inherit",
@@ -646,13 +914,30 @@
           "slug": "lexend",
           "fontFace": [
             {
-              "fontDisplay": "block",
+              "fontDisplay": "swap",
               "fontFamily": "Lexend",
               "fontStretch": "normal",
               "fontStyle": "normal",
               "fontWeight": "300 900",
               "src": [
-                "file:./assets/fonts/lexend/lexend.woff2"
+                "file:./assets/fonts/lexend.woff2"
+              ]
+            }
+          ]
+        },
+        {
+          "fontFamily": "Lexend Deca, var(--wp--preset--font-family--lexend)",
+          "name": "Lexend Deca",
+          "slug": "lexend-deca",
+          "fontFace": [
+            {
+              "fontDisplay": "swap",
+              "fontFamily": "Lexend Deca",
+              "fontStretch": "normal",
+              "fontStyle": "normal",
+              "fontWeight": "300 900",
+              "src": [
+                "file:./assets/fonts/lexend-deca.woff2"
               ]
             }
           ]
@@ -669,7 +954,7 @@
               "fontDisplay": "swap",
               "fontWeight": "100 900",
               "src": [
-                "file:./assets/fonts/jetbrains/jetbrains.woff2"
+                "file:./assets/fonts/jetbrains.woff2"
               ]
             }
           ]
@@ -698,6 +983,11 @@
       },
       "spacingSizes": [
         {
+          "name": "XXXS (4px)",
+          "slug": "xxxs",
+          "size": "4px"
+        },
+        {
           "name": "XXS (8px)",
           "slug": "xxs",
           "size": "var(--wp--preset--font-size--8)"
@@ -718,6 +1008,11 @@
           "size": "var(--wp--preset--font-size--32)"
         },
         {
+          "name": "ML (40px)",
+          "slug": "ml",
+          "size": "var(--wp--preset--font-size--40)"
+        },
+        {
           "name": "L (48px)",
           "slug": "lg",
           "size": "var(--wp--preset--font-size--48)"
@@ -726,6 +1021,11 @@
           "name": "XL (64px)",
           "slug": "xl",
           "size": "var(--wp--preset--font-size--64)"
+        },
+        {
+          "name": "XLL (80px)",
+          "slug": "xll",
+          "size": "var(--wp--preset--font-size--80)"
         },
         {
           "name": "XXL (96px)",
@@ -738,10 +1038,14 @@
   "styles": {
     "color": {
       "background": "var(--wp--preset--color--neutral-0)",
-      "text": "var(--wp--preset--color--neutral-600)"
+      "text": "var(--wp--preset--color--neutral-700)"
     },
     "spacing": {
-      "blockGap": "var(--wp--preset--spacing--sm)"
+      "blockGap": "var(--wp--preset--spacing--sm)",
+      "padding": {
+        "right": "var(--wp--preset--spacing--lg)",
+        "left": "var(--wp--preset--spacing--lg)"
+      }
     },
     "typography": {
       "fontFamily": "var(--wp--preset--font-family--lexend)",
@@ -760,16 +1064,16 @@
         },
         "spacing": {
           "padding": {
-            "top": "10px",
-            "right": "16px",
-            "bottom": "10px",
-            "left": "16px"
+            "top": "var(--wp--preset--font-size--10)",
+            "right": "var(--wp--preset--font-size--16)",
+            "bottom": "var(--wp--preset--font-size--10)",
+            "left": "var(--wp--preset--font-size--16)"
           }
         },
         "typography": {
           "fontSize": "var(--wp--preset--font-size--14)",
           "fontWeight": "var(--wp--custom--font-weight--semi-bold)",
-          "lineHeight": "20px"
+          "lineHeight": "var(--wp--preset--font-size--20)"
         }
       },
       "textInput": {
@@ -817,10 +1121,10 @@
       "caption": {
         "spacing": {
           "padding": {
-            "top": "var(--wp--preset--spacing--s)",
-            "right": "var(--wp--preset--spacing--s)",
-            "bottom": "var(--wp--preset--spacing--s)",
-            "left": "var(--wp--preset--spacing--s)"
+            "top": "var(--wp--preset--spacing--sm)",
+            "right": "var(--wp--preset--spacing--sm)",
+            "bottom": "var(--wp--preset--spacing--sm)",
+            "left": "var(--wp--preset--spacing--sm)"
           }
         },
         "typography": {
@@ -830,7 +1134,7 @@
       },
       "heading": {
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--lexend)",
+          "fontFamily": "var(--wp--preset--font-family--lexend-deca)",
           "fontWeight": "var(--wp--custom--font-weight--semi-bold)",
           "lineHeight": "1.4"
         },
@@ -889,6 +1193,12 @@
         ":focus": {
           "color": {
             "text": "var(--wp--preset--color--primary-500)"
+          },
+          "outline": {
+            "width": "2px",
+            "style": "solid",
+            "color": "var(--wp--preset--color--primary-500)",
+            "offset": "2px"
           }
         }
       }
@@ -938,7 +1248,7 @@
           }
         },
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--jetbrains-mono)",
+          "fontFamily": "var(--wp--preset--font-family--jetbrains)",
           "fontSize": "var(--wp--preset--font-size--14)",
           "fontWeight": "var(--wp--custom--font-weight--medium)"
         }
@@ -964,6 +1274,11 @@
           "radius": "50%"
         }
       },
+      "core/post-excerpt": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--16)"
+        }
+      },
       "core/cover": {
         "spacing": {
           "margin": {
@@ -974,6 +1289,7 @@
       },
       "core/footnotes": {
         "typography": {
+          "fontFamily": "var(--wp--preset--font-family--lexend)",
           "fontSize": "var(--wp--preset--font-size--12)"
         }
       },
@@ -1024,8 +1340,33 @@
         }
       },
       "core/post-date": {
+        "color": {
+          "text": "var(--wp--preset--color--primary-600)"
+        },
+        "elements": {
+          "link": {
+            "color": {
+              "text": "var(--wp--preset--color--primary-600)"
+            },
+            "typography": {
+              "textDecoration": "none"
+            },
+            ":hover": {
+              "color": {
+                "text": "var(--wp--preset--color--primary-500)"
+              }
+            },
+            ":focus": {
+              "color": {
+                "text": "var(--wp--preset--color--primary-500)"
+              }
+            }
+          }
+        },
         "typography": {
-          "fontSize": "var(--wp--preset--font-size--12)"
+          "fontSize": "var(--wp--preset--font-size--12)",
+          "fontWeight": "var(--wp--custom--font-weight--semi-bold)",
+          "textDecoration": "none"
         }
       },
       "core/post-featured-image": {
@@ -1047,6 +1388,29 @@
         }
       },
       "core/post-terms": {
+        "color": {
+          "text": "var(--wp--preset--color--primary-600)"
+        },
+        "elements": {
+          "link": {
+            "color": {
+              "text": "var(--wp--preset--color--primary-600)"
+            },
+            "typography": {
+              "textDecoration": "none"
+            },
+            ":hover": {
+              "color": {
+                "text": "var(--wp--preset--color--primary-500)"
+              }
+            },
+            ":focus": {
+              "color": {
+                "text": "var(--wp--preset--color--primary-500)"
+              }
+            }
+          }
+        },
         "spacing": {
           "margin": {
             "bottom": "0em"
@@ -1054,7 +1418,8 @@
         },
         "typography": {
           "textDecoration": "none",
-          "fontSize": "var(--wp--preset--font-size--14)"
+          "fontSize": "var(--wp--preset--font-size--14)",
+          "fontWeight": "var(--wp--custom--font-weight--semi-bold)"
         }
       },
       "core/preformatted": {
@@ -1175,7 +1540,10 @@
   "customTemplates": [
     {
       "title": "Archive: Product",
-      "name": "archive-product"
+      "name": "archive-product",
+      "postTypes": [
+        "product"
+      ]
     },
     {
       "title": "Blank",
@@ -1195,19 +1563,73 @@
     },
     {
       "title": "Product Search Results",
-      "name": "product-search-results"
+      "name": "product-search-results",
+      "postTypes": [
+        "product"
+      ]
     },
     {
       "title": "Single item: Product",
-      "name": "single-product"
+      "name": "single-product",
+      "postTypes": [
+        "product"
+      ]
     },
     {
       "title": "Taxonomy Product Category",
-      "name": "taxonomy-product_cat"
+      "name": "taxonomy-product_cat",
+      "postTypes": [
+        "product"
+      ]
     },
     {
       "title": "Taxonomy Product Tag",
-      "name": "taxonomy-product_tag"
+      "name": "taxonomy-product_tag",
+      "postTypes": [
+        "product"
+      ]
+    },
+    {
+      "title": "Page: Cart",
+      "name": "page-cart",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "title": "Page: Checkout",
+      "name": "page-checkout",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "title": "Page: Checkout Multi-Step",
+      "name": "page-checkout-multi-step",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "title": "Order Confirmation",
+      "name": "order-confirmation",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "title": "Page: My Account",
+      "name": "page-my-account",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "title": "Page: Wishlist",
+      "name": "page-wishlist",
+      "postTypes": [
+        "page"
+      ]
     }
   ],
   "templateParts": [
@@ -1218,8 +1640,8 @@
     },
     {
       "area": "uncategorized",
-      "name": "main",
-      "title": "Main"
+      "name": "sidebar",
+      "title": "Sidebar"
     },
     {
       "area": "footer",

@@ -1,19 +1,23 @@
 <?php
 /**
- * Theme Functions
+ * Theme bootstrap and public hooks
  *
- * Main entry point for the Aegis theme. This file is responsible for
- * bootstrapping the theme by loading necessary files and initializing the
- * Aegis Framework.
+ * Main entry for the Aegis block theme. Loads Composer, registers the framework,
+ * and wires theme-level WordPress hooks that are not part of `src/bootstrap.php`
+ * (that file is autoloaded and registers `init` services only).
  *
- * Responsibilities:
- * - Loads the Composer autoloader to make all dependencies available.
- * - Initializes the Aegis Framework by calling `Aegis::register()`.
+ * Responsibilities in this file:
+ * - `vendor/autoload.php` — PSR-4 and Composer `files` (`src/bootstrap.php`).
+ * - GitHub release updater config filter (`aegis_theme_updater_config`).
+ * - `Aegis::register( __FILE__ )` — framework and design system.
+ * - Block editor: core canvas visibility UI overrides (see assets below).
+ * - `wp_resource_hints` — optional DNS-prefetch targets.
+ * - `title-tag` — theme support.
  *
- * @package    Aegis
- * @since      1.0.0
- * @author     Atmostfear Entertainment
- * @link       https://github.com/aegiswp/theme
+ * @package Aegis
+ * @since 1.0.0
+ * @link https://github.com/aegiswp/theme
+ * @author Atmostfear Entertainment
  */
 
 // Enforces strict type checking for all code in this file.
@@ -31,4 +35,40 @@ add_filter('aegis_theme_updater_config', function () {
 });
 
 // Registers the Aegis Framework, initializing all its components and services.
-Aegis::register(__FILE__);
+Aegis::register( __FILE__ );
+
+// Theme-level classes are bootstrapped via Composer files autoload (src/bootstrap.php).
+
+/**
+ * Block editor: suppress core `metadata.blockVisibility` support.
+ *
+ * WordPress 6.9+ adds a built-in "Visibility" inspector panel and Options-menu
+ * entry via `supports.metadata.blockVisibility`. Aegis ships its own visibility
+ * UI (`.aegis-visibility-panel`), so we strip the core support at registration
+ * time to prevent duplicate controls. No client-side DOM hiding required.
+ *
+ * @see https://make.wordpress.org/core/2025/12/01/ability-to-hide-blocks/
+ */
+add_filter(
+	'block_type_metadata',
+	static function (array $metadata): array {
+		if (isset($metadata['supports']['metadata']['blockVisibility'])) {
+			unset($metadata['supports']['metadata']['blockVisibility']);
+		}
+		return $metadata;
+	}
+);
+
+// Add resource hints for external resources (Performance Optimization).
+add_filter('wp_resource_hints', function ($urls, $relation_type) {
+	if ('dns-prefetch' === $relation_type) {
+		// Add any external domains used by the theme.
+		// Example: $urls[] = '//fonts.googleapis.com';
+	}
+	return $urls;
+}, 10, 2);
+
+// Ensure title-tag support is explicitly declared (SEO).
+add_action('after_setup_theme', function () {
+	add_theme_support('title-tag');
+});

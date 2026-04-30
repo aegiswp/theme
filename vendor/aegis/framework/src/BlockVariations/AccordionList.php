@@ -24,12 +24,16 @@ declare(strict_types=1);
 namespace Aegis\Framework\BlockVariations;
 
 // Imports utility classes and interfaces for DOM manipulation, CSS helpers, and renderable blocks.
+use Aegis\Framework\ServiceProvider;
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
 use Aegis\Utilities\Str;
 use DOMElement;
 use WP_Block;
+
+use function esc_attr;
+use function wp_kses_post;
 
 // Implements the AccordionList class to support accordion-style list blocks.
 
@@ -70,6 +74,11 @@ class AccordionList implements Renderable
 	 */
 	public function render(string $block_content, array $block, WP_Block $instance): string
 	{
+		// Check if block is enabled in admin settings.
+		if ( ! ServiceProvider::is_block_enabled( 'accordion' ) ) {
+			return $block_content;
+		}
+
 		if (!str_contains($block_content, 'is-style-accordion')) {
 			return $block_content;
 		}
@@ -87,8 +96,12 @@ class AccordionList implements Renderable
 		// Create a new parent div to hold the <details> elements.
 		$accordion_wrapper_html = '<div>';
 
-		// Iterate over each original list item.
+		// Iterate over each original list item (convert to static array to avoid live NodeList issues).
+		$list_items = [];
 		foreach ($list->getElementsByTagName('li') as $li) {
+			$list_items[] = $li;
+		}
+		foreach ($list_items as $li) {
 			if (!$li instanceof DOMElement) {
 				continue;
 			}
@@ -102,9 +115,12 @@ class AccordionList implements Renderable
 
 			// Create the new <details> and <summary> elements.
 			$details = DOM::create_element('details', $dom);
-			// Transfer all attributes (class, style, etc.) from the <li> to the <details>.
+			// Transfer safe attributes (class, style, id, data-*) from the <li> to the <details>.
 			foreach ($li->attributes as $attribute) {
-				$details->setAttribute(esc_attr($attribute->name), esc_attr($attribute->value));
+				$attr_name = $attribute->name;
+				if ($attr_name === 'class' || $attr_name === 'style' || $attr_name === 'id' || str_starts_with($attr_name, 'data-')) {
+					$details->setAttribute($attr_name, esc_attr($attribute->value));
+				}
 			}
 
 			$summary = DOM::create_element('summary', $dom);
@@ -115,13 +131,22 @@ class AccordionList implements Renderable
 			// The content before the first <br> becomes the summary (title).
 			$title_dom = DOM::create($explode[0]);
 			$list_item = DOM::get_element('li', $title_dom);
-			foreach ($list_item->childNodes as $child_node) {
-				$summary->appendChild($dom->importNode($child_node, true));
+			if ($list_item) {
+				foreach ($list_item->childNodes as $child_node) {
+					$summary->appendChild($dom->importNode($child_node, true));
+				}
 			}
 
 			// The content after the <br> becomes the section (collapsible content).
-			// The strip_tags is used to clean up any leftover HTML.
-			$section->textContent = strip_tags($explode[2] ?? $explode[1], '');
+			// Preserve semantic HTML (links, emphasis, etc.) via wp_kses_post.
+			$content_html = wp_kses_post($explode[2] ?? $explode[1]);
+			$content_fragment = DOM::create('<div>' . $content_html . '</div>');
+			$content_div = DOM::get_element('div', $content_fragment);
+			if ($content_div) {
+				foreach ($content_div->childNodes as $child_node) {
+					$section->appendChild($dom->importNode($child_node, true));
+				}
+			}
 
 			// --- Assemble the Accordion Item ---
 			$details->appendChild($summary);
@@ -160,9 +185,10 @@ class AccordionList implements Renderable
 				$details->removeAttribute('style');
 			}
 
-			// Add the expand/collapse icon.
+			// Add the expand/collapse icon (decorative, hidden from screen readers).
 			$icon = DOM::create_element('span', $dom);
 			$icon->setAttribute('class', 'accordion-toggle');
+			$icon->setAttribute('aria-hidden', 'true');
 			$summary->appendChild($icon);
 
 			// Append the fully constructed <details> element to our wrapper.
@@ -176,16 +202,61 @@ class AccordionList implements Renderable
 		$div_dom = DOM::create($accordion_wrapper_html);
 		$imported = $dom->importNode($div_dom->documentElement, true);
 
-		// Transfer all attributes from the original list to the new wrapper.
+		// Transfer safe attributes from the original list to the new wrapper.
 		foreach ($list->attributes as $attribute) {
 			if (method_exists($imported, 'setAttribute')) {
-				$imported->setAttribute($attribute->localName, $attribute->nodeValue);
+				$attr_name = $attribute->localName;
+				if ($attr_name === 'class' || $attr_name === 'style' || $attr_name === 'id' || str_starts_with($attr_name, 'data-')) {
+					$imported->setAttribute($attr_name, esc_attr($attribute->nodeValue));
+				}
 			}
 		}
 
 		$dom->removeChild($list);
 		$dom->appendChild($imported);
 
-		return $dom->saveHTML();
+		$html = $dom->saveHTML();
+
+		// Output FAQPage JSON-LD if FAQ Schema is enabled in admin settings
+		// and Rank Math is not handling it.
+		if (
+			ServiceProvider::is_block_enabled( 'accordion_faq_schema' ) &&
+			! ServiceProvider::is_schema_handled_by_rank_math( 'rank_math_faq_schema' )
+		) {
+			$faq_entities = [];
+			$final_dom = DOM::create($html);
+			foreach ($final_dom->getElementsByTagName('details') as $details_el) {
+				if (!$details_el instanceof DOMElement) {
+					continue;
+				}
+				$summary_el = DOM::get_element('summary', $details_el);
+				$section_el = DOM::get_element('section', $details_el);
+				if (!$summary_el || !$section_el) {
+					continue;
+				}
+				$question = wp_strip_all_tags($final_dom->saveHTML($summary_el));
+				$answer   = wp_strip_all_tags($final_dom->saveHTML($section_el));
+				if (!empty($question) && !empty($answer)) {
+					$faq_entities[] = [
+						'@type'          => 'Question',
+						'name'           => $question,
+						'acceptedAnswer' => [
+							'@type' => 'Answer',
+							'text'  => $answer,
+						],
+					];
+				}
+			}
+			if (!empty($faq_entities)) {
+				$schema = [
+					'@context'   => 'https://schema.org',
+					'@type'      => 'FAQPage',
+					'mainEntity' => $faq_entities,
+				];
+				$html .= '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES) . '</script>';
+			}
+		}
+
+		return $html;
 	}
 }

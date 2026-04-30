@@ -3,7 +3,9 @@
  * Title: Logo Cloud
  * Slug: logo-cloud
  * Categories: testimonial
- * ID: 675
+ * Keywords: testimonial, logo, cloud, clients
+ * Description: A logo cloud showcasing clients or partners.
+ * Viewport Width: 1280
  */
 ?>
 

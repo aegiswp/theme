@@ -1,0 +1,166 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow
+
+name: Lighthouse CI
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lighthouse-ci:
+    name: Lighthouse Performance Check
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: wordpress
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+        ports:
+          - 3306:3306
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Build theme
+        run: npm run build --if-present
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: wp-cli
+
+      - name: Set up WordPress test site
+        run: |
+          mkdir -p wp
+          wp core download --path=wp
+          wp config create --path=wp --dbname=wordpress --dbuser=root --dbpass=root --dbhost=127.0.0.1 --force
+          wp db create --path=wp
+          wp core install --path=wp --url=http://localhost:8080 --title="Aegis Performance Test" --admin_user=admin --admin_password=password --admin_email=test@example.com --skip-email
+          ln -s "$GITHUB_WORKSPACE" wp/wp-content/themes/aegis
+          wp theme activate aegis --path=wp
+
+      - name: Start PHP development server
+        run: |
+          cd wp
+          php -S localhost:8080 > /tmp/server.log 2>&1 &
+          SERVER_PID=$!
+          echo $SERVER_PID > /tmp/server.pid
+
+          # Wait for server to be ready
+          for i in {1..30}; do
+            if curl -f http://localhost:8080 > /dev/null 2>&1; then
+              echo "✓ Server is ready"
+              exit 0
+            fi
+            echo "Waiting for server... ($i/30)"
+            sleep 1
+          done
+          echo "✗ Server failed to start"
+          cat /tmp/server.log
+          exit 1
+
+      - name: Run Lighthouse audit (Homepage)
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          configPath: './.github/lighthouse/lighthouserc.json'
+          temporaryPublicStorage: true
+          runs: 3
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Parse Lighthouse results
+        if: always()
+        run: |
+          echo "## 📊 Lighthouse Performance Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ -f "./.lighthouseci/results/manifest.json" ]; then
+            node << 'EOF'
+            const fs = require('fs');
+            const manifest = JSON.parse(fs.readFileSync('./.lighthouseci/results/manifest.json', 'utf8'));
+
+            if (manifest.results && manifest.results.length > 0) {
+              const latest = manifest.results[0];
+              const scores = latest.summary;
+
+              console.log("| Metric | Score |");
+              console.log("|--------|-------|");
+              console.log("| Performance | " + Math.round(scores.performance * 100) + "% |");
+              console.log("| Accessibility | " + Math.round(scores.accessibility * 100) + "% |");
+              console.log("| Best Practices | " + Math.round(scores['best-practices'] * 100) + "% |");
+              console.log("| SEO | " + Math.round(scores.seo * 100) + "% |");
+
+              // Check thresholds
+              const perf = Math.round(scores.performance * 100);
+              const access = Math.round(scores.accessibility * 100);
+
+              console.log("");
+              if (perf >= 80) console.log("✓ Performance score: " + perf + "/100");
+              else console.log("⚠ Performance score: " + perf + "/100 (target: 80+)");
+
+              if (access >= 90) console.log("✓ Accessibility score: " + access + "/100");
+              else console.log("⚠ Accessibility score: " + access + "/100 (target: 90+)");
+            }
+            EOF
+          else
+            echo "⚠ Lighthouse results not available"
+          fi
+
+      - name: Comment results on PR
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+
+            let comment = "## 📊 Lighthouse Audit Results\n\n";
+
+            if (fs.existsSync('./.lighthouseci/results/manifest.json')) {
+              const manifest = JSON.parse(fs.readFileSync('./.lighthouseci/results/manifest.json', 'utf8'));
+              if (manifest.results && manifest.results.length > 0) {
+                const scores = manifest.results[0].summary;
+                comment += "| Metric | Score |\n";
+                comment += "|--------|-------|\n";
+                comment += "| Performance | " + Math.round(scores.performance * 100) + " |\n";
+                comment += "| Accessibility | " + Math.round(scores.accessibility * 100) + " |\n";
+                comment += "| Best Practices | " + Math.round(scores['best-practices'] * 100) + " |\n";
+                comment += "| SEO | " + Math.round(scores.seo * 100) + " |\n\n";
+                comment += "[View full report →](" + manifest.results[0].url + ")\n";
+              }
+            } else {
+              comment += "⚠ Unable to generate Lighthouse report\n";
+            }
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            })
+
+      - name: Cleanup PHP server
+        if: always()
+        run: |
+          if [ -f /tmp/server.pid ]; then
+            kill $(cat /tmp/server.pid) 2>/dev/null || true
+          fi

@@ -1,37 +1,60 @@
 {
-	"name": "aegiswp/theme",
-	"type": "wordpress-theme",
-	"description": "Aegis Theme",
-	"keywords": [
-		"WordPress",
-		"Block",
-		"Theme"
-	],
-	"homepage": "https://github.com/aegiswp/theme",
-	"license": "GPL-3.0",
-	"authors": [
-		{
-			"name": "Contributors",
-			"homepage": "https://github.com/aegiswp/theme/contributors.md"
-		}
-	],
-	"require": {
-		"php": ">=7.4"
-	},
-	"require-dev": {
-		"dealerdirect/phpcodesniffer-composer-installer": "^1.2.0",
-		"wptrt/wpthemereview": "^0.2.1",
-		"squizlabs/php_codesniffer": "^3.10",
-		"wp-coding-standards/wpcs": "^3.1"
-	},
-	"config": {
-		"allow-plugins": {
-			"dealerdirect/phpcodesniffer-composer-installer": true
-		}
-	},
-	"scripts": {
-		"format": "phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
-		"lint": "phpcs --standard=phpcs.xml.dist"
-	},
-	"version": "1.0.0-rc.2"
+    "name": "aegiswp/theme",
+    "version": "1.0.0-rc.3",
+    "description": "Aegis — Native Block Framework for WordPress",
+    "type": "wordpress-theme",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Atmostfear Entertainment",
+            "homepage": "https://www.atmostfear-entertainment.com/"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "enshrined/svg-sanitize": "^0.22",
+        "psr/container": "^2.0"
+    },
+    "require-dev": {
+        "aegis/wpaudit": "@dev",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "phpunit/phpunit": "^10.5",
+        "squizlabs/php_codesniffer": "^3.12",
+        "wp-coding-standards/wpcs": "^3.2"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "tools/wpaudit"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Aegis\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "scripts": {
+        "standards:check": "phpcs",
+        "standards:fix": "phpcbf",
+        "analyze": "@standards:check",
+        "lint": "@standards:check",
+        "test": "phpunit -c phpunit.xml",
+        "test:php": "phpunit -c phpunit.xml",
+        "test:wpaudit": [
+            "composer install --no-interaction --working-dir=tools/wpaudit",
+            "@php tools/wpaudit/vendor/bin/phpunit -c tools/wpaudit/phpunit.xml"
+        ]
+    }
 }

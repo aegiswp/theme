@@ -27,6 +27,7 @@ namespace Aegis\Container;
 
 // Imports exception handling, PSR-11 container interface, reflection utilities, and helper functions required for container operations.
 use Aegis\Container\Exceptions\ContainerException;
+use Aegis\Container\Exceptions\NotFoundException;
 use Psr\Container\ContainerInterface;
 use ReflectionClass;
 use ReflectionException;
@@ -62,20 +63,22 @@ class Container implements ContainerInterface
 	 * Finds an entry of the container by its identifier and returns it.
 	 *
 	 * This method retrieves a previously resolved service instance from the container.
-	 * It adheres to the PSR-11 standard by not attempting to resolve the service
-	 * if it is not already present.
+	 * It adheres to the PSR-11 standard by throwing a NotFoundException when the
+	 * requested service is not present.
+	 *
+	 * @throws NotFoundException If the service is not found in the container.
 	 *
 	 * @param string $id Identifier of the entry to look for (e.g., a fully qualified class name).
 	 *
-	 * @return mixed The resolved service instance, or null if the service is not found.
+	 * @return mixed The resolved service instance.
 	 */
-	public function get(string $id)
+	public function get(string $id): mixed
 	{
 		if (!$this->has($id)) {
-			$this->log("Class {$id} not found in container.");
+			throw new NotFoundException($id);
 		}
 
-		return $this->instances[$id] ?? null;
+		return $this->instances[$id];
 	}
 
 	/**
@@ -104,9 +107,9 @@ class Container implements ContainerInterface
 	 * @param mixed  ...$args Optional. A list of arguments to pass to the class constructor,
 	 *                        bypassing auto-wiring for those specific parameters.
 	 *
-	 * @return mixed The resolved service instance, or null if resolution fails.
+	 * @return object|null The resolved service instance, or null if resolution fails.
 	 */
-	public function make(string $id, ...$args)
+	public function make(string $id, ...$args): ?object
 	{
 		// If an instance of the service already exists, return it immediately.
 		if ($this->has($id) && is_object($this->instances[$id])) {

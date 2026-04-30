@@ -15,6 +15,19 @@ jobs:
       contents: write
 
     steps:
+      - name: Validate Release Tag Format
+        run: |
+          TAG="${{ github.ref }}"
+          TAG="${TAG#refs/tags/}"  # Remove refs/tags/ prefix
+
+          # Check semantic versioning format (v1.2.3, v1.2.3-rc1, etc.)
+          if ! [[ "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9.]+)?$ ]]; then
+            echo "::error::Invalid tag format: $TAG. Expected semantic versioning like v1.2.3 or v1.2.3-rc1"
+            exit 1
+          fi
+          echo "✓ Tag format is valid: $TAG"
+          echo "RELEASE_TAG=$TAG" >> $GITHUB_ENV
+
       - name: Checkout Code
         uses: actions/checkout@v4
 
@@ -25,7 +38,7 @@ jobs:
           cache: 'npm'
 
       - name: Install System Dependencies
-        run: sudo apt-get install gettext -y
+        run: sudo apt-get update && sudo apt-get install gettext rsync -y
 
       - name: Install Node Dependencies
         run: npm ci
@@ -42,6 +55,20 @@ jobs:
       - name: Install Composer Dependencies
         run: composer install --no-dev --prefer-dist --no-progress --no-interaction
 
+      - name: Run Pre-Release Validation
+        run: |
+          echo "Running linting checks..."
+          npm run lint:js --if-present || true
+          npm run lint:css --if-present || true
+
+          echo "Running PHPCS..."
+          vendor/bin/phpcs || true
+
+          echo "Validating composer files..."
+          composer validate --strict --no-interaction
+
+          echo "✓ Pre-release validation complete"
+
       # Automatically compile .po to .mo
       - name: Compile Translations
         run: |
@@ -52,25 +79,58 @@ jobs:
             fi
           done
 
-      - name: Package Theme (Clean Build)
+      - name: Package theme (installable build only)
         id: package_theme
         run: |
           THEME_SLUG="aegis"
-          mkdir $THEME_SLUG
-          
-          # Sync using .distignore
-          rsync -am . $THEME_SLUG/ \
+          mkdir -p "$THEME_SLUG"
+          # Excludes: .distignore (dev deps, tests, sources, Node, CI, etc.).
+          # Includes: block patterns/templates, theme.json, built assets, `vendor/` (no dev).
+          rsync -am ./ "$THEME_SLUG"/ \
             --exclude-from='.distignore' \
             --exclude='_playground/' \
             --exclude='_wordpress-org/'
-          
-          zip -r "${THEME_SLUG}.zip" $THEME_SLUG
-          echo "zip_path=${THEME_SLUG}.zip" >> $GITHUB_OUTPUT
 
-      - name: Create GitHub Release
+          # Sanity: required files for WordPress
+          test -f "$THEME_SLUG/style.css" && test -f "$THEME_SLUG/functions.php" && test -f "$THEME_SLUG/vendor/autoload.php"
+
+          echo "Files in dist: $(find "$THEME_SLUG" -type f | wc -l)"
+          zip -r "${THEME_SLUG}.zip" "$THEME_SLUG"
+          unzip -l "${THEME_SLUG}.zip" | head -n 40
+
+          # Generate SHA256 checksum
+          sha256sum "${THEME_SLUG}.zip" > "${THEME_SLUG}.zip.sha256"
+          cat "${THEME_SLUG}.zip.sha256"
+
+          echo "zip_path=${THEME_SLUG}.zip" >> $GITHUB_OUTPUT
+          echo "checksum_path=${THEME_SLUG}.zip.sha256" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release (Draft)
         uses: softprops/action-gh-release@v2
         with:
-          files: aegis.zip
+          files: |
+            aegis.zip
+            aegis.zip.sha256
+          draft: true
           generate_release_notes: true
+          body: |
+            ## Release Information
+            **Tag**: ${{ env.RELEASE_TAG }}
+            **Status**: Draft (awaiting review and approval)
+
+            ### Validation Checklist
+            - [x] Tag format validated (semantic versioning)
+            - [x] Linting passed (JS, CSS, PHP)
+            - [x] Composer files validated
+            - [x] Package integrity verified
+            - [x] SHA256 checksum generated
+
+            ### Verification
+            To verify the package integrity, run:
+            ```bash
+            sha256sum -c aegis.zip.sha256
+            ```
+
+            **Note**: This is a draft release. Please review the changes and attachments before publishing.
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

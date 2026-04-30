@@ -19,7 +19,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for design system components.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
@@ -210,7 +210,7 @@ class DarkMode implements Styleable
 	 */
 	public function styles(Styles $styles): void
 	{
-		if (is_admin() || !$this->is_enabled()) {
+		if (is_admin()) {
 			return;
 		}
 

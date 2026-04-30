@@ -9,6 +9,10 @@ on:
       - 'composer.json'
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   generate-lock:
     name: Generate composer.lock
@@ -28,28 +32,17 @@ jobs:
           php-version: '8.3'
           tools: composer
 
-      - name: Check if composer.lock exists
-        id: check-lock
-        run: |
-          if [ -f composer.lock ]; then
-            echo "exists=true" >> $GITHUB_OUTPUT
-          else
-            echo "exists=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Generate composer.lock
-        if: steps.check-lock.outputs.exists == 'false'
-        run: composer update --no-install --no-interaction
-
       - name: Update composer.lock
-        if: steps.check-lock.outputs.exists == 'true'
         run: composer update --no-install --no-interaction
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict --no-interaction
 
       - name: Commit composer.lock
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          
+
           if git diff --quiet composer.lock 2>/dev/null; then
             echo "No changes to composer.lock"
           else

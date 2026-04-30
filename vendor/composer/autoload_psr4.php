@@ -14,4 +14,5 @@ return array(
     'Aegis\\Framework\\' => array($vendorDir . '/aegis/framework/src'),
     'Aegis\\Dom\\' => array($vendorDir . '/aegis/dom/src'),
     'Aegis\\Container\\' => array($vendorDir . '/aegis/container/src'),
+    'Aegis\\' => array($baseDir . '/src'),
 );

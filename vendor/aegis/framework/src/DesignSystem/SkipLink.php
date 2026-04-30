@@ -16,12 +16,14 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for design system components.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
 
 // Imports WordPress functions for escaping and translation.
+use Aegis\Framework\InlineAssets\Scriptable;
+use Aegis\Framework\InlineAssets\Scripts;
 use function esc_attr;
 use function esc_html__;
 use function is_admin;
@@ -38,8 +40,7 @@ use function is_admin;
  * @package Aegis\Framework\DesignSystem
  * @since   1.0.0
  */
-class SkipLink
-{
+class SkipLink implements Scriptable {
 
 	/**
 	 * The target ID for the skip link.
@@ -49,6 +50,17 @@ class SkipLink
 	 * @var string
 	 */
 	private string $target = 'main';
+
+	/**
+	 * Register the search modal accessibility script.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param Scripts $scripts The Scripts service instance.
+	 */
+	public function scripts( Scripts $scripts ): void {
+		$scripts->add_file( 'search-modal.js', [ 'search-modal' ] );
+	}
 
 	/**
 	 * Inject skip link before the header template part.
@@ -65,21 +77,20 @@ class SkipLink
 	 *
 	 * @return string
 	 */
-	public function add_skip_link(string $block_content, array $block): string
-	{
-		if (is_admin()) {
+	public function add_skip_link( string $block_content, array $block ): string {
+		if ( is_admin() ) {
 			return $block_content;
 		}
 
 		$slug = $block['attrs']['slug'] ?? '';
 
 		// Only add skip link to header template part.
-		if ('header' !== $slug) {
+		if ( 'header' !== $slug ) {
 			return $block_content;
 		}
 
-		$target = esc_attr($this->target);
-		$text = esc_html__('Skip to content', 'aegis');
+		$target = esc_attr( $this->target );
+		$text   = esc_html__( 'Skip to content', 'aegis' );
 
 		$skip_link = sprintf(
 			'<a class="skip-link screen-reader-text" href="#%s">%s</a>',

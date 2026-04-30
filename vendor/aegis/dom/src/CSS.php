@@ -99,61 +99,62 @@ class CSS
 			);
 		}
 
-		static $global_settings = null;
-		static $theme_json = null;
-
-		if (is_null($global_settings)) {
-			$global_settings = function_exists('wp_get_global_settings') ? wp_get_global_settings() : [];
-		}
-
-		if (!$global_settings) {
+		// Early return for values that cannot be color slugs (contains common
+		// CSS characters that slugs never have). This avoids the expensive
+		// palette lookup for the vast majority of CSS values.
+		if (str_contains($custom_property, ' ') ||
+			str_contains($custom_property, '(') ||
+			str_contains($custom_property, '#') ||
+			str_contains($custom_property, '.') ||
+			str_contains($custom_property, ',') ||
+			str_contains($custom_property, '/') ||
+			str_contains($custom_property, '%') ||
+			is_numeric($custom_property)
+		) {
 			return $custom_property;
 		}
 
-		if (is_null($theme_json)) {
-			$theme_json_file = get_template_directory() . '/theme.json';
-			$theme_json = [];
-
-			if (file_exists($theme_json_file)) {
-				$theme_json = wp_json_file_decode($theme_json_file);
-			}
-		}
-
-		if (!$theme_json) {
-			return $custom_property;
-		}
-
-		if (!isset($global_settings['color']['palette']['theme']) && !isset($theme_json->settings->color->palette)) {
-			return $custom_property;
-		}
-
-		$colors = array_merge(
-			(array) ($global_settings['color']['palette']['theme'] ?? []),
-			(array) $theme_json->settings->color->palette
-		);
-
-		$system_colors = [
-			'current',
-			'currentcolor',
-			'currentColor',
-			'inherit',
-			'initial',
-			'transparent',
-			'unset',
+		static $system_colors = [
+			'current'      => true,
+			'currentcolor'  => true,
+			'currentColor' => true,
+			'inherit'      => true,
+			'initial'      => true,
+			'transparent'  => true,
+			'unset'        => true,
 		];
 
-		if (in_array($custom_property, $system_colors, true)) {
-			if ($custom_property === 'current') {
-				return 'currentcolor';
+		if (isset($system_colors[$custom_property])) {
+			return $custom_property === 'current' ? 'currentcolor' : $custom_property;
+		}
+
+		static $color_slug_map = null;
+
+		if (is_null($color_slug_map)) {
+			$color_slug_map = [];
+			$global_settings = function_exists('wp_get_global_settings') ? wp_get_global_settings() : [];
+
+			if ($global_settings) {
+				$theme_json_file = get_template_directory() . '/theme.json';
+				$theme_json = file_exists($theme_json_file) ? wp_json_file_decode($theme_json_file) : null;
+
+				if ($theme_json) {
+					$colors = array_merge(
+						(array) ($global_settings['color']['palette']['theme'] ?? []),
+						(array) ($theme_json->settings->color->palette ?? [])
+					);
+
+					foreach ($colors as $color) {
+						$slug = is_object($color) ? ($color->slug ?? '') : ($color['slug'] ?? '');
+						if ($slug && !isset($system_colors[$slug])) {
+							$color_slug_map[$slug] = true;
+						}
+					}
+				}
 			}
 		}
 
-		$color_slugs = array_diff(
-			wp_list_pluck($colors, 'slug'),
-			$system_colors
-		);
-
-		if (in_array($custom_property, $color_slugs, true)) {
+		if (isset($color_slug_map[$custom_property])) {
 			return "var(--wp--preset--color--{$custom_property})";
 		}
 
@@ -267,9 +268,7 @@ class CSS
 	}
 
 	/**
-	 * @todo This method needs to be replaced by native framework code
-	 * to remove the dependency on an outdated third-party GitHub repository,
-	 * ensuring the Aegis Framework remains up-to-date and performant.
+	 * Quick and dirty way to mostly minify CSS.
 	 *
 	 * @author Gary Jones
 	 *

@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for inline asset management.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for inline assets components within the Aegis Framework.
 namespace Aegis\Framework\InlineAssets;
@@ -38,8 +38,7 @@ use function wp_register_style;
 
 // Implements the Styles class to support inline style management for the design system.
 
-class Styles implements Inlinable
-{
+class Styles implements Inlinable {
 
 	use AssetsTrait;
 
@@ -52,21 +51,20 @@ class Styles implements Inlinable
 	 *
 	 * @return void
 	 */
-	public function enqueue(): void
-	{
-		if (is_admin()) {
+	public function enqueue(): void {
+		if ( is_admin() ) {
 			return;
 		}
 
 		global $template_html;
 
-		$load_all = apply_filters('aegis_load_all_styles', !$template_html);
-		$css = $this->get_inline_assets($template_html, $load_all);
+		$load_all = apply_filters( 'aegis_load_all_styles', ! $template_html );
+		$css      = $this->get_inline_assets( $template_html, $load_all );
 
-		wp_dequeue_style('wp-block-library-theme');
-		wp_register_style($this->handle, '');
-		wp_enqueue_style($this->handle);
-		wp_add_inline_style($this->handle, $css);
+		wp_dequeue_style( 'wp-block-library-theme' );
+		wp_register_style( $this->handle, '' );
+		wp_enqueue_style( $this->handle );
+		wp_add_inline_style( $this->handle, $css );
 	}
 
 	/**
@@ -76,16 +74,18 @@ class Styles implements Inlinable
 	 *
 	 * @return void
 	 */
-	public function add_editor_styles(): void
-	{
-		$blocks = glob($this->dir . 'core-blocks/*.css');
-		$vendor_path = Path::get_segment($this->dir, -5);
+	public function add_editor_styles(): void {
+		$blocks      = glob( $this->dir . 'core-blocks/*.css' );
+		$vendor_path = Path::get_segment( $this->dir, -5 );
 
-		foreach ($blocks as $block) {
-			add_editor_style($vendor_path . '/core-blocks/' . basename($block));
+		foreach ( $blocks as $block ) {
+			add_editor_style( $vendor_path . '/core-blocks/' . basename( $block ) );
 		}
 
-		add_editor_style(static::DYNAMIC_URL);
+		// Add video editor styles for the editor iframe.
+		add_editor_style( 'src/Blocks/editor/video-editor.css' );
+
+		add_editor_style( static::DYNAMIC_URL );
 	}
 
 	/**
@@ -102,7 +102,7 @@ class Styles implements Inlinable
 		$fonts = [];
 
 		if (apply_filters('aegis_preload_font_lexend', false, $template_html)) {
-			$fonts[] = $base . '/assets/fonts/lexend/lexend.woff2';
+			$fonts[] = $base . '/assets/fonts/lexend.woff2';
 		}
 
 		if (
@@ -110,7 +110,7 @@ class Styles implements Inlinable
 			str_contains($template_html, 'wp-block-code') ||
 			str_contains($template_html, 'wp-block-preformatted')
 		) {
-			$fonts[] = $base . '/assets/fonts/jetbrains/jetbrains.woff2';
+			$fonts[] = $base . '/assets/fonts/jetbrains.woff2';
 		}
 
 		foreach ($fonts as $url) {
@@ -179,19 +179,18 @@ class Styles implements Inlinable
 	 *
 	 * @return array|bool
 	 */
-	public function generate_dynamic_styles($response, array $parsed_args, string $url)
-	{
-		if ($url === static::DYNAMIC_URL) {
-			$css = $this->get_inline_assets('', true);
+	public function generate_dynamic_styles( $response, array $parsed_args, string $url ) {
+		if ( $url === static::DYNAMIC_URL ) {
+			$css = $this->get_inline_assets( '', true );
 
 			$response = [
-				'body' => $css,
-				'headers' => [],
+				'body'     => $css,
+				'headers'  => [],
 				'response' => [
-					'code' => 200,
+					'code'    => 200,
 					'message' => 'OK',
 				],
-				'cookies' => [],
+				'cookies'  => [],
 				'filename' => null,
 			];
 		}

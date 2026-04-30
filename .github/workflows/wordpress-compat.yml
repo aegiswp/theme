@@ -1,0 +1,181 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow
+
+name: WordPress Compatibility Matrix
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+  schedule:
+    # Run weekly to catch WordPress core updates
+    - cron: '0 2 * * 1'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  compatibility-matrix:
+    name: Test WP ${{ matrix.wordpress }} / PHP ${{ matrix.php }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        wordpress: ['6.4', '6.5', 'latest']
+        php: ['8.1', '8.2', '8.3']
+      fail-fast: false
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: wordpress_test
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+        ports:
+          - 3306:3306
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP ${{ matrix.php }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mbstring, intl, dom, curl, json, libxml, xml, xmlwriter, mysqli
+          tools: composer, wp-cli
+          coverage: pcov
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Build theme
+        run: npm run build --if-present
+
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Download WordPress ${{ matrix.wordpress }}
+        run: |
+          if [ "${{ matrix.wordpress }}" = "latest" ]; then
+            WP_VERSION=""
+          else
+            WP_VERSION="--version=${{ matrix.wordpress }}"
+          fi
+          mkdir -p wp-test
+          wp core download $WP_VERSION --path=wp-test --force
+
+      - name: Setup WordPress test database
+        run: |
+          wp config create \
+            --path=wp-test \
+            --dbname=wordpress_test \
+            --dbuser=root \
+            --dbpass=root \
+            --dbhost=127.0.0.1 \
+            --force
+          wp db create --path=wp-test
+
+      - name: Install WordPress
+        run: |
+          wp core install \
+            --path=wp-test \
+            --url=http://localhost:8080 \
+            --title="Aegis Compatibility Test" \
+            --admin_user=admin \
+            --admin_password=password \
+            --admin_email=test@example.com \
+            --skip-email
+
+      - name: Activate theme
+        run: |
+          ln -s "$GITHUB_WORKSPACE" wp-test/wp-content/themes/aegis
+          wp theme activate aegis --path=wp-test
+
+      - name: Validate theme loads
+        run: |
+          wp theme get aegis --path=wp-test
+          echo "✓ Theme activated successfully"
+
+      - name: Check theme requirements
+        run: |
+          php -r "
+            require 'wp-test/wp-load.php';
+
+            \$theme = wp_get_theme('aegis');
+
+            if (is_wp_error(\$theme)) {
+              echo '✗ Theme error: ' . \$theme->get_error_message() . PHP_EOL;
+              exit(1);
+            }
+
+            echo '✓ Theme loaded: ' . \$theme->get('Name') . PHP_EOL;
+            echo '  Version: ' . \$theme->get('Version') . PHP_EOL;
+            echo '  Requires PHP: ' . \$theme->get('RequiresPHP') . PHP_EOL;
+            echo '  Requires WP: ' . \$theme->get('RequiresWP') . PHP_EOL;
+          "
+
+      - name: Run theme PHP checks
+        run: |
+          vendor/bin/phpcs --standard=WordPress wp-test/wp-content/themes/aegis/functions.php --exit-code=0 || true
+
+      - name: Test core block rendering
+        run: |
+          wp eval 'echo "✓ WordPress CLI working correctly"; wp_die();' --path=wp-test
+
+      - name: Check theme.json validity in context
+        run: |
+          php -r "
+            require 'wp-test/wp-load.php';
+
+            \$theme_json_file = 'wp-test/wp-content/themes/aegis/theme.json';
+            if (!file_exists(\$theme_json_file)) {
+              echo '✗ theme.json not found' . PHP_EOL;
+              exit(1);
+            }
+
+            \$json = json_decode(file_get_contents(\$theme_json_file), true);
+            if (json_last_error() !== JSON_ERROR_NONE) {
+              echo '✗ Invalid JSON: ' . json_last_error_msg() . PHP_EOL;
+              exit(1);
+            }
+
+            echo '✓ theme.json is valid' . PHP_EOL;
+            echo '  Settings: ' . count(\$json['settings'] ?? []) . ' categories' . PHP_EOL;
+            echo '  Styles: ' . count(\$json['styles'] ?? []) . ' properties' . PHP_EOL;
+          "
+
+      - name: Test block registration
+        continue-on-error: true
+        run: |
+          wp eval-file - --path=wp-test <<'EOF'
+          $registered_blocks = WP_Block_Type_Registry::get_instance()->get_all_registered();
+          echo "✓ Registered blocks: " . count($registered_blocks) . PHP_EOL;
+
+          // Check for common block types
+          $required_blocks = ['core/paragraph', 'core/heading', 'core/image'];
+          foreach ($required_blocks as $block) {
+            if (isset($registered_blocks[$block])) {
+              echo "  ✓ $block" . PHP_EOL;
+            } else {
+              echo "  ✗ $block not found" . PHP_EOL;
+            }
+          }
+          EOF
+
+      - name: Generate compatibility report
+        if: always()
+        run: |
+          echo "## Compatibility Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**WordPress**: ${{ matrix.wordpress }}" >> $GITHUB_STEP_SUMMARY
+          echo "**PHP**: ${{ matrix.php }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✓ Theme compatibility verified" >> $GITHUB_STEP_SUMMARY

@@ -24,6 +24,7 @@ declare(strict_types=1);
 namespace Aegis\Framework\BlockVariations;
 
 // Imports utility classes and interfaces for asset management, DOM manipulation, and renderable blocks.
+use Aegis\Framework\ServiceProvider;
 use Aegis\Framework\InlineAssets\Scriptable;
 use Aegis\Framework\InlineAssets\Scripts;
 use Aegis\Dom\DOM;
@@ -31,6 +32,8 @@ use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
 use function esc_attr;
 use function esc_html;
+use function is_string;
+use function in_array;
 use function trim;
 
 // Implements the Counter class to support counter block rendering and scripting.
@@ -68,6 +71,11 @@ class Counter implements Renderable, Scriptable
 	 */
 	public function render(string $block_content, array $block, WP_Block $instance): string
 	{
+		// Check if block is enabled in admin settings.
+		if ( ! ServiceProvider::is_block_enabled( 'counter' ) ) {
+			return $block_content;
+		}
+
 		$counter = $block['attrs']['style']['counter'] ?? '';
 
 		if (!$counter) {
@@ -81,9 +89,29 @@ class Counter implements Renderable, Scriptable
 			return $block_content;
 		}
 
+		// Allowlist of valid counter data attributes to prevent arbitrary attribute injection.
+		$allowed_attrs = ['start', 'end', 'delay', 'duration', 'prefix', 'suffix'];
+
 		// Loop through the counter settings and apply them as data attributes.
 		foreach ($counter as $attribute => $value) {
-			$p->setAttribute("data-$attribute", esc_attr($value));
+			if (!in_array($attribute, $allowed_attrs, true)) {
+				continue;
+			}
+			$p->setAttribute("data-$attribute", esc_attr((string) $value));
+		}
+
+		// Add accessibility attributes for screen readers.
+		$p->setAttribute('aria-live', 'polite');
+		if (isset($counter['end'])) {
+			$label = '';
+			if (isset($counter['prefix'])) {
+				$label .= (string) $counter['prefix'];
+			}
+			$label .= (string) $counter['end'];
+			if (isset($counter['suffix'])) {
+				$label .= (string) $counter['suffix'];
+			}
+			$p->setAttribute('aria-label', esc_attr($label));
 		}
 
 		// Ensure the text content is trimmed and properly escaped.

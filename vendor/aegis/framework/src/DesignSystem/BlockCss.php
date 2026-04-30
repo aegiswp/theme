@@ -24,6 +24,7 @@ declare( strict_types=1 );
 namespace Aegis\Framework\DesignSystem;
 
 // Imports styles service and utility functions for file handling, string manipulation, and WordPress integration.
+use Aegis\Utilities\Debug;
 use Aegis\Framework\InlineAssets\Styles;
 use function array_flip;
 use function file_get_contents;
@@ -91,6 +92,8 @@ class BlockCss {
 			return;
 		}
 
+		static $file_cache = [];
+
 		$dir     = $this->css_dir . 'core-blocks/';
 		$handles = array_flip( $wp_styles->queue );
 
@@ -106,14 +109,20 @@ class BlockCss {
 			$slug = str_replace( 'wp-block-', '', $handle );
 			$file = $dir . $slug . '.css';
 
-			if ( ! file_exists( $file ) ) {
-				continue;
+			if ( ! isset( $file_cache[ $file ] ) ) {
+				if ( ! file_exists( $file ) ) {
+					$file_cache[ $file ] = false;
+					continue;
+				}
+
+				$file_cache[ $file ] = trim( file_get_contents( $file ) );
 			}
 
-			$css = trim( file_get_contents( $file ) );
+			$css = $file_cache[ $file ];
 
-			// Remove zero width spaces and other invisible characters.
-			$css = preg_replace( '/^[\pZ\pC]+|[\pZ\pC]+$/u', '', $css );
+			if ( $css === false ) {
+				continue;
+			}
 
 			wp_add_inline_style( $handle, $css );
 		}
@@ -145,7 +154,7 @@ class BlockCss {
 					'handle'  => 'aegis-core-' . $slug,
 					'src'     => $this->css_url . 'core-blocks/' . $basename,
 					'deps'    => [],
-					'version' => '1.0.0',
+					'version' => Debug::is_enabled() ? filemtime( $file ) : '1.0.0',
 					'media'   => 'all',
 					'path'    => $file,
 				]

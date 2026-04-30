@@ -3,7 +3,9 @@
  * Title: Brands
  * Slug: brands
  * Categories: testimonial
- * ID: 665
+ * Keywords: testimonial, brands, logos, partners
+ * Description: A brands and partners showcase.
+ * Viewport Width: 1280
  */
 ?>
 

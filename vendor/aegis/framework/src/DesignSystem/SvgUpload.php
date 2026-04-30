@@ -17,7 +17,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for design system components.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
@@ -27,6 +27,8 @@ use DOMDocument;
 use DOMElement;
 use DOMXPath;
 use function __;
+use function apply_filters;
+use function get_option;
 use function add_filter;
 use function current_user_can;
 use function esc_attr;
@@ -47,11 +49,11 @@ use function str_contains;
 use function str_starts_with;
 use function strtolower;
 use function trim;
+use function wp_parse_args;
 
 // Implements the SvgUpload class to support secure SVG file uploads.
 
-class SvgUpload
-{
+class SvgUpload {
 
 	/**
 	 * Allowed SVG elements.
@@ -105,7 +107,6 @@ class SvgUpload
 		'desc',
 		'metadata',
 		'switch',
-		'foreignobject',
 		'a',
 		'marker',
 		'view',
@@ -308,11 +309,10 @@ class SvgUpload
 	 *
 	 * @return void
 	 */
-	public function hooks(): void
-	{
-		add_filter('upload_mimes', [$this, 'allow_svg_upload']);
-		add_filter('wp_check_filetype_and_ext', [$this, 'check_filetype'], 10, 5);
-		add_filter('wp_handle_upload_prefilter', [$this, 'sanitize_svg']);
+	public function hooks(): void {
+		add_filter( 'upload_mimes', [ $this, 'allow_svg_upload' ] );
+		add_filter( 'wp_check_filetype_and_ext', [ $this, 'check_filetype' ], 10, 5 );
+		add_filter( 'wp_handle_upload_prefilter', [ $this, 'sanitize_svg' ] );
 	}
 
 	/**
@@ -326,10 +326,9 @@ class SvgUpload
 	 *
 	 * @return array
 	 */
-	public function allow_svg_upload(array $mimes): array
-	{
-		if (current_user_can('upload_files')) {
-			$mimes['svg'] = 'image/svg+xml';
+	public function allow_svg_upload( array $mimes ): array {
+		if ( current_user_can( 'upload_files' ) ) {
+			$mimes['svg']  = 'image/svg+xml';
 			$mimes['svgz'] = 'image/svg+xml';
 		}
 
@@ -353,16 +352,15 @@ class SvgUpload
 	 *
 	 * @return array
 	 */
-	public function check_filetype(array $data, string $file, string $filename, ?array $mimes, $real_mime): array
-	{
-		if (!current_user_can('upload_files')) {
+	public function check_filetype( array $data, string $file, string $filename, ?array $mimes, $real_mime ): array {
+		if ( ! current_user_can( 'upload_files' ) ) {
 			return $data;
 		}
 
-		$ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+		$ext = strtolower( pathinfo( $filename, PATHINFO_EXTENSION ) );
 
-		if ('svg' === $ext || 'svgz' === $ext) {
-			$data['ext'] = $ext;
+		if ( 'svg' === $ext || 'svgz' === $ext ) {
+			$data['ext']  = $ext;
 			$data['type'] = 'image/svg+xml';
 		}
 
@@ -380,61 +378,60 @@ class SvgUpload
 	 *
 	 * @return array
 	 */
-	public function sanitize_svg(array $file): array
-	{
-		if (!isset($file['type'])) {
+	public function sanitize_svg( array $file ): array {
+		if ( ! isset( $file['type'] ) ) {
 			return $file;
 		}
 
-		if ('image/svg+xml' !== $file['type']) {
-			$ext = strtolower(pathinfo($file['name'] ?? '', PATHINFO_EXTENSION));
+		if ( 'image/svg+xml' !== $file['type'] ) {
+			$ext = strtolower( pathinfo( $file['name'] ?? '', PATHINFO_EXTENSION ) );
 
-			if ('svg' !== $ext && 'svgz' !== $ext) {
+			if ( 'svg' !== $ext && 'svgz' !== $ext ) {
 				return $file;
 			}
 		}
 
-		if (!current_user_can('upload_files')) {
-			$file['error'] = __('You do not have permission to upload SVG files.', 'aegis');
+		if ( ! current_user_can( 'upload_files' ) ) {
+			$file['error'] = __( 'You do not have permission to upload SVG files.', 'aegis' );
 			return $file;
 		}
 
 		$tmp_file = $file['tmp_name'] ?? '';
 
-		if (!$tmp_file || !file_exists($tmp_file)) {
+		if ( ! $tmp_file || ! file_exists( $tmp_file ) ) {
 			return $file;
 		}
 
-		$svg_content = file_get_contents($tmp_file);
+		$svg_content = file_get_contents( $tmp_file );
 
-		if (false === $svg_content) {
-			$file['error'] = __('Could not read SVG file.', 'aegis');
+		if ( false === $svg_content ) {
+			$file['error'] = __( 'Could not read SVG file.', 'aegis' );
 			return $file;
 		}
 
 		// Handle gzipped SVGs.
-		if (str_contains($file['name'] ?? '', '.svgz')) {
-			$svg_content = gzdecode($svg_content);
+		if ( str_contains( $file['name'] ?? '', '.svgz' ) ) {
+			$svg_content = gzdecode( $svg_content );
 
-			if (false === $svg_content) {
-				$file['error'] = __('Could not decompress SVGZ file.', 'aegis');
+			if ( false === $svg_content ) {
+				$file['error'] = __( 'Could not decompress SVGZ file.', 'aegis' );
 				return $file;
 			}
 		}
 
-		$sanitized = $this->sanitize($svg_content);
+		$sanitized = $this->sanitize( $svg_content );
 
-		if (false === $sanitized) {
-			$file['error'] = __('SVG file failed security validation.', 'aegis');
+		if ( false === $sanitized ) {
+			$file['error'] = __( 'SVG file failed security validation.', 'aegis' );
 			return $file;
 		}
 
 		// Handle gzipped SVGs on save.
-		if (str_contains($file['name'] ?? '', '.svgz')) {
-			$sanitized = gzencode($sanitized);
+		if ( str_contains( $file['name'] ?? '', '.svgz' ) ) {
+			$sanitized = gzencode( $sanitized );
 		}
 
-		file_put_contents($tmp_file, $sanitized);
+		file_put_contents( $tmp_file, $sanitized );
 
 		return $file;
 	}
@@ -448,31 +445,30 @@ class SvgUpload
 	 *
 	 * @return string|false Sanitized SVG or false on failure.
 	 */
-	public function sanitize(string $svg_content)
-	{
+	public function sanitize( string $svg_content ) {
 		// Remove PHP tags.
-		$svg_content = preg_replace('/<\?php.*?\?>/si', '', $svg_content);
-		$svg_content = preg_replace('/<\?.*?\?>/s', '', $svg_content);
+		$svg_content = preg_replace( '/<\?php.*?\?>/si', '', $svg_content );
+		$svg_content = preg_replace( '/<\?.*?\?>/s', '', $svg_content );
 
 		// Remove DOCTYPE to prevent XXE attacks.
-		$svg_content = preg_replace('/<!DOCTYPE[^>]*>/i', '', $svg_content);
+		$svg_content = preg_replace( '/<!DOCTYPE[^>]*>/i', '', $svg_content );
 
 		// Remove ENTITY declarations.
-		$svg_content = preg_replace('/<!ENTITY[^>]*>/i', '', $svg_content);
+		$svg_content = preg_replace( '/<!ENTITY[^>]*>/i', '', $svg_content );
 
 		// Remove CDATA sections that might contain scripts.
-		$svg_content = preg_replace('/<!\[CDATA\[.*?\]\]>/s', '', $svg_content);
+		$svg_content = preg_replace( '/<!\[CDATA\[.*?\]\]>/s', '', $svg_content );
 
 		// Remove comments.
-		$svg_content = preg_replace('/<!--.*?-->/s', '', $svg_content);
+		$svg_content = preg_replace( '/<!--.*?-->/s', '', $svg_content );
 
 		// Disable external entity loading.
-		if (\PHP_VERSION_ID < 80000) {
+		if ( \PHP_VERSION_ID < 80000 ) {
 			// phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
-			libxml_disable_entity_loader(true);
+			libxml_disable_entity_loader( true );
 		}
 
-		libxml_use_internal_errors(true);
+		libxml_use_internal_errors( true );
 
 		$dom = new DOMDocument();
 		$dom->formatOutput = false;
@@ -482,65 +478,80 @@ class SvgUpload
 		// Load SVG with security flags.
 		$loaded = $dom->loadXML(
 			$svg_content,
-			LIBXML_NONET | LIBXML_NOENT | LIBXML_NOCDATA
+			LIBXML_NONET | LIBXML_NOCDATA
 		);
 
-		if (!$loaded) {
+		if ( ! $loaded ) {
 			libxml_clear_errors();
 			return false;
 		}
 
-		$xpath = new DOMXPath($dom);
+		$xpath = new DOMXPath( $dom );
 
 		// Remove dangerous elements.
-		foreach (self::DANGEROUS_ELEMENTS as $tag) {
-			$nodes = $xpath->query('//' . $tag);
+		foreach ( self::DANGEROUS_ELEMENTS as $tag ) {
+			$nodes = $xpath->query( '//' . $tag );
 
-			if ($nodes) {
-				foreach ($nodes as $node) {
-					$node->parentNode->removeChild($node);
+			if ( $nodes ) {
+				foreach ( $nodes as $node ) {
+					$node->parentNode->removeChild( $node );
 				}
 			}
 		}
 
 		// Process all elements.
-		$all_elements = $dom->getElementsByTagName('*');
-		$to_remove = [];
+		$all_elements = $dom->getElementsByTagName( '*' );
+		$to_remove    = [];
 
-		foreach ($all_elements as $element) {
-			if (!$element instanceof DOMElement) {
+		foreach ( $all_elements as $element ) {
+			if ( ! $element instanceof DOMElement ) {
 				continue;
 			}
 
-			$tag_name = strtolower($element->tagName);
+			$tag_name = strtolower( $element->tagName );
 
 			// Remove namespace prefix for comparison.
-			if (str_contains($tag_name, ':')) {
-				$tag_name = explode(':', $tag_name)[1];
+			if ( str_contains( $tag_name, ':' ) ) {
+				$tag_name = explode( ':', $tag_name )[1];
 			}
 
 			// Remove disallowed elements.
-			if (!in_array($tag_name, self::ALLOWED_ELEMENTS, true)) {
+			if ( ! in_array( $tag_name, self::ALLOWED_ELEMENTS, true ) ) {
 				$to_remove[] = $element;
 				continue;
 			}
 
 			// Sanitize attributes.
-			$this->sanitize_attributes($element);
+			$this->sanitize_attributes( $element );
 		}
 
 		// Remove collected elements.
-		foreach ($to_remove as $element) {
-			if ($element->parentNode) {
-				$element->parentNode->removeChild($element);
+		foreach ( $to_remove as $element ) {
+			if ( $element->parentNode ) {
+				$element->parentNode->removeChild( $element );
 			}
+		}
+
+		// Apply optional SVG processing based on theme settings.
+		$settings = $this->get_svg_settings();
+
+		if ( $settings['svg_strip_colors'] ) {
+			$this->strip_colors( $dom );
+		}
+
+		if ( $settings['svg_strip_dimensions'] ) {
+			$this->strip_dimensions( $dom );
+		}
+
+		if ( $settings['svg_strip_styles'] ) {
+			$this->strip_styles( $dom );
 		}
 
 		libxml_clear_errors();
 
-		$svg = $dom->saveXML($dom->documentElement);
+		$svg = $dom->saveXML( $dom->documentElement );
 
-		if (!$svg) {
+		if ( ! $svg ) {
 			return false;
 		}
 
@@ -556,56 +567,55 @@ class SvgUpload
 	 *
 	 * @return void
 	 */
-	private function sanitize_attributes(DOMElement $element): void
-	{
+	private function sanitize_attributes( DOMElement $element ): void {
 		$attributes_to_remove = [];
 
-		foreach ($element->attributes as $attr) {
-			$attr_name = strtolower($attr->name);
+		foreach ( $element->attributes as $attr ) {
+			$attr_name  = strtolower( $attr->name );
 			$attr_value = $attr->value;
 
 			// Remove event handlers (onclick, onload, onerror, etc.).
-			if (str_starts_with($attr_name, 'on')) {
+			if ( str_starts_with( $attr_name, 'on' ) ) {
 				$attributes_to_remove[] = $attr->name;
 				continue;
 			}
 
 			// Remove disallowed attributes.
-			if (!in_array($attr_name, self::ALLOWED_ATTRIBUTES, true)) {
+			if ( ! in_array( $attr_name, self::ALLOWED_ATTRIBUTES, true ) ) {
 				// Allow data-* attributes.
-				if (!str_starts_with($attr_name, 'data-')) {
+				if ( ! str_starts_with( $attr_name, 'data-' ) ) {
 					$attributes_to_remove[] = $attr->name;
 					continue;
 				}
 			}
 
 			// Sanitize href and xlink:href attributes.
-			if ('href' === $attr_name || 'xlink:href' === $attr_name) {
-				$sanitized_value = $this->sanitize_href($attr_value);
+			if ( 'href' === $attr_name || 'xlink:href' === $attr_name ) {
+				$sanitized_value = $this->sanitize_href( $attr_value );
 
-				if (false === $sanitized_value) {
+				if ( false === $sanitized_value ) {
 					$attributes_to_remove[] = $attr->name;
 				} else {
-					$element->setAttribute($attr->name, $sanitized_value);
+					$element->setAttribute( $attr->name, $sanitized_value );
 				}
 
 				continue;
 			}
 
 			// Check for javascript: or data: URLs in any attribute.
-			if ($this->contains_dangerous_url($attr_value)) {
+			if ( $this->contains_dangerous_url( $attr_value ) ) {
 				$attributes_to_remove[] = $attr->name;
 				continue;
 			}
 
 			// Check for CSS expressions in style attribute.
-			if ('style' === $attr_name && $this->contains_dangerous_css($attr_value)) {
+			if ( 'style' === $attr_name && $this->contains_dangerous_css( $attr_value ) ) {
 				$attributes_to_remove[] = $attr->name;
 			}
 		}
 
-		foreach ($attributes_to_remove as $attr_name) {
-			$element->removeAttribute($attr_name);
+		foreach ( $attributes_to_remove as $attr_name ) {
+			$element->removeAttribute( $attr_name );
 		}
 	}
 
@@ -618,29 +628,28 @@ class SvgUpload
 	 *
 	 * @return string|false Sanitized href or false if dangerous.
 	 */
-	private function sanitize_href(string $href): string|false
-	{
-		$href = trim($href);
+	private function sanitize_href( string $href ): string|false {
+		$href = trim( $href );
 
 		// Allow internal references (starts with #).
-		if (str_starts_with($href, '#')) {
-			return esc_attr($href);
+		if ( str_starts_with( $href, '#' ) ) {
+			return esc_attr( $href );
 		}
 
 		// Allow relative URLs to images.
 		if (
-			preg_match('/\.(png|jpg|jpeg|gif|webp|svg)$/i', $href) &&
-			!str_contains($href, ':')
+			preg_match( '/\.(png|jpg|jpeg|gif|webp|svg)$/i', $href ) &&
+			! str_contains( $href, ':' )
 		) {
-			return esc_attr($href);
+			return esc_attr( $href );
 		}
 
 		// Allow https URLs to images.
 		if (
-			str_starts_with($href, 'https://') &&
-			preg_match('/\.(png|jpg|jpeg|gif|webp|svg)$/i', $href)
+			str_starts_with( $href, 'https://' ) &&
+			preg_match( '/\.(png|jpg|jpeg|gif|webp|svg)$/i', $href )
 		) {
-			return esc_attr($href);
+			return esc_attr( $href );
 		}
 
 		// Block everything else (javascript:, data:, http:, etc.).
@@ -656,9 +665,8 @@ class SvgUpload
 	 *
 	 * @return bool
 	 */
-	private function contains_dangerous_url(string $value): bool
-	{
-		$value = strtolower(preg_replace('/\s+/', '', $value));
+	private function contains_dangerous_url( string $value ): bool {
+		$value = strtolower( preg_replace( '/\s+/', '', $value ) );
 
 		$dangerous_schemes = [
 			'javascript:',
@@ -668,8 +676,8 @@ class SvgUpload
 			'blob:',
 		];
 
-		foreach ($dangerous_schemes as $scheme) {
-			if (str_contains($value, $scheme)) {
+		foreach ( $dangerous_schemes as $scheme ) {
+			if ( str_contains( $value, $scheme ) ) {
 				return true;
 			}
 		}
@@ -686,9 +694,8 @@ class SvgUpload
 	 *
 	 * @return bool
 	 */
-	private function contains_dangerous_css(string $css): bool
-	{
-		$css = strtolower(preg_replace('/\s+/', '', $css));
+	private function contains_dangerous_css( string $css ): bool {
+		$css = strtolower( preg_replace( '/\s+/', '', $css ) );
 
 		$dangerous_patterns = [
 			'expression(',
@@ -700,12 +707,120 @@ class SvgUpload
 			'url(javascript:',
 		];
 
-		foreach ($dangerous_patterns as $pattern) {
-			if (str_contains($css, $pattern)) {
+		foreach ( $dangerous_patterns as $pattern ) {
+			if ( str_contains( $css, $pattern ) ) {
 				return true;
 			}
 		}
 
 		return false;
+	}
+
+	/**
+	 * Get SVG processing settings from the theme.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return array
+	 */
+	private function get_svg_settings(): array {
+		$defaults = [
+			'svg_upload'           => true,
+			'svg_strip_colors'     => false,
+			'svg_strip_dimensions' => false,
+			'svg_strip_styles'     => false,
+		];
+
+		$settings = get_option( 'aegis_settings', $defaults );
+
+		/**
+		 * Filters the SVG processing settings.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param array $settings SVG processing settings.
+		 */
+		return apply_filters( 'aegis_svg_settings', wp_parse_args( $settings, $defaults ) );
+	}
+
+	/**
+	 * Strip color attributes from all SVG elements and set root fill to currentColor.
+	 *
+	 * Removes fill, stroke, and color attributes from every element, then sets
+	 * fill="currentColor" on the root <svg> so the icon inherits color from CSS.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param DOMDocument $dom The SVG DOM document.
+	 *
+	 * @return void
+	 */
+	private function strip_colors( DOMDocument $dom ): void {
+		$color_attrs = [ 'fill', 'stroke', 'color', 'stop-color', 'flood-color', 'lighting-color' ];
+		$elements    = $dom->getElementsByTagName( '*' );
+
+		foreach ( $elements as $element ) {
+			if ( ! $element instanceof DOMElement ) {
+				continue;
+			}
+
+			foreach ( $color_attrs as $attr ) {
+				if ( $element->hasAttribute( $attr ) ) {
+					$element->removeAttribute( $attr );
+				}
+			}
+		}
+
+		// Set currentColor on root SVG for CSS inheritance.
+		$svg = $dom->documentElement;
+
+		if ( $svg instanceof DOMElement && strtolower( $svg->tagName ) === 'svg' ) {
+			$svg->setAttribute( 'fill', 'currentColor' );
+		}
+	}
+
+	/**
+	 * Strip width and height attributes from the root SVG element.
+	 *
+	 * The viewBox attribute is preserved so the SVG scales responsively.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param DOMDocument $dom The SVG DOM document.
+	 *
+	 * @return void
+	 */
+	private function strip_dimensions( DOMDocument $dom ): void {
+		$svg = $dom->documentElement;
+
+		if ( ! $svg instanceof DOMElement || strtolower( $svg->tagName ) !== 'svg' ) {
+			return;
+		}
+
+		$svg->removeAttribute( 'width' );
+		$svg->removeAttribute( 'height' );
+	}
+
+	/**
+	 * Strip inline style attributes from all SVG elements.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param DOMDocument $dom The SVG DOM document.
+	 *
+	 * @return void
+	 */
+	private function strip_styles( DOMDocument $dom ): void {
+		$elements = $dom->getElementsByTagName( '*' );
+
+		foreach ( $elements as $element ) {
+			if ( ! $element instanceof DOMElement ) {
+				continue;
+			}
+
+			if ( $element->hasAttribute( 'style' ) ) {
+				$element->removeAttribute( 'style' );
+			}
+		}
 	}
 }
