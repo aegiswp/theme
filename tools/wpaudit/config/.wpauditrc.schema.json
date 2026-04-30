@@ -1,0 +1,177 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WordPress Theme Audit Configuration",
+  "description": "Configuration schema for WordPress theme audit tool",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Configuration version",
+      "default": "1.0"
+    },
+    "categories": {
+      "type": "object",
+      "description": "Audit category settings",
+      "properties": {
+        "performance": {
+          "$ref": "#/definitions/categoryConfig"
+        },
+        "seo": {
+          "$ref": "#/definitions/categoryConfig"
+        },
+        "accessibility": {
+          "$ref": "#/definitions/categoryConfig"
+        },
+        "security": {
+          "$ref": "#/definitions/categoryConfig"
+        },
+        "scalability": {
+          "$ref": "#/definitions/categoryConfig"
+        }
+      },
+      "additionalProperties": false
+    },
+    "thresholds": {
+      "type": "object",
+      "description": "Threshold values for various metrics",
+      "properties": {
+        "complexity": {
+          "type": "integer",
+          "description": "Maximum cyclomatic complexity",
+          "minimum": 1,
+          "default": 10
+        },
+        "functionLength": {
+          "type": "integer",
+          "description": "Maximum function length in lines",
+          "minimum": 1,
+          "default": 50
+        },
+        "minContrastRatio": {
+          "type": "number",
+          "description": "Minimum color contrast ratio for WCAG AA",
+          "minimum": 1,
+          "default": 4.5
+        }
+      },
+      "additionalProperties": false
+    },
+    "exclusions": {
+      "type": "object",
+      "description": "Files, directories, and rules to exclude",
+      "properties": {
+        "files": {
+          "type": "array",
+          "description": "File patterns to exclude",
+          "items": {
+            "type": "string"
+          },
+          "default": ["vendor/*", "node_modules/*"]
+        },
+        "directories": {
+          "type": "array",
+          "description": "Directories to exclude",
+          "items": {
+            "type": "string"
+          },
+          "default": ["tests/"]
+        },
+        "rules": {
+          "type": "array",
+          "description": "Rule IDs to disable",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        }
+      },
+      "additionalProperties": false
+    },
+    "autofix": {
+      "type": "object",
+      "description": "Auto-fix configuration",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Enable automatic fixing",
+          "default": false
+        },
+        "confidence": {
+          "type": "string",
+          "description": "Minimum confidence level for auto-fix",
+          "enum": ["safe", "moderate", "risky"],
+          "default": "safe"
+        },
+        "backup": {
+          "type": "boolean",
+          "description": "Create backups before fixing",
+          "default": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "output": {
+      "type": "object",
+      "description": "Output configuration",
+      "properties": {
+        "format": {
+          "type": "string",
+          "description": "Report output format",
+          "enum": ["json", "html", "markdown", "console"],
+          "default": "console"
+        },
+        "destination": {
+          "type": "string",
+          "description": "Output file path",
+          "default": "./audit-report.html"
+        },
+        "verbose": {
+          "type": "boolean",
+          "description": "Enable verbose output",
+          "default": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "definitions": {
+    "categoryConfig": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Enable this audit category",
+          "default": true
+        },
+        "rules": {
+          "type": "object",
+          "description": "Rule-specific configuration",
+          "patternProperties": {
+            "^[a-z]+-[0-9]+$": {
+              "$ref": "#/definitions/ruleConfig"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "ruleConfig": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Enable this rule",
+          "default": true
+        },
+        "severity": {
+          "type": "string",
+          "description": "Override rule severity",
+          "enum": ["critical", "high", "medium", "low"]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

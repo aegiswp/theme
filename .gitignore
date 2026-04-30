@@ -118,3 +118,5 @@ php_errorlog
 *.backup
 
 # === End of WordPress Theme Ignore ===
+tests/Unit/SmokeTest.php
+.nvmrc

@@ -1,0 +1,55 @@
+{
+  "version": "1.0",
+  "categories": {
+    "performance": {
+      "enabled": true,
+      "rules": {
+        "perf-001": {
+          "enabled": true,
+          "severity": "high"
+        },
+        "perf-002": {
+          "enabled": true,
+          "severity": "medium"
+        }
+      }
+    },
+    "seo": {
+      "enabled": true
+    },
+    "accessibility": {
+      "enabled": true
+    },
+    "security": {
+      "enabled": true
+    },
+    "scalability": {
+      "enabled": true
+    }
+  },
+  "thresholds": {
+    "complexity": 10,
+    "functionLength": 50,
+    "minContrastRatio": 4.5
+  },
+  "exclusions": {
+    "files": [
+      "vendor/*",
+      "node_modules/*"
+    ],
+    "directories": [
+      "tests/"
+    ],
+    "rules": []
+  },
+  "autofix": {
+    "enabled": false,
+    "confidence": "safe",
+    "backup": true
+  },
+  "output": {
+    "format": "html",
+    "destination": "./audit-report.html",
+    "verbose": false
+  }
+}
