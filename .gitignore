@@ -98,3 +98,4 @@ auth.json
 .eslintcache
 .stylelintcache
 .pnpm-store/
+tests/Unit/SmokeTest.php
