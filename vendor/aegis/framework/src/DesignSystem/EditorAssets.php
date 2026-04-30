@@ -140,6 +140,9 @@ class EditorAssets
 		// Enqueue visibility toggles extension script.
 		$this->enqueue_visibility_toggles();
 
+		// Enqueue display panel extension script.
+		$this->enqueue_display_panel();
+
 		// @todo Uncomment for v1.0.0 release.
 		// Enqueue global classes extension script.
 		// $this->enqueue_global_classes();
@@ -201,6 +204,42 @@ class EditorAssets
 		if (!empty($data)) {
 			wp_localize_script($handle, 'aegis', $data);
 		}
+
+		wp_set_script_translations(
+			$handle,
+			'aegis'
+		);
+	}
+
+	/**
+	 * Enqueue display panel editor extension script.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+	private function enqueue_display_panel(): void
+	{
+		$asset_file = $this->scripts->dir . 'display-panel.asset.php';
+
+		if (!file_exists($asset_file)) {
+			return;
+		}
+
+		$asset = require $asset_file;
+		$handle = $this->scripts->handle . '-display-panel';
+		$deps  = $asset['dependencies'] ?? [];
+		$deps[] = $this->scripts->handle . '-visibility-toggles';
+
+		wp_register_script(
+			$handle,
+			$this->scripts->url . 'display-panel.js',
+			$deps,
+			$asset['version'] ?? (Debug::is_enabled() ? (string) filemtime($this->scripts->dir . 'display-panel.js') : '1.0.0'),
+			true
+		);
+
+		wp_enqueue_script($handle);
 
 		wp_set_script_translations(
 			$handle,

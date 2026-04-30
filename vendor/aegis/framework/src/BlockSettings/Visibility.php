@@ -180,15 +180,9 @@ class Visibility implements Renderable
 	 */
 	protected function is_hidden(array $visibility): bool
 	{
-		// Check user status condition
-		if ($this->check_user_status($visibility)) {
-			return true;
-		}
-
-		// Check schedule condition
-		if ($this->check_schedule($visibility)) {
-			return true;
-		}
+		// Note: user status and schedule checks are handled by
+		// Responsive.php (priority 11) and removed here to avoid
+		// duplication and the logged-in vs logged_in format bug.
 
 		// Check location condition
 		if ($this->check_location($visibility)) {

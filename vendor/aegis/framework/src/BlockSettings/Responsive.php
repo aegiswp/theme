@@ -507,11 +507,15 @@ class Responsive implements Renderable, Scriptable, Styleable
 	 */
 	private function should_hide_for_user_status(array $visibility): bool
 	{
-		$user_status = $visibility['userStatus'] ?? '';
+		// Check canonical key first, then fall back to pro legacy key
+		$user_status = $visibility['userStatus'] ?? $visibility['status'] ?? '';
 
-		if (empty($user_status)) {
+		if (empty($user_status) || $user_status === 'all') {
 			return false;
 		}
+
+		// Normalize legacy hyphenated format (logged-in → logged_in)
+		$user_status = str_replace('-', '_', $user_status);
 
 		$is_logged_in = is_user_logged_in();
 
@@ -540,6 +544,20 @@ class Responsive implements Renderable, Scriptable, Styleable
 	private function should_hide_for_user_role(array $visibility): bool
 	{
 		$role_rules = $visibility['userRoleRules'] ?? [];
+
+		// Backward compat: pro legacy format uses 'roles' as
+		// [{value: 'editor', label: 'Editor'}, ...] with implicit 'is'
+		if (empty($role_rules)) {
+			$legacy_roles = $visibility['roles'] ?? [];
+			if (!empty($legacy_roles)) {
+				foreach ($legacy_roles as $lr) {
+					$role_rules[] = [
+						'role'     => $lr['value'] ?? '',
+						'operator' => 'is',
+					];
+				}
+			}
+		}
 
 		if (empty($role_rules)) {
 			return false;

@@ -257,16 +257,14 @@ class Icon {
 			'permission_callback' => static fn() => current_user_can( 'edit_posts' ),
 			'callback'            => static fn( WP_REST_Request $request ): array => static::get_icon_data( $request ),
 			'methods'             => WP_REST_Server::READABLE,
-			[
-				'args' => [
-					'sets' => [
-						'required' => false,
-						'type'     => 'string',
-					],
-					'set'  => [
-						'required' => false,
-						'type'     => 'string',
-					],
+			'args'                => [
+				'sets' => [
+					'required' => false,
+					'type'     => 'string',
+				],
+				'set'  => [
+					'required' => false,
+					'type'     => 'string',
 				],
 			],
 		];

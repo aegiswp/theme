@@ -105,7 +105,7 @@ class ServiceProvider implements Registerable
 		BlockSettings\BoxShadow::class,
 		BlockSettings\CopyToClipboard::class,
 		BlockSettings\CssFilter::class,
-		// @todo Uncomment for v1.0.0 release.
+		// Off for 1.0.0-rc.x; enable for stable 1.0.0 when Global Classes is finalized.
 		// BlockSettings\GlobalClasses::class,
 		BlockSettings\Image::class,
 		BlockSettings\QueryEnhancements::class,
@@ -183,7 +183,7 @@ class ServiceProvider implements Registerable
 		DesignSystem\ConicGradient::class,
 		DesignSystem\CustomProperties::class,
 		DesignSystem\DarkMode::class,
-		// @todo Uncomment for v1.0.0 release.
+		// Off for 1.0.0-rc.x; enable for stable 1.0.0 when utility-class generation is finalized.
 		// DesignSystem\UtilityClasses::class,
 		DesignSystem\Embed::class,
 		DesignSystem\Emojis::class,

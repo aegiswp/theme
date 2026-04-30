@@ -65,14 +65,13 @@ class BlockStyles implements Scriptable
 			'core/buttons' => ['surface'],
 			'core/button' => ['ghost', 'pill'],
 			'core/code' => ['surface'],
-			'core/columns' => ['surface', 'callout', 'card', 'bordered'],
-			'core/column' => ['surface', 'card', 'bordered'],
+			'core/columns' => ['surface'],
+			'core/column' => ['surface'],
 			'core/comment-author-name' => ['heading'],
 			'core/details' => [
 				['summary-heading' => 'Heading'],
-				'card',
 			],
-			'core/group' => ['surface', 'callout', 'card', 'bordered'],
+			'core/group' => ['surface'],
 			'core/heading' => ['highlight'],
 			'core/list' => [
 				'checklist',
@@ -84,10 +83,9 @@ class BlockStyles implements Scriptable
 				'none',
 			],
 			'core/list-item' => ['surface'],
-			'core/image' => ['bordered'],
 			'core/navigation' => ['heading'],
 			'core/page-list' => ['none'],
-			'core/paragraph' => ['sub-heading', 'notice', 'heading', 'callout', 'highlight'],
+			'core/paragraph' => ['sub-heading', 'notice', 'heading', 'highlight'],
 			'core/post-author-name' => ['heading'],
 			'core/post-terms' => ['list', 'sub-heading', 'badges', 'pills'],
 			'core/post-title' => ['sub-heading'],
@@ -97,7 +95,6 @@ class BlockStyles implements Scriptable
 			'core/spacer' => ['angle', 'curve', 'round', 'wave', 'fade'],
 			'core/tag-cloud' => ['badges', 'pills'],
 			'core/quote' => ['surface'],
-			'core/video' => ['bordered'],
 		];
 
 		$register['core/code'][] = 'light';
