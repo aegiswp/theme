@@ -1,0 +1,279 @@
+# GitHub Labels Configuration for Aegis Theme
+# 
+# Reference: This file documents the labels used in the Aegis repository.
+# Labels can be created and managed via:
+# 1. GitHub UI: Settings → Labels
+# 2. GitHub CLI: gh label create --name "label-name" --description "description" --color "color"
+# 3. Actions: github/issue-labeler or similar automation
+
+# ---
+# TYPE LABELS (Issue/PR classification)
+# ---
+
+- name: "[Type] Bug"
+  description: "Something isn't working"
+  color: "d73a4a"
+
+- name: "[Type] Feature"
+  description: "New feature request or enhancement"
+  color: "a2eeef"
+
+- name: "[Type] Docs"
+  description: "Documentation or wiki improvements"
+  color: "0075ca"
+
+- name: "[Type] Refactor"
+  description: "Code quality improvement without functional changes"
+  color: "d4c5f9"
+
+- name: "[Type] Performance"
+  description: "Performance optimization or speed improvements"
+  color: "fbca04"
+
+- name: "[Type] Accessibility"
+  description: "Accessibility (a11y) issue or improvement"
+  color: "cccccc"
+
+- name: "[Type] Compatibility"
+  description: "WordPress, PHP, or plugin compatibility issue"
+  color: "1d76db"
+
+- name: "[Type] Block Bug"
+  description: "Bug specific to a custom Aegis block"
+  color: "ff6b6b"
+
+- name: "[Type] Security"
+  description: "Security vulnerability or hardening"
+  color: "b60205"
+
+# ---
+# PRIORITY LABELS
+# ---
+
+- name: "[Priority] Critical"
+  description: "Blocking issue, must fix immediately"
+  color: "b60205"
+
+- name: "[Priority] High"
+  description: "Important, should be addressed soon"
+  color: "d73a4a"
+
+- name: "[Priority] Medium"
+  description: "Standard priority, normal workflow"
+  color: "fbca04"
+
+- name: "[Priority] Low"
+  description: "Nice to have, can wait"
+  color: "d4c5f9"
+
+# ---
+# STATUS LABELS
+# ---
+
+- name: "status: backlog"
+  description: "Accepted but not yet in active development"
+  color: "c2e0c6"
+
+- name: "status: in-progress"
+  description: "Currently being worked on"
+  color: "1d76db"
+
+- name: "status: blocked"
+  description: "Cannot proceed due to dependency or blocker"
+  color: "b60205"
+
+- name: "status: review"
+  description: "Ready for review"
+  color: "0e8a16"
+
+- name: "status: stale"
+  description: "No activity for extended period"
+  color: "cccccc"
+
+- name: "status: closed-stale"
+  description: "Closed due to inactivity"
+  color: "d73a4a"
+
+- name: "status: ready"
+  description: "Ready for implementation or deployment"
+  color: "0e8a16"
+
+# ---
+# AREA LABELS (Which component)
+# ---
+
+- name: "[Area] Blocks"
+  description: "Related to custom Aegis blocks"
+  color: "ff6b6b"
+
+- name: "[Area] Theme"
+  description: "Theme core (theme.json, functions.php, etc)"
+  color: "1d76db"
+
+- name: "[Area] Patterns"
+  description: "Block patterns or layout templates"
+  color: "ffc300"
+
+- name: "[Area] Performance"
+  description: "Performance optimization and Core Web Vitals"
+  color: "fbca04"
+
+- name: "[Area] CI/CD"
+  description: "GitHub Actions, workflows, and automation"
+  color: "0075ca"
+
+- name: "[Area] Documentation"
+  description: "README, Wiki, inline docs"
+  color: "0075ca"
+
+- name: "[Area] Developer Experience"
+  description: "DX improvements, tooling, local setup"
+  color: "1d76db"
+
+# ---
+# EFFORT/SIZE LABELS
+# ---
+
+- name: "size: XS"
+  description: "Very small change (1-10 lines)"
+  color: "c2e0c6"
+
+- name: "size: S"
+  description: "Small change (10-50 lines)"
+  color: "b4e7b6"
+
+- name: "size: M"
+  description: "Medium change (50-200 lines)"
+  color: "fcd0de"
+
+- name: "size: L"
+  description: "Large change (200-500 lines)"
+  color: "fbca04"
+
+- name: "size: XL"
+  description: "Extra large change (500+ lines)"
+  color: "d73a4a"
+
+# ---
+# CONTRIBUTION LABELS
+# ---
+
+- name: "good first issue"
+  description: "Good for newcomers to the project"
+  color: "7057ff"
+
+- name: "help wanted"
+  description: "Extra attention is needed"
+  color: "008672"
+
+- name: "contribution welcome"
+  description: "We actively welcome contributions"
+  color: "0075ca"
+
+# ---
+# VERSION LABELS
+# ---
+
+- name: "WordPress 6.4"
+  description: "Affects/tested on WordPress 6.4"
+  color: "1d76db"
+
+- name: "WordPress 6.5"
+  description: "Affects/tested on WordPress 6.5"
+  color: "1d76db"
+
+- name: "WordPress 6.6"
+  description: "Affects/tested on WordPress 6.6"
+  color: "1d76db"
+
+- name: "PHP 8.1"
+  description: "Affects/tested on PHP 8.1"
+  color: "0075ca"
+
+- name: "PHP 8.2"
+  description: "Affects/tested on PHP 8.2"
+  color: "0075ca"
+
+- name: "PHP 8.3"
+  description: "Affects/tested on PHP 8.3"
+  color: "0075ca"
+
+# ---
+# SPECIAL LABELS
+# ---
+
+- name: "pinned"
+  description: "Keep open (exempt from stale automation)"
+  color: "d4af37"
+
+- name: "roadmap"
+  description: "Part of the public roadmap"
+  color: "0075ca"
+
+- name: "epic"
+  description: "Large effort spanning multiple issues"
+  color: "5319e7"
+
+- name: "work-in-progress"
+  description: "PR is work in progress, do not merge"
+  color: "ffcccb"
+
+- name: "question"
+  description: "Support question or general inquiry"
+  color: "cc317c"
+
+- name: "support"
+  description: "Support request"
+  color: "cc317c"
+
+- name: "triage"
+  description: "Needs triage / investigation"
+  color: "fbca04"
+
+- name: "duplicate"
+  description: "Duplicate of another issue"
+  color: "cccccc"
+
+- name: "wontfix"
+  description: "Will not fix"
+  color: "cccccc"
+
+# ---
+# DEPENDENCIES
+# ---
+
+- name: "blocked-by"
+  description: "Blocked by another issue/PR"
+  color: "b60205"
+
+- name: "blocks"
+  description: "Blocks another issue/PR"
+  color: "b60205"
+
+# ---
+# NOTES FOR MANAGEMENT
+# ---
+# 
+# ## Creating Labels via GitHub CLI:
+# ```bash
+# gh label create "[Type] Bug" --description "Something isn't working" --color "d73a4a"
+# ```
+#
+# ## Automated Labeling:
+# - Consider using GitHub Actions for auto-labeling based on:
+#   - File changes (e.g., src/Blocks/ → [Area] Blocks)
+#   - Issue content (keywords in description)
+#   - Issue templates (auto-add based on template used)
+#
+# ## Label Workflow:
+# 1. Issues are created with type label (via template) + triage label
+# 2. Triage/review team adds priority + area labels
+# 3. Once assigned, status changes: backlog → in-progress → review → ready
+# 4. Stale workflow auto-tags inactive issues
+#
+# ## Color Reference:
+# - Red (#d73a4a, #b60205): Bug, Critical, Urgent
+# - Yellow (#fbca04): Medium priority, Performance
+# - Blue (#0075ca, #1d76db): Feature, Docs, CI/CD
+# - Green (#0e8a16, #c2e0c6): Ready, Good first issue
+# - Purple (#5319e7, #7057ff): Epic, Help wanted
