@@ -1,0 +1,143 @@
+name: Block Issue
+description: Report a problem with a specific Aegis custom block
+labels:
+  - '[Type] Block Bug'
+  - triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Report a Block Issue
+        Use this template to report bugs or problems with Aegis custom blocks or block variations.
+
+        **For general bugs** not specific to a block, use the [Bug Report](bug_report.yml) template instead.
+
+  - type: dropdown
+    id: block-name
+    attributes:
+      label: Which block is affected?
+      description: Select the Aegis custom block with the issue
+      options:
+        - Countdown Block
+        - Map Block
+        - Modal Block
+        - Related Posts Block
+        - Slider Block
+        - Slide Block
+        - Toggle Block
+        - Toggle Content Block
+        - Video Block
+        - Block Variation
+        - Multiple blocks
+        - Other (please specify)
+    validations:
+      required: true
+
+  - type: input
+    id: block-name-other
+    attributes:
+      label: Block name (if other)
+      description: Specify the block name if you selected "Other"
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: "### Where does this occur?"
+
+  - type: dropdown
+    id: location
+    attributes:
+      label: Environment
+      options:
+        - Block Editor (Gutenberg)
+        - Site Editor
+        - Front-end (Live Site)
+        - All environments
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "### Issue Details"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the issue
+      description: What is the block not doing correctly?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this issue?
+      placeholder: |
+        1. Insert the [Block Name] block
+        2. Configure it with X settings
+        3. Save and observe Y error/behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What should the block do?
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "### Environment Information"
+
+  - type: input
+    id: wp-version
+    attributes:
+      label: WordPress Version
+      description: e.g., 6.5.2
+    validations:
+      required: true
+
+  - type: input
+    id: php-version
+    attributes:
+      label: PHP Version
+      description: e.g., 8.2.10
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser / Device
+      description: e.g., Chrome 124 on Windows 11
+    validations:
+      required: false
+
+  - type: textarea
+    id: conflicting-blocks
+    attributes:
+      label: Conflicting Blocks or Plugins
+      description: List any blocks or plugins that might be causing interference
+    validations:
+      required: false
+
+  - type: textarea
+    id: console-errors
+    attributes:
+      label: Console Errors (if applicable)
+      description: Open DevTools and share any JavaScript console errors
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Screenshots or Code
+      description: Add screenshots of the block UI or code snippets if helpful
+    validations:
+      required: false
