@@ -96,11 +96,6 @@
                     "color": "#f1f3f6"
                 },
                 {
-                    "name": "Secondary 400",
-                    "slug": "secondary-400",
-                    "color": "#f4f6f8"
-                },
-                {
                     "name": "Secondary 300",
                     "slug": "secondary-300",
                     "color": "#f7f8fa"
