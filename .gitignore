@@ -99,3 +99,4 @@ auth.json
 .stylelintcache
 .pnpm-store/
 tests/Unit/SmokeTest.php
+.nvmrc

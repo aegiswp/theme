@@ -263,6 +263,119 @@ Before starting major feature work:
 4. Create a proposal if needed
 5. Wait for approval before implementation
 
+## Release Process
+
+### Version Control
+
+Aegis uses [Semantic Versioning](https://semver.org/):
+- **Major** (X.0.0): Breaking changes, incompatible API changes
+- **Minor** (0.X.0): New features, backwards compatible
+- **Patch** (0.0.X): Bug fixes, security patches
+
+### Creating a Release
+
+1. **Ensure all checks pass** on the `main` branch:
+   - ✓ CI/CD pipeline (linting, tests, build)
+   - ✓ Accessibility checks
+   - ✓ Security audits (npm, Composer)
+   - ✓ Code reviews
+
+2. **Update version numbers** and changelog:
+   - Update version in `theme.json`
+   - Update version in `package.json`
+   - Update `CHANGELOG.md` with release notes
+   - Update `readme.txt` (WordPress theme readme)
+
+3. **Create a release tag** using semantic versioning:
+```bash
+git tag v1.2.3
+git push origin v1.2.3
+```
+
+4. **The release workflow will automatically**:
+   - Validate the tag format (e.g., v1.2.3)
+   - Run full test suite (PHPCS, PHPUnit, linting)
+   - Build the production-ready package
+   - Generate SHA256 checksums
+   - Create a **draft release** on GitHub
+
+5. **Review the draft release**:
+   - Check release notes are accurate
+   - Verify package contents are correct
+   - Validate checksum file is present
+   - Test the zip file locally
+
+6. **Publish the release**:
+   - Review the draft release carefully
+   - Click "Publish release" on GitHub
+   - The package becomes available for download
+
+### Release Quality Checks
+
+The following checks must pass before a release can be published:
+
+- **Tag Format**: Must follow semantic versioning (v1.2.3, v1.2.3-rc1)
+- **Linting**: All PHP, JavaScript, and CSS must pass linters
+- **Tests**: PHPUnit and WPAudit tests must pass
+- **Composer Validation**: composer.json and composer.lock must be valid
+- **Package Integrity**: All required files (style.css, functions.php, theme.json, vendor/autoload.php) present
+
+### Package Contents
+
+The released package includes:
+
+- ✓ Theme files (templates, parts, patterns)
+- ✓ Built assets (minified CSS/JS)
+- ✓ Compiled translations (.mo files)
+- ✓ Vendored PHP dependencies (`vendor/` directory)
+- ✓ theme.json configuration
+- ✓ Block definitions and patterns
+
+The package excludes:
+
+- ✗ Development dependencies
+- ✗ Tests and testing utilities
+- ✗ Source maps and dev tools
+- ✗ Git history and configuration
+- ✗ Node modules
+
+### Verifying a Release
+
+To verify the integrity of a downloaded release:
+
+```bash
+# Download the release and checksum file
+# Then verify:
+sha256sum -c aegis.zip.sha256
+```
+
+If the checksum matches, the package is intact and safe to use.
+
+## Branch Protection Rules
+
+The `main` branch is protected and enforces:
+
+- ✓ All status checks must pass:
+  - CI workflow (linting, tests, build)
+  - Accessibility checks
+  - Spelling checks
+- ✓ At least 1 pull request review required before merge
+- ✓ Stale pull request reviews are dismissed
+- ✓ Pull request must be up-to-date with base branch
+- ✓ Administrators are included in restrictions
+
+This ensures `main` is always in a releasable state.
+
+### For Maintainers
+
+- Ensure all CI checks pass before merging
+- Review code quality and security
+- Request changes if standards aren't met
+- Dismiss reviews when PR is updated
+- Merge with squash commits for clean history
+
+## Feature Requests
+
 ## Getting Help
 
 - **GitHub Issues**: For bug reports and feature requests

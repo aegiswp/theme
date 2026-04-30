@@ -2,7 +2,7 @@
 Contributors: atmostfearentertainment
 Requires at least: 6.6
 Tested up to: 6.9.4
-Requires PHP: 7.4
+Requires PHP: 8.1
 Stable tag: 1.0.0-rc.3
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html

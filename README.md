@@ -5,6 +5,13 @@ Welcome to the Aegis Theme development repository.
 
 ![Aegis](https://github.com/user-attachments/assets/365b757e-43c1-4701-831f-aa4e6d5368b1)
 
+## Status
+
+[![CI](https://github.com/aegiswp/theme/actions/workflows/ci.yml/badge.svg)](https://github.com/aegiswp/theme/actions/workflows/ci.yml)
+[![Accessibility](https://github.com/aegiswp/theme/actions/workflows/accessibility.yml/badge.svg)](https://github.com/aegiswp/theme/actions/workflows/accessibility.yml)
+[![Spelling](https://github.com/aegiswp/theme/actions/workflows/spelling.yml/badge.svg)](https://github.com/aegiswp/theme/actions/workflows/spelling.yml)
+[![Release](https://github.com/aegiswp/theme/actions/workflows/release.yml/badge.svg)](https://github.com/aegiswp/theme/actions/workflows/release.yml)
+
 ##### Table of Contents
 
 - [Introduction](#introduction)
