@@ -68,7 +68,7 @@ jobs:
           echo "zip_path=${THEME_SLUG}.zip" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: aegis.zip
           generate_release_notes: true
