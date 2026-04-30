@@ -2,20 +2,26 @@
 * text=auto
 
 # Force LF for code files
+*.php text eol=lf
 *.js text eol=lf
-*.jsx text eol=lf
 *.ts text eol=lf
 *.tsx text eol=lf
 *.css text eol=lf
 *.scss text eol=lf
-*.php text eol=lf
 *.html text eol=lf
 *.json text eol=lf
 *.yml text eol=lf
 *.yaml text eol=lf
+*.xml text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.sh text eol=lf
+*.toml text eol=lf
 
 # Force CRLF for Windows-specific files
 *.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
 
 # Mark binary files
 *.png binary
@@ -24,10 +30,76 @@
 *.gif binary
 *.ico binary
 *.svg binary
+*.webp binary
+*.pdf binary
 *.woff binary
 *.woff2 binary
 *.ttf binary
+*.otf binary
 *.eot binary
-*.mp4 binary
-*.mp3 binary
-*.zip binary
+
+# Export ignore (files not included in git archive / distribution)
+/.github export-ignore
+/.claude export-ignore
+/config export-ignore
+/tools export-ignore
+/src/Analyzers export-ignore
+/src/Models export-ignore
+/src/Enums export-ignore
+/src/Interfaces export-ignore
+/src/DesignSystem export-ignore
+/src/Editor export-ignore
+/src/Blocks/editor export-ignore
+src/Blocks/*/*.js.map export-ignore
+src/Blocks/*/*.css.map export-ignore
+src/Blocks/*/index.tsx export-ignore
+src/Blocks/*/edit.tsx export-ignore
+src/Blocks/*/save.tsx export-ignore
+src/Blocks/*/view.ts export-ignore
+src/Blocks/*/style.scss export-ignore
+.wp-env.json export-ignore
+.distignore export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore
+.editorconfig export-ignore
+.prettierrc export-ignore
+.stylelintignore export-ignore
+.typos.toml export-ignore
+stylelintrc.json export-ignore
+tsconfig.json export-ignore
+webpack.config.js export-ignore
+phpcs.xml export-ignore
+phpcs.xml.dist export-ignore
+phpunit.xml export-ignore
+phpunit.xml.dist export-ignore
+Makefile export-ignore
+package.json export-ignore
+package-lock.json export-ignore
+composer.json export-ignore
+composer.lock export-ignore
+README.md export-ignore
+INSTRUCTIONS.md export-ignore
+CHANGELOG.md export-ignore
+CONTRIBUTING.md export-ignore
+CONTRIBUTORS.md export-ignore
+CODE_OF_CONDUCT.md export-ignore
+
+# Dev-only and tooling (align with .distignore for `git archive` / source exports)
+.nvmrc export-ignore
+.vscode export-ignore
+.idea export-ignore
+.cursor export-ignore
+.fleet export-ignore
+.wp-env.override.json export-ignore
+node_modules/ export-ignore
+tests/ export-ignore
+patterns/README.txt export-ignore
+.phpunit.result.cache export-ignore
+.phpunit.cache/ export-ignore
+*.log export-ignore
+auth.json export-ignore
+playwright-report/ export-ignore
+test-results/ export-ignore
+*.code-workspace export-ignore
+docker-compose*.yml export-ignore
+docker-compose*.yaml export-ignore
