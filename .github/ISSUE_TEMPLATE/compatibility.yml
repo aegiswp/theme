@@ -1,0 +1,112 @@
+name: Compatibility Report
+description: Report a WordPress, PHP, or plugin compatibility issue with Aegis
+labels:
+  - '[Type] Compatibility'
+  - triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Help us improve Aegis compatibility
+        Use this template to report issues with specific WordPress versions, PHP versions, or conflicting plugins.
+
+        **Tip:** Check our [Compatibility Matrix](https://github.com/aegiswp/theme/actions/workflows/wordpress-compat.yml) to see tested versions.
+
+  - type: markdown
+    attributes:
+      value: "### Environment Information"
+
+  - type: dropdown
+    id: wp-version
+    attributes:
+      label: WordPress Version
+      options:
+        - 6.4
+        - 6.5
+        - 6.6
+        - Latest
+        - Other (please specify)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: php-version
+    attributes:
+      label: PHP Version
+      options:
+        - 8.1
+        - 8.2
+        - 8.3
+        - Other (please specify)
+    validations:
+      required: true
+
+  - type: input
+    id: theme-version
+    attributes:
+      label: Aegis Theme Version
+      description: e.g., 1.2.3
+    validations:
+      required: true
+
+  - type: textarea
+    id: active-plugins
+    attributes:
+      label: Active Plugins (if applicable)
+      description: List any plugins that might be involved in the compatibility issue
+      placeholder: |
+        - WooCommerce 8.1.0
+        - Advanced Custom Fields Pro 6.1.0
+        - Yoast SEO 21.0
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: "### Issue Description"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the compatibility issue
+      description: What specific error or behavior are you experiencing?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this issue?
+      placeholder: |
+        1. Activate Aegis theme
+        2. Enable plugin X
+        3. Go to Y page
+        4. Observe Z error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What should happen instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: error-logs
+    attributes:
+      label: Error Messages or Logs
+      description: Share any PHP errors, JavaScript console errors, or debug logs
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Screenshots, hosting info, or other relevant details
+    validations:
+      required: false
