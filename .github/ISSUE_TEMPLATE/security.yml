@@ -1,12 +1,12 @@
 name: Security Vulnerability
-description: ⚠️ REPORT SECURITY ISSUES VIA GITHUB SECURITY ADVISORY
+description: "[warning] REPORT SECURITY ISSUES VIA GITHUB SECURITY ADVISORY"
 body:
   - type: markdown
     attributes:
       value: |
-        # ⚠️ Security Vulnerability Report
+        # [warning] Security Vulnerability Report
 
-        **Do NOT post security vulnerabilities as public GitHub issues!**
+        **Do NOT post security vulnerabilities as public GitHub issues.**
 
         Public issues can expose vulnerabilities to malicious actors before a fix is available.
 
@@ -17,14 +17,14 @@ body:
         ### Option 1: GitHub Security Advisory (Recommended)
         This is the **private and recommended way** to report security issues:
 
-        1. Go to: **Security → Advisories → Report a vulnerability**
+        1. Go to: **Security - Advisories - Report a vulnerability**
            - Link: https://github.com/aegiswp/theme/security/advisories
         2. Fill out the vulnerability details privately
         3. Our team will respond and coordinate a fix
         4. A security patch will be released before public disclosure
 
         ### Option 2: Private Disclosure Email
-        Email: security@aegiswp.com
+        Email: mail@atmostfear-entertainment.com
 
         Include:
         - Description of the vulnerability
@@ -37,7 +37,7 @@ body:
 
         ## What Counts as a Security Issue?
 
-        ✅ **Report as security issue:**
+        ✓ **Report as security issue:**
         - SQL injection vulnerabilities
         - Cross-site scripting (XSS) vulnerabilities
         - Cross-site request forgery (CSRF) vulnerabilities
@@ -48,7 +48,7 @@ body:
         - Privilege escalation
         - Cryptographic weaknesses
 
-        ❌ **Do NOT report as security issue:**
+        ✗ **Do NOT report as security issue:**
         - Broken features or bugs (use Bug Report instead)
         - Performance issues
         - Missing documentation
@@ -65,4 +65,4 @@ body:
 
         ---
 
-        **Thank you for helping us keep Aegis secure! 🔒**
+        **Thank you for helping us keep Aegis secure. [lock]**

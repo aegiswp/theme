@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        **Thank you for helping us improve the Aegis WordPress Block Theme!**
+        **Thank you for helping us improve the Aegis WordPress Block Theme.**
   - type: textarea
     id: description
     attributes:

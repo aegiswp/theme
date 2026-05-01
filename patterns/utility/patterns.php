@@ -58,7 +58,7 @@ foreach ($all_categories as $category) {
 
 		<!-- wp:paragraph {"style":{"spacing":{"margin":{"right":"0"}},"display":{"mobile":"none"}},"className":"margin-left-auto"} -->
 		<p class="margin-left-auto" style="margin-right:0">
-			<a href="#">Top</a>
+			<a href="#"><?php echo esc_html__( 'Top', 'aegis' ); ?></a>
 		</p>
 		<!-- /wp:paragraph -->
 	</div>

@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for utility classes within the Aegis Framework.
 namespace Aegis\Utilities;
@@ -27,24 +27,25 @@ namespace Aegis\Utilities;
 use function add_action;
 use function debug_backtrace;
 use function defined;
-use function json_encode;
+use function error_log;
+use function is_string;
+use function wp_json_encode;
 use const SCRIPT_DEBUG;
 use const WP_DEBUG;
+use const WP_DEBUG_LOG;
 
 // Implements the Aegis debug utility class for reusable debug operations.
 
-class Debug
-{
+class Debug {
 
 	/**
 	 * Check if debug mode is enabled.
 	 *
 	 * @return bool
 	 */
-	public static function is_enabled(): bool
-	{
-		$wp_debug = defined('WP_DEBUG') && WP_DEBUG;
-		$script_debug = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG;
+	public static function is_enabled(): bool {
+		$wp_debug     = defined( 'WP_DEBUG' ) && WP_DEBUG;
+		$script_debug = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
 
 		return $wp_debug || $script_debug;
 	}
@@ -57,28 +58,50 @@ class Debug
 	 *
 	 * @return void
 	 */
-	public static function console_log($data, bool $trace = false): void
-	{
-		add_action('wp_footer', static fn() => static::render_log($data, $trace));
-		add_action('admin_footer', static fn() => static::render_log($data, $trace));
+	public static function console_log( $data, bool $trace = false ): void {
+		static::server_log( $data );
+		add_action( 'wp_footer', static fn() => static::render_log( $data, $trace ) );
+		add_action( 'admin_footer', static fn() => static::render_log( $data, $trace ) );
 	}
 
 	/**
-	 * Log data to the console.
+	 * Log data to the PHP error log when WP_DEBUG_LOG is enabled.
+	 *
+	 * Ensures errors during REST, AJAX, and cron requests are captured
+	 * server-side, not only in the browser console.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param mixed $data Data to log.
 	 *
 	 * @return void
 	 */
-	public static function stacktrace(): array
-	{
-		$backtrace = debug_backtrace();
+	public static function server_log( $data ): void {
+		if ( ! defined( 'WP_DEBUG_LOG' ) || ! WP_DEBUG_LOG ) {
+			return;
+		}
+
+		$message = is_string( $data ) ? $data : wp_json_encode( $data );
+		error_log( '[Aegis] ' . $message );
+	}
+
+	/**
+	 * Get a formatted stacktrace for debugging output.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return array<int, string>
+	 */
+	public static function stacktrace(): array {
+		$backtrace  = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS, 10 );
 		$stacktrace = [];
 
-		foreach ($backtrace as $index => $trace) {
-			if (!isset($trace['file']) || !isset($trace['line'])) {
+		foreach ( $backtrace as $index => $trace ) {
+			if ( ! isset( $trace['file'] ) || ! isset( $trace['line'] ) ) {
 				continue;
 			}
 
-			if (0 === $index) {
+			if ( 0 === $index ) {
 				continue;
 			}
 
@@ -96,16 +119,15 @@ class Debug
 	 *
 	 * @return void
 	 */
-	private static function render_log($data, bool $trace = true): void
-	{
+	private static function render_log( $data, bool $trace = true ): void {
 		$stacktrace = self::stacktrace();
 
 		echo '<script>';
-		echo 'console.log(' . json_encode($data) . ');';
+		echo 'console.log(' . wp_json_encode( $data ) . ');';
 
-		if ($trace && $stacktrace) {
-			foreach ($stacktrace as $trace) {
-				echo 'console.log(' . json_encode($trace) . ');';
+		if ( $trace && $stacktrace ) {
+			foreach ( $stacktrace as $entry ) {
+				echo 'console.log(' . wp_json_encode( $entry ) . ');';
 			}
 		}
 

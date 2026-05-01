@@ -38,6 +38,8 @@ setTimeout(()=>{
 }, 1000);
 JS;
 
+		$copied_text = esc_html__( 'Copied!', 'aegis' );
+
 		foreach ($shades as $shade => $hex) {
 			$color = $name . '-' . $shade;
 
@@ -57,7 +59,7 @@ JS;
 	<p class="screen-reader-text">$color: $hex</p>
 	<!-- /wp:paragraph -->
 	<!-- wp:paragraph {"className":"has-display-none","style":{"position":{"all":"relative"}},"zIndex":{"all":"1"}} -->
-	<p class="has-display-none">Copied!</p>
+	<p class="has-display-none">$copied_text</p>
 	<!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

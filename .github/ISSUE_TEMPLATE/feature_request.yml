@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        **Thank you for suggesting an idea to improve the Aegis WordPress Block Theme!**
+        **Thank you for suggesting an idea to improve the Aegis WordPress Block Theme.**
         Aegis prioritizes performance and vanilla standards. Please describe your suggestion below.
   - type: textarea
     id: problem
@@ -49,15 +49,15 @@ body:
   - type: textarea
     id: solution
     attributes:
-      label: Describe the solution you'd like
+      label: Describe the solution you would like
       description: What do you want to happen?
     validations:
       required: true
   - type: textarea
     id: alternatives
     attributes:
-      label: Describe alternatives you've considered
-      description: Any alternative solutions or features you've considered.
+      label: Describe alternatives you have considered
+      description: Any alternative solutions or features you have considered.
     validations:
       required: false
   - type: textarea

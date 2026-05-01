@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ruleset name="WPAudit">
+	<description>Coding standards for the WPAudit package.</description>
+
+	<file>src</file>
+	<file>tests</file>
+
+	<exclude-pattern>vendor/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg value="sp"/>
+
+	<rule ref="PSR12"/>
+
+	<!-- Allow long lines in tests (heredoc content). -->
+	<rule ref="Generic.Files.LineLength">
+		<properties>
+			<property name="lineLimit" value="120"/>
+			<property name="absoluteLineLimit" value="0"/>
+		</properties>
+	</rule>
+</ruleset>

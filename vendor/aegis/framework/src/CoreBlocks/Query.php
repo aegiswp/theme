@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for core blocks within the Aegis Framework.
 namespace Aegis\Framework\CoreBlocks;
@@ -48,42 +48,38 @@ class Query implements Renderable
 	 *
 	 * @return string
 	 */
-	public function render(string $block_content, array $block, WP_Block $instance): string
-	{
+	public function render( string $block_content, array $block, WP_Block $instance ): string {
 		$block_gap = $block['attrs']['style']['spacing']['blockGap'] ?? null;
+		$columns   = $block['attrs']['displayLayout']['columns'] ?? null;
 
-		if ($block_gap) {
-			$dom = DOM::create($block_content);
-			$div = DOM::get_element('div', $dom);
+		// Q3: Parse DOM once for both block gap and columns modifications.
+		$needs_gap     = (bool) $block_gap;
+		$needs_columns = $columns && str_contains( $block_content, 'nowrap' );
 
-			if (!$div) {
-				return $block_content;
-			}
-
-			$styles = CSS::string_to_array($div->getAttribute('style'));
-
-			$styles['--wp--style--block-gap'] = CSS::format_custom_property($block_gap);
-
-			$div->setAttribute('style', CSS::array_to_string($styles));
-
-			$block_content = $dom->saveHTML();
+		if ( ! $needs_gap && ! $needs_columns ) {
+			return $block_content;
 		}
 
-		$columns = $block['attrs']['displayLayout']['columns'] ?? null;
+		$dom = DOM::create( $block_content );
+		$div = DOM::get_element( 'div', $dom );
 
-		if ($columns && str_contains($block_content, 'nowrap')) {
-			$dom = DOM::create($block_content);
-			$div = DOM::get_element('div', $dom);
-
-			if ($div) {
-				$styles = CSS::string_to_array($div->getAttribute('style'));
-				$styles['--columns'] = $columns;
-				$div->setAttribute('style', CSS::array_to_string($styles));
-
-				$block_content = $dom->saveHTML();
-			}
+		if ( ! $div ) {
+			return $block_content;
 		}
 
-		return $block_content;
+		$styles = CSS::string_to_array( $div->getAttribute( 'style' ) );
+
+		if ( $needs_gap ) {
+			$styles['--wp--style--block-gap'] = CSS::format_custom_property( $block_gap );
+		}
+
+		if ( $needs_columns ) {
+			// Q1: Validate columns as a positive integer.
+			$styles['--columns'] = (string) (int) $columns;
+		}
+
+		$div->setAttribute( 'style', CSS::array_to_string( $styles ) );
+
+		return $dom->saveHTML();
 	}
 }

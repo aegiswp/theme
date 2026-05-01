@@ -19,7 +19,7 @@
  */
 
 // Enforces strict type checking for all code in this file.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for the theme updater within the Aegis Framework.
 namespace Aegis\Framework\ThemeUpdater;
@@ -27,6 +27,7 @@ namespace Aegis\Framework\ThemeUpdater;
 // Imports classes and functions used throughout this file.
 use Aegis\Container\Interfaces\Conditional;
 use stdClass;
+use function add_filter;
 use function apply_filters;
 use function get_option;
 use function get_stylesheet;
@@ -177,6 +178,23 @@ class ThemeUpdater implements Conditional
 	}
 
 	/**
+	 * Register WordPress hooks.
+	 *
+	 * Attaches the updater to WordPress's theme update system.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+	public function hooks(): void
+	{
+		add_filter('pre_set_site_transient_update_themes', [$this, 'check_for_updates']);
+		add_filter('themes_api', [$this, 'theme_info'], 10, 3);
+		add_filter('themes_auto_update_enabled', [$this, 'enable_auto_updates']);
+		add_filter('auto_update_theme', [$this, 'auto_update_theme'], 10, 2);
+	}
+
+	/**
 	 * Check for theme updates.
 	 *
 	 * @since 1.0.0
@@ -222,10 +240,10 @@ class ThemeUpdater implements Conditional
 		}
 
 		$update_data = [
-			'theme' => $slug,
+			'theme'       => $slug,
 			'new_version' => $release->version,
-			'url' => $release->html_url,
-			'package' => $release->download_url,
+			'url'         => $release->html_url,
+			'package'     => $release->download_url,
 		];
 
 		if (version_compare($release->version, $current_version, '>')) {

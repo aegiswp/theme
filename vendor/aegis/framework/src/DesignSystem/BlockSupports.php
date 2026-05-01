@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for design system components.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
@@ -109,7 +109,7 @@ class BlockSupports implements Scriptable
 			'aegisFilter' => true,
 			'aegisTransform' => true,
 			'aegisColor' => [
-				// @todo The following features are not yet implemented and will not work if uncommented.
+				// TODO: The following features are not yet implemented and will not work if uncommented.
 				// To implement, we need to:
 				// 1. Add JavaScript editor controls to capture iconColor and backgroundHover values
 				// 2. Add PHP rendering logic in CoreBlocks\Button.php to apply these CSS variables
@@ -764,8 +764,8 @@ class BlockSupports implements Scriptable
 		],
 		'core/tag-cloud' => [
 			'typography' => [
-				'textTransform' => true, // @todo Does not work.
-				'letterSpacing' => true, // @todo Does not work.
+				'textTransform' => true, // Does not work.
+				'letterSpacing' => true, // Does not work.
 			],
 		],
 		'core/template-part' => [
@@ -785,7 +785,7 @@ class BlockSupports implements Scriptable
 				'text' => true,
 			],
 			'spacing' => [
-				'margin' => true, // @todo Does not work.
+				'margin' => true, // Does not work.
 			],
 			'__experimentalBorder' => [
 				'radius' => true,

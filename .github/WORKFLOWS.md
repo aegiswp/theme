@@ -18,20 +18,20 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 
 ### 1. **CI (ci.yml)**
 **Purpose:** Main quality gate - linting, testing, and dependency audits
-**Triggers:** Push/PR to main/dev branches
+**Triggers:** Push/PR to main branch
 **Duration:** ~10-15 minutes
 
 #### What it checks:
-- ✅ JavaScript/TypeScript linting (ESLint)
-- ✅ CSS linting (Stylelint)
-- ✅ npm dependency audit (`npm audit`)
-- ✅ PHP linting and PHPCS standards
-- ✅ Composer dependency audit (`composer audit`)
-- ✅ PHP Unit tests with coverage
-- ✅ WPAudit integration tests
-- ✅ theme.json validation
-- ✅ Required theme files (style.css, functions.php, index.php, theme.json)
-- ✅ Code coverage report (Codecov)
+- ✓ JavaScript/TypeScript linting (ESLint)
+- ✓ CSS linting (Stylelint)
+- ✓ npm dependency audit (`npm audit`)
+- ✓ PHP linting and PHPCS standards
+- ✓ Composer dependency audit (`composer audit`)
+- ✓ PHP Unit tests with coverage
+- ✓ WPAudit integration tests
+- ✓ theme.json validation
+- ✓ Required theme files (style.css, functions.php, index.php, theme.json)
+- ✓ Code coverage report (Codecov)
 
 #### If it fails:
 1. Check the logs for specific linting errors
@@ -47,16 +47,16 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 
 ### 2. **Accessibility (accessibility.yml)**
 **Purpose:** Automated accessibility scanning
-**Triggers:** Push/PR to main/dev branches
+**Triggers:** Push/PR to main branch
 **Duration:** ~5-7 minutes
 
 #### What it checks:
-- ✅ Page accessibility using pa11y-ci
-- ✅ WCAG 2.1 AA compliance
-- ✅ Keyboard navigation
-- ✅ Screen reader compatibility
-- ✅ Color contrast
-- ✅ Focus indicators
+- ✓ Page accessibility using pa11y-ci
+- ✓ WCAG 2.1 AA compliance
+- ✓ Keyboard navigation
+- ✓ Screen reader compatibility
+- ✓ Color contrast
+- ✓ Focus indicators
 
 #### If it fails:
 1. Check pa11y-ci threshold (currently 5 violations max)
@@ -71,13 +71,13 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 
 ### 3. **Spelling Check (spelling.yml)**
 **Purpose:** Catch typos in documentation and code
-**Triggers:** Push/PR to main/dev branches
+**Triggers:** Push/PR to main branch
 **Duration:** ~1 minute
 
 #### What it checks:
-- ✅ Markdown files (README, CONTRIBUTING, etc.)
-- ✅ Code comments
-- ✅ Documentation strings
+- ✓ Markdown files (README, CONTRIBUTING, etc.)
+- ✓ Code comments
+- ✓ Documentation strings
 - Uses `.typos.toml` for configuration
 
 #### If it fails:
@@ -95,12 +95,12 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 **Duration:** ~2 minutes
 
 #### What it checks:
-- ✅ Valid JSON syntax
-- ✅ Required properties (version, settings, styles)
-- ✅ Deprecated properties
-- ✅ Color palette definition
-- ✅ Typography settings
-- ✅ Block-specific configurations
+- ✓ Valid JSON syntax
+- ✓ Required properties (version, settings, styles)
+- ✓ Deprecated properties
+- ✓ Color palette definition
+- ✓ Typography settings
+- ✓ Block-specific configurations
 
 #### If it fails:
 1. Check for JSON syntax errors
@@ -108,25 +108,25 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 3. Review console output for specific warnings
 
 #### Common issues:
-- `Missing version` → Add `"version": 2` at top level
-- `Missing settings` → Ensure settings object exists (even if empty)
-- `Color palette undefined` → Add `settings.color.palette` array
+- `Missing version` - Add `"version": 2` at top level
+- `Missing settings` - Ensure settings object exists (even if empty)
+- `Color palette undefined` - Add `settings.color.palette` array
 
 ---
 
 ### 5. **WordPress Compatibility Matrix (wordpress-compat.yml)**
 **Purpose:** Test against multiple WordPress and PHP versions
-**Triggers:** Schedule (weekly) + Push/PR to main/dev
+**Triggers:** Schedule (weekly) + Push/PR to main
 **Duration:** ~30-40 minutes (9 parallel jobs)
-**Matrix:** WordPress 6.4/6.5/latest × PHP 8.1/8.2/8.3
+**Matrix:** WordPress 6.4/6.5/latest x PHP 8.1/8.2/8.3
 
 #### What it checks:
-- ✅ Theme activation on each WP/PHP combination
-- ✅ Theme loads without errors
-- ✅ Core block registration
-- ✅ WordPress CLI integration
-- ✅ theme.json validity in WordPress context
-- ✅ PHPCS checks
+- ✓ Theme activation on each WP/PHP combination
+- ✓ Theme loads without errors
+- ✓ Core block registration
+- ✓ WordPress CLI integration
+- ✓ theme.json validity in WordPress context
+- ✓ PHPCS checks
 
 #### If it fails:
 1. Note which WP/PHP combination failed
@@ -146,18 +146,18 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 
 ### 6. **Lighthouse CI (lighthouse-ci.yml)**
 **Purpose:** Performance and accessibility metrics
-**Triggers:** Push/PR to main/dev
+**Triggers:** Push/PR to main
 **Duration:** ~10-12 minutes (3 audit runs averaged)
 
 #### What it checks:
-- ✅ **Performance** (target: 80+) - Core Web Vitals, asset optimization
-- ✅ **Accessibility** (target: 90+) - ARIA, color contrast, focus
-- ✅ **Best Practices** (target: 85+) - Security, performance patterns
-- ✅ **SEO** (target: 90+) - Meta tags, structured data
-- ✅ **Core Web Vitals:**
-  - LCP (Largest Contentful Paint): ≤ 4000ms
-  - CLS (Cumulative Layout Shift): ≤ 0.1
-  - FCP (First Contentful Paint): ≤ 3000ms
+- ✓ **Performance** (target: 80+) - Core Web Vitals, asset optimization
+- ✓ **Accessibility** (target: 90+) - ARIA, color contrast, focus
+- ✓ **Best Practices** (target: 85+) - Security, performance patterns
+- ✓ **SEO** (target: 90+) - Meta tags, structured data
+- ✓ **Core Web Vitals:**
+  - LCP (Largest Contentful Paint): less than or equal to 4000ms
+  - CLS (Cumulative Layout Shift): less than or equal to 0.1
+  - FCP (First Contentful Paint): less than or equal to 3000ms
 
 #### If it fails:
 1. Check which metric failed
@@ -178,13 +178,13 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 
 ### 7. **Generate Composer Lock (composer-lock.yml)**
 **Purpose:** Auto-update composer.lock when composer.json changes
-**Triggers:** composer.json changes on main/dev branches
+**Triggers:** composer.json changes on main branch
 **Duration:** ~3-5 minutes
 
 #### What it does:
-- ✅ Runs `composer update --no-install`
-- ✅ Validates composer files with `composer validate --strict`
-- ✅ Auto-commits lock file with `[skip ci]` tag
+- ✓ Runs `composer update --no-install`
+- ✓ Validates composer files with `composer validate --strict`
+- ✓ Auto-commits lock file with `[skip ci]` tag
 
 #### If it fails:
 1. Check for composer.json syntax errors
@@ -194,40 +194,19 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 
 ---
 
-### 8. **Development Checks (dev.yml)**
-**Purpose:** Quick checks for feature branch development
-**Triggers:** Push to feature/* branches and dev branch
-**Duration:** ~5-8 minutes
-
-#### What it checks:
-- ✅ Quick linting (JS, CSS, PHP)
-- ✅ Theme build
-- ✅ PHP syntax validation
-- ✅ PHPCS (errors only, not warnings)
-- ✅ PHP Unit tests
-- ✅ WPAudit tests
-
-#### Purpose:
-Faster feedback than full CI for development iterations
-
-#### Note:
-Warnings are not blockers on dev branch for faster iteration
-
----
-
-### 9. **Release (release.yml)**
+### 8. **Release (release.yml)**
 **Purpose:** Build production package and create GitHub release
 **Triggers:** Version tags (v*.*.* format)
 **Duration:** ~10-15 minutes
 
 #### What it does:
-- ✅ Validates tag format (semantic versioning)
-- ✅ Runs full test suite (PHPCS, linting, PHPUnit)
-- ✅ Builds production package
-- ✅ Compiles translations (.po → .mo)
-- ✅ Generates SHA256 checksum
-- ✅ Creates **draft** GitHub release
-- ✅ Includes validation checklist
+- ✓ Validates tag format (semantic versioning)
+- ✓ Runs full test suite (PHPCS, linting, PHPUnit)
+- ✓ Builds production package
+- ✓ Compiles translations (.po to .mo)
+- ✓ Generates SHA256 checksum
+- ✓ Creates **draft** GitHub release
+- ✓ Includes validation checklist
 
 #### If it fails:
 1. Check tag format (must be v1.2.3 or v1.2.3-rc1)
@@ -249,40 +228,40 @@ sha256sum -c aegis.zip.sha256
 
 ---
 
-### 10. **Dependabot Auto-Merge (dependabot-auto-merge.yml)**
+### 9. **Dependabot Auto-Merge (dependabot-auto-merge.yml)**
 **Purpose:** Automatically merge safe dependency updates
 **Triggers:** Dependabot pull requests
 **Duration:** ~2 minutes
 
 #### What it does:
-- ✅ Parses version bump type (major/minor/patch)
-- ✅ Auto-merges **patch** and **minor** updates
-- ✅ Blocks **major** updates (requires manual review)
-- ✅ Comments on major updates with warnings
+- ✓ Parses version bump type (major/minor/patch)
+- ✓ Auto-merges **patch** and **minor** updates
+- ✓ Blocks **major** updates (requires manual review)
+- ✓ Comments on major updates with warnings
 
 #### Auto-merged:
-- 1.2.3 → 1.2.4 (patch) ✅
-- 1.2.3 → 1.3.0 (minor) ✅
+- 1.2.3 to 1.2.4 (patch) ✓
+- 1.2.3 to 1.3.0 (minor) ✓
 
 #### Requires manual review:
-- 1.2.3 → 2.0.0 (major) ⚠️
+- 1.2.3 to 2.0.0 (major) [warning]
 
 #### Note:
 Only merges if all CI checks pass
 
 ---
 
-### 11. **Mark Stale Issues/PRs (stale.yml)**
+### 10. **Mark Stale Issues/PRs (stale.yml)**
 **Purpose:** Keep repository clean by marking inactive issues/PRs
 **Triggers:** Daily at 1:00 AM UTC
 **Duration:** ~2 minutes
 
 #### What it does:
-- ✅ Marks issues with no activity for 90 days as `status: stale`
-- ✅ Closes stale issues after 30 more days (120 total)
-- ✅ Marks PRs with no activity for 60 days as `status: stale`
-- ✅ Closes stale PRs after 14 more days (74 total)
-- ✅ Adds helpful comments with revival instructions
+- ✓ Marks issues with no activity for 90 days as `status: stale`
+- ✓ Closes stale issues after 30 more days (120 total)
+- ✓ Marks PRs with no activity for 60 days as `status: stale`
+- ✓ Closes stale PRs after 14 more days (74 total)
+- ✓ Adds helpful comments with revival instructions
 
 #### Exemptions:
 Issues/PRs with labels: `pinned`, `roadmap`, or `epic` are exempt
@@ -300,10 +279,10 @@ Issues/PRs with labels: `pinned`, `roadmap`, or `epic` are exempt
 
 | Icon | Status | Meaning |
 |------|--------|---------|
-| ✅ | Success | All checks passed |
-| ❌ | Failed | One or more checks failed |
-| ⏳ | In Progress | Workflow is currently running |
-| ⏭️ | Skipped | Workflow was not triggered (e.g., path filter) |
+| ✓ | Success | All checks passed |
+| ✗ | Failed | One or more checks failed |
+| [pending] | In Progress | Workflow is currently running |
+| [skipped] | Skipped | Workflow was not triggered (e.g., path filter) |
 
 ### Reading Workflow Logs
 
@@ -316,21 +295,21 @@ Issues/PRs with labels: `pinned`, `roadmap`, or `epic` are exempt
 ### Common Log Patterns
 
 ```
-❌ PHPCS Standards Failed
-   →  Run: vendor/bin/phpcs
-   →  Fix: composer run standards:fix
+✗ PHPCS Standards Failed
+   -  Run: vendor/bin/phpcs
+   -  Fix: composer run standards:fix
 
-❌ npm audit vulnerability
-   →  Fix: npm install or npm update <package>
-   →  Check: npm audit fix
+✗ npm audit vulnerability
+   -  Fix: npm install or npm update <package>
+   -  Check: npm audit fix
 
-❌ Test Failed
-   →  Run locally: vendor/bin/phpunit
-   →  Check: Test output for specific failure
+✗ Test Failed
+   -  Run locally: vendor/bin/phpunit
+   -  Check: Test output for specific failure
 
-❌ Lighthouse score below threshold
-   →  Performance < 80: Optimize JS/CSS/images
-   →  Accessibility < 90: Fix ARIA/focus/color contrast
+✗ Lighthouse score below threshold
+   -  Performance < 80: Optimize JS/CSS/images
+   -  Accessibility < 90: Fix ARIA/focus/color contrast
 ```
 
 ---
@@ -343,9 +322,9 @@ Issues/PRs with labels: `pinned`, `roadmap`, or `epic` are exempt
 2. **Reproduce locally** using the same commands/environment
 3. **Check recent changes** - what changed since the last passing run?
 4. **Clear cache** - some workflows cache dependencies that might be stale
-5. **Check branch protection** - ensure you're pushing to the right branch
+5. **Check branch protection** - ensure you are pushing to the right branch
 
-### Common Issues & Solutions
+### Common Issues and Solutions
 
 #### **"All checks must pass before merging"**
 - One or more workflows failed
@@ -375,7 +354,7 @@ Issues/PRs with labels: `pinned`, `roadmap`, or `epic` are exempt
 
 #### **"WordPress compatibility test failed"**
 - Note which WP/PHP version failed
-- Check if there's a specific breaking change
+- Check if there is a specific breaking change
 - Test locally with that version
 - Consider updating theme requirements
 
@@ -404,7 +383,7 @@ Issues/PRs with labels: `pinned`, `roadmap`, or `epic` are exempt
 
 ---
 
-**Last Updated:** April 2026  
-**Aegis Theme Version:** 1.x  
-**WordPress Minimum:** 6.4  
+**Last Updated:** April 2026
+**Aegis Theme Version:** 1.x
+**WordPress Minimum:** 6.4
 **PHP Minimum:** 8.1

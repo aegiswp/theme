@@ -7,7 +7,7 @@ updates:
       interval: "weekly"
       day: "monday"
       time: "09:00"
-    target-branch: "dev"
+    target-branch: "main"
     open-pull-requests-limit: 5
     reviewers:
       - "aegiswp/core-team"
@@ -31,7 +31,7 @@ updates:
       interval: "weekly"
       day: "tuesday"
       time: "09:00"
-    target-branch: "dev"
+    target-branch: "main"
     open-pull-requests-limit: 5
     reviewers:
       - "aegiswp/core-team"
@@ -54,7 +54,7 @@ updates:
       interval: "monthly"
       day: "wednesday"
       time: "09:00"
-    target-branch: "dev"
+    target-branch: "main"
     open-pull-requests-limit: 3
     reviewers:
       - "aegiswp/core-team"

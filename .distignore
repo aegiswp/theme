@@ -17,6 +17,7 @@
 .claude/
 .cursor/
 .fleet/
+.kiro/
 .vscode/
 .idea/
 

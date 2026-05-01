@@ -3,7 +3,9 @@
  * Title: Testimonial Single
  * Slug: single
  * Categories: testimonial
- * ID: 681
+ * Keywords: testimonial, single, quote, review
+ * Description: A single testimonial quote.
+ * Viewport Width: 1280
  */
 ?>
 
@@ -46,9 +48,8 @@
 
     <!-- wp:quote {"textAlign":"center","className":"is-style-plain"} -->
     <blockquote class="wp-block-quote has-text-align-center is-style-plain"><!-- wp:paragraph {"align":"center"} -->
-        <p class="aligncenter has-text-align-center aligncenter">A true zero-dependency framework. It gave us the
-            freedom to build custom layouts without fighting against bloated legacy code.</p>
-        <!-- /wp:paragraph --><cite>Sarah L.</cite>
+        <p class="aligncenter has-text-align-center aligncenter"><?php echo esc_html__( 'A true zero-dependency framework. It gave us the freedom to build custom layouts without fighting against bloated legacy code.', 'aegis' ); ?></p>
+        <!-- /wp:paragraph --><cite><?php echo esc_html__( 'Sarah L.', 'aegis' ); ?></cite>
     </blockquote>
     <!-- /wp:quote -->
 </div>

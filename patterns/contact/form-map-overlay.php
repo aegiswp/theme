@@ -24,6 +24,7 @@
 
             <!-- wp:html -->
             <form action="#" method="POST">
+                <!-- NOTE: This is a placeholder form layout. A form plugin (e.g., WPForms, Contact Form 7, Gravity Forms) is required for actual form handling, validation, and security (nonce/CSRF). -->
                 <label for="name"><?php echo esc_html__( 'Name', 'aegis' ); ?></label>
                 <input type="text" id="name" name="name" required>
                 <label for="email"><?php echo esc_html__( 'Email', 'aegis' ); ?></label>

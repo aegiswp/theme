@@ -4,7 +4,7 @@ name: Generate Composer Lock
 
 on:
   push:
-    branches: [ main, dev ]
+    branches: [ main ]
     paths:
       - 'composer.json'
   workflow_dispatch:

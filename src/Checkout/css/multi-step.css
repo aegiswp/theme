@@ -1,0 +1,116 @@
+/**
+ * Aegis Multi-Step Checkout Styles
+ *
+ * @package Aegis
+ * @since   1.0.0
+ */
+
+/* Step Indicators */
+.aegis-checkout-steps {
+	gap: var(--wp--preset--spacing--sm);
+}
+
+.aegis-checkout-step {
+	transition: opacity 0.2s ease;
+	opacity: 0.4;
+}
+
+.aegis-checkout-step.is-active {
+	opacity: 1;
+}
+
+.aegis-checkout-step.is-completed {
+	opacity: 0.7;
+}
+
+.aegis-checkout-step .aegis-step-number {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	border: 2px solid currentColor;
+	font-weight: 600;
+	line-height: 1;
+}
+
+.aegis-checkout-step.is-active .aegis-step-number {
+	background: var(--wp--preset--color--primary-600, #2563eb);
+	border-color: var(--wp--preset--color--primary-600, #2563eb);
+	color: var(--wp--preset--color--neutral-0, #fff);
+}
+
+.aegis-checkout-step.is-completed .aegis-step-number {
+	background: var(--wp--preset--color--primary-600, #2563eb);
+	border-color: var(--wp--preset--color--primary-600, #2563eb);
+	color: var(--wp--preset--color--neutral-0, #fff);
+}
+
+/* Step connector lines */
+.aegis-checkout-steps > .wp-block-separator {
+	flex: 0 0 60px;
+	opacity: 0.2;
+}
+
+/* Step Content Transitions */
+.aegis-checkout-step-1,
+.aegis-checkout-step-2,
+.aegis-checkout-step-3 {
+	animation: aegis-step-fade-in 0.3s ease;
+}
+
+@keyframes aegis-step-fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Navigation Buttons */
+.aegis-checkout-navigation {
+	border-top: 1px solid var(--wp--preset--color--neutral-200, #e5e7eb);
+	padding-top: var(--wp--preset--spacing--sm);
+}
+
+/* Validation Error State */
+.aegis-checkout-multi-step input.has-error,
+.aegis-checkout-multi-step select.has-error,
+.aegis-checkout-multi-step textarea.has-error {
+	border-color: var(--wp--preset--color--error, #ef4444) !important;
+	box-shadow: 0 0 0 1px var(--wp--preset--color--error, #ef4444);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+	.aegis-checkout-steps {
+		gap: var(--wp--preset--spacing--xxs);
+	}
+
+	.aegis-checkout-steps > .wp-block-separator {
+		flex: 0 0 24px;
+	}
+
+	.aegis-checkout-step .aegis-step-number {
+		width: 24px;
+		height: 24px;
+		font-size: 12px;
+	}
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.aegis-checkout-step-1,
+	.aegis-checkout-step-2,
+	.aegis-checkout-step-3 {
+		animation: none;
+	}
+
+	.aegis-checkout-step {
+		transition: none;
+	}
+}

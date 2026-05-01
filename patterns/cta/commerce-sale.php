@@ -25,7 +25,7 @@
 
 		<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}},"border":{"radius":"8px","width":"1px"}},"borderColor":"neutral-600","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
 		<div class="wp-block-group has-border-color has-neutral-600-border-color" style="border-width:1px;border-radius:8px;margin-top:var(--wp--preset--spacing--xs);padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--md)"><!-- wp:paragraph {"style":{"typography":{"fontFamily":"monospace","letterSpacing":"2px"}},"fontSize":"20"} -->
-			<p class="has-20-font-size" style="font-family:monospace;letter-spacing:2px">SAVE50</p>
+			<p class="has-20-font-size" style="font-family:monospace;letter-spacing:2px"><?php echo esc_html__( 'SAVE50', 'aegis' ); ?></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->

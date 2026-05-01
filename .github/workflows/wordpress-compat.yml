@@ -4,9 +4,9 @@ name: WordPress Compatibility Matrix
 
 on:
   push:
-    branches: [ main, dev ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, dev ]
+    branches: [ main ]
   schedule:
     # Run weekly to catch WordPress core updates
     - cron: '0 2 * * 1'

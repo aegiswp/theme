@@ -20,7 +20,7 @@ body:
   - type: textarea
     id: steps
     attributes:
-      label: Steps you've tried
+      label: Steps you have tried
       description: Describe what you have already tried or researched (e.g., "I checked the Wiki and tried disabling plugins").
     validations:
       required: false
@@ -28,7 +28,7 @@ body:
     id: docs
     attributes:
       label: Relevant documentation or links
-      description: Links to documentation or forum posts you've already reviewed.
+      description: Links to documentation or forum posts you have already reviewed.
     validations:
       required: false
 

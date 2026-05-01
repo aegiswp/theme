@@ -61,7 +61,7 @@
 
                     <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"}}},"textColor":"neutral-500","fontSize":"14"} -->
                     <p class="has-neutral-500-color has-text-color has-14-font-size"
-                        style="margin-top:var(--wp--preset--spacing--xs)">Save 10% - <s>$99</s></p>
+                        style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Save 10% -', 'aegis' ); ?> <s>$99</s></p>
                     <!-- /wp:paragraph -->
 
                     <!-- wp:separator {"style":{"border":{"width":"1px"}},"textColor":"neutral-200"} -->
@@ -137,7 +137,7 @@
 
                     <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"}}},"textColor":"neutral-500","fontSize":"14"} -->
                     <p class="has-neutral-500-color has-text-color has-14-font-size"
-                        style="margin-top:var(--wp--preset--spacing--xs)">Save 10% - <s>$199</s></p>
+                        style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Save 10% -', 'aegis' ); ?> <s>$199</s></p>
                     <!-- /wp:paragraph -->
 
                     <!-- wp:separator {"style":{"border":{"width":"1px"}},"textColor":"neutral-200"} -->
@@ -204,7 +204,7 @@
 
                     <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"}}},"textColor":"neutral-500","fontSize":"14"} -->
                     <p class="has-neutral-500-color has-text-color has-14-font-size"
-                        style="margin-top:var(--wp--preset--spacing--xs)">Save 10% - <s>$499</s></p>
+                        style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Save 10% -', 'aegis' ); ?> <s>$499</s></p>
                     <!-- /wp:paragraph -->
 
                     <!-- wp:separator {"style":{"border":{"width":"1px"}},"textColor":"neutral-200"} -->

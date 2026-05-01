@@ -3,11 +3,10 @@
 ## Supported Versions
 We actively support and provide security updates for the following branches:
 
-| Version | Supported          | Security Updates |
-| ------- | ------------------ | ---------------- |
-| 1.0.x   | :white_check_mark: | :white_check_mark: |
-| dev     | :white_check_mark: | :white_check_mark: |
-| main    | :white_check_mark: | :white_check_mark: |
+| Version | Supported | Security Updates |
+| ------- | --------- | ---------------- |
+| 1.0.x   | ✓         | ✓                |
+| main    | ✓         | ✓                |
 
 ## Reporting a Vulnerability
 

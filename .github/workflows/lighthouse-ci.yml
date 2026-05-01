@@ -4,13 +4,17 @@ name: Lighthouse CI
 
 on:
   push:
-    branches: [ main, dev ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, dev ]
+    branches: [ main ]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   lighthouse-ci:
@@ -91,7 +95,7 @@ jobs:
       - name: Parse Lighthouse results
         if: always()
         run: |
-          echo "## 📊 Lighthouse Performance Report" >> $GITHUB_STEP_SUMMARY
+          echo "## [chart] Lighthouse Performance Report" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
           if [ -f "./.lighthouseci/results/manifest.json" ]; then
@@ -133,7 +137,7 @@ jobs:
           script: |
             const fs = require('fs');
 
-            let comment = "## 📊 Lighthouse Audit Results\n\n";
+            let comment = "## [chart] Lighthouse Audit Results\n\n";
 
             if (fs.existsSync('./.lighthouseci/results/manifest.json')) {
               const manifest = JSON.parse(fs.readFileSync('./.lighthouseci/results/manifest.json', 'utf8'));

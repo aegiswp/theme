@@ -24,6 +24,8 @@ setTimeout(()=>{
 }, 1000);
 JS;
 
+$copied_text = esc_html__( 'Copied!', 'aegis' );
+
 $item = <<<HTML
 <!-- wp:group {"style":{"dimensions":{"minHeight":"80px"},"border":{"radius":"10px"},"position":{"all":"relative"},"overflow":{"all":"hidden"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"},"gradient":"checkerboard","shadowPreset":"xl","onclick":"{on_click_value}"} -->
 <div class="wp-block-group has-checkerboard-gradient-background has-background has-shadow has-xl-shadow" style="border-radius:10px;min-height:80px;">
@@ -34,7 +36,7 @@ $item = <<<HTML
 	<p class="screen-reader-text">{slug}: {value}</p>
 	<!-- /wp:paragraph -->
 	<!-- wp:paragraph {"className":"has-display-none","style":{"position":{"all":"relative"}},"zIndex":{"all":"1"}} -->
-	<p class="has-display-none">Copied!</p>
+	<p class="has-display-none">$copied_text</p>
 	<!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

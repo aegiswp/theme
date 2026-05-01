@@ -27,12 +27,13 @@ declare(strict_types=1);
 require_once __DIR__ . '/vendor/autoload.php';
 
 // Configure the theme updater for GitHub releases (must be before Aegis::register).
-add_filter('aegis_theme_updater_config', function () {
+function aegis_theme_updater_config(): array {
     return [
         'repo' => 'aegiswp/theme',
         'slug' => 'aegis',
     ];
-});
+}
+add_filter( 'aegis_theme_updater_config', 'aegis_theme_updater_config' );
 
 // Registers the Aegis Framework, initializing all its components and services.
 Aegis::register( __FILE__ );
@@ -49,26 +50,25 @@ Aegis::register( __FILE__ );
  *
  * @see https://make.wordpress.org/core/2025/12/01/ability-to-hide-blocks/
  */
-add_filter(
-	'block_type_metadata',
-	static function (array $metadata): array {
-		if (isset($metadata['supports']['metadata']['blockVisibility'])) {
-			unset($metadata['supports']['metadata']['blockVisibility']);
-		}
-		return $metadata;
+function aegis_suppress_block_visibility( array $metadata ): array {
+	if ( isset( $metadata['supports']['metadata']['blockVisibility'] ) ) {
+		unset( $metadata['supports']['metadata']['blockVisibility'] );
 	}
-);
+	return $metadata;
+}
+add_filter( 'block_type_metadata', 'aegis_suppress_block_visibility' );
 
 // Add resource hints for external resources (Performance Optimization).
-add_filter('wp_resource_hints', function ($urls, $relation_type) {
-	if ('dns-prefetch' === $relation_type) {
+function aegis_resource_hints( $urls, $relation_type ) {
+	if ( 'dns-prefetch' === $relation_type ) {
 		// Add any external domains used by the theme.
-		// Example: $urls[] = '//fonts.googleapis.com';
 	}
 	return $urls;
-}, 10, 2);
+}
+add_filter( 'wp_resource_hints', 'aegis_resource_hints', 10, 2 );
 
 // Ensure title-tag support is explicitly declared (SEO).
-add_action('after_setup_theme', function () {
-	add_theme_support('title-tag');
-});
+function aegis_setup_theme(): void {
+	add_theme_support( 'title-tag' );
+}
+add_action( 'after_setup_theme', 'aegis_setup_theme' );

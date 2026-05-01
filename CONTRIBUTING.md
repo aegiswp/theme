@@ -1,6 +1,6 @@
 # Contributing to Aegis
 
-Thank you for your interest in contributing to the Aegis theme! This document provides guidelines for contributing to the Aegis WordPress theme project.
+Thank you for your interest in contributing to the Aegis theme. This document provides guidelines for contributing to the Aegis WordPress theme project.
 
 ## Development Setup
 
@@ -396,8 +396,8 @@ By contributing to Aegis, you agree that your contributions will be licensed und
 
 ## Questions?
 
-Feel free to open an issue for questions or discussions. We welcome contributors of all experience levels!
+Feel free to open an issue for questions or discussions. We welcome contributors of all experience levels.
 
 ---
 
-Thank you for contributing to Aegis!
+Thank you for contributing to Aegis.

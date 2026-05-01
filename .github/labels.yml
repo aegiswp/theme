@@ -11,7 +11,7 @@
 # ---
 
 - name: "[Type] Bug"
-  description: "Something isn't working"
+  description: "Something is not working"
   color: "d73a4a"
 
 - name: "[Type] Feature"
@@ -256,7 +256,7 @@
 # 
 # ## Creating Labels via GitHub CLI:
 # ```bash
-# gh label create "[Type] Bug" --description "Something isn't working" --color "d73a4a"
+# gh label create "[Type] Bug" --description "Something is not working" --color "d73a4a"
 # ```
 #
 # ## Automated Labeling:

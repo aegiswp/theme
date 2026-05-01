@@ -4,12 +4,12 @@ name: Theme.json Validation
 
 on:
   push:
-    branches: [ main, dev ]
+    branches: [ main ]
     paths:
       - 'theme.json'
       - '.github/workflows/theme-json-validation.yml'
   pull_request:
-    branches: [ main, dev ]
+    branches: [ main ]
     paths:
       - 'theme.json'
 

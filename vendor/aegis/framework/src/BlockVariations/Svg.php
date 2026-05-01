@@ -18,12 +18,13 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for blocks variations.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for block variations within the Aegis Framework.
 namespace Aegis\Framework\BlockVariations;
 
 // Imports utility classes and interfaces for DOM manipulation, CSS helpers, icon utilities, and renderable blocks.
+use Aegis\Framework\ServiceProvider;
 use Aegis\Framework\BlockSettings\Onclick;
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
@@ -36,6 +37,7 @@ use WP_Block;
 use function esc_attr;
 use function explode;
 use function implode;
+use function preg_match;
 use function rawurlencode;
 use function str_contains;
 use function str_replace;
@@ -94,6 +96,11 @@ class Svg implements Renderable
 	 */
 	public function render(string $block_content, array $block, WP_Block $instance): string
 	{
+		// Check if block is enabled in admin settings.
+		if ( ! ServiceProvider::is_block_enabled( 'svg' ) ) {
+			return $block_content;
+		}
+
 		$attrs = $block['attrs'] ?? [];
 		$svg_string = Icon::sanitize_svg($attrs['style']['svgString'] ?? '');
 
@@ -112,14 +119,17 @@ class Svg implements Renderable
 		$mask = (bool) ($attrs['style']['maskSvg'] ?? false);
 		$on_click = $attrs['onclick'] ?? '';
 
-		// The "mask" render path is currently disabled.
-		if ($mask) {
-			//return $this->render_mask( $img, $svg_string, $dom, $width, $height );
+		// Check if mask rendering is enabled and requested.
+		if ($mask && $img) {
+			// Check if mask feature is enabled in admin settings.
+			if ( ServiceProvider::is_block_enabled( 'svg_mask' ) ) {
+				return $this->render_mask($img, $svg_string, $dom, $width, $height);
+			}
 		}
 
-		// Apply onclick attribute if it exists.
-		if ($on_click) {
-			($link ?? $figure ?? $img)->setAttribute('onclick', $on_click);
+		// Security: validate onclick value against dangerous patterns before applying.
+		if ($on_click && !preg_match('/[<>"\']/', $on_click)) {
+			($link ?? $figure ?? $img)->setAttribute('onclick', esc_attr($on_click));
 			$block_content = $dom->saveHTML();
 		}
 
@@ -151,6 +161,15 @@ class Svg implements Renderable
 			$imported->setAttribute('height', $height);
 		}
 
+		// Accessibility: transfer alt text and set appropriate ARIA role.
+		$alt = esc_attr($attrs['alt'] ?? ($img ? $img->getAttribute('alt') : ''));
+		if ($alt) {
+			$imported->setAttribute('role', 'img');
+			$imported->setAttribute('aria-label', $alt);
+		} else {
+			$imported->setAttribute('aria-hidden', 'true');
+		}
+
 		// Append the new SVG to the link if it exists, otherwise to the figure.
 		if ($link) {
 			$link->appendChild($imported);
@@ -164,10 +183,9 @@ class Svg implements Renderable
 	/**
 	 * Renders an SVG as a CSS mask on a `<span>` element.
 	 *
-	 * @todo This method is currently unused as the call to it is commented out.
-	 *
 	 * This method allows an SVG to be "colored" by the `background-color` of
-	 * its parent element by using the SVG as a CSS mask.
+	 * its parent element by using the SVG as a CSS mask. This feature can be
+	 * enabled in the admin settings under Blocks > SVG > Mask Mode.
 	 *
 	 * @since 1.0.0
 	 *

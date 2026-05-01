@@ -24,6 +24,7 @@ declare(strict_types=1);
 namespace Aegis\Framework\BlockVariations;
 
 // Imports utility classes and interfaces for DOM manipulation, CSS helpers, responsive settings, and renderable blocks.
+use Aegis\Framework\ServiceProvider;
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\BlockSettings\Responsive;
@@ -38,7 +39,7 @@ use function in_array;
 use function is_array;
 use function str_contains;
 use function str_replace;
-use Aegis\Framework\ServiceProvider;
+use function sanitize_key;
 use function wp_list_pluck;
 
 // Implements the Icon class to support icon block rendering.
@@ -95,6 +96,11 @@ class Icon implements Renderable
 	 */
 	public function render(string $block_content, array $block, WP_Block $instance): string
 	{
+		// Check if block is enabled in admin settings.
+		if ( ! ServiceProvider::is_block_enabled( 'icon' ) ) {
+			return $block_content;
+		}
+
 		$attrs = $block['attrs'] ?? [];
 		$set = $attrs['iconSet'] ?? null;
 		$name = $attrs['iconName'] ?? null;
@@ -155,6 +161,10 @@ class Icon implements Renderable
 
 		// --- Icon Rendering (Gradient Mask vs. Inline SVG) ---
 		$svg = $svg_string ?? IconUtility::get_svg($set ?? 'wordpress', $name ?? 'star-empty', $attrs['iconSize'] ?? null);
+		// Sanitize SVG to prevent injection when used in CSS url() context.
+		if ($svg_string) {
+			$svg = IconUtility::sanitize_svg($svg);
+		}
 		if ($gradient && $svg) {
 			// For gradients, use the SVG as a CSS mask.
 			$span_styles['--wp--custom--icon--url'] = 'url(\'data:image/svg+xml;utf8,' . $svg . '\')';
@@ -178,6 +188,8 @@ class Icon implements Renderable
 
 		// Apply text color, with a fallback from primary to neutral colors.
 		if ($text_color = $attrs['textColor'] ?? null) {
+			// Sanitize color slug before interpolating into CSS variable name.
+			$text_color = sanitize_key($text_color);
 			$global_settings = ServiceProvider::get_global_settings();
 			$color_slugs = wp_list_pluck($global_settings['color']['palette']['theme'] ?? [], 'slug');
 			$has_primary = false;
@@ -220,10 +232,14 @@ class Icon implements Renderable
 		$span->setAttribute('style', CSS::array_to_string($span_styles));
 
 		// Set accessibility attributes.
-		$aria_label = $img->getAttribute('alt') ?: str_replace('-', ' ', $name) . __(' icon', 'aegis');
+		$aria_label = $img->getAttribute('alt') ?: str_replace('-', ' ', sanitize_key($name ?? '')) . __(' icon', 'aegis');
 		$span->setAttribute('title', $attrs['title'] ?? $aria_label);
-		if (!($attrs['title'] ?? null) || !$aria_label) {
+		$span->setAttribute('aria-label', $aria_label);
+		if ($aria_label) {
 			$span->setAttribute('role', 'img');
+		} else {
+			$span->setAttribute('role', 'presentation');
+			$span->setAttribute('aria-hidden', 'true');
 		}
 		$span->removeAttribute('src');
 		$span->removeAttribute('alt');

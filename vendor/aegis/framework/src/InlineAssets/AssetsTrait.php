@@ -18,12 +18,13 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for inline asset management.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for inline assets components within the Aegis Framework.
 namespace Aegis\Framework\InlineAssets;
 
 // Imports utility classes and functions for asset path, string, and file handling.
+use Closure;
 use Aegis\Utilities\Path;
 use Aegis\Utilities\Str;
 use function basename;
@@ -35,8 +36,7 @@ use function uniqid;
 
 // Implements the AssetsTrait for shared asset management functionality in the design system.
 
-trait AssetsTrait
-{
+trait AssetsTrait {
 
 	/**
 	 * Directory.
@@ -101,16 +101,15 @@ trait AssetsTrait
 	 *
 	 * @return void
 	 */
-	public function __construct(string $file)
-	{
-		$project_dir = dirname($file);
-		$package_dir = dirname(__DIR__, 2);
-		$dir = Path::get_package_dir($project_dir, $package_dir);
-		$url = Path::get_package_url($project_dir, $package_dir);
-		$this->type = str_contains(static::class, 'Style') ? 'css' : 'js';
-		$this->dir = "{$dir}public/{$this->type}/";
-		$this->url = "{$url}public/{$this->type}/";
-		$this->handle = strtolower(basename(dirname($file), '.php'));
+	public function __construct( string $file ) {
+		$project_dir  = dirname( $file );
+		$package_dir  = dirname( __DIR__, 2 );
+		$dir          = Path::get_package_dir( $project_dir, $package_dir );
+		$url          = Path::get_package_url( $project_dir, $package_dir );
+		$this->type   = str_contains( static::class, 'Style' ) ? 'css' : 'js';
+		$this->dir    = "{$dir}public/{$this->type}/";
+		$this->url    = "{$url}public/{$this->type}/";
+		$this->handle = strtolower( basename( dirname( $file ), '.php' ) );
 	}
 
 	/**
@@ -123,9 +122,8 @@ trait AssetsTrait
 	 *
 	 * @return self
 	 */
-	public function add_file(string $file, array $strings = [], bool $condition = true): self
-	{
-		$this->files[$file] = [$strings, $condition];
+	public function add_file( string $file, array $strings = [], bool $condition = true ): self {
+		$this->files[ $file ] = [ $strings, $condition ];
 
 		return $this;
 	}
@@ -139,8 +137,7 @@ trait AssetsTrait
 	 *
 	 * @return self
 	 */
-	public function add_callback(callable $callback): self
-	{
+	public function add_callback( callable $callback ): self {
 		$this->callbacks[] = $callback;
 
 		return $this;
@@ -156,9 +153,8 @@ trait AssetsTrait
 	 *
 	 * @return self
 	 */
-	public function add_string(string $string, array $strings = [], bool $condition = true): self
-	{
-		$this->strings[$string] = [$strings, $condition];
+	public function add_string( string $string, array $strings = [], bool $condition = true ): self {
+		$this->strings[ $string ] = [ $strings, $condition ];
 
 		return $this;
 	}
@@ -174,12 +170,12 @@ trait AssetsTrait
 	 * @return self
 	 */
 	public function add_data(
-		string $key,
-		array $value,
-		array $strings = [],
-		bool $condition = true
+		string        $key,
+		array|Closure $value,
+		array         $strings = [],
+		bool          $condition = true
 	): self {
-		$this->data[$key] = [$value, $strings, $condition];
+		$this->data[ $key ] = [ $value, $strings, $condition ];
 
 		return $this;
 	}
@@ -201,13 +197,12 @@ trait AssetsTrait
 	 *
 	 * @return string
 	 */
-	private function get_inline_assets(?string $template_html, bool $load_all): string
-	{
+	private function get_inline_assets( ?string $template_html, bool $load_all ): string {
 		$string = '';
-		$assets = $this->get_assets($template_html ?? '', $load_all);
+		$assets = $this->get_assets( $template_html ?? '', $load_all );
 
-		foreach ($assets as $asset) {
-			$string .= Str::remove_line_breaks($asset);
+		foreach ( $assets as $asset ) {
+			$string .= Str::remove_line_breaks( $asset );
 		}
 
 		/**
@@ -235,37 +230,36 @@ trait AssetsTrait
 	 *
 	 * @return array
 	 */
-	private function get_assets(string $template_html, bool $load_all): array
-	{
+	private function get_assets( string $template_html, bool $load_all ): array {
 		$assets = [];
 
-		foreach ($this->strings as $string => $args) {
-			$strings = $args[0] ?? [];
+		foreach ( $this->strings as $string => $args ) {
+			$strings   = $args[0] ?? [];
 			$condition = $args[1] ?? true;
 
-			if ($load_all || !$strings || Str::contains_any($template_html, ...$strings) || $condition) {
-				$id = uniqid(static::class);
-				$assets[$id] = $string;
+			if ( $load_all || ! $strings || Str::contains_any( $template_html, ...$strings ) || $condition ) {
+				$id            = uniqid( static::class );
+				$assets[ $id ] = $string;
 			}
 		}
 
-		foreach ($this->callbacks as $callback) {
-			$id = is_array($callback) ? get_class($callback[0]) . '\\' . $callback[1] ?? '' : $callback;
+		foreach ( $this->callbacks as $callback ) {
+			$id = is_array( $callback ) ? get_class( $callback[0] ) . '\\' . ( $callback[1] ?? '' ) : uniqid( static::class . '_cb_' );
 
-			$assets[$id] = $callback($template_html, $load_all, $this);
+			$assets[ $id ] = $callback( $template_html, $load_all, $this );
 		}
 
-		foreach ($this->files as $file => $args) {
+		foreach ( $this->files as $file => $args ) {
 			$strings = $args[0] ?? [];
 
 			// Skip if additional condition is not met.
-			if (isset($args[1]) && !$args[1] && !Str::contains_any($template_html, ...$strings)) {
+			if ( isset( $args[1] ) && ! $args[1] && ! Str::contains_any( $template_html, ...$strings ) ) {
 				continue;
 			}
 
-			if ($load_all || !$strings || Str::contains_any($template_html, ...$strings)) {
-				if (file_exists($this->dir . $file)) {
-					$assets[$file] = file_get_contents($this->dir . $file);
+			if ( $load_all || ! $strings || Str::contains_any( $template_html, ...$strings ) ) {
+				if ( file_exists( $this->dir . $file ) ) {
+					$assets[ $file ] = file_get_contents( $this->dir . $file );
 				}
 			}
 		}

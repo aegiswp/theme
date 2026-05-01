@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for inline asset management.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for inline assets components within the Aegis Framework.
 namespace Aegis\Framework\InlineAssets;

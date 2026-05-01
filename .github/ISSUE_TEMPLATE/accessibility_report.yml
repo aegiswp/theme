@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        ### Help us make Aegis inclusive!
+        ### Help us make Aegis inclusive.
         Your feedback helps us ensure Aegis is usable for everyone.
   - type: textarea
     id: description

@@ -18,7 +18,7 @@
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for design system components.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for design system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
@@ -63,7 +63,7 @@ class BlockStyles implements Scriptable
 		$register = [
 			'core/archive-title' => ['sub-heading'],
 			'core/buttons' => ['surface'],
-			'core/button' => ['ghost'],
+			'core/button' => ['ghost', 'pill'],
 			'core/code' => ['surface'],
 			'core/columns' => ['surface'],
 			'core/column' => ['surface'],
@@ -72,6 +72,7 @@ class BlockStyles implements Scriptable
 				['summary-heading' => 'Heading'],
 			],
 			'core/group' => ['surface'],
+			'core/heading' => ['highlight'],
 			'core/list' => [
 				'checklist',
 				'check-outline',
@@ -84,15 +85,15 @@ class BlockStyles implements Scriptable
 			'core/list-item' => ['surface'],
 			'core/navigation' => ['heading'],
 			'core/page-list' => ['none'],
-			'core/paragraph' => ['sub-heading', 'notice', 'heading'],
+			'core/paragraph' => ['sub-heading', 'notice', 'heading', 'highlight'],
 			'core/post-author-name' => ['heading'],
-			'core/post-terms' => ['list', 'sub-heading', 'badges'],
+			'core/post-terms' => ['list', 'sub-heading', 'badges', 'pills'],
 			'core/post-title' => ['sub-heading'],
-			'core/query-pagination' => ['badges'],
+			'core/query-pagination' => ['badges', 'pills'],
 			'core/read-more' => ['button'],
 			'core/site-title' => ['heading'],
 			'core/spacer' => ['angle', 'curve', 'round', 'wave', 'fade'],
-			'core/tag-cloud' => ['badges'],
+			'core/tag-cloud' => ['badges', 'pills'],
 			'core/quote' => ['surface'],
 		];
 
@@ -118,4 +119,3 @@ class BlockStyles implements Scriptable
 		];
 	}
 }
-

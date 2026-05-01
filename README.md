@@ -150,7 +150,7 @@ Aegis employs a fluid spacing system that scales intelligently across viewport s
 
 ### Typography Presets
 
-Aegis features a comprehensive fluid typography system with 22 font size presets:
+Aegis features a comprehensive fluid typography system with 23 font size presets:
 
 | Name | Slug | Size | Fluid Range |
 |------|------|------|-------------|
@@ -171,11 +171,12 @@ Aegis features a comprehensive fluid typography system with 22 font size presets
 | 22px | `22` | `clamp(20px,2.2vw,22px)` | 20px → 22px |
 | 20px | `20` | `clamp(19px,2vw,20px)` | 19px → 20px |
 | 18px | `18` | `clamp(17px,1.8vw,18px)` | 17px → 18px |
-| 16px | `16` | `16px` | — |
-| 14px | `14` | `14px` | — |
-| 12px | `12` | `12px` | — |
-| 10px | `10` | `10px` | — |
-| 8px | `8` | `8px` | — |
+| 16px | `16` | `clamp(15px,1.6vw,16px)` | 15px → 16px |
+| 14px | `14` | `clamp(13px,1.4vw,14px)` | 13px → 14px |
+| 12px | `12` | `clamp(11px,1.2vw,12px)` | 11px → 12px |
+| 10px | `10` | `clamp(9px,1vw,10px)` | 9px → 10px |
+| 8px | `8` | `clamp(7px,0.8vw,8px)` | 7px → 8px |
+| Inherit | `inherit` | `inherit` | — |
 
 **Font Families**
 
@@ -187,7 +188,7 @@ Aegis features a comprehensive fluid typography system with 22 font size presets
 
 ### Shadow Presets
 
-Aegis provides seven box shadow presets for depth and elevation:
+Aegis provides eight box shadow presets for depth and elevation:
 
 | Name | Slug | Shadow Value |
 |------|------|-------------|
@@ -206,18 +207,37 @@ Aegis includes 31 pre-configured gradients for sophisticated visual effects:
 
 | Name | Slug | Gradient |
 |------|------|----------|
-| Primary 700/500 | `primary-700-500` | `linear-gradient(135deg, primary-700 0%, primary-500 100%)` |
-| Primary 500/300 | `primary-500-300` | `linear-gradient(135deg, primary-500 0%, primary-300 100%)` |
-| Primary Transparent | `primary-transparent` | `linear-gradient(180deg, transparent 0%, primary-100 100%)` |
-| Primary Foreground | `primary-foreground` | `linear-gradient(135deg, primary-900 0%, neutral-950 100%)` |
-| Body/Heading | `body-heading` | `linear-gradient(135deg, neutral-600 0%, neutral-950 100%)` |
-| Surface/Border | `surface-border` | `linear-gradient(135deg, neutral-100 0%, neutral-200 100%)` |
-| Background/Transparent | `background-transparent` | `linear-gradient(0deg, background 50%, transparent 50%)` |
-| Transparent/Background | `transparent-background` | `linear-gradient(180deg, background 50%, transparent 50%)` |
-| Fade Left | `fade-left` | `linear-gradient(90deg, neutral-0 0%, transparent 100%)` |
-| Fade Right | `fade-right` | `linear-gradient(-90deg, neutral-0 0%, transparent 100%)` |
-| Checkerboard | `checkerboard` | `repeating-conic-gradient(neutral-200 0% 25%, transparent 0% 50%)` |
-| Grid | `grid` | `conic-gradient(from 90deg at 1px 1px, transparent 90deg, neutral-100 0)` |
+| Primary 700/500 | `primary-700-500` | `linear-gradient(135deg,var(--wp--preset--color--primary-700) 0%,var(--wp--preset--color--primary-500) 100%)` |
+| Primary 500/300 | `primary-500-300` | `linear-gradient(135deg,var(--wp--preset--color--primary-500) 0%,var(--wp--preset--color--primary-300) 100%)` |
+| Primary Transparent | `primary-transparent` | `linear-gradient(180deg,var(--wp--preset--color--transparent) 0%,var(--wp--preset--color--primary-100) 100%)` |
+| Primary Foreground | `primary-foreground` | `linear-gradient(135deg,var(--wp--preset--color--primary-900) 0%,var(--wp--preset--color--neutral-950) 100%)` |
+| Body/Heading | `body-heading` | `linear-gradient(135deg,var(--wp--preset--color--neutral-600) 0%,var(--wp--preset--color--neutral-950) 100%)` |
+| Surface/Border | `surface-border` | `linear-gradient(135deg,var(--wp--preset--color--neutral-100) 0%,var(--wp--preset--color--neutral-200) 100%)` |
+| Background/Transparent | `background-transparent` | `linear-gradient(0deg,var(--wp--custom--body--background) 50%,transparent 50%)` |
+| Transparent/Background | `transparent-background` | `linear-gradient(180deg,var(--wp--custom--body--background) 50%,transparent 50%)` |
+| Fade Left | `fade-left` | `linear-gradient(90deg,var(--wp--preset--color--neutral-0) 0%,transparent 100%)` |
+| Fade Right | `fade-right` | `linear-gradient(-90deg,var(--wp--preset--color--neutral-0) 0%,transparent 100%)` |
+| Checkerboard | `checkerboard` | `repeating-conic-gradient(var(--wp--preset--color--neutral-200) 0% 25%, transparent 0% 50%) 50% / 16px 16px` |
+| Grid | `grid` | `conic-gradient(from 90deg at 1px 1px,transparent 90deg,var(--wp--custom--gradient-grid--color,var(--wp--preset--color--neutral-100)) 0) -1px -1px / var(--wp--custom--gradient-grid--size,40px) var(--wp--custom--gradient-grid--size,40px)` |
+| Diagonal Cut Dark Left | `diagonal-cut-dark-left` | `linear-gradient(135deg,var(--wp--preset--color--primary-950) 0%,var(--wp--preset--color--primary-950) 50%,transparent 50%)` |
+| Diagonal Cut Dark Right | `diagonal-cut-dark-right` | `linear-gradient(-135deg,var(--wp--preset--color--primary-950) 0%,var(--wp--preset--color--primary-950) 50%,transparent 50%)` |
+| Diagonal Cut Light Left | `diagonal-cut-light-left` | `linear-gradient(135deg,transparent 0%,transparent 50%,var(--wp--preset--color--neutral-0) 50%)` |
+| Diagonal Cut Light Right | `diagonal-cut-light-right` | `linear-gradient(-135deg,transparent 0%,transparent 50%,var(--wp--preset--color--neutral-0) 50%)` |
+| Fade Dark Top | `fade-dark-top` | `linear-gradient(180deg,rgba(9,9,11,0.80) 0%,rgba(9,9,11,0.4) 50%,transparent 100%)` |
+| Fade Dark Bottom | `fade-dark-bottom` | `linear-gradient(0deg,rgba(9,9,11,0.80) 0%,rgba(9,9,11,0.4) 50%,transparent 100%)` |
+| Long Top Short Bottom | `long-top-short-bottom` | `linear-gradient(180deg,var(--wp--preset--color--primary-950) 0%,var(--wp--preset--color--primary-950) 70%,transparent 70%)` |
+| Short Top Long Bottom | `short-top-long-bottom` | `linear-gradient(0deg,var(--wp--preset--color--primary-950) 0%,var(--wp--preset--color--primary-950) 70%,transparent 70%)` |
+| Vignette Vertical | `vignette-vertical` | `linear-gradient(180deg,rgba(9,9,11,0.9) 0%,rgba(9,9,11,0.6) 30%,transparent 60%,rgba(9,9,11,0.6) 80%,rgba(9,9,11,0.9) 100%)` |
+| Vignette Radial | `vignette-radial` | `radial-gradient(ellipse at center,transparent 0%,rgba(9,9,11,0.8) 100%)` |
+| Diagonal Vignette | `diagonal-vignette` | `linear-gradient(135deg,rgba(9,9,11,0.9) 0%,transparent 50%,rgba(9,9,11,0.9) 100%)` |
+| Scrim Bottom | `scrim-bottom` | `linear-gradient(180deg,transparent 0%,transparent 60%,rgba(9,9,11,0.95) 100%)` |
+| Scrim Top | `scrim-top` | `linear-gradient(0deg,transparent 0%,transparent 60%,rgba(9,9,11,0.95) 100%)` |
+| Diagonal Triple | `diagonal-triple` | `linear-gradient(135deg,var(--wp--preset--color--primary-950) 0%,var(--wp--preset--color--primary-950) 33%,var(--wp--preset--color--primary-700) 33%,var(--wp--preset--color--primary-700) 66%,transparent 66%)` |
+| Layered Bands | `layered-bands` | `linear-gradient(180deg,var(--wp--preset--color--primary-950) 0%,var(--wp--preset--color--primary-950) 25%,rgba(9,9,11,0.5) 25%,rgba(9,9,11,0.5) 75%,transparent 75%)` |
+| Spotlight Bottom Left | `spotlight-bottom-left` | `radial-gradient(circle at 0% 100%,rgba(9,9,11,0.9) 0%,transparent 70%)` |
+| Spotlight Top Right | `spotlight-top-right` | `radial-gradient(circle at 100% 0%,rgba(9,9,11,0.9) 0%,transparent 70%)` |
+| Cinematic Bars | `cinematic-bars` | `linear-gradient(90deg,rgba(9,9,11,0.9) 0%,transparent 40%,transparent 60%,rgba(9,9,11,0.9) 100%)` |
+| Diagonal Stripes | `diagonal-stripes` | `repeating-linear-gradient(135deg,transparent 0px,transparent 10px,rgba(9,9,11,0.1) 10px,rgba(9,9,11,0.1) 20px)` |
 
 ### Token Cheat-sheet
 
@@ -263,15 +283,39 @@ The Aegis theme features a comprehensive color system with Primary, Neutral, and
 
 | CSS Variable | Color | Name | Slug | Visual |
 |--------------|-------|------|------|--------|
+| `--wp--preset--color--success-950` | `#032e15` | Success 950 | `success-950` | ![jpg](https://placehold.co/20x20/032e15/032e15/jpg) |
+| `--wp--preset--color--success-900` | `#0d542b` | Success 900 | `success-900` | ![jpg](https://placehold.co/20x20/0d542b/0d542b/jpg) |
+| `--wp--preset--color--success-800` | `#016630` | Success 800 | `success-800` | ![jpg](https://placehold.co/20x20/016630/016630/jpg) |
+| `--wp--preset--color--success-700` | `#008236` | Success 700 | `success-700` | ![jpg](https://placehold.co/20x20/008236/008236/jpg) |
 | `--wp--preset--color--success-600` | `#00a63e` | Success 600 | `success-600` | ![jpg](https://placehold.co/20x20/00a63e/00a63e/jpg) |
 | `--wp--preset--color--success-500` | `#00c950` | Success 500 | `success-500` | ![jpg](https://placehold.co/20x20/00c950/00c950/jpg) |
+| `--wp--preset--color--success-400` | `#05df72` | Success 400 | `success-400` | ![jpg](https://placehold.co/20x20/05df72/05df72/jpg) |
+| `--wp--preset--color--success-300` | `#7bf1a8` | Success 300 | `success-300` | ![jpg](https://placehold.co/20x20/7bf1a8/7bf1a8/jpg) |
+| `--wp--preset--color--success-200` | `#b9f8cf` | Success 200 | `success-200` | ![jpg](https://placehold.co/20x20/b9f8cf/b9f8cf/jpg) |
 | `--wp--preset--color--success-100` | `#dcfce7` | Success 100 | `success-100` | ![jpg](https://placehold.co/20x20/dcfce7/dcfce7/jpg) |
+| `--wp--preset--color--success-50` | `#f0fdf4` | Success 50 | `success-50` | ![jpg](https://placehold.co/20x20/f0fdf4/f0fdf4/jpg) |
+| `--wp--preset--color--warning-950` | `#451605` | Warning 950 | `warning-950` | ![jpg](https://placehold.co/20x20/451605/451605/jpg) |
+| `--wp--preset--color--warning-900` | `#80310e` | Warning 900 | `warning-900` | ![jpg](https://placehold.co/20x20/80310e/80310e/jpg) |
+| `--wp--preset--color--warning-800` | `#9f390d` | Warning 800 | `warning-800` | ![jpg](https://placehold.co/20x20/9f390d/9f390d/jpg) |
+| `--wp--preset--color--warning-700` | `#c84806` | Warning 700 | `warning-700` | ![jpg](https://placehold.co/20x20/c84806/c84806/jpg) |
 | `--wp--preset--color--warning-600` | `#e85d04` | Warning 600 | `warning-600` | ![jpg](https://placehold.co/20x20/e85d04/e85d04/jpg) |
 | `--wp--preset--color--warning-500` | `#ff7c0e` | Warning 500 | `warning-500` | ![jpg](https://placehold.co/20x20/ff7c0e/ff7c0e/jpg) |
+| `--wp--preset--color--warning-400` | `#ff9a35` | Warning 400 | `warning-400` | ![jpg](https://placehold.co/20x20/ff9a35/ff9a35/jpg) |
+| `--wp--preset--color--warning-300` | `#ffbf6f` | Warning 300 | `warning-300` | ![jpg](https://placehold.co/20x20/ffbf6f/ffbf6f/jpg) |
+| `--wp--preset--color--warning-200` | `#ffdaa7` | Warning 200 | `warning-200` | ![jpg](https://placehold.co/20x20/ffdaa7/ffdaa7/jpg) |
 | `--wp--preset--color--warning-100` | `#ffefd4` | Warning 100 | `warning-100` | ![jpg](https://placehold.co/20x20/ffefd4/ffefd4/jpg) |
+| `--wp--preset--color--warning-50` | `#fff7ec` | Warning 50 | `warning-50` | ![jpg](https://placehold.co/20x20/fff7ec/fff7ec/jpg) |
+| `--wp--preset--color--error-950` | `#460d04` | Error 950 | `error-950` | ![jpg](https://placehold.co/20x20/460d04/460d04/jpg) |
+| `--wp--preset--color--error-900` | `#82200c` | Error 900 | `error-900` | ![jpg](https://placehold.co/20x20/82200c/82200c/jpg) |
+| `--wp--preset--color--error-800` | `#a2230a` | Error 800 | `error-800` | ![jpg](https://placehold.co/20x20/a2230a/a2230a/jpg) |
+| `--wp--preset--color--error-700` | `#dc2f02` | Error 700 | `error-700` | ![jpg](https://placehold.co/20x20/dc2f02/dc2f02/jpg) |
 | `--wp--preset--color--error-600` | `#f63f00` | Error 600 | `error-600` | ![jpg](https://placehold.co/20x20/f63f00/f63f00/jpg) |
 | `--wp--preset--color--error-500` | `#ff5909` | Error 500 | `error-500` | ![jpg](https://placehold.co/20x20/ff5909/ff5909/jpg) |
+| `--wp--preset--color--error-400` | `#ff7c31` | Error 400 | `error-400` | ![jpg](https://placehold.co/20x20/ff7c31/ff7c31/jpg) |
+| `--wp--preset--color--error-300` | `#ffab6c` | Error 300 | `error-300` | ![jpg](https://placehold.co/20x20/ffab6c/ffab6c/jpg) |
+| `--wp--preset--color--error-200` | `#ffcea5` | Error 200 | `error-200` | ![jpg](https://placehold.co/20x20/ffcea5/ffcea5/jpg) |
 | `--wp--preset--color--error-100` | `#ffe8d3` | Error 100 | `error-100` | ![jpg](https://placehold.co/20x20/ffe8d3/ffe8d3/jpg) |
+| `--wp--preset--color--error-50` | `#fff5ec` | Error 50 | `error-50` | ![jpg](https://placehold.co/20x20/fff5ec/fff5ec/jpg) |
 
 **Utility Colors**
 

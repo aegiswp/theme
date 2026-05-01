@@ -24,30 +24,30 @@ jobs:
           days-before-issue-close: 30
           stale-issue-label: 'status: stale'
           stale-issue-message: |
-            ⏰ This issue has been inactive for 90 days. 
+            [clock] This issue has been inactive for 90 days. 
             
             It will be automatically closed in 30 days if no activity is detected.
             
             **To keep this issue open:**
-            - Leave a comment explaining why it's still relevant
+            - Leave a comment explaining why it is still relevant
             - Add a label or milestone to indicate work is planned
             - Update the issue if circumstances have changed
             
-            Thank you for your contributions to Aegis! 🙏
+            Thank you for your contributions to Aegis.
           close-issue-label: 'status: closed-stale'
           close-issue-message: |
-            🗑️ Closing this issue due to inactivity (120 days).
+            [archive] Closing this issue due to inactivity (120 days).
             
             If this issue is still relevant, feel free to reopen it or create a new issue with the latest information.
             
-            Thank you!
+            Thank you.
 
           # Pull Request settings
           days-before-pr-stale: 60
           days-before-pr-close: 14
           stale-pr-label: 'status: stale'
           stale-pr-message: |
-            ⏰ This pull request has been inactive for 60 days.
+            [clock] This pull request has been inactive for 60 days.
             
             It will be automatically closed in 14 days if no activity is detected.
             
@@ -56,27 +56,27 @@ jobs:
             - Rebase on latest main branch
             - Leave a comment with an update
             
-            Thank you for contributing to Aegis! 🙏
+            Thank you for contributing to Aegis.
           close-pr-label: 'status: closed-stale'
           close-pr-message: |
-            🗑️ Closing this pull request due to inactivity (74 days).
+            [archive] Closing this pull request due to inactivity (74 days).
             
-            If you'd like to revive this PR:
+            If you would like to revive this PR:
             1. Update your branch with the latest changes
             2. Address any review feedback
             3. Push new commits or reopen the PR
             
-            Thank you!
+            Thank you.
 
           # Exemptions
           exempt-issue-labels: 'pinned,roadmap,epic'
           exempt-pr-labels: 'pinned,work-in-progress'
           
-          # Don't mark PRs from certain users as stale (optional)
+          # Do not mark PRs from certain users as stale (optional)
           exempt-all-pr-assignees: false
           
-          # Mark only, don't close (safer approach on first setup)
+          # Mark only, do not close (safer approach on first setup)
           operations-per-run: 100
           
-          # Don't comment on every check (only when marking/closing)
+          # Do not comment on every check (only when marking/closing)
           only-labels: ''

@@ -48,12 +48,12 @@
 		<!-- wp:woocommerce/product-collection-no-results -->
 		<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"center","flexWrap":"wrap"}} -->
 		<div class="wp-block-group"><!-- wp:paragraph {"fontSize":"medium"} -->
-			<p class="has-medium-font-size"><strong>No results found</strong></p>
+			<p class="has-medium-font-size"><strong><?php echo esc_html__( 'No results found', 'aegis' ); ?></strong></p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph -->
-			<p>You can try <a href="#" class="wc-link-clear-any-filters">clearing any filters</a> or head to our <a
-					href="#" class="wc-link-stores-home">store's home</a></p>
+			<p><?php echo esc_html__( 'You can try', 'aegis' ); ?> <a href="#" class="wc-link-clear-any-filters"><?php echo esc_html__( 'clearing any filters', 'aegis' ); ?></a> <?php echo esc_html__( 'or head to our', 'aegis' ); ?> <a
+					href="#" class="wc-link-stores-home"><?php echo esc_html__( "store's home", 'aegis' ); ?></a></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->

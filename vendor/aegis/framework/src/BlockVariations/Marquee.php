@@ -24,11 +24,14 @@ declare(strict_types=1);
 namespace Aegis\Framework\BlockVariations;
 
 // Imports utility classes and interfaces for DOM manipulation, CSS helpers, and renderable blocks.
+use Aegis\Framework\ServiceProvider;
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
+use function absint;
 use function is_array;
+use function min;
 
 // Implements the Marquee class to support marquee block rendering.
 
@@ -66,6 +69,11 @@ class Marquee implements Renderable
 	 */
 	public function render(string $block_content, array $block, WP_Block $instance): string
 	{
+		// Check if block is enabled in admin settings.
+		if ( ! ServiceProvider::is_block_enabled( 'marquee' ) ) {
+			return $block_content;
+		}
+
 		$attrs = $block['attrs'] ?? [];
 		$orientation = $attrs['layout']['orientation'] ?? '';
 
@@ -81,7 +89,8 @@ class Marquee implements Renderable
 		}
 
 		// --- Prepare Styles and Wrapper ---
-		$repeat = $attrs['repeatItems'] ?? 2;
+		// Validate and cap repeat count to prevent excessive DOM cloning.
+		$repeat = min(absint($attrs['repeatItems'] ?? 2), 10);
 		$wrap = DOM::create_element('div', $dom); // The new inner wrapper for the scrolling items.
 		$styles = CSS::string_to_array($first->getAttribute('style'));
 		$classes = array_diff(explode(' ', $first->getAttribute('class')), ['is-marquee']);
@@ -100,15 +109,19 @@ class Marquee implements Renderable
 		$first->setAttribute('class', implode(' ', $classes));
 		$first->setAttribute('style', CSS::array_to_string($styles));
 		$wrap->setAttribute('class', 'is-marquee');
+		// Accessibility: identify the scrolling region for assistive technology.
+		$wrap->setAttribute('role', 'marquee');
+		$wrap->setAttribute('aria-roledescription', 'scrolling content');
 
 		// --- Clone and Append Items ---
-		$count = $first->childNodes->count();
-		for ($i = 0; $i < $count; $i++) {
-			$item = $first->childNodes->item($i);
-			if (!$item || !method_exists($item, 'setAttribute')) {
-				continue;
+		// Collect child nodes into a static array first to avoid live NodeList mutation bugs.
+		$children = [];
+		foreach ($first->childNodes as $child) {
+			if ($child && method_exists($child, 'setAttribute')) {
+				$children[] = $child;
 			}
-
+		}
+		foreach ($children as $item) {
 			// Move the original item into the new marquee wrapper.
 			$wrap->appendChild($item);
 
@@ -121,6 +134,8 @@ class Marquee implements Renderable
 				$clone_classes = explode(' ', $clone->getAttribute('class'));
 				$clone_classes[] = 'is-cloned';
 				$clone->setAttribute('class', implode(' ', $clone_classes));
+				// Accessibility: hide cloned items from screen readers.
+				$clone->setAttribute('aria-hidden', 'true');
 				$wrap->appendChild($clone);
 			}
 		}

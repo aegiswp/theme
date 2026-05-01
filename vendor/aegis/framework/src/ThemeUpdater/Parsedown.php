@@ -13,7 +13,7 @@
  */
 
 // Enforces strict type checking for all code in this file.
-declare(strict_types=1);
+declare( strict_types=1 );
 
 // Declares the namespace for the Markdown parser within the Aegis Framework.
 namespace Aegis\Framework\ThemeUpdater;
