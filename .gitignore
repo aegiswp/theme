@@ -144,3 +144,4 @@ patterns/template/.page-wishlist.php
 .nvmrc
 /.vscode
 /.vscode
+/patterns/.template
