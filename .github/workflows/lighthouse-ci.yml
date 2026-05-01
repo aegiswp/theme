@@ -80,7 +80,7 @@ jobs:
           exit 1
 
       - name: Run Lighthouse audit (Homepage)
-        uses: treosh/lighthouse-ci-action@v10
+        uses: treosh/lighthouse-ci-action@v12
         with:
           configPath: './.github/lighthouse/lighthouserc.json'
           temporaryPublicStorage: true
