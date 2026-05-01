@@ -145,3 +145,4 @@ patterns/template/.page-wishlist.php
 /.vscode
 /.vscode
 /patterns/.template
+patterns/footer/.store-minimal.php
