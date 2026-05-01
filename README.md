@@ -5,6 +5,13 @@ Welcome to the Aegis Theme development repository.
 
 ![Aegis](https://github.com/user-attachments/assets/365b757e-43c1-4701-831f-aa4e6d5368b1)
 
+## Status
+
+[![CI](https://github.com/aegiswp/theme/actions/workflows/ci.yml/badge.svg)](https://github.com/aegiswp/theme/actions/workflows/ci.yml)
+[![Accessibility](https://github.com/aegiswp/theme/actions/workflows/accessibility.yml/badge.svg)](https://github.com/aegiswp/theme/actions/workflows/accessibility.yml)
+[![Spelling](https://github.com/aegiswp/theme/actions/workflows/spelling.yml/badge.svg)](https://github.com/aegiswp/theme/actions/workflows/spelling.yml)
+[![Release](https://github.com/aegiswp/theme/actions/workflows/release.yml/badge.svg)](https://github.com/aegiswp/theme/actions/workflows/release.yml)
+
 ##### Table of Contents
 
 - [Introduction](#introduction)
@@ -21,18 +28,16 @@ Welcome to the Aegis Theme development repository.
   - [Shadow Presets](#shadow-presets)
   - [Gradient Presets](#gradient-presets)
 - [Features](#features)
+  - [Enhanced Core Blocks](#enhanced-core-blocks)
+  - [Custom Blocks](#custom-blocks)
+  - [Block Variations](#block-variations)
+  - [Plugin Integrations](#plugin-integrations)
 - [Getting Started](#getting-started-with-aegis)
   - [Requirements](#requirements)
-- [Deploying WordPress Locally](#deploying-wordpress-locally)
-  - [Development Environment Commands](#development-environment-commands)
-  - [How to start the development environment for the first time](#how-to-start-the-development-environment-for-the-first-time)
-  - [How to watch for changes](#how-to-watch-for-changes)
-  - [How to run a WP-CLI command](#how-to-run-a-wp-cli-command)
-  - [How to run the tests](#how-to-run-the-tests)
-  - [To restart the development environment](#how-to-restart-the-development-environment)
-  - [How to stop the development environment](#how-to-stop-the-development-environment)
-  - [How to start the development environment again](#how-to-start-the-development-environment-again)
-  - [Credentials](#credentials)
+  - [Release version](#release-version)
+  - [Server deployment](#server-deployment)
+- [Local development (wp-env)](#local-development-wp-env)
+- [Default credentials (wp-env)](#default-credentials-wp-env)
 - [Contributing](#contributing)
   - [Communication and Collaboration](#communication-and-collaboration)
   - [Code Quality](#code-quality)
@@ -41,6 +46,8 @@ Welcome to the Aegis Theme development repository.
   - [Pull Requests and Reviews](#pull-requests-and-reviews)
   - [Final Checks](#final-checks)
 - [Development Philosophy](#development)
+- [Technical Architecture](#technical-architecture)
+- [Integration Capabilities](#integration-capabilities)
 - [Pattern Creation Guidelines](#pattern-creation-guidelines)
 - [Experimenting](#experimenting)
 - [Resources](#resources)
@@ -122,7 +129,7 @@ Aegis utilizes responsive layout constraints that ensure optimal content width a
 | `theme.json` preset | `theme.json` value |
 |---------------------|--------------------------------------------------|
 | `contentSize` | `min(calc(100dvw - var(--wp--preset--spacing--lg,2rem) * 2), 720px)` |
-| `wideSize` | `min(calc(100vw - var(--wp--preset--spacing--lg,2rem) * 2), 1620px)` |
+| `wideSize` | `min(calc(100dvw - var(--wp--preset--spacing--lg,2rem) * 2), 1620px)` |
 
 ### Spacing Presets
 
@@ -130,12 +137,15 @@ Aegis employs a fluid spacing system that scales intelligently across viewport s
 
 | Name | Slug | CSS Variable | Size |
 |------|------|--------------|------|
+| XXXS (4px) | `xxxs` | `--wp--preset--spacing--xxxs` | `4px` |
 | XXS (8px) | `xxs` | `--wp--preset--spacing--xxs` | `var(--wp--preset--font-size--8)` |
 | XS (16px) | `xs` | `--wp--preset--spacing--xs` | `var(--wp--preset--font-size--16)` |
 | S (24px) | `sm` | `--wp--preset--spacing--sm` | `var(--wp--preset--font-size--24)` |
 | M (32px) | `md` | `--wp--preset--spacing--md` | `var(--wp--preset--font-size--32)` |
+| ML (40px) | `ml` | `--wp--preset--spacing--ml` | `var(--wp--preset--font-size--40)` |
 | L (48px) | `lg` | `--wp--preset--spacing--lg` | `var(--wp--preset--font-size--48)` |
 | XL (64px) | `xl` | `--wp--preset--spacing--xl` | `var(--wp--preset--font-size--64)` |
+| XLL (80px) | `xll` | `--wp--preset--spacing--xll` | `var(--wp--preset--font-size--80)` |
 | XXL (96px) | `xxl` | `--wp--preset--spacing--xxl` | `var(--wp--preset--font-size--96)` |
 
 ### Typography Presets
@@ -161,19 +171,19 @@ Aegis features a comprehensive fluid typography system with 22 font size presets
 | 22px | `22` | `clamp(20px,2.2vw,22px)` | 20px → 22px |
 | 20px | `20` | `clamp(19px,2vw,20px)` | 19px → 20px |
 | 18px | `18` | `clamp(17px,1.8vw,18px)` | 17px → 18px |
-| 16px | `16` | `clamp(16px,1.6vw,16px)` | 16px → 16px |
-| 14px | `14` | `clamp(14px,1.4vw,14px)` | 14px → 14px |
-| 12px | `12` | `clamp(12px,1.2vw,12px)` | 12px → 12px |
-| 10px | `10` | `clamp(10px,1.0vw,10px)` | 10px → 10px |
-| 8px | `8` | `clamp(8px,0.8vw,8px)` | 8px → 8px |
+| 16px | `16` | `16px` | — |
+| 14px | `14` | `14px` | — |
+| 12px | `12` | `12px` | — |
+| 10px | `10` | `10px` | — |
+| 8px | `8` | `8px` | — |
 
 **Font Families**
 
-| Name | Slug | Font Family | Weight Range | Usage |
-|------|------|-------------|-------------|-------|
-| Lexend | `lexend` | `Lexend, sans-serif` | 300–900 | Body |
-| Lexend Deca | `lexend-deca` | `Lexend Deca, sans-serif` | 300–900 | Headings |
-| JetBrains | `jetbrains` | `JetBrains, monospace` | 100–900 | Code |
+| Name | Slug | Font Family | Weight Range |
+|------|------|-------------|-------------|
+| Lexend | `lexend` | `Lexend, var(--wp--preset--font-family--sans-serif)` | 300–900 |
+| Lexend Deca | `lexend-deca` | `Lexend Deca, var(--wp--preset--font-family--lexend)` | 300–900 |
+| JetBrains | `jetbrains` | `JetBrains, var(--wp--preset--font-family--monospace)` | 100–900 |
 
 ### Shadow Presets
 
@@ -192,7 +202,7 @@ Aegis provides seven box shadow presets for depth and elevation:
 
 ### Gradient Presets
 
-Aegis includes 12 pre-configured gradients for sophisticated visual effects:
+Aegis includes 31 pre-configured gradients for sophisticated visual effects:
 
 | Name | Slug | Gradient |
 |------|------|----------|
@@ -219,49 +229,49 @@ The Aegis theme features a comprehensive color system with Primary, Neutral, and
 
 | CSS Variable | Color | Name | Slug | Visual |
 |--------------|-------|------|------|--------|
-| `--wp--preset--color--primary-950` | `#1e2225` | Primary 950 | `primary-950` | ![jpg](https://placehold.co/20x20/1e2225/1e2225/jpg) |
-| `--wp--preset--color--primary-900` | `#212528` | Primary 900 | `primary-900` | ![jpg](https://placehold.co/20x20/212528/212528/jpg) |
-| `--wp--preset--color--primary-800` | `#24282c` | Primary 800 | `primary-800` | ![jpg](https://placehold.co/20x20/24282c/24282c/jpg) |
-| `--wp--preset--color--primary-700` | `#343a40` | Primary 700 | `primary-700` | ![jpg](https://placehold.co/20x20/343a40/343a40/jpg) |
-| `--wp--preset--color--primary-600` | `#495057` | Primary 600 | `primary-600` | ![jpg](https://placehold.co/20x20/495057/495057/jpg) |
-| `--wp--preset--color--primary-500` | `#6c757d` | Primary 500 | `primary-500` | ![jpg](https://placehold.co/20x20/6c757d/6c757d/jpg) |
-| `--wp--preset--color--primary-400` | `#8d959d` | Primary 400 | `primary-400` | ![jpg](https://placehold.co/20x20/8d959d/8d959d/jpg) |
-| `--wp--preset--color--primary-300` | `#a9b1b9` | Primary 300 | `primary-300` | ![jpg](https://placehold.co/20x20/a9b1b9/a9b1b9/jpg) |
-| `--wp--preset--color--primary-200` | `#9da5ad` | Primary 200 | `primary-200` | ![jpg](https://placehold.co/20x20/9da5ad/9da5ad/jpg) |
-| `--wp--preset--color--primary-100` | `#a5adb5` | Primary 100 | `primary-100` | ![jpg](https://placehold.co/20x20/a5adb5/a5adb5/jpg) |
-| `--wp--preset--color--primary-50` | `#c9cfd4` | Primary 50 | `primary-50` | ![jpg](https://placehold.co/20x20/c9cfd4/c9cfd4/jpg) |
-| `--wp--preset--color--primary-25` | `#edf0f2` | Primary 25 | `primary-25` | ![jpg](https://placehold.co/20x20/edf0f2/edf0f2/jpg) |
+| `--wp--preset--color--primary-950` | `#09090b` | Primary 950 | `primary-950` | ![jpg](https://placehold.co/20x20/09090b/09090b/jpg) |
+| `--wp--preset--color--primary-900` | `#18181b` | Primary 900 | `primary-900` | ![jpg](https://placehold.co/20x20/18181b/18181b/jpg) |
+| `--wp--preset--color--primary-800` | `#27272a` | Primary 800 | `primary-800` | ![jpg](https://placehold.co/20x20/27272a/27272a/jpg) |
+| `--wp--preset--color--primary-700` | `#3f3f47` | Primary 700 | `primary-700` | ![jpg](https://placehold.co/20x20/3f3f47/3f3f47/jpg) |
+| `--wp--preset--color--primary-600` | `#52525c` | Primary 600 | `primary-600` | ![jpg](https://placehold.co/20x20/52525c/52525c/jpg) |
+| `--wp--preset--color--primary-500` | `#71717b` | Primary 500 | `primary-500` | ![jpg](https://placehold.co/20x20/71717b/71717b/jpg) |
+| `--wp--preset--color--primary-400` | `#9f9fa9` | Primary 400 | `primary-400` | ![jpg](https://placehold.co/20x20/9f9fa9/9f9fa9/jpg) |
+| `--wp--preset--color--primary-300` | `#d4d4d8` | Primary 300 | `primary-300` | ![jpg](https://placehold.co/20x20/d4d4d8/d4d4d8/jpg) |
+| `--wp--preset--color--primary-200` | `#e4e4e7` | Primary 200 | `primary-200` | ![jpg](https://placehold.co/20x20/e4e4e7/e4e4e7/jpg) |
+| `--wp--preset--color--primary-100` | `#f4f4f5` | Primary 100 | `primary-100` | ![jpg](https://placehold.co/20x20/f4f4f5/f4f4f5/jpg) |
+| `--wp--preset--color--primary-50` | `#fafafa` | Primary 50 | `primary-50` | ![jpg](https://placehold.co/20x20/fafafa/fafafa/jpg) |
+| `--wp--preset--color--primary-25` | `#fcfcfd` | Primary 25 | `primary-25` | ![jpg](https://placehold.co/20x20/fcfcfd/fcfcfd/jpg) |
 
 **Neutral Colors**
 
 | CSS Variable | Color | Name | Slug | Visual |
 |--------------|-------|------|------|--------|
-| `--wp--preset--color--neutral-950` | `#202427` | Neutral 950 | `neutral-950` | ![jpg](https://placehold.co/20x20/202427/202427/jpg) |
-| `--wp--preset--color--neutral-900` | `#25292d` | Neutral 900 | `neutral-900` | ![jpg](https://placehold.co/20x20/25292d/25292d/jpg) |
-| `--wp--preset--color--neutral-800` | `#313539` | Neutral 800 | `neutral-800` | ![jpg](https://placehold.co/20x20/313539/313539/jpg) |
-| `--wp--preset--color--neutral-700` | `#40454a` | Neutral 700 | `neutral-700` | ![jpg](https://placehold.co/20x20/40454a/40454a/jpg) |
-| `--wp--preset--color--neutral-600` | `#50555b` | Neutral 600 | `neutral-600` | ![jpg](https://placehold.co/20x20/50555b/50555b/jpg) |
-| `--wp--preset--color--neutral-500` | `#7e858c` | Neutral 500 | `neutral-500` | ![jpg](https://placehold.co/20x20/7e858c/7e858c/jpg) |
-| `--wp--preset--color--neutral-400` | `#8e959d` | Neutral 400 | `neutral-400` | ![jpg](https://placehold.co/20x20/8e959d/8e959d/jpg) |
-| `--wp--preset--color--neutral-300` | `#dee2e6` | Neutral 300 | `neutral-300` | ![jpg](https://placehold.co/20x20/dee2e6/dee2e6/jpg) |
-| `--wp--preset--color--neutral-200` | `#e4e7eb` | Neutral 200 | `neutral-200` | ![jpg](https://placehold.co/20x20/e4e7eb/e4e7eb/jpg) |
-| `--wp--preset--color--neutral-100` | `#e9ecef` | Neutral 100 | `neutral-100` | ![jpg](https://placehold.co/20x20/e9ecef/e9ecef/jpg) |
-| `--wp--preset--color--neutral-50` | `#f1f3f5` | Neutral 50 | `neutral-50` | ![jpg](https://placehold.co/20x20/f1f3f5/f1f3f5/jpg) |
-| `--wp--preset--color--neutral-0` | `#f8f9fa` | Neutral 0 | `neutral-0` | ![jpg](https://placehold.co/20x20/f8f9fa/f8f9fa/jpg) |
+| `--wp--preset--color--neutral-950` | `#0a0a0a` | Neutral 950 | `neutral-950` | ![jpg](https://placehold.co/20x20/0a0a0a/0a0a0a/jpg) |
+| `--wp--preset--color--neutral-900` | `#171717` | Neutral 900 | `neutral-900` | ![jpg](https://placehold.co/20x20/171717/171717/jpg) |
+| `--wp--preset--color--neutral-800` | `#262626` | Neutral 800 | `neutral-800` | ![jpg](https://placehold.co/20x20/262626/262626/jpg) |
+| `--wp--preset--color--neutral-700` | `#404040` | Neutral 700 | `neutral-700` | ![jpg](https://placehold.co/20x20/404040/404040/jpg) |
+| `--wp--preset--color--neutral-600` | `#525252` | Neutral 600 | `neutral-600` | ![jpg](https://placehold.co/20x20/525252/525252/jpg) |
+| `--wp--preset--color--neutral-500` | `#737373` | Neutral 500 | `neutral-500` | ![jpg](https://placehold.co/20x20/737373/737373/jpg) |
+| `--wp--preset--color--neutral-400` | `#a1a1aa` | Neutral 400 | `neutral-400` | ![jpg](https://placehold.co/20x20/a1a1aa/a1a1aa/jpg) |
+| `--wp--preset--color--neutral-300` | `#d4d4d4` | Neutral 300 | `neutral-300` | ![jpg](https://placehold.co/20x20/d4d4d4/d4d4d4/jpg) |
+| `--wp--preset--color--neutral-200` | `#e5e5e5` | Neutral 200 | `neutral-200` | ![jpg](https://placehold.co/20x20/e5e5e5/e5e5e5/jpg) |
+| `--wp--preset--color--neutral-100` | `#f5f5f5` | Neutral 100 | `neutral-100` | ![jpg](https://placehold.co/20x20/f5f5f5/f5f5f5/jpg) |
+| `--wp--preset--color--neutral-50` | `#fafaf9` | Neutral 50 | `neutral-50` | ![jpg](https://placehold.co/20x20/fafaf9/fafaf9/jpg) |
+| `--wp--preset--color--neutral-0` | `#ffffff` | Neutral 0 | `neutral-0` | ![jpg](https://placehold.co/20x20/ffffff/ffffff/jpg) |
 
 **Semantic Colors**
 
 | CSS Variable | Color | Name | Slug | Visual |
 |--------------|-------|------|------|--------|
-| `--wp--preset--color--success-600` | `#40916c` | Success 600 | `success-600` | ![jpg](https://placehold.co/20x20/40916c/40916c/jpg) |
-| `--wp--preset--color--success-500` | `#52b788` | Success 500 | `success-500` | ![jpg](https://placehold.co/20x20/52b788/52b788/jpg) |
-| `--wp--preset--color--success-100` | `#d8f3dc` | Success 100 | `success-100` | ![jpg](https://placehold.co/20x20/d8f3dc/d8f3dc/jpg) |
+| `--wp--preset--color--success-600` | `#00a63e` | Success 600 | `success-600` | ![jpg](https://placehold.co/20x20/00a63e/00a63e/jpg) |
+| `--wp--preset--color--success-500` | `#00c950` | Success 500 | `success-500` | ![jpg](https://placehold.co/20x20/00c950/00c950/jpg) |
+| `--wp--preset--color--success-100` | `#dcfce7` | Success 100 | `success-100` | ![jpg](https://placehold.co/20x20/dcfce7/dcfce7/jpg) |
 | `--wp--preset--color--warning-600` | `#e85d04` | Warning 600 | `warning-600` | ![jpg](https://placehold.co/20x20/e85d04/e85d04/jpg) |
-| `--wp--preset--color--warning-500` | `#f48c06` | Warning 500 | `warning-500` | ![jpg](https://placehold.co/20x20/f48c06/f48c06/jpg) |
-| `--wp--preset--color--warning-100` | `#ffdd00` | Warning 100 | `warning-100` | ![jpg](https://placehold.co/20x20/ffdd00/ffdd00/jpg) |
-| `--wp--preset--color--error-600` | `#dc2f02` | Error 600 | `error-600` | ![jpg](https://placehold.co/20x20/dc2f02/dc2f02/jpg) |
-| `--wp--preset--color--error-500` | `#ec5766` | Error 500 | `error-500` | ![jpg](https://placehold.co/20x20/ec5766/ec5766/jpg) |
-| `--wp--preset--color--error-100` | `#f4998d` | Error 100 | `error-100` | ![jpg](https://placehold.co/20x20/f4998d/f4998d/jpg) |
+| `--wp--preset--color--warning-500` | `#ff7c0e` | Warning 500 | `warning-500` | ![jpg](https://placehold.co/20x20/ff7c0e/ff7c0e/jpg) |
+| `--wp--preset--color--warning-100` | `#ffefd4` | Warning 100 | `warning-100` | ![jpg](https://placehold.co/20x20/ffefd4/ffefd4/jpg) |
+| `--wp--preset--color--error-600` | `#f63f00` | Error 600 | `error-600` | ![jpg](https://placehold.co/20x20/f63f00/f63f00/jpg) |
+| `--wp--preset--color--error-500` | `#ff5909` | Error 500 | `error-500` | ![jpg](https://placehold.co/20x20/ff5909/ff5909/jpg) |
+| `--wp--preset--color--error-100` | `#ffe8d3` | Error 100 | `error-100` | ![jpg](https://placehold.co/20x20/ffe8d3/ffe8d3/jpg) |
 
 **Utility Colors**
 
@@ -279,7 +289,7 @@ Aegis is a comprehensive Full Site Editing (FSE) theme that extends the capabili
 
 **Enhanced Block Supports**: Aegis extends WordPress core blocks with additional appearance controls including box shadows, absolute positioning, CSS transforms, and CSS filters. These enhancements provide granular control over block presentation without requiring custom code.
 
-**Advanced Global Styles**: Leveraging the full power of `theme.json`, Aegis implements a sophisticated design system with comprehensive color palettes, fluid typography scales, intelligent spacing presets, and responsive layout constraints. All styling is managed through the Site Editor for a seamless customization experience.
+**Advanced Global Styles**: Leveraging the full power of `theme.json`, Aegis implements a sophisticated design system with comprehensive color palettes, fluid typography scales, intelligent spacing presets, and responsive layout constraints. Includes 60 style variations with Tailwind-aligned color palettes and dark mode support. All styling is managed through the Site Editor for a seamless customization experience.
 
 **Optimized CSS Framework**: The theme features a minimal, performance-focused CSS framework where all stylesheets are conditionally loaded only when required by a page. This intelligent asset loading ensures optimal performance while addressing common core CSS issues.
 
@@ -293,25 +303,7 @@ Aegis is a comprehensive Full Site Editing (FSE) theme that extends the capabili
 
 **Advanced Text Formats**: Extended text formatting options including clear formatting, underline, gradient text, dynamic font sizes, and more. These formatting tools provide fine-grained control over typography and text presentation.
 
-### Layout & Navigation
-
-**Full Site Editing Support**: Enhanced page, post, and template part settings make customizing individual pages intuitive and powerful. Aegis provides additional controls and options beyond core WordPress FSE capabilities.
-
-**Responsive Controls**: Built-in responsive utilities including reverse-on-mobile layouts, hide-on-mobile visibility controls, and intelligent breakpoint management ensure your designs look perfect on all devices.
-
-**Flexible Header Styles**: Support for absolute positioned headers, transparent header overlays, and sticky navigation styles. These options enable sophisticated header designs that adapt to different page contexts.
-
-**Mega Menu System**: Create sophisticated multi-column dropdown menus using the core submenu block. Aegis's mega menu implementation leverages native WordPress blocks for maximum compatibility and ease of use.
-
-**CSS-Only Search Toggle**: Full-screen search functionality with a pure CSS implementation—no JavaScript required. This search toggle provides an elegant user experience while maintaining optimal performance.
-
-### User Experience
-
-**Intelligent Dark Mode**: Automatic dark mode support that adapts to user preferences and system settings. Dark mode can be customized or deactivated through the Blockify settings in the page editor, providing flexibility for different use cases.
-
-**Accessibility First**: Designed with accessibility at its core, Aegis prioritizes WCAG compliance, semantic HTML, proper heading hierarchies, and keyboard navigation. The theme is optimized for users with color vision deficiency.
-
-**Performance Optimized**: Every aspect of Aegis is engineered for speed. From conditional asset loading to optimized CSS delivery and minimal JavaScript footprint, the theme ensures fast page loads and excellent Core Web Vitals scores.
+**Pattern Library**: Comprehensive collection of 145+ block patterns organized across 15 categories including author pages, blog layouts, commerce templates, contact forms, CTAs, FAQs, features, footers, headers, heroes, modals, page layouts, portfolios, pricing, testimonials, and utility patterns. All patterns are designed for performance and accessibility.
 
 ### Enhanced Core Blocks
 
@@ -362,9 +354,15 @@ Aegis includes the following custom blocks built specifically for the theme:
 
 | Block | Block Name | Description |
 |-------|------------|-------------|
+| Countdown | `aegis/countdown` | Animated countdown timer with customizable target dates and styling |
+| Map | `aegis/map` | Interactive Google Maps with custom markers, styles, and geolocation |
 | Modal | `aegis/modal` | An accessible modal dialog with popup, off-canvas, bottom sheet, and fullscreen modes |
+| Related Posts | `aegis/related-posts` | Automatically displays related posts based on taxonomy or custom criteria |
 | Slider | `aegis/slider` | A responsive slider/carousel with multiple slide types, transitions, and navigation options |
 | Slide | `aegis/slide` | An individual slide within a slider block with support for content, image, and video slide types |
+| Toggle | `aegis/toggle` | Collapsible content toggle with smooth animations |
+| Toggle Content | `aegis/toggle-content` | Nested toggle content for complex accordion structures |
+| Video | `aegis/video` | Advanced video player with custom controls and features |
 
 ### Block Variations
 
@@ -399,6 +397,49 @@ Aegis provides seamless integration with popular WordPress plugins, automaticall
 | Sensei LMS | LMS | Theme support declaration, colors and typography, custom block patterns |
 | Syntax Highlighting Code Block | Development | Theme color integration for code highlighting |
 | WooCommerce | E-commerce | Plugin detection and conditional hook registration |
+
+### Layout & Navigation
+
+**Full Site Editing Support**: Enhanced page, post, and template part settings make customizing individual pages intuitive and powerful. Aegis provides additional controls and options beyond core WordPress FSE capabilities.
+
+**Responsive Controls**: Built-in responsive utilities including reverse-on-mobile layouts, hide-on-mobile visibility controls, and intelligent breakpoint management ensure your designs look perfect on all devices.
+
+**Flexible Header Styles**: Support for absolute positioned headers, transparent header overlays, and sticky navigation styles. These options enable sophisticated header designs that adapt to different page contexts.
+
+**Mega Menu System**: Create sophisticated multi-column dropdown menus using the core submenu block. Aegis's mega menu implementation leverages native WordPress blocks for maximum compatibility and ease of use.
+
+**CSS-Only Search Toggle**: Full-screen search functionality with a pure CSS implementation—no JavaScript required. This search toggle provides an elegant user experience while maintaining optimal performance.
+
+### User Experience
+
+**Intelligent Dark Mode**: Automatic dark mode support that adapts to user preferences and system settings. Dark mode can be customized or deactivated through the Blockify settings in the page editor, providing flexibility for different use cases.
+
+**Accessibility First**: Designed with accessibility at its core, Aegis prioritizes WCAG compliance, semantic HTML, proper heading hierarchies, and keyboard navigation. The theme is optimized for users with color vision deficiency.
+
+**Performance Optimized**: Every aspect of Aegis is engineered for speed. From conditional asset loading to optimized CSS delivery and minimal JavaScript footprint, the theme ensures fast page loads and excellent Core Web Vitals scores.
+
+### Developer Tools & Framework
+
+**Custom Block Collection**: Aegis includes 9 custom blocks built for modern web development: Countdown, Map, Modal, Related Posts, Slider, Slide, Toggle, Toggle Content, and Video. Each block is engineered for performance and extensibility.
+
+**Analytics System**: Privacy-first analytics framework with Tracker and ScriptProxy components. Provides comprehensive site analytics while respecting user privacy and GDPR compliance. 
+
+**Supported Analytics Services**:
+- **Free Tier**: Google Analytics 4 (GA4), Google Tag Manager (GTM), Microsoft Clarity, Plausible Analytics, Fathom Analytics, basic GDPR compliance
+- **Pro Tier**: Matomo Analytics, Meta Pixel, Google Consent Mode v2, Data Layer integration, Debug Mode
+- **Script Proxy**: Secure proxy for external scripts with additional privacy controls
+
+**Hook Patterns System**: Dynamic content injection framework with Manager and Renderer components. Enables sophisticated content manipulation and conditional display logic.
+
+**Conditional Logic Settings**: Advanced conditional settings system for blocks and patterns. Provides granular control over content display based on user roles, device types, and custom conditions.
+
+**Framework Architecture**: Built on the Aegis Framework (`vendor/aegis/framework`) with ServiceProvider pattern. Provides a robust foundation for theme development and extensibility.
+
+**Core Block Extensions**: Enhanced core WordPress blocks including advanced Breadcrumbs with taxonomy support. Extends block functionality while maintaining compatibility.
+
+**Video Editor Extensions**: Advanced video editing capabilities in the block editor. Provides comprehensive video controls and customization options.
+
+**WooCommerce Integration**: Full WooCommerce support with store templates, mini-cart variants, and multi-step checkout enhancements. Optimized for e-commerce performance.
 
 ## Pattern Creation Guidelines
 
@@ -530,10 +571,22 @@ If you find setting up WordPress locally overwhelming, consider using [wp-env](h
 #### Requirements
 
 - [Aegis](https://github.com/aegiswp/theme/releases/)
-- [WordPress 6.6+](https://wordpress.org/download/)
-- PHP 7.4+
-- License: [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) or later.
+- [WordPress 6.6+](https://wordpress.org/download/) (Tested up to 6.9.4)
+- PHP **8.1+** (Node **20+** and npm **9+** for building blocks and running wp-env; see `package.json` `engines` and `.nvmrc`)
+- License: [GPLv2](https://www.gnu.org/licenses/gpl-2.0.html) or later.
 
+#### Release version
+
+The theme release number is the single value defined in three places: `style.css` (`Version`), `package.json` (`version`), and `composer.json` (`version`). When you cut a release, update all three to match (for example `1.0.0-rc.3`).
+
+PHP dependencies are pinned by **`composer.lock`**. After cloning, run **`composer update`** once in the theme directory (with Git network access) to generate or refresh the lockfile, then commit **`composer.lock`**. If Composer reports an SSL or certificate error when using GitHub, fix your system or PHP CA bundle (see the [Composer doc on local issuers](https://getcomposer.org/local-issuer)). Use **`composer install`** in CI, and run **`composer update`** only when you intend to change dependency revisions and then re-test.
+
+#### Server deployment
+
+`functions.php` requires **`vendor/autoload.php`**, so a complete **`vendor/`** directory **must** exist in the active theme on the server. Deploying the theme without it will cause a fatal error when WordPress loads the theme.
+
+- **Default production flow:** in the theme directory (where `composer.json` and `composer.lock` are present), run **`composer install --no-dev`**. That installs only `require` packages, not `require-dev` (the usual choice for public sites). Use plain **`composer install`** only on hosts where you truly need dev dependencies.
+- **Alternative:** build a **release package** in CI and upload a zip (or use your deploy pipeline) that **already includes `vendor/`**, so the server never runs Composer—as long as that artifact is what you install.
 
 > **Note**
 > Some features may require the latest WordPress version or the [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/) for full functionality.
@@ -546,132 +599,54 @@ To optionally run tests locally, it will also be required:
 - [Node.js](https://nodejs.org/en/)
 - [Composer](https://getcomposer.org/)
 
-You can install the test-specific development dependencies by running `npm i && composer install`.
+Install dev tooling from the theme directory: `npm install` and `composer install`. Use a **Node.js 20+** LTS (see `package.json` `engines` and `.nvmrc`).
 
-The following test commands are then available:
+**JavaScript / CSS (block source)**
 
-- `npm run lint:css` lints and autofixes where possible the CSS
-- `composer run analyze [filename.php]` statically analyzes PHP for bugs
-- `composer run lint` checks PHP for syntax errors
-- `composer run standards:check` checks PHP for standards errors according to [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/)
-- `composer run standards:fix` attempts to automatically fix errors
+- `npm run lint:js` — ESLint (via `wp-scripts`)
+- `npm run lint:css` — stylelint (via `wp-scripts`); can fix where configured
 
+**PHP (WordPress Coding Standards & tests)**
 
-### Deploying WordPress Locally
-
-Just in case you prefer to install WordPress from the ground up:
-
-You will need a basic understanding of how to use the command line on your computer. This will allow you to set up the local development environment, start it and stop it when necessary, and run the tests.
-
-You will need Node and npm installed on your computer. Node is a JavaScript runtime used for developer tooling, and npm is the package manager included with Node. If you have a package manager installed for your operating system, setup can be as straightforward as:
-
-* macOS: `brew install node`
-* Windows: `choco install nodejs`
-* Ubuntu: `apt install nodejs npm`
-
-If you are not using a package manager, please check the [Node.js download page](https://nodejs.org/en/download/) for installers and binaries.
-
-You will also need [Docker](https://www.docker.com/products/docker-desktop) installed and running on your computer. Docker is the virtualization software that powers the local development environment. Docker can be installed just like any other regular application.
+- `composer run standards:check` — PHPCS using `phpcs.xml` ([WordPress Coding Standards](https://developer.wordpress.org/coding-standards/)). To scan one file: `composer run standards:check -- path/to/file.php`
+- `composer run standards:fix` — PHPCBF auto-fix
+- `composer run analyze` — alias for `standards:check`
+- `composer run lint` — alias for `standards:check`
+- `composer run test` or `composer run test:php` — theme PHPUnit (`phpunit.xml`, `tests/Unit`)
+- `npm run test:php` — same PHPUnit run via npm (requires `composer install` so `vendor/bin/phpunit` exists)
+- `composer run test:wpaudit` — in-house `aegis/wpaudit` suite in `tools/wpaudit` (same as CI; `tools/wpaudit` is committed so the path `require-dev` works)
 
 
-### Development Environment Commands
+### Local development (wp-env)
 
-Ensure [Docker](https://www.docker.com/products/docker-desktop) is running before using these commands.
+[wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) is bundled as a dev dependency. It needs [Docker](https://www.docker.com/products/docker-desktop/) (Windows: WSL2 backend recommended) and **Git**.
 
+From your clone of this repository (theme root, where `package.json` lives):
 
-#### How to start the development environment for the first time
+1. `npm install`
+2. `composer install`
+3. `npm run build` (or `npm run build:dev` for an unminified development build with source maps) to compile block assets
+4. `npm run env:start` — boots WordPress with this theme [mapped from `.wp-env.json`](https://github.com/WordPress/gutenberg/blob/trunk/packages/env/README.md#wp-envjson) as `wp-content/themes/aegis`
+5. `npm run env:install` — one-time: `wp core install` and `wp theme activate aegis` (safe to re-run; install step is ignored if the site already exists)
 
-Start by cloning the Aegis theme repository using `git clone https://github.com/aegiswp/theme.git`.
+Default site URL: **http://localhost:8888** (set `port` in `.wp-env.json` or `WP_ENV_PORT` if 8888 is in use). Local overrides: copy options into `.wp-env.override.json` (gitignored).
 
-Then navigate to the repository folder `cd theme` and run the following commands:
+**Ongoing work**
 
-```
-npm install
-npm run build:dev
-npm run env:start
-npm run env:install
-```
+- `npm run dev` or `npm start` — webpack watch for `src/Blocks` and related build entries
+- `npm run env:cli -- plugin list` — run [WP-CLI](https://developer.wordpress.org/cli/commands/) inside the container (prefix is `wp`; anything after `env:cli --` is passed to `wp`)
+- `npm run env:restart` — `wp-env stop` then `wp-env start` after you change environment config
+- `npm run env:stop` — stop containers
+- `npm run env:clean` — `wp-env clean all` to reset downloaded volumes (destructive; use when you need a clean WP core)
 
-Your WordPress site will accessible at http://localhost:8889. You can see or change configurations in the `.env` file located at the root of the project directory.
-
-
-#### To watch for changes
-
-If you are making changes to Aegis core files, you should start the file watcher in order to build or copy the files as necessary:
-
-```
-npm run dev
-```
-
-To stop the file watcher, please press `ctrl+c`.
+**Other local stacks** — [Local](https://localwp.com/), [DevKinsta](https://kinsta.com/devkinsta/), Laragon, MAMP, etc. work the same as any WordPress site: place or symlink the theme in `wp-content/themes/aegis`, run `composer install` and `npm install && npm run build`, then activate **Aegis** in the admin.
 
 
-#### To run a [WP-CLI](https://make.wordpress.org/cli/handbook/) command
+## Default credentials (wp-env)
 
-```
-npm run env:cli <command>
-```
+**Database (inside Docker):** user `root`, password `password`, host from wp-env (see [wp-env MySQL](https://github.com/WordPress/gutenberg/blob/trunk/packages/env/README.md)).
 
-WP-CLI has a plenty of [useful commands](https://developer.wordpress.org/cli/commands/) you can use to work on your Aegis site.
-
-Where the documentation mentions running `wp`, run `npm run env:cli` instead. For example:
-
-```
-npm run env:cli help
-```
-
-
-#### How to run the tests
-
-These commands run the PHP and end-to-end test suites, respectively:
-
-```
-npm run test:php
-npm run test:e2e
-```
-
-
-#### How to restart the development environment
-
-You may want to restart the environment if you have made changes to the configuration in the `docker-compose.yml` or `.env` files.
-
-You can restart the environment with:
-
-```
-npm run env:restart
-```
-
-
-#### How to stop the development environment
-
-You can stop the environment when you are not using it to preserve your computer's power and resources:
-
-```
-npm run env:stop
-```
-
-
-#### How to start the development environment again
-
-Starting the environment again is a single command:
-
-```
-npm run env:start
-```
-
-
-## Credentials
-
-These are the default environment credentials:
-
-* Database Name: `wordpress_develop`
-* Username: `root`
-* Password: `password`
-
-To login to the site, navigate to http://localhost:8889/wp-admin.
-
-* Username: `admin`
-* Password: `password`
+**WordPress admin (after `env:install`):** open **http://localhost:8888/wp-admin** — username `admin`, password `password` unless you changed them
 
 To generate a new password (recommended):
 
@@ -743,6 +718,23 @@ Avoid building custom PHP or JavaScript workarounds for functionality already pr
 Aegis has no unnecessary build process, maintaining simplicity and performance.
 
 If you have [contributed](CONTRIBUTORS.md) to Aegis, you will receive proper credit. We update [CONTRIBUTORS.md](CONTRIBUTORS.md) periodically. If we have missed anyone, please open a [pull request](https://github.com/aegiswp/theme/pulls) or [issue](https://github.com/aegiswp/theme/issues).
+
+## Technical Architecture
+
+- **Zero-Base Loading Strategy** — Assets loaded conditionally based on page content
+- **Conditional Asset Loading** — Smart asset enqueuing via AssetManager
+- **Hook Patterns System** — Dynamic content injection with Manager/Renderer pattern
+- **PSR-4 Autoloading** — Modern PHP class loading with Composer
+- **ServiceProvider Pattern** — Framework service registration and management
+- **Interactivity API Usage** — WordPress Interactivity API integration
+- **TypeScript Support** — Type-safe block development with TSX
+
+## Integration Capabilities
+
+- **Plugin Integration Framework** — Extensible architecture for third-party plugins
+- **Block Extension System** — Core block enhancements via filters and hooks
+- **Template System** — Full template hierarchy with block markup support
+- **Asset Pipeline** — Webpack-based build system with WordPress externals
 
 
 ## Experimenting
