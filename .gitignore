@@ -102,3 +102,4 @@ auth.json
 .stylelintcache
 .pnpm-store/
 /.kiro
+/tests
