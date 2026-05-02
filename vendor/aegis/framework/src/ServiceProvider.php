@@ -253,13 +253,20 @@ class ServiceProvider implements Registerable
 		$scripts = $container->make(Scripts::class, $this->file);
 		$styles = $container->make(Styles::class, $this->file);
 
-		// Register core services
+		// Register core services (skip classes whose files are missing from the
+		// distribution archive to avoid PHP include warnings).
 		foreach ($this->services as $id) {
+			if ( ! class_exists( $id ) ) {
+				continue;
+			}
 			$this->register_service($container, $id, $scripts, $styles);
 		}
 
 		// Register integrations (only if enabled in admin settings)
 		foreach ($this->integrations as $id => $setting_key) {
+			if ( ! class_exists( $id ) ) {
+				continue;
+			}
 			if ($this->is_integration_enabled($setting_key)) {
 				$this->register_service($container, $id, $scripts, $styles);
 			}
