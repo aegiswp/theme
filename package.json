@@ -33,8 +33,8 @@
   "author": "Atmostfear Entertainment",
   "license": "GPL-2.0-or-later",
   "devDependencies": {
-    "@wordpress/env": "^11.0.0",
-    "@wordpress/scripts": "^32.0.0"
+    "@wordpress/env": "^11.5.0",
+    "@wordpress/scripts": "^32.1.0"
   },
   "overrides": {
     "ajv": ">=8.18.0",
