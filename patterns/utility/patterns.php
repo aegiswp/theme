@@ -10,17 +10,40 @@ declare(strict_types=1);
 
 use Aegis\Utilities\Str;
 
-$all_categories = glob(get_stylesheet_directory() . '/patterns/*', GLOB_ONLYDIR);
-$categories = [];
-$excluded = ['page', 'template'];
+$pattern_roots = array_values(
+	array_unique(
+		array(
+			get_template_directory() . '/patterns',
+			get_stylesheet_directory() . '/patterns',
+		)
+	)
+);
 
-foreach ($all_categories as $category) {
-	$slug = basename($category);
-
-	if (!in_array($slug, $excluded, true)) {
-		$categories[] = $category;
+$category_paths = array();
+foreach ( $pattern_roots as $root ) {
+	if ( ! is_dir( $root ) ) {
+		continue;
+	}
+	foreach ( glob( $root . '/*', GLOB_ONLYDIR ) ?: array() as $dir ) {
+		$category_paths[ basename( $dir ) ] = $dir;
 	}
 }
+
+$categories = array();
+$excluded     = array( 'page', 'template' );
+
+foreach ( $category_paths as $slug => $dir ) {
+	if ( ! in_array( $slug, $excluded, true ) ) {
+		$categories[] = $dir;
+	}
+}
+
+usort(
+	$categories,
+	static function ( string $a, string $b ): int {
+		return strcmp( basename( $a ), basename( $b ) );
+	}
+);
 
 ?>
 
@@ -87,9 +110,19 @@ foreach ($all_categories as $category) {
 		<!-- /wp:heading -->
 
 		<?php
-		$patterns = glob($category . '/*.php');
+		$category_slug = basename( $category );
+		$pattern_files = array();
+		foreach ( $pattern_roots as $root ) {
+			$dir = $root . '/' . $category_slug;
+			if ( ! is_dir( $dir ) ) {
+				continue;
+			}
+			foreach ( glob( $dir . '/*.php' ) ?: array() as $pattern_path ) {
+				$pattern_files[ basename( $pattern_path, '.php' ) ] = $pattern_path;
+			}
+		}
 
-		foreach ($patterns as $pattern): ?>
+		foreach ( $pattern_files as $pattern ): ?>
 
 			<?php
 			$excluded_patterns = ['color-palette', 'gradients', 'patterns'];
