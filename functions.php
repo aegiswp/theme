@@ -35,8 +35,13 @@ function aegis_theme_updater_config(): array {
 }
 add_filter( 'aegis_theme_updater_config', 'aegis_theme_updater_config' );
 
-// Registers the Aegis Framework, initializing all its components and services.
-Aegis::register( __FILE__ );
+// Registers the Aegis Framework after WordPress is loaded to avoid early translation loading.
+function aegis_register_framework(): void {
+	if ( class_exists( 'Aegis' ) && is_callable( [ 'Aegis', 'register' ] ) ) {
+		Aegis::register( __FILE__ );
+	}
+}
+add_action( 'wp_loaded', 'aegis_register_framework', 0 );
 
 // Theme-level classes are bootstrapped via Composer files autoload (src/bootstrap.php).
 
