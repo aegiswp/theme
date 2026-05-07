@@ -9,6 +9,9 @@ help: ## Show this help message
 install: ## Install Node dependencies
 	npm ci
 
+install\:composer: ## Install Composer dependencies
+	composer install
+
 build: ## Build block and admin assets (webpack)
 	npm run build
 
@@ -20,6 +23,12 @@ lint: ## Run JavaScript and CSS linters
 	npm run lint:css --if-present
 	npm run lint:pkg-json --if-present
 
+lint\:php: ## Run PHP CodeSniffer
+	vendor/bin/phpcs
+
+test: ## Run PHPUnit test suite
+	vendor/bin/phpunit -c phpunit.xml
+
 translate: ## Generate translation POT file
 	npm run translate
 
@@ -27,6 +36,7 @@ clean: ## Clean build artifacts and caches
 	rm -rf node_modules/
 	rm -rf build/
 	rm -rf dist/
+	rm -rf aegis/
 	rm -rf src/Admin/build/
 	rm -f .eslintcache
 	rm -f .stylelintcache
