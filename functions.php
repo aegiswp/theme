@@ -27,21 +27,20 @@ declare(strict_types=1);
 require_once __DIR__ . '/vendor/autoload.php';
 
 // Configure the theme updater for GitHub releases (must be before Aegis::register).
-function aegis_theme_updater_config(): array {
+function aegis_get_theme_updater_config(): array {
     return [
         'repo' => 'aegiswp/theme',
         'slug' => 'aegis',
     ];
 }
-add_filter( 'aegis_theme_updater_config', 'aegis_theme_updater_config' );
+add_filter( 'aegis_theme_updater_config', 'aegis_get_theme_updater_config' );
 
-// Registers the Aegis Framework after WordPress is loaded to avoid early translation loading.
+// Registers the Aegis Framework.
 function aegis_register_framework(): void {
 	if ( class_exists( 'Aegis' ) && is_callable( [ 'Aegis', 'register' ] ) ) {
 		Aegis::register( __FILE__ );
 	}
 }
-add_action( 'wp_loaded', 'aegis_register_framework', 0 );
 
 // Theme-level classes are bootstrapped via Composer files autoload (src/bootstrap.php).
 
@@ -63,17 +62,11 @@ function aegis_suppress_block_visibility( array $metadata ): array {
 }
 add_filter( 'block_type_metadata', 'aegis_suppress_block_visibility' );
 
-// Add resource hints for external resources (Performance Optimization).
-function aegis_resource_hints( $urls, $relation_type ) {
-	if ( 'dns-prefetch' === $relation_type ) {
-		// Add any external domains used by the theme.
-	}
-	return $urls;
-}
-add_filter( 'wp_resource_hints', 'aegis_resource_hints', 10, 2 );
-
 // Ensure title-tag support is explicitly declared (SEO).
 function aegis_setup_theme(): void {
+	load_theme_textdomain( 'aegis', __DIR__ . '/languages' );
 	add_theme_support( 'title-tag' );
+	add_theme_support( 'html5', [ 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script' ] );
 }
-add_action( 'after_setup_theme', 'aegis_setup_theme' );
+add_action( 'after_setup_theme', 'aegis_setup_theme', 0 );
+add_action( 'after_setup_theme', 'aegis_register_framework', 1 );
