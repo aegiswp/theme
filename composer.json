@@ -1,6 +1,6 @@
 {
     "name": "aegiswp/theme",
-    "version": "1.0.0-rc.3",
+    "version": "1.0.0",
     "description": "Aegis — Native Block Framework for WordPress",
     "type": "wordpress-theme",
     "license": "GPL-2.0-or-later",
