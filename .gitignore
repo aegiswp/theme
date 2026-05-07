@@ -102,6 +102,6 @@ auth.json
 .stylelintcache
 .pnpm-store/
 /.kiro
-/tests
-DESIGN.md
 AGENTS.md
+DESIGN.md
+/tests
