@@ -787,7 +787,7 @@ If you wish to experiment with custom code, consider using the Aegis Child Theme
 
 | Repository | Description |
 | --- | --- |
-| [Aegis Child Theme](https://github.com/aegiswp/theme-child) | Official Aegis Child Theme |
+| [Aegis Child Theme](https://github.com/aegiswp/child) | Official Aegis Child Theme |
 | [Aegis Code Snippets](https://github.com/aegiswp/code-snippets) | Official Aegis Code Snippets |
 
 
@@ -809,7 +809,7 @@ Explore Aegis in action through our official child themes:
 
 | Child Theme | Description |
 | --- | --- |
-| [Aegis Child Theme](https://github.com/aegiswp/theme-child) | Official starter child theme for Aegis |
+| [Aegis Child Theme](https://github.com/aegiswp/child) | Official starter child theme for Aegis |
 | [Aegis Code Snippets](https://gist.github.com/atmostfear-entertainment) | Collection of code snippets and customizations |
 
 
