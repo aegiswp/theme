@@ -52,7 +52,7 @@ defined( 'ABSPATH' ) || exit;
 	<?php // --- Title --- ?>
 	<p class="wp-embed-heading">
 		<a href="<?php the_permalink(); ?>" target="_top">
-			<?php the_title(); ?>
+			<?php echo esc_html( get_the_title() ); ?>
 		</a>
 	</p>
 
