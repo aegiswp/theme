@@ -56,6 +56,6 @@ interface Registerable
 	 *
 	 * @return void
 	 */
-	
+
 	public function register(Container $container): void;
 }
