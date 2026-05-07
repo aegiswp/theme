@@ -103,3 +103,4 @@ auth.json
 .pnpm-store/
 /.kiro
 /tests
+DESIGN.md
