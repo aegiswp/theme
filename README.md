@@ -252,10 +252,10 @@ The Aegis theme features a comprehensive color system with Primary, Neutral, and
 | `--wp--preset--color--primary-950` | `#09090b` | Primary 950 | `primary-950` | ![jpg](https://placehold.co/20x20/09090b/09090b/jpg) |
 | `--wp--preset--color--primary-900` | `#18181b` | Primary 900 | `primary-900` | ![jpg](https://placehold.co/20x20/18181b/18181b/jpg) |
 | `--wp--preset--color--primary-800` | `#27272a` | Primary 800 | `primary-800` | ![jpg](https://placehold.co/20x20/27272a/27272a/jpg) |
-| `--wp--preset--color--primary-700` | `#3f3f47` | Primary 700 | `primary-700` | ![jpg](https://placehold.co/20x20/3f3f47/3f3f47/jpg) |
-| `--wp--preset--color--primary-600` | `#52525c` | Primary 600 | `primary-600` | ![jpg](https://placehold.co/20x20/52525c/52525c/jpg) |
-| `--wp--preset--color--primary-500` | `#71717b` | Primary 500 | `primary-500` | ![jpg](https://placehold.co/20x20/71717b/71717b/jpg) |
-| `--wp--preset--color--primary-400` | `#9f9fa9` | Primary 400 | `primary-400` | ![jpg](https://placehold.co/20x20/9f9fa9/9f9fa9/jpg) |
+| `--wp--preset--color--primary-700` | `#3f3f46` | Primary 700 | `primary-700` | ![jpg](https://placehold.co/20x20/3f3f46/3f3f46/jpg) |
+| `--wp--preset--color--primary-600` | `#52525b` | Primary 600 | `primary-600` | ![jpg](https://placehold.co/20x20/52525b/52525b/jpg) |
+| `--wp--preset--color--primary-500` | `#71717a` | Primary 500 | `primary-500` | ![jpg](https://placehold.co/20x20/71717a/71717a/jpg) |
+| `--wp--preset--color--primary-400` | `#a1a1aa` | Primary 400 | `primary-400` | ![jpg](https://placehold.co/20x20/a1a1aa/a1a1aa/jpg) |
 | `--wp--preset--color--primary-300` | `#d4d4d8` | Primary 300 | `primary-300` | ![jpg](https://placehold.co/20x20/d4d4d8/d4d4d8/jpg) |
 | `--wp--preset--color--primary-200` | `#e4e4e7` | Primary 200 | `primary-200` | ![jpg](https://placehold.co/20x20/e4e4e7/e4e4e7/jpg) |
 | `--wp--preset--color--primary-100` | `#f4f4f5` | Primary 100 | `primary-100` | ![jpg](https://placehold.co/20x20/f4f4f5/f4f4f5/jpg) |
@@ -272,50 +272,50 @@ The Aegis theme features a comprehensive color system with Primary, Neutral, and
 | `--wp--preset--color--neutral-700` | `#404040` | Neutral 700 | `neutral-700` | ![jpg](https://placehold.co/20x20/404040/404040/jpg) |
 | `--wp--preset--color--neutral-600` | `#525252` | Neutral 600 | `neutral-600` | ![jpg](https://placehold.co/20x20/525252/525252/jpg) |
 | `--wp--preset--color--neutral-500` | `#737373` | Neutral 500 | `neutral-500` | ![jpg](https://placehold.co/20x20/737373/737373/jpg) |
-| `--wp--preset--color--neutral-400` | `#a1a1aa` | Neutral 400 | `neutral-400` | ![jpg](https://placehold.co/20x20/a1a1aa/a1a1aa/jpg) |
+| `--wp--preset--color--neutral-400` | `#a3a3a3` | Neutral 400 | `neutral-400` | ![jpg](https://placehold.co/20x20/a3a3a3/a3a3a3/jpg) |
 | `--wp--preset--color--neutral-300` | `#d4d4d4` | Neutral 300 | `neutral-300` | ![jpg](https://placehold.co/20x20/d4d4d4/d4d4d4/jpg) |
 | `--wp--preset--color--neutral-200` | `#e5e5e5` | Neutral 200 | `neutral-200` | ![jpg](https://placehold.co/20x20/e5e5e5/e5e5e5/jpg) |
 | `--wp--preset--color--neutral-100` | `#f5f5f5` | Neutral 100 | `neutral-100` | ![jpg](https://placehold.co/20x20/f5f5f5/f5f5f5/jpg) |
-| `--wp--preset--color--neutral-50` | `#fafaf9` | Neutral 50 | `neutral-50` | ![jpg](https://placehold.co/20x20/fafaf9/fafaf9/jpg) |
+| `--wp--preset--color--neutral-50` | `#fafafa` | Neutral 50 | `neutral-50` | ![jpg](https://placehold.co/20x20/fafafa/fafafa/jpg) |
 | `--wp--preset--color--neutral-0` | `#ffffff` | Neutral 0 | `neutral-0` | ![jpg](https://placehold.co/20x20/ffffff/ffffff/jpg) |
 
 **Semantic Colors**
 
 | CSS Variable | Color | Name | Slug | Visual |
 |--------------|-------|------|------|--------|
-| `--wp--preset--color--success-950` | `#032e15` | Success 950 | `success-950` | ![jpg](https://placehold.co/20x20/032e15/032e15/jpg) |
-| `--wp--preset--color--success-900` | `#0d542b` | Success 900 | `success-900` | ![jpg](https://placehold.co/20x20/0d542b/0d542b/jpg) |
-| `--wp--preset--color--success-800` | `#016630` | Success 800 | `success-800` | ![jpg](https://placehold.co/20x20/016630/016630/jpg) |
-| `--wp--preset--color--success-700` | `#008236` | Success 700 | `success-700` | ![jpg](https://placehold.co/20x20/008236/008236/jpg) |
-| `--wp--preset--color--success-600` | `#00a63e` | Success 600 | `success-600` | ![jpg](https://placehold.co/20x20/00a63e/00a63e/jpg) |
-| `--wp--preset--color--success-500` | `#00c950` | Success 500 | `success-500` | ![jpg](https://placehold.co/20x20/00c950/00c950/jpg) |
-| `--wp--preset--color--success-400` | `#05df72` | Success 400 | `success-400` | ![jpg](https://placehold.co/20x20/05df72/05df72/jpg) |
-| `--wp--preset--color--success-300` | `#7bf1a8` | Success 300 | `success-300` | ![jpg](https://placehold.co/20x20/7bf1a8/7bf1a8/jpg) |
-| `--wp--preset--color--success-200` | `#b9f8cf` | Success 200 | `success-200` | ![jpg](https://placehold.co/20x20/b9f8cf/b9f8cf/jpg) |
+| `--wp--preset--color--success-950` | `#052e16` | Success 950 | `success-950` | ![jpg](https://placehold.co/20x20/052e16/052e16/jpg) |
+| `--wp--preset--color--success-900` | `#14532d` | Success 900 | `success-900` | ![jpg](https://placehold.co/20x20/14532d/14532d/jpg) |
+| `--wp--preset--color--success-800` | `#166534` | Success 800 | `success-800` | ![jpg](https://placehold.co/20x20/166534/166534/jpg) |
+| `--wp--preset--color--success-700` | `#15803d` | Success 700 | `success-700` | ![jpg](https://placehold.co/20x20/15803d/15803d/jpg) |
+| `--wp--preset--color--success-600` | `#16a34a` | Success 600 | `success-600` | ![jpg](https://placehold.co/20x20/16a34a/16a34a/jpg) |
+| `--wp--preset--color--success-500` | `#22c55e` | Success 500 | `success-500` | ![jpg](https://placehold.co/20x20/22c55e/22c55e/jpg) |
+| `--wp--preset--color--success-400` | `#4ade80` | Success 400 | `success-400` | ![jpg](https://placehold.co/20x20/4ade80/4ade80/jpg) |
+| `--wp--preset--color--success-300` | `#86efac` | Success 300 | `success-300` | ![jpg](https://placehold.co/20x20/86efac/86efac/jpg) |
+| `--wp--preset--color--success-200` | `#bbf7d0` | Success 200 | `success-200` | ![jpg](https://placehold.co/20x20/bbf7d0/bbf7d0/jpg) |
 | `--wp--preset--color--success-100` | `#dcfce7` | Success 100 | `success-100` | ![jpg](https://placehold.co/20x20/dcfce7/dcfce7/jpg) |
 | `--wp--preset--color--success-50` | `#f0fdf4` | Success 50 | `success-50` | ![jpg](https://placehold.co/20x20/f0fdf4/f0fdf4/jpg) |
-| `--wp--preset--color--warning-950` | `#451605` | Warning 950 | `warning-950` | ![jpg](https://placehold.co/20x20/451605/451605/jpg) |
-| `--wp--preset--color--warning-900` | `#80310e` | Warning 900 | `warning-900` | ![jpg](https://placehold.co/20x20/80310e/80310e/jpg) |
-| `--wp--preset--color--warning-800` | `#9f390d` | Warning 800 | `warning-800` | ![jpg](https://placehold.co/20x20/9f390d/9f390d/jpg) |
-| `--wp--preset--color--warning-700` | `#c84806` | Warning 700 | `warning-700` | ![jpg](https://placehold.co/20x20/c84806/c84806/jpg) |
-| `--wp--preset--color--warning-600` | `#e85d04` | Warning 600 | `warning-600` | ![jpg](https://placehold.co/20x20/e85d04/e85d04/jpg) |
-| `--wp--preset--color--warning-500` | `#ff7c0e` | Warning 500 | `warning-500` | ![jpg](https://placehold.co/20x20/ff7c0e/ff7c0e/jpg) |
-| `--wp--preset--color--warning-400` | `#ff9a35` | Warning 400 | `warning-400` | ![jpg](https://placehold.co/20x20/ff9a35/ff9a35/jpg) |
-| `--wp--preset--color--warning-300` | `#ffbf6f` | Warning 300 | `warning-300` | ![jpg](https://placehold.co/20x20/ffbf6f/ffbf6f/jpg) |
-| `--wp--preset--color--warning-200` | `#ffdaa7` | Warning 200 | `warning-200` | ![jpg](https://placehold.co/20x20/ffdaa7/ffdaa7/jpg) |
-| `--wp--preset--color--warning-100` | `#ffefd4` | Warning 100 | `warning-100` | ![jpg](https://placehold.co/20x20/ffefd4/ffefd4/jpg) |
-| `--wp--preset--color--warning-50` | `#fff7ec` | Warning 50 | `warning-50` | ![jpg](https://placehold.co/20x20/fff7ec/fff7ec/jpg) |
-| `--wp--preset--color--error-950` | `#460d04` | Error 950 | `error-950` | ![jpg](https://placehold.co/20x20/460d04/460d04/jpg) |
-| `--wp--preset--color--error-900` | `#82200c` | Error 900 | `error-900` | ![jpg](https://placehold.co/20x20/82200c/82200c/jpg) |
-| `--wp--preset--color--error-800` | `#a2230a` | Error 800 | `error-800` | ![jpg](https://placehold.co/20x20/a2230a/a2230a/jpg) |
-| `--wp--preset--color--error-700` | `#dc2f02` | Error 700 | `error-700` | ![jpg](https://placehold.co/20x20/dc2f02/dc2f02/jpg) |
-| `--wp--preset--color--error-600` | `#f63f00` | Error 600 | `error-600` | ![jpg](https://placehold.co/20x20/f63f00/f63f00/jpg) |
-| `--wp--preset--color--error-500` | `#ff5909` | Error 500 | `error-500` | ![jpg](https://placehold.co/20x20/ff5909/ff5909/jpg) |
-| `--wp--preset--color--error-400` | `#ff7c31` | Error 400 | `error-400` | ![jpg](https://placehold.co/20x20/ff7c31/ff7c31/jpg) |
-| `--wp--preset--color--error-300` | `#ffab6c` | Error 300 | `error-300` | ![jpg](https://placehold.co/20x20/ffab6c/ffab6c/jpg) |
-| `--wp--preset--color--error-200` | `#ffcea5` | Error 200 | `error-200` | ![jpg](https://placehold.co/20x20/ffcea5/ffcea5/jpg) |
-| `--wp--preset--color--error-100` | `#ffe8d3` | Error 100 | `error-100` | ![jpg](https://placehold.co/20x20/ffe8d3/ffe8d3/jpg) |
-| `--wp--preset--color--error-50` | `#fff5ec` | Error 50 | `error-50` | ![jpg](https://placehold.co/20x20/fff5ec/fff5ec/jpg) |
+| `--wp--preset--color--warning-950` | `#431407` | Warning 950 | `warning-950` | ![jpg](https://placehold.co/20x20/431407/431407/jpg) |
+| `--wp--preset--color--warning-900` | `#7c2d12` | Warning 900 | `warning-900` | ![jpg](https://placehold.co/20x20/7c2d12/7c2d12/jpg) |
+| `--wp--preset--color--warning-800` | `#9a3412` | Warning 800 | `warning-800` | ![jpg](https://placehold.co/20x20/9a3412/9a3412/jpg) |
+| `--wp--preset--color--warning-700` | `#c2410c` | Warning 700 | `warning-700` | ![jpg](https://placehold.co/20x20/c2410c/c2410c/jpg) |
+| `--wp--preset--color--warning-600` | `#ea580c` | Warning 600 | `warning-600` | ![jpg](https://placehold.co/20x20/ea580c/ea580c/jpg) |
+| `--wp--preset--color--warning-500` | `#f97316` | Warning 500 | `warning-500` | ![jpg](https://placehold.co/20x20/f97316/f97316/jpg) |
+| `--wp--preset--color--warning-400` | `#fb923c` | Warning 400 | `warning-400` | ![jpg](https://placehold.co/20x20/fb923c/fb923c/jpg) |
+| `--wp--preset--color--warning-300` | `#fdba74` | Warning 300 | `warning-300` | ![jpg](https://placehold.co/20x20/fdba74/fdba74/jpg) |
+| `--wp--preset--color--warning-200` | `#fed7aa` | Warning 200 | `warning-200` | ![jpg](https://placehold.co/20x20/fed7aa/fed7aa/jpg) |
+| `--wp--preset--color--warning-100` | `#ffedd5` | Warning 100 | `warning-100` | ![jpg](https://placehold.co/20x20/ffedd5/ffedd5/jpg) |
+| `--wp--preset--color--warning-50` | `#fff7ed` | Warning 50 | `warning-50` | ![jpg](https://placehold.co/20x20/fff7ed/fff7ed/jpg) |
+| `--wp--preset--color--error-950` | `#450a0a` | Error 950 | `error-950` | ![jpg](https://placehold.co/20x20/450a0a/450a0a/jpg) |
+| `--wp--preset--color--error-900` | `#7f1d1d` | Error 900 | `error-900` | ![jpg](https://placehold.co/20x20/7f1d1d/7f1d1d/jpg) |
+| `--wp--preset--color--error-800` | `#991b1b` | Error 800 | `error-800` | ![jpg](https://placehold.co/20x20/991b1b/991b1b/jpg) |
+| `--wp--preset--color--error-700` | `#b91c1c` | Error 700 | `error-700` | ![jpg](https://placehold.co/20x20/b91c1c/b91c1c/jpg) |
+| `--wp--preset--color--error-600` | `#dc2626` | Error 600 | `error-600` | ![jpg](https://placehold.co/20x20/dc2626/dc2626/jpg) |
+| `--wp--preset--color--error-500` | `#ef4444` | Error 500 | `error-500` | ![jpg](https://placehold.co/20x20/ef4444/ef4444/jpg) |
+| `--wp--preset--color--error-400` | `#f87171` | Error 400 | `error-400` | ![jpg](https://placehold.co/20x20/f87171/f87171/jpg) |
+| `--wp--preset--color--error-300` | `#fca5a5` | Error 300 | `error-300` | ![jpg](https://placehold.co/20x20/fca5a5/fca5a5/jpg) |
+| `--wp--preset--color--error-200` | `#fecaca` | Error 200 | `error-200` | ![jpg](https://placehold.co/20x20/fecaca/fecaca/jpg) |
+| `--wp--preset--color--error-100` | `#fee2e2` | Error 100 | `error-100` | ![jpg](https://placehold.co/20x20/fee2e2/fee2e2/jpg) |
+| `--wp--preset--color--error-50` | `#fef2f2` | Error 50 | `error-50` | ![jpg](https://placehold.co/20x20/fef2f2/fef2f2/jpg) |
 
 **Utility Colors**
 
@@ -621,7 +621,7 @@ If you find setting up WordPress locally overwhelming, consider using [wp-env](h
 
 #### Release version
 
-The theme release number is the single value defined in three places: `style.css` (`Version`), `package.json` (`version`), and `composer.json` (`version`). When you cut a release, update all three to match (for example `1.0.0-rc.3`).
+The theme release number is the single value defined in three places: `style.css` (`Version`), `package.json` (`version`), and `composer.json` (`version`). When you cut a release, update all three to match (for example `1.0.0`).
 
 PHP dependencies are pinned by **`composer.lock`**. After cloning, run **`composer update`** once in the theme directory (with Git network access) to generate or refresh the lockfile, then commit **`composer.lock`**. If Composer reports an SSL or certificate error when using GitHub, fix your system or PHP CA bundle (see the [Composer doc on local issuers](https://getcomposer.org/local-issuer)). Use **`composer install`** in CI, and run **`composer update`** only when you intend to change dependency revisions and then re-test.
 
