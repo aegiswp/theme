@@ -3,16 +3,16 @@
  Theme URI: https://www.atmostfear-entertainment.com/aegis/
  Author: Atmostfear Entertainment
  Author URI: https://www.atmostfear-entertainment.com/
- Description: A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes.
+ Description: Aegis is a WordPress block theme and design-system framework built on a systematic token architecture: a structured color scale, fluid type scale, and constraint-based spacing that enforce visual consistency across every pattern and template. It loads no CSS, JavaScript, or fonts by default. Over 150 patterns span blog, commerce, events, portfolio, contact, and more — with full WooCommerce integration, dark/light mode, RTL support, and accessibility-ready foundations.
  Requires at least: 6.6
- Tested up to: 6.9
+ Tested up to: 6.9.4
  Requires PHP: 8.1
- Version: 1.0.0-rc.3
- License: GNU General Public License v2 or later
+ Version: 1.0.0
+ License: GPL-2.0-or-later
  License URI: https://www.gnu.org/licenses/gpl-2.0.html
  Text Domain: aegis
  Domain Path: /languages
- Tags: accessibility-ready, block-patterns, block-styles, blog, custom-colors, custom-logo, custom-menu, e-commerce, editor-style, featured-images, footer-widgets, full-site-editing, full-width-template, grid-layout, one-column, portfolio, rtl-language-support, sticky-post, style-variations, template-editing, threaded-comments, three-columns, translation-ready, two-columns, wide-blocks
+ Tags: accessibility-ready, block-patterns, block-styles, blog, custom-colors, custom-logo, e-commerce, editor-style, featured-images, full-site-editing, full-width-template, grid-layout, one-column, portfolio, rtl-language-support, style-variations, template-editing, threaded-comments, three-columns, translation-ready, two-columns, wide-blocks
 
  Aegis, (c) 2022-2026 Atmostfear Entertainment S.A.S.
  Aegis is distributed under the terms of the GNU GPL.
