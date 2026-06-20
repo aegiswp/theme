@@ -1,13 +1,13 @@
 name: Accessibility Report
 description: Report an accessibility issue related to the Aegis WordPress Block Theme.
 labels:
-  - '[Type] Accessibility'
+  - "[Type] Accessibility"
   - triage
 body:
   - type: markdown
     attributes:
       value: |
-        ### Help us make Aegis inclusive!
+        ### Help us make Aegis inclusive.
         Your feedback helps us ensure Aegis is usable for everyone.
   - type: textarea
     id: description
@@ -57,7 +57,7 @@ body:
   - type: input
     id: theme-version
     attributes:
-      label: Theme Version (e.g., 1.0.1)
+      label: Theme Version (e.g., 1.0.0)
     validations:
       required: true
   - type: textarea
