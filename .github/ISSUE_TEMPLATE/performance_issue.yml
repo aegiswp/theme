@@ -1,7 +1,7 @@
 name: Performance Report
 description: Report a speed or optimization issue in the Aegis theme.
 labels:
-  - '[Type] Performance'
+  - "[Type] Performance"
   - triage
 body:
   - type: markdown
