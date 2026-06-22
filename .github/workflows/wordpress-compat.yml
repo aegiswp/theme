@@ -15,13 +15,16 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   compatibility-matrix:
     name: Test WP ${{ matrix.wordpress }} / PHP ${{ matrix.php }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        wordpress: ['6.4', '6.5', 'latest']
+        wordpress: ['6.6', '6.7', 'latest']
         php: ['8.1', '8.2', '8.3']
       fail-fast: false
 
@@ -81,7 +84,8 @@ jobs:
             --dbpass=root \
             --dbhost=127.0.0.1 \
             --force
-          wp db create --path=wp-test
+          # Database is already created by the MySQL service container (MYSQL_DATABASE).
+          wp db check --path=wp-test
 
       - name: Install WordPress
         run: |
