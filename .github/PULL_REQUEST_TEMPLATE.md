@@ -1,5 +1,5 @@
 <!--
-Thank you for contributing to the Aegis WordPress Block Theme!
+Thank you for contributing to the Aegis WordPress Block Theme.
 
 Please provide a clear and concise description of the changes you are proposing.
 -->
@@ -64,9 +64,8 @@ Include any setup required, and the steps to reproduce the behavior.
 
 <!-- If this PR affects blocks, please specify which ones -->
 
+### Theme blocks
 - [ ] Countdown
-- [ ] Map
-- [ ] Modal
 - [ ] Related Posts
 - [ ] Slider
 - [ ] Slide
@@ -112,7 +111,7 @@ Include any setup required, and the steps to reproduce the behavior.
 - [ ] I have added or updated block.json attributes if needed
 
 ### Compatibility
-- [ ] Code is compatible with WordPress 6.4, 6.5, and latest
+- [ ] Code is compatible with WordPress 6.6, 6.7, and latest
 - [ ] Code is compatible with PHP 8.1, 8.2, and 8.3
 - [ ] If theme.json changes, it passes theme.json validation
 - [ ] If performance-critical, Lighthouse score remains 80+
@@ -126,12 +125,12 @@ Include any setup required, and the steps to reproduce the behavior.
 ## Automated Checks
 
 The following checks will run automatically on this PR:
-- ✅ **CI (ci.yml)**: Linting, tests, and dependency audits
-- ✅ **Accessibility (accessibility.yml)**: a11y scanning on test site
-- ✅ **Theme.json Validation**: Structure and schema validation
-- ✅ **WordPress Compatibility Matrix**: Tests against WP 6.4/6.5/latest + PHP 8.1/8.2/8.3
-- ✅ **Lighthouse CI**: Performance and accessibility metrics
-- ✅ **Spelling Check**: Catches typos
+- ✓ **CI (ci.yml)**: Linting, tests, and dependency audits
+- ✓ **Accessibility (accessibility.yml)**: a11y scanning on test site
+- ✓ **Theme.json Validation**: Structure and schema validation
+- ✓ **WordPress Compatibility Matrix**: Tests against WP 6.6/6.7/latest + PHP 8.1/8.2/8.3
+- ✓ **Lighthouse CI**: Performance and accessibility metrics
+- ✓ **Spelling Check**: Catches typos
 
 **All checks must pass before this PR can be merged.**
 
