@@ -22,16 +22,16 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 **Duration:** ~10-15 minutes
 
 #### What it checks:
-- ✅ JavaScript/TypeScript linting (ESLint)
-- ✅ CSS linting (Stylelint)
-- ✅ npm dependency audit (`npm audit`)
-- ✅ PHP linting and PHPCS standards
-- ✅ Composer dependency audit (`composer audit`)
-- ✅ PHP Unit tests with coverage
-- ✅ WPAudit integration tests
-- ✅ theme.json validation
-- ✅ Required theme files (style.css, functions.php, index.php, theme.json)
-- ✅ Code coverage report (Codecov)
+- ✓ JavaScript/TypeScript linting (ESLint)
+- ✓ CSS linting (Stylelint)
+- ✓ npm dependency audit (`npm audit`)
+- ✓ PHP linting and PHPCS standards
+- ✓ Composer dependency audit (`composer audit`)
+- ✓ PHP Unit tests with coverage
+- ✓ WPAudit integration tests
+- ✓ theme.json validation
+- ✓ Required theme files (style.css, functions.php, index.php, theme.json)
+- ✓ Code coverage report (Codecov)
 
 #### If it fails:
 1. Check the logs for specific linting errors
@@ -51,12 +51,12 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 **Duration:** ~5-7 minutes
 
 #### What it checks:
-- ✅ Page accessibility using pa11y-ci
-- ✅ WCAG 2.1 AA compliance
-- ✅ Keyboard navigation
-- ✅ Screen reader compatibility
-- ✅ Color contrast
-- ✅ Focus indicators
+- ✓ Page accessibility using pa11y-ci
+- ✓ WCAG 2.1 AA compliance
+- ✓ Keyboard navigation
+- ✓ Screen reader compatibility
+- ✓ Color contrast
+- ✓ Focus indicators
 
 #### If it fails:
 1. Check pa11y-ci threshold (currently 5 violations max)
@@ -75,9 +75,9 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 **Duration:** ~1 minute
 
 #### What it checks:
-- ✅ Markdown files (README, CONTRIBUTING, etc.)
-- ✅ Code comments
-- ✅ Documentation strings
+- ✓ Markdown files (README, CONTRIBUTING, etc.)
+- ✓ Code comments
+- ✓ Documentation strings
 - Uses `.typos.toml` for configuration
 
 #### If it fails:
@@ -95,12 +95,12 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 **Duration:** ~2 minutes
 
 #### What it checks:
-- ✅ Valid JSON syntax
-- ✅ Required properties (version, settings, styles)
-- ✅ Deprecated properties
-- ✅ Color palette definition
-- ✅ Typography settings
-- ✅ Block-specific configurations
+- ✓ Valid JSON syntax
+- ✓ Required properties (version, settings, styles)
+- ✓ Deprecated properties
+- ✓ Color palette definition
+- ✓ Typography settings
+- ✓ Block-specific configurations
 
 #### If it fails:
 1. Check for JSON syntax errors
@@ -118,22 +118,22 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 **Purpose:** Test against multiple WordPress and PHP versions
 **Triggers:** Schedule (weekly) + Push/PR to main/dev
 **Duration:** ~30-40 minutes (9 parallel jobs)
-**Matrix:** WordPress 6.4/6.5/latest × PHP 8.1/8.2/8.3
+**Matrix:** WordPress 6.6/6.7/latest × PHP 8.1/8.2/8.3
 
 #### What it checks:
-- ✅ Theme activation on each WP/PHP combination
-- ✅ Theme loads without errors
-- ✅ Core block registration
-- ✅ WordPress CLI integration
-- ✅ theme.json validity in WordPress context
-- ✅ PHPCS checks
+- ✓ Theme activation on each WP/PHP combination
+- ✓ Theme loads without errors
+- ✓ Core block registration
+- ✓ WordPress CLI integration
+- ✓ theme.json validity in WordPress context
+- ✓ PHPCS checks
 
 #### If it fails:
 1. Note which WP/PHP combination failed
 2. Check error message in workflow logs
 3. Reproduce locally with that version:
    ```bash
-   wp core download --version=6.4 --path=wp-test
+   wp core download --version=6.6 --path=wp-test
    ```
 4. Test theme activation and functionality
 
@@ -150,11 +150,11 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 **Duration:** ~10-12 minutes (3 audit runs averaged)
 
 #### What it checks:
-- ✅ **Performance** (target: 80+) - Core Web Vitals, asset optimization
-- ✅ **Accessibility** (target: 90+) - ARIA, color contrast, focus
-- ✅ **Best Practices** (target: 85+) - Security, performance patterns
-- ✅ **SEO** (target: 90+) - Meta tags, structured data
-- ✅ **Core Web Vitals:**
+- ✓ **Performance** (target: 80+) - Core Web Vitals, asset optimization
+- ✓ **Accessibility** (target: 90+) - ARIA, color contrast, focus
+- ✓ **Best Practices** (target: 85+) - Security, performance patterns
+- ✓ **SEO** (target: 90+) - Meta tags, structured data
+- ✓ **Core Web Vitals:**
   - LCP (Largest Contentful Paint): ≤ 4000ms
   - CLS (Cumulative Layout Shift): ≤ 0.1
   - FCP (First Contentful Paint): ≤ 3000ms
@@ -182,9 +182,9 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 **Duration:** ~3-5 minutes
 
 #### What it does:
-- ✅ Runs `composer update --no-install`
-- ✅ Validates composer files with `composer validate --strict`
-- ✅ Auto-commits lock file with `[skip ci]` tag
+- ✓ Runs `composer update --no-install`
+- ✓ Validates composer files with `composer validate --strict`
+- ✓ Auto-commits lock file with `[skip ci]` tag
 
 #### If it fails:
 1. Check for composer.json syntax errors
@@ -200,12 +200,12 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 **Duration:** ~5-8 minutes
 
 #### What it checks:
-- ✅ Quick linting (JS, CSS, PHP)
-- ✅ Theme build
-- ✅ PHP syntax validation
-- ✅ PHPCS (errors only, not warnings)
-- ✅ PHP Unit tests
-- ✅ WPAudit tests
+- ✓ Quick linting (JS, CSS, PHP)
+- ✓ Theme build
+- ✓ PHP syntax validation
+- ✓ PHPCS (errors only, not warnings)
+- ✓ PHP Unit tests
+- ✓ WPAudit tests
 
 #### Purpose:
 Faster feedback than full CI for development iterations
@@ -221,13 +221,13 @@ Warnings are not blockers on dev branch for faster iteration
 **Duration:** ~10-15 minutes
 
 #### What it does:
-- ✅ Validates tag format (semantic versioning)
-- ✅ Runs full test suite (PHPCS, linting, PHPUnit)
-- ✅ Builds production package
-- ✅ Compiles translations (.po → .mo)
-- ✅ Generates SHA256 checksum
-- ✅ Creates **draft** GitHub release
-- ✅ Includes validation checklist
+- ✓ Validates tag format (semantic versioning)
+- ✓ Runs full test suite (PHPCS, linting, PHPUnit)
+- ✓ Builds production package
+- ✓ Compiles translations (.po → .mo)
+- ✓ Generates SHA256 checksum
+- ✓ Creates **draft** GitHub release
+- ✓ Includes validation checklist
 
 #### If it fails:
 1. Check tag format (must be v1.2.3 or v1.2.3-rc1)
@@ -255,10 +255,10 @@ sha256sum -c aegis.zip.sha256
 **Duration:** ~2 minutes
 
 #### What it does:
-- ✅ Parses version bump type (major/minor/patch)
-- ✅ Auto-merges **patch** and **minor** updates
-- ✅ Blocks **major** updates (requires manual review)
-- ✅ Comments on major updates with warnings
+- ✓ Parses version bump type (major/minor/patch)
+- ✓ Auto-merges **patch** and **minor** updates
+- ✓ Blocks **major** updates (requires manual review)
+- ✓ Comments on major updates with warnings
 
 #### Auto-merged:
 - 1.2.3 → 1.2.4 (patch) ✅
@@ -278,11 +278,11 @@ Only merges if all CI checks pass
 **Duration:** ~2 minutes
 
 #### What it does:
-- ✅ Marks issues with no activity for 90 days as `status: stale`
-- ✅ Closes stale issues after 30 more days (120 total)
-- ✅ Marks PRs with no activity for 60 days as `status: stale`
-- ✅ Closes stale PRs after 14 more days (74 total)
-- ✅ Adds helpful comments with revival instructions
+- ✓ Marks issues with no activity for 90 days as `status: stale`
+- ✓ Closes stale issues after 30 more days (120 total)
+- ✓ Marks PRs with no activity for 60 days as `status: stale`
+- ✓ Closes stale PRs after 14 more days (74 total)
+- ✓ Adds helpful comments with revival instructions
 
 #### Exemptions:
 Issues/PRs with labels: `pinned`, `roadmap`, or `epic` are exempt
@@ -300,8 +300,8 @@ Issues/PRs with labels: `pinned`, `roadmap`, or `epic` are exempt
 
 | Icon | Status | Meaning |
 |------|--------|---------|
-| ✅ | Success | All checks passed |
-| ❌ | Failed | One or more checks failed |
+| ✓ | Success | All checks passed |
+| ✗ | Failed | One or more checks failed |
 | ⏳ | In Progress | Workflow is currently running |
 | ⏭️ | Skipped | Workflow was not triggered (e.g., path filter) |
 
@@ -316,19 +316,19 @@ Issues/PRs with labels: `pinned`, `roadmap`, or `epic` are exempt
 ### Common Log Patterns
 
 ```
-❌ PHPCS Standards Failed
+✗ PHPCS Standards Failed
    →  Run: vendor/bin/phpcs
    →  Fix: composer run standards:fix
 
-❌ npm audit vulnerability
+✗ npm audit vulnerability
    →  Fix: npm install or npm update <package>
    →  Check: npm audit fix
 
-❌ Test Failed
+✗ Test Failed
    →  Run locally: vendor/bin/phpunit
    →  Check: Test output for specific failure
 
-❌ Lighthouse score below threshold
+✗ Lighthouse score below threshold
    →  Performance < 80: Optimize JS/CSS/images
    →  Accessibility < 90: Fix ARIA/focus/color contrast
 ```
@@ -404,7 +404,7 @@ Issues/PRs with labels: `pinned`, `roadmap`, or `epic` are exempt
 
 ---
 
-**Last Updated:** April 2026  
+**Last Updated:** June 2026  
 **Aegis Theme Version:** 1.x  
-**WordPress Minimum:** 6.4  
+**WordPress Minimum:** 6.6  
 **PHP Minimum:** 8.1
