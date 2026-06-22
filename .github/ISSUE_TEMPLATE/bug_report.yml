@@ -1,12 +1,13 @@
-name: Bug report
-description: Create a report to help us improve Aegis
+name: Bug Report
+description: Create a report to help us improve Aegis.
 labels:
+  - "[Type] Bug"
   - triage
 body:
   - type: markdown
     attributes:
       value: |
-        **Thank you for helping us improve the Aegis WordPress Block Theme!**
+        **Thank you for helping us improve the Aegis WordPress Block Theme.**
   - type: textarea
     id: description
     attributes:
