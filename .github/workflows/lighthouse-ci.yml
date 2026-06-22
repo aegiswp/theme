@@ -12,6 +12,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   lighthouse-ci:
     name: Lighthouse Performance Check
@@ -37,24 +40,28 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      - name: Install Node dependencies
-        run: npm ci
-
-      - name: Build theme
-        run: npm run build --if-present
-
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
-          tools: wp-cli
+          tools: composer, wp-cli
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-progress --no-dev
+
+      - name: Build theme
+        run: npm run build --if-present
 
       - name: Set up WordPress test site
         run: |
           mkdir -p wp
           wp core download --path=wp
           wp config create --path=wp --dbname=wordpress --dbuser=root --dbpass=root --dbhost=127.0.0.1 --force
-          wp db create --path=wp
+          # Database is already created by the MySQL service container (MYSQL_DATABASE).
+          wp db check --path=wp
           wp core install --path=wp --url=http://localhost:8080 --title="Aegis Performance Test" --admin_user=admin --admin_password=password --admin_email=test@example.com --skip-email
           ln -s "$GITHUB_WORKSPACE" wp/wp-content/themes/aegis
           wp theme activate aegis --path=wp
