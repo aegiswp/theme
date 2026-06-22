@@ -1,6 +1,12 @@
 # Dependencies
 node_modules/
-vendor/
+# Ignore Composer-managed packages, but keep the vendored first-party Aegis
+# framework packages tracked: they are path-repository sources required for
+# `composer install` to resolve aegis/framework and aegis/icons on a fresh
+# clone (see "repositories" in composer.json).
+vendor/*
+!vendor/aegis/
+!vendor/aegis/**
 
 # IDE
 .vscode/
@@ -18,6 +24,9 @@ vendor/
 Thumbs.db
 Desktop.ini
 
+# Dot-prefixed folders/files in patterns (e.g. .template/)
+patterns/.*
+
 # Ephemeral / scratch (e.g. *.pretty.tmp from local formatting)
 *.tmp
 *.temp
@@ -26,9 +35,11 @@ Desktop.ini
 
 # Dev tooling (standalone packages, not part of theme runtime)
 # Track tools/wpaudit so CI can run its PHPUnit suite (aegis/wpaudit path repo).
+# Keep tools/generate-blocks-manifest.php tracked: `npm run build` depends on it.
 tools/*
 !tools/wpaudit/
 !tools/wpaudit/**
+!tools/generate-blocks-manifest.php
 
 # Audit tool legacy paths (moved to tools/wpaudit)
 config/
@@ -98,5 +109,9 @@ auth.json
 .eslintcache
 .stylelintcache
 .pnpm-store/
-tests/Unit/SmokeTest.php
-.nvmrc
+/.kiro
+AGENTS.md
+DESIGN.md
+/tests
+docs/_footer.md
+docs/_sidebar.md
