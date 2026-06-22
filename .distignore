@@ -4,36 +4,35 @@
 # compiled block JS/CSS, languages, runtime `vendor/`, and theme `assets/`.
 # After changes here, align export-ignore in .gitattributes for `git archive` parity.
 #
+
 # Git / VCS
+
 .git/
 .gitattributes
 .gitignore
 .distignore
 
 # GitHub files
+
 .github/
 
-# AI / IDE
-.claude/
-.cursor/
-.fleet/
-.vscode/
-.idea/
-
 # Node.js / build tooling
+
 node_modules/
 package.json
 package-lock.json
 webpack.config.js
 tsconfig.json
 .nvmrc
-*.code-workspace
+\*.code-workspace
 
 # Composer files (vendor/ runtime deps are included; manifest files are not needed by end users)
+
 composer.json
 composer.lock
 
 # Vendor dev dependencies
+
 vendor/bin/
 vendor/phpunit/
 vendor/giorgiosironi/
@@ -44,30 +43,34 @@ vendor/wp-coding-standards/
 vendor/wptrt/
 
 # Editor, lint, env
+
 .wp-env.json
 .wp-env.override.json
 .editorconfig
 .prettierrc
 .stylelintignore
 .typos.toml
-stylelintrc.json
+.stylelintrc.json
 .env
-.env.*
+.env._
 auth.json
-docker-compose*.yml
-docker-compose*.yaml
+docker-compose_.yml
+docker-compose\*.yaml
 playwright-report/
 test-results/
 
 # Documentation and community files
+
 README.md
 INSTRUCTIONS.md
 CHANGELOG.md
 CONTRIBUTING.md
 CONTRIBUTORS.md
 CODE_OF_CONDUCT.md
+SUBMISSION-NOTES.md
 
 # Development / test tooling
+
 Makefile
 phpcs.xml
 phpcs.xml.dist
@@ -78,22 +81,33 @@ tests/
 coverage/
 .phpunit.result.cache
 .phpunit.cache/
-*.log
+\*.log
+
+# Stray vendor / build temp files
+
+\*.tmp
 
 # Build artifacts, source maps, and cache
+
 .cache/
 .eslintcache
 .stylelintcache
 build/
 dist/
-src/Blocks/*/*.js.map
-src/Blocks/*/*.css.map
+src/Blocks/_/_.js.map
+src/Blocks/_/_.css.map
 src/Blocks/editor/
 
 # Audit tool (standalone dev package, not part of theme runtime)
+
 tools/
 
+# One-off dev/migration scripts (not part of theme runtime)
+
+bin/
+
 # Legacy audit source paths (not part of the theme runtime)
+
 src/Analyzers/
 src/Models/
 src/Enums/
@@ -102,15 +116,22 @@ src/ConfigurationManager.php
 src/DesignSystem/
 
 # Block source files (only compiled output needed)
-src/Blocks/*/index.tsx
-src/Blocks/*/edit.tsx
-src/Blocks/*/save.tsx
-src/Blocks/*/view.ts
-src/Blocks/*/style.scss
+
+src/Blocks/_/index.tsx
+src/Blocks/_/edit.tsx
+src/Blocks/_/save.tsx
+src/Blocks/_/view.ts
+src/Blocks/\*/style.scss
 src/Editor/
 
+# Docs
+
+docs/
+
 # Dev-only pattern docs (optional; safe to include on disk, omit from dist)
+
 patterns/README.txt
 
 # Empty / legacy
+
 config/
