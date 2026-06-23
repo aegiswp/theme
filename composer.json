@@ -1,60 +1,92 @@
 {
-    "name": "aegiswp/theme",
-    "version": "1.0.0-rc.3",
-    "description": "Aegis — Native Block Framework for WordPress",
-    "type": "wordpress-theme",
-    "license": "GPL-2.0-or-later",
-    "authors": [
-        {
-            "name": "Atmostfear Entertainment",
-            "homepage": "https://www.atmostfear-entertainment.com/"
-        }
-    ],
-    "require": {
-        "php": ">=8.1",
-        "enshrined/svg-sanitize": "^0.22",
-        "psr/container": "^2.0"
-    },
-    "require-dev": {
-        "aegis/wpaudit": "@dev",
-        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
-        "phpunit/phpunit": "^10.5",
-        "squizlabs/php_codesniffer": "^3.12",
-        "wp-coding-standards/wpcs": "^3.2"
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "tools/wpaudit"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Aegis\\": "src/"
-        },
-        "files": [
-            "src/bootstrap.php"
-        ]
-    },
-    "config": {
-        "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true
-        },
-        "optimize-autoloader": true,
-        "sort-packages": true
-    },
-    "minimum-stability": "stable",
-    "prefer-stable": true,
-    "scripts": {
-        "standards:check": "phpcs",
-        "standards:fix": "phpcbf",
-        "analyze": "@standards:check",
-        "lint": "@standards:check",
-        "test": "phpunit -c phpunit.xml",
-        "test:php": "phpunit -c phpunit.xml",
-        "test:wpaudit": [
-            "composer install --no-interaction --working-dir=tools/wpaudit",
-            "@php tools/wpaudit/vendor/bin/phpunit -c tools/wpaudit/phpunit.xml"
-        ]
-    }
+	"name": "aegiswp/theme",
+	"description": "Aegis — Native Block Framework for WordPress",
+	"type": "wordpress-theme",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Atmostfear Entertainment",
+			"homepage": "https://www.atmostfear-entertainment.com/"
+		}
+	],
+	"require": {
+		"php": ">=8.1",
+		"aegis/framework": "dev-main",
+		"aegis/icons": "dev-main",
+		"enshrined/svg-sanitize": "^0.22 || dev-master",
+		"psr/container": "^2.0"
+	},
+	"require-dev": {
+		"aegis/wpaudit": "@dev",
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+		"phpunit/phpunit": "^10.5",
+		"squizlabs/php_codesniffer": "^3.12",
+		"wp-coding-standards/wpcs": "^3.2"
+	},
+	"repositories": [
+		{
+			"type": "path",
+			"url": "vendor/aegis/framework",
+			"options": { "symlink": false }
+		},
+		{
+			"type": "path",
+			"url": "vendor/aegis/icons",
+			"options": { "symlink": false }
+		},
+		{
+			"type": "path",
+			"url": "vendor/aegis/container",
+			"options": { "symlink": false }
+		},
+		{
+			"type": "path",
+			"url": "vendor/aegis/dom",
+			"options": { "symlink": false }
+		},
+		{
+			"type": "path",
+			"url": "vendor/aegis/hooks",
+			"options": { "symlink": false }
+		},
+		{
+			"type": "path",
+			"url": "vendor/aegis/utilities",
+			"options": { "symlink": false }
+		},
+		{
+			"type": "path",
+			"url": "tools/wpaudit"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Aegis\\": "src/"
+		},
+		"files": [
+			"src/bootstrap.php"
+		]
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		},
+		"optimize-autoloader": true,
+		"sort-packages": true,
+		"github-protocols": ["https"]
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"scripts": {
+		"standards:check": "phpcs",
+		"standards:fix": "phpcbf",
+		"analyze": "@standards:check",
+		"lint": "@standards:check",
+		"test": "@test:wpaudit",
+		"test:php": "@test:wpaudit",
+		"test:wpaudit": [
+			"composer install --no-interaction --working-dir=tools/wpaudit",
+			"@php tools/wpaudit/vendor/bin/phpunit -c tools/wpaudit/phpunit.xml"
+		]
+	}
 }
