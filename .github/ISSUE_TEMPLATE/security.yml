@@ -60,7 +60,8 @@ body:
         ## Security Support Policy
 
         - **Response Time:** We aim to respond within 48 hours
-        - **Disclosure Timeline:** 90 days after a fix is available
+        - **Patch Release:** Critical fixes targeted within 14 days
+        - **Public Disclosure:** After a patch is available (typically 7–14 days later)
         - **Credit:** Reporters will be credited in security advisories (unless they request anonymity)
 
         ---
