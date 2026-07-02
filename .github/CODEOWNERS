@@ -23,7 +23,8 @@ vendor/ @aegiswp/core-team
 package.json @aegiswp/core-team
 package-lock.json @aegiswp/core-team
 webpack.config.js @aegiswp/core-team
-assets/ @aegiswp/core-team
+src/Blocks/ @aegiswp/core-team
+src/Admin/ @aegiswp/core-team
 
 # Block patterns and templates
 patterns/ @aegiswp/core-team
