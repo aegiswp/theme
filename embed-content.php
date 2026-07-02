@@ -80,7 +80,7 @@ defined( 'ABSPATH' ) || exit;
 	// --- Primary Term ---
 	$aegis_embed_term = null;
 
-	foreach ( [ 'category', 'post_tag' ] as $aegis_embed_taxonomy ) {
+	foreach ( array( 'category', 'post_tag' ) as $aegis_embed_taxonomy ) {
 		$aegis_embed_terms = get_the_terms( get_the_ID(), $aegis_embed_taxonomy );
 
 		if ( $aegis_embed_terms && ! is_wp_error( $aegis_embed_terms ) ) {
@@ -123,22 +123,22 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php
 	// --- Article Schema.org Structured Data ---
-	$aegis_embed_schema = [
+	$aegis_embed_schema = array(
 		'@context'      => 'https://schema.org',
 		'@type'         => 'Article',
 		'headline'      => get_the_title(),
 		'url'           => get_permalink(),
 		'datePublished' => get_the_date( DATE_W3C ),
 		'dateModified'  => get_the_modified_date( DATE_W3C ),
-		'author'        => [
+		'author'        => array(
 			'@type' => 'Person',
 			'name'  => get_the_author(),
-		],
-		'publisher'     => [
+		),
+		'publisher'     => array(
 			'@type' => 'Organization',
 			'name'  => get_bloginfo( 'name' ),
-		],
-	];
+		),
+	);
 
 	if ( $thumbnail_id ) {
 		$aegis_embed_thumb_url = wp_get_attachment_image_url( $thumbnail_id, 'full' );
@@ -157,10 +157,10 @@ defined( 'ABSPATH' ) || exit;
 	$site_icon = get_site_icon_url( 512 );
 
 	if ( $site_icon ) {
-		$aegis_embed_schema['publisher']['logo'] = [
+		$aegis_embed_schema['publisher']['logo'] = array(
 			'@type' => 'ImageObject',
 			'url'   => $site_icon,
-		];
+		);
 	}
 	?>
 	<script type="application/ld+json"><?php echo wp_json_encode( $aegis_embed_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ); ?></script>
