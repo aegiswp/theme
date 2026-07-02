@@ -60,36 +60,42 @@ jobs:
             echo "Could not parse version from PR title"
           fi
 
-      - name: Enable auto-merge for patch and minor updates
-        if: steps.parse.outputs.bump_type != 'major' && steps.parse.outputs.bump_type != 'unknown'
-        run: |
-          echo "✓ Auto-merging ${{ steps.parse.outputs.bump_type }} update"
-          echo "  ${{ steps.parse.outputs.from_version }} → ${{ steps.parse.outputs.to_version }}"
-
-      - name: Approve Pull Request
+      - name: Approve and enable auto-merge for patch and minor updates
         if: steps.parse.outputs.bump_type != 'major' && steps.parse.outputs.bump_type != 'unknown'
         uses: actions/github-script@v7
         with:
           script: |
-            github.rest.pulls.createReview({
+            const bumpType = '${{ steps.parse.outputs.bump_type }}';
+            const fromVersion = '${{ steps.parse.outputs.from_version }}';
+            const toVersion = '${{ steps.parse.outputs.to_version }}';
+
+            await github.rest.pulls.createReview({
               owner: context.repo.owner,
               repo: context.repo.repo,
               pull_number: context.issue.number,
               event: 'APPROVE',
-              body: 'Auto-approved: ${{ steps.parse.outputs.bump_type }} dependency update'
-            })
+              body: `Auto-approved: ${bumpType} dependency update (${fromVersion} → ${toVersion})`
+            });
 
-      - name: Enable Auto-Merge (Squash)
-        if: steps.parse.outputs.bump_type != 'major' && steps.parse.outputs.bump_type != 'unknown'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.pulls.merge({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: context.issue.number,
-              merge_method: 'squash'
-            })
+            await github.graphql(
+              `mutation ($pullRequestId: ID!) {
+                enablePullRequestAutoMerge(input: {
+                  pullRequestId: $pullRequestId,
+                  mergeMethod: SQUASH
+                }) {
+                  pullRequest {
+                    autoMergeRequest {
+                      enabledAt
+                    }
+                  }
+                }
+              }`,
+              {
+                pullRequestId: context.payload.pull_request.node_id
+              }
+            );
+
+            console.log(`✓ Enabled auto-merge for ${bumpType} update (${fromVersion} → ${toVersion})`);
 
       - name: Skip auto-merge for major updates
         if: steps.parse.outputs.bump_type == 'major'
