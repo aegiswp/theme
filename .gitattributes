@@ -40,9 +40,15 @@
 
 # Export ignore (files not included in git archive / distribution)
 /.github export-ignore
-/.claude export-ignore
+/docs export-ignore
 /config export-ignore
 /tools export-ignore
+/bin export-ignore
+/scripts export-ignore
+/build export-ignore
+/dist export-ignore
+/.eslintcache export-ignore
+/.stylelintcache export-ignore
 /src/Analyzers export-ignore
 /src/Models export-ignore
 /src/Enums export-ignore
@@ -65,7 +71,9 @@ src/Blocks/*/style.scss export-ignore
 .prettierrc export-ignore
 .stylelintignore export-ignore
 .typos.toml export-ignore
-stylelintrc.json export-ignore
+.stylelintrc.json export-ignore
+eslint.config.cjs export-ignore
+.pa11yci.json export-ignore
 tsconfig.json export-ignore
 webpack.config.js export-ignore
 phpcs.xml export-ignore
@@ -79,6 +87,8 @@ composer.json export-ignore
 composer.lock export-ignore
 README.md export-ignore
 INSTRUCTIONS.md export-ignore
+SUBMISSION-NOTES.md export-ignore
+DESIGN.md export-ignore
 CHANGELOG.md export-ignore
 CONTRIBUTING.md export-ignore
 CONTRIBUTORS.md export-ignore
@@ -88,9 +98,7 @@ CODE_OF_CONDUCT.md export-ignore
 .nvmrc export-ignore
 .vscode export-ignore
 .idea export-ignore
-.cursor export-ignore
 .fleet export-ignore
-.kiro export-ignore
 .wp-env.override.json export-ignore
 node_modules/ export-ignore
 tests/ export-ignore
