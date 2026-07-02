@@ -39,8 +39,8 @@ body:
       description: Which block category does this relate to?
       options:
         - "Not block-related"
-        - Content Blocks (Countdown, Modal, etc.)
-        - Media Blocks (Video, Slider, etc.)
+        - Content Blocks (Countdown, Toggle, Related Posts, etc.)
+        - Media Blocks (Video, Slider, Slide, etc.)
         - Navigation Blocks
         - Layout Blocks
         - Utility Blocks
