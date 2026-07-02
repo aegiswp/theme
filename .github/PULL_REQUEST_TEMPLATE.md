@@ -111,7 +111,11 @@ Include any setup required, and the steps to reproduce the behavior.
 - [ ] I have added or updated block.json attributes if needed
 
 ### Compatibility
+<<<<<<< Updated upstream
 - [ ] Code is compatible with WordPress 6.6, 6.7, and latest
+=======
+- [ ] Code is compatible with WordPress 7.0 and latest
+>>>>>>> Stashed changes
 - [ ] Code is compatible with PHP 8.1, 8.2, and 8.3
 - [ ] If theme.json changes, it passes theme.json validation
 - [ ] If performance-critical, Lighthouse score remains 80+
@@ -128,7 +132,11 @@ The following checks will run automatically on this PR:
 - ✓ **CI (ci.yml)**: Linting, tests, and dependency audits
 - ✓ **Accessibility (accessibility.yml)**: a11y scanning on test site
 - ✓ **Theme.json Validation**: Structure and schema validation
+<<<<<<< Updated upstream
 - ✓ **WordPress Compatibility Matrix**: Tests against WP 6.6/6.7/latest + PHP 8.1/8.2/8.3
+=======
+- ✓ **WordPress Compatibility Matrix**: Tests against WP 7.0/latest + PHP 8.1/8.2/8.3
+>>>>>>> Stashed changes
 - ✓ **Lighthouse CI**: Performance and accessibility metrics
 - ✓ **Spelling Check**: Catches typos
 
