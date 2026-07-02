@@ -14,6 +14,7 @@ concurrency:
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   lighthouse-ci:
@@ -139,8 +140,9 @@ jobs:
         with:
           script: |
             const fs = require('fs');
+            const marker = '<!-- lighthouse-ci -->';
 
-            let comment = "## 📊 Lighthouse Audit Results\n\n";
+            let comment = marker + "\n## 📊 Lighthouse Audit Results\n\n";
 
             if (fs.existsSync('./.lighthouseci/results/manifest.json')) {
               const manifest = JSON.parse(fs.readFileSync('./.lighthouseci/results/manifest.json', 'utf8'));
@@ -158,12 +160,29 @@ jobs:
               comment += "⚠ Unable to generate Lighthouse report\n";
             }
 
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
+            const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: comment
-            })
+              issue_number: context.issue.number
+            });
+
+            const existing = comments.find((entry) => entry.body && entry.body.includes(marker));
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body: comment
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: comment
+              });
+            }
 
       - name: Cleanup PHP server
         if: always()
