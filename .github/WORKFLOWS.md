@@ -27,8 +27,7 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 - ✓ npm dependency audit (`npm audit`)
 - ✓ PHP linting and PHPCS standards
 - ✓ Composer dependency audit (`composer audit`)
-- ✓ PHP Unit tests with coverage
-- ✓ WPAudit integration tests
+- ✓ WPAudit unit tests (`tools/wpaudit`)
 - ✓ theme.json validation
 - ✓ Required theme files (style.css, functions.php, index.php, theme.json)
 - ✓ Code coverage report (Codecov)
@@ -36,11 +35,10 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 #### If it fails:
 1. Check the logs for specific linting errors
 2. Run locally: `npm run lint:js` / `npm run lint:css` / `composer lint`
-3. Run tests locally: `vendor/bin/phpunit`
+3. Run tests locally: `composer test:wpaudit`
 4. Check dependency audit results; update vulnerable packages
 
 #### Artifacts:
-- Coverage report (uploaded to Codecov)
 - Test results (in logs)
 
 ---
@@ -59,8 +57,8 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 - ✓ Focus indicators
 
 #### If it fails:
-1. Check pa11y-ci threshold (currently 5 violations max)
-2. Run locally: `npm install -g pa11y-ci && pa11y-ci http://localhost:8080`
+1. Check pa11y-ci threshold (currently 10 violations max)
+2. Run locally: `npx pa11y-ci --config .pa11yci.json http://localhost:8080/`
 3. Fix reported issues (missing alt text, ARIA labels, etc.)
 
 #### Environment:
@@ -118,11 +116,7 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 **Purpose:** Test against multiple WordPress and PHP versions
 **Triggers:** Schedule (weekly) + Push/PR to main/dev
 **Duration:** ~30-40 minutes (9 parallel jobs)
-<<<<<<< Updated upstream
-**Matrix:** WordPress 6.6/6.7/latest × PHP 8.1/8.2/8.3
-=======
 **Matrix:** WordPress 7.0/latest × PHP 8.1/8.2/8.3
->>>>>>> Stashed changes
 
 #### What it checks:
 - ✓ Theme activation on each WP/PHP combination
@@ -137,11 +131,7 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 2. Check error message in workflow logs
 3. Reproduce locally with that version:
    ```bash
-<<<<<<< Updated upstream
-   wp core download --version=6.6 --path=wp-test
-=======
    wp core download --version=7.0 --path=wp-test
->>>>>>> Stashed changes
    ```
 4. Test theme activation and functionality
 
@@ -243,11 +233,12 @@ Warnings are not blockers on dev branch for faster iteration
 3. Verify composer.lock is up-to-date
 
 #### Release process:
-1. Tag: `git tag v1.2.3 && git push origin v1.2.3`
-2. Wait for release.yml to complete
-3. Review draft release on GitHub
-4. Verify package contents and checksum
-5. Click "Publish release"
+1. Add `screenshot.png` (1200×900) at the theme root if not already present
+2. Tag: `git tag v1.2.3 && git push origin v1.2.3`
+3. Wait for release.yml to complete
+4. Review draft release on GitHub
+5. Verify package contents and checksum
+6. Click "Publish release"
 
 #### Package verification:
 ```bash
@@ -264,7 +255,7 @@ sha256sum -c aegis.zip.sha256
 
 #### What it does:
 - ✓ Parses version bump type (major/minor/patch)
-- ✓ Auto-merges **patch** and **minor** updates
+- ✓ Approves and enables auto-merge for **patch** and **minor** updates
 - ✓ Blocks **major** updates (requires manual review)
 - ✓ Comments on major updates with warnings
 
@@ -276,7 +267,7 @@ sha256sum -c aegis.zip.sha256
 - 1.2.3 → 2.0.0 (major) ⚠️
 
 #### Note:
-Only merges if all CI checks pass
+Auto-merge waits for required branch protection checks to pass before merging
 
 ---
 
@@ -333,7 +324,7 @@ Issues/PRs with labels: `pinned`, `roadmap`, or `epic` are exempt
    →  Check: npm audit fix
 
 ✗ Test Failed
-   →  Run locally: vendor/bin/phpunit
+   →  Run locally: composer test:wpaudit
    →  Check: Test output for specific failure
 
 ✗ Lighthouse score below threshold
@@ -412,11 +403,7 @@ Issues/PRs with labels: `pinned`, `roadmap`, or `epic` are exempt
 
 ---
 
-**Last Updated:** June 2026  
+**Last Updated:** July 2026  
 **Aegis Theme Version:** 1.x  
-<<<<<<< Updated upstream
-**WordPress Minimum:** 6.6  
-=======
 **WordPress Minimum:** 7.0  
->>>>>>> Stashed changes
 **PHP Minimum:** 8.1
