@@ -53,7 +53,6 @@ jobs:
           php-version: '8.3'
           extensions: mbstring, intl, dom, curl, json, libxml, xml, xmlwriter
           tools: composer, phpcs
-          coverage: pcov
 
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-progress
@@ -66,13 +65,6 @@ jobs:
       - name: PHPCS (WordPress Coding Standards)
         run: vendor/bin/phpcs
 
-      # Unit tests for integrated audit tool
-      - name: Run PHP Unit tests
-        run: |
-          if [ -f phpunit.xml ]; then
-            vendor/bin/phpunit --testsuite unit --coverage-clover coverage.xml
-          fi
-
       # aegis/wpaudit — path repo tools/wpaudit; tracked in git (see .gitignore exception).
       - name: WPAudit (aegis/wpaudit) unit tests
         run: |
@@ -82,12 +74,6 @@ jobs:
           fi
           composer install --no-interaction --no-progress --working-dir=tools/wpaudit
           tools/wpaudit/vendor/bin/phpunit -c tools/wpaudit/phpunit.xml
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          fail_ci_if_error: false
 
   theme-validation:
     name: Theme Validation
