@@ -5,6 +5,10 @@
 extend-exclude = [
     "vendor/",
     "node_modules/",
+    "tools/",
+    "build/",
+    "docs/",
+    "patterns/",
     "assets/",
     "src/*/css/",
     "src/*/js/",
@@ -34,6 +38,9 @@ extend-ignore-re = [
 ]
 
 [default.extend-words]
+# British English used in theme copy and docs
+colour = "colour"
+colours = "colours"
 # WordPress/PHP common terms that aren't typos
 aci = "aci"
 ser = "ser"
