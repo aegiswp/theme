@@ -118,7 +118,11 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 **Purpose:** Test against multiple WordPress and PHP versions
 **Triggers:** Schedule (weekly) + Push/PR to main/dev
 **Duration:** ~30-40 minutes (9 parallel jobs)
+<<<<<<< Updated upstream
 **Matrix:** WordPress 6.6/6.7/latest × PHP 8.1/8.2/8.3
+=======
+**Matrix:** WordPress 7.0/latest × PHP 8.1/8.2/8.3
+>>>>>>> Stashed changes
 
 #### What it checks:
 - ✓ Theme activation on each WP/PHP combination
@@ -133,7 +137,11 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 2. Check error message in workflow logs
 3. Reproduce locally with that version:
    ```bash
+<<<<<<< Updated upstream
    wp core download --version=6.6 --path=wp-test
+=======
+   wp core download --version=7.0 --path=wp-test
+>>>>>>> Stashed changes
    ```
 4. Test theme activation and functionality
 
@@ -406,5 +414,9 @@ Issues/PRs with labels: `pinned`, `roadmap`, or `epic` are exempt
 
 **Last Updated:** June 2026  
 **Aegis Theme Version:** 1.x  
+<<<<<<< Updated upstream
 **WordPress Minimum:** 6.6  
+=======
+**WordPress Minimum:** 7.0  
+>>>>>>> Stashed changes
 **PHP Minimum:** 8.1
