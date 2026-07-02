@@ -19,8 +19,6 @@ body:
       description: Select the Aegis custom block with the issue
       options:
         - Countdown Block
-        - Map Block
-        - Modal Block
         - Related Posts Block
         - Slider Block
         - Slide Block
@@ -97,7 +95,7 @@ body:
     id: wp-version
     attributes:
       label: WordPress Version
-      description: e.g., 6.5.2
+      description: e.g., 7.0
     validations:
       required: true
 
