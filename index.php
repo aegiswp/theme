@@ -1,13 +1,12 @@
 <?php
 /**
- * Front-end index fallback
+ * Main Index File
  *
- * Block themes use `templates/index.html` (and `templates/*.html`) for real output;
- * this file stays empty. WordPress still expects `index.php` in the theme root for
- * installation checks and to avoid directory listing when the web server is misconfigured.
+ * This file is intentionally left blank. As a block-based theme, Aegis uses the
+ * `templates/index.html` file as its main template.
+ *
+ * This file is required for theme validation and to prevent directory browsing.
  *
  * @package Aegis
  * @since 1.0.0
- * @link https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/
- * @link https://github.com/aegiswp/theme
  */
