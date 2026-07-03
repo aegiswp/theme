@@ -20,6 +20,12 @@ lint: ## Run JavaScript and CSS linters
 	npm run lint:css --if-present
 	npm run lint:pkg-json --if-present
 
+<<<<<<< Updated upstream
+=======
+lint\:php: ## Run PHP CodeSniffer
+	vendor/bin/phpcs
+
+>>>>>>> Stashed changes
 translate: ## Generate translation POT file
 	npm run translate
 
