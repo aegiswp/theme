@@ -12,12 +12,9 @@ const defaultConfig = require( '@wordpress/scripts/config/eslint.config.cjs' );
 module.exports = [
 	{
 		ignores: [
-<<<<<<< Updated upstream
-=======
 			'eslint.config.cjs',
 			'scripts/**',
 			'tools/**',
->>>>>>> Stashed changes
 			'src/Blocks/*/index.js',
 			'src/Blocks/*/view.js',
 			'src/Blocks/*/style.js',
