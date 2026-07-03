@@ -1,10 +1,10 @@
 # Enhanced Core Blocks
 
-Aegis enhances 37 WordPress core blocks with additional styling, configuration options, and design system integration. These enhancements are applied automatically — you do not need to install anything extra.
+The Aegis **framework** (`vendor/aegis/framework`) enhances 37 WordPress core blocks with additional styling, configuration options, and design system integration. Enhancements apply automatically when the theme is active.
 
 ## How Enhancements Work
 
-Aegis applies enhancements to core blocks through:
+The framework applies enhancements through:
 
 - **theme.json styling** — Default colors, typography, spacing, and border settings for each block.
 - **Block styles** — Additional style variations registered for specific blocks.
