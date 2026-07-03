@@ -1,6 +1,6 @@
 # Contributing to Aegis
 
-Thank you for your interest in contributing to the Aegis theme! This document provides guidelines for contributing to the Aegis WordPress theme project.
+Thank you for your interest in contributing to the Aegis theme. This document provides guidelines for contributing to the Aegis WordPress theme project.
 
 ## Development Setup
 
@@ -12,7 +12,7 @@ cd theme
 
 2. Install Node.js dependencies:
 ```bash
-npm install
+npm ci
 ```
 
 3. Install PHP dependencies:
@@ -41,17 +41,17 @@ npm run dev
 ### Branch Strategy
 
 - `main` - Production-ready code
-- `develop` - Development branch for integration  
+- `dev` - Development branch for integration
 - `feature/*` - Feature branches
 - `bugfix/*` - Bug fix branches
 - `hotfix/*` - Critical fixes for production
 
 ### Making Changes
 
-1. Create a new branch from `develop`:
+1. Create a new branch from `dev`:
 ```bash
-git checkout develop
-git pull origin develop
+git checkout dev
+git pull origin dev
 git checkout -b feature/your-feature-name
 ```
 
@@ -59,9 +59,9 @@ git checkout -b feature/your-feature-name
 
 3. Run tests and code quality checks:
 ```bash
-npm run lint:css
+npm run lint
 composer run lint
-composer run standards:check
+composer run test:wpaudit
 ```
 
 4. Build assets if you modified any block source files:
@@ -81,7 +81,7 @@ git commit -m "feat: add new custom block for countdown timer"
 ### PHP
 
 - Follow [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/)
-- Use PHP 7.4+ features where appropriate
+- Use PHP 8.1+ features where appropriate
 - All code must pass PHPCS checks: `composer run lint`
 - Document all public methods with PHPDoc blocks
 - Use strict types: `declare( strict_types=1 );`
@@ -396,8 +396,8 @@ By contributing to Aegis, you agree that your contributions will be licensed und
 
 ## Questions?
 
-Feel free to open an issue for questions or discussions. We welcome contributors of all experience levels!
+Feel free to open an issue for questions or discussions. We welcome contributors of all experience levels.
 
 ---
 
-Thank you for contributing to Aegis!
+Thank you for contributing to Aegis.
