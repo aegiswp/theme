@@ -1,22 +1,29 @@
 # Custom Blocks
 
-Aegis extends the WordPress block editor with custom blocks designed for common website needs. These blocks are built with the same architecture as WordPress core blocks and integrate seamlessly with the editor experience.
+The Aegis **theme** registers custom blocks from `src/Blocks/`. Map and Modal blocks require the [Aegis companion plugin](../../plugins/aegis/docs/blocks/custom-blocks.md). Pro adds [tabs, image compare, and block sub-features](../../plugins/aegis-pro/docs/features/pro-blocks.md).
 
-## Available Custom Blocks
+Block feature toggles are at **Aegis → Blocks** when the plugin is active.
 
-| Block | Namespace | Source | Description |
-|-------|-----------|--------|-------------|
-| Countdown | `aegis/countdown` | Theme | Animated countdown timer to a target date. |
-| Slider | `aegis/slider` | Theme | A carousel container for sliding content. |
-| Slide | `aegis/slide` | Theme | An individual slide within a Slider block. |
-| Toggle | `aegis/toggle` | Theme | An expandable/collapsible content wrapper (accordion). |
-| Toggle Content | `aegis/toggle-content` | Theme | The content area within a Toggle block. |
-| Video | `aegis/video` | Theme | Enhanced video embed with performance optimizations. |
-| Related Posts | `aegis/related-posts` | Theme | Displays posts related to the current content. |
-| Map | `aegis/map` | Plugin | Interactive map embed. |
-| Modal | `aegis/modal` | Plugin | Popup/overlay dialog triggered by user interaction. |
+## Theme-Registered Blocks
 
-> **Note:** The Map and Modal blocks require the free Aegis Plugin to be installed. They are not part of the theme itself.
+| Block | Namespace | Description |
+|-------|-----------|-------------|
+| Countdown | `aegis/countdown` | Animated countdown timer to a target date. |
+| Slider | `aegis/slider` | A carousel container for sliding content. |
+| Slide | `aegis/slide` | An individual slide within a Slider block. |
+| Toggle | `aegis/toggle` | An expandable/collapsible content wrapper. |
+| Toggle Content | `aegis/toggle-content` | The content area within a Toggle block. |
+| Video | `aegis/video` | Enhanced video embed with performance optimizations. |
+| Related Posts | `aegis/related-posts` | Displays posts related to the current content. |
+
+## Plugin Blocks
+
+| Block | Namespace | Documentation |
+|-------|-----------|---------------|
+| Map | `aegis/map` | [Plugin — Custom Blocks](../../plugins/aegis/docs/blocks/custom-blocks.md) |
+| Modal | `aegis/modal` | [Plugin — Modals](../../plugins/aegis/docs/blocks/modals.md) |
+
+> **Note:** Map and Modal require the free Aegis Plugin. Theme blocks work without the plugin when using the Aegis theme.
 
 ## Countdown
 
@@ -171,47 +178,12 @@ The Related Posts block dynamically displays posts related to the current conten
 4. Select which post metadata to show.
 5. Set fallback content for when no related posts are found.
 
-## Map (Plugin)
+## Map and Modal (Plugin)
 
-The Map block embeds an interactive map into your content. This block requires the free Aegis Plugin.
+Map (`aegis/map`) and Modal (`aegis/modal`) are registered by the **Aegis companion plugin**, not the theme. See:
 
-### Features
-
-- Multiple map providers support.
-- Custom marker placement.
-- Configurable zoom level and center point.
-- Responsive sizing.
-- Lazy loading for performance.
-- Style customization.
-
-### Usage
-
-1. Install and activate the Aegis Plugin.
-2. Insert the **Map** block.
-3. Set the map center coordinates or address.
-4. Configure zoom level and map style.
-5. Add markers as needed.
-
-## Modal (Plugin)
-
-The Modal block creates popup dialogs triggered by user interaction. This block requires the free Aegis Plugin.
-
-### Features
-
-- Trigger via button click, timer, or scroll position.
-- Customizable overlay and dialog styling.
-- Close button and outside-click dismissal.
-- Animation options for open/close.
-- Full block editor support for modal content.
-- Accessible focus trapping and ARIA attributes.
-
-### Usage
-
-1. Install and activate the Aegis Plugin.
-2. Insert the **Modal** block.
-3. Configure the trigger method.
-4. Build the modal content using any blocks.
-5. Style the overlay and dialog container.
+- [Plugin — Custom Blocks](../../plugins/aegis/docs/blocks/custom-blocks.md)
+- [Plugin — Modals tab](../../plugins/aegis/docs/blocks/modals.md)
 
 ## Block Dependencies
 
@@ -227,7 +199,8 @@ The Modal block creates popup dialogs triggered by user interaction. This block 
 
 ## Next Steps
 
-- [[enhanced-core-blocks]] — Core blocks with added Aegis functionality.
-- [[block-variations]] — Custom variations of WordPress core blocks.
+- [[enhanced-core-blocks]] — Framework core block enhancements.
+- [[block-variations]] — Framework block variations.
 - [[block-patterns]] — Pre-built layouts using these blocks.
-- [[conditional-logic]] — Control block visibility with conditions.
+- [Map and Modal (Plugin)](../../plugins/aegis/docs/blocks/custom-blocks.md)
+- [Conditional Logic (Plugin)](../../plugins/aegis/docs/features/conditional-logic.md)
