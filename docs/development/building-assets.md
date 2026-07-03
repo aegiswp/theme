@@ -1,6 +1,28 @@
 # Building Assets
 
-Aegis uses `@wordpress/scripts` with Webpack to compile JavaScript, CSS, and block assets. This page documents the available build commands and the compilation process.
+Aegis uses a **dual build** workflow: the theme compiles theme-owned blocks; the companion plugin compiles Map, Modal, admin, and editor assets.
+
+## Theme Build
+
+```bash
+cd wp-content/themes/aegis
+composer install
+npm install
+npm run build             # Theme blocks → build/Blocks/
+npm run dev               # Watch mode
+```
+
+Output: `build/Blocks/` (countdown, slider, slide, toggle, toggle-content, video, related-posts).
+
+## Plugin Build
+
+```bash
+cd wp-content/plugins/aegis
+npm install
+npm run build             # Map, modal, admin, video editor
+```
+
+See [Plugin Building Assets](../../plugins/aegis/docs/development/building-assets.md).
 
 ## Build Toolchain
 
@@ -58,27 +80,18 @@ Press `Ctrl + C` to stop the watcher.
 
 ## Build Output
 
-Compiled assets are placed in the `build/` directory:
+Compiled assets are placed in the `build/Blocks/` directory:
 
 ```
-build/
-├── blocks/
-│   ├── countdown/
-│   │   ├── index.js           # Block JavaScript
-│   │   ├── index.asset.php    # Dependencies and version
-│   │   ├── style-index.css    # Frontend styles
-│   │   └── index.css          # Editor styles
-│   ├── slider/
-│   ├── slide/
-│   ├── toggle/
-│   ├── toggle-content/
-│   ├── video/
-│   └── related-posts/
-├── css/
-│   ├── frontend.css           # Global frontend styles (if any)
-│   └── editor.css             # Editor-specific styles
-└── js/
-    └── frontend.js            # Global frontend script (if any)
+build/Blocks/
+├── countdown/
+├── slider/
+├── slide/
+├── toggle/
+├── toggle-content/
+├── video/
+├── related-posts/
+└── blocks-manifest.php
 ```
 
 ### Asset PHP Files
@@ -96,24 +109,15 @@ This file declares WordPress script dependencies and provides a version hash for
 
 ## Source File Structure
 
-Source files live in the `assets/` and `blocks/` directories:
+Block source files live in `src/Blocks/`:
 
 ```
-assets/
-├── css/
-│   ├── frontend/         # Frontend stylesheets (per-block or global)
-│   └── editor/           # Editor-only stylesheets
-└── js/
-    ├── frontend/         # Frontend JavaScript (per-block or global)
-    └── editor/           # Editor-only JavaScript
-
-blocks/
+src/Blocks/
 ├── countdown/
-│   ├── block.json        # Block metadata
-│   ├── index.js          # Block registration (editor)
-│   ├── edit.js           # Editor component
-│   ├── save.js           # Save/render output
-│   └── style.css         # Block frontend styles
+│   ├── block.json
+│   ├── index.tsx
+│   ├── edit.tsx
+│   └── view.ts
 ├── slider/
 ├── slide/
 ├── toggle/
