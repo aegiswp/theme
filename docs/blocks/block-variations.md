@@ -1,12 +1,12 @@
 # Block Variations
 
-Aegis registers custom block variations that extend WordPress core blocks with specialized functionality. Block variations appear as distinct block types in the inserter but are built on top of existing core blocks.
+The Aegis **framework** (`vendor/aegis/framework`) registers block variations that extend WordPress core blocks. Variations appear as distinct entries in the block inserter.
+
+When the **Aegis plugin** is active, enable or disable variations and sub-features at **Aegis → Blocks**. See [Plugin Block Variations](../../plugins/aegis/docs/blocks/block-variations.md).
 
 ## Understanding Block Variations
 
-A block variation is a preconfigured version of an existing block with specific attributes, inner blocks, or settings preset. They appear as their own entries in the block inserter, making specialized layouts discoverable and easy to use.
-
-Unlike custom blocks, variations do not require additional JavaScript or PHP — they leverage the existing core block infrastructure.
+A block variation is a preconfigured version of an existing block with specific attributes, inner blocks, or settings preset. They leverage core block infrastructure with framework-provided JavaScript and CSS.
 
 ## Available Variations
 
@@ -253,7 +253,8 @@ Some variations also appear under their parent block in the inserter hierarchy.
 
 ## Next Steps
 
-- [[custom-blocks]] — Blocks built specifically for Aegis.
-- [[enhanced-core-blocks]] — Additional styling for core blocks.
+- [[custom-blocks]] — Theme custom blocks.
+- [[enhanced-core-blocks]] — Framework core block enhancements.
 - [[block-patterns]] — Pre-built layouts using variations.
+- [Block variation toggles (Plugin)](../../plugins/aegis/docs/blocks/block-variations.md)
 - [[svg-icons]] — Using SVGs with the icon system.
