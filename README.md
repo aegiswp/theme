@@ -295,7 +295,7 @@ Aegis is a comprehensive Full Site Editing (FSE) theme that extends the capabili
 
 ### Content & Design Tools
 
-**SVG Icon System**: Create inline SVG icons directly within the image block or as inline text. Aegis includes WordPress, Dashicons, and Social Icons by default, with full support for custom SVGs. Simply search for "Icon" in the block inserter to get started.
+**SVG Icon System**: Use the WordPress **Icon** block (`core/icon`, WordPress 7.0+) with Aegis enhancements (gradient mask, links, animation). The editor merges the core icon library with Aegis sets (WordPress, social, remixicon, plugin, and more) via `wp/v2/icons` + `aegis/v1/icons/`. Legacy `core/image` + `is-style-icon` content is still rendered for backward compatibility.
 
 **Variable Font Library**: Access a curated collection of popular variable Google Fonts, with fonts conditionally loaded based on selections made in Site Editor > Styles. This ensures optimal typography without unnecessary asset bloat.
 
@@ -320,7 +320,8 @@ Aegis extends the following WordPress core blocks with additional functionality,
 | Details | `core/details` | Styled accordion/disclosure elements |
 | Group | `core/group` | Enhanced group block with additional layout options |
 | Heading | `core/heading` | Extended heading styles with gradient and decoration support |
-| Image | `core/image` | SVG icon support and advanced image controls |
+| Icon | `core/icon` | Core icon block with Aegis library bridge, gradients, and links |
+| Image | `core/image` | Advanced image controls (legacy icon variation deprecated) |
 | List | `core/list` | Enhanced list styling with custom markers |
 | Navigation | `core/navigation` | Mega menu support and advanced navigation styles |
 | Navigation Submenu | `core/navigation-submenu` | Multi-column dropdown menu support |
@@ -374,7 +375,6 @@ Aegis includes the following custom block variations that extend WordPress core 
 | Counter | `core/paragraph` | Animated number counter with customizable start/end values and duration |
 | Curved Text | `core/paragraph` | Text displayed along a curved SVG path for creative typography |
 | Grid | `core/group` | Advanced CSS grid layout with responsive column controls |
-| Icon | `core/image` | Inline SVG icons with WordPress, Dashicons, and Social Icons support |
 | Marquee | `core/group` | Continuously scrolling horizontal content ticker animation |
 | Newsletter | `core/group` | Pre-styled newsletter signup form layout |
 | Related Posts | `core/query` | Automatically queries and displays related posts based on taxonomy |
@@ -571,7 +571,7 @@ If you find setting up WordPress locally overwhelming, consider using [wp-env](h
 #### Requirements
 
 - [Aegis](https://github.com/aegiswp/theme/releases/)
-- [WordPress 6.6+](https://wordpress.org/download/) (Tested up to 6.9.4)
+- [WordPress 7.0+](https://wordpress.org/download/) (Tested up to 7.0)
 - PHP **8.1+** (Node **20+** and npm **9+** for building blocks and running wp-env; see `package.json` `engines` and `.nvmrc`)
 - License: [GPLv2](https://www.gnu.org/licenses/gpl-2.0.html) or later.
 
@@ -658,7 +658,7 @@ To generate a new password (recommended):
 
 ## Contributing
 
-Contributing to the Aegis theme or any other open-source project can be a rewarding experience, both for personal growth and for the community at large. Here are some advices for contributors to ensure a smooth and effective contribution process:
+Contributing to the Aegis theme or any other open-source project can be a rewarding experience, both for personal growth and for the community at large. Here is some advice for contributors to ensure a smooth and effective contribution process:
 
 ### Communication and Collaboration
 
