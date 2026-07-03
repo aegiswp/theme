@@ -1,23 +1,19 @@
 <?php
 /**
- * Theme bootstrap and public hooks
+ * Theme Functions
  *
- * Main entry for the Aegis block theme. Loads Composer, registers the framework,
- * and wires theme-level WordPress hooks that are not part of `src/bootstrap.php`
- * (that file is autoloaded and registers `init` services only).
+ * Main entry point for the Aegis theme. This file is responsible for
+ * bootstrapping the theme by loading necessary files and initializing the
+ * Aegis Framework.
  *
- * Responsibilities in this file:
- * - `vendor/autoload.php` — PSR-4 and Composer `files` (`src/bootstrap.php`).
- * - GitHub release updater config filter (`aegis_theme_updater_config`).
- * - `Aegis::register( __FILE__ )` — framework and design system.
- * - Block editor: core canvas visibility UI overrides (see assets below).
- * - `wp_resource_hints` — optional DNS-prefetch targets.
- * - `title-tag` — theme support.
+ * Responsibilities:
+ * - Loads the Composer autoloader to make all dependencies available.
+ * - Initializes the Aegis Framework by calling `Aegis::register()`.
  *
- * @package Aegis
- * @since 1.0.0
- * @link https://github.com/aegiswp/theme
- * @author Atmostfear Entertainment
+ * @package    Aegis
+ * @since      1.0.0
+ * @author     Atmostfear Entertainment
+ * @link       https://github.com/aegiswp/theme
  */
 
 // Enforces strict type checking for all code in this file.
@@ -26,6 +22,7 @@ declare(strict_types=1);
 // Includes the Composer-generated autoloader to make all dependencies available.
 require_once __DIR__ . '/vendor/autoload.php';
 
+<<<<<<< Updated upstream
 // Configure the theme updater for GitHub releases (must be before Aegis::register).
 add_filter('aegis_theme_updater_config', function () {
     return [
@@ -72,3 +69,36 @@ add_filter('wp_resource_hints', function ($urls, $relation_type) {
 add_action('after_setup_theme', function () {
 	add_theme_support('title-tag');
 });
+=======
+// Pattern files call these helpers during registration on `init`.
+require_once __DIR__ . '/src/helpers.php';
+
+// Theme-owned register_block_pattern bridge (see src/BlockPatterns.php).
+require_once __DIR__ . '/src/BlockPatterns.php';
+
+add_action(
+	'init',
+	static function (): void {
+		load_theme_textdomain( 'aegis', get_template_directory() . '/languages' );
+	},
+	0
+);
+
+add_action(
+	'init',
+	static function (): void {
+		Aegis::register( __FILE__ );
+	},
+	5
+);
+
+// Theme-level classes are bootstrapped via Composer files autoload (src/bootstrap.php).
+
+// Ensure title-tag support is explicitly declared (SEO).
+add_action(
+	'after_setup_theme',
+	function () {
+		add_theme_support( 'title-tag' );
+	}
+);
+>>>>>>> Stashed changes
