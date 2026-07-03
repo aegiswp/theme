@@ -18,7 +18,7 @@ This document provides comprehensive instructions for setting up, developing, bu
 
 Before starting development, ensure you have the following installed:
 
-- **WordPress**: 6.6+ (tested up to 6.9)
+- **WordPress**: 7.0+ (tested up to 7.0)
 - **PHP**: 8.1+ with Composer
 - **Node.js**: 20+ (see `.nvmrc` for exact version)
 - **npm**: 9+
@@ -270,7 +270,7 @@ Build a release package with `vendor/` included, then deploy the zip file.
 ### Production Considerations
 
 - Ensure PHP 8.1+ on server
-- WordPress 6.6+ recommended
+- WordPress 7.0+ recommended
 - For full functionality, may need Gutenberg plugin
 - Test with target WordPress version
 
