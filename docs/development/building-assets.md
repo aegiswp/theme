@@ -1,0 +1,238 @@
+# Building Assets
+
+Aegis uses `@wordpress/scripts` with Webpack to compile JavaScript, CSS, and block assets. This page documents the available build commands and the compilation process.
+
+## Build Toolchain
+
+| Tool | Purpose |
+|------|---------|
+| `@wordpress/scripts` | WordPress-specific Webpack configuration |
+| Webpack | Module bundler |
+| Babel | JavaScript transpilation |
+| PostCSS | CSS processing |
+| Sass (optional) | CSS preprocessor support |
+
+## Available Commands
+
+### Production Build
+
+```bash
+npm run build
+```
+
+Creates optimized, minified production-ready assets:
+
+- JavaScript is minified and tree-shaken.
+- CSS is minified and autoprefixed.
+- Source maps are generated for debugging.
+- Asset files include content hashes for cache busting.
+
+### Development Build
+
+```bash
+npm run build:dev
+```
+
+Creates unminified development assets:
+
+- No minification (easier to debug).
+- Full source maps.
+- No content hashes in filenames.
+- Faster build time.
+
+### Development Watch Mode
+
+```bash
+npm run dev
+```
+
+Starts Webpack in watch mode:
+
+- Watches source files for changes.
+- Automatically rebuilds on file save.
+- Provides fast incremental builds (only rebuilds what changed).
+- Outputs development-friendly (unminified) assets.
+- Console output shows build status and errors.
+
+Press `Ctrl + C` to stop the watcher.
+
+## Build Output
+
+Compiled assets are placed in the `build/` directory:
+
+```
+build/
+├── blocks/
+│   ├── countdown/
+│   │   ├── index.js           # Block JavaScript
+│   │   ├── index.asset.php    # Dependencies and version
+│   │   ├── style-index.css    # Frontend styles
+│   │   └── index.css          # Editor styles
+│   ├── slider/
+│   ├── slide/
+│   ├── toggle/
+│   ├── toggle-content/
+│   ├── video/
+│   └── related-posts/
+├── css/
+│   ├── frontend.css           # Global frontend styles (if any)
+│   └── editor.css             # Editor-specific styles
+└── js/
+    └── frontend.js            # Global frontend script (if any)
+```
+
+### Asset PHP Files
+
+Each compiled JavaScript file generates a companion `.asset.php` file:
+
+```php
+<?php return array(
+    'dependencies' => array('wp-element', 'wp-blocks', 'wp-i18n'),
+    'version'      => 'abc123def456',
+);
+```
+
+This file declares WordPress script dependencies and provides a version hash for cache busting. WordPress uses this during `wp_enqueue_script()`.
+
+## Source File Structure
+
+Source files live in the `assets/` and `blocks/` directories:
+
+```
+assets/
+├── css/
+│   ├── frontend/         # Frontend stylesheets (per-block or global)
+│   └── editor/           # Editor-only stylesheets
+└── js/
+    ├── frontend/         # Frontend JavaScript (per-block or global)
+    └── editor/           # Editor-only JavaScript
+
+blocks/
+├── countdown/
+│   ├── block.json        # Block metadata
+│   ├── index.js          # Block registration (editor)
+│   ├── edit.js           # Editor component
+│   ├── save.js           # Save/render output
+│   └── style.css         # Block frontend styles
+├── slider/
+├── slide/
+├── toggle/
+├── toggle-content/
+├── video/
+└── related-posts/
+```
+
+## Webpack Configuration
+
+Aegis extends the default `@wordpress/scripts` Webpack config:
+
+```javascript
+// webpack.config.js
+const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
+
+module.exports = {
+    ...defaultConfig,
+    entry: {
+        ...defaultConfig.entry(),
+        // Additional entry points if needed
+    },
+};
+```
+
+The default configuration handles:
+
+- Block JavaScript compilation (JSX, ES modules).
+- CSS extraction and processing.
+- Asset copying and hashing.
+- WordPress dependency extraction.
+
+## CSS Processing
+
+CSS files are processed through PostCSS with the following plugins:
+
+| Plugin | Purpose |
+|--------|---------|
+| Autoprefixer | Adds vendor prefixes for browser compatibility |
+| postcss-import | Allows `@import` statements |
+| cssnano (production) | Minifies CSS output |
+
+### Writing CSS
+
+Aegis stylesheets use standard CSS with CSS custom properties:
+
+```css
+.wp-block-aegis-countdown {
+    display: flex;
+    gap: var(--wp--preset--spacing--md);
+    font-family: var(--wp--preset--font-family--lexend-deca);
+}
+```
+
+## JavaScript Processing
+
+JavaScript is compiled through Babel with WordPress presets:
+
+- JSX transformation for React-based block editor components.
+- Modern JavaScript (ES2020+) transpiled for browser compatibility.
+- WordPress package externals (wp.element, wp.blocks, and others) are not bundled.
+
+### Writing JavaScript
+
+Block scripts use WordPress packages as externals:
+
+```javascript
+import { registerBlockType } from '@wordpress/blocks';
+import { useBlockProps } from '@wordpress/block-editor';
+
+registerBlockType( 'aegis/countdown', {
+    edit: Edit,
+    save: Save,
+} );
+```
+
+## Cleaning Build Output
+
+To remove all compiled assets:
+
+```bash
+npm run clean
+```
+
+Or manually delete the `build/` directory.
+
+## Environment Variables
+
+| Variable | Purpose | Default |
+|----------|---------|---------|
+| `NODE_ENV` | Build mode | `production` (build) / `development` (dev) |
+| `SCRIPT_DEBUG` | WordPress debug mode | Loads unminified assets |
+
+## Troubleshooting
+
+### Build Fails with Module Errors
+
+```bash
+rm -rf node_modules
+npm install
+npm run build
+```
+
+### Stale Build Output
+
+```bash
+npm run clean
+npm run build
+```
+
+### Watch Mode Not Detecting Changes
+
+- Ensure your editor saves files to disk (not just to memory).
+- Check that file watchers are not being blocked (increase `fs.inotify.max_user_watches` on Linux).
+- Restart the watcher.
+
+## Next Steps
+
+- [[development-setup]] — Complete local setup guide.
+- [[code-quality]] — Linting the compiled output.
+- [[testing]] — Running tests after building.
+- [[deployment]] — Deploying built assets to production.
