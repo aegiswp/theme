@@ -43,7 +43,7 @@ cd theme
 
 #### Node.js Dependencies
 ```bash
-npm install
+npm ci
 ```
 
 #### PHP Dependencies
@@ -114,10 +114,20 @@ If you prefer other local development tools:
 
 ## Building Assets
 
+Theme-owned blocks (countdown, slider, toggle, video, related-posts):
+
 ### Production Build
 ```bash
 npm run build
 ```
+
+Map, Modal, admin, and editor assets are built in the companion plugin:
+
+```bash
+cd wp-content/plugins/aegis && npm run build
+```
+
+See [BUILD.md](BUILD.md) and [plugin BUILD.md](../plugins/aegis/BUILD.md).
 
 ### Development Build
 ```bash
@@ -180,21 +190,18 @@ composer run standards:check -- path/to/file.php
 
 ## Testing
 
-### PHP Unit Tests
+### PHP tests (WPAudit)
 ```bash
 composer run test
 # or
 composer run test:php
 # or
 npm run test:php
-```
-
-### WPAudit Tests
-```bash
+# or
 composer run test:wpaudit
 ```
 
-This runs the Aegis internal audit suite.
+This runs the Aegis WPAudit PHPUnit suite in `tools/wpaudit` (same as CI).
 
 ## Contributing
 
@@ -286,7 +293,7 @@ Set custom port in `.wp-env.json` or use `WP_ENV_PORT` environment variable.
 
 #### Build Failures
 - Clear node_modules: `rm -rf node_modules && npm install`
-- Clear build cache: `npm run clean`
+- Clear build cache: `npm run clean` (or `make clean` for a full reset including `node_modules`)
 
 #### Theme Activation Issues
 - Ensure all dependencies are installed
