@@ -13,6 +13,8 @@
 
     <file>./src</file>
     <file>./functions.php</file>
+    <file>./patterns</file>
+    <file>./embed-content.php</file>
 
     <exclude-pattern>*/vendor/*</exclude-pattern>
     <exclude-pattern>*/node_modules/*</exclude-pattern>
@@ -94,17 +96,9 @@
     </rule>
 
     <rule ref="WordPress.Files.FileName">
-<<<<<<< Updated upstream
-        <exclude-pattern>*</exclude-pattern>
-    </rule>
-
-    <rule ref="WordPress.CodeAnalysis.AssignmentInCondition.FoundInWhileCondition">
-        <exclude-pattern>*</exclude-pattern>
-=======
         <exclude-pattern>*/src/*</exclude-pattern>
         <!-- Pattern filenames mirror core/WooCommerce taxonomy template slugs (underscores). -->
         <exclude-pattern>*/patterns/template/taxonomy-*.php</exclude-pattern>
->>>>>>> Stashed changes
     </rule>
 
     <config name="testVersion" value="8.1-"/>
