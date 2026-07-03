@@ -168,9 +168,8 @@ aegis/
 ├── assets/               # Source files
 │   ├── css/              # Source stylesheets
 │   └── js/              # Source JavaScript
-├── build/                # Compiled output
-├── blocks/               # Custom block source
-├── inc/                  # PHP includes
+├── build/Blocks/         # Compiled block output
+├── src/                  # PHP services + block sources
 ├── parts/                # Template parts
 ├── patterns/             # Block patterns
 ├── styles/               # Style variations
@@ -183,8 +182,9 @@ aegis/
 A typical development session:
 
 1. **Start the environment:** `npm run env:start`
-2. **Start the watcher:** `npm run dev`
-3. **Open the site:** http://localhost:8888
+2. **Start the theme watcher:** `npm run dev` (in `wp-content/themes/aegis`)
+3. **Plugin changes:** run `npm run dev` or `npm run build` in `wp-content/plugins/aegis` when editing map/modal/admin assets
+4. **Open the site:** http://localhost:8888
 4. **Make changes** to source files.
 5. **View changes** in the browser (auto-refreshed by the watcher).
 6. **Run tests** before committing: `npm run test`
