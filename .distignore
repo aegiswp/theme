@@ -51,6 +51,8 @@ vendor/wptrt/
 .stylelintignore
 .typos.toml
 .stylelintrc.json
+eslint.config.cjs
+.pa11yci.json
 .env
 .env._
 auth.json
@@ -63,6 +65,7 @@ test-results/
 
 README.md
 INSTRUCTIONS.md
+DESIGN.md
 CHANGELOG.md
 CONTRIBUTING.md
 CONTRIBUTORS.md
@@ -106,6 +109,10 @@ tools/
 
 bin/
 
+# Dev-only Node maintenance scripts (not part of theme runtime)
+
+scripts/
+
 # Legacy audit source paths (not part of the theme runtime)
 
 src/Analyzers/
@@ -123,6 +130,12 @@ src/Blocks/_/save.tsx
 src/Blocks/_/view.ts
 src/Blocks/\*/style.scss
 src/Editor/
+
+# Admin block/webpack sources (compiled output lives in src/Admin/build/)
+
+src/Admin/index.js
+src/Admin/js/
+src/Admin/css/
 
 # Docs
 
