@@ -150,7 +150,7 @@ Aegis employs a fluid spacing system that scales intelligently across viewport s
 
 ### Typography Presets
 
-Aegis features a comprehensive fluid typography system with 22 font size presets:
+Aegis features a comprehensive fluid typography system with 23 font size presets:
 
 | Name | Slug | Size | Fluid Range |
 |------|------|------|-------------|
@@ -171,23 +171,24 @@ Aegis features a comprehensive fluid typography system with 22 font size presets
 | 22px | `22` | `clamp(20px,2.2vw,22px)` | 20px → 22px |
 | 20px | `20` | `clamp(19px,2vw,20px)` | 19px → 20px |
 | 18px | `18` | `clamp(17px,1.8vw,18px)` | 17px → 18px |
-| 16px | `16` | `16px` | — |
-| 14px | `14` | `14px` | — |
-| 12px | `12` | `12px` | — |
-| 10px | `10` | `10px` | — |
-| 8px | `8` | `8px` | — |
+| 16px | `16` | `clamp(15px,1.6vw,16px)` | 15px → 16px |
+| 14px | `14` | `clamp(13px,1.4vw,14px)` | 13px → 14px |
+| 12px | `12` | `clamp(11px,1.2vw,12px)` | 11px → 12px |
+| 10px | `10` | `clamp(9px,1vw,10px)` | 9px → 10px |
+| 8px | `8` | `clamp(7px,0.8vw,8px)` | 7px → 8px |
+| Inherit | `inherit` | `inherit` | — |
 
 **Font Families**
 
-| Name | Slug | Font Family | Weight Range | Usage |
-|------|------|-------------|-------------|-------|
-| Lexend | `lexend` | `Lexend, sans-serif` | 300–900 | Body |
-| Lexend Deca | `lexend-deca` | `Lexend Deca, sans-serif` | 300–900 | Headings |
-| JetBrains | `jetbrains` | `JetBrains, monospace` | 100–900 | Code |
+| Name | Slug | Font Family | Weight Range |
+|------|------|-------------|-------------|
+| Lexend | `lexend` | `Lexend, var(--wp--preset--font-family--sans-serif)` | 300–900 |
+| Lexend Deca | `lexend-deca` | `Lexend Deca, var(--wp--preset--font-family--lexend)` | 300–900 |
+| JetBrains | `jetbrains` | `JetBrains, var(--wp--preset--font-family--monospace)` | 100–900 |
 
 ### Shadow Presets
 
-Aegis provides seven box shadow presets for depth and elevation:
+Aegis provides eight box shadow presets for depth and elevation:
 
 | Name | Slug | Shadow Value |
 |------|------|-------------|
@@ -206,18 +207,37 @@ Aegis includes 31 pre-configured gradients for sophisticated visual effects:
 
 | Name | Slug | Gradient |
 |------|------|----------|
-| Primary 700/500 | `primary-700-500` | `linear-gradient(135deg, primary-700 0%, primary-500 100%)` |
-| Primary 500/300 | `primary-500-300` | `linear-gradient(135deg, primary-500 0%, primary-300 100%)` |
-| Primary Transparent | `primary-transparent` | `linear-gradient(180deg, transparent 0%, primary-100 100%)` |
-| Primary Foreground | `primary-foreground` | `linear-gradient(135deg, primary-900 0%, neutral-950 100%)` |
-| Body/Heading | `body-heading` | `linear-gradient(135deg, neutral-600 0%, neutral-950 100%)` |
-| Surface/Border | `surface-border` | `linear-gradient(135deg, neutral-100 0%, neutral-200 100%)` |
-| Background/Transparent | `background-transparent` | `linear-gradient(0deg, background 50%, transparent 50%)` |
-| Transparent/Background | `transparent-background` | `linear-gradient(180deg, background 50%, transparent 50%)` |
-| Fade Left | `fade-left` | `linear-gradient(90deg, neutral-0 0%, transparent 100%)` |
-| Fade Right | `fade-right` | `linear-gradient(-90deg, neutral-0 0%, transparent 100%)` |
-| Checkerboard | `checkerboard` | `repeating-conic-gradient(neutral-200 0% 25%, transparent 0% 50%)` |
-| Grid | `grid` | `conic-gradient(from 90deg at 1px 1px, transparent 90deg, neutral-100 0)` |
+| Primary 700/500 | `primary-700-500` | `linear-gradient(135deg,var(--wp--preset--color--primary-700) 0%,var(--wp--preset--color--primary-500) 100%)` |
+| Primary 500/300 | `primary-500-300` | `linear-gradient(135deg,var(--wp--preset--color--primary-500) 0%,var(--wp--preset--color--primary-300) 100%)` |
+| Primary Transparent | `primary-transparent` | `linear-gradient(180deg,var(--wp--preset--color--transparent) 0%,var(--wp--preset--color--primary-100) 100%)` |
+| Primary Foreground | `primary-foreground` | `linear-gradient(135deg,var(--wp--preset--color--primary-900) 0%,var(--wp--preset--color--neutral-950) 100%)` |
+| Body/Heading | `body-heading` | `linear-gradient(135deg,var(--wp--preset--color--neutral-600) 0%,var(--wp--preset--color--neutral-950) 100%)` |
+| Surface/Border | `surface-border` | `linear-gradient(135deg,var(--wp--preset--color--neutral-100) 0%,var(--wp--preset--color--neutral-200) 100%)` |
+| Background/Transparent | `background-transparent` | `linear-gradient(0deg,var(--wp--custom--body--background) 50%,transparent 50%)` |
+| Transparent/Background | `transparent-background` | `linear-gradient(180deg,var(--wp--custom--body--background) 50%,transparent 50%)` |
+| Fade Left | `fade-left` | `linear-gradient(90deg,var(--wp--preset--color--neutral-0) 0%,transparent 100%)` |
+| Fade Right | `fade-right` | `linear-gradient(-90deg,var(--wp--preset--color--neutral-0) 0%,transparent 100%)` |
+| Checkerboard | `checkerboard` | `repeating-conic-gradient(var(--wp--preset--color--neutral-200) 0% 25%, transparent 0% 50%) 50% / 16px 16px` |
+| Grid | `grid` | `conic-gradient(from 90deg at 1px 1px,transparent 90deg,var(--wp--custom--gradient-grid--color,var(--wp--preset--color--neutral-100)) 0) -1px -1px / var(--wp--custom--gradient-grid--size,40px) var(--wp--custom--gradient-grid--size,40px)` |
+| Diagonal Cut Dark Left | `diagonal-cut-dark-left` | `linear-gradient(135deg,var(--wp--preset--color--primary-950) 0%,var(--wp--preset--color--primary-950) 50%,transparent 50%)` |
+| Diagonal Cut Dark Right | `diagonal-cut-dark-right` | `linear-gradient(-135deg,var(--wp--preset--color--primary-950) 0%,var(--wp--preset--color--primary-950) 50%,transparent 50%)` |
+| Diagonal Cut Light Left | `diagonal-cut-light-left` | `linear-gradient(135deg,transparent 0%,transparent 50%,var(--wp--preset--color--neutral-0) 50%)` |
+| Diagonal Cut Light Right | `diagonal-cut-light-right` | `linear-gradient(-135deg,transparent 0%,transparent 50%,var(--wp--preset--color--neutral-0) 50%)` |
+| Fade Dark Top | `fade-dark-top` | `linear-gradient(180deg,rgba(9,9,11,0.80) 0%,rgba(9,9,11,0.4) 50%,transparent 100%)` |
+| Fade Dark Bottom | `fade-dark-bottom` | `linear-gradient(0deg,rgba(9,9,11,0.80) 0%,rgba(9,9,11,0.4) 50%,transparent 100%)` |
+| Long Top Short Bottom | `long-top-short-bottom` | `linear-gradient(180deg,var(--wp--preset--color--primary-950) 0%,var(--wp--preset--color--primary-950) 70%,transparent 70%)` |
+| Short Top Long Bottom | `short-top-long-bottom` | `linear-gradient(0deg,var(--wp--preset--color--primary-950) 0%,var(--wp--preset--color--primary-950) 70%,transparent 70%)` |
+| Vignette Vertical | `vignette-vertical` | `linear-gradient(180deg,rgba(9,9,11,0.9) 0%,rgba(9,9,11,0.6) 30%,transparent 60%,rgba(9,9,11,0.6) 80%,rgba(9,9,11,0.9) 100%)` |
+| Vignette Radial | `vignette-radial` | `radial-gradient(ellipse at center,transparent 0%,rgba(9,9,11,0.8) 100%)` |
+| Diagonal Vignette | `diagonal-vignette` | `linear-gradient(135deg,rgba(9,9,11,0.9) 0%,transparent 50%,rgba(9,9,11,0.9) 100%)` |
+| Scrim Bottom | `scrim-bottom` | `linear-gradient(180deg,transparent 0%,transparent 60%,rgba(9,9,11,0.95) 100%)` |
+| Scrim Top | `scrim-top` | `linear-gradient(0deg,transparent 0%,transparent 60%,rgba(9,9,11,0.95) 100%)` |
+| Diagonal Triple | `diagonal-triple` | `linear-gradient(135deg,var(--wp--preset--color--primary-950) 0%,var(--wp--preset--color--primary-950) 33%,var(--wp--preset--color--primary-700) 33%,var(--wp--preset--color--primary-700) 66%,transparent 66%)` |
+| Layered Bands | `layered-bands` | `linear-gradient(180deg,var(--wp--preset--color--primary-950) 0%,var(--wp--preset--color--primary-950) 25%,rgba(9,9,11,0.5) 25%,rgba(9,9,11,0.5) 75%,transparent 75%)` |
+| Spotlight Bottom Left | `spotlight-bottom-left` | `radial-gradient(circle at 0% 100%,rgba(9,9,11,0.9) 0%,transparent 70%)` |
+| Spotlight Top Right | `spotlight-top-right` | `radial-gradient(circle at 100% 0%,rgba(9,9,11,0.9) 0%,transparent 70%)` |
+| Cinematic Bars | `cinematic-bars` | `linear-gradient(90deg,rgba(9,9,11,0.9) 0%,transparent 40%,transparent 60%,rgba(9,9,11,0.9) 100%)` |
+| Diagonal Stripes | `diagonal-stripes` | `repeating-linear-gradient(135deg,transparent 0px,transparent 10px,rgba(9,9,11,0.1) 10px,rgba(9,9,11,0.1) 20px)` |
 
 ### Token Cheat-sheet
 
@@ -232,10 +252,10 @@ The Aegis theme features a comprehensive color system with Primary, Neutral, and
 | `--wp--preset--color--primary-950` | `#09090b` | Primary 950 | `primary-950` | ![jpg](https://placehold.co/20x20/09090b/09090b/jpg) |
 | `--wp--preset--color--primary-900` | `#18181b` | Primary 900 | `primary-900` | ![jpg](https://placehold.co/20x20/18181b/18181b/jpg) |
 | `--wp--preset--color--primary-800` | `#27272a` | Primary 800 | `primary-800` | ![jpg](https://placehold.co/20x20/27272a/27272a/jpg) |
-| `--wp--preset--color--primary-700` | `#3f3f47` | Primary 700 | `primary-700` | ![jpg](https://placehold.co/20x20/3f3f47/3f3f47/jpg) |
-| `--wp--preset--color--primary-600` | `#52525c` | Primary 600 | `primary-600` | ![jpg](https://placehold.co/20x20/52525c/52525c/jpg) |
-| `--wp--preset--color--primary-500` | `#71717b` | Primary 500 | `primary-500` | ![jpg](https://placehold.co/20x20/71717b/71717b/jpg) |
-| `--wp--preset--color--primary-400` | `#9f9fa9` | Primary 400 | `primary-400` | ![jpg](https://placehold.co/20x20/9f9fa9/9f9fa9/jpg) |
+| `--wp--preset--color--primary-700` | `#3f3f46` | Primary 700 | `primary-700` | ![jpg](https://placehold.co/20x20/3f3f46/3f3f46/jpg) |
+| `--wp--preset--color--primary-600` | `#52525b` | Primary 600 | `primary-600` | ![jpg](https://placehold.co/20x20/52525b/52525b/jpg) |
+| `--wp--preset--color--primary-500` | `#71717a` | Primary 500 | `primary-500` | ![jpg](https://placehold.co/20x20/71717a/71717a/jpg) |
+| `--wp--preset--color--primary-400` | `#a1a1aa` | Primary 400 | `primary-400` | ![jpg](https://placehold.co/20x20/a1a1aa/a1a1aa/jpg) |
 | `--wp--preset--color--primary-300` | `#d4d4d8` | Primary 300 | `primary-300` | ![jpg](https://placehold.co/20x20/d4d4d8/d4d4d8/jpg) |
 | `--wp--preset--color--primary-200` | `#e4e4e7` | Primary 200 | `primary-200` | ![jpg](https://placehold.co/20x20/e4e4e7/e4e4e7/jpg) |
 | `--wp--preset--color--primary-100` | `#f4f4f5` | Primary 100 | `primary-100` | ![jpg](https://placehold.co/20x20/f4f4f5/f4f4f5/jpg) |
@@ -252,26 +272,50 @@ The Aegis theme features a comprehensive color system with Primary, Neutral, and
 | `--wp--preset--color--neutral-700` | `#404040` | Neutral 700 | `neutral-700` | ![jpg](https://placehold.co/20x20/404040/404040/jpg) |
 | `--wp--preset--color--neutral-600` | `#525252` | Neutral 600 | `neutral-600` | ![jpg](https://placehold.co/20x20/525252/525252/jpg) |
 | `--wp--preset--color--neutral-500` | `#737373` | Neutral 500 | `neutral-500` | ![jpg](https://placehold.co/20x20/737373/737373/jpg) |
-| `--wp--preset--color--neutral-400` | `#a1a1aa` | Neutral 400 | `neutral-400` | ![jpg](https://placehold.co/20x20/a1a1aa/a1a1aa/jpg) |
+| `--wp--preset--color--neutral-400` | `#a3a3a3` | Neutral 400 | `neutral-400` | ![jpg](https://placehold.co/20x20/a3a3a3/a3a3a3/jpg) |
 | `--wp--preset--color--neutral-300` | `#d4d4d4` | Neutral 300 | `neutral-300` | ![jpg](https://placehold.co/20x20/d4d4d4/d4d4d4/jpg) |
 | `--wp--preset--color--neutral-200` | `#e5e5e5` | Neutral 200 | `neutral-200` | ![jpg](https://placehold.co/20x20/e5e5e5/e5e5e5/jpg) |
 | `--wp--preset--color--neutral-100` | `#f5f5f5` | Neutral 100 | `neutral-100` | ![jpg](https://placehold.co/20x20/f5f5f5/f5f5f5/jpg) |
-| `--wp--preset--color--neutral-50` | `#fafaf9` | Neutral 50 | `neutral-50` | ![jpg](https://placehold.co/20x20/fafaf9/fafaf9/jpg) |
+| `--wp--preset--color--neutral-50` | `#fafafa` | Neutral 50 | `neutral-50` | ![jpg](https://placehold.co/20x20/fafafa/fafafa/jpg) |
 | `--wp--preset--color--neutral-0` | `#ffffff` | Neutral 0 | `neutral-0` | ![jpg](https://placehold.co/20x20/ffffff/ffffff/jpg) |
 
 **Semantic Colors**
 
 | CSS Variable | Color | Name | Slug | Visual |
 |--------------|-------|------|------|--------|
-| `--wp--preset--color--success-600` | `#00a63e` | Success 600 | `success-600` | ![jpg](https://placehold.co/20x20/00a63e/00a63e/jpg) |
-| `--wp--preset--color--success-500` | `#00c950` | Success 500 | `success-500` | ![jpg](https://placehold.co/20x20/00c950/00c950/jpg) |
+| `--wp--preset--color--success-950` | `#052e16` | Success 950 | `success-950` | ![jpg](https://placehold.co/20x20/052e16/052e16/jpg) |
+| `--wp--preset--color--success-900` | `#14532d` | Success 900 | `success-900` | ![jpg](https://placehold.co/20x20/14532d/14532d/jpg) |
+| `--wp--preset--color--success-800` | `#166534` | Success 800 | `success-800` | ![jpg](https://placehold.co/20x20/166534/166534/jpg) |
+| `--wp--preset--color--success-700` | `#15803d` | Success 700 | `success-700` | ![jpg](https://placehold.co/20x20/15803d/15803d/jpg) |
+| `--wp--preset--color--success-600` | `#16a34a` | Success 600 | `success-600` | ![jpg](https://placehold.co/20x20/16a34a/16a34a/jpg) |
+| `--wp--preset--color--success-500` | `#22c55e` | Success 500 | `success-500` | ![jpg](https://placehold.co/20x20/22c55e/22c55e/jpg) |
+| `--wp--preset--color--success-400` | `#4ade80` | Success 400 | `success-400` | ![jpg](https://placehold.co/20x20/4ade80/4ade80/jpg) |
+| `--wp--preset--color--success-300` | `#86efac` | Success 300 | `success-300` | ![jpg](https://placehold.co/20x20/86efac/86efac/jpg) |
+| `--wp--preset--color--success-200` | `#bbf7d0` | Success 200 | `success-200` | ![jpg](https://placehold.co/20x20/bbf7d0/bbf7d0/jpg) |
 | `--wp--preset--color--success-100` | `#dcfce7` | Success 100 | `success-100` | ![jpg](https://placehold.co/20x20/dcfce7/dcfce7/jpg) |
-| `--wp--preset--color--warning-600` | `#e85d04` | Warning 600 | `warning-600` | ![jpg](https://placehold.co/20x20/e85d04/e85d04/jpg) |
-| `--wp--preset--color--warning-500` | `#ff7c0e` | Warning 500 | `warning-500` | ![jpg](https://placehold.co/20x20/ff7c0e/ff7c0e/jpg) |
-| `--wp--preset--color--warning-100` | `#ffefd4` | Warning 100 | `warning-100` | ![jpg](https://placehold.co/20x20/ffefd4/ffefd4/jpg) |
-| `--wp--preset--color--error-600` | `#f63f00` | Error 600 | `error-600` | ![jpg](https://placehold.co/20x20/f63f00/f63f00/jpg) |
-| `--wp--preset--color--error-500` | `#ff5909` | Error 500 | `error-500` | ![jpg](https://placehold.co/20x20/ff5909/ff5909/jpg) |
-| `--wp--preset--color--error-100` | `#ffe8d3` | Error 100 | `error-100` | ![jpg](https://placehold.co/20x20/ffe8d3/ffe8d3/jpg) |
+| `--wp--preset--color--success-50` | `#f0fdf4` | Success 50 | `success-50` | ![jpg](https://placehold.co/20x20/f0fdf4/f0fdf4/jpg) |
+| `--wp--preset--color--warning-950` | `#431407` | Warning 950 | `warning-950` | ![jpg](https://placehold.co/20x20/431407/431407/jpg) |
+| `--wp--preset--color--warning-900` | `#7c2d12` | Warning 900 | `warning-900` | ![jpg](https://placehold.co/20x20/7c2d12/7c2d12/jpg) |
+| `--wp--preset--color--warning-800` | `#9a3412` | Warning 800 | `warning-800` | ![jpg](https://placehold.co/20x20/9a3412/9a3412/jpg) |
+| `--wp--preset--color--warning-700` | `#c2410c` | Warning 700 | `warning-700` | ![jpg](https://placehold.co/20x20/c2410c/c2410c/jpg) |
+| `--wp--preset--color--warning-600` | `#ea580c` | Warning 600 | `warning-600` | ![jpg](https://placehold.co/20x20/ea580c/ea580c/jpg) |
+| `--wp--preset--color--warning-500` | `#f97316` | Warning 500 | `warning-500` | ![jpg](https://placehold.co/20x20/f97316/f97316/jpg) |
+| `--wp--preset--color--warning-400` | `#fb923c` | Warning 400 | `warning-400` | ![jpg](https://placehold.co/20x20/fb923c/fb923c/jpg) |
+| `--wp--preset--color--warning-300` | `#fdba74` | Warning 300 | `warning-300` | ![jpg](https://placehold.co/20x20/fdba74/fdba74/jpg) |
+| `--wp--preset--color--warning-200` | `#fed7aa` | Warning 200 | `warning-200` | ![jpg](https://placehold.co/20x20/fed7aa/fed7aa/jpg) |
+| `--wp--preset--color--warning-100` | `#ffedd5` | Warning 100 | `warning-100` | ![jpg](https://placehold.co/20x20/ffedd5/ffedd5/jpg) |
+| `--wp--preset--color--warning-50` | `#fff7ed` | Warning 50 | `warning-50` | ![jpg](https://placehold.co/20x20/fff7ed/fff7ed/jpg) |
+| `--wp--preset--color--error-950` | `#450a0a` | Error 950 | `error-950` | ![jpg](https://placehold.co/20x20/450a0a/450a0a/jpg) |
+| `--wp--preset--color--error-900` | `#7f1d1d` | Error 900 | `error-900` | ![jpg](https://placehold.co/20x20/7f1d1d/7f1d1d/jpg) |
+| `--wp--preset--color--error-800` | `#991b1b` | Error 800 | `error-800` | ![jpg](https://placehold.co/20x20/991b1b/991b1b/jpg) |
+| `--wp--preset--color--error-700` | `#b91c1c` | Error 700 | `error-700` | ![jpg](https://placehold.co/20x20/b91c1c/b91c1c/jpg) |
+| `--wp--preset--color--error-600` | `#dc2626` | Error 600 | `error-600` | ![jpg](https://placehold.co/20x20/dc2626/dc2626/jpg) |
+| `--wp--preset--color--error-500` | `#ef4444` | Error 500 | `error-500` | ![jpg](https://placehold.co/20x20/ef4444/ef4444/jpg) |
+| `--wp--preset--color--error-400` | `#f87171` | Error 400 | `error-400` | ![jpg](https://placehold.co/20x20/f87171/f87171/jpg) |
+| `--wp--preset--color--error-300` | `#fca5a5` | Error 300 | `error-300` | ![jpg](https://placehold.co/20x20/fca5a5/fca5a5/jpg) |
+| `--wp--preset--color--error-200` | `#fecaca` | Error 200 | `error-200` | ![jpg](https://placehold.co/20x20/fecaca/fecaca/jpg) |
+| `--wp--preset--color--error-100` | `#fee2e2` | Error 100 | `error-100` | ![jpg](https://placehold.co/20x20/fee2e2/fee2e2/jpg) |
+| `--wp--preset--color--error-50` | `#fef2f2` | Error 50 | `error-50` | ![jpg](https://placehold.co/20x20/fef2f2/fef2f2/jpg) |
 
 **Utility Colors**
 
@@ -351,19 +395,19 @@ Aegis extends the following WordPress core blocks with additional functionality,
 
 ### Custom Blocks
 
-Aegis includes the following custom blocks built specifically for the theme:
+| Block | Block Name | Registered by |
+|-------|------------|---------------|
+| Countdown | `aegis/countdown` | Theme |
+| Slider | `aegis/slider` | Theme |
+| Slide | `aegis/slide` | Theme |
+| Toggle | `aegis/toggle` | Theme |
+| Toggle Content | `aegis/toggle-content` | Theme |
+| Video | `aegis/video` | Theme |
+| Related Posts | `aegis/related-posts` | Theme |
+| Map | `aegis/map` | [Aegis Plugin](../plugins/aegis/docs/blocks/custom-blocks.md) |
+| Modal | `aegis/modal` | [Aegis Plugin](../plugins/aegis/docs/blocks/modals.md) |
 
-| Block | Block Name | Description |
-|-------|------------|-------------|
-| Countdown | `aegis/countdown` | Animated countdown timer with customizable target dates and styling |
-| Map | `aegis/map` | Interactive Google Maps with custom markers, styles, and geolocation |
-| Modal | `aegis/modal` | An accessible modal dialog with popup, off-canvas, bottom sheet, and fullscreen modes |
-| Related Posts | `aegis/related-posts` | Automatically displays related posts based on taxonomy or custom criteria |
-| Slider | `aegis/slider` | A responsive slider/carousel with multiple slide types, transitions, and navigation options |
-| Slide | `aegis/slide` | An individual slide within a slider block with support for content, image, and video slide types |
-| Toggle | `aegis/toggle` | Collapsible content toggle with smooth animations |
-| Toggle Content | `aegis/toggle-content` | Nested toggle content for complex accordion structures |
-| Video | `aegis/video` | Advanced video player with custom controls and features |
+Documentation: [Theme docs](docs/blocks/custom-blocks.md) · [Plugin docs](../plugins/aegis/docs/home.md) · [Pro docs](../plugins/aegis-pro/docs/home.md)
 
 ### Block Variations
 
@@ -382,21 +426,16 @@ Aegis includes the following custom block variations that extend WordPress core 
 
 ### Plugin Integrations
 
-Aegis provides seamless integration with popular WordPress plugins, automatically applying theme styling and enhancing compatibility:
+Framework styling applies when integrations are enabled in the **Aegis plugin** dashboard. Full toggle list and SEO delegation: [Integrations Dashboard](../plugins/aegis/docs/features/integrations-dashboard.md). Theme framework CSS covers WooCommerce, Fluent Forms, Gravity Forms, LifterLMS, Sensei, EDD, AffiliateWP, bbPress, and Syntax Highlighting Code Block when toggled on.
 
-| Plugin | Category | Description |
-|--------|----------|-------------|
-| Advanced Custom Fields | Custom Fields | ACF JSON save/load paths, theme color palette integration, Block Bindings source for Query Loop |
-| BunnyCDN | Media/CDN | Theme border radius for iframe embeds, dark/light mode styling for player containers |
-| Code Block Pro | Development | Conditional style registration with theme compatibility |
-| Fluent Booking | Scheduling | Dark/light mode support for booking calendars, theme-styled patterns |
-| Fluent Forms | Forms | Theme-styled form elements and layouts |
-| LearnDash | LMS | Focus Mode integration, theme colors and typography, custom block patterns |
-| LifterLMS | LMS | Theme colors and typography, custom block patterns replacing defaults |
-| Rank Math | SEO | Fallback meta description support, hook integration |
-| Sensei LMS | LMS | Theme support declaration, colors and typography, custom block patterns |
-| Syntax Highlighting Code Block | Development | Theme color integration for code highlighting |
-| WooCommerce | E-commerce | Plugin detection and conditional hook registration |
+| Plugin | Category | Notes |
+|--------|----------|-------|
+| WooCommerce | E-commerce | Theme templates + framework CSS — see theme docs |
+| Fluent Forms / Gravity Forms | Forms | Framework styling when integration enabled |
+| LearnDash / LifterLMS / Sensei | LMS | Framework styling; pattern control in Pro |
+| Rank Math / Yoast / AIOSEO / SEOPress | SEO | Schema delegation via plugin — not theme CSS |
+| ACF / Meta Box | Developer | Plugin integration toggles |
+| BunnyCDN | Performance | Credentials in plugin Integrations; video API in Pro |
 
 ### Layout & Navigation
 
@@ -412,7 +451,7 @@ Aegis provides seamless integration with popular WordPress plugins, automaticall
 
 ### User Experience
 
-**Intelligent Dark Mode**: Automatic dark mode support that adapts to user preferences and system settings. Dark mode can be customized or deactivated through the Blockify settings in the page editor, providing flexibility for different use cases.
+**Intelligent Dark Mode**: Dark mode uses the `is-style-dark` class and theme tokens. See [theme dark mode docs](docs/features/dark-mode.md).
 
 **Accessibility First**: Designed with accessibility at its core, Aegis prioritizes WCAG compliance, semantic HTML, proper heading hierarchies, and keyboard navigation. The theme is optimized for users with color vision deficiency.
 
@@ -420,18 +459,13 @@ Aegis provides seamless integration with popular WordPress plugins, automaticall
 
 ### Developer Tools & Framework
 
-**Custom Block Collection**: Aegis includes 9 custom blocks built for modern web development: Countdown, Map, Modal, Related Posts, Slider, Slide, Toggle, Toggle Content, and Video. Each block is engineered for performance and extensibility.
+**Custom Block Collection**: The theme registers Countdown, Slider, Slide, Toggle, Toggle Content, Video, and Related Posts. Map and Modal require the [Aegis companion plugin](../plugins/aegis/docs/blocks/custom-blocks.md).
 
-**Analytics System**: Privacy-first analytics framework with Tracker and ScriptProxy components. Provides comprehensive site analytics while respecting user privacy and GDPR compliance. 
+**Analytics**: Configured in the companion plugin at **Aegis → Integrations → Analytics**. See [plugin analytics docs](../plugins/aegis/docs/features/analytics.md).
 
-**Supported Analytics Services**:
-- **Free Tier**: Google Analytics 4 (GA4), Google Tag Manager (GTM), Microsoft Clarity, Plausible Analytics, Fathom Analytics, basic GDPR compliance
-- **Pro Tier**: Matomo Analytics, Meta Pixel, Google Consent Mode v2, Data Layer integration, Debug Mode
-- **Script Proxy**: Secure proxy for external scripts with additional privacy controls
+**Hook Patterns**: Framework fires injection hooks on template parts and content. Hook pattern CPT management requires [Aegis Pro](../plugins/aegis-pro/docs/features/hook-patterns-pro.md).
 
-**Hook Patterns System**: Dynamic content injection framework with Manager and Renderer components. Enables sophisticated content manipulation and conditional display logic.
-
-**Conditional Logic Settings**: Advanced conditional settings system for blocks and patterns. Provides granular control over content display based on user roles, device types, and custom conditions.
+**Conditional Logic**: Block visibility and admin settings are in the [Aegis plugin](../plugins/aegis/docs/features/conditional-logic.md).
 
 **Framework Architecture**: Built on the Aegis Framework (`vendor/aegis/framework`) with ServiceProvider pattern. Provides a robust foundation for theme development and extensibility.
 
@@ -577,9 +611,9 @@ If you find setting up WordPress locally overwhelming, consider using [wp-env](h
 
 #### Release version
 
-The theme release number is the single value defined in three places: `style.css` (`Version`), `package.json` (`version`), and `composer.json` (`version`). When you cut a release, update all three to match (for example `1.0.0-rc.3`).
+The theme release number is the single value defined in three places: `style.css` (`Version`), `package.json` (`version`), and `composer.json` (`version`). When you cut a release, update all three to match (for example `1.0.0`).
 
-PHP dependencies are pinned by **`composer.lock`**. After cloning, run **`composer update`** once in the theme directory (with Git network access) to generate or refresh the lockfile, then commit **`composer.lock`**. If Composer reports an SSL or certificate error when using GitHub, fix your system or PHP CA bundle (see the [Composer doc on local issuers](https://getcomposer.org/local-issuer)). Use **`composer install`** in CI, and run **`composer update`** only when you intend to change dependency revisions and then re-test.
+PHP dependencies are pinned by **`composer.lock`**. After cloning, run **`composer install`** in the theme directory. Run **`composer update`** only when you intend to change dependency revisions, then re-test and commit an updated lockfile. If Composer reports an SSL or certificate error when using GitHub, fix your system or PHP CA bundle (see the [Composer doc on local issuers](https://getcomposer.org/local-issuer)).
 
 #### Server deployment
 
@@ -603,6 +637,7 @@ Install dev tooling from the theme directory: `npm install` and `composer instal
 
 **JavaScript / CSS (block source)**
 
+- `npm run lint` — run all JS, CSS, and package.json linters
 - `npm run lint:js` — ESLint (via `wp-scripts`)
 - `npm run lint:css` — stylelint (via `wp-scripts`); can fix where configured
 
@@ -612,9 +647,8 @@ Install dev tooling from the theme directory: `npm install` and `composer instal
 - `composer run standards:fix` — PHPCBF auto-fix
 - `composer run analyze` — alias for `standards:check`
 - `composer run lint` — alias for `standards:check`
-- `composer run test` or `composer run test:php` — theme PHPUnit (`phpunit.xml`, `tests/Unit`)
-- `npm run test:php` — same PHPUnit run via npm (requires `composer install` so `vendor/bin/phpunit` exists)
-- `composer run test:wpaudit` — in-house `aegis/wpaudit` suite in `tools/wpaudit` (same as CI; `tools/wpaudit` is committed so the path `require-dev` works)
+- `composer run test`, `composer run test:php`, or `npm run test:php` — WPAudit PHPUnit suite in `tools/wpaudit` (same as CI)
+- `composer run test:wpaudit` — explicit alias for the WPAudit suite
 
 
 ### Local development (wp-env)
@@ -715,18 +749,17 @@ Aegis aims to minimize asset loading through a highly performant approach. The t
 
 Avoid building custom PHP or JavaScript workarounds for functionality already provided by Aegis or the Block Editor. Aegis is minimalistic, lightweight, and performant—designed with accessibility in mind, particularly for users with color vision deficiency. Keep the code simple.
 
-Aegis has no unnecessary build process, maintaining simplicity and performance.
+Theme-owned blocks require `npm run build` in the theme; Map, Modal, and admin assets are built in the companion plugin. See [BUILD.md](BUILD.md).
 
 If you have [contributed](CONTRIBUTORS.md) to Aegis, you will receive proper credit. We update [CONTRIBUTORS.md](CONTRIBUTORS.md) periodically. If we have missed anyone, please open a [pull request](https://github.com/aegiswp/theme/pulls) or [issue](https://github.com/aegiswp/theme/issues).
 
 ## Technical Architecture
 
-- **Zero-Base Loading Strategy** — Assets loaded conditionally based on page content
-- **Conditional Asset Loading** — Smart asset enqueuing via AssetManager
-- **Hook Patterns System** — Dynamic content injection with Manager/Renderer pattern
-- **PSR-4 Autoloading** — Modern PHP class loading with Composer
-- **ServiceProvider Pattern** — Framework service registration and management
-- **Interactivity API Usage** — WordPress Interactivity API integration
+- **Four-layer architecture** — Theme, framework (`vendor/aegis/framework`), free plugin, Pro plugin
+- **Hook injection** — Framework fires template-part and content hooks; Pro manages hook pattern CPT
+- **PSR-4 Autoloading** — Theme PHP under `src/` with Composer
+- **ServiceProvider Pattern** — Framework service registration via `Aegis::register()`
+- **Interactivity API Usage** — WordPress Interactivity API in blocks
 - **TypeScript Support** — Type-safe block development with TSX
 
 ## Integration Capabilities
@@ -743,7 +776,7 @@ If you wish to experiment with custom code, consider using the Aegis Child Theme
 
 | Repository | Description |
 | --- | --- |
-| [Aegis Child Theme](https://github.com/aegiswp/theme-child) | Official Aegis Child Theme |
+| [Aegis Child Theme](https://github.com/aegiswp/child) | Official Aegis Child Theme |
 | [Aegis Code Snippets](https://github.com/aegiswp/code-snippets) | Official Aegis Code Snippets |
 
 
@@ -765,7 +798,7 @@ Explore Aegis in action through our official child themes:
 
 | Child Theme | Description |
 | --- | --- |
-| [Aegis Child Theme](https://github.com/aegiswp/theme-child) | Official starter child theme for Aegis |
+| [Aegis Child Theme](https://github.com/aegiswp/child) | Official starter child theme for Aegis |
 | [Aegis Code Snippets](https://gist.github.com/atmostfear-entertainment) | Collection of code snippets and customizations |
 
 
