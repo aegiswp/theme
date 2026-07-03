@@ -22,10 +22,17 @@
     <exclude-pattern>*/src/Blocks/*/style.js</exclude-pattern>
     <exclude-pattern>*/src/Blocks/editor/*</exclude-pattern>
 
+    <!-- Generated files (webpack / tools/generate-blocks-manifest.php). -->
+    <exclude-pattern>*.asset.php</exclude-pattern>
+    <exclude-pattern>*/src/Blocks/blocks-manifest.php</exclude-pattern>
+    <exclude-pattern>*/src/Admin/build/*</exclude-pattern>
+
+    <!-- Gate CI on errors only; warnings stay visible in reports. -->
+    <config name="ignore_warnings_on_exit" value="1"/>
+
     <rule ref="WordPress-Core"/>
     <rule ref="WordPress-Docs"/>
     <rule ref="WordPress-Extra"/>
-    <rule ref="WordPress.CodeAnalysis.EmptyStatement"/>
 
     <rule ref="WordPress.WP.I18n">
         <properties>
@@ -43,6 +50,36 @@
         </properties>
     </rule>
 
+    <!--
+    Block render templates, patterns and theme templates are included by core
+    inside function scope, so their file-level variables are not globals.
+    -->
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound">
+        <exclude-pattern>*/patterns/*</exclude-pattern>
+        <exclude-pattern>*/src/Blocks/*/render.php</exclude-pattern>
+        <exclude-pattern>embed-content.php</exclude-pattern>
+    </rule>
+    <rule ref="WordPress.WP.GlobalVariablesOverride.Prohibited">
+        <exclude-pattern>*/patterns/*</exclude-pattern>
+        <exclude-pattern>*/src/Blocks/*/render.php</exclude-pattern>
+        <exclude-pattern>embed-content.php</exclude-pattern>
+    </rule>
+
+    <!-- embed-content.php fires core embed hooks (embed_content, embed_thumbnail_id, …). -->
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound">
+        <exclude-pattern>embed-content.php</exclude-pattern>
+    </rule>
+
+    <!-- Pattern files use the WordPress pattern header comment, not a PHPDoc file comment. -->
+    <rule ref="Squiz.Commenting.FileComment">
+        <exclude-pattern>*/patterns/*</exclude-pattern>
+    </rule>
+
+    <!-- Pattern markup is block HTML; space indentation is intentional and not WPCS-tabbed PHP. -->
+    <rule ref="Generic.WhiteSpace.DisallowSpaceIndent">
+        <exclude-pattern>*/patterns/*</exclude-pattern>
+    </rule>
+
     <rule ref="WordPress.PHP.YodaConditions.NotYoda">
         <type>warning</type>
     </rule>
@@ -57,11 +94,17 @@
     </rule>
 
     <rule ref="WordPress.Files.FileName">
+<<<<<<< Updated upstream
         <exclude-pattern>*</exclude-pattern>
     </rule>
 
     <rule ref="WordPress.CodeAnalysis.AssignmentInCondition.FoundInWhileCondition">
         <exclude-pattern>*</exclude-pattern>
+=======
+        <exclude-pattern>*/src/*</exclude-pattern>
+        <!-- Pattern filenames mirror core/WooCommerce taxonomy template slugs (underscores). -->
+        <exclude-pattern>*/patterns/template/taxonomy-*.php</exclude-pattern>
+>>>>>>> Stashed changes
     </rule>
 
     <config name="testVersion" value="8.1-"/>
