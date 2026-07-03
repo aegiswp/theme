@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Documentation
+
+- Reorganized documentation for the theme/plugin/Pro split.
+- Plugin-specific docs moved to `wp-content/plugins/aegis/docs/` and `wp-content/plugins/aegis-pro/docs/`.
+- Theme docs updated for four-layer architecture (theme, framework, free plugin, Pro).
+
+### Architecture
+
+- Companion plugin owns admin dashboard, Map/Modal blocks, analytics, snippets, conditionals, and integrations.
+- Theme continues to register countdown, slider, toggle, video, and related-posts blocks.
+
 ## [1.0.0] - 0000-00-00
 
 - Initial release.
