@@ -23,10 +23,9 @@ Aegis follows semantic versioning (SemVer):
 5. **Merge to develop** — PR is merged into the development branch.
 6. **Release preparation** — When ready, `develop` is merged to `main`.
 7. **Version bump** — Update version numbers in `style.css`, `package.json`, and `readme.txt`.
-8. **Build** — Run `npm run build` for production assets.
+8. **Build** — Run `npm run build` in the theme repo (theme blocks). Build the companion plugin separately if releasing plugin changes (`wp-content/plugins/aegis`).
 9. **Tag** — Create a Git tag with the version number.
 10. **GitHub Release** — Create a release with the built `.zip` file.
-11. **Update checker fires** — Sites with Aegis see the update notification.
 
 ### Building a Release Package
 
@@ -101,10 +100,10 @@ deploy:
 
 | Include | Exclude |
 |---------|---------|
-| `build/` | `node_modules/` |
+| `build/Blocks/` | `node_modules/` |
 | `vendor/` (no-dev) | `tests/` |
-| `blocks/` (block.json files) | `.git/` |
-| `inc/` | `.github/` |
+| `src/Blocks/` (block.json) | `.git/` |
+| `src/` (PHP) | `.github/` |
 | `parts/` | `assets/` (source files) |
 | `patterns/` | `*.config.js` |
 | `styles/` | `phpunit.xml.dist` |
@@ -190,16 +189,6 @@ When using a CDN:
 - Set appropriate cache headers for versioned assets (long TTL).
 - Purge CDN cache after deployment.
 - Fonts and images should be served via CDN for performance.
-
-## Automatic Updates
-
-The theme includes a built-in update mechanism that checks the GitHub repository:
-
-- Checks for new releases periodically.
-- Displays update notifications in the WordPress admin.
-- Supports one-click update through the admin interface.
-
-This is configured through the `aegis_theme_updater_config` filter.
 
 ## Next Steps
 
