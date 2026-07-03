@@ -44,6 +44,11 @@
 /config export-ignore
 /tools export-ignore
 /bin export-ignore
+/scripts export-ignore
+/build export-ignore
+/dist export-ignore
+/.eslintcache export-ignore
+/.stylelintcache export-ignore
 /src/Analyzers export-ignore
 /src/Models export-ignore
 /src/Enums export-ignore
@@ -67,6 +72,8 @@ src/Blocks/*/style.scss export-ignore
 .stylelintignore export-ignore
 .typos.toml export-ignore
 .stylelintrc.json export-ignore
+eslint.config.cjs export-ignore
+.pa11yci.json export-ignore
 tsconfig.json export-ignore
 webpack.config.js export-ignore
 phpcs.xml export-ignore
@@ -79,6 +86,9 @@ package-lock.json export-ignore
 composer.json export-ignore
 composer.lock export-ignore
 README.md export-ignore
+INSTRUCTIONS.md export-ignore
+SUBMISSION-NOTES.md export-ignore
+DESIGN.md export-ignore
 CHANGELOG.md export-ignore
 CONTRIBUTING.md export-ignore
 CONTRIBUTORS.md export-ignore
