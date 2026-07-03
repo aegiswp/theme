@@ -40,13 +40,11 @@ tools/*
 !tools/wpaudit/
 !tools/wpaudit/**
 !tools/generate-blocks-manifest.php
-<<<<<<< Updated upstream
-=======
+!tools/clean-build.js
 
 # One-off dev/migration scripts (not part of theme runtime)
 bin/
 scripts/
->>>>>>> Stashed changes
 
 # Audit tool legacy paths (moved to tools/wpaudit)
 config/
@@ -122,4 +120,3 @@ DESIGN.md
 /tests
 docs/_footer.md
 docs/_sidebar.md
-BUILD.md
