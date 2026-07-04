@@ -34,12 +34,12 @@
 			<!-- wp:buttons {"style":{"spacing":{"blockGap":"var:preset|spacing|xs","margin":{"top":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 			<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--sm);margin-bottom:var(--wp--preset--spacing--sm)">
 				<!-- wp:button {"onclick":"","size":"large","iconSize":"20px","iconPosition":"end"} -->
-				<div class="wp-block-button"><a class="wp-block-button__link wp-element-button"><?php echo esc_html__( 'Get Started', 'aegis' ); ?></a></div>
-				<!-- /wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Get Started', 'aegis' ); ?></a></div>
+<!-- /wp:button -->
 
 				<!-- wp:button {"className":"is-style-ghost","onclick":"","size":"large","iconSize":"20px","iconPosition":"end"} -->
-				<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link wp-element-button"><?php echo esc_html__( 'Learn More', 'aegis' ); ?></a></div>
-				<!-- /wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Learn More', 'aegis' ); ?></a></div>
+<!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->
 		</div>
