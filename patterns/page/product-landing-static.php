@@ -57,12 +57,12 @@
 				<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 				<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--sm)">
 					<!-- wp:button {"fontSize":"16"} -->
-					<div class="wp-block-button has-custom-font-size has-16-font-size"><a class="wp-block-button__link wp-element-button" href="/shop"><?php echo esc_html__( 'Add to Cart', 'aegis' ); ?></a></div>
-					<!-- /wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Add to Cart', 'aegis' ); ?></a></div>
+<!-- /wp:button -->
 
 					<!-- wp:button {"className":"is-style-outline","fontSize":"16"} -->
-					<div class="wp-block-button is-style-outline has-custom-font-size has-16-font-size"><a class="wp-block-button__link wp-element-button"><?php echo esc_html__( 'Learn More', 'aegis' ); ?></a></div>
-					<!-- /wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Learn More', 'aegis' ); ?></a></div>
+<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
 			</div>
@@ -84,11 +84,8 @@
 			<div class="wp-block-column">
 				<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 				<div class="wp-block-group is-style-surface" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
-					<!-- wp:image {"className":"is-style-icon","iconSize":"36px","iconSvgString":"\u003csvg xmlns=\u0022http://www.w3.org/2000/svg\u0022 viewBox=\u00220 0 24 24\u0022 fill=\u0022none\u0022 stroke=\u0022currentColor\u0022 stroke-width=\u00221.5\u0022 stroke-linecap=\u0022round\u0022 stroke-linejoin=\u0022round\u0022\u003e\u003cpath d=\u0022m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z\u0022/\u003e\u003c/svg\u003e"} -->
-					<figure class="wp-block-image is-style-icon" style="--wp--custom--icon--size:36px;--wp--custom--icon--url:url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z&quot;/></svg>')"><img alt="" /></figure>
-					<!-- /wp:image -->
-
-					<!-- wp:heading {"textAlign":"center","level":4,"fontSize":"18"} -->
+					<!-- wp:image {"className":"is-style-icon","iconSet":"wordpress","iconName":"color","iconSize":"36px","iconSvgString":"\u003csvg xmlns=\u0022http://www.w3.org/2000/svg\u0022 viewBox=\u00220 0 24 24\u0022 role=\u0022img\u0022 aria-labelledby=\u0022icon-6a2ccd2c1b580\u0022 data-icon=\u0022wordpress-color\u0022 style=\u0022min-width:36px;height:36px\u0022 fill=\u0022currentColor\u0022\u003e\u003ctitle id=\u0022icon-6a2ccd2c1b580\u0022\u003eColor Icon\u003c/title\u003e\u003cpath d=\u0022M17.2 10.9c-.5-1-1.2-2.1-2.1-3.2-.6-.9-1.3-1.7-2.1-2.6L12 4l-1 1.1c-.6.9-1.3 1.7-2 2.6-.8 1.2-1.5 2.3-2 3.2-.6 1.2-1 2.2-1 3 0 3.4 2.7 6.1 6.1 6.1s6.1-2.7 6.1-6.1c0-.8-.3-1.8-1-3zm-5.1 7.6c-2.5 0-4.6-2.1-4.6-4.6 0-.3.1-1 .8-2.3.5-.9 1.1-1.9 2-3.1.7-.9 1.3-1.7 1.8-2.3.7.8 1.3 1.6 1.8 2.3.8 1.1 1.5 2.2 2 3.1.7 1.3.8 2 .8 2.3 0 2.5-2.1 4.6-4.6 4.6z\u0022\u003e\u003c/path\u003e\u003c/svg\u003e"} --><figure class="wp-block-image is-style-icon" style="--wp--custom--icon--size:36px;--wp--custom--icon--url:url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; role=&quot;img&quot; aria-labelledby=&quot;icon-6a2ccd2c1b580&quot; data-icon=&quot;wordpress-color&quot; style=&quot;min-width:36px;height:36px&quot; fill=&quot;currentColor&quot;><title id=&quot;icon-6a2ccd2c1b580&quot;>Color Icon</title><path d=&quot;M17.2 10.9c-.5-1-1.2-2.1-2.1-3.2-.6-.9-1.3-1.7-2.1-2.6L12 4l-1 1.1c-.6.9-1.3 1.7-2 2.6-.8 1.2-1.5 2.3-2 3.2-.6 1.2-1 2.2-1 3 0 3.4 2.7 6.1 6.1 6.1s6.1-2.7 6.1-6.1c0-.8-.3-1.8-1-3zm-5.1 7.6c-2.5 0-4.6-2.1-4.6-4.6 0-.3.1-1 .8-2.3.5-.9 1.1-1.9 2-3.1.7-.9 1.3-1.7 1.8-2.3.7.8 1.3 1.6 1.8 2.3.8 1.1 1.5 2.2 2 3.1.7 1.3.8 2 .8 2.3 0 2.5-2.1 4.6-4.6 4.6z&quot;></path></svg>')"><img alt="" /></figure><!-- /wp:image -->
+<!-- wp:heading {"textAlign":"center","level":4,"fontSize":"18"} -->
 					<h4 class="wp-block-heading has-text-align-center has-18-font-size"><?php echo esc_html__( 'Premium Quality', 'aegis' ); ?></h4>
 					<!-- /wp:heading -->
 
@@ -104,11 +101,8 @@
 			<div class="wp-block-column">
 				<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 				<div class="wp-block-group is-style-surface" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
-					<!-- wp:image {"className":"is-style-icon","iconSize":"36px","iconSvgString":"\u003csvg xmlns=\u0022http://www.w3.org/2000/svg\u0022 viewBox=\u00220 0 24 24\u0022 fill=\u0022none\u0022 stroke=\u0022currentColor\u0022 stroke-width=\u00221.5\u0022 stroke-linecap=\u0022round\u0022 stroke-linejoin=\u0022round\u0022\u003e\u003cpath d=\u0022M13 2 3 14h9l-1 8 10-12h-9l1-8z\u0022/\u003e\u003c/svg\u003e"} -->
-					<figure class="wp-block-image is-style-icon" style="--wp--custom--icon--size:36px;--wp--custom--icon--url:url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M13 2 3 14h9l-1 8 10-12h-9l1-8z&quot;/></svg>')"><img alt="" /></figure>
-					<!-- /wp:image -->
-
-					<!-- wp:heading {"textAlign":"center","level":4,"fontSize":"18"} -->
+					<!-- wp:image {"className":"is-style-icon","iconSet":"wordpress","iconName":"block-default","iconSize":"36px","iconSvgString":"\u003csvg xmlns=\u0022http://www.w3.org/2000/svg\u0022 viewBox=\u00220 0 24 24\u0022 role=\u0022img\u0022 aria-labelledby=\u0022icon-6a2ccd2c26930\u0022 data-icon=\u0022wordpress-block-default\u0022 style=\u0022min-width:36px;height:36px\u0022 fill=\u0022currentColor\u0022\u003e\u003ctitle id=\u0022icon-6a2ccd2c26930\u0022\u003eBlock Default Icon\u003c/title\u003e\u003cpath d=\u0022M19 8h-1V6h-5v2h-2V6H6v2H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2zm.5 10c0 .3-.2.5-.5.5H5c-.3 0-.5-.2-.5-.5v-8c0-.3.2-.5.5-.5h14c.3 0 .5.2.5.5v8z\u0022\u003e\u003c/path\u003e\u003c/svg\u003e"} --><figure class="wp-block-image is-style-icon" style="--wp--custom--icon--size:36px;--wp--custom--icon--url:url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; role=&quot;img&quot; aria-labelledby=&quot;icon-6a2ccd2c26930&quot; data-icon=&quot;wordpress-block-default&quot; style=&quot;min-width:36px;height:36px&quot; fill=&quot;currentColor&quot;><title id=&quot;icon-6a2ccd2c26930&quot;>Block Default Icon</title><path d=&quot;M19 8h-1V6h-5v2h-2V6H6v2H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2zm.5 10c0 .3-.2.5-.5.5H5c-.3 0-.5-.2-.5-.5v-8c0-.3.2-.5.5-.5h14c.3 0 .5.2.5.5v8z&quot;></path></svg>')"><img alt="" /></figure><!-- /wp:image -->
+<!-- wp:heading {"textAlign":"center","level":4,"fontSize":"18"} -->
 					<h4 class="wp-block-heading has-text-align-center has-18-font-size"><?php echo esc_html__( 'Lightning Fast', 'aegis' ); ?></h4>
 					<!-- /wp:heading -->
 
@@ -124,11 +118,8 @@
 			<div class="wp-block-column">
 				<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 				<div class="wp-block-group is-style-surface" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
-					<!-- wp:image {"className":"is-style-icon","iconSize":"36px","iconSvgString":"\u003csvg xmlns=\u0022http://www.w3.org/2000/svg\u0022 viewBox=\u00220 0 24 24\u0022 fill=\u0022none\u0022 stroke=\u0022currentColor\u0022 stroke-width=\u00221.5\u0022 stroke-linecap=\u0022round\u0022 stroke-linejoin=\u0022round\u0022\u003e\u003cpath d=\u0022M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10\u0022/\u003e\u003cpath d=\u0022m9 12 2 2 4-4\u0022/\u003e\u003c/svg\u003e"} -->
-					<figure class="wp-block-image is-style-icon" style="--wp--custom--icon--size:36px;--wp--custom--icon--url:url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10&quot;/><path d=&quot;m9 12 2 2 4-4&quot;/></svg>')"><img alt="" /></figure>
-					<!-- /wp:image -->
-
-					<!-- wp:heading {"textAlign":"center","level":4,"fontSize":"18"} -->
+					<!-- wp:image {"className":"is-style-icon","iconSet":"wordpress","iconName":"box","iconSize":"36px","iconSvgString":"\u003csvg xmlns=\u0022http://www.w3.org/2000/svg\u0022 viewBox=\u00220 0 24 24\u0022 role=\u0022img\u0022 aria-labelledby=\u0022icon-6a2ccd2c280a0\u0022 data-icon=\u0022wordpress-box\u0022 style=\u0022min-width:36px;height:36px\u0022 fill=\u0022currentColor\u0022\u003e\u003ctitle id=\u0022icon-6a2ccd2c280a0\u0022\u003eBox Icon\u003c/title\u003e\u003cpath fill-rule=\u0022evenodd\u0022 d=\u0022M5 5.5h14a.5.5 0 0 1 .5.5v1.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V6a.5.5 0 0 1 .5-.5zM4 9.232A2 2 0 0 1 3 7.5V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1.5a2 2 0 0 1-1 1.732V18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9.232zm1.5.268V18a.5.5 0 0 0 .5.5h12a.5.5 0 0 0 .5-.5V9.5h-13z\u0022 clip-rule=\u0022evenodd\u0022\u003e\u003c/path\u003e\u003c/svg\u003e"} --><figure class="wp-block-image is-style-icon" style="--wp--custom--icon--size:36px;--wp--custom--icon--url:url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; role=&quot;img&quot; aria-labelledby=&quot;icon-6a2ccd2c280a0&quot; data-icon=&quot;wordpress-box&quot; style=&quot;min-width:36px;height:36px&quot; fill=&quot;currentColor&quot;><title id=&quot;icon-6a2ccd2c280a0&quot;>Box Icon</title><path fill-rule=&quot;evenodd&quot; d=&quot;M5 5.5h14a.5.5 0 0 1 .5.5v1.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V6a.5.5 0 0 1 .5-.5zM4 9.232A2 2 0 0 1 3 7.5V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1.5a2 2 0 0 1-1 1.732V18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9.232zm1.5.268V18a.5.5 0 0 0 .5.5h12a.5.5 0 0 0 .5-.5V9.5h-13z&quot; clip-rule=&quot;evenodd&quot;></path></svg>')"><img alt="" /></figure><!-- /wp:image -->
+<!-- wp:heading {"textAlign":"center","level":4,"fontSize":"18"} -->
 					<h4 class="wp-block-heading has-text-align-center has-18-font-size"><?php echo esc_html__( 'Guaranteed', 'aegis' ); ?></h4>
 					<!-- /wp:heading -->
 
@@ -185,8 +176,8 @@
 		<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 		<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--sm)">
 			<!-- wp:button {"backgroundColor":"white","textColor":"primary-900","fontSize":"16"} -->
-			<div class="wp-block-button has-custom-font-size has-16-font-size"><a class="wp-block-button__link has-primary-900-color has-white-background-color has-text-color has-background wp-element-button" href="/shop"><?php echo esc_html__( 'Buy Now — $99.99', 'aegis' ); ?></a></div>
-			<!-- /wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button has-white-background-color has-background has-primary-900-color" href="#"><?php echo esc_html__( 'Buy Now — $99.99', 'aegis' ); ?></a></div>
+<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
 	</div>
