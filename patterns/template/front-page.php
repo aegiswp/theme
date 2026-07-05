@@ -11,8 +11,8 @@
 
 <!-- wp:template-part {"slug":"header","tagName":"header","className":"site-header"} /-->
 
-<!-- wp:group {"tagName":"main","className":"site-main","metadata":{"name":"Main"},"layout":{"type":"constrained"}} -->
-<main class="wp-block-group site-main">
+<!-- wp:group {"tagName":"main","anchor":"main","className":"site-main","metadata":{"name":"Main"},"layout":{"type":"constrained"}} -->
+<main id="main" class="wp-block-group site-main">
 	<!-- wp:pattern {"slug":"page-home"} /-->
 </main>
 <!-- /wp:group -->
