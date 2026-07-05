@@ -111,7 +111,7 @@
 
 			<!-- wp:woocommerce/product-price {"isDescendentOfQueryLoop":true,"textAlign":"center","style":{"typography":{"fontSize":"16px"}}} /-->
 
-			<!-- wp:woocommerce/product-button {"textAlign":"center","isDescendentOfQueryLoop":true,"fontSize":"small"} /-->
+			<!-- wp:woocommerce/product-button {"textAlign":"center","isDescendentOfQueryLoop":true,"fontSize":"14"} /-->
 			<!-- /wp:woocommerce/product-template -->
 		</div>
 		<!-- /wp:woocommerce/product-collection -->
@@ -123,12 +123,8 @@
 		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"is-style-outline"} -->
-			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/shop"><?php echo esc_html__( 'Continue Shopping', 'aegis' ); ?></a></div>
-			<!-- /wp:button -->
-
-			<!-- wp:button -->
-			<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/my-account"><?php echo esc_html__( 'View My Account', 'aegis' ); ?></a></div>
-			<!-- /wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Continue Shopping', 'aegis' ); ?></a></div>
+<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
 	</div>
