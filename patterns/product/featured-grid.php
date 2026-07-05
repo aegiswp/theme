@@ -20,8 +20,8 @@
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"is-style-ghost","fontSize":"14"} -->
-			<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button" href="/shop"><?php echo esc_html__( 'View All →', 'aegis' ); ?></a></div>
-			<!-- /wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'View All →', 'aegis' ); ?></a></div>
+<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
 	</div>
@@ -48,7 +48,7 @@
 
 			<!-- wp:group {"style":{"spacing":{"padding":{"left":"var:preset|spacing|sm","right":"var:preset|spacing|sm"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
 			<div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm)">
-				<!-- wp:woocommerce/product-button {"textAlign":"center","isDescendentOfQueryLoop":true,"fontSize":"small"} /-->
+				<!-- wp:woocommerce/product-button {"textAlign":"center","isDescendentOfQueryLoop":true,"fontSize":"14"} /-->
 			</div>
 			<!-- /wp:group -->
 		</div>
@@ -56,8 +56,8 @@
 		<!-- /wp:woocommerce/product-template -->
 
 		<!-- wp:woocommerce/product-collection-no-results -->
-		<!-- wp:paragraph {"align":"center","fontSize":"medium"} -->
-		<p class="aligncenter has-text-align-center has-medium-font-size aligncenter"><?php echo esc_html__( 'No featured products found. Mark products as featured in WooCommerce to display them here.', 'aegis' ); ?></p>
+		<!-- wp:paragraph {"align":"center","fontSize":"18"} -->
+		<p class="aligncenter has-text-align-center has-18-font-size aligncenter"><?php echo esc_html__( 'No featured products found. Mark products as featured in WooCommerce to display them here.', 'aegis' ); ?></p>
 		<!-- /wp:paragraph -->
 		<!-- /wp:woocommerce/product-collection-no-results -->
 	</div>
