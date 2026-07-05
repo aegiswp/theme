@@ -83,9 +83,9 @@
 
 			<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 			<div class="wp-block-buttons">
-				<!-- wp:button -->
-				<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/shop"><?php echo esc_html__( 'Browse Products', 'aegis' ); ?></a></div>
-				<!-- /wp:button -->
+				<!-- wp:button [] -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Browse Products', 'aegis' ); ?></a></div>
+<!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->
 		</div>
