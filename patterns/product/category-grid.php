@@ -36,8 +36,8 @@
 				<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 				<div class="wp-block-buttons">
 					<!-- wp:button {"className":"is-style-outline","fontSize":"14"} -->
-					<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button"><?php echo esc_html__( 'Browse Category', 'aegis' ); ?></a></div>
-					<!-- /wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Browse Category', 'aegis' ); ?></a></div>
+<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
 			</div>
@@ -64,8 +64,8 @@
 				<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 				<div class="wp-block-buttons">
 					<!-- wp:button {"className":"is-style-outline","fontSize":"14"} -->
-					<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button"><?php echo esc_html__( 'Browse Category', 'aegis' ); ?></a></div>
-					<!-- /wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Browse Category', 'aegis' ); ?></a></div>
+<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
 			</div>
@@ -92,8 +92,8 @@
 				<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 				<div class="wp-block-buttons">
 					<!-- wp:button {"className":"is-style-outline","fontSize":"14"} -->
-					<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button"><?php echo esc_html__( 'Browse Category', 'aegis' ); ?></a></div>
-					<!-- /wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Browse Category', 'aegis' ); ?></a></div>
+<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
 			</div>
