@@ -129,16 +129,16 @@
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"is-style-outline aegis-checkout-prev","style":{"display":{"all":"none"}}} -->
-			<div class="wp-block-button is-style-outline aegis-checkout-prev"><a class="wp-block-button__link wp-element-button"><?php echo esc_html__( '← Previous Step', 'aegis' ); ?></a></div>
-			<!-- /wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( '← Previous Step', 'aegis' ); ?></a></div>
+<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
 
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"aegis-checkout-next"} -->
-			<div class="wp-block-button aegis-checkout-next"><a class="wp-block-button__link wp-element-button"><?php echo esc_html__( 'Continue to Payment →', 'aegis' ); ?></a></div>
-			<!-- /wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Continue to Payment →', 'aegis' ); ?></a></div>
+<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
 	</div>
