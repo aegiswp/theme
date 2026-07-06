@@ -1,0 +1,119 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aegis/related-posts",
+  "version": "1.0.0",
+  "title": "Related Posts",
+  "category": "widgets",
+  "description": "Display posts related to the current content by shared taxonomy terms, with multiple layout variants and fallback options.",
+  "icon": "admin-links",
+  "textdomain": "aegis",
+  "keywords": [
+    "related",
+    "posts",
+    "similar",
+    "recommended"
+  ],
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "className": true,
+    "anchor": true,
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "postsPerPage": {
+      "type": "number",
+      "default": 3
+    },
+    "columns": {
+      "type": "number",
+      "default": 3
+    },
+    "showFeaturedImage": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDate": {
+      "type": "boolean",
+      "default": true
+    },
+    "showExcerpt": {
+      "type": "boolean",
+      "default": true
+    },
+    "showCategory": {
+      "type": "boolean",
+      "default": true
+    },
+    "heading": {
+      "type": "string",
+      "default": "Related Posts"
+    },
+    "headingTag": {
+      "type": "string",
+      "default": "h2",
+      "enum": [
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6"
+      ]
+    },
+    "styleVariant": {
+      "type": "string",
+      "default": "grid",
+      "enum": [
+        "grid",
+        "list",
+        "cards",
+        "minimal"
+      ]
+    },
+    "taxonomySource": {
+      "type": "string",
+      "default": "auto",
+      "enum": [
+        "auto",
+        "category",
+        "post_tag"
+      ]
+    },
+    "fallbackBehavior": {
+      "type": "string",
+      "default": "latest",
+      "enum": [
+        "latest",
+        "hide"
+      ]
+    },
+    "excerptLength": {
+      "type": "number",
+      "default": 20
+    },
+    "imageAspectRatio": {
+      "type": "string",
+      "default": "16/9",
+      "enum": [
+        "16/9",
+        "4/3",
+        "1/1",
+        "3/2"
+      ]
+    }
+  },
+  "editorScript": "file:index.js",
+  "style": "file:style-style.css",
+  "render": "file:render.php"
+}
