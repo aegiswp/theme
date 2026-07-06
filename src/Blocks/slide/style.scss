@@ -1,0 +1,23 @@
+/**
+ * Slide Block - Frontend Styles
+ *
+ * @package Aegis
+ * @since   1.0.0
+ */
+
+.wp-block-aegis-slide {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+
+	img {
+		max-width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	> * {
+		width: 100%;
+	}
+}
