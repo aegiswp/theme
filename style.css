@@ -4,29 +4,45 @@
  Author: Atmostfear Entertainment
  Author URI: https://www.atmostfear-entertainment.com/
  Description: A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes.
- Requires at least: 6.6
- Tested up to: 6.9
+Requires at least: 7.0
+ Tested up to: 7.0
  Requires PHP: 8.1
- Version: 1.0.0-rc.3
- License: GNU General Public License v2 or later
+ Version: 1.0.0
+ License: GPL-2.0-or-later
  License URI: https://www.gnu.org/licenses/gpl-2.0.html
  Text Domain: aegis
  Domain Path: /languages
  Tags: accessibility-ready, block-patterns, block-styles, blog, custom-colors, custom-logo, custom-menu, e-commerce, editor-style, featured-images, footer-widgets, full-site-editing, full-width-template, grid-layout, one-column, portfolio, rtl-language-support, sticky-post, style-variations, template-editing, threaded-comments, three-columns, translation-ready, two-columns, wide-blocks
 
  Aegis, (c) 2022-2026 Atmostfear Entertainment S.A.S.
- Aegis is distributed under the terms of the GNU GPL.
+ Aegis is distributed under the terms of the GNU General Public License v2 or later.
 */
 
 /**
- * Optional global CSS (most design lives in `theme.json`)
+ * Block Theme Styling
  *
- * The WordPress header comment above is required. Use this file only for
- * small global rules that are awkward in `theme.json` or for editor-only
- * notes; prefer the Site Editor, style variations, and block styles.
+ * In a block theme, this file is primarily used for the theme's header
+ * information. Most styling is handled by `theme.json` and through the
+ * block editor's Styles interface.
  *
- * @package Aegis
- * @since 1.0.0
+ * Custom CSS can still be added here if needed, but the recommended
+ * approach is to use `theme.json` for global styles and block-specific
+ * styles for components.
+ *
  * @link https://developer.wordpress.org/themes/advanced-topics/theme-json/
- * @link https://github.com/aegiswp/theme
  */
+
+/* Heading hover effect (linked headings only) */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	transition: color 0.2s ease;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+	color: var(--wp--preset--color--primary-500);
+}
+
+/* Hide captions on gravatar and icon-style images */
+.gravatar figcaption,
+.is-style-icon figcaption {
+	display: none;
+}
