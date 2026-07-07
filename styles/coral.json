@@ -1,5 +1,5 @@
 {
-    "$schema": "https://schemas.wp.org/wp/6.8/theme.json",
+    "$schema": "https://schemas.wp.org/wp/7.0/theme.json",
     "version": 3,
     "title": "Coral",
     "settings": {
@@ -66,61 +66,6 @@
                     "color": "#fff9f8"
                 },
                 {
-                    "name": "Secondary 950",
-                    "slug": "secondary-950",
-                    "color": "#d1d5db"
-                },
-                {
-                    "name": "Secondary 900",
-                    "slug": "secondary-900",
-                    "color": "#d8dce2"
-                },
-                {
-                    "name": "Secondary 800",
-                    "slug": "secondary-800",
-                    "color": "#e2e5e9"
-                },
-                {
-                    "name": "Secondary 700",
-                    "slug": "secondary-700",
-                    "color": "#e8ebef"
-                },
-                {
-                    "name": "Secondary 600",
-                    "slug": "secondary-600",
-                    "color": "#edf0f3"
-                },
-                {
-                    "name": "Secondary 500",
-                    "slug": "secondary-500",
-                    "color": "#f1f3f6"
-                },
-                {
-                    "name": "Secondary 300",
-                    "slug": "secondary-300",
-                    "color": "#f7f8fa"
-                },
-                {
-                    "name": "Secondary 200",
-                    "slug": "secondary-200",
-                    "color": "#f9fafb"
-                },
-                {
-                    "name": "Secondary 100",
-                    "slug": "secondary-100",
-                    "color": "#fafbfc"
-                },
-                {
-                    "name": "Secondary 50",
-                    "slug": "secondary-50",
-                    "color": "#fcfcfd"
-                },
-                {
-                    "name": "Secondary 25",
-                    "slug": "secondary-25",
-                    "color": "#ffffff"
-                },
-                {
                     "name": "Neutral 950",
                     "slug": "neutral-950",
                     "color": "#030712"
@@ -181,6 +126,26 @@
                     "color": "#ffffff"
                 },
                 {
+                    "name": "Success 950",
+                    "slug": "success-950",
+                    "color": "#052e16"
+                },
+                {
+                    "name": "Success 900",
+                    "slug": "success-900",
+                    "color": "#14532d"
+                },
+                {
+                    "name": "Success 800",
+                    "slug": "success-800",
+                    "color": "#166534"
+                },
+                {
+                    "name": "Success 700",
+                    "slug": "success-700",
+                    "color": "#15803d"
+                },
+                {
                     "name": "Success 600",
                     "slug": "success-600",
                     "color": "#059669"
@@ -191,9 +156,49 @@
                     "color": "#10b981"
                 },
                 {
+                    "name": "Success 400",
+                    "slug": "success-400",
+                    "color": "#4ade80"
+                },
+                {
+                    "name": "Success 300",
+                    "slug": "success-300",
+                    "color": "#86efac"
+                },
+                {
+                    "name": "Success 200",
+                    "slug": "success-200",
+                    "color": "#bbf7d0"
+                },
+                {
                     "name": "Success 100",
                     "slug": "success-100",
                     "color": "#d1fae5"
+                },
+                {
+                    "name": "Success 50",
+                    "slug": "success-50",
+                    "color": "#f0fdf4"
+                },
+                {
+                    "name": "Warning 950",
+                    "slug": "warning-950",
+                    "color": "#431407"
+                },
+                {
+                    "name": "Warning 900",
+                    "slug": "warning-900",
+                    "color": "#7c2d12"
+                },
+                {
+                    "name": "Warning 800",
+                    "slug": "warning-800",
+                    "color": "#9a3412"
+                },
+                {
+                    "name": "Warning 700",
+                    "slug": "warning-700",
+                    "color": "#c2410c"
                 },
                 {
                     "name": "Warning 600",
@@ -206,9 +211,49 @@
                     "color": "#f59e0b"
                 },
                 {
+                    "name": "Warning 400",
+                    "slug": "warning-400",
+                    "color": "#fb923c"
+                },
+                {
+                    "name": "Warning 300",
+                    "slug": "warning-300",
+                    "color": "#fdba74"
+                },
+                {
+                    "name": "Warning 200",
+                    "slug": "warning-200",
+                    "color": "#fed7aa"
+                },
+                {
                     "name": "Warning 100",
                     "slug": "warning-100",
                     "color": "#fef3c7"
+                },
+                {
+                    "name": "Warning 50",
+                    "slug": "warning-50",
+                    "color": "#fff7ed"
+                },
+                {
+                    "name": "Error 950",
+                    "slug": "error-950",
+                    "color": "#450a0a"
+                },
+                {
+                    "name": "Error 900",
+                    "slug": "error-900",
+                    "color": "#7f1d1d"
+                },
+                {
+                    "name": "Error 800",
+                    "slug": "error-800",
+                    "color": "#991b1b"
+                },
+                {
+                    "name": "Error 700",
+                    "slug": "error-700",
+                    "color": "#b91c1c"
                 },
                 {
                     "name": "Error 600",
@@ -221,9 +266,29 @@
                     "color": "#f43f5e"
                 },
                 {
+                    "name": "Error 400",
+                    "slug": "error-400",
+                    "color": "#f87171"
+                },
+                {
+                    "name": "Error 300",
+                    "slug": "error-300",
+                    "color": "#fca5a5"
+                },
+                {
+                    "name": "Error 200",
+                    "slug": "error-200",
+                    "color": "#fecaca"
+                },
+                {
                     "name": "Error 100",
                     "slug": "error-100",
                     "color": "#ffe4e6"
+                },
+                {
+                    "name": "Error 50",
+                    "slug": "error-50",
+                    "color": "#fef2f2"
                 },
                 {
                     "name": "Transparent",
@@ -239,6 +304,11 @@
                     "name": "Inherit",
                     "slug": "inherit",
                     "color": "inherit"
+                },
+                {
+                    "name": "Shadow",
+                    "slug": "shadow",
+                    "color": "rgba(107,114,128,0.07)"
                 }
             ]
         }
