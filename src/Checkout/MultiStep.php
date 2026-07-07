@@ -1,13 +1,12 @@
 <?php
 /**
- * WooCommerce multi-step checkout (front-end assets)
+ * Multi-Step Checkout
  *
- * Registers scripts and styles through the framework `AssetManager` when the main
- * checkout template is rendering. Strings are passed to JS via `wp_localize_script`.
+ * Registers and loads multi-step checkout JS/CSS using WordPress asset system
+ * when checkout functionality is detected on the page.
  *
  * @package Aegis
- * @since 1.0.0
- * @link https://github.com/aegiswp/theme
+ * @since   1.0.0
  */
 
 declare( strict_types=1 );
@@ -22,6 +21,9 @@ use function is_checkout;
 use function wp_localize_script;
 use function esc_html__;
 
+/**
+ * Enqueues multi-step checkout assets on WooCommerce checkout pages.
+ */
 class MultiStep {
 
 	/**
@@ -30,15 +32,14 @@ class MultiStep {
 	 * @return void
 	 */
 	public function init(): void {
-		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_assets' ], 11 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_assets' ), 11 );
 	}
 
 	/**
 	 * Conditionally enqueue multi-step checkout assets.
 	 *
-	 * Enqueues when WooCommerce is available and the main checkout template is
-	 * being rendered (`is_checkout()`), so assets are not loaded site-wide.
-	 * Localization runs here so the handle is registered before `wp_localize_script`.
+	 * Uses WordPress conditional functions and block detection for optimal loading.
+	 * Localization is done here (after enqueue) to guarantee the script is registered.
 	 *
 	 * @return void
 	 */
@@ -47,14 +48,19 @@ class MultiStep {
 			return;
 		}
 
+		// Also load on WooCommerce checkout pages (function-based detection).
 		if ( function_exists( 'is_checkout' ) && is_checkout() ) {
 			AssetManager::enqueue_style( 'aegis-checkout-multi-step' );
 			AssetManager::enqueue_script( 'aegis-checkout-multi-step' );
 
-			wp_localize_script( 'aegis-checkout-multi-step', 'aegisCheckout', [
-				'continueToPayment' => esc_html__( 'Continue to Payment →', 'aegis' ),
-				'reviewOrder'       => esc_html__( 'Review Order →', 'aegis' ),
-			] );
+			wp_localize_script(
+				'aegis-checkout-multi-step',
+				'aegisCheckout',
+				array(
+					'continueToPayment' => esc_html__( 'Continue to Payment →', 'aegis' ),
+					'reviewOrder'       => esc_html__( 'Review Order →', 'aegis' ),
+				)
+			);
 		}
 	}
 }
