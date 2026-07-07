@@ -4,33 +4,39 @@
  * Handles step navigation for the multi-step checkout template.
  * Steps: 1 = Shipping, 2 = Payment, 3 = Review
  *
- * @package Aegis
+ * @package
  * @since   1.0.0
  */
+
+/* global aegisCheckout */
+
 ( function () {
 	'use strict';
 
 	const TOTAL_STEPS = 3;
 	let currentStep = 1;
 
-	const stepIndicators = document.querySelectorAll( '.aegis-checkout-step' );
 	const stepContents = [];
 	const prevBtn = document.querySelector( '.aegis-checkout-prev' );
 	const nextBtn = document.querySelector( '.aegis-checkout-next' );
 
 	for ( let i = 1; i <= TOTAL_STEPS; i++ ) {
-		stepContents[ i ] = document.querySelector( '.aegis-checkout-step-' + i );
+		stepContents[ i ] = document.querySelector(
+			'.aegis-checkout-step-' + i
+		);
 	}
 
 	if ( ! stepContents[ 1 ] || ! prevBtn || ! nextBtn ) {
 		return;
 	}
 
+	const stepIndicators = document.querySelectorAll( '.aegis-checkout-step' );
+
 	const nextLabels = [
 		'',
 		aegisCheckout.continueToPayment,
 		aegisCheckout.reviewOrder,
-		''
+		'',
 	];
 
 	function showStep( step ) {
