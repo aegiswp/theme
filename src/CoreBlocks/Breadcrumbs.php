@@ -1,16 +1,13 @@
 <?php
 /**
- * Core block: `core/breadcrumbs` integration for documentation
+ * Breadcrumbs Block Support
  *
- * When the Aegis Docs plugin registers the `aegis_doc` post type and `doc_space`
- * taxonomy, these filters extend the breadcrumb trail so doc spaces appear in
- * the correct order (archive → space → hierarchy).
- *
- * Hooks: `block_core_breadcrumbs_post_type_settings`, `block_core_breadcrumbs_items`.
+ * Customizes the core/breadcrumbs block for the Aegis Docs plugin's
+ * aegis_doc post type, ensuring the doc_space taxonomy appears in
+ * the breadcrumb trail using WordPress asset system.
  *
  * @package Aegis
- * @since 1.0.0
- * @link https://github.com/aegiswp/theme
+ * @since   1.0.0
  */
 
 declare( strict_types=1 );
@@ -26,6 +23,9 @@ use function is_singular;
 use function is_wp_error;
 use function untrailingslashit;
 
+/**
+ * Customizes core breadcrumbs output for theme post types.
+ */
 class Breadcrumbs {
 
 	/**
@@ -34,8 +34,8 @@ class Breadcrumbs {
 	 * @return void
 	 */
 	public function init(): void {
-		add_filter( 'block_core_breadcrumbs_post_type_settings', [ $this, 'docs_post_type_settings' ], 10, 3 );
-		add_filter( 'block_core_breadcrumbs_items', [ $this, 'inject_doc_space' ] );
+		add_filter( 'block_core_breadcrumbs_post_type_settings', array( $this, 'docs_post_type_settings' ), 10, 3 );
+		add_filter( 'block_core_breadcrumbs_items', array( $this, 'inject_doc_space' ) );
 	}
 
 	/**
@@ -100,14 +100,14 @@ class Breadcrumbs {
 			return $items;
 		}
 
-		$space_item = [
+		$space_item = array(
 			'label' => $term->name,
 			'url'   => $term_link,
-		];
+		);
 
 		// Find the position after the archive link to insert the space.
-		// Items: [Home, Archive, ...ancestors, Current]
-		// We want: [Home, Archive, Space, ...ancestors, Current]
+		// Items: [Home, Archive, ...ancestors, Current].
+		// We want: [Home, Archive, Space, ...ancestors, Current].
 		$archive_link = get_post_type_archive_link( 'aegis_doc' );
 		$insert_pos   = 1; // Default: after Home.
 
@@ -125,7 +125,7 @@ class Breadcrumbs {
 			}
 		}
 
-		array_splice( $items, $insert_pos, 0, [ $space_item ] );
+		array_splice( $items, $insert_pos, 0, array( $space_item ) );
 
 		return $items;
 	}
