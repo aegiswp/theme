@@ -1,13 +1,12 @@
 <?php
 /**
- * `core/navigation` overlay block styles
+ * Navigation Overlay Variants
  *
- * Registers block style variations (slide-in, fullscreen, scroll, etc.) with
- * `register_block_style()` and provides inline CSS for each. Loaded on `init`.
+ * Registers and loads navigation overlay CSS using WordPress asset system
+ * when a navigation block with overlay variant is detected on the page.
  *
  * @package Aegis
- * @since 1.0.0
- * @link https://github.com/aegiswp/theme
+ * @since   1.0.0
  */
 
 declare( strict_types=1 );
@@ -18,6 +17,9 @@ use function add_action;
 use function register_block_style;
 use function __;
 
+/**
+ * Registers navigation overlay block styles and assets.
+ */
 class Overlay {
 
 	/**
@@ -26,7 +28,7 @@ class Overlay {
 	 * @return void
 	 */
 	public function init(): void {
-		add_action( 'init', [ $this, 'register_block_styles' ] );
+		add_action( 'init', array( $this, 'register_block_styles' ) );
 	}
 
 	/**
@@ -37,38 +39,38 @@ class Overlay {
 	public function register_block_styles(): void {
 		register_block_style(
 			'core/navigation',
-			[
+			array(
 				'name'         => 'slide-in',
 				'label'        => __( 'Slide-in Drawer', 'aegis' ),
 				'inline_style' => $this->get_slide_in_styles(),
-			]
+			)
 		);
 
 		register_block_style(
 			'core/navigation',
-			[
+			array(
 				'name'         => 'slide-in-left',
 				'label'        => __( 'Slide-in Left', 'aegis' ),
 				'inline_style' => $this->get_slide_in_left_styles(),
-			]
+			)
 		);
 
 		register_block_style(
 			'core/navigation',
-			[
+			array(
 				'name'         => 'fullscreen',
 				'label'        => __( 'Fullscreen Overlay', 'aegis' ),
 				'inline_style' => $this->get_fullscreen_styles(),
-			]
+			)
 		);
 
 		register_block_style(
 			'core/navigation',
-			[
+			array(
 				'name'         => 'scroll',
 				'label'        => __( 'Scroll Overlay', 'aegis' ),
 				'inline_style' => $this->get_scroll_styles(),
-			]
+			)
 		);
 	}
 
