@@ -7,6 +7,10 @@ on:
     tags:
       - 'v*'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     name: Build & Release
@@ -44,7 +48,7 @@ jobs:
         run: npm ci
 
       - name: Build Block Assets
-        run: npm run build --if-present
+        run: npm run build
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -52,22 +56,25 @@ jobs:
           php-version: '8.3'
           tools: composer
 
-      - name: Install Composer Dependencies
-        run: composer install --no-dev --prefer-dist --no-progress --no-interaction
+      - name: Install Composer Dependencies (dev, for validation)
+        run: composer install --prefer-dist --no-progress --no-interaction
 
       - name: Run Pre-Release Validation
         run: |
           echo "Running linting checks..."
-          npm run lint:js --if-present || true
-          npm run lint:css --if-present || true
+          npm run lint:js
+          npm run lint:css
 
           echo "Running PHPCS..."
-          vendor/bin/phpcs || true
+          vendor/bin/phpcs
 
           echo "Validating composer files..."
           composer validate --strict --no-interaction
 
           echo "✓ Pre-release validation complete"
+
+      - name: Install Composer Dependencies (production, for package)
+        run: composer install --no-dev --prefer-dist --no-progress --no-interaction --optimize-autoloader
 
       # Automatically compile .po to .mo
       - name: Compile Translations
@@ -83,6 +90,8 @@ jobs:
         id: package_theme
         run: |
           THEME_SLUG="aegis"
+          rm -rf "$THEME_SLUG" "${THEME_SLUG}.zip" "${THEME_SLUG}.zip.sha256"
+
           mkdir -p "$THEME_SLUG"
           # Excludes: .distignore (dev deps, tests, sources, Node, CI, etc.).
           # Includes: block patterns/templates, theme.json, built assets, `vendor/` (no dev).
@@ -91,12 +100,16 @@ jobs:
             --exclude='_playground/' \
             --exclude='_wordpress-org/'
 
-          # Sanity: required files for WordPress
-          test -f "$THEME_SLUG/style.css" && test -f "$THEME_SLUG/functions.php" && test -f "$THEME_SLUG/vendor/autoload.php"
+          # Sanity: required files for WordPress (zip root folder must be `aegis/`).
+          test -f "$THEME_SLUG/style.css"
+          test -f "$THEME_SLUG/functions.php"
+          test -f "$THEME_SLUG/vendor/autoload.php"
+          test -f "$THEME_SLUG/screenshot.png"
+          test -d "$THEME_SLUG/src/Blocks"
 
           echo "Files in dist: $(find "$THEME_SLUG" -type f | wc -l)"
           zip -r "${THEME_SLUG}.zip" "$THEME_SLUG"
-          unzip -l "${THEME_SLUG}.zip" | head -n 40
+          unzip -l "${THEME_SLUG}.zip" | head -n 20 | grep -q "aegis/style.css"
 
           # Generate SHA256 checksum
           sha256sum "${THEME_SLUG}.zip" > "${THEME_SLUG}.zip.sha256"
@@ -118,17 +131,21 @@ jobs:
             **Tag**: ${{ env.RELEASE_TAG }}
             **Status**: Draft (awaiting review and approval)
 
+            ### Install
+            Download `aegis.zip`, upload via **Appearance → Themes → Add New → Upload Theme**, or unzip to `wp-content/themes/aegis/`.
+
             ### Validation Checklist
             - [x] Tag format validated (semantic versioning)
             - [x] Linting passed (JS, CSS, PHP)
             - [x] Composer files validated
-            - [x] Package integrity verified
+            - [x] Package root folder is `aegis/` inside the zip
             - [x] SHA256 checksum generated
 
             ### Verification
             To verify the package integrity, run:
             ```bash
             sha256sum -c aegis.zip.sha256
+            unzip -l aegis.zip | head
             ```
 
             **Note**: This is a draft release. Please review the changes and attachments before publishing.
