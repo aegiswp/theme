@@ -1,7 +1,7 @@
 name: Compatibility Report
-description: Report a WordPress, PHP, or plugin compatibility issue with Aegis
+description: Report a WordPress, PHP, or plugin compatibility issue with Aegis.
 labels:
-  - '[Type] Compatibility'
+  - "[Type] Compatibility"
   - triage
 body:
   - type: markdown
@@ -21,9 +21,7 @@ body:
     attributes:
       label: WordPress Version
       options:
-        - 6.4
-        - 6.5
-        - 6.6
+        - 7.0
         - Latest
         - Other (please specify)
     validations:
