@@ -3,7 +3,6 @@
     "collect": {
       "url": ["http://localhost:8080"],
       "numberOfRuns": 3,
-      "headless": true,
       "settings": {
         "chromeFlags": "--no-sandbox --disable-gpu --disable-extensions",
         "output": "json",
