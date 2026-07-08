@@ -7,11 +7,9 @@ updates:
       interval: "weekly"
       day: "monday"
       time: "09:00"
-    target-branch: "main"
+    target-branch: "dev"
     open-pull-requests-limit: 5
     reviewers:
-      - "aegiswp/core-team"
-    assignees:
       - "aegiswp/core-team"
     commit-message:
       prefix: "deps"
@@ -31,11 +29,9 @@ updates:
       interval: "weekly"
       day: "tuesday"
       time: "09:00"
-    target-branch: "main"
+    target-branch: "dev"
     open-pull-requests-limit: 5
     reviewers:
-      - "aegiswp/core-team"
-    assignees:
       - "aegiswp/core-team"
     commit-message:
       prefix: "deps"
@@ -54,11 +50,9 @@ updates:
       interval: "monthly"
       day: "wednesday"
       time: "09:00"
-    target-branch: "main"
+    target-branch: "dev"
     open-pull-requests-limit: 3
     reviewers:
-      - "aegiswp/core-team"
-    assignees:
       - "aegiswp/core-team"
     commit-message:
       prefix: "ci"
