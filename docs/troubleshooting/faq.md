@@ -6,7 +6,11 @@ This page answers common questions about the Aegis theme.
 
 ### What is Aegis?
 
+<<<<<<< Updated upstream
 Aegis is a WordPress Full Site Editing (FSE) block theme built for performance and flexibility. It provides a zero-base loading architecture, 60 style variations, over 145 block patterns, and deep integration with the WordPress Site Editor.
+=======
+Aegis is a WordPress Full Site Editing (FSE) block theme built for performance and flexibility. It provides a zero-base loading architecture, 60 style variations, **~200 theme block patterns** (plus companion plugin and Pro patterns), and deep integration with the WordPress Site Editor.
+>>>>>>> Stashed changes
 
 ### What does "zero-base loading" mean?
 
@@ -20,7 +24,11 @@ The Aegis theme is released under the GPL-2.0-or-later license. The companion Ae
 
 | Product | Includes |
 |---------|----------|
+<<<<<<< Updated upstream
 | **Aegis theme** | Templates, patterns, style variations, design system, theme blocks (Countdown, Slider, Toggle, Video, Related Posts), framework core-block enhancements, WooCommerce templates |
+=======
+| **Aegis theme** | Templates, patterns, style variations, design system, six theme blocks (Countdown, Slider, Slide, Toggle, Toggle Content, Related Posts), enhanced **`core/video`**, framework core-block enhancements, WooCommerce templates |
+>>>>>>> Stashed changes
 | **Aegis Plugin** (free) | Map and Modal blocks, admin dashboard, block toggles, snippets, conditionals, integrations, analytics |
 | **Aegis Pro** (premium) | Hook pattern CPT, video/BunnyCDN stack, query conditions, Pro blocks, block extensions, license — requires Aegis theme |
 
@@ -91,7 +99,11 @@ Aegis includes 23 templates: 9 core WordPress templates, 3 custom page templates
 
 ### How many patterns are included?
 
+<<<<<<< Updated upstream
 Over 145 block patterns across 30 categories. See [[pattern-reference]] for the complete list.
+=======
+**~200 theme patterns** across 30 categories. The companion plugin adds demo and WooCommerce patterns (~45 files, gated on dependencies). Pro adds premium marketing layouts. See [[pattern-reference]] for theme categories and [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md) for commerce patterns.
+>>>>>>> Stashed changes
 
 ### Can I create my own patterns?
 
@@ -107,7 +119,11 @@ The Blank template provides an empty canvas with no header, footer, or wrapper. 
 
 ### What custom blocks does Aegis include?
 
+<<<<<<< Updated upstream
 The theme registers Countdown, Slider, Slide, Toggle, Toggle Content, Video, and Related Posts. Map and Modal require the [Aegis Plugin](../../plugins/aegis/docs/blocks/custom-blocks.md). Block feature toggles are at **Aegis → Blocks**.
+=======
+The theme registers Countdown, Slider, Slide, Toggle, Toggle Content, and Related Posts. Video uses WordPress **`core/video`** (enhanced by the framework and companion plugins). Map and Modal require the [Aegis Plugin](../../plugins/aegis/docs/blocks/custom-blocks.md). Block feature toggles are at **Aegis → Blocks**.
+>>>>>>> Stashed changes
 
 ### Do I need Gutenberg plugin installed?
 
@@ -121,7 +137,15 @@ Yes. Aegis is compatible with third-party block plugins. The theme styles are ap
 
 ### Does Aegis support WooCommerce?
 
+<<<<<<< Updated upstream
 Yes. Aegis includes 11 dedicated WooCommerce templates, product patterns, and full styling integration. See [[woocommerce-integration]] for details.
+=======
+Yes. Aegis includes WooCommerce FSE templates (theme) and WooCommerce block patterns (companion plugin, when WC is active). See [[woocommerce-integration]] for details.
+
+### Why don't I see shop or product patterns in the inserter?
+
+WooCommerce block patterns are registered by the **Aegis companion plugin** only when **WooCommerce is active**. Install and activate WooCommerce and the Aegis plugin. Generic commerce marketing patterns (core blocks only) remain in the theme.
+>>>>>>> Stashed changes
 
 ### What is the multi-step checkout?
 
