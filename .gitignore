@@ -1,6 +1,12 @@
 # Dependencies
 node_modules/
-vendor/
+# Ignore Composer-managed packages, but keep the vendored first-party Aegis
+# framework packages tracked: they are path-repository sources required for
+# `composer install` to resolve aegis/framework and aegis/icons on a fresh
+# clone (see "repositories" in composer.json).
+vendor/*
+!vendor/aegis/
+!vendor/aegis/**
 
 # IDE
 .vscode/
@@ -29,9 +35,16 @@ patterns/.*
 
 # Dev tooling (standalone packages, not part of theme runtime)
 # Track tools/wpaudit so CI can run its PHPUnit suite (aegis/wpaudit path repo).
+# Keep tools/generate-blocks-manifest.php tracked: `npm run build` depends on it.
 tools/*
 !tools/wpaudit/
 !tools/wpaudit/**
+!tools/generate-blocks-manifest.php
+!tools/clean-build.js
+
+# One-off dev/migration scripts (not part of theme runtime)
+bin/
+scripts/
 
 # Audit tool legacy paths (moved to tools/wpaudit)
 config/
@@ -105,3 +118,5 @@ auth.json
 AGENTS.md
 DESIGN.md
 /tests
+docs/_footer.md
+docs/_sidebar.md
