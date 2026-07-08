@@ -8,9 +8,9 @@
  * Extend `entry` here when you introduce theme-only scripts or styles that need
  * compilation outside the framework package.
  *
- * @package Aegis
+ * @package
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/
  */
-const defaultConfig = require('@wordpress/scripts/config/webpack.config');
+const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 
 module.exports = defaultConfig;
