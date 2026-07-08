@@ -1,10 +1,10 @@
 name: Security Vulnerability
-description: "[warning] REPORT SECURITY ISSUES VIA GITHUB SECURITY ADVISORY"
+description: Report security issues via GitHub Security Advisory.
 body:
   - type: markdown
     attributes:
       value: |
-        # [warning] Security Vulnerability Report
+        # Security Vulnerability Report
 
         **Do NOT post security vulnerabilities as public GitHub issues.**
 
@@ -17,7 +17,7 @@ body:
         ### Option 1: GitHub Security Advisory (Recommended)
         This is the **private and recommended way** to report security issues:
 
-        1. Go to: **Security - Advisories - Report a vulnerability**
+        1. Go to: **Security → Advisories → Report a vulnerability**
            - Link: https://github.com/aegiswp/theme/security/advisories
         2. Fill out the vulnerability details privately
         3. Our team will respond and coordinate a fix
@@ -48,7 +48,7 @@ body:
         - Privilege escalation
         - Cryptographic weaknesses
 
-        ✗ **Do NOT report as security issue:**
+        ❌ **Do NOT report as security issue:**
         - Broken features or bugs (use Bug Report instead)
         - Performance issues
         - Missing documentation
@@ -60,9 +60,10 @@ body:
         ## Security Support Policy
 
         - **Response Time:** We aim to respond within 48 hours
-        - **Disclosure Timeline:** 90 days after a fix is available
+        - **Patch Release:** Critical fixes targeted within 14 days
+        - **Public Disclosure:** After a patch is available (typically 7–14 days later)
         - **Credit:** Reporters will be credited in security advisories (unless they request anonymity)
 
         ---
 
-        **Thank you for helping us keep Aegis secure. [lock]**
+        **Thank you for helping us keep Aegis secure.**
