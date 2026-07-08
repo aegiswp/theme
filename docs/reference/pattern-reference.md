@@ -1,6 +1,14 @@
 # Pattern Reference
 
+<<<<<<< Updated upstream
 This page provides a complete reference of all 30 block pattern categories included in the Aegis theme, with over 145 individual patterns across all categories.
+=======
+This page catalogs **theme-owned** block pattern categories — generic sections, commerce marketing layouts (core blocks only), and template composition patterns registered from `patterns/` in the theme.
+
+WooCommerce block patterns (`wp:woocommerce/*`) and the TI Wishlist template pattern are **not** theme-owned. They register from the [Aegis companion plugin](../../plugins/aegis/docs/features/plugin-patterns.md) when WooCommerce (and TI Wishlist, for wishlist) are active. Premium layouts live in [Aegis Pro](../../plugins/aegis-pro/docs/patterns/pro-patterns.md).
+
+The theme ships **~200 block patterns** across **30 categories**. With the companion plugin and Pro, the full Aegis pattern library exceeds **270** registered slugs.
+>>>>>>> Stashed changes
 
 ## Pattern Categories
 
@@ -317,5 +325,10 @@ Helper patterns for layout and spacing.
 ## Related Pages
 
 - [[block-patterns]] — Detailed guide on using and customizing patterns.
+<<<<<<< Updated upstream
+=======
+- [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md) — WooCommerce and wishlist block patterns (companion plugin, gated).
+- [Pro Patterns](../../plugins/aegis-pro/docs/patterns/pro-patterns.md) — Premium marketing layouts.
+>>>>>>> Stashed changes
 - [[templates]] — How patterns are used within templates.
 - [[style-variations]] — How patterns adapt to different style variations.
