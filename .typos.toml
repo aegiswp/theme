@@ -5,6 +5,10 @@
 extend-exclude = [
     "vendor/",
     "node_modules/",
+    "tools/",
+    "build/",
+    "docs/",
+    "patterns/",
     "assets/",
     "src/*/css/",
     "src/*/js/",
@@ -28,8 +32,18 @@ extend-ignore-identifiers-re = [
     "phpcs",
     "WPCS",
 ]
+extend-ignore-re = [
+    # Generated icon IDs in pattern markup (e.g. icon-690b811a92ba1)
+    "icon-[0-9a-f]+",
+]
 
 [default.extend-words]
+# British English used in theme copy and docs
+colour = "colour"
+colours = "colours"
 # WordPress/PHP common terms that aren't typos
 aci = "aci"
 ser = "ser"
+# Proper nouns used in pattern demo content
+Calle = "Calle"
+Mena = "Mena"
