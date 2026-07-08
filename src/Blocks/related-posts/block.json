@@ -114,6 +114,10 @@
     }
   },
   "editorScript": "file:index.js",
+<<<<<<< Updated upstream
   "style": "file:style-style.css",
+=======
+  "style": "file:style.css",
+>>>>>>> Stashed changes
   "render": "file:render.php"
 }
