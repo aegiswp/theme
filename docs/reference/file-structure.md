@@ -42,7 +42,10 @@ src/
 │   ├── slide/
 │   ├── toggle/
 │   ├── toggle-content/
+<<<<<<< Updated upstream
 │   ├── video/
+=======
+>>>>>>> Stashed changes
 │   └── related-posts/
 ├── Checkout/js/             # Multi-step checkout JS source
 ├── Navigation/
@@ -61,7 +64,10 @@ build/Blocks/
 ├── slide/
 ├── toggle/
 ├── toggle-content/
+<<<<<<< Updated upstream
 ├── video/
+=======
+>>>>>>> Stashed changes
 ├── related-posts/
 └── blocks-manifest.php
 ```
@@ -79,7 +85,19 @@ Composer packages:
 
 ### patterns/
 
+<<<<<<< Updated upstream
 Block patterns by category (`hero/`, `cta/`, `template/`, etc.). Pro patterns live in `plugins/aegis-pro/patterns/`.
+=======
+**Theme-owned** block patterns by category (`hero/`, `cta/`, `template/`, etc.) — generic sections and marketing layouts using core blocks. WooCommerce block patterns (`wp:woocommerce/*`) and the TI Wishlist pattern live in the **companion plugin**, not here.
+
+Companion plugin pattern directories (see [Plugin File Structure](../../plugins/aegis/docs/development/file-structure.md)):
+
+- `wp-content/plugins/aegis/patterns/woocommerce/` — gated on WooCommerce
+- `wp-content/plugins/aegis/patterns/wishlist/` — gated on WooCommerce + TI Wishlist
+- `wp-content/plugins/aegis/patterns/{slider,modal,contact,blog}/` — demo patterns
+
+Pro premium patterns: `wp-content/plugins/aegis-pro/patterns/`.
+>>>>>>> Stashed changes
 
 ### Companion Plugins (Separate Repositories)
 
@@ -98,4 +116,8 @@ Block patterns by category (`hero/`, `cta/`, `template/`, etc.). Pro patterns li
 
 - [[architecture]] — Technical architecture
 - [[building-assets]] — Build commands
+<<<<<<< Updated upstream
 - [Plugin File Structure](../../plugins/aegis/docs/development/architecture.md)
+=======
+- [Plugin File Structure](../../plugins/aegis/docs/development/file-structure.md)
+>>>>>>> Stashed changes
