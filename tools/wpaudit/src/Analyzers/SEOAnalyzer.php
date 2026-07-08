@@ -52,12 +52,12 @@ class SEOAnalyzer implements IAnalyzer {
 		'seo-003' => array(
 			'id'          => 'seo-003',
 			'description' => 'Missing meta description',
-			'severity'    => Severity::HIGH,
+			'severity'    => Severity::MEDIUM,
 		),
 		'seo-004' => array(
 			'id'          => 'seo-004',
 			'description' => 'Missing Open Graph meta tags',
-			'severity'    => Severity::MEDIUM,
+			'severity'    => Severity::LOW,
 		),
 		'seo-005' => array(
 			'id'          => 'seo-005',
@@ -72,7 +72,7 @@ class SEOAnalyzer implements IAnalyzer {
 		'seo-007' => array(
 			'id'          => 'seo-007',
 			'description' => 'Images without alt attributes (SEO impact)',
-			'severity'    => Severity::MEDIUM,
+			'severity'    => Severity::HIGH,
 		),
 	);
 
@@ -246,13 +246,13 @@ class SEOAnalyzer implements IAnalyzer {
 		$has_wp_head   = preg_match( '/wp_head\s*\(\s*\)/', $content );
 		$has_title_tag = preg_match( '/<title\b/', $content );
 
-		if ( ! $has_wp_head && ! $has_title_tag ) {
+		if ( ! $has_wp_head ) {
 			$findings[] = new Finding(
 				$this->generate_finding_id( 'seo-002', $file->path, 1 ),
 				'seo',
 				'seo-002',
 				Severity::HIGH,
-				'Missing title tag and wp_head() call',
+				'Missing wp_head() call in head section',
 				new Location( $file->path, 1 ),
 				'Ensure wp_head() is called in the <head> section, and add_theme_support("title-tag") is set in functions.php',
 				null,
@@ -267,7 +267,7 @@ class SEOAnalyzer implements IAnalyzer {
 				'seo',
 				'seo-002',
 				Severity::MEDIUM,
-				'Potentially duplicate title tag — both wp_head() and hardcoded <title> found',
+				'Potentially duplicate title tag — a hardcoded <title> was found alongside title-tag support',
 				new Location( $file->path, 1 ),
 				'Remove the hardcoded <title> tag if using add_theme_support("title-tag") with wp_head()',
 				null,
@@ -287,7 +287,7 @@ class SEOAnalyzer implements IAnalyzer {
 	private function check_meta_description( ThemeFile $file ): array {
 		$findings = array();
 
-		if ( ! preg_match( '/header\.php|header\.html|index\.php|head\.php/', $file->path ) ) {
+		if ( ! preg_match( '/header\.php|header\.html|index\.php|index\.html|head\.php/', $file->path ) ) {
 			return $findings;
 		}
 
@@ -300,7 +300,7 @@ class SEOAnalyzer implements IAnalyzer {
 				$this->generate_finding_id( 'seo-003', $file->path, 1 ),
 				'seo',
 				'seo-003',
-				Severity::HIGH,
+				Severity::MEDIUM,
 				'No meta description tag found',
 				new Location( $file->path, 1 ),
 				'Add a meta description tag or use a plugin (e.g., Yoast SEO, Rank Math) to manage meta descriptions',
@@ -321,7 +321,7 @@ class SEOAnalyzer implements IAnalyzer {
 	private function check_open_graph( ThemeFile $file ): array {
 		$findings = array();
 
-		if ( ! preg_match( '/header\.php|header\.html|index\.php|head\.php/', $file->path ) ) {
+		if ( ! preg_match( '/header\.php|header\.html|index\.php|index\.html|head\.php/', $file->path ) ) {
 			return $findings;
 		}
 
@@ -334,7 +334,7 @@ class SEOAnalyzer implements IAnalyzer {
 				$this->generate_finding_id( 'seo-004', $file->path, 1 ),
 				'seo',
 				'seo-004',
-				Severity::MEDIUM,
+				Severity::LOW,
 				'No Open Graph meta tags found',
 				new Location( $file->path, 1 ),
 				'Add Open Graph meta tags for better social media sharing, or use an SEO plugin to manage them',
@@ -355,7 +355,7 @@ class SEOAnalyzer implements IAnalyzer {
 	private function check_schema_markup( ThemeFile $file ): array {
 		$findings = array();
 
-		if ( ! preg_match( '/index\.php|single\.php|page\.php|front-page\.php/', $file->path ) ) {
+		if ( ! preg_match( '/index\.(?:php|html)|single\.(?:php|html)|page\.(?:php|html)|front-page\.(?:php|html)/', $file->path ) ) {
 			return $findings;
 		}
 
@@ -369,7 +369,7 @@ class SEOAnalyzer implements IAnalyzer {
 				'seo',
 				'seo-005',
 				Severity::LOW,
-				'No Schema.org structured data found',
+				'No schema.org structured data found',
 				new Location( $file->path, 1 ),
 				'Add Schema.org markup using JSON-LD or microdata, or use a plugin to generate structured data',
 				null,
@@ -389,7 +389,7 @@ class SEOAnalyzer implements IAnalyzer {
 	private function check_canonical( ThemeFile $file ): array {
 		$findings = array();
 
-		if ( ! preg_match( '/header\.php|header\.html|index\.php|head\.php/', $file->path ) ) {
+		if ( ! preg_match( '/header\.php|header\.html|index\.php|index\.html|head\.php/', $file->path ) ) {
 			return $findings;
 		}
 
@@ -438,7 +438,7 @@ class SEOAnalyzer implements IAnalyzer {
 							$this->generate_finding_id( 'seo-007', $file->path, $line_num + 1 ),
 							'seo',
 							'seo-007',
-							Severity::MEDIUM,
+							Severity::HIGH,
 							'Image missing alt attribute (impacts SEO and image search)',
 							new Location( $file->path, $line_num + 1 ),
 							'Add descriptive alt text that includes relevant keywords',
