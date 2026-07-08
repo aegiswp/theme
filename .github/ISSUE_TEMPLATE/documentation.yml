@@ -1,7 +1,7 @@
 name: Documentation Issue
-description: Report missing, unclear, or outdated documentation
+description: Report missing, unclear, or outdated documentation.
 labels:
-  - documentation
+  - "[Type] Docs"
   - triage
 body:
   - type: markdown
