@@ -418,7 +418,11 @@ class AdminRenderer {
 		</div>
 		<?php endif; ?>
 		<?php
+<<<<<<< Updated upstream
 		// Co-Authors Plus sub-options â€” only show when the Aegis plugin is active.
+=======
+		// Co-Authors Plus sub-options only show when the Aegis plugin is active.
+>>>>>>> Stashed changes
 		if ( $key === 'co_authors_plus' && defined( 'Aegis\\Plugin\\VERSION' ) ) :
 			$pro_active          = $this->is_aegis_pro_active();
 			$cap_social_checked  = $options['cap_social_links'] ?? false;
