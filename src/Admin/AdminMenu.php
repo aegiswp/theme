@@ -131,7 +131,11 @@ class AdminMenu {
 			// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$page = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
 
+<<<<<<< Updated upstream
 			// For hidden submenu pages, return null so WordPress doesn't
+=======
+			// For hidden submenu pages, return null so WordPress does not
+>>>>>>> Stashed changes
 			// try to match against a non-existent submenu entry.
 			if ( str_starts_with( $page, 'aegis-' ) && $page !== 'aegis-dashboard' ) {
 				return null;
