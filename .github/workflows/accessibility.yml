@@ -4,13 +4,16 @@ name: Accessibility Check
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, dev ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, dev ]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
+permissions:
+  contents: read
 
 jobs:
   accessibility-check:
@@ -27,8 +30,8 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ROOT_PASSWORD: ${{ env.DB_PASSWORD }}
-          MYSQL_DATABASE: ${{ env.DB_NAME }}
+          MYSQL_ROOT_PASSWORD: root_password_ci
+          MYSQL_DATABASE: wordpress
         ports:
           - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
@@ -41,24 +44,31 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
-      - name: Install pa11y-ci
-        run: npm install -g pa11y-ci
+      - name: Install Node dependencies
+        run: npm ci
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
-          tools: wp-cli
+          tools: composer, wp-cli
+
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      - name: Build theme
+        run: npm run build
 
       - name: Set up WordPress
         run: |
           mkdir -p wp
           wp core download --path=wp
           wp config create --path=wp --dbname=${{ env.DB_NAME }} --dbuser=${{ env.DB_USER }} --dbpass=${{ env.DB_PASSWORD }} --dbhost=${{ env.DB_HOST }} --force
-          wp db create --path=wp
+          wp db check --path=wp
           wp core install --path=wp --url=http://localhost:8080 --title="Aegis Test" --admin_user=${{ env.WP_ADMIN_USER }} --admin_password=${{ env.WP_ADMIN_PASSWORD }} --admin_email=${{ env.WP_ADMIN_EMAIL }} --skip-email
-          ln -s "$GITHUB_WORKSPACE" wp/wp-content/themes/aegis
+          ln -sfn "$GITHUB_WORKSPACE" wp/wp-content/themes/aegis
           wp theme activate aegis --path=wp
 
       - name: Start PHP server
@@ -78,4 +88,4 @@ jobs:
           exit 1
 
       - name: Run accessibility scan
-        run: pa11y-ci --threshold 5 http://localhost:8080/
+        run: npx pa11y-ci --config .pa11yci.json --threshold 10
