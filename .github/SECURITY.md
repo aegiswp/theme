@@ -3,10 +3,11 @@
 ## Supported Versions
 We actively support and provide security updates for the following branches:
 
-| Version | Supported | Security Updates |
-| ------- | --------- | ---------------- |
-| 1.0.x   | ✓         | ✓                |
-| main    | ✓         | ✓                |
+| Version | Supported          | Security Updates |
+| ------- | ------------------ | ---------------- |
+| 1.0.x   | :white_check_mark: | :white_check_mark: |
+| dev     | :white_check_mark: | :white_check_mark: |
+| main    | :white_check_mark: | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
@@ -55,4 +56,4 @@ Third-party plugins, custom code, or modified theme files are not covered under 
 
 We follow responsible disclosure practices and work with researchers to ensure vulnerabilities are addressed before public disclosure.
 
-For general bugs that are not security-related, please use our [Bug Report Template](.github/ISSUE_TEMPLATE/bug_report.yml).
+For general bugs that are not security-related, please use our [Bug Report Template](https://github.com/aegiswp/theme/issues/new?template=bug_report.yml).
