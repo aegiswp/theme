@@ -19,7 +19,11 @@ npm run build             # Theme blocks → build/Blocks/
 npm run dev               # Watch mode
 ```
 
+<<<<<<< Updated upstream
 Builds: countdown, slider, slide, toggle, toggle-content, video, related-posts.
+=======
+Builds six theme blocks: countdown, slider, slide, toggle, toggle-content, related-posts.
+>>>>>>> Stashed changes
 
 ## Plugin Build
 
