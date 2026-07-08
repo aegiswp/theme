@@ -33,7 +33,10 @@ add_action(
 	static function (): void {
 		load_theme_textdomain( 'aegis', get_template_directory() . '/languages' );
 	},
+<<<<<<< Updated upstream
 	0
+=======
+>>>>>>> Stashed changes
 );
 
 add_action(
@@ -41,7 +44,10 @@ add_action(
 	static function (): void {
 		Aegis::register( __FILE__ );
 	},
+<<<<<<< Updated upstream
 	5
+=======
+>>>>>>> Stashed changes
 );
 
 // Theme-level classes are bootstrapped via Composer files autoload (src/bootstrap.php).
