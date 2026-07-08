@@ -11,6 +11,27 @@ Before performing any update, take the following precautions:
 3. **Test in staging** — If possible, test the update on a staging environment first.
 4. **Check plugin compatibility** — Ensure your companion plugins (Aegis Plugin, Aegis Pro) are compatible with the new theme version.
 
+<<<<<<< Updated upstream
+=======
+## Block Migration Notes
+
+### `aegis/video` → `core/video`
+
+The **`aegis/video`** custom block was removed. Existing content still using that block should be migrated to **`core/video`** before or after updating.
+
+Run the migration script via WP-CLI from your WordPress root:
+
+```bash
+wp eval-file wp-content/themes/aegis/tools/migrate-aegis-video.php
+```
+
+The script converts `aegis/video` block markup to `core/video` in post content. Review affected pages in the Site Editor after running it.
+
+### Related Posts
+
+The **`core/query` Related Posts** block variation was removed. Replace those blocks with the **`aegis/related-posts`** theme block, or use **`aegisProRelatedPosts`** on Query Loop with [Aegis Pro](../../plugins/aegis-pro/docs/features/query-loop-pro.md) for advanced related-post queries.
+
+>>>>>>> Stashed changes
 ## Update Methods
 
 ### Method 1: Manual Update via Upload
