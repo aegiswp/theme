@@ -1,6 +1,10 @@
 # Block Patterns
 
+<<<<<<< Updated upstream
 Aegis ships with over 145 block patterns organized across 30 categories. Block patterns are pre-designed layouts that you can insert into any page or template and customize to fit your content.
+=======
+Aegis ships with **~200 theme block patterns** across **30 categories**, plus **45+ companion plugin patterns** (including ~27 WooCommerce patterns when WooCommerce is active) and **Pro premium patterns**. Block patterns are pre-designed layouts that you can insert into any page or template and customize to fit your content.
+>>>>>>> Stashed changes
 
 ## Understanding Block Patterns
 
@@ -83,7 +87,11 @@ All Aegis patterns are built following these principles:
 - **Responsive** — Every pattern adapts gracefully from mobile to desktop viewports.
 - **Accessible** — Patterns use semantic markup, proper heading hierarchy, and ARIA attributes where needed.
 - **Theme-aware** — Patterns use design tokens (CSS custom properties) from `theme.json`, so they automatically adapt to style variations.
+<<<<<<< Updated upstream
 - **Lightweight** — Patterns use only core blocks and Aegis custom blocks, with no external dependencies.
+=======
+- **Lightweight (theme patterns)** — Theme-owned patterns use core blocks and Aegis custom blocks only, with no external dependencies. WooCommerce block patterns (plugin-owned) use `wp:woocommerce/*` blocks when WooCommerce is active.
+>>>>>>> Stashed changes
 
 ## Hidden Patterns
 
@@ -91,6 +99,7 @@ The **Hidden** category contains patterns used internally by the theme for templ
 
 ## WooCommerce Patterns
 
+<<<<<<< Updated upstream
 Patterns in the **Commerce** and **Product** categories are designed to work with WooCommerce. They include:
 
 - Product grids with add-to-cart buttons
@@ -99,6 +108,21 @@ Patterns in the **Commerce** and **Product** categories are designed to work wit
 - Product category navigation
 
 These patterns require WooCommerce to be active for full functionality.
+=======
+WooCommerce **block patterns** (product grids, store headers, checkout/cart template patterns, etc.) are registered by the **Aegis companion plugin** when WooCommerce is active. They do not appear in the inserter when WooCommerce is inactive, which avoids missing-block errors in the editor.
+
+The theme still includes generic **Commerce** and **Product** marketing patterns that use core blocks only (for example category cards, trust badges). Patterns with `wp:woocommerce/*` blocks live in the plugin — see [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md).
+
+| Requirement | Patterns available |
+|-------------|-------------------|
+| Aegis theme only | Generic commerce marketing patterns (core blocks) |
+| Theme + Aegis plugin + WooCommerce | Full WooCommerce block pattern library |
+| Above + TI WooCommerce Wishlist | Wishlist template pattern (`template-page-wishlist`) |
+
+### Store headers
+
+WC header patterns with mini-cart and customer-account blocks live in the **companion plugin** (`patterns/woocommerce/header/`) and require WooCommerce. The theme retains **`header/store-minimal`** for non-shop sites. Additional WC-free header variants for the inserter are planned as future work.
+>>>>>>> Stashed changes
 
 ## Creating Your Own Patterns
 
