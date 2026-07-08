@@ -165,25 +165,26 @@ class ConfigurationManager {
 	 * @return Configuration Merged configuration.
 	 */
 	public function load( ?string $project_path = null, array $cli_options = array() ): Configuration {
-		$configs = array();
+		// Merge raw option arrays so that values a source did not specify cannot
+		// clobber explicit values from a lower-precedence source with defaults.
+		// Defaults are applied last by the Configuration constructor.
+		$merged_data = array();
 
-		// Start with defaults.
-		$configs[] = $this->load_defaults();
-
-		// Load project configuration if available.
-		if ( null !== $project_path ) {
-			$project_config = $this->load_from_project( $project_path );
-			if ( null !== $project_config ) {
-				$configs[] = $project_config;
+		// Load project configuration if available (validated by load_from_project).
+		if ( null !== $project_path && null !== $this->load_from_project( $project_path ) ) {
+			$config_file = rtrim( $project_path, '/' ) . '/' . self::CONFIG_FILE;
+			$raw         = json_decode( (string) file_get_contents( $config_file ), true );
+			if ( is_array( $raw ) ) {
+				$merged_data = ArrayUtils::merge_recursive_distinct( $merged_data, $raw );
 			}
 		}
 
-		// Apply CLI options.
+		// CLI options take highest precedence.
 		if ( ! empty( $cli_options ) ) {
-			$configs[] = Configuration::from_array( $cli_options, false );
+			$merged_data = ArrayUtils::merge_recursive_distinct( $merged_data, $cli_options );
 		}
 
-		return $this->merge( ...$configs );
+		return Configuration::from_array( $merged_data, false );
 	}
 
 }
