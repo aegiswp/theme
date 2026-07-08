@@ -17,11 +17,8 @@
             <directory suffix=".php">src</directory>
         </include>
     </source>
-    <coverage>
-        <report>
-            <text outputFile="php://stdout" showUncoveredFiles="false"/>
-        </report>
-    </coverage>
+    <!-- Coverage reports are opt-in via the CLI coverage flags so runs
+         without a coverage driver (no Xdebug/PCOV) do not fail on warning. -->
     <php>
         <ini name="display_errors" value="1"/>
         <ini name="error_reporting" value="-1"/>
