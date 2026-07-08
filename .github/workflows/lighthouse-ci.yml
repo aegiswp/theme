@@ -4,9 +4,9 @@ name: Lighthouse CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, dev ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, dev ]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -41,24 +41,28 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      - name: Install Node dependencies
-        run: npm ci
-
-      - name: Build theme
-        run: npm run build --if-present
-
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
-          tools: wp-cli
+          tools: composer, wp-cli
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-progress --no-dev
+
+      - name: Build theme
+        run: npm run build --if-present
 
       - name: Set up WordPress test site
         run: |
           mkdir -p wp
           wp core download --path=wp
           wp config create --path=wp --dbname=wordpress --dbuser=root --dbpass=root --dbhost=127.0.0.1 --force
-          wp db create --path=wp
+          # Database is already created by the MySQL service container (MYSQL_DATABASE).
+          wp db check --path=wp
           wp core install --path=wp --url=http://localhost:8080 --title="Aegis Performance Test" --admin_user=admin --admin_password=password --admin_email=test@example.com --skip-email
           ln -s "$GITHUB_WORKSPACE" wp/wp-content/themes/aegis
           wp theme activate aegis --path=wp
@@ -95,7 +99,7 @@ jobs:
       - name: Parse Lighthouse results
         if: always()
         run: |
-          echo "## [chart] Lighthouse Performance Report" >> $GITHUB_STEP_SUMMARY
+          echo "## 📊 Lighthouse Performance Report" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
           if [ -f "./.lighthouseci/results/manifest.json" ]; then
@@ -136,8 +140,9 @@ jobs:
         with:
           script: |
             const fs = require('fs');
+            const marker = '<!-- lighthouse-ci -->';
 
-            let comment = "## [chart] Lighthouse Audit Results\n\n";
+            let comment = marker + "\n## 📊 Lighthouse Audit Results\n\n";
 
             if (fs.existsSync('./.lighthouseci/results/manifest.json')) {
               const manifest = JSON.parse(fs.readFileSync('./.lighthouseci/results/manifest.json', 'utf8'));
@@ -155,12 +160,29 @@ jobs:
               comment += "⚠ Unable to generate Lighthouse report\n";
             }
 
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
+            const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: comment
-            })
+              issue_number: context.issue.number
+            });
+
+            const existing = comments.find((entry) => entry.body && entry.body.includes(marker));
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body: comment
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: comment
+              });
+            }
 
       - name: Cleanup PHP server
         if: always()
