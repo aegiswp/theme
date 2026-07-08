@@ -40,6 +40,14 @@ See [[performance]] for conditional asset loading.
 
 Plugins not listed above may still work with default styling. Apply custom CSS via Global Styles or child theme overrides. Request integration on [GitHub](https://github.com/aegiswp/theme/issues).
 
+<<<<<<< Updated upstream
+=======
+| Plugin | Theme integration |
+|--------|-------------------|
+| [TI WooCommerce Wishlist](https://wordpress.org/plugins/ti-woocommerce-wishlist/) | **Wishlist** FSE template (theme) + **wishlist block pattern** (companion plugin, gated on WC + TI). No framework CSS. See [[woocommerce-integration#wishlist-ti-woocommerce-wishlist]]. |
+| WooCommerce block patterns | Registered by **Aegis companion plugin** when WooCommerce is active — not in theme `patterns/`. See [[../../plugins/aegis/docs/features/plugin-patterns|Plugin Patterns]]. |
+
+>>>>>>> Stashed changes
 ## Next Steps
 
 - [[woocommerce-integration]] — WooCommerce templates
