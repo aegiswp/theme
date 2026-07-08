@@ -12,7 +12,13 @@ npm run build             # Theme blocks → build/Blocks/
 npm run dev               # Watch mode
 ```
 
+<<<<<<< Updated upstream
 Output: `build/Blocks/` (countdown, slider, slide, toggle, toggle-content, video, related-posts).
+=======
+Output: `build/Blocks/` (countdown, slider, slide, toggle, toggle-content, related-posts).
+
+Video uses WordPress **`core/video`** — editor assets are built in the companion plugin. See [Plugin Building Assets](../../plugins/aegis/docs/development/building-assets.md).
+>>>>>>> Stashed changes
 
 ## Plugin Build
 
@@ -89,7 +95,10 @@ build/Blocks/
 ├── slide/
 ├── toggle/
 ├── toggle-content/
+<<<<<<< Updated upstream
 ├── video/
+=======
+>>>>>>> Stashed changes
 ├── related-posts/
 └── blocks-manifest.php
 ```
@@ -122,10 +131,18 @@ src/Blocks/
 ├── slide/
 ├── toggle/
 ├── toggle-content/
+<<<<<<< Updated upstream
 ├── video/
 └── related-posts/
 ```
 
+=======
+└── related-posts/
+```
+
+Video editor assets are built in the companion plugin (`wp-content/plugins/aegis`).
+
+>>>>>>> Stashed changes
 ## Webpack Configuration
 
 Aegis extends the default `@wordpress/scripts` Webpack config:
