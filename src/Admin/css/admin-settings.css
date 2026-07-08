@@ -303,7 +303,11 @@
 	margin: 0 0 24px;
 }
 
+<<<<<<< Updated upstream
 /* Settings Grid - Ollie Pro Style */
+=======
+/* Settings Grid */
+>>>>>>> Stashed changes
 .aegis-settings-grid {
 	display: flex;
 	flex-direction: column;
@@ -312,7 +316,11 @@
 	margin-bottom: 16px;
 }
 
+<<<<<<< Updated upstream
 /* Toggle Row - Ollie Pro Style */
+=======
+/* Toggle Row */
+>>>>>>> Stashed changes
 .aegis-toggle-card {
 	display: flex;
 	align-items: center;
