@@ -188,12 +188,13 @@ class AccessibilityAnalyzer implements IAnalyzer {
 		$lines    = explode( "\n", $file->content );
 
 		foreach ( $lines as $line_num => $line ) {
-			if ( preg_match( '/<button[^>]*>/i', $line, $matches ) ) {
-				$button_tag = $matches[0];
+			if ( preg_match( '/<button([^>]*)>(.*?)<\/button>/is', $line, $matches ) ) {
+				$button_tag   = '<button' . $matches[1] . '>';
+				$button_inner = $matches[2];
 
 				if ( ! preg_match( '/aria-label\s*=|aria-labelledby\s*=/i', $button_tag ) ) {
-					if ( preg_match( '/<button[^>]*>\s*<\/button>/i', $line ) ||
-						preg_match( '/<button[^>]*>\s*<(?:i|svg|img)[^>]*>\s*<\/button>/i', $line ) ) {
+					// Flag buttons whose content has no readable text (empty or icon-only).
+					if ( '' === trim( strip_tags( $button_inner ) ) ) {
 						$findings[] = new Finding(
 							$this->generate_finding_id( 'a11y-002', $file->path, $line_num + 1 ),
 							'accessibility',
@@ -211,11 +212,14 @@ class AccessibilityAnalyzer implements IAnalyzer {
 				}
 			}
 
-			if ( preg_match( '/<a\s+[^>]*href\s*=\s*["\'][^"\']*["\'][^>]*>/i', $line, $matches ) ) {
-				$link_tag = $matches[0];
+			if ( preg_match( '/<a\s+([^>]*href\s*=\s*["\'][^"\']*["\'][^>]*)>(.*?)<\/a>/is', $line, $matches ) ) {
+				$link_tag   = '<a ' . $matches[1] . '>';
+				$link_inner = $matches[2];
 
 				if ( ! preg_match( '/aria-label\s*=|aria-labelledby\s*=/i', $link_tag ) ) {
-					if ( preg_match( '/<a[^>]*>\s*<(?:i|svg|img)[^>]*>\s*<\/a>/i', $line ) ) {
+					// Flag links that contain only icon markup and no readable text.
+					if ( preg_match( '/<(?:i|svg|img)\b/i', $link_inner ) &&
+						'' === trim( strip_tags( $link_inner ) ) ) {
 						$findings[] = new Finding(
 							$this->generate_finding_id( 'a11y-002', $file->path, $line_num + 1 ),
 							'accessibility',
@@ -339,7 +343,7 @@ class AccessibilityAnalyzer implements IAnalyzer {
 		$lines    = explode( "\n", $file->content );
 
 		foreach ( $lines as $line_num => $line ) {
-			if ( preg_match( '/<(div|span)[^>]*\sonclick\s*=/i', $line, $matches ) ) {
+			if ( preg_match( '/<(div|span)[^>]*\sonclick\s*=[^>]*>/i', $line, $matches ) ) {
 				$element_tag = $matches[0];
 
 				$has_tabindex = preg_match( '/\stabindex\s*=\s*["\']0["\']/i', $element_tag );
