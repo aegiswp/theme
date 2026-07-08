@@ -306,7 +306,11 @@ return array (
       ),
     ),
     'editorScript' => 'file:index.js',
+<<<<<<< Updated upstream
     'style' => 'file:style-style.css',
+=======
+    'style' => 'file:style.css',
+>>>>>>> Stashed changes
     'render' => 'file:render.php',
   ),
   'slide' => 
@@ -654,6 +658,7 @@ return array (
     'style' => 'file:style.css',
     'render' => 'file:render.php',
   ),
+<<<<<<< Updated upstream
   'video' => 
   array (
     '$schema' => 'https://schemas.wp.org/trunk/block.json',
@@ -740,4 +745,6 @@ return array (
     'editorScript' => 'file:index.js',
     'style' => 'file:style.css',
   ),
+=======
+>>>>>>> Stashed changes
 );
