@@ -38,7 +38,11 @@ The following 37 core blocks receive enhancements in Aegis:
 | Gallery | Gap controls, rounded styles, hover overlay effects |
 | Cover | Gradient overlay presets, minimum height options, parallax improvements |
 | Media & Text | Responsive stacking improvements, gap controls |
+<<<<<<< Updated upstream
 | Video | Aspect ratio options, rounded corners, shadow |
+=======
+| Video | Aspect ratio options, rounded corners, shadow — see [[core-video]] for plugin and Pro enhancements |
+>>>>>>> Stashed changes
 
 ### Layout Blocks
 
