@@ -1,5 +1,5 @@
 {
-  "$schema": "https://schemas.wp.org/wp/6.8/theme.json",
+  "$schema": "https://schemas.wp.org/wp/7.0/theme.json",
   "version": 3,
   "title": "Light",
   "settings": {
@@ -11,8 +11,8 @@
       "style": true,
       "width": true
     },
-    "behaviors": {
-      "lightbox": true
+    "lightbox": {
+      "enabled": true
     },
     "position": {
       "sticky": true
@@ -43,22 +43,22 @@
         {
           "name": "Primary 700",
           "slug": "primary-700",
-          "color": "#3f3f47"
+          "color": "#3f3f46"
         },
         {
           "name": "Primary 600",
           "slug": "primary-600",
-          "color": "#52525c"
+          "color": "#52525b"
         },
         {
           "name": "Primary 500",
           "slug": "primary-500",
-          "color": "#71717b"
+          "color": "#71717a"
         },
         {
           "name": "Primary 400",
           "slug": "primary-400",
-          "color": "#9f9fa9"
+          "color": "#a1a1aa"
         },
         {
           "name": "Primary 300",
@@ -118,7 +118,7 @@
         {
           "name": "Neutral 400",
           "slug": "neutral-400",
-          "color": "#a1a1aa"
+          "color": "#a3a3a3"
         },
         {
           "name": "Neutral 300",
@@ -138,7 +138,7 @@
         {
           "name": "Neutral 50",
           "slug": "neutral-50",
-          "color": "#fafaf9"
+          "color": "#fafafa"
         },
         {
           "name": "Neutral 0",
@@ -148,47 +148,47 @@
         {
           "name": "Success 950",
           "slug": "success-950",
-          "color": "#032e15"
+          "color": "#052e16"
         },
         {
           "name": "Success 900",
           "slug": "success-900",
-          "color": "#0d542b"
+          "color": "#14532d"
         },
         {
           "name": "Success 800",
           "slug": "success-800",
-          "color": "#016630"
+          "color": "#166534"
         },
         {
           "name": "Success 700",
           "slug": "success-700",
-          "color": "#008236"
+          "color": "#15803d"
         },
         {
           "name": "Success 600",
           "slug": "success-600",
-          "color": "#00a63e"
+          "color": "#16a34a"
         },
         {
           "name": "Success 500",
           "slug": "success-500",
-          "color": "#00c950"
+          "color": "#22c55e"
         },
         {
           "name": "Success 400",
           "slug": "success-400",
-          "color": "#05df72"
+          "color": "#4ade80"
         },
         {
           "name": "Success 300",
           "slug": "success-300",
-          "color": "#7bf1a8"
+          "color": "#86efac"
         },
         {
           "name": "Success 200",
           "slug": "success-200",
-          "color": "#b9f8cf"
+          "color": "#bbf7d0"
         },
         {
           "name": "Success 100",
@@ -203,112 +203,112 @@
         {
           "name": "Warning 950",
           "slug": "warning-950",
-          "color": "#451605"
+          "color": "#431407"
         },
         {
           "name": "Warning 900",
           "slug": "warning-900",
-          "color": "#80310e"
+          "color": "#7c2d12"
         },
         {
           "name": "Warning 800",
           "slug": "warning-800",
-          "color": "#9f390d"
+          "color": "#9a3412"
         },
         {
           "name": "Warning 700",
           "slug": "warning-700",
-          "color": "#c84806"
+          "color": "#c2410c"
         },
         {
           "name": "Warning 600",
           "slug": "warning-600",
-          "color": "#e85d04"
+          "color": "#ea580c"
         },
         {
           "name": "Warning 500",
           "slug": "warning-500",
-          "color": "#ff7c0e"
+          "color": "#f97316"
         },
         {
           "name": "Warning 400",
           "slug": "warning-400",
-          "color": "#ff9a35"
+          "color": "#fb923c"
         },
         {
           "name": "Warning 300",
           "slug": "warning-300",
-          "color": "#ffbf6f"
+          "color": "#fdba74"
         },
         {
           "name": "Warning 200",
           "slug": "warning-200",
-          "color": "#ffdaa7"
+          "color": "#fed7aa"
         },
         {
           "name": "Warning 100",
           "slug": "warning-100",
-          "color": "#ffefd4"
+          "color": "#ffedd5"
         },
         {
           "name": "Warning 50",
           "slug": "warning-50",
-          "color": "#fff7ec"
+          "color": "#fff7ed"
         },
         {
           "name": "Error 950",
           "slug": "error-950",
-          "color": "#460d04"
+          "color": "#450a0a"
         },
         {
           "name": "Error 900",
           "slug": "error-900",
-          "color": "#82200c"
+          "color": "#7f1d1d"
         },
         {
           "name": "Error 800",
           "slug": "error-800",
-          "color": "#a2230a"
+          "color": "#991b1b"
         },
         {
           "name": "Error 700",
           "slug": "error-700",
-          "color": "#dc2f02"
+          "color": "#b91c1c"
         },
         {
           "name": "Error 600",
           "slug": "error-600",
-          "color": "#f63f00"
+          "color": "#dc2626"
         },
         {
           "name": "Error 500",
           "slug": "error-500",
-          "color": "#ff5909"
+          "color": "#ef4444"
         },
         {
           "name": "Error 400",
           "slug": "error-400",
-          "color": "#ff7c31"
+          "color": "#f87171"
         },
         {
           "name": "Error 300",
           "slug": "error-300",
-          "color": "#ffab6c"
+          "color": "#fca5a5"
         },
         {
           "name": "Error 200",
           "slug": "error-200",
-          "color": "#ffcea5"
+          "color": "#fecaca"
         },
         {
           "name": "Error 100",
           "slug": "error-100",
-          "color": "#ffe8d3"
+          "color": "#fee2e2"
         },
         {
           "name": "Error 50",
           "slug": "error-50",
-          "color": "#fff5ec"
+          "color": "#fef2f2"
         },
         {
           "name": "Transparent",
@@ -324,58 +324,93 @@
           "name": "Inherit",
           "slug": "inherit",
           "color": "inherit"
+        },
+        {
+          "name": "Shadow",
+          "slug": "shadow",
+          "color": "rgba(107,114,128,0.07)"
         }
       ],
       "duotone": [
         {
           "name": "Primary Dark/Light",
           "slug": "primary-dark-light",
-          "colors": ["#09090b", "#fafafa"]
+          "colors": [
+            "#09090b",
+            "#fafafa"
+          ]
         },
         {
           "name": "Primary Dark/Mid",
           "slug": "primary-dark-mid",
-          "colors": ["#09090b", "#71717b"]
+          "colors": [
+            "#09090b",
+            "#71717b"
+          ]
         },
         {
           "name": "Neutral Dark/Light",
           "slug": "neutral-dark-light",
-          "colors": ["#0a0a0a", "#ffffff"]
+          "colors": [
+            "#0a0a0a",
+            "#ffffff"
+          ]
         },
         {
           "name": "Neutral Dark/Warm",
           "slug": "neutral-dark-warm",
-          "colors": ["#0a0a0a", "#ffdaa7"]
+          "colors": [
+            "#0a0a0a",
+            "#fed7aa"
+          ]
         },
         {
           "name": "Success Dark/Light",
           "slug": "success-dark-light",
-          "colors": ["#032e15", "#f0fdf4"]
+          "colors": [
+            "#052e16",
+            "#f0fdf4"
+          ]
         },
         {
           "name": "Success Dark/Bright",
           "slug": "success-dark-bright",
-          "colors": ["#032e15", "#00c950"]
+          "colors": [
+            "#052e16",
+            "#22c55e"
+          ]
         },
         {
           "name": "Warning Dark/Light",
           "slug": "warning-dark-light",
-          "colors": ["#451605", "#fff7ec"]
+          "colors": [
+            "#431407",
+            "#fff7ed"
+          ]
         },
         {
           "name": "Warning Dark/Bright",
           "slug": "warning-dark-bright",
-          "colors": ["#451605", "#ff7c0e"]
+          "colors": [
+            "#431407",
+            "#f97316"
+          ]
         },
         {
           "name": "Error Dark/Light",
           "slug": "error-dark-light",
-          "colors": ["#460d04", "#fff5ec"]
+          "colors": [
+            "#450a0a",
+            "#fef2f2"
+          ]
         },
         {
           "name": "Error Dark/Bright",
           "slug": "error-dark-bright",
-          "colors": ["#460d04", "#ff5909"]
+          "colors": [
+            "#450a0a",
+            "#ef4444"
+          ]
         }
       ],
       "gradients": [
@@ -597,7 +632,7 @@
         "y": "4px",
         "blur": "16px",
         "spread": "0",
-        "color": "var(--wp--preset--color--custom-shadow,#6b728011)",
+        "color": "var(--wp--preset--color--shadow)",
         "hover": {
           "inset": "",
           "y": "8px"
@@ -605,13 +640,13 @@
       },
       "fontWeight": {
         "black": 900,
-        "extraBold": 800,
+        "extrabold": 800,
         "bold": 700,
-        "semiBold": 600,
+        "semibold": 600,
         "medium": 500,
-        "regular": 400,
+        "normal": 400,
         "light": 300,
-        "extraLight": 200,
+        "extralight": 200,
         "thin": 100
       },
       "transition": {
@@ -709,7 +744,7 @@
     },
     "layout": {
       "contentSize": "min(calc(100dvw - var(--wp--preset--spacing--lg,2rem) * 2), 720px)",
-      "wideSize": "min(calc(100dvw - var(--wp--preset--spacing--lg,2rem) * 2), 1620px)"
+      "wideSize": "min(calc(100dvw - var(--wp--preset--spacing--lg,2rem) * 2), 1152px)"
     },
     "typography": {
       "customFontSize": true,
@@ -874,32 +909,47 @@
         {
           "name": "16px",
           "slug": "16",
-          "size": "16px",
-          "fluid": false
+          "size": "clamp(15px,1.6vw,16px)",
+          "fluid": {
+            "min": "15px",
+            "max": "16px"
+          }
         },
         {
           "name": "14px",
           "slug": "14",
-          "size": "14px",
-          "fluid": false
+          "size": "clamp(13px,1.4vw,14px)",
+          "fluid": {
+            "min": "13px",
+            "max": "14px"
+          }
         },
         {
           "name": "12px",
           "slug": "12",
-          "size": "12px",
-          "fluid": false
+          "size": "clamp(11px,1.2vw,12px)",
+          "fluid": {
+            "min": "11px",
+            "max": "12px"
+          }
         },
         {
           "name": "10px",
           "slug": "10",
-          "size": "10px",
-          "fluid": false
+          "size": "clamp(9px,1vw,10px)",
+          "fluid": {
+            "min": "9px",
+            "max": "10px"
+          }
         },
         {
           "name": "8px",
           "slug": "8",
-          "size": "8px",
-          "fluid": false
+          "size": "clamp(7px,0.8vw,8px)",
+          "fluid": {
+            "min": "7px",
+            "max": "8px"
+          }
         },
         {
           "name": "Inherit",
@@ -990,47 +1040,52 @@
         {
           "name": "XXS (8px)",
           "slug": "xxs",
-          "size": "var(--wp--preset--font-size--8)"
+          "size": "8px"
+        },
+        {
+          "name": "2XS (12px)",
+          "slug": "2xs",
+          "size": "12px"
         },
         {
           "name": "XS (16px)",
           "slug": "xs",
-          "size": "var(--wp--preset--font-size--16)"
+          "size": "16px"
         },
         {
           "name": "S (24px)",
           "slug": "sm",
-          "size": "var(--wp--preset--font-size--24)"
+          "size": "24px"
         },
         {
           "name": "M (32px)",
           "slug": "md",
-          "size": "var(--wp--preset--font-size--32)"
+          "size": "32px"
         },
         {
           "name": "ML (40px)",
           "slug": "ml",
-          "size": "var(--wp--preset--font-size--40)"
+          "size": "40px"
         },
         {
           "name": "L (48px)",
           "slug": "lg",
-          "size": "var(--wp--preset--font-size--48)"
+          "size": "48px"
         },
         {
           "name": "XL (64px)",
           "slug": "xl",
-          "size": "var(--wp--preset--font-size--64)"
+          "size": "64px"
         },
         {
           "name": "XLL (80px)",
           "slug": "xll",
-          "size": "var(--wp--preset--font-size--80)"
+          "size": "80px"
         },
         {
           "name": "XXL (96px)",
           "slug": "xxl",
-          "size": "var(--wp--preset--font-size--96)"
+          "size": "96px"
         }
       ]
     }
@@ -1050,7 +1105,7 @@
     "typography": {
       "fontFamily": "var(--wp--preset--font-family--lexend)",
       "fontSize": "var(--wp--preset--font-size--16)",
-      "fontWeight": "var(--wp--custom--font-weight--regular)",
+      "fontWeight": "var(--wp--custom--font-weight--normal)",
       "lineHeight": "1.6"
     },
     "elements": {
@@ -1064,15 +1119,15 @@
         },
         "spacing": {
           "padding": {
-            "top": "var(--wp--preset--font-size--10)",
-            "right": "var(--wp--preset--font-size--16)",
-            "bottom": "var(--wp--preset--font-size--10)",
-            "left": "var(--wp--preset--font-size--16)"
+            "top": "10px",
+            "right": "16px",
+            "bottom": "10px",
+            "left": "16px"
           }
         },
         "typography": {
           "fontSize": "var(--wp--preset--font-size--14)",
-          "fontWeight": "var(--wp--custom--font-weight--semi-bold)",
+          "fontWeight": "var(--wp--custom--font-weight--semibold)",
           "lineHeight": "var(--wp--preset--font-size--20)"
         }
       },
@@ -1135,7 +1190,7 @@
       "heading": {
         "typography": {
           "fontFamily": "var(--wp--preset--font-family--lexend-deca)",
-          "fontWeight": "var(--wp--custom--font-weight--semi-bold)",
+          "fontWeight": "var(--wp--custom--font-weight--semibold)",
           "lineHeight": "1.4"
         },
         "color": {
@@ -1214,7 +1269,7 @@
       },
       "core/avatar": {
         "border": {
-          "border": "var(--wp--preset--color--inherit) !important",
+          "color": "var(--wp--preset--color--inherit)",
           "radius": "50%"
         }
       },
@@ -1224,6 +1279,40 @@
         },
         "spacing": {
           "blockGap": "var(--wp--preset--spacing--xs)"
+        }
+      },
+      "core/breadcrumbs": {
+        "color": {
+          "text": "var(--wp--preset--color--neutral-600)"
+        },
+        "elements": {
+          "link": {
+            "color": {
+              "text": "var(--wp--preset--color--primary-600)"
+            },
+            "typography": {
+              "textDecoration": "none"
+            },
+            ":hover": {
+              "color": {
+                "text": "var(--wp--preset--color--primary-500)"
+              }
+            },
+            ":focus": {
+              "color": {
+                "text": "var(--wp--preset--color--primary-500)"
+              }
+            }
+          }
+        },
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--14)",
+          "fontWeight": "var(--wp--custom--font-weight--medium)"
+        },
+        "spacing": {
+          "margin": {
+            "bottom": "var(--wp--preset--spacing--sm)"
+          }
         }
       },
       "core/button": {
@@ -1270,7 +1359,7 @@
       },
       "core/comment-author-avatar": {
         "border": {
-          "border": "var(--wp--preset--color--inherit) !important",
+          "color": "var(--wp--preset--color--inherit)",
           "radius": "50%"
         }
       },
@@ -1324,13 +1413,6 @@
           "radius": "50%"
         }
       },
-      "core/post-comment": {
-        "spacing": {
-          "padding": {
-            "top": "var(--wp--preset--spacing--sm)"
-          }
-        }
-      },
       "core/post-content": {
         "spacing": {
           "margin": {
@@ -1365,7 +1447,7 @@
         },
         "typography": {
           "fontSize": "var(--wp--preset--font-size--12)",
-          "fontWeight": "var(--wp--custom--font-weight--semi-bold)",
+          "fontWeight": "var(--wp--custom--font-weight--semibold)",
           "textDecoration": "none"
         }
       },
@@ -1383,7 +1465,7 @@
         "spacing": {
           "blockGap": "inherit",
           "margin": {
-            "top": "0 !important"
+            "top": "0"
           }
         }
       },
@@ -1419,7 +1501,7 @@
         "typography": {
           "textDecoration": "none",
           "fontSize": "var(--wp--preset--font-size--14)",
-          "fontWeight": "var(--wp--custom--font-weight--semi-bold)"
+          "fontWeight": "var(--wp--custom--font-weight--semibold)"
         }
       },
       "core/preformatted": {
@@ -1554,6 +1636,20 @@
       ]
     },
     {
+      "title": "Coming Soon",
+      "name": "coming-soon",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "title": "Maintenance",
+      "name": "maintenance",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
       "title": "Full Width",
       "name": "full-width",
       "postTypes": [
@@ -1604,6 +1700,13 @@
       ]
     },
     {
+      "title": "Page: Coming Soon",
+      "name": "page-coming-soon",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
       "title": "Page: Checkout Multi-Step",
       "name": "page-checkout-multi-step",
       "postTypes": [
@@ -1629,6 +1732,57 @@
       "name": "page-wishlist",
       "postTypes": [
         "page"
+      ]
+    },
+    {
+      "title": "Page (No Title)",
+      "name": "page-no-title",
+      "postTypes": [
+        "page",
+        "post"
+      ]
+    },
+    {
+      "title": "Page: Contact",
+      "name": "page-contact",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "title": "Page: Landing",
+      "name": "page-landing",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "title": "Page: With Sidebar",
+      "name": "page-with-sidebar",
+      "postTypes": [
+        "page",
+        "post"
+      ]
+    },
+    {
+      "title": "Single: Full Width",
+      "name": "single-full-width",
+      "postTypes": [
+        "post"
+      ]
+    },
+    {
+      "title": "Single: No Featured Image",
+      "name": "single-no-featured-image",
+      "postTypes": [
+        "post"
+      ]
+    },
+    {
+      "title": "Single Product: Landing",
+      "name": "single-product-landing",
+      "postTypes": [
+        "product"
       ]
     }
   ],
