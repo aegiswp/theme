@@ -1,5 +1,6 @@
 # Custom Blocks
 
+<<<<<<< Updated upstream
 The Aegis **theme** registers custom blocks from `src/Blocks/`. Map and Modal blocks require the [Aegis companion plugin](../../plugins/aegis/docs/blocks/custom-blocks.md). Pro adds [tabs, image compare, and block sub-features](../../plugins/aegis-pro/docs/features/pro-blocks.md).
 
 Block feature toggles are at **Aegis → Blocks** when the plugin is active.
@@ -15,16 +16,41 @@ Block feature toggles are at **Aegis → Blocks** when the plugin is active.
 | Toggle Content | `aegis/toggle-content` | The content area within a Toggle block. |
 | Video | `aegis/video` | Enhanced video embed with performance optimizations. |
 | Related Posts | `aegis/related-posts` | Displays posts related to the current content. |
+=======
+The Aegis **theme** registers six custom blocks from `src/Blocks/`. Map and Modal require the [Aegis companion plugin](../../plugins/aegis/docs/blocks/custom-blocks.md). Pro adds [tabs, image compare, and block sub-features](../../plugins/aegis-pro/docs/features/pro-blocks.md).
+
+Block feature toggles are at **Aegis → Blocks** when the plugin is active — see [Plugin Block Variations](../../plugins/aegis/docs/blocks/block-variations.md).
+
+## Theme-Registered Blocks
+
+| Block | Namespace | Documentation |
+|-------|-----------|---------------|
+| Countdown | `aegis/countdown` | [[countdown]] |
+| Slider | `aegis/slider` | [[slider]] (includes Slide child) |
+| Slide | `aegis/slide` | [[slider]] |
+| Toggle | `aegis/toggle` | [[toggle]] (includes Toggle Content child) |
+| Toggle Content | `aegis/toggle-content` | [[toggle]] |
+| Related Posts | `aegis/related-posts` | [[related-posts]] |
+
+## Video
+
+Aegis does not register `aegis/video`. Use WordPress **`core/video`** — see [[core-video]].
+>>>>>>> Stashed changes
 
 ## Plugin Blocks
 
 | Block | Namespace | Documentation |
 |-------|-----------|---------------|
+<<<<<<< Updated upstream
 | Map | `aegis/map` | [Plugin — Custom Blocks](../../plugins/aegis/docs/blocks/custom-blocks.md) |
+=======
+| Map | `aegis/map` | [Plugin — Map](../../plugins/aegis/docs/blocks/map.md) |
+>>>>>>> Stashed changes
 | Modal | `aegis/modal` | [Plugin — Modals](../../plugins/aegis/docs/blocks/modals.md) |
 
 > **Note:** Map and Modal require the free Aegis Plugin. Theme blocks work without the plugin when using the Aegis theme.
 
+<<<<<<< Updated upstream
 ## Countdown
 
 The Countdown block displays an animated timer counting down to a specified date and time.
@@ -185,10 +211,13 @@ Map (`aegis/map`) and Modal (`aegis/modal`) are registered by the **Aegis compan
 - [Plugin — Custom Blocks](../../plugins/aegis/docs/blocks/custom-blocks.md)
 - [Plugin — Modals tab](../../plugins/aegis/docs/blocks/modals.md)
 
+=======
+>>>>>>> Stashed changes
 ## Block Dependencies
 
 | Block | Requires |
 |-------|----------|
+<<<<<<< Updated upstream
 | Countdown | Aegis theme only |
 | Slider / Slide | Aegis theme only |
 | Toggle / Toggle Content | Aegis theme only |
@@ -203,4 +232,15 @@ Map (`aegis/map`) and Modal (`aegis/modal`) are registered by the **Aegis compan
 - [[block-variations]] — Framework block variations.
 - [[block-patterns]] — Pre-built layouts using these blocks.
 - [Map and Modal (Plugin)](../../plugins/aegis/docs/blocks/custom-blocks.md)
+=======
+| Countdown, Slider/Slide, Toggle/Toggle Content, Related Posts | Aegis theme only |
+| Map, Modal | Aegis theme + Aegis Plugin |
+| `core/video` enhancements | Theme framework; editor scripts need plugin; Pro stack optional |
+
+## Next Steps
+
+- [[enhanced-core-blocks]] — Framework core block enhancements
+- [[block-variations]] — Framework block variations
+- [[block-patterns]] — Pre-built layouts using these blocks
+>>>>>>> Stashed changes
 - [Conditional Logic (Plugin)](../../plugins/aegis/docs/features/conditional-logic.md)
