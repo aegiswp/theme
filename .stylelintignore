@@ -1,5 +1,7 @@
 node_modules/**
 vendor/**
+tools/**
+build/**
 assets/**
 style.css
 src/*/css/**
