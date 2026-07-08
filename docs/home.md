@@ -4,13 +4,21 @@ Welcome to the official documentation for the Aegis WordPress theme. Aegis is a 
 
 ## About Aegis
 
+<<<<<<< Updated upstream
 The theme provides templates, patterns, style variations, and theme-registered custom blocks (Countdown, Slider, Toggle, Video, Related Posts). The **Aegis framework** (`vendor/aegis/framework`) enhances 37 core blocks and registers block variations.
+=======
+The theme provides templates, patterns, style variations, and six theme-registered custom blocks (Countdown, Slider, Slide, Toggle, Toggle Content, Related Posts). Video uses WordPress **`core/video`**, enhanced by the Aegis framework (see [[enhanced-core-blocks]]). The **Aegis framework** (`vendor/aegis/framework`) enhances 37 core blocks and registers block variations.
+>>>>>>> Stashed changes
 
 Companion plugins extend functionality:
 
 | Product | Documentation |
 |---------|---------------|
+<<<<<<< Updated upstream
 | **Aegis Plugin** (free) | [Plugin docs](../../plugins/aegis/docs/home.md) — Map, Modal, admin, integrations, snippets, analytics |
+=======
+| **Aegis Plugin** (free) | [Plugin docs](../../plugins/aegis/docs/home.md) — Map, Modal, admin, integrations, snippets, analytics, **WooCommerce/TI Wishlist block patterns** (when dependencies active) |
+>>>>>>> Stashed changes
 | **Aegis Pro** | [Pro docs](../../plugins/aegis-pro/docs/home.md) — Video, hook patterns, query conditions, Pro blocks |
 
 ## Documentation Contents
@@ -38,13 +46,22 @@ Companion plugins extend functionality:
 
 ### Blocks
 
+<<<<<<< Updated upstream
 - [[custom-blocks]] — Theme-registered blocks
+=======
+- [[custom-blocks]] — Theme-registered blocks (index)
+- [[countdown]], [[slider]], [[toggle]], [[related-posts]], [[core-video]]
+>>>>>>> Stashed changes
 - [[enhanced-core-blocks]] — Framework core block enhancements
 - [[block-variations]] — Framework variations (toggles in plugin)
 
 ### Features
 
+<<<<<<< Updated upstream
 - [[woocommerce-integration]] — WooCommerce templates
+=======
+- [[woocommerce-integration]] — WooCommerce FSE templates (theme) and gated commerce block patterns (companion plugin)
+>>>>>>> Stashed changes
 - [[plugin-integrations]] — Framework integration styling
 - [[hook-patterns]] — Injection hooks fired by framework
 - [[accessibility]], [[performance]], [[navigation-styles]], [[svg-icons]], [[embed-template]]
@@ -59,7 +76,11 @@ Companion plugins extend functionality:
 
 ### Development
 
+<<<<<<< Updated upstream
 - [[development-setup]], [[building-assets]], [[architecture]], [[deployment]], [[contributing]]
+=======
+- [[development-setup]], [[building-assets]], [[tools]], [[architecture]], [[deployment]], [[contributing]]
+>>>>>>> Stashed changes
 
 ### Reference
 
