@@ -1,0 +1,40 @@
+{
+  "extends": [
+    "@wordpress/stylelint-config/scss"
+  ],
+  "rules": {
+    "no-descending-specificity": null,
+    "selector-class-pattern": null,
+    "selector-id-pattern": null,
+    "keyframes-name-pattern": null,
+    "no-empty-source": null,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["apply", "container", "custom-media", "custom-properties"]
+      }
+    ],
+    "function-no-unknown": [
+      true,
+      {
+        "ignoreFunctions": ["var", "calc", "min", "max", "clamp", "env"]
+      }
+    ],
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": [
+          "--wp-*",
+          "--*"
+        ]
+      }
+    ],
+    "unit-no-unknown": [
+      true,
+      {
+        "ignoreUnits": ["rem", "em", "px", "%", "vw", "vh", "vmin", "vmax", "ch", "ex"]
+      }
+    ],
+    "declaration-property-value-no-unknown": null
+  }
+}
