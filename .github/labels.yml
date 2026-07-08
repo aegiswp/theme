@@ -1,10 +1,7 @@
 # GitHub Labels Configuration for Aegis Theme
-# 
-# Reference: This file documents the labels used in the Aegis repository.
-# Labels can be created and managed via:
-# 1. GitHub UI: Settings → Labels
-# 2. GitHub CLI: gh label create --name "label-name" --description "description" --color "color"
-# 3. Actions: github/issue-labeler or similar automation
+#
+# Reference only: GitHub does not apply this file automatically.
+# Create labels via GitHub UI, `gh label create`, or a dedicated sync workflow.
 
 # ---
 # TYPE LABELS (Issue/PR classification)
@@ -19,7 +16,7 @@
   color: "a2eeef"
 
 - name: "[Type] Docs"
-  description: "Documentation or wiki improvements"
+  description: "Documentation or Wiki improvements"
   color: "0075ca"
 
 - name: "[Type] Refactor"
@@ -174,16 +171,12 @@
 # VERSION LABELS
 # ---
 
-- name: "WordPress 6.4"
-  description: "Affects/tested on WordPress 6.4"
+- name: "WordPress 7.0"
+  description: "Affects/tested on WordPress 7.0"
   color: "1d76db"
 
-- name: "WordPress 6.5"
-  description: "Affects/tested on WordPress 6.5"
-  color: "1d76db"
-
-- name: "WordPress 6.6"
-  description: "Affects/tested on WordPress 6.6"
+- name: "WordPress latest"
+  description: "Affects/tested on latest WordPress"
   color: "1d76db"
 
 - name: "PHP 8.1"
@@ -253,10 +246,10 @@
 # ---
 # NOTES FOR MANAGEMENT
 # ---
-# 
+#
 # ## Creating Labels via GitHub CLI:
 # ```bash
-# gh label create "[Type] Bug" --description "Something is not working" --color "d73a4a"
+# gh label create "[Type] Bug" --description "Something isn't working" --color "d73a4a"
 # ```
 #
 # ## Automated Labeling:
