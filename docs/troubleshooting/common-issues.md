@@ -56,24 +56,15 @@ Update WordPress to version 7.0 or later via **Dashboard → Updates**.
 
 **Symptom:** The pattern categories are empty or patterns do not appear in the inserter.
 
-<<<<<<< Updated upstream
-**Cause:** Pattern files may not have loaded correctly.
-=======
 **Cause:** Pattern files may not have loaded correctly, or WooCommerce/plugin patterns are gated.
->>>>>>> Stashed changes
 
 **Solution:**
 
 1. Clear all caches (browser, page cache plugin, server cache).
 2. Deactivate and reactivate the theme.
-<<<<<<< Updated upstream
-3. Ensure the `patterns/` directory exists and contains PHP files.
-4. Check the PHP error log for any pattern registration errors.
-=======
 3. Ensure the theme `patterns/` directory exists and contains PHP files.
 4. For **WooCommerce shop patterns**, install and activate **WooCommerce** and the **Aegis companion plugin**. See [[faq#why-dont-i-see-shop-or-product-patterns-in-the-inserter]].
 5. Check the PHP error log for any pattern registration errors.
->>>>>>> Stashed changes
 
 ### Site Editor Shows Blank Page
 
@@ -215,8 +206,6 @@ See [[dark-mode]] for configuration details.
 2. Change the template to **Multi-Step Checkout**.
 3. Or verify the template is correctly assigned in the Site Editor.
 
-<<<<<<< Updated upstream
-=======
 ### Wishlist Page Empty
 
 **Symptom:** The wishlist page shows no products, displays `[ti_wishlisttable]` as plain text, or is blank.
@@ -244,7 +233,6 @@ See [[woocommerce-integration#wishlist-ti-woocommerce-wishlist]] for full setup 
 2. Confirm WooCommerce block templates are enabled.
 3. See [[faq#why-dont-i-see-shop-or-product-patterns-in-the-inserter]] and [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md).
 
->>>>>>> Stashed changes
 ## Plugin Conflicts
 
 ### General Debugging Steps
