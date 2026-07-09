@@ -71,7 +71,7 @@ Include any setup required, and the steps to reproduce the behavior.
 - [ ] Slide
 - [ ] Toggle
 - [ ] Toggle Content
-- [ ] Video
+- [ ] `core/video` (framework / plugin editor — not a theme block)
 
 ## Performance Impact
 
