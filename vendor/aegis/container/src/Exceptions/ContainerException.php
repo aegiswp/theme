@@ -2,65 +2,50 @@
 /**
  * Container Exception
  *
- * Defines the exception for general errors in the dependency injection
- * container of the Aegis Framework.
+ * This file defines the primary exception thrown by the dependency injection
+ * container. It serves as a base class for more specific container-related
+ * exceptions and implements the PSR-11 `ContainerExceptionInterface`.
  *
  * Responsibilities:
- * - Represents errors encountered within the Aegis Framework container
- * - Ensures interoperability with other PSR-11 compatible containers
- *   and libraries by implementing ContainerExceptionInterface
+ * - Provides a standard exception type for errors within the container.
+ * - Implements `Psr\Container\ContainerExceptionInterface` for interoperability.
  *
  * @package    Aegis\Container\Exceptions
- * @since      1.0.0
+ * @since      0.1.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
- *
- * For developer documentation and onboarding. No logic changes in this
- * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for container exception.
+declare( strict_types=1 );
 
-// Defines the namespace for the container exception functionality within the Aegis Framework.
+// Declares the namespace for the container exception.
 namespace Aegis\Container\Exceptions;
 
-// Imports the base Exception class and the PSR-11 ContainerExceptionInterface for use in the custom exception.
+// Imports classes, interfaces, and functions used by the container exception.
 use Exception;
 use Psr\Container\ContainerExceptionInterface;
 
 /**
- * Container Exception for the Aegis Dependency Injection Container.
- *
- * This exception is thrown when an error occurs within the Aegis Framework container. It implements the
- * {@link https://www.php-fig.org/psr/psr-11/ PSR-11 ContainerExceptionInterface}, allowing interoperability with
- * other PSR-11 compatible containers and libraries.
- *
- * @see Exception
- * @see Psr\Container\ContainerExceptionInterface
- *
- * @since 1.0.0
+ * Base exception for the dependency injection container.
+ * This exception is thrown for general errors that occur during the container's operation.
  *
  * @package Aegis\Container\Exceptions
+ * @since 0.1.0
  */
-// Declares the ContainerException class, which extends the base Exception and implements the PSR-11 ContainerExceptionInterface.
-class ContainerException extends Exception implements ContainerExceptionInterface
-{
+class ContainerException extends Exception implements ContainerExceptionInterface {
 
 	/**
-	 * Constructor for the ContainerException.
+	 * ContainerException constructor.
+	 * Overrides the parent constructor to maintain a consistent interface.
 	 *
-	 * Sets up the exception with a message, code, and previous exception, passing
-	 * them to the parent Exception class.
+	 * @since 0.1.0
 	 *
-	 * @param string     $message  The human-readable error message that describes the exception.
-	 * @param ?int       $code     The optional, user-defined exception code. Defaults to 0.
-	 * @param ?Exception $previous The previous exception used for chaining. Defaults to null.
-	 *
-	 * @return void
+	 * @param string          $message  The exception message.
+	 * @param int|null        $code     Optional. The user-defined exception code. Defaults to 0.
+	 * @param Exception|null  $previous Optional. The previous throwable used for exception chaining. Defaults to null.
 	 */
-	public function __construct(string $message, ?int $code = 0, ?Exception $previous = null)
-	{
-		parent::__construct($message, $code, $previous);
+	public function __construct( string $message, ?int $code = 0, ?Exception $previous = null ) {
+		parent::__construct( $message, $code, $previous );
 	}
 }
