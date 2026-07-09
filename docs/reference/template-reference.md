@@ -42,13 +42,10 @@ These templates are active only when WooCommerce is installed:
 | 22 | My Account | `page-my-account.html` | Account | Customer account dashboard: orders, addresses, downloads, and settings. |
 | 23 | Wishlist | `page-wishlist.html` | Account | Customer product wishlist with saved items. |
 
-<<<<<<< Updated upstream
-=======
 > **WooCommerce templates:** Hidden from the Site Editor template picker when WooCommerce is inactive (framework `Templates.php` filter).
 
 > **Wishlist template:** Requires WooCommerce, the **Aegis companion plugin**, and [TI WooCommerce Wishlist](https://wordpress.org/plugins/ti-woocommerce-wishlist/). Hidden when TI Wishlist or WooCommerce is inactive. The companion plugin registers the `template-page-wishlist` pattern when dependencies are met. See [[woocommerce-integration#wishlist-ti-woocommerce-wishlist]].
 
->>>>>>> Stashed changes
 ## Template Structure
 
 ### Standard Templates
