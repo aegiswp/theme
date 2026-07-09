@@ -7,14 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-<<<<<<< Updated upstream
-=======
 ### Breaking Changes
 
 - Removed **`aegis/video`** custom block. Use **`core/video`** with Aegis framework, companion plugin, and Pro enhancements. Migrate existing content with `tools/migrate-aegis-video.php` (see `docs/getting-started/updating.md`).
 - Removed **`core/query` Related Posts** block variation. Use the **`aegis/related-posts`** theme block instead. Advanced related-post querying on Query Loop remains available via **`aegisProRelatedPosts`** in Aegis Pro.
 
->>>>>>> Stashed changes
 ### Documentation
 
 - Reorganized documentation for the theme/plugin/Pro split.
@@ -23,13 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Architecture
 
-<<<<<<< Updated upstream
-- Companion plugin owns admin dashboard, Map/Modal blocks, analytics, snippets, conditionals, and integrations.
-- Theme continues to register countdown, slider, toggle, video, and related-posts blocks.
-=======
 - Companion plugin owns admin dashboard, Map/Modal blocks, analytics, snippets, conditionals, and integrations (requires Aegis theme).
 - Theme registers six custom blocks: countdown, slider, slide, toggle, toggle-content, and related-posts.
->>>>>>> Stashed changes
 
 ## [1.0.0] - 0000-00-00
 
