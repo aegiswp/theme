@@ -6,12 +6,6 @@ Technical architecture of the Aegis theme and its relationship to the framework 
 
 | Layer | Location | Responsibility |
 |-------|----------|----------------|
-<<<<<<< Updated upstream
-| **Theme** | `wp-content/themes/aegis` | FSE templates, patterns, theme blocks, thin PHP glue |
-| **Framework** | `vendor/aegis/framework` | Core block enhancements, variations, design system engine, injection hook firing |
-| **Free plugin** | `wp-content/plugins/aegis` | Admin, map/modal, snippets, conditionals, integrations, analytics |
-| **Pro plugin** | `wp-content/plugins/aegis-pro` | Hook pattern CPT, video stack, query pro, license |
-=======
 | **Theme** | `wp-content/themes/aegis` | FSE templates, generic theme patterns (excluding WC/TI block patterns), theme blocks, thin PHP glue |
 | **Framework** | `vendor/aegis/framework` | Core block enhancements, variations, design system engine, injection hook firing |
 | **Free plugin** | `wp-content/plugins/aegis` | Admin, map/modal, snippets, conditionals, integrations, analytics, **WooCommerce/TI Wishlist block patterns** (gated) |
@@ -20,7 +14,6 @@ Technical architecture of the Aegis theme and its relationship to the framework 
 ## Template gating
 
 FSE **templates** remain in the theme (`templates/` + `theme.json`). WooCommerce and wishlist templates are **hidden from the Site Editor template picker** when dependencies are inactive via `vendor/aegis/framework/src/DesignSystem/Templates.php` (`get_block_templates` filter). See [[../reference/template-reference]].
->>>>>>> Stashed changes
 
 ## Theme Overview
 
