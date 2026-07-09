@@ -1,30 +1,12 @@
 <?php
-/**
- * CSS Utility Class
- *
- * Provides helper methods for working with CSS rules and stylesheets
- * within the Aegis Framework.
- *
- * Responsibilities:
- * - Converts arrays of CSS rules to valid CSS strings
- * - Assists with CSS file and string manipulations for theme and plugin development
- *
- * @package    Aegis\Dom
- * @since      1.0.0
- * @author     Atmostfear Entertainment
- * @link       https://github.com/aegiswp/theme
- *
- * For developer documentation and onboarding. No logic changes in this
- * documentation update.
- */
 
-// Ensures strict type checking for all code in this file.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for css utility helpers.
+declare( strict_types=1 );
 
-// Declares the namespace for CSS utilities within the Aegis Framework.
+// Declares the namespace for the css utility helpers.
 namespace Aegis\Dom;
 
-// Imports PHP built-in functions and WordPress helpers used by the CSS utility class.
+// Imports classes, interfaces, and functions used by the css utility helpers.
 use function array_key_last;
 use function array_merge;
 use function count;
@@ -35,126 +17,131 @@ use function in_array;
 use function is_array;
 use function is_null;
 use function is_string;
+use function preg_replace;
 use function rtrim;
 use function str_contains;
 use function str_replace;
+use function trim;
 use function wp_json_file_decode;
-use function wp_get_global_settings;
-use function wp_list_pluck;
 
-// Implements a utility class for CSS manipulation and formatting.
-
-class CSS
-{
+/**
+ * CSS utility class.
+ *
+ * @since 1.0.0
+ */
+class CSS {
 
 	/**
-	 * Converts an associative array of CSS rules into a valid CSS string.
+	 * Converts an associative array of CSS rules into a CSS string.
 	 *
-	 * This method takes an array of CSS property-value pairs and formats them as a CSS string. Optionally, it can trim the trailing semicolon for cleaner output.
+	 * Example:
+	 * [ 'color' => 'red', 'background' => 'blue' ]
+	 * becomes
+	 * 'color:red;background:blue;'
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $styles An associative array of CSS rules, for example: [ 'color' => 'white', 'background' => 'black' ].
-	 * @param bool  $trim   Set to true to remove the trailing semicolon from the resulting string.
+	 * @param array $styles Associative array of CSS rules.
+	 * @param bool  $trim   Whether to trim the trailing semicolon.
 	 *
-	 * @return string The formatted CSS string for use in HTML or stylesheet output.
+	 * @return string The CSS string.
 	 */
-	public static function array_to_string(array $styles, bool $trim = false): string
-	{
+	public static function array_to_string( array $styles, bool $trim = false ): string {
 		$css = '';
 
-		foreach ($styles as $property => $value) {
-			if (is_null($value) || is_array($value)) {
+		foreach ( $styles as $property => $value ) {
+			if ( is_null( $value ) || is_array( $value ) ) {
 				continue;
 			}
 
-			$value = self::format_custom_property((string) $value);
-			$semicolon = $trim && $property === array_key_last($styles) ? '' : ';';
-			$css .= $property . ':' . $value . $semicolon;
+			$value     = self::format_custom_property( (string) $value );
+			$semicolon = $trim && $property === array_key_last( $styles ) ? '' : ';';
+			$css       .= $property . ':' . $value . $semicolon;
 		}
 
-		return rtrim($css, ';');
+		return rtrim( $css, ';' );
 	}
 
 	/**
-	 * Formats custom properties for unsupported blocks.
+	 * Formats custom property values to be valid CSS.
+	 *
+	 * Handles `var:preset|color|slug` format by converting it to
+	 * `var(--wp--preset--color--slug)`.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param ?string $custom_property Custom property value to format.
+	 * @param string|null $custom_property Custom property value to format.
 	 *
-	 * @return ?string
+	 * @return string|null The formatted custom property value.
 	 */
-	public static function format_custom_property(?string $custom_property): ?string
-	{
-		if (!$custom_property) {
+	public static function format_custom_property( ?string $custom_property ): ?string {
+		if ( ! $custom_property ) {
 			return $custom_property;
 		}
 
-		if (str_contains($custom_property, 'var:')) {
+		if ( str_contains( $custom_property, 'var:' ) ) {
 			return str_replace(
-				['var:', '|',],
-				['var(--wp--', '--',],
+				[ 'var:', '|', ],
+				[ 'var(--wp--', '--', ],
 				$custom_property . ')'
 			);
 		}
 
-		// Early return for values that cannot be color slugs (contains common
-		// CSS characters that slugs never have). This avoids the expensive
-		// palette lookup for the vast majority of CSS values.
-		if (str_contains($custom_property, ' ') ||
-			str_contains($custom_property, '(') ||
-			str_contains($custom_property, '#') ||
-			str_contains($custom_property, '.') ||
-			str_contains($custom_property, ',') ||
-			str_contains($custom_property, '/') ||
-			str_contains($custom_property, '%') ||
-			is_numeric($custom_property)
-		) {
+		static $global_settings = null;
+		static $theme_json = null;
+
+		if ( is_null( $global_settings ) ) {
+			$global_settings = function_exists( 'wp_get_global_settings' ) ? wp_get_global_settings() : [];
+		}
+
+		if ( ! $global_settings ) {
 			return $custom_property;
 		}
 
-		static $system_colors = [
-			'current'      => true,
-			'currentcolor'  => true,
-			'currentColor' => true,
-			'inherit'      => true,
-			'initial'      => true,
-			'transparent'  => true,
-			'unset'        => true,
-		];
+		if ( is_null( $theme_json ) ) {
+			$theme_json_file = get_template_directory() . '/theme.json';
+			$theme_json      = [];
 
-		if (isset($system_colors[$custom_property])) {
-			return $custom_property === 'current' ? 'currentcolor' : $custom_property;
-		}
-
-		static $color_slug_map = null;
-
-		if (is_null($color_slug_map)) {
-			$color_slug_map = [];
-			$global_settings = function_exists('wp_get_global_settings') ? wp_get_global_settings() : [];
-
-			if ($global_settings) {
-				$theme_json_file = get_template_directory() . '/theme.json';
-				$theme_json = file_exists($theme_json_file) ? wp_json_file_decode($theme_json_file) : null;
-
-				if ($theme_json) {
-					$colors = array_merge(
-						(array) ($global_settings['color']['palette']['theme'] ?? []),
-						(array) ($theme_json->settings->color->palette ?? [])
-					);
-
-					foreach ($colors as $color) {
-						$slug = is_object($color) ? ($color->slug ?? '') : ($color['slug'] ?? '');
-						if ($slug && !isset($system_colors[$slug])) {
-							$color_slug_map[$slug] = true;
-						}
-					}
-				}
+			if ( file_exists( $theme_json_file ) ) {
+				$theme_json = wp_json_file_decode( $theme_json_file );
 			}
 		}
 
-		if (isset($color_slug_map[$custom_property])) {
+		if ( ! $theme_json ) {
+			return $custom_property;
+		}
+
+		if ( ! isset( $global_settings['color']['palette']['theme'] ) && ! isset( $theme_json->settings->color->palette ) ) {
+			return $custom_property;
+		}
+
+		$colors = array_merge(
+			(array) ( $global_settings['color']['palette']['theme'] ?? [] ),
+			(array) $theme_json->settings->color->palette
+		);
+
+		$system_colors = [
+			'current',
+			'currentcolor',
+			'currentColor',
+			'inherit',
+			'initial',
+			'transparent',
+			'unset',
+		];
+
+		if ( in_array( $custom_property, $system_colors, true ) ) {
+			if ( $custom_property === 'current' ) {
+				return 'currentcolor';
+			}
+		}
+
+		$color_slugs = array_diff(
+			wp_list_pluck( $colors, 'slug' ),
+			$system_colors
+		);
+
+		if ( in_array( $custom_property, $color_slugs, true ) ) {
 			return "var(--wp--preset--color--{$custom_property})";
 		}
 
@@ -162,36 +149,40 @@ class CSS
 	}
 
 	/**
-	 * Converts string of CSS rules to an array.
+	 * Converts a CSS string into an associative array of CSS rules.
+	 *
+	 * Example:
+	 * 'color:red;background:blue;'
+	 * becomes
+	 * [ 'color' => 'red', 'background' => 'blue' ]
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $css 'color:white;background:black'.
+	 * @param string $css CSS string to convert.
 	 *
-	 * @return array
+	 * @return array Associative array of CSS rules.
 	 */
-	public static function string_to_array(string $css): array
-	{
+	public static function string_to_array( string $css ): array {
 		$array = [];
 
 		// Prevent svg url strings from being split.
-		$css = str_replace('xml;', 'xml$', $css);
+		$css = str_replace( 'xml;', 'xml$', $css );
 
-		$elements = explode(';', $css);
+		$elements = explode( ';', $css );
 
-		foreach ($elements as $element) {
-			$parts = explode(':', $element, 2);
+		foreach ( $elements as $element ) {
+			$parts = explode( ':', $element, 2 );
 
-			if (isset($parts[1])) {
+			if ( isset( $parts[1] ) ) {
 				$property = $parts[0];
-				$value = $parts[1];
+				$value    = $parts[1];
 
-				if ($value !== '' && $value !== 'null') {
-					$value = str_replace('xml$', 'xml;', $value);
-					$value = self::format_custom_property((string) $value);
+				if ( $value !== '' && $value !== 'null' ) {
+					$value = str_replace( 'xml$', 'xml;', $value );
+					$value = self::format_custom_property( (string) $value );
 
-					if ($value) {
-						$array[$property] = $value;
+					if ( $value ) {
+						$array[ $property ] = $value;
 					}
 				}
 			}
@@ -201,66 +192,70 @@ class CSS
 	}
 
 	/**
-	 * Adds shorthand CSS properties.
+	 * Adds shorthand CSS properties to a styles array.
+	 *
+	 * This function will add a shorthand property to the styles array if it does not
+	 * already exist. It can handle both string and array values.
+	 *
+	 * @since 1.0.0
 	 *
 	 * @param array        $styles   Existing CSS array.
 	 * @param string       $property CSS property to add. E.g. 'margin'.
 	 * @param array|string $values   CSS values to add.
 	 *
-	 * @return array
+	 * @return array The updated styles array.
 	 */
-	public static function add_shorthand_property(array $styles, string $property, $values): array
-	{
-		if (empty($values) || isset($styles[$property])) {
+	public static function add_shorthand_property( array $styles, string $property, $values ): array {
+		if ( empty( $values ) || isset( $styles[ $property ] ) ) {
 			return $styles;
 		}
 
-		if (is_string($values)) {
-			$styles[$property] = self::format_custom_property($values);
+		if ( is_string( $values ) ) {
+			$styles[ $property ] = self::format_custom_property( $values );
 
 			return $styles;
 		}
 
-		$sides = ['top', 'right', 'bottom', 'left'];
+		$sides = [ 'top', 'right', 'bottom', 'left' ];
 
-		if (count($values) === 1) {
-			foreach ($values as $side => $value) {
-				if (!in_array($side, $sides, true)) {
+		if ( count( $values ) === 1 ) {
+			foreach ( $values as $side => $value ) {
+				if ( ! in_array( $side, $sides, true ) ) {
 					continue;
 				}
 
-				$styles[$property . '-' . $side] = self::format_custom_property($value);
+				$styles[ $property . '-' . $side ] = self::format_custom_property( $value );
 			}
 
 			return $styles;
 		}
 
-		$has_top = isset($values['top']);
-		$has_right = isset($values['right']);
-		$has_bottom = isset($values['bottom']);
-		$has_left = isset($values['left']);
+		$has_top    = isset( $values['top'] );
+		$has_right  = isset( $values['right'] );
+		$has_bottom = isset( $values['bottom'] );
+		$has_left   = isset( $values['left'] );
 
-		if (!$has_top && !$has_right && !$has_bottom && !$has_left) {
+		if ( ! $has_top && ! $has_right && ! $has_bottom && ! $has_left ) {
 			return $styles;
 		}
 
-		$top = self::format_custom_property($values['top'] ?? '0');
-		$right = self::format_custom_property($values['right'] ?? '0');
-		$bottom = self::format_custom_property($values['bottom'] ?? '0');
-		$left = self::format_custom_property($values['left'] ?? '0');
+		$top    = self::format_custom_property( $values['top'] ?? '0' );
+		$right  = self::format_custom_property( $values['right'] ?? '0' );
+		$bottom = self::format_custom_property( $values['bottom'] ?? '0' );
+		$left   = self::format_custom_property( $values['left'] ?? '0' );
 
-		unset($styles[$property . '-top']);
-		unset($styles[$property . '-right']);
-		unset($styles[$property . '-bottom']);
-		unset($styles[$property . '-left']);
+		unset( $styles[ $property . '-top' ] );
+		unset( $styles[ $property . '-right' ] );
+		unset( $styles[ $property . '-bottom' ] );
+		unset( $styles[ $property . '-left' ] );
 
-		if ($top === $right && $right === $bottom && $bottom === $left) {
-			$styles[$property] = self::format_custom_property($top);
+		if ( $top === $right && $right === $bottom && $bottom === $left ) {
+			$styles[ $property ] = self::format_custom_property( $top );
 		} else {
-			if ($top === $bottom && $left === $right) {
-				$styles[$property] = "$top $right";
+			if ( $top === $bottom && $left === $right ) {
+				$styles[ $property ] = "$top $right";
 			} else {
-				$styles[$property] = "$top $right $bottom $left";
+				$styles[ $property ] = "$top $right $bottom $left";
 			}
 		}
 
@@ -268,52 +263,54 @@ class CSS
 	}
 
 	/**
-	 * Quick and dirty way to mostly minify CSS.
+	 * Normalizes and compacts inline CSS declaration strings.
 	 *
-	 * @author Gary Jones
+	 * Intended for inline `style` attribute values (property: value pairs),
+	 * not full stylesheets with selectors or at-rules.
 	 *
-	 * @link   https://github.com/GaryJones/Simple-PHP-CSS-Minification
+	 * @since 1.0.0
 	 *
-	 * @since  1.0.0
+	 * @param string $css Inline CSS declarations to normalize.
 	 *
-	 * @param string $css CSS to minify.
-	 *
-	 * @return string Minified CSS
+	 * @return string Compacted CSS declarations.
 	 */
-	public static function minify(string $css): string
-	{
+	public static function minify( string $css ): string {
+		$css = trim( $css );
 
-		// Normalize whitespace.
-		$css = preg_replace('/\s+/', ' ', $css);
+		if ( $css === '' ) {
+			return '';
+		}
 
-		// Remove spaces before and after comment.
-		$css = preg_replace('/(\s+)(\/\*(.*?)\*\/)(\s+)/', '$2', $css);
+		// Remove block comments from inline declaration strings.
+		$css = preg_replace( '/\/\*.*?\*\//s', '', $css ) ?? $css;
 
-		// Remove comment blocks, everything between /* and */, unless
-		// preserved with /*! ... */ or /** ... */.
-		$css = preg_replace('~/\*(?![!|*])(.*?)\*/~', '', $css);
+		// Collapse whitespace and normalize property separators.
+		$css = preg_replace( '/\s+/', ' ', $css ) ?? $css;
+		$css = preg_replace( '/\s*:\s*/', ':', $css ) ?? $css;
+		$css = preg_replace( '/\s*;\s*/', ';', $css ) ?? $css;
+		$css = trim( $css, " ;" );
 
-		// Remove ; before }.
-		$css = preg_replace('/;(?=\s*})/', '', $css);
+		if ( $css === '' ) {
+			return '';
+		}
 
-		// Remove space after , : ; { } */ >.
-		$css = preg_replace('/(,|:|;|\{|}|\*\/|>) /', '$1', $css);
+		$declarations = self::string_to_array( $css );
+		$normalized   = [];
 
-		// Remove space before , ; { } ( ) >.
-		$css = preg_replace('/ ([,;{}()>])/', '$1', $css);
+		foreach ( $declarations as $property => $value ) {
+			$property = trim( $property );
 
-		// Strips leading 0 on decimal values (converts 0.5px into .5px).
-		$css = preg_replace('/([: ])0\.([0-9]+)(%|em|ex|px|in|cm|mm|pt|pc)/i', '${1}.${2}${3}', $css);
+			if ( $property === '' ) {
+				continue;
+			}
 
-		// Strips units if value is 0 (converts 0px to 0).
-		$css = preg_replace('/([: ])(\.?)0(%|em|ex|px|in|cm|mm|pt|pc)/i', '${1}0', $css);
+			$normalized[ $property ] = is_string( $value ) ? trim( $value ) : $value;
+		}
 
-		// Converts all zeros value into shorthand.
-		$css = preg_replace('/0 0 0 0/', '0', $css);
+		if ( $normalized === [] ) {
+			return '';
+		}
 
-		// Shorten 6-character hex color codes to 3-character where possible.
-		$css = preg_replace('/#([a-f0-9])\\1([a-f0-9])\\2([a-f0-9])\\3/i', '#\1\2\3', $css);
-
-		return trim($css);
+		return self::array_to_string( $normalized );
 	}
 }
