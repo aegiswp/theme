@@ -2,60 +2,51 @@
 /**
  * Registerable Interface
  *
- * Defines the contract for service registration in the dependency injection
- * container of the Aegis Framework.
+ * This file defines an interface for classes that need to perform a registration
+ * process with the dependency injection container. It provides a standardized
+ * `register` method that allows classes to add their own bindings, configurations,
+ * or other setup logic to the container.
  *
  * Responsibilities:
- * - Requires implementing classes to provide a register method for
- *   registering themselves with the Aegis container
- * - Facilitates modular and explicit service registration
+ * - Defines a `register` method that accepts a container instance.
+ * - Allows for modular and self-contained registration of services.
  *
  * @package    Aegis\Container\Interfaces
  * @since      1.0.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
- *
- * For developer documentation and onboarding. No logic changes in this
- * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for registerable interface.
+declare( strict_types=1 );
 
-// Defines the namespace for registerable interfaces within the Aegis Framework.
+// Declares the namespace for the registerable interface.
 namespace Aegis\Container\Interfaces;
 
-// Imports the Aegis container class for type hinting in the interface method.
+// Imports classes, interfaces, and functions used by the registerable interface.
 use Aegis\Container\Container;
 
 /**
- * Interface for services that can be registered with the container.
- *
- * This interface provides a contract for classes that need to register themselves
- * or other services with the Aegis dependency injection container. It is typically
- * used by Service Providers to encapsulate service registration logic.
+ * Interface for classes that can be registered with the container.
+ * Implementing this interface allows a class to define its own bindings
+ * and configurations within the dependency injection container.
  *
  * @package Aegis\Container\Interfaces
- * @since   1.0.0
+ * @since 1.0.0
  */
-
-// Declares the Registerable interface for service registration.
-interface Registerable
-{
+interface Registerable {
 
 	/**
-	 * Registers services with the dependency injection container.
-	 *
-	 * This method is called by the framework to allow a class (typically a
-	 * Service Provider) to register its services, bindings, and configurations
-	 * with the Aegis container.
+	 * Registers the class with the container.
+	 * This method is intended to be called to perform any setup or binding
+	 * logic that the class requires.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param Container $container The dependency injection container instance.
+	 * @param Container $container The dependency injection container.
 	 *
 	 * @return void
 	 */
-	
-	public function register(Container $container): void;
+	public function register( Container $container ): void;
+
 }
