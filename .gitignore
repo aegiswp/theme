@@ -4,6 +4,8 @@ node_modules/
 # framework packages tracked: they are path-repository sources required for
 # `composer install` to resolve aegis/framework and aegis/icons on a fresh
 # clone (see "repositories" in composer.json).
+# Per-package composer.json and LICENSE stay in Git; README is optional dev docs.
+# .distignore strips nested composer.json/README/etc. from the release zip.
 vendor/*
 !vendor/aegis/
 !vendor/aegis/**
@@ -33,14 +35,10 @@ patterns/.*
 *.bak
 *.backup
 
-# Dev tooling (standalone packages, not part of theme runtime)
-# Track tools/wpaudit so CI can run its PHPUnit suite (aegis/wpaudit path repo).
-# Keep tools/generate-blocks-manifest.php tracked: `npm run build` depends on it.
-tools/*
-!tools/wpaudit/
-!tools/wpaudit/**
-!tools/generate-blocks-manifest.php
-!tools/clean-build.js
+# Dev tooling (not part of theme runtime; release zip excludes tools/ via .distignore)
+tools/scratch/
+tools/wpaudit/vendor/
+tools/wpaudit/.phpunit.cache/
 
 # One-off dev/migration scripts (not part of theme runtime)
 bin/
