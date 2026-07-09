@@ -18,16 +18,10 @@ A block variation is a preconfigured version of an existing block with specific 
 | Grid | `core/group` | A CSS Grid container with configurable columns. |
 | Marquee | `core/group` | Continuously scrolling horizontal content. |
 | Newsletter | `core/group` | Pre-configured email signup section. |
-<<<<<<< Updated upstream
-| Related Posts | `core/query` | A Query Loop preset filtered to related content. |
-| SVG | `core/group` | A container for inline SVG markup. |
-
-=======
 | SVG | `core/group` | A container for inline SVG markup. |
 
 > **Related posts:** Use the **`aegis/related-posts`** theme block (see [[custom-blocks]]). The former `core/query` Related Posts variation was removed. For advanced related-post querying on Query Loop, enable **`aegisProRelatedPosts`** on `core/query` with [Aegis Pro](../../plugins/aegis-pro/docs/features/query-loop-pro.md).
 
->>>>>>> Stashed changes
 ## Accordion List
 
 An interactive list where each item can be expanded to reveal additional content.
@@ -200,34 +194,6 @@ A pre-configured email signup section with input field, submit button, and suppo
 3. Configure the form action (connect to your email service).
 4. Style using Group block controls.
 
-<<<<<<< Updated upstream
-## Related Posts (Query Variation)
-
-A Query Loop variation preconfigured to display posts related to the current content.
-
-### Base Block
-
-`core/query` with taxonomy-based filtering.
-
-### Features
-
-- Automatic filtering by shared categories and tags.
-- Configurable post count.
-- Excludes the current post.
-- Grid or list layout.
-- All Query Loop display options available.
-
-### Usage
-
-1. Insert the **Related Posts** query variation.
-2. The block automatically queries related content.
-3. Configure the number of posts and layout.
-4. Customize the post template (title, excerpt, thumbnail).
-
-> **Note:** This is distinct from the `aegis/related-posts` custom block, which uses its own rendering logic. The query variation leverages core Query Loop infrastructure.
-
-=======
->>>>>>> Stashed changes
 ## SVG
 
 A container for inserting inline SVG markup directly into the editor.
