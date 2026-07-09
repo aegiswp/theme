@@ -114,11 +114,7 @@ If you prefer other local development tools:
 
 ## Building Assets
 
-<<<<<<< Updated upstream
-Theme-owned blocks (countdown, slider, toggle, video, related-posts):
-=======
 Theme-owned blocks (countdown, slider, slide, toggle, toggle-content, related-posts). Video uses **`core/video`** (framework + plugin editor):
->>>>>>> Stashed changes
 
 ### Production Build
 ```bash
