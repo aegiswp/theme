@@ -85,6 +85,10 @@ package.json export-ignore
 package-lock.json export-ignore
 composer.json export-ignore
 composer.lock export-ignore
+vendor/*/composer.json export-ignore
+vendor/*/*/composer.json export-ignore
+vendor/**/ICONS-REGISTRY.md export-ignore
+vendor/**/CHANGELOG.md export-ignore
 README.md export-ignore
 INSTRUCTIONS.md export-ignore
 SUBMISSION-NOTES.md export-ignore
