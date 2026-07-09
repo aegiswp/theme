@@ -1,22 +1,12 @@
 # WooCommerce Integration
 
-<<<<<<< Updated upstream
-Aegis provides deep integration with WooCommerce, including dedicated templates, block patterns, and a multi-step checkout experience. The theme is designed to work with WooCommerce out of the box without additional configuration.
-=======
 Aegis provides deep integration with WooCommerce, including dedicated FSE templates, a multi-step checkout experience, and commerce block patterns registered by the companion plugin when WooCommerce is active.
->>>>>>> Stashed changes
 
 ## Requirements
 
 - WooCommerce 8.0 or later.
 - WordPress 7.0 or later.
 - WooCommerce block-based templates enabled (default in current versions).
-<<<<<<< Updated upstream
-
-## WooCommerce Templates
-
-Aegis includes 11 dedicated WooCommerce templates that replace the default WooCommerce page layouts:
-=======
 - **Aegis companion plugin** (free) for WooCommerce **block patterns** in the inserter (shop headers, product grids, template patterns).
 - **TI WooCommerce Wishlist** (optional) for the Wishlist template and wishlist pattern — see [Wishlist (TI WooCommerce Wishlist)](#wishlist-ti-woocommerce-wishlist).
 
@@ -25,7 +15,6 @@ Aegis includes 11 dedicated WooCommerce templates that replace the default WooCo
 FSE **templates** remain in the theme (`templates/` + `theme.json`). They are **hidden from the Site Editor template picker** when WooCommerce is inactive.
 
 Aegis includes dedicated WooCommerce templates that replace the default WooCommerce page layouts:
->>>>>>> Stashed changes
 
 | Template | Filename | Purpose |
 |----------|----------|---------|
@@ -39,9 +28,6 @@ Aegis includes dedicated WooCommerce templates that replace the default WooComme
 | Multi-Step Checkout | `page-checkout-multi-step.html` | Enhanced multi-step checkout flow. |
 | Order Confirmation | `order-confirmation.html` | Thank-you page after purchase. |
 | My Account | `page-my-account.html` | Customer account dashboard. |
-<<<<<<< Updated upstream
-| Wishlist | `page-wishlist.html` | Customer product wishlist. |
-=======
 | Wishlist | `page-wishlist.html` | Customer product wishlist (requires TI WooCommerce Wishlist + companion plugin pattern). |
 
 ## WooCommerce Block Patterns (Companion Plugin)
@@ -51,7 +37,6 @@ Block patterns that contain `wp:woocommerce/*` blocks (product grids, store head
 Generic commerce **marketing** patterns without WooCommerce blocks (for example trust badges, shipping info) remain in the theme `patterns/commerce/` directory.
 
 See [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md).
->>>>>>> Stashed changes
 
 ## Multi-Step Checkout
 
@@ -112,8 +97,6 @@ The single product template provides a complete product detail experience:
 - Related products section.
 - Upsell products section.
 
-<<<<<<< Updated upstream
-=======
 ## Wishlist (TI WooCommerce Wishlist)
 
 The **Wishlist** template (`page-wishlist.html`) provides a styled layout for saved products. It requires:
@@ -156,7 +139,6 @@ If you customize the template in the Site Editor, keep the Shortcode block with 
 - Check **TI WooCommerce Wishlist → Settings** for button placement and visibility options.
 - Confirm the single product template still includes product action blocks.
 
->>>>>>> Stashed changes
 ## WooCommerce Block Patterns
 
 Aegis includes product-focused patterns in the **Commerce** and **Product** categories:
