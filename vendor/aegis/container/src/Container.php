@@ -14,7 +14,7 @@
  * - Logs errors for debugging purposes.
  *
  * @package    Aegis\Container
- * @since      0.1.0
+ * @since      1.0.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  */
@@ -43,7 +43,7 @@ use function uniqid;
  * automatically resolving their dependencies through reflection.
  *
  * @package Aegis\Container
- * @since 0.1.0
+ * @since 1.0.0
  */
 class Container implements ContainerInterface {
 
@@ -65,7 +65,7 @@ class Container implements ContainerInterface {
 	 * Retrieves a service from the container by its identifier (class name).
 	 * This method adheres to the PSR-11 `get` standard.
 	 *
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 *
 	 * @param string $id The unique identifier for the service (fully qualified class name).
 	 *
@@ -85,7 +85,7 @@ class Container implements ContainerInterface {
 	 * Checks if a service identifier is registered in the container.
 	 * This method adheres to the PSR-11 `has` standard.
 	 *
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 *
 	 * @param string $id The unique identifier for the service (fully qualified class name).
 	 *
@@ -99,7 +99,7 @@ class Container implements ContainerInterface {
 	 * Creates and returns a new instance of a class, or returns an existing singleton instance.
 	 * This method handles the core auto-wiring logic, resolving dependencies recursively.
 	 *
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 *
 	 * @param string $id   The fully qualified class name to instantiate.
 	 * @param mixed  ...$args Optional arguments to pass to the class constructor, bypassing auto-wiring for those specific parameters.
@@ -191,7 +191,7 @@ class Container implements ContainerInterface {
 	/**
 	 * Resolves the dependencies for a class constructor by inspecting its parameters.
 	 *
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 *
 	 * @param ReflectionParameter[] $parameters An array of reflection parameters from the constructor.
 	 *
@@ -237,7 +237,7 @@ class Container implements ContainerInterface {
 	 * Logs a message and an optional exception for debugging purposes.
 	 * If debugging is enabled, the log will be output to the browser console.
 	 *
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 *
 	 * @param string $message   The message to log.
 	 * @param mixed|null $exception Optional exception or error object to include in the log.
