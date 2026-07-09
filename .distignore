@@ -31,6 +31,13 @@ tsconfig.json
 composer.json
 composer.lock
 
+# Nested vendor package metadata (runtime uses vendor/composer/autoload; keep LICENSE files)
+
+vendor/*/composer.json
+vendor/*/*/composer.json
+vendor/**/ICONS-REGISTRY.md
+vendor/**/CHANGELOG.md
+
 # Vendor dev dependencies
 
 vendor/bin/
