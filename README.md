@@ -402,10 +402,6 @@ Aegis extends the following WordPress core blocks with additional functionality,
 | Slide | `aegis/slide` | Theme |
 | Toggle | `aegis/toggle` | Theme |
 | Toggle Content | `aegis/toggle-content` | Theme |
-<<<<<<< Updated upstream
-| Video | `aegis/video` | Theme |
-=======
->>>>>>> Stashed changes
 | Related Posts | `aegis/related-posts` | Theme |
 | Map | `aegis/map` | [Aegis Plugin](../plugins/aegis/docs/blocks/custom-blocks.md) |
 | Modal | `aegis/modal` | [Aegis Plugin](../plugins/aegis/docs/blocks/modals.md) |
@@ -461,11 +457,7 @@ Framework styling applies when integrations are enabled in the **Aegis plugin** 
 
 ### Developer Tools & Framework
 
-<<<<<<< Updated upstream
-**Custom Block Collection**: The theme registers Countdown, Slider, Slide, Toggle, Toggle Content, Video, and Related Posts. Map and Modal require the [Aegis companion plugin](../plugins/aegis/docs/blocks/custom-blocks.md).
-=======
 **Custom Block Collection**: The theme registers six custom blocks — Countdown, Slider, Slide, Toggle, Toggle Content, and Related Posts. Video uses enhanced **`core/video`**. Map and Modal require the [Aegis companion plugin](../plugins/aegis/docs/blocks/custom-blocks.md), which requires the Aegis theme.
->>>>>>> Stashed changes
 
 **Analytics**: Configured in the companion plugin at **Aegis → Integrations → Analytics**. See [plugin analytics docs](../plugins/aegis/docs/features/analytics.md).
 
