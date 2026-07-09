@@ -1,226 +1,232 @@
 <?php
 /**
- * Aegis Dependency Injection Container
+ * Simple Auto-Wiring Dependency Injection Container
  *
- * Provides a simple auto-wiring dependency injection container for the
- * Aegis Framework.
+ * This file defines a PSR-11 compliant dependency injection container that supports
+ * auto-wiring of dependencies. It is designed to be lightweight and easy to use,
+ * providing a simple way to manage object creation and dependency resolution.
  *
  * Responsibilities:
- * - Resolves and manages service dependencies automatically
- * - Supports conditional and modular service registration
- * - Implements PSR-11 ContainerInterface for interoperability
+ * - Implements Psr\Container\ContainerInterface for interoperability.
+ * - Provides `get`, `has`, and `make` methods for service location and creation.
+ * - Automatically resolves and injects dependencies using reflection.
+ * - Supports conditional loading of services.
+ * - Logs errors for debugging purposes.
  *
  * @package    Aegis\Container
- * @since      1.0.0
+ * @since      0.1.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
- *
- * For developer documentation and onboarding. No logic changes in this
- * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety throughout the container implementation.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for simple auto-wiring dependency injection container.
+declare( strict_types=1 );
 
-// Declares the namespace for the Aegis dependency injection container, organizing related classes and interfaces.
+// Declares the namespace for the simple auto-wiring dependency injection container.
 namespace Aegis\Container;
 
-// Imports exception handling, PSR-11 container interface, reflection utilities, and helper functions required for container operations.
+// Imports classes, interfaces, and functions used by the simple auto-wiring dependency injection container.
 use Aegis\Container\Exceptions\ContainerException;
-use Aegis\Container\Exceptions\NotFoundException;
+use Aegis\Utilities\Debug;
 use Psr\Container\ContainerInterface;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionParameter;
+use function class_exists;
 use function is_callable;
 use function is_object;
 use function uniqid;
 
-// Imports the Debug utility class for enhanced logging and debugging support.
-use Aegis\Utilities\Debug;
-
-// Implements the main Aegis dependency injection container, providing auto-wiring and PSR-11 compatibility.
-class Container implements ContainerInterface
-{
+/**
+ * A simple, auto-wiring dependency injection container that implements the PSR-11 standard.
+ * This container is responsible for instantiating and managing the lifecycle of objects,
+ * automatically resolving their dependencies through reflection.
+ *
+ * @package Aegis\Container
+ * @since 0.1.0
+ */
+class Container implements ContainerInterface {
 
 	/**
-	 * Holds all resolved service instances, keyed by their identifier.
-	 * This acts as a cache to ensure services are only instantiated once.
+	 * Holds the singleton instances of resolved services, keyed by their class name.
 	 *
-	 * @var array<string, object|callable|null>
+	 * @var array<string, mixed>
 	 */
 	private array $instances = [];
 
 	/**
-	 * Maintains a log of errors and exceptions for debugging purposes.
-	 * Each entry is keyed by a unique ID.
+	 * Stores log entries for debugging and troubleshooting container operations.
 	 *
-	 * @var array<string, array{0: string, 1: mixed}>
+	 * @var array<string, array{0: string, 1: mixed|null}>
 	 */
 	private array $log = [];
 
 	/**
-	 * Finds an entry of the container by its identifier and returns it.
+	 * Retrieves a service from the container by its identifier (class name).
+	 * This method adheres to the PSR-11 `get` standard.
 	 *
-	 * This method retrieves a previously resolved service instance from the container.
-	 * It adheres to the PSR-11 standard by throwing a NotFoundException when the
-	 * requested service is not present.
+	 * @since 0.1.0
 	 *
-	 * @throws NotFoundException If the service is not found in the container.
-	 *
-	 * @param string $id Identifier of the entry to look for (e.g., a fully qualified class name).
+	 * @param string $id The unique identifier for the service (fully qualified class name).
 	 *
 	 * @return mixed The resolved service instance.
+	 * @throws ContainerException If the service is not found in the container.
 	 */
-	public function get(string $id): mixed
-	{
-		if (!$this->has($id)) {
-			throw new NotFoundException($id);
+	public function get( string $id ) {
+		if ( ! $this->has( $id ) ) {
+			$this->log( "Class {$id} not found in container." );
+			throw new ContainerException( "Class {$id} not found in container." );
 		}
 
-		return $this->instances[$id];
+		return $this->instances[ $id ];
 	}
 
 	/**
-	 * Returns true if the container can return an entry for the given identifier.
+	 * Checks if a service identifier is registered in the container.
+	 * This method adheres to the PSR-11 `has` standard.
 	 *
-	 * This method checks if a service has been resolved and stored in the container.
-	 * It does not check if a service is resolvable, only if it has already been resolved.
+	 * @since 0.1.0
 	 *
-	 * @param string $id Identifier of the entry to look for (e.g., a fully qualified class name).
+	 * @param string $id The unique identifier for the service (fully qualified class name).
 	 *
-	 * @return bool True if the service instance exists in the container, false otherwise.
+	 * @return bool True if the service is registered, false otherwise.
 	 */
-	public function has(string $id): bool
-	{
-		return isset($this->instances[$id]);
+	public function has( string $id ): bool {
+		return isset( $this->instances[ $id ] );
 	}
 
 	/**
-	 * Resolves a service by its identifier and returns an instance.
+	 * Creates and returns a new instance of a class, or returns an existing singleton instance.
+	 * This method handles the core auto-wiring logic, resolving dependencies recursively.
 	 *
-	 * This is the core auto-wiring method of the container. If the service is not
-	 * already resolved, it uses PHP's Reflection API to inspect the class, resolve
-	 * its dependencies, and instantiate it.
+	 * @since 0.1.0
 	 *
-	 * @param string $id   Identifier of the service to resolve (e.g., a fully qualified class name).
-	 * @param mixed  ...$args Optional. A list of arguments to pass to the class constructor,
-	 *                        bypassing auto-wiring for those specific parameters.
+	 * @param string $id   The fully qualified class name to instantiate.
+	 * @param mixed  ...$args Optional arguments to pass to the class constructor, bypassing auto-wiring for those specific parameters.
 	 *
-	 * @return object|null The resolved service instance, or null if resolution fails.
+	 * @return mixed|null The instantiated object, or null if instantiation fails.
 	 */
-	public function make(string $id, ...$args): ?object
-	{
-		// If an instance of the service already exists, return it immediately.
-		if ($this->has($id) && is_object($this->instances[$id])) {
-			return $this->instances[$id];
+	public function make( string $id, ...$args ) {
+		// If the service is not yet registered, add it to the instances array.
+		if ( ! $this->has( $id ) ) {
+			$this->instances[ $id ] = null;
 		}
 
-		// If the identifier is a callable, it is a factory. Resolve it by calling it.
-		if (isset($this->instances[$id]) && is_callable($this->instances[$id])) {
-			return ($this->instances[$id])();
+		// Return the existing instance if it is already a resolved object.
+		if ( is_object( $this->instances[ $id ] ) ) {
+			return $this->instances[ $id ];
 		}
 
-		// Use Reflection to inspect the class and its dependencies.
+		// Use reflection to inspect the class and its dependencies.
 		try {
-			$reflector = new ReflectionClass($id);
-		} catch (ReflectionException $e) {
-			$this->log("Class to resolve '{$id}' does not exist.", $e);
+			$reflector = new ReflectionClass( $id );
+		} catch ( ReflectionException $e ) {
+			$this->log( "Class {$id} does not exist.", $e );
 			return null;
 		}
 
-		// A class must be instantiable to be resolved.
-		if (!$reflector->isInstantiable()) {
-			$this->log("Class '{$id}' is not instantiable.");
+		// The class must be instantiable (e.g., not an abstract class or interface).
+		if ( ! $reflector->isInstantiable() ) {
+			$this->log( "Class {$id} is not instantiable." );
 			return null;
 		}
 
-		// Check if the class implements the Conditional interface. If so, run the check.
-		// This allows a service to control its own registration based on runtime conditions.
-		if ($reflector->implementsInterface('Aegis\Container\Interfaces\Conditional')) {
-			try {
-				if (!$id::condition()) {
-					// Silently skip - conditional checks failing is expected behavior
-					// when plugins/integrations are not installed.
+		// Check for a static `condition` method to conditionally load the service.
+		$condition = true;
+		if ( $reflector->hasMethod( 'condition' ) ) {
+			$method = $reflector->getMethod( 'condition' );
+
+			if ( $method->isStatic() ) {
+				try {
+					$condition = (bool) $method->invoke( null );
+				} catch ( ReflectionException $e ) {
+					$this->log( "Cannot invoke condition method for {$id}.", $e );
 					return null;
 				}
-			} catch (ReflectionException $e) {
-				$this->log("Cannot invoke condition method for '{$id}'.", $e);
-				return null;
 			}
 		}
 
-		// Get the class constructor to inspect its parameters.
+		// If the condition is not met, do not instantiate the service.
+		if ( ! $condition ) {
+			return null;
+		}
+
+		// If a callable factory is registered, invoke it to create the instance.
+		if ( is_callable( $this->instances[ $id ] ) ) {
+			return ( $this->instances[ $id ] )();
+		}
+
 		$constructor = $reflector->getConstructor();
 
+		// Instantiate the class, resolving dependencies as needed.
 		try {
-			// If arguments were passed directly to make(), use them to create the instance.
-			if (!empty($args)) {
-				$instance = $reflector->newInstanceArgs($args);
-				// If there is a constructor, resolve its parameters (dependencies) recursively.
-			} elseif ($constructor) {
-				$parameters = $constructor->getParameters();
-				$dependencies = $this->resolve_parameters($parameters);
-				$instance = $reflector->newInstanceArgs($dependencies);
-				// If there is no constructor, simply create a new instance without arguments.
+			if ( $args ) {
+				// Use provided arguments for instantiation.
+				$instance = $reflector->newInstanceArgs( $args );
+			} elseif ( $constructor ) {
+				// Resolve constructor parameters automatically.
+				$parameters   = $constructor->getParameters();
+				$dependencies = $this->resolve_parameters( $parameters );
+				$instance     = $reflector->newInstanceArgs( $dependencies );
 			} else {
+				// No constructor, create a simple instance.
 				$instance = $reflector->newInstance();
 			}
-		} catch (ReflectionException | ContainerException $e) {
-			$this->log("Cannot instantiate class '{$id}'.", $e);
+		} catch ( ReflectionException | ContainerException $e ) {
+			$this->log( "Cannot instantiate class {$id}.", $e );
 			return null;
 		}
 
-		// Ensure the instantiation resulted in a valid object.
-		if (!is_object($instance)) {
-			$this->log("Instantiation of '{$id}' did not result in an object.");
+		if ( ! is_object( $instance ) ) {
+			$this->log( "Class {$id} could not be instantiated as an object." );
 			return null;
 		}
 
-		// Store the newly created instance for future retrievals and return it.
-		$this->instances[$id] = $instance;
+		// Store the newly created instance for reuse.
+		$this->instances[ $id ] = $instance;
 
 		return $instance;
 	}
 
 	/**
-	 * Resolves the dependencies for a given set of constructor parameters.
+	 * Resolves the dependencies for a class constructor by inspecting its parameters.
 	 *
-	 * This method iterates through the parameters from a class constructor, recursively
-	 * calling `make()` to resolve each dependency that is a class. It throws an
-	 * exception if it encounters a non-nullable, non-defaulted primitive type.
+	 * @since 0.1.0
 	 *
-	 * @throws ContainerException If a primitive or built-in type dependency cannot be resolved.
-	 *
-	 * @param ReflectionParameter[] $parameters The array of parameters from a `ReflectionMethod`.
+	 * @param ReflectionParameter[] $parameters An array of reflection parameters from the constructor.
 	 *
 	 * @return array An array of resolved dependency instances.
+	 * @throws ContainerException If a non-optional, non-built-in dependency cannot be resolved.
 	 */
-	private function resolve_parameters(array $parameters): array
-	{
+	private function resolve_parameters( array $parameters ): array {
 		$dependencies = [];
 
-		foreach ($parameters as $parameter) {
-			// Get the type hint for the parameter.
+		foreach ( $parameters as $parameter ) {
+			if ( ! $parameter instanceof ReflectionParameter ) {
+				continue;
+			}
+
 			$type = $parameter->getType();
 
-			// If the parameter has no type hint or is a built-in type (e.g., string, int),
-			// we cannot auto-wire it unless it has a default value.
-			if (!$type || $type->isBuiltin()) {
-				if ($parameter->isDefaultValueAvailable()) {
+			// Handle built-in types (string, int, etc.) and parameters without a type hint.
+			if ( ! $type || $type->isBuiltin() ) {
+				if ( $parameter->isDefaultValueAvailable() ) {
 					// If a default value is available, use it.
 					$dependencies[] = $parameter->getDefaultValue();
 				} else {
-					// Otherwise, we cannot resolve this primitive type and must throw an exception.
-					$type_name = $type ? $type->getName() : 'mixed';
-					$class_name = $parameter->getDeclaringClass()->getName();
+					// Auto-resolution of primitive types is not supported.
+					$type_name  = $type ? $type->getName() : 'mixed';
+					$class_name = $parameter->getDeclaringClass()->name;
 
-					// TODO: Add support for autowiring primitive types via configuration.
-					throw new ContainerException("Cannot auto-resolve primitive parameter '{$parameter->getName()}' of type '{$type_name}' for class '{$class_name}'. Please provide it manually.");
+					throw new ContainerException( "Cannot auto-resolve primitive type: '{$type_name}' for {$class_name}." );
 				}
 			} else {
-				// If the parameter is a class, recursively resolve it from the container.
-				$dependencies[] = $this->make($type->getName());
+				// For object type hints, recursively resolve the dependency.
+				$resolved = $this->make( $type->getName() );
+
+				if ( $resolved ) {
+					$dependencies[] = $resolved;
+				}
 			}
 		}
 
@@ -228,23 +234,23 @@ class Container implements ContainerInterface
 	}
 
 	/**
-	 * Records a message and optional exception in the container's log.
+	 * Logs a message and an optional exception for debugging purposes.
+	 * If debugging is enabled, the log will be output to the browser console.
 	 *
-	 * If the `Aegis\Utilities\Debug` helper is enabled, the log entry will also
-	 * be output to the browser console or server logs for immediate visibility.
+	 * @since 0.1.0
 	 *
-	 * @param string $message   The error or informational message to record.
-	 * @param mixed  $exception Optional. An exception object or other data to accompany the message.
+	 * @param string $message   The message to log.
+	 * @param mixed|null $exception Optional exception or error object to include in the log.
 	 *
 	 * @return void
 	 */
-	private function log(string $message, $exception = null): void
-	{
-		$id = uniqid(static::class);
-		$this->log[$id] = [$message, $exception];
+	private function log( string $message, $exception = null ): void {
+		$id               = uniqid( static::class . '_' );
+		$this->log[ $id ] = [ $message, $exception ];
 
-		if (Debug::is_enabled()) {
-			Debug::console_log($this->log[$id]);
+		// If the Aegis Debug utility is active, send the log to the browser console.
+		if ( class_exists( '\Aegis\Utilities\Debug' ) && Debug::is_enabled() ) {
+			Debug::console_log( $this->log[ $id ] );
 		}
 	}
 }
