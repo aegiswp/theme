@@ -12,7 +12,7 @@
  * - Manages a static registry of container instances to ensure singletons.
  *
  * @package    Aegis\Container
- * @since      0.1.0
+ * @since      1.0.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  */
@@ -28,7 +28,7 @@ namespace Aegis\Container;
  * This class ensures that only one instance of the Container is created for each unique ID.
  *
  * @package Aegis\Container
- * @since 0.1.0
+ * @since 1.0.0
  */
 class ContainerFactory {
 
@@ -37,7 +37,7 @@ class ContainerFactory {
 	 * This method implements a singleton pattern, ensuring that for each unique `$id`,
 	 * the same container instance is returned.
 	 *
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 *
 	 * @param string $id The unique identifier for the container.
 	 *
