@@ -35,12 +35,6 @@ final class BlockRegistrar {
 	/**
 	 * Register theme block types from metadata.
 	 *
-<<<<<<< Updated upstream
-	 * Metadata collection is registered for performance; each block is still
-	 * registered individually so only theme-owned directories are loaded.
-	 *
-=======
->>>>>>> Stashed changes
 	 * @return void
 	 */
 	public static function register(): void {
@@ -68,24 +62,18 @@ final class BlockRegistrar {
 
 		foreach ( is_array( $block_json_files ) ? $block_json_files : array() as $block_json ) {
 			$block_dir = dirname( $block_json );
-<<<<<<< Updated upstream
-=======
 			$dir_name  = basename( $block_dir );
->>>>>>> Stashed changes
 
 			if ( ! is_readable( $block_json ) ) {
 				continue;
 			}
 
-<<<<<<< Updated upstream
-=======
 			$parent_key = self::parent_block_key( $dir_name );
 
 			if ( $parent_key !== '' && ! \Aegis\Framework\ServiceProvider::is_block_enabled( $parent_key ) ) {
 				continue;
 			}
 
->>>>>>> Stashed changes
 			$metadata = wp_json_file_decode( $block_json, array( 'associative' => true ) );
 
 			if ( ! is_array( $metadata ) || empty( $metadata['name'] ) ) {
@@ -105,8 +93,6 @@ final class BlockRegistrar {
 			register_block_type( $block_dir );
 		}
 	}
-<<<<<<< Updated upstream
-=======
 
 	/**
 	 * Map block directory names to parent block setting keys.
@@ -122,5 +108,4 @@ final class BlockRegistrar {
 			default => $dir_name,
 		};
 	}
->>>>>>> Stashed changes
 }
