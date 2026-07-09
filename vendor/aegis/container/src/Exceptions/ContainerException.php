@@ -11,7 +11,7 @@
  * - Implements `Psr\Container\ContainerExceptionInterface` for interoperability.
  *
  * @package    Aegis\Container\Exceptions
- * @since      0.1.0
+ * @since      1.0.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  */
@@ -31,7 +31,7 @@ use Psr\Container\ContainerExceptionInterface;
  * This exception is thrown for general errors that occur during the container's operation.
  *
  * @package Aegis\Container\Exceptions
- * @since 0.1.0
+ * @since 1.0.0
  */
 class ContainerException extends Exception implements ContainerExceptionInterface {
 
@@ -39,7 +39,7 @@ class ContainerException extends Exception implements ContainerExceptionInterfac
 	 * ContainerException constructor.
 	 * Overrides the parent constructor to maintain a consistent interface.
 	 *
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 *
 	 * @param string          $message  The exception message.
 	 * @param int|null        $code     Optional. The user-defined exception code. Defaults to 0.
