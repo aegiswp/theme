@@ -1,4 +1,4 @@
-.PHONY: help install build dev lint lint-php test translate clean validate
+.PHONY: help install build dev lint lint-php test translate clean validate audit-patterns
 
 
 
@@ -73,5 +73,11 @@ clean: ## Clean build artifacts, caches, and node_modules
 validate: ## Validate theme.json syntax
 
 	@node -e "JSON.parse(require('fs').readFileSync('theme.json', 'utf8')); console.log('theme.json is valid')"
+
+
+
+audit-patterns: ## Validate pattern slugs, blocks, and templates
+
+	wp eval-file tools/audit-patterns.php
 
 
