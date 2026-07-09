@@ -306,11 +306,7 @@ return array (
       ),
     ),
     'editorScript' => 'file:index.js',
-<<<<<<< Updated upstream
-    'style' => 'file:style-style.css',
-=======
     'style' => 'file:style.css',
->>>>>>> Stashed changes
     'render' => 'file:render.php',
   ),
   'slide' => 
@@ -658,93 +654,4 @@ return array (
     'style' => 'file:style.css',
     'render' => 'file:render.php',
   ),
-<<<<<<< Updated upstream
-  'video' => 
-  array (
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
-    'apiVersion' => 3,
-    'name' => 'aegis/video',
-    'version' => '1.0.0',
-    'title' => 'Video',
-    'category' => 'media',
-    'description' => 'An enhanced video block with custom player controls and accessibility features.',
-    'icon' => 'video-alt3',
-    'textdomain' => 'aegis',
-    'keywords' => 
-    array (
-      0 => 'video',
-      1 => 'media',
-      2 => 'player',
-      3 => 'embed',
-    ),
-    'supports' => 
-    array (
-      'html' => false,
-      'align' => 
-      array (
-        0 => 'wide',
-        1 => 'full',
-      ),
-      'className' => true,
-      'anchor' => true,
-    ),
-    'attributes' => 
-    array (
-      'src' => 
-      array (
-        'type' => 'string',
-        'default' => '',
-      ),
-      'poster' => 
-      array (
-        'type' => 'string',
-        'default' => '',
-      ),
-      'caption' => 
-      array (
-        'type' => 'string',
-        'default' => '',
-      ),
-      'autoplay' => 
-      array (
-        'type' => 'boolean',
-        'default' => false,
-      ),
-      'loop' => 
-      array (
-        'type' => 'boolean',
-        'default' => false,
-      ),
-      'muted' => 
-      array (
-        'type' => 'boolean',
-        'default' => false,
-      ),
-      'controls' => 
-      array (
-        'type' => 'boolean',
-        'default' => true,
-      ),
-      'preload' => 
-      array (
-        'type' => 'string',
-        'default' => 'metadata',
-        'enum' => 
-        array (
-          0 => 'auto',
-          1 => 'metadata',
-          2 => 'none',
-        ),
-      ),
-      'playsInline' => 
-      array (
-        'type' => 'boolean',
-        'default' => true,
-      ),
-    ),
-    'editorScript' => 'file:index.js',
-    'style' => 'file:style.css',
-  ),
-=======
->>>>>>> Stashed changes
 );
