@@ -118,9 +118,6 @@ This template requires WooCommerce to be active and configured.
 
 ### Product Templates
 
-<<<<<<< Updated upstream
-WooCommerce templates are only active when the WooCommerce plugin is installed. If WooCommerce is not present, these templates are not displayed in the template list.
-=======
 WooCommerce templates are hidden from the template list when WooCommerce is inactive. Cart, checkout, my-account, and other commerce templates use the same gating (not only product-archive templates).
 
 ### Wishlist Page
@@ -134,7 +131,6 @@ The **Wishlist** template requires **WooCommerce**, the **Aegis companion plugin
 5. Link to the page from your navigation or My Account area as needed.
 
 See [[woocommerce-integration#wishlist-ti-woocommerce-wishlist]] for shortcode details and troubleshooting.
->>>>>>> Stashed changes
 
 ## Customization Tips
 
