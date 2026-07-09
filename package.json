@@ -61,6 +61,8 @@
     "format": "wp-scripts format",
     "test:php": "composer test:php",
     "clean": "node tools/clean-build.js",
+    "audit-patterns": "wp eval-file tools/audit-patterns.php",
+    "audit-patterns:studio": "studio wp eval-file tools/audit-patterns.php",
     "translate": "node tools/prepare-translate.js && wp i18n make-pot . languages/aegis.pot --domain=aegis --skip-block-json --skip-theme-json --exclude=node_modules,vendor,.git,dist,.wp-env && node tools/finish-translate.js",
     "translate:studio": "node tools/prepare-translate.js && studio wp --path ../../.. i18n make-pot wp-content/themes/aegis wp-content/themes/aegis/languages/aegis.pot --domain=aegis --skip-block-json --skip-theme-json --exclude=node_modules,vendor,.git,dist,.wp-env && node tools/finish-translate.js"
   }
