@@ -11,7 +11,7 @@
  * - Implements `Psr\Container\NotFoundExceptionInterface` for interoperability.
  *
  * @package    Aegis\Container\Exceptions
- * @since      0.1.0
+ * @since      1.0.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
  */
@@ -33,14 +33,14 @@ use function sprintf;
  * This exception complies with the PSR-11 standard for "not found" errors.
  *
  * @package Aegis\Container\Exceptions
- * @since 0.1.0
+ * @since 1.0.0
  */
 class NotFoundException extends Exception implements NotFoundExceptionInterface {
 
 	/**
 	 * NotFoundException constructor.
 	 *
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 *
 	 * @param string $id The identifier of the service that was not found.
 	 */
