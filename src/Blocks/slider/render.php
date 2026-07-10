@@ -10,6 +10,58 @@ declare(strict_types=1);
 
 defined( 'ABSPATH' ) || exit;
 
+if ( ! function_exists( 'aegis_slider_apply_lazy_load' ) ) {
+	/**
+	 * Apply Splide lazy-load attributes to slider slide images.
+	 *
+	 * @param string $content       Inner slide markup.
+	 * @param int    $preload_count Number of images to keep eager-loaded.
+	 *
+	 * @return string
+	 */
+	function aegis_slider_apply_lazy_load( string $content, int $preload_count = 1 ): string {
+		$image_count = 0;
+		$placeholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+		return (string) preg_replace_callback(
+			'/<img([^>]*?)>/i',
+			static function ( array $matches ) use ( &$image_count, $preload_count, $placeholder ): string {
+				++$image_count;
+				$attrs = $matches[1];
+
+				if ( str_contains( $attrs, 'data-splide-lazy=' ) ) {
+					return $matches[0];
+				}
+
+				if ( ! preg_match( '/\ssrc=(["\'])([^"\']+)\1/i', $attrs, $src_match ) ) {
+					return $matches[0];
+				}
+
+				$src = $src_match[2];
+
+				if ( $image_count <= $preload_count ) {
+					if ( ! str_contains( $attrs, 'loading=' ) ) {
+						$loading = $image_count === 1 ? 'loading="eager" fetchpriority="high"' : 'loading="eager"';
+						return '<img' . $attrs . ' ' . $loading . '>';
+					}
+
+					return $matches[0];
+				}
+
+				$attrs = (string) preg_replace( '/\ssrc=(["\'])([^"\']+)\1/i', '', $attrs );
+
+				return sprintf(
+					'<img%s src="%s" data-splide-lazy="%s" loading="lazy">',
+					$attrs,
+					esc_attr( $placeholder ),
+					esc_attr( $src )
+				);
+			},
+			$content
+		);
+	}
+}
+
 // Extract attributes with defaults.
 $type           = $attributes['type'] ?? 'slider';
 $per_page       = $attributes['perPage'] ?? 3;
@@ -34,6 +86,22 @@ if ( class_exists( '\Aegis\Admin\ConditionalLogicSettings' ) ) {
 	$lightbox = \Aegis\Admin\ConditionalLogicSettings::is_block_enabled( 'slider_lightbox' );
 }
 
+$lazy_load = false;
+$lazy_preload = 1;
+
+if ( class_exists( '\Aegis\Plugin\Blocks\Settings' ) ) {
+	$lazy_load = \Aegis\Plugin\Blocks\Settings::is_enabled( 'slider_lazy_load' );
+}
+
+if ( ! empty( $attributes['lazyLoadEnabled'] ) ) {
+	$lazy_load    = true;
+	$lazy_preload = max( 1, (int) ( $attributes['lazyLoadThreshold'] ?? 1 ) );
+}
+
+if ( $lazy_load && $content !== '' ) {
+	$content = aegis_slider_apply_lazy_load( $content, $lazy_preload );
+}
+
 // Build wrapper attributes using get_block_wrapper_attributes() to
 // honour block supports (spacing) and handle className / anchor / align.
 $wrapper_attributes = get_block_wrapper_attributes(
@@ -55,6 +123,8 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		'data-breakpoints'     => $breakpoints ? 'true' : 'false',
 		'data-gap'             => esc_attr( $gap ),
 		'data-lightbox'        => $lightbox ? 'true' : 'false',
+		'data-lazy-load'       => $lazy_load ? 'true' : 'false',
+		'data-lazy-preload'    => esc_attr( (string) $lazy_preload ),
 		'role'                 => 'region',
 		'aria-roledescription' => esc_attr__( 'carousel', 'aegis' ),
 		'aria-label'           => esc_attr( ! empty( $attributes['anchor'] ) ? $attributes['anchor'] : __( 'Slider', 'aegis' ) ),
