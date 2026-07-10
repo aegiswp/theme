@@ -149,6 +149,15 @@ No. Aegis is designed for exceptional performance. The zero-base loading strateg
 
 Yes. Aegis is compatible with all major caching plugins (WP Super Cache, W3 Total Cache, WP Rocket, LiteSpeed Cache, and others). No special configuration is needed.
 
+### Where do I configure performance toggles?
+
+The theme handles zero-base asset loading — see [[../features/performance|Theme Performance]]. Additional site-wide toggles (oEmbed, dashicons, heartbeat) and Query Loop performance options live in the **Aegis plugin** admin:
+
+- **Aegis → Blocks → Performance** — site-wide frontend toggles
+- **Aegis → Blocks → Query Loop → Performance Optimization** — master switch for query performance
+
+With **Aegis Pro**, per-block Query Loop options appear in the editor under **Performance (Pro)** — see [[../../plugins/aegis-pro/docs/features/query-performance|Query Performance (Pro)]].
+
 ## Development
 
 ### How do I set up a local development environment?
