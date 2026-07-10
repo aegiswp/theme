@@ -26,12 +26,43 @@ interface SliderConfig {
 	breakpoints: boolean;
 	gap: string;
 	lightbox: boolean;
+	lazyLoad: boolean;
+	lazyPreload: number;
+	proLazyThreshold: number;
 }
 
 ( function () {
 	'use strict';
 
+	function parseProLazyConfig( el: HTMLElement ): {
+		enabled: boolean;
+		threshold: number;
+	} {
+		const raw = el.getAttribute( 'data-slider-pro' );
+
+		if ( ! raw ) {
+			return { enabled: false, threshold: 1 };
+		}
+
+		try {
+			const config = JSON.parse( raw );
+			return {
+				enabled: Boolean( config?.lazyLoad?.enabled ),
+				threshold: parseInt(
+					String( config?.lazyLoad?.threshold ?? 1 ),
+					10
+				),
+			};
+		} catch {
+			return { enabled: false, threshold: 1 };
+		}
+	}
+
 	function parseConfig( el: HTMLElement ): SliderConfig {
+		const proLazy = parseProLazyConfig( el );
+		const lazyLoad =
+			el.getAttribute( 'data-lazy-load' ) === 'true' || proLazy.enabled;
+
 		return {
 			type: el.getAttribute( 'data-type' ) || 'slider',
 			perPage: parseInt( el.getAttribute( 'data-per-page' ) || '3', 10 ),
@@ -52,6 +83,12 @@ interface SliderConfig {
 			breakpoints: el.getAttribute( 'data-breakpoints' ) !== 'false',
 			gap: el.getAttribute( 'data-gap' ) || '0',
 			lightbox: el.getAttribute( 'data-lightbox' ) === 'true',
+			lazyLoad,
+			lazyPreload: parseInt(
+				el.getAttribute( 'data-lazy-preload' ) || '1',
+				10
+			),
+			proLazyThreshold: proLazy.threshold,
 		};
 	}
 
@@ -133,6 +170,15 @@ interface SliderConfig {
 				direction: config.direction,
 				height: config.height || undefined,
 			};
+		}
+
+		if ( config.lazyLoad ) {
+			const preloadPages = Math.max(
+				1,
+				config.proLazyThreshold || config.lazyPreload || 1
+			);
+			options.lazyLoad = 'nearby';
+			options.preloadPages = preloadPages;
 		}
 
 		const instance = new Splide( el, options );
