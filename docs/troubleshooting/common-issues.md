@@ -165,7 +165,9 @@ See [[dark-mode]] for configuration details.
 3. Verify that only necessary plugin scripts are loading.
 4. Enable page caching.
 5. Check server response time (TTFB).
-6. See [[performance]] for optimization strategies.
+6. See [[performance]] for theme optimization strategies.
+7. Enable plugin toggles at **Aegis → Blocks → Performance** (oEmbed, dashicons, heartbeat) — see [[../../plugins/aegis/docs/features/performance|Plugin Performance]].
+8. For Query Loops, enable **Performance Optimization** under **Aegis → Blocks → Query Loop**; with Pro, configure per-block options in [[../../plugins/aegis-pro/docs/features/query-performance|Query Performance (Pro)]].
 
 ### Assets Loading on Every Page
 
@@ -273,4 +275,5 @@ If your issue is not listed here:
 - [[faq]] — Frequently asked questions.
 - [[updating]] — Update troubleshooting.
 - [[requirements]] — Verify system requirements.
-- [[performance]] — Performance optimization.
+- [[performance]] — Theme performance optimization.
+- [[../../plugins/aegis/docs/features/performance|Plugin Performance]] — Site-wide and Query Loop toggles.
