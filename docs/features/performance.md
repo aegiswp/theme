@@ -179,7 +179,7 @@ When building custom pages or templates:
 
 ## Next Steps
 
-- [[conditional-logic]] — Related conditional loading for content visibility.
-- [[testing]] — Running performance tests.
+- [[../../plugins/aegis/docs/features/performance|Plugin Performance]] — Free site-wide toggles
+- [[testing]] — Running performance tests
 - [[building-assets]] — Understanding the build process.
 - [[deployment]] — Production deployment considerations.
