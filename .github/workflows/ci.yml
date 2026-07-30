@@ -24,6 +24,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Reject forbidden paths
+        run: |
+          forbidden='node_modules|/build/|tools/scratch|/bin/|vendor/phpunit|vendor/squizlabs'
+          if git ls-files | grep -E "$forbidden"; then
+            echo "::error::Forbidden paths are tracked in Git"
+            exit 1
+          fi
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
