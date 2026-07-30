@@ -50,7 +50,7 @@ body:
       options:
         - Block Editor (Gutenberg)
         - Site Editor
-        - Front-end (Live Site)
+        - Frontend (Live Site)
         - All environments
     validations:
       required: true
