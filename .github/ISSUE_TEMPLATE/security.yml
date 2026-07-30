@@ -48,7 +48,7 @@ body:
         - Privilege escalation
         - Cryptographic weaknesses
 
-        ❌ **Do NOT report as security issue:**
+        ✗ **Do NOT report as security issue:**
         - Broken features or bugs (use Bug Report instead)
         - Performance issues
         - Missing documentation
