@@ -44,7 +44,7 @@ jobs:
 
             If this issue is still relevant, feel free to reopen it or create a new issue with the latest information.
 
-            Thank you!
+            Thank you.
 
           # Pull Request settings
           days-before-pr-stale: 60
@@ -76,11 +76,11 @@ jobs:
           exempt-issue-labels: 'pinned,roadmap,epic'
           exempt-pr-labels: 'pinned,work-in-progress'
 
-          # Don't mark PRs from certain users as stale (optional)
+          # Do not mark PRs from certain users as stale (optional)
           exempt-all-pr-assignees: false
 
-          # Mark only, don't close (safer approach on first setup)
+          # Mark only, do not close (safer approach on first setup)
           operations-per-run: 100
 
-          # Don't comment on every check (only when marking/closing)
+          # Do not comment on every check (only when marking/closing)
           only-labels: ''
