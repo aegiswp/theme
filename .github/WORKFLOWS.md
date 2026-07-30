@@ -260,11 +260,11 @@ sha256sum -c aegis.zip.sha256
 - ✓ Comments on major updates with warnings
 
 #### Auto-merged:
-- 1.2.3 → 1.2.4 (patch) ✅
-- 1.2.3 → 1.3.0 (minor) ✅
+- 1.2.3 → 1.2.4 (patch) ✓
+- 1.2.3 → 1.3.0 (minor) ✓
 
 #### Requires manual review:
-- 1.2.3 → 2.0.0 (major) ⚠️
+- 1.2.3 → 2.0.0 (major) ⚠
 
 #### Note:
 Auto-merge waits for required branch protection checks to pass before merging
@@ -342,7 +342,7 @@ Issues/PRs with labels: `pinned`, `roadmap`, or `epic` are exempt
 2. **Reproduce locally** using the same commands/environment
 3. **Check recent changes** - what changed since the last passing run?
 4. **Clear cache** - some workflows cache dependencies that might be stale
-5. **Check branch protection** - ensure you're pushing to the right branch
+5. **Check branch protection** - ensure you are pushing to the right branch
 
 ### Common Issues & Solutions
 
@@ -374,7 +374,7 @@ Issues/PRs with labels: `pinned`, `roadmap`, or `epic` are exempt
 
 #### **"WordPress compatibility test failed"**
 - Note which WP/PHP version failed
-- Check if there's a specific breaking change
+- Check if there is a specific breaking change
 - Test locally with that version
 - Consider updating theme requirements
 
