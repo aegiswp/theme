@@ -20,7 +20,7 @@ body:
     attributes:
       label: Where does this occur?
       options:
-        - Front-end (Live Site)
+        - Frontend (Live Site)
         - Site Editor (Admin UI)
         - Block Editor
         - Both
