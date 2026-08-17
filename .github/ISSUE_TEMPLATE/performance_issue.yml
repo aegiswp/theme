@@ -9,13 +9,17 @@ body:
       value: |
         ### Performance is a Feature
         Aegis is designed to be lean. Please provide the data below so we can investigate bottlenecks.
+
+        CI targets: Lighthouse Performance 80+, LCP ≤ 4000ms, FCP ≤ 3000ms, CLS ≤ 0.1.
+
   - type: input
     id: url
     attributes:
       label: Affected URL
-      description: Provide a link to the page where the performance issue is visible.
+      description: Provide a link to the page where the performance issue is visible. A local URL or template name is fine.
     validations:
       required: true
+
   - type: dropdown
     id: metric-type
     attributes:
@@ -28,24 +32,35 @@ body:
         - Asset Size (JS/CSS Bloat)
     validations:
       required: true
+
   - type: markdown
     attributes:
       value: "### Core Web Vitals Data"
+
   - type: input
     id: lcp
     attributes:
       label: Largest Contentful Paint (LCP)
       description: e.g., 3.2s
+    validations:
+      required: false
+
   - type: input
     id: inp
     attributes:
       label: Interaction to Next Paint (INP)
       description: e.g., 250ms
+    validations:
+      required: false
+
   - type: input
     id: cls
     attributes:
       label: Cumulative Layout Shift (CLS)
       description: e.g., 0.15
+    validations:
+      required: false
+
   - type: textarea
     id: tools
     attributes:
@@ -55,15 +70,39 @@ body:
         Link to report: https://pagespeed.web.dev/...
     validations:
       required: true
+
+  - type: markdown
+    attributes:
+      value: "### Environment Info"
+
+  - type: input
+    id: wp-version
+    attributes:
+      label: WordPress Version
+      description: e.g., 7.0
+    validations:
+      required: true
+
+  - type: input
+    id: theme-version
+    attributes:
+      label: Theme Version
+      description: e.g., 1.0.0
+    validations:
+      required: true
+
   - type: textarea
     id: environment
     attributes:
-      label: Environment Info
+      label: Hosting and Caching
       description: Include hosting provider, PHP version, and any active caching/CDN plugins.
     validations:
       required: true
+
   - type: textarea
     id: context
     attributes:
       label: Additional Observations
-      description: Are certain blocks causing the delay? (e.g., "The Query Loop block slows down with 50+ items").
+      description: Are certain blocks causing the delay? (e.g., "The Query Loop block slows down with 50+ items"). Drag and drop files into this field.
+    validations:
+      required: false
