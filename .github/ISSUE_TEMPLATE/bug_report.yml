@@ -1,5 +1,5 @@
 name: Bug Report
-description: Create a report to help us improve Aegis.
+description: Report a general bug in the Aegis WordPress Block Theme.
 labels:
   - "[Type] Bug"
   - triage
@@ -8,6 +8,10 @@ body:
     attributes:
       value: |
         **Thank you for helping us improve the Aegis WordPress Block Theme.**
+
+        **For accessibility barriers**, use the [Accessibility Report](https://github.com/aegiswp/theme/issues/new?template=accessibility_report.yml) template.
+        **For bugs in a specific custom block**, use the [Block Issue](https://github.com/aegiswp/theme/issues/new?template=block_issue.yml) template.
+
   - type: textarea
     id: description
     attributes:
@@ -15,6 +19,7 @@ body:
       description: A clear and concise description of what the bug is.
     validations:
       required: true
+
   - type: dropdown
     id: location
     attributes:
@@ -23,13 +28,15 @@ body:
         - Frontend (Live Site)
         - Site Editor (Admin UI)
         - Block Editor
-        - Both
+        - Both frontend and editor
     validations:
       required: true
+
   - type: dropdown
     id: affected-block
     attributes:
       label: Which block is affected? (if applicable)
+      description: Theme-registered blocks live in src/Blocks/. core/video is enhanced by the theme, not a custom block.
       options:
         - "Not block-related"
         - Countdown
@@ -38,20 +45,23 @@ body:
         - Slide
         - Toggle
         - Toggle Content
-        - Video
+        - "core/video (enhanced)"
         - Multiple blocks
     validations:
       required: false
+
   - type: textarea
     id: steps
     attributes:
-      label: To Reproduce
+      label: Steps to Reproduce
+      description: How can we reproduce this issue?
       placeholder: |
         1. Go to '...'
         2. Click on '...'
         3. See error
     validations:
       required: true
+
   - type: textarea
     id: expected
     attributes:
@@ -59,32 +69,63 @@ body:
       description: What should have happened?
     validations:
       required: true
+
   - type: textarea
     id: logs
     attributes:
       label: Browser Console Logs
       description: Paste any red error text from F12 > Console here.
+      render: shell
+    validations:
+      required: false
+
   - type: markdown
     attributes:
       value: "### WordPress Environment"
+
   - type: input
     id: wp-version
     attributes:
       label: WordPress Version
+      description: e.g., 7.0
     validations:
       required: true
+
   - type: input
     id: theme-version
     attributes:
       label: Theme Version
+      description: e.g., 1.0.0
     validations:
       required: true
+
+  - type: input
+    id: php-version
+    attributes:
+      label: PHP Version
+      description: e.g., 8.2.10
+    validations:
+      required: false
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser / Device / OS
+      description: e.g., Chrome 124 on Windows 11
+    validations:
+      required: false
+
   - type: textarea
     id: active-plugins
     attributes:
       label: Active Plugins
+    validations:
+      required: false
+
   - type: textarea
     id: context
     attributes:
       label: Additional context
-      description: Browser, OS, or any other details.
+      description: Screenshots, stack traces, or any other details. Drag and drop files into this field.
+    validations:
+      required: false
