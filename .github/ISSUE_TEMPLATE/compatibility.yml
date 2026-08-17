@@ -10,7 +10,7 @@ body:
         ### Help us improve Aegis compatibility
         Use this template to report issues with specific WordPress versions, PHP versions, or conflicting plugins.
 
-        **Tip:** Check our [Compatibility Matrix](https://github.com/aegiswp/theme/actions/workflows/wordpress-compat.yml) to see tested versions.
+        **Tip:** Check our [Compatibility Matrix](https://github.com/aegiswp/theme/actions/workflows/wordpress-compat.yml) to see tested versions (WordPress 7.0 and latest × PHP 8.1, 8.2, and 8.3).
 
   - type: markdown
     attributes:
@@ -21,23 +21,41 @@ body:
     attributes:
       label: WordPress Version
       options:
-        - 7.0
+        - "7.0"
         - Latest
         - Other (please specify)
     validations:
       required: true
+
+  - type: input
+    id: wp-version-other
+    attributes:
+      label: WordPress version (if other)
+      description: Required if you selected "Other" above.
+      placeholder: "e.g., 6.9.2"
+    validations:
+      required: false
 
   - type: dropdown
     id: php-version
     attributes:
       label: PHP Version
       options:
-        - 8.1
-        - 8.2
-        - 8.3
+        - "8.1"
+        - "8.2"
+        - "8.3"
         - Other (please specify)
     validations:
       required: true
+
+  - type: input
+    id: php-version-other
+    attributes:
+      label: PHP version (if other)
+      description: Required if you selected "Other" above.
+      placeholder: "e.g., 8.4.1"
+    validations:
+      required: false
 
   - type: input
     id: theme-version
@@ -105,6 +123,6 @@ body:
     id: context
     attributes:
       label: Additional Context
-      description: Screenshots, hosting info, or other relevant details
+      description: Screenshots, hosting info, or other relevant details. Drag and drop files into this field.
     validations:
       required: false
