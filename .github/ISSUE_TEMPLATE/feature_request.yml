@@ -9,13 +9,15 @@ body:
       value: |
         **Thank you for suggesting an idea to improve the Aegis WordPress Block Theme.**
         Aegis prioritizes performance and vanilla standards. Please describe your suggestion below.
+
   - type: textarea
     id: problem
     attributes:
       label: Is your feature request related to a problem?
-      description: A clear and concise description of what the problem is.
+      description: Describe the problem or use case. If this is a pure enhancement, say so.
     validations:
       required: true
+
   - type: dropdown
     id: scope
     attributes:
@@ -32,20 +34,22 @@ body:
         - Developer Tooling
     validations:
       required: true
+
   - type: dropdown
     id: block-type
     attributes:
       label: Block Type (if applicable)
-      description: Which block category does this relate to?
+      description: Theme-registered blocks are Countdown, Related Posts, Slider, Slide, Toggle, and Toggle Content. core/video is an enhanced core block.
       options:
         - "Not block-related"
-        - Content Blocks (Countdown, Toggle, Related Posts, etc.)
-        - Media Blocks (Video, Slider, Slide, etc.)
+        - Content Blocks (Countdown, Toggle, Related Posts)
+        - Media Blocks (Slider, Slide, core/video)
         - Navigation Blocks
         - Layout Blocks
         - Utility Blocks
     validations:
       required: false
+
   - type: textarea
     id: solution
     attributes:
@@ -53,6 +57,7 @@ body:
       description: What do you want to happen?
     validations:
       required: true
+
   - type: textarea
     id: alternatives
     attributes:
@@ -60,10 +65,11 @@ body:
       description: Any alternative solutions or features you have considered.
     validations:
       required: false
+
   - type: textarea
     id: context
     attributes:
       label: Additional context
-      description: Add any other context or screenshots about the feature request here.
+      description: Add any other context or screenshots about the feature request here. Drag and drop files into this field.
     validations:
       required: false
