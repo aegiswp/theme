@@ -10,7 +10,10 @@ body:
         ### Report a Block Issue
         Use this template to report bugs or problems with Aegis custom blocks or block variations.
 
-        **For general bugs** not specific to a block, use the [Bug Report](bug_report.yml) template instead.
+        Theme-registered blocks: Countdown, Related Posts, Slider, Slide, Toggle, and Toggle Content.
+
+        **For general bugs** not specific to a block, use the [Bug Report](https://github.com/aegiswp/theme/issues/new?template=bug_report.yml) template instead.
+        **For `core/video`**, use Bug Report and select "core/video (enhanced)". Aegis does not register `aegis/video`.
 
   - type: dropdown
     id: block-name
@@ -18,13 +21,12 @@ body:
       label: Which block is affected?
       description: Select the Aegis custom block with the issue
       options:
-        - Countdown Block
-        - Related Posts Block
-        - Slider Block
-        - Slide Block
-        - Toggle Block
-        - Toggle Content Block
-        - Video Block
+        - Countdown
+        - Related Posts
+        - Slider
+        - Slide
+        - Toggle
+        - Toggle Content
         - Block Variation
         - Multiple blocks
         - Other (please specify)
@@ -35,7 +37,7 @@ body:
     id: block-name-other
     attributes:
       label: Block name (if other)
-      description: Specify the block name if you selected "Other"
+      description: Specify the block name if you selected "Other" or "Block Variation"
     validations:
       required: false
 
@@ -100,6 +102,14 @@ body:
       required: true
 
   - type: input
+    id: theme-version
+    attributes:
+      label: Theme Version
+      description: e.g., 1.0.0
+    validations:
+      required: true
+
+  - type: input
     id: php-version
     attributes:
       label: PHP Version
@@ -136,6 +146,6 @@ body:
     id: context
     attributes:
       label: Screenshots or Code
-      description: Add screenshots of the block UI or code snippets if helpful
+      description: Add screenshots of the block UI or code snippets if helpful. Drag and drop files into this field.
     validations:
       required: false
