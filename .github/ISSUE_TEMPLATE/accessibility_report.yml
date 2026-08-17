@@ -10,7 +10,7 @@ body:
         ### Help us make Aegis inclusive
         Your feedback helps us keep Aegis usable for everyone. The theme targets [WCAG 2.1 Level AA](https://www.w3.org/TR/WCAG21/).
 
-        **For general bugs** that are not accessibility-related, use the [Bug Report](bug_report.yml) template instead.
+        **For general bugs** that are not accessibility-related, use the [Bug Report](https://github.com/aegiswp/theme/issues/new?template=bug_report.yml) template instead.
 
         Content-only issues (for example, a missing alt attribute on an uploaded image) should be fixed in the editor unless the theme prevents an accessible alternative.
 
