@@ -1,5 +1,5 @@
 name: Accessibility Report
-description: Report an accessibility issue related to the Aegis WordPress Block Theme.
+description: Report an accessibility barrier in the Aegis WordPress Block Theme.
 labels:
   - "[Type] Accessibility"
   - triage
@@ -7,8 +7,13 @@ body:
   - type: markdown
     attributes:
       value: |
-        ### Help us make Aegis inclusive.
-        Your feedback helps us ensure Aegis is usable for everyone.
+        ### Help us make Aegis inclusive
+        Your feedback helps us keep Aegis usable for everyone. The theme targets [WCAG 2.1 Level AA](https://www.w3.org/TR/WCAG21/).
+
+        **For general bugs** that are not accessibility-related, use the [Bug Report](bug_report.yml) template instead.
+
+        Content-only issues (for example, a missing alt attribute on an uploaded image) should be fixed in the editor unless the theme prevents an accessible alternative.
+
   - type: textarea
     id: description
     attributes:
@@ -16,6 +21,37 @@ body:
       description: What is the accessibility barrier? (e.g., "Main menu is not keyboard navigable").
     validations:
       required: true
+
+  - type: dropdown
+    id: barrier-type
+    attributes:
+      label: Barrier Type
+      description: Select the primary type of accessibility barrier.
+      options:
+        - Keyboard navigation / focus
+        - Screen reader / AT announcement
+        - Color contrast
+        - Motion / animation
+        - Forms / labels / errors
+        - Headings / landmarks / structure
+        - Images / alternative text
+        - Zoom / reflow / text spacing
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: location
+    attributes:
+      label: Where does this occur?
+      options:
+        - Frontend (Live Site)
+        - Site Editor (Admin UI)
+        - Block Editor
+        - Both frontend and editor
+    validations:
+      required: true
+
   - type: dropdown
     id: severity
     attributes:
@@ -27,6 +63,7 @@ body:
         - Low (Minor enhancement)
     validations:
       required: true
+
   - type: textarea
     id: steps
     attributes:
@@ -34,34 +71,101 @@ body:
       description: How can we see this issue?
       placeholder: |
         1. Open the homepage
-        2. Press 'Tab' until reaching the navigation
+        2. Press Tab until reaching the navigation
         3. Observe that focus is lost
     validations:
       required: true
-  - type: input
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What should happen for this to be accessible?
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "### Assistive Technology and Environment"
+
+  - type: dropdown
     id: assistive-tech
     attributes:
       label: Assistive Technology Used
-      description: e.g., VoiceOver (macOS/iOS), NVDA (Windows), Keyboard only.
+      description: Select all that apply. Choose "Keyboard only" if no assistive technology was involved.
+      multiple: true
+      options:
+        - Keyboard only
+        - Screen reader (NVDA, JAWS, VoiceOver, TalkBack, Narrator)
+        - Screen magnifier / zoom
+        - Voice control
+        - High contrast / forced colors
+        - Reduced motion
+        - Browser accessibility inspector (axe, WAVE, Lighthouse)
+        - Other
     validations:
       required: true
+
+  - type: input
+    id: assistive-tech-details
+    attributes:
+      label: Assistive Technology Details
+      description: Name and version if known (e.g., NVDA 2024.4 with Firefox, VoiceOver on iOS 18).
+      placeholder: "e.g., NVDA 2024.4 + Firefox 128"
+    validations:
+      required: false
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser / Device / OS
+      description: Accessibility behavior often depends on the browser and operating system.
+      placeholder: "e.g., Firefox 128 on Windows 11"
+    validations:
+      required: true
+
+  - type: input
+    id: affected-page
+    attributes:
+      label: Affected Page or Pattern
+      description: Page, template, pattern, or block where the barrier occurs. A local URL is fine.
+      placeholder: "e.g., Homepage header, Comments template, Toggle block"
+    validations:
+      required: true
+
+  - type: input
+    id: wcag
+    attributes:
+      label: WCAG Success Criterion (if known)
+      description: Optional. Aegis targets WCAG 2.1 Level AA.
+      placeholder: "e.g., 2.4.7 Focus Visible"
+    validations:
+      required: false
+
   - type: markdown
     attributes:
       value: "### Environment Info"
+
   - type: input
     id: wp-version
     attributes:
       label: WordPress Version
+      description: e.g., 7.0
     validations:
       required: true
+
   - type: input
     id: theme-version
     attributes:
-      label: Theme Version (e.g., 1.0.0)
+      label: Theme Version
+      description: e.g., 1.0.0
     validations:
       required: true
+
   - type: textarea
     id: media
     attributes:
       label: Screenshots or Videos
-      description: Visual evidence is extremely helpful for accessibility triage.
+      description: Visual evidence is extremely helpful for accessibility triage. Drag and drop files into this field.
+    validations:
+      required: false
