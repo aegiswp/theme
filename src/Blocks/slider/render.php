@@ -82,8 +82,8 @@ $gap            = is_array( $gap_raw ) ? ( $gap_raw['left'] ?? $gap_raw['horizon
 
 // Lightbox mode — check admin toggle.
 $lightbox = false;
-if ( class_exists( '\Aegis\Admin\ConditionalLogicSettings' ) ) {
-	$lightbox = \Aegis\Admin\ConditionalLogicSettings::is_block_enabled( 'slider_lightbox' );
+if ( class_exists( '\Aegis\Framework\ServiceProvider' ) ) {
+	$lightbox = \Aegis\Framework\ServiceProvider::is_block_enabled( 'slider_lightbox' );
 }
 
 $lazy_load = false;
