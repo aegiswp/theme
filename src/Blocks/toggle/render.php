@@ -116,8 +116,8 @@ $wrapper_attributes = get_block_wrapper_attributes(
 </div>
 <?php
 if ( $faq_schema && ! empty( $heading ) &&
-	class_exists( '\Aegis\Admin\ConditionalLogicSettings' ) &&
-	\Aegis\Admin\ConditionalLogicSettings::is_block_enabled( 'accordion_faq_schema' )
+	class_exists( '\Aegis\Framework\ServiceProvider' ) &&
+	\Aegis\Framework\ServiceProvider::is_block_enabled( 'accordion_faq_schema' )
 ) {
 	$answer_text = wp_strip_all_tags( $content );
 	if ( ! empty( $answer_text ) ) {
