@@ -79,8 +79,4 @@ jobs:
           # Do not mark PRs from certain users as stale (optional)
           exempt-all-pr-assignees: false
 
-          # Mark only, do not close (safer approach on first setup)
           operations-per-run: 100
-
-          # Do not comment on every check (only when marking/closing)
-          only-labels: ''
