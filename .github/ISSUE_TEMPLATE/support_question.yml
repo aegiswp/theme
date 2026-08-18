@@ -10,6 +10,9 @@ body:
       value: |
         **Need help or have a question?**
         Before opening a support request, please check our [Documentation](https://github.com/aegiswp/theme/wiki) and [Discussions](https://github.com/aegiswp/theme/discussions).
+
+        **For bugs**, use the [Bug Report](https://github.com/aegiswp/theme/issues/new?template=bug_report.yml) template instead.
+
   - type: textarea
     id: help
     attributes:
@@ -17,6 +20,7 @@ body:
       description: A clear and concise description of your question or the support you need.
     validations:
       required: true
+
   - type: textarea
     id: steps
     attributes:
@@ -24,6 +28,7 @@ body:
       description: Describe what you have already tried or researched (e.g., "I checked the Wiki and tried disabling plugins").
     validations:
       required: false
+
   - type: textarea
     id: docs
     attributes:
@@ -35,18 +40,31 @@ body:
   - type: markdown
     attributes:
       value: "### WordPress Environment (Optional)"
+
   - type: input
     id: wp-version
     attributes:
       label: WordPress Version
+      description: e.g., 7.0
     validations:
       required: false
+
   - type: input
     id: theme-version
     attributes:
       label: Theme Version
+      description: e.g., 1.0.0
     validations:
       required: false
+
+  - type: input
+    id: php-version
+    attributes:
+      label: PHP Version
+      description: e.g., 8.2.10
+    validations:
+      required: false
+
   - type: textarea
     id: active-plugins
     attributes:
@@ -58,6 +76,6 @@ body:
     id: context
     attributes:
       label: Additional context
-      description: Add any screenshots, code snippets, or details that might help us assist you.
+      description: Add any screenshots, code snippets, or details that might help us assist you. Drag and drop files into this field.
     validations:
       required: false
