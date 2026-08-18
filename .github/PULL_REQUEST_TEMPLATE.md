@@ -120,19 +120,20 @@ Include any setup required, and the steps to reproduce the behavior.
 - [ ] I have performed a self-review of my own code
 - [ ] I have checked that all automated tests pass
 - [ ] I have read the [CONTRIBUTING.md](https://github.com/aegiswp/theme/blob/main/CONTRIBUTING.md) file
-- [ ] CI/CD workflows (ci.yml, theme-json-validation.yml, wordpress-compat.yml) are passing
+- [ ] CI/CD workflows (ci.yml, accessibility.yml, wordpress-compat.yml, lighthouse-ci.yml, spelling.yml) are passing
+- [ ] If `theme.json` changed, theme-json-validation.yml is passing
 
 ## Automated Checks
 
 The following checks will run automatically on this PR:
 - ✓ **CI (ci.yml)**: Linting, tests, and dependency audits
 - ✓ **Accessibility (accessibility.yml)**: a11y scanning on test site
-- ✓ **Theme.json Validation**: Structure and schema validation
-- ✓ **WordPress Compatibility Matrix**: Tests against WP 7.0/latest + PHP 8.1/8.2/8.3
+- ✓ **Theme.json Validation**: Runs only when `theme.json` changes
+- ✓ **WordPress Compatibility Matrix**: Tests against WP 7.0/latest + PHP 8.1/8.2/8.3 (6 jobs)
 - ✓ **Lighthouse CI**: Performance and accessibility metrics
 - ✓ **Spelling Check**: Catches typos
 
-**All checks must pass before this PR can be merged.**
+**Required checks must pass before this PR can be merged.** Path-filtered workflows (such as theme.json validation) are skipped when their files do not change.
 
 ## Additional Notes
 
