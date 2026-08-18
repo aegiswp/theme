@@ -12,6 +12,7 @@ on:
     branches: [ main, dev ]
     paths:
       - 'theme.json'
+      - '.github/workflows/theme-json-validation.yml'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
