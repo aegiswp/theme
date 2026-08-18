@@ -64,7 +64,7 @@ jobs:
           # Database is already created by the MySQL service container (MYSQL_DATABASE).
           wp db check --path=wp
           wp core install --path=wp --url=http://localhost:8080 --title="Aegis Performance Test" --admin_user=admin --admin_password=password --admin_email=test@example.com --skip-email
-          ln -s "$GITHUB_WORKSPACE" wp/wp-content/themes/aegis
+          ln -sfn "$GITHUB_WORKSPACE" wp/wp-content/themes/aegis
           wp theme activate aegis --path=wp
 
       - name: Start PHP development server
@@ -102,13 +102,14 @@ jobs:
           echo "## 📊 Lighthouse Performance Report" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          if [ -f "./.lighthouseci/results/manifest.json" ]; then
-            node << 'EOF'
+          if [ -f "./.lighthouseci/manifest.json" ]; then
+            node << 'EOF' >> $GITHUB_STEP_SUMMARY
             const fs = require('fs');
-            const manifest = JSON.parse(fs.readFileSync('./.lighthouseci/results/manifest.json', 'utf8'));
+            const manifest = JSON.parse(fs.readFileSync('./.lighthouseci/manifest.json', 'utf8'));
+            const runs = Array.isArray(manifest) ? manifest : (manifest.results || []);
+            const latest = runs.find((run) => run.isRepresentativeRun) || runs[0];
 
-            if (manifest.results && manifest.results.length > 0) {
-              const latest = manifest.results[0];
+            if (latest && latest.summary) {
               const scores = latest.summary;
 
               console.log("| Metric | Score |");
@@ -144,17 +145,19 @@ jobs:
 
             let comment = marker + "\n## 📊 Lighthouse Audit Results\n\n";
 
-            if (fs.existsSync('./.lighthouseci/results/manifest.json')) {
-              const manifest = JSON.parse(fs.readFileSync('./.lighthouseci/results/manifest.json', 'utf8'));
-              if (manifest.results && manifest.results.length > 0) {
-                const scores = manifest.results[0].summary;
+            if (fs.existsSync('./.lighthouseci/manifest.json')) {
+              const manifest = JSON.parse(fs.readFileSync('./.lighthouseci/manifest.json', 'utf8'));
+              const runs = Array.isArray(manifest) ? manifest : (manifest.results || []);
+              const latest = runs.find((run) => run.isRepresentativeRun) || runs[0];
+              if (latest && latest.summary) {
+                const scores = latest.summary;
                 comment += "| Metric | Score |\n";
                 comment += "|--------|-------|\n";
                 comment += "| Performance | " + Math.round(scores.performance * 100) + " |\n";
                 comment += "| Accessibility | " + Math.round(scores.accessibility * 100) + " |\n";
                 comment += "| Best Practices | " + Math.round(scores['best-practices'] * 100) + " |\n";
                 comment += "| SEO | " + Math.round(scores.seo * 100) + " |\n\n";
-                comment += "[View full report →](" + manifest.results[0].url + ")\n";
+                comment += "[View full report →](" + (latest.url || latest.htmlPath || '') + ")\n";
               }
             } else {
               comment += "⚠ Unable to generate Lighthouse report\n";
