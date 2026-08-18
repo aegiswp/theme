@@ -30,11 +30,10 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 - ✓ WPAudit unit tests (`tools/wpaudit`)
 - ✓ theme.json validation
 - ✓ Required theme files (style.css, functions.php, index.php, theme.json)
-- ✓ Code coverage report (Codecov)
 
 #### If it fails:
 1. Check the logs for specific linting errors
-2. Run locally: `npm run lint:js` / `npm run lint:css` / `composer lint`
+2. Run locally: `npm run lint:js` / `npm run lint:css` / `composer lint` (alias for PHPCS)
 3. Run tests locally: `composer test:wpaudit`
 4. Check dependency audit results; update vulnerable packages
 
@@ -106,7 +105,7 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 3. Review console output for specific warnings
 
 #### Common issues:
-- `Missing version` → Add `"version": 2` at top level
+- `Missing version` → Add `"version": 3` at top level (Aegis uses theme.json v3)
 - `Missing settings` → Ensure settings object exists (even if empty)
 - `Color palette undefined` → Add `settings.color.palette` array
 
@@ -115,7 +114,7 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 ### 5. **WordPress Compatibility Matrix (wordpress-compat.yml)**
 **Purpose:** Test against multiple WordPress and PHP versions
 **Triggers:** Schedule (weekly) + Push/PR to main/dev
-**Duration:** ~30-40 minutes (9 parallel jobs)
+**Duration:** ~30-40 minutes (6 parallel jobs)
 **Matrix:** WordPress 7.0/latest × PHP 8.1/8.2/8.3
 
 #### What it checks:
@@ -124,7 +123,6 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 - ✓ Core block registration
 - ✓ WordPress CLI integration
 - ✓ theme.json validity in WordPress context
-- ✓ PHPCS checks
 
 #### If it fails:
 1. Note which WP/PHP combination failed
@@ -136,7 +134,7 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 4. Test theme activation and functionality
 
 #### Matrix results:
-- All 9 combinations should pass
+- All 6 combinations should pass
 - Failures indicate compatibility issues with specific versions
 - Use results to update theme requirements (README, composer.json)
 
@@ -194,7 +192,7 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 
 ### 8. **Development Checks (dev.yml)**
 **Purpose:** Quick checks for feature branch development
-**Triggers:** Push to feature/* branches and dev branch
+**Triggers:** Push to `feature/*` branches (full CI already covers `main` and `dev`)
 **Duration:** ~5-8 minutes
 
 #### What it checks:
@@ -403,7 +401,7 @@ Issues/PRs with labels: `pinned`, `roadmap`, or `epic` are exempt
 
 ---
 
-**Last Updated:** July 2026  
+**Last Updated:** August 2026  
 **Aegis Theme Version:** 1.x  
 **WordPress Minimum:** 7.0  
 **PHP Minimum:** 8.1
