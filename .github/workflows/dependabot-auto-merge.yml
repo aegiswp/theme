@@ -22,9 +22,6 @@ jobs:
     if: github.actor == 'dependabot[bot]'
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
       - name: Parse Dependabot PR Title
         id: parse
         run: |
