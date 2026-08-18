@@ -32,13 +32,13 @@ templates/ @aegiswp/core-team
 parts/ @aegiswp/core-team
 
 # Documentation and configuration
+docs/ @aegiswp/core-team
 README.md @aegiswp/core-team
 CONTRIBUTING.md @aegiswp/core-team
 CHANGELOG.md @aegiswp/core-team
 CODE_OF_CONDUCT.md @aegiswp/core-team
 
 # Tests and tooling
-tests/ @aegiswp/core-team
 tools/ @aegiswp/core-team
 phpunit.xml @aegiswp/core-team
 phpcs.xml @aegiswp/core-team
