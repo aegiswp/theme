@@ -254,7 +254,7 @@ interface SliderConfig {
 				return;
 			}
 
-			// Don't interfere with arrow/pagination clicks.
+			// Do not interfere with arrow/pagination clicks.
 			if (
 				target.closest( '.splide__arrow' ) ||
 				target.closest( '.splide__pagination' )
