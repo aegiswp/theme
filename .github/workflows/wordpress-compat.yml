@@ -100,7 +100,7 @@ jobs:
 
       - name: Activate theme
         run: |
-          ln -s "$GITHUB_WORKSPACE" wp-test/wp-content/themes/aegis
+          ln -sfn "$GITHUB_WORKSPACE" wp-test/wp-content/themes/aegis
           wp theme activate aegis --path=wp-test
 
       - name: Validate theme loads
@@ -127,8 +127,7 @@ jobs:
           "
 
       - name: Run theme PHP checks
-        run: |
-          vendor/bin/phpcs --standard=WordPress wp-test/wp-content/themes/aegis/functions.php --exit-code=0 || true
+        run: php -l functions.php
 
       - name: Test core block rendering
         run: |
@@ -182,4 +181,8 @@ jobs:
           echo "**WordPress**: ${{ matrix.wordpress }}" >> $GITHUB_STEP_SUMMARY
           echo "**PHP**: ${{ matrix.php }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "✓ Theme compatibility verified" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ job.status }}" = "success" ]; then
+            echo "✓ Theme compatibility verified" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✗ Theme compatibility check failed" >> $GITHUB_STEP_SUMMARY
+          fi
