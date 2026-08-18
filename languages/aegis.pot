@@ -9,16 +9,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-03T11:43:53+00:00\n"
+"POT-Creation-Date: 2026-08-18T15:11:28+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: aegis\n"
 
 #. Theme Name of the theme
 #: style.css
-#: build/Admin/AdminMenu.php:95
-#: build/Admin/AdminMenu.php:154
-#: build/Admin/AdminMenu.php:155
 #: src/Admin/AdminMenu.php:95
 #: src/Admin/AdminMenu.php:154
 #: src/Admin/AdminMenu.php:155
@@ -43,670 +40,6 @@ msgstr ""
 #. Author URI of the theme
 #: style.css
 msgid "https://www.atmostfear-entertainment.com/"
-msgstr ""
-
-#: build/Admin/AdminMenu.php:166
-#: build/Admin/AdminMenu.php:167
-#: build/Admin/AdminRenderer.php:85
-#: build/Admin/AdminRenderer.php:745
-#: src/Admin/AdminMenu.php:166
-#: src/Admin/AdminMenu.php:167
-#: src/Admin/AdminRenderer.php:85
-#: src/Admin/AdminRenderer.php:745
-msgid "Dashboard"
-msgstr ""
-
-#: build/Admin/AdminMenu.php:272
-#: src/Admin/AdminMenu.php:272
-msgid "Saving..."
-msgstr ""
-
-#: build/Admin/AdminMenu.php:273
-#: src/Admin/AdminMenu.php:273
-msgid "Settings saved."
-msgstr ""
-
-#: build/Admin/AdminMenu.php:274
-#: src/Admin/AdminMenu.php:274
-msgid "Error saving settings."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:53
-#: patterns/hero/cover.php:23
-#: patterns/hero/image-below.php:16
-#: patterns/page/home.php:30
-#: src/Admin/AdminRenderer.php:53
-msgid "Native Block Framework"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:59
-#: build/Admin/AdminRenderer.php:1099
-#: src/Admin/AdminRenderer.php:59
-#: src/Admin/AdminRenderer.php:1099
-msgid "GitHub"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:64
-#: src/Admin/AdminRenderer.php:64
-msgid "Donate"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:69
-#: src/Admin/AdminRenderer.php:69
-msgid "Support"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:253
-#: build/Admin/AdminRenderer.php:342
-#: build/Admin/AdminRenderer.php:466
-#: build/Admin/AdminRenderer.php:493
-#: build/Admin/AdminRenderer.php:517
-#: patterns/pricing/three-column.php:111
-#: src/Admin/AdminRenderer.php:253
-#: src/Admin/AdminRenderer.php:342
-#: src/Admin/AdminRenderer.php:466
-#: src/Admin/AdminRenderer.php:493
-#: src/Admin/AdminRenderer.php:517
-msgid "Pro"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:253
-#: src/Admin/AdminRenderer.php:253
-msgid "Pro Feature"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:338
-#: src/Admin/AdminRenderer.php:338
-msgid "Video Sitemap"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:346
-#: src/Admin/AdminRenderer.php:346
-msgid "Let Rank Math handle Video Sitemap instead of the Core Video Block. When enabled, the Video Block's built-in sitemap is disabled."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:361
-#: src/Admin/AdminRenderer.php:361
-#: build/Blocks/toggle/index.js:1
-msgid "FAQ Schema"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:362
-#: src/Admin/AdminRenderer.php:362
-msgid "Let Rank Math handle FAQ Schema for Accordion and Toggle blocks. When enabled, built-in FAQPage markup is suppressed."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:377
-#: src/Admin/AdminRenderer.php:377
-msgid "Event Schema"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:378
-#: src/Admin/AdminRenderer.php:378
-msgid "Let Rank Math handle Event Schema for the Countdown block. When enabled, built-in Event markup is suppressed."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:393
-#: src/Admin/AdminRenderer.php:393
-msgid "Local Business Schema"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:394
-#: src/Admin/AdminRenderer.php:394
-msgid "Let Rank Math handle Local Business Schema for the Map block. When enabled, built-in LocalBusiness markup is suppressed."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:409
-#: src/Admin/AdminRenderer.php:409
-msgid "Video Schema"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:410
-#: src/Admin/AdminRenderer.php:410
-msgid "Let Rank Math handle Video Schema for the Video block. When enabled, built-in VideoObject markup is suppressed."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:436
-#: src/Admin/AdminRenderer.php:436
-msgid "Co-Authors Plus integration is provided by the Aegis plugin with improved guest author support."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:446
-#: src/Admin/AdminRenderer.php:446
-msgid "Author Schema"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:447
-#: src/Admin/AdminRenderer.php:447
-msgid "Outputs JSON-LD Person schema for each co-author on singular posts."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:462
-#: src/Admin/AdminRenderer.php:462
-msgid "Social Links"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:470
-#: src/Admin/AdminRenderer.php:470
-msgid "Display social media links for each guest author (Facebook, LinkedIn, GitHub, Instagram, Bluesky, Website)."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:489
-#: src/Admin/AdminRenderer.php:489
-msgid "Role Badges"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:497
-#: src/Admin/AdminRenderer.php:497
-msgid "Show contribution role badges below author names (e.g., Researcher, Editor, Photographer)."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:513
-#: src/Admin/AdminRenderer.php:513
-msgid "Co-Authors Plus Patterns"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:521
-#: src/Admin/AdminRenderer.php:521
-msgid "Remove default Co-Authors Plus block patterns from the editor."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:595
-#: src/Admin/AdminRenderer.php:595
-msgid "Active"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:601
-#: src/Admin/AdminRenderer.php:601
-msgid "Not Installed"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:647
-#: src/Admin/AdminRenderer.php:647
-msgid "Search settings..."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:652
-#: src/Admin/AdminRenderer.php:652
-msgid "Reset Defaults"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:656
-#: src/Admin/AdminRenderer.php:656
-msgid "Export"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:659
-#: src/Admin/AdminRenderer.php:659
-msgid "Import"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:691
-#: src/Admin/AdminRenderer.php:691
-msgid "Enable All"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:692
-#: src/Admin/AdminRenderer.php:692
-msgid "Disable All"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:748
-#: patterns/hero/split.php:20
-#: src/Admin/AdminRenderer.php:748
-msgid "Welcome to Aegis"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:749
-#: src/Admin/AdminRenderer.php:749
-msgid "The Native Block Framework for WordPress. Manage your blocks, conditionals, integrations, and more from one place."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:753
-#: patterns/page/home.php:1722
-#: src/Admin/AdminRenderer.php:753
-msgid "Open Site Editor"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:757
-#: build/Admin/AdminRenderer.php:1081
-#: src/Admin/AdminRenderer.php:757
-#: src/Admin/AdminRenderer.php:1081
-msgid "Documentation"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:771
-#: src/Admin/AdminRenderer.php:771
-msgid "Active Blocks"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:780
-#: src/Admin/AdminRenderer.php:780
-msgid "Conditionals"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:789
-#: src/Admin/AdminRenderer.php:789
-msgid "Integrations"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:799
-#: src/Admin/AdminRenderer.php:799
-msgid "Hook Patterns"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:807
-#: src/Admin/AdminRenderer.php:807
-msgid "Quick Actions"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:813
-#: src/Admin/AdminRenderer.php:813
-msgid "Site Editor"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:814
-#: src/Admin/AdminRenderer.php:814
-msgid "Edit your site visually"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:820
-#: patterns/page/home.php:407
-#: src/Admin/AdminRenderer.php:820
-msgid "Templates"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:821
-#: src/Admin/AdminRenderer.php:821
-msgid "Manage page templates"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:827
-#: patterns/feature/image.php:28
-#: patterns/page/home.php:378
-#: patterns/page/home.php:529
-#: src/Admin/AdminRenderer.php:827
-msgid "Patterns"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:828
-#: src/Admin/AdminRenderer.php:828
-msgid "Browse block patterns"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:834
-#: src/Admin/AdminRenderer.php:834
-msgid "Global Styles"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:835
-#: src/Admin/AdminRenderer.php:835
-msgid "Customize colors & fonts"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:841
-#: src/Admin/AdminRenderer.php:841
-msgid "Manage Blocks"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:842
-#: src/Admin/AdminRenderer.php:842
-msgid "Enable or disable blocks"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:848
-#: src/Admin/AdminRenderer.php:848
-msgid "New Page"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:849
-#: src/Admin/AdminRenderer.php:849
-msgid "Create a new page"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:856
-#: src/Admin/AdminRenderer.php:856
-msgid "Getting Started"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:862
-#: src/Admin/AdminRenderer.php:862
-msgid "Customize Your Theme"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:863
-#: src/Admin/AdminRenderer.php:863
-msgid "Use the Site Editor to customize templates, headers, footers, and global styles with full block control."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:869
-#: src/Admin/AdminRenderer.php:869
-msgid "Manage Block Visibility"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:870
-#: src/Admin/AdminRenderer.php:870
-msgid "Show or hide any block based on user roles, devices, schedules, and custom conditions."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:876
-#: src/Admin/AdminRenderer.php:876
-msgid "Extend with Integrations"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:877
-#: src/Admin/AdminRenderer.php:877
-msgid "Connect WooCommerce, LMS plugins, and other tools to enhance your block-powered site."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:888
-#: src/Admin/AdminRenderer.php:888
-msgid "System Info"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:892
-#: src/Admin/AdminRenderer.php:892
-msgid "Theme Version"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:896
-#: src/Admin/AdminRenderer.php:896
-msgid "WordPress"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:900
-#: src/Admin/AdminRenderer.php:900
-msgid "PHP"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:905
-#: build/Admin/AdminRenderer.php:918
-#: src/Admin/AdminRenderer.php:905
-#: src/Admin/AdminRenderer.php:918
-msgid "Aegis Pro"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:936
-#: src/Admin/AdminRenderer.php:936
-msgid "License Active"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:936
-#: src/Admin/AdminRenderer.php:936
-msgid "License Inactive"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:940
-#: src/Admin/AdminRenderer.php:940
-msgid "Enter your license key to activate Pro features."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:945
-#: src/Admin/AdminRenderer.php:945
-msgid "Unlock advanced features, integrations, and professional tools."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:948
-#: build/Admin/AdminRenderer.php:1066
-#: src/Admin/AdminRenderer.php:948
-#: src/Admin/AdminRenderer.php:1066
-msgid "Get Aegis Pro"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:959
-#: src/Admin/AdminRenderer.php:959
-msgid "Unlock the Full Power of Aegis"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:960
-#: src/Admin/AdminRenderer.php:960
-msgid "Aegis Pro extends every block with advanced features, integrations, and professional tools."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:967
-#: src/Admin/AdminRenderer.php:967
-msgid "Video Player Pro"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:968
-#: src/Admin/AdminRenderer.php:968
-msgid "Chapters, analytics, BunnyCDN streaming, email capture, and LMS integrations."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:974
-#: src/Admin/AdminRenderer.php:974
-msgid "Advanced Conditionals"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:975
-#: src/Admin/AdminRenderer.php:975
-msgid "Cookie, referral, ACF, MetaBox, post meta, and location-based block visibility."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:981
-#: src/Admin/AdminRenderer.php:981
-msgid "Analytics & Tracking"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:982
-#: src/Admin/AdminRenderer.php:982
-msgid "Per-user tracking, audience retention, buffering stats, and Google Analytics events."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:988
-#: src/Admin/AdminRenderer.php:988
-msgid "LMS Integrations"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:989
-#: src/Admin/AdminRenderer.php:989
-msgid "LearnDash, LifterLMS, and Sensei â€” auto-complete lessons based on video progress."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:995
-#: src/Admin/AdminRenderer.php:995
-msgid "Map Block Pro"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:996
-#: src/Admin/AdminRenderer.php:996
-msgid "Clustering, directions, store locator, heatmaps, KML/GeoJSON import, and Schema.org."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1002
-#: src/Admin/AdminRenderer.php:1002
-msgid "Slider Pro"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1003
-#: src/Admin/AdminRenderer.php:1003
-msgid "Autoplay, effects, thumbnails, lightbox, lazy loading, and custom arrow/dot styles."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1009
-#: src/Admin/AdminRenderer.php:1009
-msgid "Toggle Pro"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1010
-#: src/Admin/AdminRenderer.php:1010
-msgid "URL sync, state persistence, animations, FAQ schema, nested toggles, and conditional visibility."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1016
-#: src/Admin/AdminRenderer.php:1016
-msgid "Countdown Pro"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1017
-#: src/Admin/AdminRenderer.php:1017
-msgid "Evergreen countdowns, animations, auto-restart, expiry actions, and urgency styling."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1023
-#: src/Admin/AdminRenderer.php:1023
-msgid "Modal Pro"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1024
-#: src/Admin/AdminRenderer.php:1024
-msgid "Exit intent, scroll depth, time delay triggers, auto close, show once, and device visibility."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1030
-#: src/Admin/AdminRenderer.php:1030
-msgid "Query Loop Pro"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1031
-#: src/Admin/AdminRenderer.php:1031
-msgid "Advanced filtering, custom field queries, date ranges, related posts, and AJAX pagination."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1037
-#: src/Admin/AdminRenderer.php:1037
-msgid "BunnyCDN Streaming"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1038
-#: src/Admin/AdminRenderer.php:1038
-msgid "HLS adaptive streaming, direct upload, AI transcription, thumbnails, and watermarking."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1044
-#: src/Admin/AdminRenderer.php:1044
-msgid "Pattern Control"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1045
-#: src/Admin/AdminRenderer.php:1045
-msgid "Manage default block patterns from plugins. Remove unwanted patterns from the editor."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1051
-#: src/Admin/AdminRenderer.php:1051
-msgid "Custom Code & Fonts"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1052
-#: src/Admin/AdminRenderer.php:1052
-msgid "Add custom CSS, JavaScript, and register custom fonts without child themes or extra plugins."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1058
-#: src/Admin/AdminRenderer.php:1058
-msgid "Co-Authors Plus"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1059
-#: src/Admin/AdminRenderer.php:1059
-msgid "Social links, role badges, and enhanced author displays for multi-author publishing."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1068
-#: src/Admin/AdminRenderer.php:1068
-msgid "One-time purchase. Lifetime updates. 14-day money-back guarantee."
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1075
-#: src/Admin/AdminRenderer.php:1075
-msgid "Resources"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1087
-#: src/Admin/AdminRenderer.php:1087
-msgid "Support Group"
-msgstr ""
-
-#: build/Admin/AdminRenderer.php:1093
-#: patterns/timeline/stacked.php:17
-#: src/Admin/AdminRenderer.php:1093
-msgid "Changelog"
-msgstr ""
-
-#: build/Admin/CompanionNotice.php:231
-#: src/Admin/CompanionNotice.php:231
-msgid "Aegis is almost ready!"
-msgstr ""
-
-#: build/Admin/CompanionNotice.php:233
-#: src/Admin/CompanionNotice.php:233
-msgid "Install the Aegis companion plugin to unlock custom blocks, the settings dashboard, conditionals, hooks, and integrations. The theme works on its own; the plugin adds the full feature set."
-msgstr ""
-
-#: build/Admin/CompanionNotice.php:246
-#: src/Admin/CompanionNotice.php:246
-msgid "Learn more"
-msgstr ""
-
-#: build/Admin/CompanionNotice.php:249
-#: src/Admin/CompanionNotice.php:249
-msgid "Dismiss"
-msgstr ""
-
-#: build/Admin/CompanionNotice.php:337
-#: src/Admin/CompanionNotice.php:337
-msgid "Activate Aegis Plugin"
-msgstr ""
-
-#: build/Admin/CompanionNotice.php:340
-#: src/Admin/CompanionNotice.php:340
-msgid "Install Aegis Plugin"
-msgstr ""
-
-#: build/Blocks/countdown/render.php:59
-#: src/Blocks/countdown/render.php:59
-msgid "Countdown timer"
-msgstr ""
-
-#: build/Blocks/related-posts/render.php:41
-#: build/Blocks/related-posts/render.php:140
-#: src/Blocks/related-posts/render.php:41
-#: src/Blocks/related-posts/render.php:140
-#: build/Blocks/related-posts/index.js:1
-msgid "Related Posts"
-msgstr ""
-
-#: build/Blocks/slider/render.php:59
-#: src/Blocks/slider/render.php:59
-msgid "carousel"
-msgstr ""
-
-#: build/Blocks/slider/render.php:60
-#: src/Blocks/slider/render.php:60
-#: build/Blocks/slider/index.js:1
-msgid "Slider"
-msgstr ""
-
-#: build/Checkout/MultiStep.php:60
-#: patterns/template/page-checkout-multi-step.php:140
-#: src/Checkout/MultiStep.php:60
-msgid "Continue to Payment →"
-msgstr ""
-
-#: build/Checkout/MultiStep.php:61
-#: src/Checkout/MultiStep.php:61
-msgid "Review Order →"
-msgstr ""
-
-#: build/Navigation/Overlay.php:44
-#: src/Navigation/Overlay.php:44
-msgid "Slide-in Drawer"
-msgstr ""
-
-#: build/Navigation/Overlay.php:53
-#: src/Navigation/Overlay.php:53
-msgid "Slide-in Left"
-msgstr ""
-
-#: build/Navigation/Overlay.php:62
-#: src/Navigation/Overlay.php:62
-msgid "Fullscreen Overlay"
-msgstr ""
-
-#: build/Navigation/Overlay.php:71
-#: src/Navigation/Overlay.php:71
-msgid "Scroll Overlay"
 msgstr ""
 
 #. translators: %s: Publish date.
@@ -1173,6 +506,46 @@ msgstr ""
 #: patterns/blog/overlay-cards.php
 msgctxt "Pattern description"
 msgid "Blog cards with text overlay on images and hover effects."
+msgstr ""
+
+#: patterns/blog/related-posts-cards.php
+msgctxt "Pattern title"
+msgid "Related Posts: Cards"
+msgstr ""
+
+#: patterns/blog/related-posts-cards.php
+msgctxt "Pattern description"
+msgid "Boxed cards of related posts with surface background and shadow."
+msgstr ""
+
+#: patterns/blog/related-posts-grid.php
+msgctxt "Pattern title"
+msgid "Related Posts: Grid"
+msgstr ""
+
+#: patterns/blog/related-posts-grid.php
+msgctxt "Pattern description"
+msgid "A 3-column grid of related posts with featured image, date, category, title, and excerpt."
+msgstr ""
+
+#: patterns/blog/related-posts-list.php
+msgctxt "Pattern title"
+msgid "Related Posts: List"
+msgstr ""
+
+#: patterns/blog/related-posts-list.php
+msgctxt "Pattern description"
+msgid "A horizontal list of related posts with small thumbnails, titles, and dates."
+msgstr ""
+
+#: patterns/blog/related-posts-minimal.php
+msgctxt "Pattern title"
+msgid "Related Posts: Minimal"
+msgstr ""
+
+#: patterns/blog/related-posts-minimal.php
+msgctxt "Pattern description"
+msgid "A text-only list of related posts with border separators."
 msgstr ""
 
 #: patterns/blog/single-card.php
@@ -1670,12 +1043,15 @@ msgid "A boxed contact form layout."
 msgstr ""
 
 #: patterns/contact/form-boxed.php:15
+#: patterns/contact/form-map-overlay.php:18
 #: patterns/page/about.php:265
 #: patterns/page/contact.php:19
 msgid "Get in Touch"
 msgstr ""
 
 #: patterns/contact/form-boxed.php:19
+#: patterns/contact/form-map-overlay.php:22
+#: patterns/contact/form-map.php:16
 #: patterns/contact/two-column.php:16
 #: patterns/footer/store-default.php:79
 #: patterns/hero/video.php:32
@@ -1683,11 +1059,15 @@ msgid "Contact Us"
 msgstr ""
 
 #: patterns/contact/form-boxed.php:24
+#: patterns/contact/form-map-overlay.php:28
+#: patterns/contact/form-map.php:22
 #: patterns/page/contact.php:51
 msgid "Name"
 msgstr ""
 
 #: patterns/contact/form-boxed.php:26
+#: patterns/contact/form-map-overlay.php:30
+#: patterns/contact/form-map.php:24
 #: patterns/contact/icons.php:19
 #: patterns/contact/two-column.php:41
 #: patterns/page/contact.php:57
@@ -1695,12 +1075,36 @@ msgid "Email"
 msgstr ""
 
 #: patterns/contact/form-boxed.php:28
+#: patterns/contact/form-map-overlay.php:32
+#: patterns/contact/form-map.php:26
 #: patterns/page/contact.php:70
 msgid "Message"
 msgstr ""
 
 #: patterns/contact/form-boxed.php:31
+#: patterns/contact/form-map-overlay.php:35
+#: patterns/contact/form-map.php:29
 msgid "Send"
+msgstr ""
+
+#: patterns/contact/form-map-overlay.php
+msgctxt "Pattern title"
+msgid "Contact Form Map Overlay"
+msgstr ""
+
+#: patterns/contact/form-map-overlay.php
+msgctxt "Pattern description"
+msgid "A contact form with map overlay background."
+msgstr ""
+
+#: patterns/contact/form-map.php
+msgctxt "Pattern title"
+msgid "Contact Form Map"
+msgstr ""
+
+#: patterns/contact/form-map.php
+msgctxt "Pattern description"
+msgid "A contact form with embedded map."
 msgstr ""
 
 #: patterns/contact/icons.php
@@ -2611,7 +2015,6 @@ msgstr ""
 
 #: patterns/event/exhibition-info.php:43
 #: patterns/page/music-festival.php:356
-#: build/Blocks/countdown/index.js:1
 msgid "Location"
 msgstr ""
 
@@ -3835,6 +3238,12 @@ msgstr ""
 #: patterns/footer/default.php:57
 #: patterns/footer/default.php:74
 #: patterns/footer/default.php:84
+#: patterns/footer/wide - Copy.php:41
+#: patterns/footer/wide - Copy.php:51
+#: patterns/footer/wide - Copy.php:67
+#: patterns/footer/wide - Copy.php:77
+#: patterns/footer/wide - Copy.php:93
+#: patterns/footer/wide - Copy.php:103
 #: patterns/footer/wide.php:36
 #: patterns/footer/wide.php:46
 #: patterns/footer/wide.php:62
@@ -3842,7 +3251,6 @@ msgstr ""
 #: patterns/footer/wide.php:88
 #: patterns/footer/wide.php:98
 #: patterns/page/home.php:658
-#: build/Blocks/slider/index.js:1
 msgid "Navigation"
 msgstr ""
 
@@ -3987,6 +3395,13 @@ msgctxt "Pattern description"
 msgid "A feature section with image and content."
 msgstr ""
 
+#: patterns/feature/image.php:28
+#: patterns/page/home.php:378
+#: patterns/page/home.php:529
+#: src/Admin/AdminRenderer.php:827
+msgid "Patterns"
+msgstr ""
+
 #: patterns/feature/image.php:34
 #: patterns/page/home.php:384
 msgid "Modular Architecture"
@@ -4037,6 +3452,7 @@ msgstr ""
 #: patterns/footer/minimal.php:29
 #: patterns/footer/store-default.php:125
 #: patterns/footer/store-minimal.php:20
+#: patterns/footer/wide - Copy.php:136
 #: patterns/footer/wide.php:131
 msgid "© Copyright {year}"
 msgstr ""
@@ -4045,6 +3461,7 @@ msgstr ""
 #: patterns/footer/default.php:109
 #: patterns/footer/minimal.php:35
 #: patterns/footer/store-default.php:131
+#: patterns/footer/wide - Copy.php:142
 #: patterns/footer/wide.php:137
 msgid "· All rights reserved."
 msgstr ""
@@ -4052,6 +3469,7 @@ msgstr ""
 #: patterns/footer/centered.php:57
 #: patterns/footer/default.php:118
 #: patterns/footer/minimal.php:57
+#: patterns/footer/wide - Copy.php:154
 #: patterns/footer/wide.php:146
 msgid "Back to Top"
 msgstr ""
@@ -4154,11 +3572,13 @@ msgstr ""
 msgid "Refund Policy"
 msgstr ""
 
+#: patterns/footer/wide - Copy.php
 #: patterns/footer/wide.php
 msgctxt "Pattern title"
 msgid "Wide"
 msgstr ""
 
+#: patterns/footer/wide - Copy.php
 #: patterns/footer/wide.php
 msgctxt "Pattern description"
 msgid "A wide footer with multiple columns."
@@ -4277,6 +3697,13 @@ msgstr ""
 msgid "Block Editor"
 msgstr ""
 
+#: patterns/hero/cover.php:23
+#: patterns/hero/image-below.php:16
+#: patterns/page/home.php:30
+#: src/Admin/AdminRenderer.php:53
+msgid "Native Block Framework"
+msgstr ""
+
 #: patterns/hero/cover.php:29
 #: patterns/hero/image-below.php:22
 msgid "Wireframe, build, and ship high-performance sites without the bloat — a zero-dependency architecture for total creative freedom."
@@ -4322,6 +3749,11 @@ msgstr ""
 #: patterns/hero/split.php
 msgctxt "Pattern description"
 msgid "A split hero section with text and image side by side."
+msgstr ""
+
+#: patterns/hero/split.php:20
+#: src/Admin/AdminRenderer.php:748
+msgid "Welcome to Aegis"
 msgstr ""
 
 #: patterns/hero/split.php:24
@@ -5596,6 +5028,11 @@ msgstr ""
 msgid "Manage your visual language from a single source of truth. By defining typography, colors, and spacing globally, you ensure instant consistency across the entire framework without repetitive manual adjustments."
 msgstr ""
 
+#: patterns/page/home.php:407
+#: src/Admin/AdminRenderer.php:820
+msgid "Templates"
+msgstr ""
+
 #: patterns/page/home.php:411
 msgid "Structural Control"
 msgstr ""
@@ -5954,6 +5391,11 @@ msgstr ""
 
 #: patterns/page/home.php:1712
 msgid "The foundation is set. Transition immediately from installation to production and start architecting your digital presence today."
+msgstr ""
+
+#: patterns/page/home.php:1722
+#: src/Admin/AdminRenderer.php:753
+msgid "Open Site Editor"
 msgstr ""
 
 #: patterns/page/landing.php
@@ -7340,6 +6782,15 @@ msgstr ""
 msgid "Choose Plan"
 msgstr ""
 
+#: patterns/pricing/three-column.php:111
+#: src/Admin/AdminRenderer.php:253
+#: src/Admin/AdminRenderer.php:342
+#: src/Admin/AdminRenderer.php:466
+#: src/Admin/AdminRenderer.php:493
+#: src/Admin/AdminRenderer.php:517
+msgid "Pro"
+msgstr ""
+
 #: patterns/pricing/three-column.php:183
 msgid "Team"
 msgstr ""
@@ -7501,6 +6952,15 @@ msgstr ""
 
 #: patterns/product/on-sale.php:66
 msgid "No products are currently on sale. Check back soon for deals!"
+msgstr ""
+
+#: patterns/sidebar/default.php
+msgctxt "Pattern title"
+msgid "Sidebar Default"
+msgstr ""
+
+#: patterns/sidebar/default.php:13
+msgid "Sidebar"
 msgstr ""
 
 #: patterns/stats/four-columns.php
@@ -8081,6 +7541,11 @@ msgstr ""
 msgid "← Previous Step"
 msgstr ""
 
+#: patterns/template/page-checkout-multi-step.php:140
+#: src/Checkout/MultiStep.php:60
+msgid "Continue to Payment →"
+msgstr ""
+
 #: patterns/template/page-checkout-multi-step.php:150
 #: patterns/template/page-checkout.php:70
 msgid "Secure checkout powered by industry-standard encryption"
@@ -8504,6 +7969,11 @@ msgctxt "Pattern description"
 msgid "A minimal stacked timeline with left border accent and date labels."
 msgstr ""
 
+#: patterns/timeline/stacked.php:17
+#: src/Admin/AdminRenderer.php:1093
+msgid "Changelog"
+msgstr ""
+
 #: patterns/timeline/stacked.php:21
 msgid "What We Have Been Up To"
 msgstr ""
@@ -8643,6 +8113,11 @@ msgctxt "Pattern title"
 msgid "Color Palette"
 msgstr ""
 
+#: patterns/utility/dark-mode-toggle.php
+msgctxt "Pattern title"
+msgid "Utility Dark Mode Toggle"
+msgstr ""
+
 #: patterns/utility/gradients.php
 msgctxt "Pattern title"
 msgid "Gradients"
@@ -8676,490 +8151,480 @@ msgctxt "Pattern title"
 msgid "Utility Search Toggle"
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Countdown Settings"
+#: src/Admin/AdminMenu.php:166
+#: src/Admin/AdminMenu.php:167
+#: src/Admin/AdminRenderer.php:85
+#: src/Admin/AdminRenderer.php:745
+msgid "Dashboard"
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Timezone"
+#: src/Admin/AdminMenu.php:272
+msgid "Saving..."
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "UTC"
+#: src/Admin/AdminMenu.php:273
+msgid "Settings saved."
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Visitor Local"
+#: src/Admin/AdminMenu.php:274
+msgid "Error saving settings."
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-#: build/Blocks/related-posts/index.js:1
-msgid "Display"
+#: src/Admin/AdminRenderer.php:59
+#: src/Admin/AdminRenderer.php:1099
+msgid "GitHub"
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Show Days"
+#: src/Admin/AdminRenderer.php:64
+msgid "Donate"
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Show Hours"
+#: src/Admin/AdminRenderer.php:69
+msgid "Support"
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Show Minutes"
+#: src/Admin/AdminRenderer.php:253
+msgid "Pro Feature"
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Show Seconds"
+#: src/Admin/AdminRenderer.php:338
+msgid "Video Sitemap"
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Separator"
+#: src/Admin/AdminRenderer.php:346
+msgid "Let Rank Math handle Video Sitemap instead of the Core Video Block. When enabled, the Video Block's built-in sitemap is disabled."
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Colon (:)"
+#: src/Admin/AdminRenderer.php:361
+msgid "FAQ Schema"
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Dot (·)"
+#: src/Admin/AdminRenderer.php:362
+msgid "Let Rank Math handle FAQ Schema for Accordion and Toggle blocks. When enabled, built-in FAQPage markup is suppressed."
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Dash (—)"
+#: src/Admin/AdminRenderer.php:377
+msgid "Event Schema"
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-#: build/Blocks/video/index.js:1
-msgid "None"
+#: src/Admin/AdminRenderer.php:378
+msgid "Let Rank Math handle Event Schema for the Countdown block. When enabled, built-in Event markup is suppressed."
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Layout"
+#: src/Admin/AdminRenderer.php:393
+msgid "Local Business Schema"
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Inline"
+#: src/Admin/AdminRenderer.php:394
+msgid "Let Rank Math handle Local Business Schema for the Map block. When enabled, built-in LocalBusiness markup is suppressed."
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Stacked"
+#: src/Admin/AdminRenderer.php:409
+msgid "Video Schema"
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Labels"
+#: src/Admin/AdminRenderer.php:410
+msgid "Let Rank Math handle Video Schema for the Video block. When enabled, built-in VideoObject markup is suppressed."
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Days Label"
+#: src/Admin/AdminRenderer.php:436
+msgid "Co-Authors Plus integration is provided by the Aegis plugin with improved guest author support."
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Hours Label"
+#: src/Admin/AdminRenderer.php:446
+msgid "Author Schema"
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Minutes Label"
+#: src/Admin/AdminRenderer.php:447
+msgid "Outputs JSON-LD Person schema for each co-author on singular posts."
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Seconds Label"
+#: src/Admin/AdminRenderer.php:462
+msgid "Social Links"
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Expiry"
+#: src/Admin/AdminRenderer.php:470
+msgid "Display social media links for each guest author (Facebook, LinkedIn, GitHub, Instagram, Bluesky, Website)."
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Expiry Message"
+#: src/Admin/AdminRenderer.php:489
+msgid "Role Badges"
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Text displayed when the countdown reaches zero. Leave empty to keep showing 00:00:00."
+#: src/Admin/AdminRenderer.php:497
+msgid "Show contribution role badges below author names (e.g., Researcher, Editor, Photographer)."
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Schema.org Event"
+#: src/Admin/AdminRenderer.php:513
+msgid "Co-Authors Plus Patterns"
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Enable Event Schema"
+#: src/Admin/AdminRenderer.php:521
+msgid "Remove default Co-Authors Plus block patterns from the editor."
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Add Schema.org Event structured data for search engines."
+#: src/Admin/AdminRenderer.php:595
+msgid "Active"
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Event Name"
+#: src/Admin/AdminRenderer.php:601
+msgid "Not Installed"
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Description"
+#: src/Admin/AdminRenderer.php:647
+msgid "Search settings..."
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Event URL"
+#: src/Admin/AdminRenderer.php:652
+msgid "Reset Defaults"
 msgstr ""
 
-#: build/Blocks/countdown/index.js:1
-msgid "Select a target date and time in the block settings."
+#: src/Admin/AdminRenderer.php:656
+msgid "Export"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Grid"
+#: src/Admin/AdminRenderer.php:659
+msgid "Import"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "List"
+#: src/Admin/AdminRenderer.php:691
+msgid "Enable All"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Cards"
+#: src/Admin/AdminRenderer.php:692
+msgid "Disable All"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Minimal"
+#: src/Admin/AdminRenderer.php:749
+msgid "The Native Block Framework for WordPress. Manage your blocks, conditionals, integrations, and more from one place."
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-#: build/Blocks/toggle/index.js:1
-msgid "H2"
+#: src/Admin/AdminRenderer.php:757
+#: src/Admin/AdminRenderer.php:1081
+msgid "Documentation"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-#: build/Blocks/toggle/index.js:1
-msgid "H3"
+#: src/Admin/AdminRenderer.php:771
+msgid "Active Blocks"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-#: build/Blocks/toggle/index.js:1
-msgid "H4"
+#: src/Admin/AdminRenderer.php:780
+msgid "Conditionals"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-#: build/Blocks/toggle/index.js:1
-msgid "H5"
+#: src/Admin/AdminRenderer.php:789
+msgid "Integrations"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-#: build/Blocks/toggle/index.js:1
-msgid "H6"
+#: src/Admin/AdminRenderer.php:799
+msgid "Hook Patterns"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Auto (all public)"
+#: src/Admin/AdminRenderer.php:807
+msgid "Quick Actions"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Category"
+#: src/Admin/AdminRenderer.php:813
+msgid "Site Editor"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Tag"
+#: src/Admin/AdminRenderer.php:814
+msgid "Edit your site visually"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Show latest posts"
+#: src/Admin/AdminRenderer.php:821
+msgid "Manage page templates"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Hide block"
+#: src/Admin/AdminRenderer.php:828
+msgid "Browse block patterns"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Content"
+#: src/Admin/AdminRenderer.php:834
+msgid "Global Styles"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Heading"
+#: src/Admin/AdminRenderer.php:835
+msgid "Customize colors & fonts"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-#: build/Blocks/toggle/index.js:1
-msgid "Heading Tag"
+#: src/Admin/AdminRenderer.php:841
+msgid "Manage Blocks"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Number of Posts"
+#: src/Admin/AdminRenderer.php:842
+msgid "Enable or disable blocks"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Columns"
+#: src/Admin/AdminRenderer.php:848
+msgid "New Page"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Excerpt Length (words)"
+#: src/Admin/AdminRenderer.php:849
+msgid "Create a new page"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Image Aspect Ratio"
+#: src/Admin/AdminRenderer.php:856
+msgid "Getting Started"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Show Featured Image"
+#: src/Admin/AdminRenderer.php:862
+msgid "Customize Your Theme"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Show Date"
+#: src/Admin/AdminRenderer.php:863
+msgid "Use the Site Editor to customize templates, headers, footers, and global styles with full block control."
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Show Excerpt"
+#: src/Admin/AdminRenderer.php:869
+msgid "Manage Block Visibility"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Show Category"
+#: src/Admin/AdminRenderer.php:870
+msgid "Show or hide any block based on user roles, devices, schedules, and custom conditions."
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Style Variant"
+#: src/Admin/AdminRenderer.php:876
+msgid "Extend with Integrations"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Query"
+#: src/Admin/AdminRenderer.php:877
+msgid "Connect WooCommerce, LMS plugins, and other tools to enhance your block-powered site."
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Taxonomy Source"
+#: src/Admin/AdminRenderer.php:888
+msgid "System Info"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Auto detects all public taxonomies on the current post type."
+#: src/Admin/AdminRenderer.php:892
+msgid "Theme Version"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Fallback Behavior"
+#: src/Admin/AdminRenderer.php:896
+msgid "WordPress"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "What to do when no related posts are found."
+#: src/Admin/AdminRenderer.php:900
+msgid "PHP"
 msgstr ""
 
-#: build/Blocks/related-posts/index.js:1
-msgid "Related posts will appear here on singular post views."
+#: src/Admin/AdminRenderer.php:905
+#: src/Admin/AdminRenderer.php:918
+msgid "Aegis Pro"
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Slider Settings"
+#: src/Admin/AdminRenderer.php:936
+msgid "License Active"
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Type"
+#: src/Admin/AdminRenderer.php:936
+msgid "License Inactive"
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Marquee"
+#: src/Admin/AdminRenderer.php:940
+msgid "Enter your license key to activate Pro features."
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Slides Per Page"
+#: src/Admin/AdminRenderer.php:945
+msgid "Unlock advanced features, integrations, and professional tools."
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Slides Per Move"
+#: src/Admin/AdminRenderer.php:948
+#: src/Admin/AdminRenderer.php:1066
+msgid "Get Aegis Pro"
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Transition Speed (ms)"
+#: src/Admin/AdminRenderer.php:959
+msgid "Unlock the Full Power of Aegis"
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Direction"
+#: src/Admin/AdminRenderer.php:960
+msgid "Aegis Pro extends every block with advanced features, integrations, and professional tools."
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Left to Right"
+#: src/Admin/AdminRenderer.php:967
+msgid "Video Player Pro"
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Right to Left"
+#: src/Admin/AdminRenderer.php:968
+msgid "Chapters, analytics, BunnyCDN streaming, email capture, and LMS integrations."
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Top to Bottom"
+#: src/Admin/AdminRenderer.php:974
+msgid "Advanced Conditionals"
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Height"
+#: src/Admin/AdminRenderer.php:975
+msgid "Cookie, referral, ACF, MetaBox, post meta, and location-based block visibility."
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Required for vertical sliders (e.g. 400px)."
+#: src/Admin/AdminRenderer.php:981
+msgid "Analytics & Tracking"
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-#: build/Blocks/video/index.js:1
-msgid "Autoplay"
+#: src/Admin/AdminRenderer.php:982
+msgid "Per-user tracking, audience retention, buffering stats, and Google Analytics events."
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Enable Autoplay"
+#: src/Admin/AdminRenderer.php:988
+msgid "LMS Integrations"
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Interval (ms)"
+#: src/Admin/AdminRenderer.php:989
+msgid "LearnDash, LifterLMS, and Sensei â€” auto-complete lessons based on video progress."
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Pause on Hover"
+#: src/Admin/AdminRenderer.php:995
+msgid "Map Block Pro"
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Show Arrows"
+#: src/Admin/AdminRenderer.php:996
+msgid "Clustering, directions, store locator, heatmaps, KML/GeoJSON import, and Schema.org."
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Show Dots"
+#: src/Admin/AdminRenderer.php:1002
+msgid "Slider Pro"
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-#: build/Blocks/video/index.js:1
-msgid "Loop"
+#: src/Admin/AdminRenderer.php:1003
+msgid "Autoplay, effects, thumbnails, lightbox, lazy loading, and custom arrow/dot styles."
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Drag"
+#: src/Admin/AdminRenderer.php:1009
+msgid "Toggle Pro"
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Responsive"
+#: src/Admin/AdminRenderer.php:1010
+msgid "URL sync, state persistence, animations, FAQ schema, nested toggles, and conditional visibility."
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Enable Responsive Breakpoints"
+#: src/Admin/AdminRenderer.php:1016
+msgid "Countdown Pro"
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "Automatically reduces slides per page on smaller screens."
+#: src/Admin/AdminRenderer.php:1017
+msgid "Evergreen countdowns, animations, auto-restart, expiry actions, and urgency styling."
 msgstr ""
 
-#: build/Blocks/slider/index.js:1
-msgid "per page"
+#: src/Admin/AdminRenderer.php:1023
+msgid "Modal Pro"
 msgstr ""
 
-#: build/Blocks/toggle-content/index.js:1
-msgid "Toggle content…"
+#: src/Admin/AdminRenderer.php:1024
+msgid "Exit intent, scroll depth, time delay triggers, auto close, show once, and device visibility."
 msgstr ""
 
-#: build/Blocks/toggle/index.js:1
-msgid "Toggle Settings"
+#: src/Admin/AdminRenderer.php:1030
+msgid "Query Loop Pro"
 msgstr ""
 
-#: build/Blocks/toggle/index.js:1
-msgid "Paragraph"
+#: src/Admin/AdminRenderer.php:1031
+msgid "Advanced filtering, custom field queries, date ranges, related posts, and AJAX pagination."
 msgstr ""
 
-#: build/Blocks/toggle/index.js:1
-msgid "Open by Default"
+#: src/Admin/AdminRenderer.php:1037
+msgid "BunnyCDN Streaming"
 msgstr ""
 
-#: build/Blocks/toggle/index.js:1
-msgid "Icon Position"
+#: src/Admin/AdminRenderer.php:1038
+msgid "HLS adaptive streaming, direct upload, AI transcription, thumbnails, and watermarking."
 msgstr ""
 
-#: build/Blocks/toggle/index.js:1
-msgid "Left"
+#: src/Admin/AdminRenderer.php:1044
+msgid "Pattern Control"
 msgstr ""
 
-#: build/Blocks/toggle/index.js:1
-msgid "Right"
+#: src/Admin/AdminRenderer.php:1045
+msgid "Manage default block patterns from plugins. Remove unwanted patterns from the editor."
 msgstr ""
 
-#: build/Blocks/toggle/index.js:1
-msgid "Icon Type"
+#: src/Admin/AdminRenderer.php:1051
+msgid "Custom Code & Fonts"
 msgstr ""
 
-#: build/Blocks/toggle/index.js:1
-msgid "Chevron"
+#: src/Admin/AdminRenderer.php:1052
+msgid "Add custom CSS, JavaScript, and register custom fonts without child themes or extra plugins."
 msgstr ""
 
-#: build/Blocks/toggle/index.js:1
-msgid "Plus/Minus"
+#: src/Admin/AdminRenderer.php:1058
+msgid "Co-Authors Plus"
 msgstr ""
 
-#: build/Blocks/toggle/index.js:1
-msgid "Arrow"
+#: src/Admin/AdminRenderer.php:1059
+msgid "Social links, role badges, and enhanced author displays for multi-author publishing."
 msgstr ""
 
-#: build/Blocks/toggle/index.js:1
-msgid "Animation Duration (ms)"
+#: src/Admin/AdminRenderer.php:1068
+msgid "One-time purchase. Lifetime updates. 14-day money-back guarantee."
 msgstr ""
 
-#: build/Blocks/toggle/index.js:1
-msgid "Allow Multiple Open"
+#: src/Admin/AdminRenderer.php:1075
+msgid "Resources"
 msgstr ""
 
-#: build/Blocks/toggle/index.js:1
-msgid "Allow multiple toggles to be open at the same time."
+#: src/Admin/AdminRenderer.php:1087
+msgid "Support Group"
 msgstr ""
 
-#: build/Blocks/toggle/index.js:1
-msgid "Add FAQPage structured data markup for SEO."
+#: src/Admin/CompanionNotice.php:231
+msgid "Aegis is almost ready!"
 msgstr ""
 
-#: build/Blocks/toggle/index.js:1
-msgid "Toggle heading…"
+#: src/Admin/CompanionNotice.php:233
+msgid "Install the Aegis companion plugin to unlock custom blocks, the settings dashboard, conditionals, hooks, and integrations. The theme works on its own; the plugin adds the full feature set."
 msgstr ""
 
-#: build/Blocks/video/index.js:1
-msgid "Video Settings"
+#: src/Admin/CompanionNotice.php:246
+msgid "Learn more"
 msgstr ""
 
-#: build/Blocks/video/index.js:1
-msgid "Autoplay requires the video to be muted."
+#: src/Admin/CompanionNotice.php:249
+msgid "Dismiss"
 msgstr ""
 
-#: build/Blocks/video/index.js:1
-msgid "Muted"
+#: src/Admin/CompanionNotice.php:337
+msgid "Activate Aegis Plugin"
 msgstr ""
 
-#: build/Blocks/video/index.js:1
-msgid "Show Controls"
+#: src/Admin/CompanionNotice.php:340
+msgid "Install Aegis Plugin"
 msgstr ""
 
-#: build/Blocks/video/index.js:1
-msgid "Plays Inline"
+#: src/Blocks/countdown/render.php:59
+msgid "Countdown timer"
 msgstr ""
 
-#: build/Blocks/video/index.js:1
-msgid "Preload"
+#: src/Blocks/related-posts/render.php:35
+#: src/Blocks/related-posts/render.php:100
+msgid "Related Posts"
 msgstr ""
 
-#: build/Blocks/video/index.js:1
-msgid "Auto"
+#: src/Blocks/slider/render.php:129
+msgid "carousel"
 msgstr ""
 
-#: build/Blocks/video/index.js:1
-msgid "Metadata"
+#: src/Blocks/slider/render.php:130
+msgid "Slider"
 msgstr ""
 
-#: build/Blocks/video/index.js:1
-msgid "Caption"
+#: src/Checkout/MultiStep.php:61
+msgid "Review Order →"
 msgstr ""
 
-#: build/Blocks/video/index.js:1
-msgid "Poster Image"
+#: src/Navigation/Overlay.php:44
+msgid "Slide-in Drawer"
 msgstr ""
 
-#: build/Blocks/video/index.js:1
-msgid "Poster preview"
+#: src/Navigation/Overlay.php:53
+msgid "Slide-in Left"
 msgstr ""
 
-#: build/Blocks/video/index.js:1
-msgid "Replace Poster"
+#: src/Navigation/Overlay.php:62
+msgid "Fullscreen Overlay"
 msgstr ""
 
-#: build/Blocks/video/index.js:1
-msgid "Select Poster"
-msgstr ""
-
-#: build/Blocks/video/index.js:1
-msgid "Remove"
-msgstr ""
-
-#: build/Blocks/video/index.js:1
-msgid "Select Video"
+#: src/Navigation/Overlay.php:71
+msgid "Scroll Overlay"
 msgstr ""
 
 #: src/Editor/video-editor.tsx:1
@@ -9244,4 +8709,8 @@ msgstr ""
 
 #: src/Editor/video-editor.tsx:1
 msgid "Bunny Stream video preview"
+msgstr ""
+
+#: src/Editor/video-editor.tsx:1
+msgid "Video (deprecated)"
 msgstr ""
