@@ -40,7 +40,7 @@
   color: "ff6b6b"
 
 - name: "[Type] Security"
-  description: "Security vulnerability or hardening"
+  description: "Security vulnerability or hardening (use private advisory, not public issues)"
   color: "b60205"
 
 # ---
