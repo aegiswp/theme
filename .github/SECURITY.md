@@ -15,9 +15,10 @@ We actively support and provide security updates for the following branches:
 
 To report a security issue, please follow these steps:
 
-1. **Email**: Send your report to `mail@atmostfear-entertainment.com`
-2. **PGP Key**: Available at `https://www.atmostfear-entertainment.com/aegis/security/pgp` for encrypted communications
-3. **Include**: 
+1. **GitHub Security Advisory (recommended):** [Report a vulnerability](https://github.com/aegiswp/theme/security/advisories/new)
+2. **Email:** Send your report to `mail@atmostfear-entertainment.com`
+3. **PGP Key:** Available at `https://www.atmostfear-entertainment.com/aegis/security/pgp` for encrypted communications
+4. **Include:**
    - Detailed description of the vulnerability
    - Proof of concept or steps to reproduce
    - Potential impact assessment
