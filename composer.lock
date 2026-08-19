@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3fa1f5995e10919cc71fdc782754b319",
+    "content-hash": "cfb822701afbeb175e004fa3e3fdd54c",
     "packages": [
         {
             "name": "aegis/container",
