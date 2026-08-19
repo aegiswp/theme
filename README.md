@@ -467,7 +467,7 @@ Framework styling applies when integrations are enabled in the **Aegis plugin** 
 
 **Framework Architecture**: Built on the Aegis Framework (`vendor/aegis/framework`) with ServiceProvider pattern. Provides a robust foundation for theme development and extensibility.
 
-**Core Block Extensions**: Enhanced core WordPress blocks including advanced Breadcrumbs with taxonomy support. Extends block functionality while maintaining compatibility.
+**Core Block Extensions**: Uses WordPress `core/breadcrumbs` with theme styles, and styles WooCommerce Store Breadcrumbs (`woocommerce/breadcrumbs`) to match. No custom or docs-specific breadcrumbs block.
 
 **Video Editor Extensions**: Advanced video editing capabilities in the block editor. Provides comprehensive video controls and customization options.
 
