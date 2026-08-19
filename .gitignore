@@ -14,6 +14,7 @@ vendor/*
 .vscode/
 .idea/
 .claude/
+.cursor/
 .fleet/
 *.sublime-project
 *.sublime-workspace
@@ -44,19 +45,15 @@ tools/wpaudit/.phpunit.cache/
 bin/
 scripts/
 
-# Audit tool legacy paths (moved to tools/wpaudit)
+# Empty / legacy (not part of theme runtime)
 config/
-src/Analyzers/
-src/Models/
-src/Enums/
-src/Interfaces/
-src/ConfigurationManager.php
-src/DesignSystem/
 
 # Test coverage
 .phpunit.result.cache
 .phpunit.cache/
+.phpcs.cache
 coverage/
+coverage.xml
 *.coverage
 phpunit-report.xml
 
@@ -79,12 +76,10 @@ src/Blocks/*/*-rtl.css
 # Build artifacts — src/Blocks/editor/ (webpack output)
 src/Blocks/editor/
 
-# Build artifacts — src/Admin/build/ (webpack output)
-src/Admin/build/
-
 # Build artifacts — general
 /build/
 /dist/
+/aegis/
 
 # Logs
 *.log
@@ -113,8 +108,6 @@ auth.json
 .stylelintcache
 .pnpm-store/
 /.kiro
-AGENTS.md
-DESIGN.md
-/tests
-docs/_footer.md
-docs/_sidebar.md
+SUBMISSION-NOTES.md
+vendor/aegis/**/tests/
+tools/wpaudit/.github/
