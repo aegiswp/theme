@@ -18,9 +18,13 @@
     "url": "https://github.com/aegiswp/theme/issues"
   },
   "engines": {
-    "node": ">=20.0.0",
-    "npm": ">=9.0.0"
+    "node": ">=20.18.0",
+    "npm": ">=10.0.0"
   },
+  "browserslist": [
+    "extends @wordpress/browserslist-config"
+  ],
+  "prettier": "@wordpress/prettier-config",
   "devDependencies": {
     "@wordpress/element": "^6.46.0",
     "@wordpress/env": "^11.0.0",
@@ -44,10 +48,10 @@
     "uuid": ">=11.0.0"
   },
   "scripts": {
-    "build": "wp-scripts build --webpack-copy-php --blocks-manifest && php tools/generate-blocks-manifest.php",
-    "build:dev": "wp-scripts build --mode=development --webpack-copy-php --blocks-manifest && php tools/generate-blocks-manifest.php",
-    "dev": "wp-scripts start --webpack-copy-php --blocks-manifest",
-    "start": "wp-scripts start --webpack-copy-php --blocks-manifest",
+    "build": "wp-scripts build --webpack-copy-php && php tools/generate-blocks-manifest.php",
+    "build:dev": "wp-scripts build --mode=development --webpack-copy-php && php tools/generate-blocks-manifest.php",
+    "dev": "wp-scripts start --webpack-copy-php",
+    "start": "wp-scripts start --webpack-copy-php",
     "env:start": "wp-env start",
     "env:stop": "wp-env stop",
     "env:restart": "wp-env stop && wp-env start",
@@ -58,8 +62,12 @@
     "lint:js": "wp-scripts lint-js",
     "lint:css": "wp-scripts lint-style",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "lint:php": "composer run standards:check",
     "format": "wp-scripts format",
+    "test": "composer test:php",
     "test:php": "composer test:php",
+    "test:a11y": "pa11y-ci --config .pa11yci.json",
+    "test:a11y:env": "pa11y-ci --config .pa11yci.json http://localhost:8888/",
     "clean": "node tools/clean-build.js",
     "audit-patterns": "wp eval-file tools/audit-patterns.php",
     "audit-patterns:studio": "studio wp eval-file tools/audit-patterns.php",
