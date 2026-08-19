@@ -15,11 +15,20 @@ composer install --no-dev   # Theme Directory / production ZIP
 ```bash
 cd wp-content/themes/aegis
 npm install
-npm run build             # Theme blocks → build/Blocks/
+npm run build             # Theme blocks → src/Blocks/
 npm run dev               # Watch mode
 ```
 
 Builds six theme blocks: countdown, slider, slide, toggle, toggle-content, related-posts.
+
+Compiled block assets in `src/Blocks/` are gitignored; run `npm run build` after clone or when changing block sources.
+
+## Clean
+
+```bash
+npm run clean             # Remove compiled block assets
+make clean                # npm run clean + remove node_modules/ (Git Bash/WSL)
+```
 
 ## Plugin Build
 
