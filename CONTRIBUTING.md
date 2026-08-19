@@ -36,6 +36,24 @@ npm run build
 npm run dev
 ```
 
+## Development Tooling
+
+### Scratch and one-off scripts
+
+- Put disposable probes and migration checks in `tools/scratch/` only (gitignored).
+- Never commit `bin/` at the theme root or one-off scripts in `scripts/`.
+- Promote a script to `tools/` only when it is documented and wired to npm or the Makefile.
+
+### PHP lint and tests
+
+- PHPCS for **all three products** (theme, plugin, pro) runs from the **theme** directory: `composer run standards:check`.
+- The plugin has no root `composer.json` by design.
+- PHPUnit coverage is provided by **wpaudit only**: `composer test:wpaudit` (not a separate `tests/Unit` tree in this repo).
+
+### Vendor sync
+
+When updating `vendor/aegis/*` path repositories in the theme, sync matching packages in Pro `vendor/aegis/` (and `blockify/`, `fieldify/` as applicable) from the same revision before release. Record versions in `CHANGELOG.md`.
+
 ## Development Workflow
 
 ### Branch Strategy
