@@ -3,7 +3,6 @@
 # Keep: templates, parts, patterns markup, theme.json, style.css, functions.php,
 # compiled block JS/CSS, languages, runtime `vendor/`, and theme `assets/`.
 # After changes here, align export-ignore in .gitattributes for `git archive` parity.
-#
 
 # Git / VCS
 
@@ -12,9 +11,15 @@
 .gitignore
 .distignore
 
-# GitHub files
+# GitHub / agent / IDE metadata
 
 .github/
+.claude/
+.cursor/
+.kiro/
+.vscode/
+.idea/
+.fleet/
 
 # Node.js / build tooling
 
@@ -23,8 +28,9 @@ package.json
 package-lock.json
 webpack.config.js
 tsconfig.json
+eslint.config.cjs
 .nvmrc
-\*.code-workspace
+*.code-workspace
 
 # Composer files (vendor/ runtime deps are included; manifest files are not needed by end users)
 
@@ -37,6 +43,9 @@ vendor/*/composer.json
 vendor/*/*/composer.json
 vendor/**/ICONS-REGISTRY.md
 vendor/**/CHANGELOG.md
+vendor/**/README.md
+vendor/**/tests/
+vendor/aegis/**/tests/
 
 # Vendor dev dependencies
 
@@ -45,6 +54,7 @@ vendor/phpunit/
 vendor/giorgiosironi/
 vendor/dealerdirect/
 vendor/phpcsstandards/
+vendor/phpcompatibility/
 vendor/squizlabs/
 vendor/wp-coding-standards/
 vendor/wptrt/
@@ -56,21 +66,21 @@ vendor/wptrt/
 .editorconfig
 .prettierrc
 .stylelintignore
-.typos.toml
 .stylelintrc.json
-eslint.config.cjs
+.typos.toml
 .pa11yci.json
 .env
-.env._
+.env.*
 auth.json
-docker-compose_.yml
-docker-compose\*.yaml
+docker-compose*.yml
+docker-compose*.yaml
 playwright-report/
 test-results/
 
 # Documentation and community files
 
 README.md
+BUILD.md
 INSTRUCTIONS.md
 DESIGN.md
 CHANGELOG.md
@@ -78,6 +88,9 @@ CONTRIBUTING.md
 CONTRIBUTORS.md
 CODE_OF_CONDUCT.md
 SUBMISSION-NOTES.md
+AGENTS.md
+CLAUDE.md
+STUDIO.md
 
 # Development / test tooling
 
@@ -89,13 +102,18 @@ phpunit.xml.dist
 tests/
 .nyc_output/
 coverage/
+coverage.xml
 .phpunit.result.cache
 .phpunit.cache/
-\*.log
+.phpcs.cache
+*.log
 
 # Stray vendor / build temp files
 
-\*.tmp
+*.tmp
+*.temp
+*.bak
+*.backup
 
 # Build artifacts, source maps, and cache
 
@@ -104,8 +122,9 @@ coverage/
 .stylelintcache
 build/
 dist/
-src/Blocks/_/_.js.map
-src/Blocks/_/_.css.map
+aegis/
+src/Blocks/*/*.js.map
+src/Blocks/*/*.css.map
 src/Blocks/editor/
 
 # Audit tool (standalone dev package, not part of theme runtime)
@@ -115,34 +134,15 @@ tools/
 # One-off dev/migration scripts (not part of theme runtime)
 
 bin/
-
-# Dev-only Node maintenance scripts (not part of theme runtime)
-
 scripts/
-
-# Legacy audit source paths (not part of the theme runtime)
-
-src/Analyzers/
-src/Models/
-src/Enums/
-src/Interfaces/
-src/ConfigurationManager.php
-src/DesignSystem/
 
 # Block source files (only compiled output needed)
 
-src/Blocks/_/index.tsx
-src/Blocks/_/edit.tsx
-src/Blocks/_/save.tsx
-src/Blocks/_/view.ts
-src/Blocks/\*/style.scss
-src/Editor/
-
-# Admin block/webpack sources (compiled output lives in src/Admin/build/)
-
-src/Admin/index.js
-src/Admin/js/
-src/Admin/css/
+src/Blocks/*/index.tsx
+src/Blocks/*/edit.tsx
+src/Blocks/*/save.tsx
+src/Blocks/*/view.ts
+src/Blocks/*/style.scss
 
 # Docs
 
