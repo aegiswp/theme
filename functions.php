@@ -25,29 +25,6 @@ require_once __DIR__ . '/vendor/autoload.php';
 // Pattern files call these helpers during registration on `init`.
 require_once __DIR__ . '/src/helpers.php';
 
-// Theme-owned register_block_pattern bridge (see src/BlockPatterns.php).
-require_once __DIR__ . '/src/BlockPatterns.php';
-
-add_action(
-	'init',
-	static function (): void {
-		load_theme_textdomain( 'aegis', get_template_directory() . '/languages' );
-	},
-);
-
-add_action(
-	'init',
-	static function (): void {
-		Aegis::register( __FILE__ );
-	},
-);
-
 // Theme-level classes are bootstrapped via Composer files autoload (src/bootstrap.php).
-
-// Ensure title-tag support is explicitly declared (SEO).
-add_action(
-	'after_setup_theme',
-	function () {
-		add_theme_support( 'title-tag' );
-	}
-);
+// Register the framework immediately so after_setup_theme and init annotations attach in time.
+Aegis::register( __FILE__ );
