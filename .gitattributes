@@ -4,6 +4,8 @@
 # Force LF for code files
 *.php text eol=lf
 *.js text eol=lf
+*.cjs text eol=lf
+*.mjs text eol=lf
 *.ts text eol=lf
 *.tsx text eol=lf
 *.css text eol=lf
@@ -14,9 +16,13 @@
 *.yaml text eol=lf
 *.xml text eol=lf
 *.md text eol=lf
-*.txt text eol=lf
 *.sh text eol=lf
 *.toml text eol=lf
+Makefile text eol=lf
+
+# WordPress.org readme.txt historically uses CRLF
+*.txt text eol=crlf
+readme.txt text eol=crlf
 
 # Force CRLF for Windows-specific files
 *.bat text eol=crlf
@@ -37,9 +43,13 @@
 *.ttf binary
 *.otf binary
 *.eot binary
+*.mo binary
 
 # Export ignore (files not included in git archive / distribution)
 /.github export-ignore
+/.claude export-ignore
+/.cursor export-ignore
+/.kiro export-ignore
 /docs export-ignore
 /config export-ignore
 /tools export-ignore
@@ -47,14 +57,10 @@
 /scripts export-ignore
 /build export-ignore
 /dist export-ignore
+/aegis export-ignore
 /.eslintcache export-ignore
 /.stylelintcache export-ignore
-/src/Analyzers export-ignore
-/src/Models export-ignore
-/src/Enums export-ignore
-/src/Interfaces export-ignore
-/src/DesignSystem export-ignore
-/src/Editor export-ignore
+/.phpcs.cache export-ignore
 /src/Blocks/editor export-ignore
 src/Blocks/*/*.js.map export-ignore
 src/Blocks/*/*.css.map export-ignore
@@ -89,14 +95,21 @@ vendor/*/composer.json export-ignore
 vendor/*/*/composer.json export-ignore
 vendor/**/ICONS-REGISTRY.md export-ignore
 vendor/**/CHANGELOG.md export-ignore
+vendor/**/README.md export-ignore
 README.md export-ignore
+BUILD.md export-ignore
 INSTRUCTIONS.md export-ignore
 SUBMISSION-NOTES.md export-ignore
+vendor/aegis/**/tests/ export-ignore
+tools/wpaudit/.github/ export-ignore
 DESIGN.md export-ignore
 CHANGELOG.md export-ignore
 CONTRIBUTING.md export-ignore
 CONTRIBUTORS.md export-ignore
 CODE_OF_CONDUCT.md export-ignore
+AGENTS.md export-ignore
+CLAUDE.md export-ignore
+STUDIO.md export-ignore
 
 # Dev-only and tooling (align with .distignore for `git archive` / source exports)
 .nvmrc export-ignore
@@ -109,6 +122,8 @@ tests/ export-ignore
 patterns/README.txt export-ignore
 .phpunit.result.cache export-ignore
 .phpunit.cache/ export-ignore
+coverage/ export-ignore
+coverage.xml export-ignore
 *.log export-ignore
 auth.json export-ignore
 playwright-report/ export-ignore
@@ -116,3 +131,5 @@ test-results/ export-ignore
 *.code-workspace export-ignore
 docker-compose*.yml export-ignore
 docker-compose*.yaml export-ignore
+.env export-ignore
+.env.* export-ignore
