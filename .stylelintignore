@@ -2,11 +2,11 @@ node_modules/**
 vendor/**
 tools/**
 build/**
+dist/**
+aegis/**
 assets/**
 style.css
-src/*/css/**
 src/Blocks/**/*.css
 src/Blocks/**/style-*.css
-src/Admin/build/**
 *.min.css
 *-rtl.css
