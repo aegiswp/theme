@@ -1,16 +1,37 @@
 /**
- * Webpack configuration for the theme
+ * Webpack configuration for the theme.
  *
- * Uses `@wordpress/scripts` defaults. `entry` is empty because custom block
- * sources that ship with this repository are built by the same toolchain when
- * entries are added under `src/Blocks` (see package `build` / `start` scripts).
+ * Extends `@wordpress/scripts` defaults:
+ * - Discovers block.json entries under `src/` (countdown, slider, slide, toggle,
+ *   toggle-content, related-posts).
+ * - Emits compiled block assets in place under `src/Blocks/` so `file:` paths
+ *   in block.json resolve next to the source `block.json`.
  *
- * Extend `entry` here when you introduce theme-only scripts or styles that need
- * compilation outside the framework package.
+ * `output.clean` is disabled because the output directory is the live `src/`
+ * tree (PHP, SCSS, and TS sources must not be deleted on build).
  *
  * @package
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/
  */
+
+const path = require( 'path' );
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 
-module.exports = defaultConfig;
+/**
+ * Keep wp-scripts defaults but emit into the live `src/` tree.
+ *
+ * @param {import('webpack').Configuration} config Default wp-scripts config.
+ * @return {import('webpack').Configuration} Theme webpack config.
+ */
+const withThemeOutput = ( config ) => ( {
+	...config,
+	output: {
+		...config.output,
+		path: path.resolve( __dirname, 'src' ),
+		clean: false,
+	},
+} );
+
+module.exports = Array.isArray( defaultConfig )
+	? defaultConfig.map( withThemeOutput )
+	: withThemeOutput( defaultConfig );
