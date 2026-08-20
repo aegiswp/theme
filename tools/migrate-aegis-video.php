@@ -2,10 +2,13 @@
 /**
  * Migrate aegis/video blocks to core/video in post content.
  *
- * Usage: wp eval-file wp-content/themes/aegis/tools/migrate-aegis-video.php
+ * Usage: npm run migrate:video
+ * Studio: npm run migrate:video:studio
  *
  * @package Aegis
  */
+
+declare( strict_types=1 );
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -19,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return string
  */
 function aegis_migrate_video_block_content( string $content ): string {
-	if ( ! has_blocks( $content ) || false === strpos( $content, 'wp:aegis/video' ) ) {
+	if ( ! has_blocks( $content ) || ! str_contains( $content, 'wp:aegis/video' ) ) {
 		return $content;
 	}
 
@@ -80,7 +83,7 @@ $query = new WP_Query(
 foreach ( $query->posts as $post_id ) {
 	$content = (string) get_post_field( 'post_content', $post_id );
 
-	if ( false === strpos( $content, 'wp:aegis/video' ) ) {
+	if ( ! str_contains( $content, 'wp:aegis/video' ) ) {
 		continue;
 	}
 

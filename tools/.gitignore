@@ -1,0 +1,7 @@
+# Local-only. Maintained scripts in this directory are tracked; these paths are not.
+scratch/
+wpaudit/vendor/
+wpaudit/.phpunit.cache/
+wpaudit/coverage/
+wpaudit/.github/
+wpaudit/audit-report.html

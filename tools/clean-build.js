@@ -23,7 +23,6 @@ const rm = ( target ) => {
 	'build',
 	'dist',
 	'aegis',
-	'src/Admin/build',
 	'src/Blocks/editor',
 	'.eslintcache',
 	'.stylelintcache',

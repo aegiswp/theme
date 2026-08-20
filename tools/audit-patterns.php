@@ -2,10 +2,13 @@
 /**
  * Pattern / template / block reference audit for Aegis.
  *
- * Run: studio wp eval-file wp-content/themes/aegis/tools/audit-patterns.php
+ * Run: npm run audit-patterns
+ * Studio: npm run audit-patterns:studio
  *
  * @package Aegis
  */
+
+declare( strict_types=1 );
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 1 );
@@ -21,10 +24,8 @@ function aegis_audit_pattern_files(): array {
 	$files = [];
 	$roots = [
 		get_template_directory() . '/patterns',
-		WP_PLUGIN_DIR . '/aegis/patterns/woocommerce',
-		WP_PLUGIN_DIR . '/aegis/patterns/wishlist',
-		WP_PLUGIN_DIR . '/aegis-pro/patterns/aegis',
-		WP_PLUGIN_DIR . '/aegis-pro/patterns/slider',
+		WP_PLUGIN_DIR . '/aegis/patterns',
+		WP_PLUGIN_DIR . '/aegis-pro/patterns',
 	];
 
 	foreach ( $roots as $root ) {
@@ -42,15 +43,6 @@ function aegis_audit_pattern_files(): array {
 				}
 				$files[] = $file->getPathname();
 			}
-		}
-	}
-
-	foreach ( [ WP_PLUGIN_DIR . '/aegis-pro/patterns/utility' ] as $utility_dir ) {
-		if ( ! is_dir( $utility_dir ) ) {
-			continue;
-		}
-		foreach ( glob( $utility_dir . '/*.php' ) ?: [] as $file ) {
-			$files[] = $file;
 		}
 	}
 

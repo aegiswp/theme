@@ -16,6 +16,6 @@ if ( ! fs.existsSync( potFile ) ) {
 let content = fs.readFileSync( potFile, 'utf8' );
 content = content.replaceAll(
 	'#: build/Editor/video-editor.js:1',
-	'#: src/Editor/video-editor.tsx:1'
+	'#: ../../plugins/aegis/assets/editor/build/video-editor.tsx.js:1'
 );
 fs.writeFileSync( potFile, content );

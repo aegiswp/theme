@@ -1,25 +1,33 @@
 # Theme development tools
 
-Utility scripts for building, translating, auditing, and migrating the Aegis theme. These files are tracked in Git for contributors but **excluded from the WordPress.org release zip** (see `.distignore`).
+Utility scripts for building, translating, auditing, and migrating the Aegis theme. Maintained files are tracked on GitHub for contributors. The whole `tools/` tree is **excluded from the WordPress.org release zip** (`.distignore` and `.gitattributes` `export-ignore`).
 
-## Tracked scripts (maintained)
+## GitHub vs local vs zip
 
-| Script | Purpose |
-|--------|---------|
-| `generate-blocks-manifest.php` | Post-build block manifest (`npm run build`) |
-| `clean-build.js` | Remove build artifacts (`npm run clean`) |
-| `prepare-translate.js` / `finish-translate.js` | POT generation helpers (`npm run translate`) |
-| `audit-patterns.php` | Pattern slug, block, and template validation |
-| `migrate-aegis-video.php` | Migrate legacy `aegis/video` blocks to `core/video` |
-| `wpaudit/` | WPAudit PHPUnit suite (CI via `composer test:wpaudit`) |
+| Path | GitHub | Why |
+|------|--------|-----|
+| `generate-blocks-manifest.php` | Yes | `npm run build` |
+| `clean-build.js` | Yes | `npm run clean` |
+| `prepare-translate.js` / `finish-translate.js` | Yes | `npm run translate` |
+| `audit-patterns.php` | Yes | `npm run audit-patterns` |
+| `migrate-aegis-video.php` | Yes | `npm run migrate:video` |
+| `README.md`, `.gitignore` | Yes | Contributor docs / ignore rules |
+| `wpaudit/src/`, `wpaudit/tests/`, `wpaudit/composer.json`, `wpaudit/composer.lock` | Yes | CI PHPUnit suite |
+| `wpaudit/phpunit.xml`, `wpaudit/phpcs.xml`, `wpaudit/phpstan.neon` | Yes | Package quality config |
+| `wpaudit/config/.wpauditrc.example.json`, `wpaudit/config/.wpauditrc.schema.json` | Yes | Optional audit config examples |
+| `scratch/` | **No** | Local probes (gitignored) |
+| `wpaudit/vendor/` | **No** | `composer install --working-dir=tools/wpaudit` in CI |
+| `wpaudit/.phpunit.cache/`, `wpaudit/coverage/` | **No** | Test caches / coverage output |
+| `wpaudit/.github/` | **No** | Nested workflows not used |
 
 ## Commands
 
 ```bash
-make audit-patterns          # or: npm run audit-patterns
+make audit-patterns             # or: npm run audit-patterns
 npm run audit-patterns:studio   # WordPress Studio sites
-npm run translate            # Regenerate languages/aegis.pot
-composer test:wpaudit          # Run WPAudit unit tests
+npm run translate               # Regenerate languages/aegis.pot
+npm run migrate:video           # Legacy aegis/video → core/video
+composer test:wpaudit           # Run WPAudit unit tests
 ```
 
 See `docs/development/tools.md` for full usage.

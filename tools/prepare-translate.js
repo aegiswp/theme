@@ -2,8 +2,8 @@
  * Prepare compiled JS assets for `wp i18n make-pot`.
  *
  * WP-CLI scans JavaScript but not TypeScript. Block sources under `src/Blocks`
- * compile to `build/Blocks`, and the video editor extension ships from the
- * companion plugin build output.
+ * compile in place, and the companion plugin `core/video` editor extension
+ * ships from `plugins/aegis/assets/editor/build/`.
  *
  * @package
  */
@@ -26,9 +26,9 @@ const pluginEditorSource = path.resolve(
 	'video-editor.tsx.js'
 );
 
-if ( ! fs.existsSync( path.join( themeRoot, 'build', 'Blocks' ) ) ) {
+if ( ! fs.existsSync( path.join( themeRoot, 'src', 'Blocks' ) ) ) {
 	console.warn(
-		'Warning: build/Blocks not found. Run `npm run build` before translate so block editor strings are included.'
+		'Warning: src/Blocks not found. Run `npm run build` before translate so block editor strings are included.'
 	);
 }
 
