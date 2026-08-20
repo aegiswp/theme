@@ -37,15 +37,14 @@ eslint.config.cjs
 composer.json
 composer.lock
 
-# Nested vendor package metadata (runtime uses vendor/composer/autoload; keep LICENSE files)
+# Audit tool (standalone dev package, not part of theme runtime).
+# `tools/` drops the whole contributor tree; `tools/wpaudit/` and
+# `vendor/aegis/wpaudit/` are listed so a Composer path-package copy
+# cannot land in the installable zip.
 
-vendor/*/composer.json
-vendor/*/*/composer.json
-vendor/**/ICONS-REGISTRY.md
-vendor/**/CHANGELOG.md
-vendor/**/README.md
-vendor/**/tests/
-vendor/aegis/**/tests/
+tools/
+tools/wpaudit/
+vendor/aegis/wpaudit/
 
 # Vendor dev dependencies
 
