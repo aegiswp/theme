@@ -36,10 +36,18 @@ patterns/.*
 *.bak
 *.backup
 
-# Dev tooling (not part of theme runtime; release zip excludes tools/ via .distignore)
+# Dev tooling — maintained scripts under tools/ ARE tracked (see tools/README.md).
+# Do not upload: local probes, Composer install output, caches, or the duplicate
+# path-package copy Composer writes to vendor/aegis/wpaudit/.
 tools/scratch/
 tools/wpaudit/vendor/
 tools/wpaudit/.phpunit.cache/
+tools/wpaudit/coverage/
+tools/wpaudit/.github/
+tools/wpaudit/audit-report.html
+.wpauditrc.json
+# Composer installs the tools/wpaudit path package here; source of truth is tools/wpaudit/.
+vendor/aegis/wpaudit/
 
 # One-off dev/migration scripts (not part of theme runtime)
 bin/
