@@ -107,6 +107,13 @@ jobs:
           test -f "$THEME_SLUG/screenshot.png"
           test -d "$THEME_SLUG/src/Blocks"
 
+          # WPAudit and other contributor tools must never ship in the theme zip.
+          if [ -e "$THEME_SLUG/tools" ] || [ -e "$THEME_SLUG/vendor/aegis/wpaudit" ]; then
+            echo "::error::Installable zip must not include tools/ or vendor/aegis/wpaudit (WPAudit is GitHub-only)."
+            find "$THEME_SLUG" \( -path '*/tools/*' -o -path '*/wpaudit/*' \) | head
+            exit 1
+          fi
+
           echo "Files in dist: $(find "$THEME_SLUG" -type f | wc -l)"
           zip -r "${THEME_SLUG}.zip" "$THEME_SLUG"
           unzip -l "${THEME_SLUG}.zip" | head -n 20 | grep -q "aegis/style.css"
