@@ -22,7 +22,7 @@ jobs:
     timeout-minutes: 2
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Search for misspellings
         uses: crate-ci/typos@v1.28.4
