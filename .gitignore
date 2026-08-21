@@ -10,6 +10,13 @@ vendor/*
 !vendor/aegis/
 !vendor/aegis/**
 
+# Re-ignore generated/dev paths inside tracked first-party packages.
+vendor/aegis/**/tests/
+vendor/aegis/**/node_modules/
+vendor/aegis/**/vendor/
+vendor/aegis/**/.phpunit.cache/
+vendor/aegis/wpaudit/
+
 # IDE
 .vscode/
 .idea/
@@ -37,8 +44,8 @@ patterns/.*
 *.backup
 
 # Dev tooling — maintained scripts under tools/ ARE tracked (see tools/README.md).
-# Do not upload: local probes, Composer install output, caches, or the duplicate
-# path-package copy Composer writes to vendor/aegis/wpaudit/.
+# Do not upload: local probes, Composer install output, caches.
+# WPAudit lives only in tools/wpaudit/; ignore a leftover vendor copy.
 tools/scratch/
 tools/wpaudit/vendor/
 tools/wpaudit/.phpunit.cache/
@@ -46,10 +53,9 @@ tools/wpaudit/coverage/
 tools/wpaudit/.github/
 tools/wpaudit/audit-report.html
 .wpauditrc.json
-# Composer installs the tools/wpaudit path package here; source of truth is tools/wpaudit/.
-vendor/aegis/wpaudit/
 
-# One-off dev/migration scripts (not part of theme runtime)
+# One-off dev/migration scripts (not part of theme runtime).
+# Unanchored `bin/` also matches vendor/bin/ (Composer binaries) — intentional.
 bin/
 scripts/
 
@@ -117,5 +123,3 @@ auth.json
 .pnpm-store/
 /.kiro
 SUBMISSION-NOTES.md
-vendor/aegis/**/tests/
-tools/wpaudit/.github/
