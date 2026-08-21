@@ -31,8 +31,9 @@ aegis/
 │   └── Checkout/          WooCommerce multi-step checkout assets
 ├── styles/                Style variation JSON files (dark mode, etc.)
 ├── templates/             FSE page templates (.html)
-├── tests/Unit/            PHPUnit test files
 ├── tools/                 Dev utilities (build, translate, audit, migration; see tools/README.md)
+│   ├── scratch/           Local-only probes (gitignored)
+│   └── wpaudit/           WPAudit PHPUnit suite (CI)
 ├── theme.json             Design system — single source of truth for all tokens
 ├── style.css              WordPress theme header + minimal global CSS
 ├── functions.php          Theme bootstrap: autoloader, framework registration, hooks
@@ -147,6 +148,7 @@ Store header patterns with mini-cart blocks require WooCommerce and the companio
 | `npm run translate` | Same POT via `wp i18n make-pot` (requires `wp` on PATH) |
 | `npm run translate:studio` | Same POT via `studio wp i18n make-pot` (Studio sites on Windows) |
 | `make audit-patterns` | Validates pattern slugs, blocks, templates (`tools/audit-patterns.php`; also `npm run audit-patterns`) |
+| `make migrate-video` | Migrates legacy `aegis/video` post content to `core/video` (`npm run migrate:video`) |
 | `make clean` | Removes all build artefacts including `aegis/` dist dir |
 | `make validate` | Validates `theme.json` JSON syntax |
 
@@ -175,7 +177,7 @@ All workflows live in `.github/workflows/`. Key rules:
 The installable theme zip is built by `release.yml` using `rsync --exclude-from=.distignore`. Key exclusions:
 
 - `node_modules/`, `vendor/bin/`, dev-only vendor packages
-- `tests/`, `tools/`, `bin/`, `.kiro/`, `.github/`, `.claude/`
+- `tests/`, `tools/` (including `tools/wpaudit/`), `bin/`, `.kiro/`, `.github/`, `.claude/`
 - Source maps, TypeScript/SCSS source files, build config files
 
 The `vendor/` runtime (autoloader + `enshrined/svg-sanitize` + `psr/container`) **is included** in the zip. Run `composer install --no-dev` before packaging.
