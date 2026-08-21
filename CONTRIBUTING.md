@@ -352,7 +352,8 @@ The released package includes:
 The package excludes:
 
 - ✗ Development dependencies
-- ✗ Tests and testing utilities
+- ✗ Tests and testing utilities (`tools/wpaudit/`, `tests/`)
+- ✗ Contributor tools (`tools/`)
 - ✗ Source maps and dev tools
 - ✗ Git history and configuration
 - ✗ Node modules
