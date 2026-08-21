@@ -1,4 +1,4 @@
-.PHONY: help install build dev lint lint-php test translate clean validate audit-patterns
+.PHONY: help install build dev lint lint-php test translate clean validate audit-patterns migrate-video
 
 help: ## Show this help message
 	@echo 'Usage: make [target]'
@@ -39,3 +39,6 @@ validate: ## Validate theme.json syntax
 
 audit-patterns: ## Validate pattern slugs, blocks, and templates
 	npm run audit-patterns
+
+migrate-video: ## Migrate legacy aegis/video post content to core/video
+	npm run migrate:video
