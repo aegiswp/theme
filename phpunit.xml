@@ -8,9 +8,7 @@
          failOnRisky="true"
          beStrictAboutOutputDuringTests="true">
     <!--
-    Theme-level PHPUnit config for tests under tests/Unit.
-
-    The WPAudit suite is the current CI runner:
+    Theme-level PHPUnit config. The WPAudit suite is the current CI runner:
       composer test:wpaudit
       tools/wpaudit/phpunit.xml
     -->
