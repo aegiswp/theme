@@ -37,26 +37,45 @@ eslint.config.cjs
 composer.json
 composer.lock
 
-# Audit tool (standalone dev package, not part of theme runtime).
-# `tools/` drops the whole contributor tree; `tools/wpaudit/` and
-# `vendor/aegis/wpaudit/` are listed so a Composer path-package copy
-# cannot land in the installable zip.
+# Nested vendor package metadata (runtime uses vendor/composer/autoload; keep LICENSE files)
+
+vendor/*/composer.json
+vendor/*/*/composer.json
+vendor/**/ICONS-REGISTRY.md
+vendor/**/CHANGELOG.md
+vendor/**/README.md
+vendor/**/tests/
+vendor/aegis/**/tests/
+
+# Audit tool (standalone, not theme runtime). `tools/` excludes the
+# contributor tree; `vendor/aegis/wpaudit/` is a leftover-path guard.
 
 tools/
 tools/wpaudit/
 vendor/aegis/wpaudit/
 
-# Vendor dev dependencies
+# Vendor dev dependencies (safety net if a zip is built without --no-dev)
 
 vendor/bin/
-vendor/phpunit/
-vendor/giorgiosironi/
 vendor/dealerdirect/
-vendor/phpcsstandards/
+vendor/giorgiosironi/
+vendor/myclabs/
+vendor/nikic/
+vendor/phar-io/
 vendor/phpcompatibility/
+vendor/phpcsstandards/
+vendor/phpunit/
+vendor/sebastian/
 vendor/squizlabs/
+vendor/theseer/
 vendor/wp-coding-standards/
 vendor/wptrt/
+
+# Nested install/cache inside first-party path packages (not theme runtime)
+
+vendor/aegis/**/node_modules/
+vendor/aegis/**/vendor/
+vendor/aegis/**/.phpunit.cache/
 
 # Editor, lint, env
 
@@ -125,10 +144,6 @@ aegis/
 src/Blocks/*/*.js.map
 src/Blocks/*/*.css.map
 src/Blocks/editor/
-
-# Audit tool (standalone dev package, not part of theme runtime)
-
-tools/
 
 # One-off dev/migration scripts (not part of theme runtime)
 
