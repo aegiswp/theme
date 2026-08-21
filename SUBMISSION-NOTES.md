@@ -6,7 +6,7 @@ Target release: **29 May 2026** · **Tested up to: 7.0** · **Requires at least:
 
 - [x] Add **`screenshot.png`** (1200×900) at theme root — present at `screenshot.png`.
 - [ ] Run Theme Check plugin on a clean install (WordPress 7.0+, PHP 8.1+).
-- [ ] Run `composer run standards:check` (requires `composer install` in theme dir; `aegis/wpaudit` is optional via `composer run test:wpaudit` when `tools/wpaudit` exists).
+- [ ] Run `composer run standards:check` (requires `composer install` in theme dir). Run `composer run test:wpaudit` when `tools/wpaudit` is present.
 - [ ] Build distributable zip (`.distignore` / release workflow) and confirm zip contains:
   - `assets/fonts/*.woff2` + `OFL.txt`
   - `src/Blocks/*` compiled JS/CSS + `block.json` + `render.php`
