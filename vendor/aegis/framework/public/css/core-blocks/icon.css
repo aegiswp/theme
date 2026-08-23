@@ -1,0 +1,38 @@
+.wp-block-icon {
+	line-height: 1;
+}
+
+.wp-block-icon svg {
+	width: var(--wp--custom--icon--size, 1.5em);
+	height: var(--wp--custom--icon--size, 1.5em);
+}
+
+.wp-block-icon.has-gradient::after {
+	content: "";
+	display: inline-block;
+	position: relative;
+	background: var(--wp--custom--icon--color, currentColor);
+	height: var(--wp--custom--icon--size, 1.5em);
+	width: var(--wp--custom--icon--size, 1.5em);
+	vertical-align: text-bottom;
+	-webkit-mask-image: var(--wp--custom--icon--url);
+	-webkit-mask-position: center;
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-size: cover !important;
+	mask-image: var(--wp--custom--icon--url);
+	mask-position: center;
+	mask-repeat: no-repeat;
+	mask-size: cover;
+}
+
+.wp-block-icon.has-gradient svg {
+	display: none;
+}
+
+.wp-block-icon.has-animation {
+	will-change: transform, opacity;
+}
+
+a>.wp-block-icon {
+	display: inline-block;
+}
