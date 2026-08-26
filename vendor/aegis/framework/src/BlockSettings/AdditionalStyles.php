@@ -17,20 +17,19 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for block settings.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for additional styles block setting.
+declare( strict_types=1 );
 
-// Declares the namespace for block settings within the Aegis Framework.
+// Declares the namespace for the additional styles block setting.
 namespace Aegis\Framework\BlockSettings;
 
-// Imports utility classes and interfaces for DOM manipulation and renderable blocks.
+// Imports classes, interfaces, and functions used by the additional styles block setting.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
 use function rtrim;
 
-// Implements the AdditionalStyles class to support custom block styling.
 
 /**
  * Handles the "Additional Styles" block setting.
@@ -42,8 +41,7 @@ use function rtrim;
  * @package Aegis\Framework\BlockSettings
  * @since   1.0.0
  */
-class AdditionalStyles implements Renderable
-{
+class AdditionalStyles implements Renderable {
 
 	/**
 	 * Renders the block with additional custom CSS.
@@ -63,30 +61,29 @@ class AdditionalStyles implements Renderable
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render(string $block_content, array $block, WP_Block $instance): string
-	{
-		$attrs = $block['attrs'] ?? [];
+	public function render( string $block_content, array $block, WP_Block $instance ): string {
+		$attrs             = $block['attrs'] ?? [];
 		$additional_styles = $attrs['additionalStyles'] ?? '';
 
 		// If there are no additional styles, do nothing.
-		if (!$additional_styles) {
+		if ( ! $additional_styles ) {
 			return $block_content;
 		}
 
-		$dom = DOM::create($block_content);
-		$first = DOM::get_element('*', $dom);
+		$dom   = DOM::create( $block_content );
+		$first = DOM::get_element( '*', $dom );
 
 		// If no wrapper element is found, do nothing.
-		if (!$first) {
+		if ( ! $first ) {
 			return $block_content;
 		}
 
 		// Get the existing inline styles and ensure it ends with a semicolon.
-		$style = $first->getAttribute('style');
-		$style = $style ? rtrim($style, ';') . ';' : '';
+		$style = $first->getAttribute( 'style' );
+		$style = $style ? rtrim( $style, ';' ) . ';' : '';
 
 		// Append the new, minified styles.
-		$first->setAttribute('style', $style . CSS::minify($additional_styles));
+		$first->setAttribute( 'style', $style . CSS::minify( $additional_styles ) );
 
 		return $dom->saveHTML();
 	}
