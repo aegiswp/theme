@@ -17,13 +17,13 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for list block.
+declare( strict_types=1 );
 
-// Declares the namespace for core blocks within the Aegis Framework.
+// Declares the namespace for the list block.
 namespace Aegis\Framework\CoreBlocks;
 
-// Imports utility classes and interfaces for DOM manipulation, CSS helpers, and renderable blocks.
+// Imports classes, interfaces, and functions used by the list block.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
@@ -33,7 +33,6 @@ use function esc_attr;
 use function explode;
 use function str_replace;
 
-// Implements the ListBlock class to support list block rendering.
 
 /**
  * Handles the rendering of the core/list block.
@@ -44,8 +43,7 @@ use function str_replace;
  * @package Aegis\Framework\CoreBlocks
  * @since   1.0.0
  */
-class ListBlock implements Renderable
-{
+class ListBlock implements Renderable {
 
 	/**
 	 * Renders the list block with custom enhancements.
@@ -65,8 +63,7 @@ class ListBlock implements Renderable
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render(string $block_content, array $block, WP_Block $instance): string
-	{
+	public function render( string $block_content, array $block, WP_Block $instance ): string {
 
 		// Pre-emptive fix for a potential issue where URLs might be malformed.
 		$block_content = str_replace(
@@ -75,45 +72,45 @@ class ListBlock implements Renderable
 			$block_content
 		);
 
-		$dom = DOM::create($block_content);
-		$ul = DOM::get_element('ul', $dom);
-		$ol = DOM::get_element('ol', $dom);
+		$dom = DOM::create( $block_content );
+		$ul  = DOM::get_element( 'ul', $dom );
+		$ol  = DOM::get_element( 'ol', $dom );
 
 		// Target the `<ul>` or `<ol>` element. If neither exists, do nothing.
 		$list = $ul ?? $ol;
-		if (!$list) {
+		if ( ! $list ) {
 			return $block_content;
 		}
 
-		$attrs = $block['attrs'] ?? [];
-		$block_gap = $attrs['style']['spacing']['blockGap'] ?? null;
+		$attrs           = $block['attrs'] ?? [];
+		$block_gap       = $attrs['style']['spacing']['blockGap'] ?? null;
 		$justify_content = $attrs['layout']['justifyContent'] ?? '';
-		$margin = $attrs['style']['spacing']['margin'] ?? [];
-		$styles = CSS::string_to_array($list->getAttribute('style'));
+		$margin          = $attrs['style']['spacing']['margin'] ?? [];
+		$styles          = CSS::string_to_array( $list->getAttribute( 'style' ) );
 
 		// Apply custom gap between list items.
-		if ('0' === $block_gap || $block_gap) {
-			$styles['gap'] = CSS::format_custom_property($block_gap);
+		if ( '0' === $block_gap || $block_gap ) {
+			$styles['gap'] = CSS::format_custom_property( $block_gap );
 		}
 
 		// If `justifyContent` is set, convert the list to a flex container.
-		if ($justify_content) {
-			$styles['display'] = 'flex';
-			$styles['flex-wrap'] = 'wrap';
-			$styles['justify-content'] = esc_attr($justify_content);
+		if ( $justify_content ) {
+			$styles['display']         = 'flex';
+			$styles['flex-wrap']       = 'wrap';
+			$styles['justify-content'] = esc_attr( $justify_content );
 		}
 
 		// Apply custom margins.
-		$styles = CSS::add_shorthand_property($styles, 'margin', $margin);
+		$styles = CSS::add_shorthand_property( $styles, 'margin', $margin );
 
-		if ($styles) {
-			$list->setAttribute('style', CSS::array_to_string($styles));
+		if ( $styles ) {
+			$list->setAttribute( 'style', CSS::array_to_string( $styles ) );
 		}
 
 		// Ensure the `wp-block-list` class is present.
-		$classes = explode(' ', $list->getAttribute('class'));
-		array_unshift($classes, 'wp-block-list');
-		$list->setAttribute('class', implode(' ', $classes));
+		$classes = explode( ' ', $list->getAttribute( 'class' ) );
+		array_unshift( $classes, 'wp-block-list' );
+		$list->setAttribute( 'class', implode( ' ', $classes ) );
 
 		return $dom->saveHTML();
 	}
