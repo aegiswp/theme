@@ -17,19 +17,18 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for post date block.
+declare( strict_types=1 );
 
-// Declares the namespace for core blocks within the Aegis Framework.
+// Declares the namespace for the post date block.
 namespace Aegis\Framework\CoreBlocks;
 
-// Imports utility classes and interfaces for DOM manipulation, CSS helpers, and renderable blocks.
+// Imports classes, interfaces, and functions used by the post date block.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
 
-// Implements the PostDate class to support post date block rendering.
 
 /**
  * Handles the rendering of the core/post-date block.
@@ -40,8 +39,7 @@ use WP_Block;
  * @package Aegis\Framework\CoreBlocks
  * @since   1.0.0
  */
-class PostDate implements Renderable
-{
+class PostDate implements Renderable {
 
 	/**
 	 * Renders the post-date block with custom margins.
@@ -60,21 +58,20 @@ class PostDate implements Renderable
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render(string $block_content, array $block, WP_Block $instance): string
-	{
+	public function render( string $block_content, array $block, WP_Block $instance ): string {
 		$margin = $block['attrs']['style']['spacing']['margin'] ?? null;
 
 		// Only proceed if a margin value is set.
-		if ($margin) {
-			$dom = DOM::create($block_content);
-			$div = DOM::get_element('div', $dom);
+		if ( $margin ) {
+			$dom = DOM::create( $block_content );
+			$div = DOM::get_element( 'div', $dom );
 
 			// If the wrapper div is found, apply the styles.
-			if ($div) {
-				$styles = CSS::string_to_array($div->getAttribute('style'));
-				$styles = CSS::add_shorthand_property($styles, 'margin', $margin);
+			if ( $div ) {
+				$styles = CSS::string_to_array( $div->getAttribute( 'style' ) );
+				$styles = CSS::add_shorthand_property( $styles, 'margin', $margin );
 
-				$div->setAttribute('style', CSS::array_to_string($styles));
+				$div->setAttribute( 'style', CSS::array_to_string( $styles ) );
 
 				$block_content = $dom->saveHTML();
 			}
