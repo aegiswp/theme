@@ -17,13 +17,14 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for post content block.
+declare( strict_types=1 );
 
-// Declares the namespace for core blocks within the Aegis Framework.
+// Declares the namespace for the post content block.
 namespace Aegis\Framework\CoreBlocks;
 
-// Imports utility classes and interfaces for DOM manipulation, CSS helpers, and renderable blocks.
+// Imports classes, interfaces, and functions used by the post content block.
+use Aegis\Framework\Traits\InjectionPoints;
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
@@ -32,7 +33,6 @@ use WP_Block;
 use function intval;
 use function method_exists;
 
-// Implements the PostContent class to support post content block rendering.
 
 /**
  * Handles the rendering of the core/post-content block.
@@ -43,8 +43,9 @@ use function method_exists;
  * @package Aegis\Framework\CoreBlocks
  * @since   1.0.0
  */
-class PostContent implements Renderable
-{
+class PostContent implements Renderable {
+
+	use InjectionPoints;
 
 	/**
 	 * Renders the post-content block with custom enhancements.
@@ -64,24 +65,23 @@ class PostContent implements Renderable
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render(string $block_content, array $block, WP_Block $instance): string
-	{
-		$attrs = $block['attrs'] ?? [];
-		$margin = $attrs['style']['spacing']['margin'] ?? [];
+	public function render( string $block_content, array $block, WP_Block $instance ): string {
+		$attrs   = $block['attrs'] ?? [];
+		$margin  = $attrs['style']['spacing']['margin'] ?? [];
 		$padding = $attrs['style']['spacing']['padding'] ?? [];
 
 		// --- Apply Custom Spacing ---
-		if (!empty($margin) || !empty($padding)) {
-			$dom = DOM::create($block_content);
-			$div = DOM::get_element('div', $dom);
+		if ( ! empty( $margin ) || ! empty( $padding ) ) {
+			$dom = DOM::create( $block_content );
+			$div = DOM::get_element( 'div', $dom );
 
-			if ($div && method_exists($div, 'getAttribute')) {
-				$styles = CSS::string_to_array($div->getAttribute('style'));
-				$styles = CSS::add_shorthand_property($styles, 'margin', $margin);
-				$styles = CSS::add_shorthand_property($styles, 'padding', $padding);
+			if ( $div && method_exists( $div, 'getAttribute' ) ) {
+				$styles = CSS::string_to_array( $div->getAttribute( 'style' ) );
+				$styles = CSS::add_shorthand_property( $styles, 'margin', $margin );
+				$styles = CSS::add_shorthand_property( $styles, 'padding', $padding );
 
-				if ($styles) {
-					$div->setAttribute('style', CSS::array_to_string($styles));
+				if ( $styles ) {
+					$div->setAttribute( 'style', CSS::array_to_string( $styles ) );
 				}
 
 				$block_content = $dom->saveHTML();
@@ -89,34 +89,42 @@ class PostContent implements Renderable
 		}
 
 		// --- Content Limiting Feature ---
-		$limit = intval($attrs['contentLimit'] ?? 0);
+		$limit = intval( $attrs['contentLimit'] ?? 0 );
 
-		// If no limit is set, return the content as is.
-		if (!$limit) {
-			return $block_content;
+		// If no limit is set, wrap with content injection hooks.
+		if ( ! $limit ) {
+			return $this->wrap_with_injection_hooks(
+				'aegis_before_content',
+				'aegis_after_content',
+				$block_content
+			);
 		}
 
 		// WARNING: This implementation is brittle. It counts all text nodes,
 		// including whitespace, and removes them, which can leave empty HTML tags.
-		$dom = DOM::create($block_content);
-		$xpath = new DOMXPath($dom);
-		$nodes = $xpath->query('//text()');
+		$dom   = DOM::create( $block_content );
+		$xpath = new DOMXPath( $dom );
+		$nodes = $xpath->query( '//text()' );
 		$index = 0;
 
-		foreach ($nodes as $node) {
+		foreach ( $nodes as $node ) {
 			// If we are past the text node limit, remove the node.
-			if ($index > $limit) {
-				$node->parentNode->removeChild($node);
+			if ( $index > $limit ) {
+				$node->parentNode->removeChild( $node );
 			}
 
 			// Clean up nodes that are now empty.
-			if ($node->parentNode && !$node->textContent) {
-				$node->parentNode->removeChild($node);
+			if ( $node->parentNode && ! $node->textContent ) {
+				$node->parentNode->removeChild( $node );
 			}
 
 			$index++;
 		}
 
-		return $dom->saveHTML();
+		return $this->wrap_with_injection_hooks(
+			'aegis_before_content',
+			'aegis_after_content',
+			$dom->saveHTML()
+		);
 	}
 }
