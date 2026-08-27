@@ -17,13 +17,13 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for blocks variations.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for icon block variation.
+declare( strict_types=1 );
 
-// Declares the namespace for block variations within the Aegis Framework.
+// Declares the namespace for the icon block variation.
 namespace Aegis\Framework\BlockVariations;
 
-// Imports utility classes and interfaces for DOM manipulation, CSS helpers, responsive settings, and renderable blocks.
+// Imports classes, interfaces, and functions used by the icon block variation.
 use Aegis\Framework\ServiceProvider;
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
@@ -42,7 +42,6 @@ use function str_replace;
 use function sanitize_key;
 use function wp_list_pluck;
 
-// Implements the Icon class to support icon block rendering.
 
 /**
  * Handles the rendering of the "Icon" block variation.
@@ -96,12 +95,26 @@ class Icon implements Renderable
 	 */
 	public function render(string $block_content, array $block, WP_Block $instance): string
 	{
+		// Legacy image icon variation only (core/icon is handled by CoreBlocks\Icon).
+		if ( ( $block['blockName'] ?? '' ) !== 'core/image' ) {
+			return $block_content;
+		}
+
 		// Check if block is enabled in admin settings.
 		if ( ! ServiceProvider::is_block_enabled( 'icon' ) ) {
 			return $block_content;
 		}
 
 		$attrs = $block['attrs'] ?? [];
+		$classes = $attrs['className'] ?? '';
+
+		if (
+			! ( ( $attrs['iconSet'] ?? null ) && ( $attrs['iconName'] ?? null ) )
+			&& empty( $attrs['iconSvgString'] )
+			&& ! str_contains( $classes, 'is-style-icon' )
+		) {
+			return $block_content;
+		}
 		$set = $attrs['iconSet'] ?? null;
 		$name = $attrs['iconName'] ?? null;
 		$svg_string = $attrs['iconSvgString'] ?? null;
@@ -111,9 +124,7 @@ class Icon implements Renderable
 			return $block_content;
 		}
 
-		// --- Special "All Icons" Gallery Mode ---
-		// If the block has the `all-icons` class, render a grid of all available icons in the set.
-		$classes = $attrs['className'] ?? '';
+		// --- Special "All Icons" Gallery Mode (legacy core/image only) ---
 		if (str_contains($classes, 'all-icons')) {
 			return $this->render_all_icons($set ?? 'wordpress');
 		}
