@@ -17,19 +17,18 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for buttons block.
+declare( strict_types=1 );
 
-// Declares the namespace for core blocks within the Aegis Framework.
+// Declares the namespace for the buttons block.
 namespace Aegis\Framework\CoreBlocks;
 
-// Imports utility classes and interfaces for DOM manipulation, CSS helpers, and renderable blocks.
+// Imports classes, interfaces, and functions used by the buttons block.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
 
-// Implements the Buttons class to support button group block rendering.
 
 /**
  * Handles the rendering of the core/buttons block (the button group container).
@@ -40,8 +39,7 @@ use WP_Block;
  * @package Aegis\Framework\CoreBlocks
  * @since   1.0.0
  */
-class Buttons implements Renderable
-{
+class Buttons implements Renderable {
 
 	/**
 	 * Renders the buttons block container with custom spacing.
@@ -60,25 +58,24 @@ class Buttons implements Renderable
 	 *
 	 * @return string The modified block content with custom spacing applied.
 	 */
-	public function render(string $block_content, array $block, WP_Block $instance): string
-	{
-		$attrs = $block['attrs'] ?? [];
-		$margin = $attrs['style']['spacing']['margin'] ?? [];
+	public function render( string $block_content, array $block, WP_Block $instance ): string {
+		$attrs   = $block['attrs'] ?? [];
+		$margin  = $attrs['style']['spacing']['margin'] ?? [];
 		$padding = $attrs['style']['spacing']['padding'] ?? [];
 
 		// Only modify the block if there are custom margin or padding values.
-		if ($margin || $padding) {
+		if ( $margin || $padding ) {
 			// Create a DOM object from the block content.
-			$dom = DOM::create($block_content);
-			$div = DOM::get_element('div', $dom);
+			$dom = DOM::create( $block_content );
+			$div = DOM::get_element( 'div', $dom );
 
 			// If the main wrapper div is found, apply the styles.
-			if ($div) {
-				$styles = CSS::string_to_array($div->getAttribute('style'));
-				$styles = CSS::add_shorthand_property($styles, 'margin', $margin);
-				$styles = CSS::add_shorthand_property($styles, 'padding', $padding);
+			if ( $div ) {
+				$styles = CSS::string_to_array( $div->getAttribute( 'style' ) );
+				$styles = CSS::add_shorthand_property( $styles, 'margin', $margin );
+				$styles = CSS::add_shorthand_property( $styles, 'padding', $padding );
 
-				$div->setAttribute('style', CSS::array_to_string($styles));
+				$div->setAttribute( 'style', CSS::array_to_string( $styles ) );
 
 				// Save the modified HTML back to the block_content variable.
 				$block_content = $dom->saveHTML();
