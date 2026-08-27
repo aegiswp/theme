@@ -17,13 +17,13 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for columns block.
+declare( strict_types=1 );
 
-// Declares the namespace for core blocks within the Aegis Framework.
+// Declares the namespace for the columns block.
 namespace Aegis\Framework\CoreBlocks;
 
-// Imports utility classes and interfaces for DOM manipulation, CSS helpers, and renderable blocks.
+// Imports classes, interfaces, and functions used by the columns block.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
@@ -32,7 +32,6 @@ use function array_unique;
 use function count;
 use function explode;
 
-// Implements the Columns class to support columns block rendering.
 
 /**
  * Handles the rendering of the core/columns block.
@@ -46,8 +45,7 @@ use function explode;
  * @package Aegis\Framework\CoreBlocks
  * @since   1.0.0
  */
-class Columns implements Renderable
-{
+class Columns implements Renderable {
 
 	/**
 	 * Renders the columns block with additional attributes and classes.
@@ -65,42 +63,41 @@ class Columns implements Renderable
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render(string $block_content, array $block, WP_Block $instance): string
-	{
+	public function render( string $block_content, array $block, WP_Block $instance ): string {
 		$attrs = $block['attrs'] ?? [];
 
 		// Create a DOM object from the block content.
-		$dom = DOM::create($block_content);
-		$div = DOM::get_element('div', $dom);
+		$dom = DOM::create( $block_content );
+		$div = DOM::get_element( 'div', $dom );
 
 		// If the main wrapper div is not found, return the original content.
-		if (!$div) {
+		if ( ! $div ) {
 			return $block_content;
 		}
 
-		$classes = explode(' ', $div->getAttribute('class'));
-		$styles = CSS::string_to_array($div->getAttribute('style'));
+		$classes = explode( ' ', $div->getAttribute( 'class' ) );
+		$styles  = CSS::string_to_array( $div->getAttribute( 'style' ) );
 
 		// Apply custom margins from block attributes.
 		$margin = $attrs['style']['spacing']['margin'] ?? null;
-		if ($margin) {
-			$styles = CSS::add_shorthand_property($styles, 'margin', $margin);
+		if ( $margin ) {
+			$styles = CSS::add_shorthand_property( $styles, 'margin', $margin );
 		}
 
 		// Add a class based on whether the columns are set to stack on mobile.
-		$stacked = $attrs['isStackedOnMobile'] ?? true;
+		$stacked   = $attrs['isStackedOnMobile'] ?? true;
 		$classes[] = $stacked ? 'is-stacked-on-mobile' : 'is-not-stacked-on-mobile';
 
 		// Count the number of inner blocks (columns).
-		$column_count = (string) count($block['innerBlocks'] ?? 0);
+		$column_count = (string) count( $block['innerBlocks'] ?? 0 );
 
 		// Add the column count as a data attribute and a CSS custom property.
-		$div->setAttribute('data-columns', $column_count);
+		$div->setAttribute( 'data-columns', $column_count );
 		$styles['--columns'] = $column_count;
 
 		// Apply the updated styles and classes back to the wrapper div.
-		$div->setAttribute('style', CSS::array_to_string($styles));
-		$div->setAttribute('class', implode(' ', array_unique($classes)));
+		$div->setAttribute( 'style', CSS::array_to_string( $styles ) );
+		$div->setAttribute( 'class', implode( ' ', array_unique( $classes ) ) );
 
 		// Return the modified HTML.
 		return $dom->saveHTML();
