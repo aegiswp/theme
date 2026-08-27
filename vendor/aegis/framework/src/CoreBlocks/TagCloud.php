@@ -17,23 +17,20 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
+// Enforces strict type checking for all code in this file, ensuring type safety for tag cloud block.
 declare( strict_types=1 );
 
-// Declares the namespace for core blocks within the Aegis Framework.
+// Declares the namespace for the tag cloud block.
 namespace Aegis\Framework\CoreBlocks;
 
-// Imports utility classes and interfaces for DOM manipulation, renderable blocks, and WordPress helpers.
+// Imports classes, interfaces, and functions used by the tag cloud block.
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
 use function esc_attr;
 use function implode;
 
-// Implements the TagCloud class to support tag cloud block rendering.
-
-class TagCloud implements Renderable
-{
+class TagCloud implements Renderable {
 
 	/**
 	 * Modifies front end HTML output of block.
@@ -48,20 +45,21 @@ class TagCloud implements Renderable
 	 *
 	 * @return string
 	 */
-	public function render(string $block_content, array $block, WP_Block $instance): string
-	{
-		$smallest = esc_attr($block['attrs']['smallestFontSize'] ?? '1em');
-		$largest = esc_attr($block['attrs']['largestFontSize'] ?? '1em');
-		$dom = DOM::create($block_content);
-		$paragraph = DOM::get_element('p', $dom);
+	public function render( string $block_content, array $block, WP_Block $instance ): string {
+		// Read font size bounds from block attributes.
+		$smallest  = esc_attr( $block['attrs']['smallestFontSize'] ?? '1em' );
+		$largest   = esc_attr( $block['attrs']['largestFontSize'] ?? '1em' );
+		$dom       = DOM::create( $block_content );
+		$paragraph = DOM::get_element( 'p', $dom );
 
+		// Enforce a minimum font size using the largest configured value.
 		$paragraph->setAttribute(
 			'style',
 			implode(
 				';',
 				[
 					'font-size:max(' . $smallest . ',' . $largest . ')',
-					$paragraph->getAttribute('style'),
+					$paragraph->getAttribute( 'style' ),
 				]
 			)
 		);
