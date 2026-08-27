@@ -17,32 +17,26 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
+// Enforces strict type checking for all code in this file, ensuring type safety for query title block.
 declare( strict_types=1 );
 
-// Declares the namespace for core blocks within the Aegis Framework.
+// Declares the namespace for the query title block.
 namespace Aegis\Framework\CoreBlocks;
 
-// Imports utility classes and interfaces for DOM manipulation, CSS helpers, renderable blocks, and WordPress helpers.
+// Imports classes, interfaces, and functions used by the query title block.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
 use Aegis\Utilities\Block;
 use WP_Block;
-use function absint;
 use function esc_attr;
 use function esc_html;
 use function get_option;
 use function implode;
-use function in_array;
 use function is_front_page;
 use function is_home;
-use function sanitize_html_class;
 
-// Implements the QueryTitle class to support query title block rendering.
-
-class QueryTitle implements Renderable
-{
+class QueryTitle implements Renderable {
 
 	/**
 	 * Renders the Archive Title block.
@@ -56,23 +50,25 @@ class QueryTitle implements Renderable
 	 * @return string
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
+		// Return early when WordPress already rendered the title.
 		if ( $block_content ) {
 			return $block_content;
 		}
 
 		$is_preview = Block::is_rendering_preview();
 
+		// Only render on the posts index or in the editor preview.
 		if ( ( ! is_home() && ! $is_preview ) || is_front_page() ) {
 			return $block_content;
 		}
 
-		// QT3: Validate page_for_posts as a positive integer.
-		$page_for_posts = absint( get_option( 'page_for_posts' ) );
+		$page_for_posts = get_option( 'page_for_posts' );
 
 		if ( ! $page_for_posts && ! $is_preview ) {
 			return '';
 		}
 
+		// Build or locate the heading element.
 		$dom = DOM::create( $block_content );
 		$h1  = DOM::get_element( 'h1', $dom );
 
@@ -80,6 +76,7 @@ class QueryTitle implements Renderable
 			$h1 = DOM::create_element( 'h1', $dom );
 		}
 
+		// Apply alignment and color classes from block attributes.
 		$classes = [
 			'wp-block-query-title',
 		];
@@ -87,20 +84,19 @@ class QueryTitle implements Renderable
 		$attrs      = $block['attrs'] ?? [];
 		$text_align = $attrs['textAlign'] ?? null;
 
-		// QT1: Validate text-align against allowlist instead of esc_attr.
-		if ( $text_align && in_array( $text_align, [ 'left', 'center', 'right' ], true ) ) {
-			$classes[] = 'has-text-align-' . $text_align;
+		if ( $text_align ) {
+			$classes[] = 'has-text-align-' . esc_attr( $text_align );
 		}
 
 		$text_color = $attrs['textColor'] ?? null;
 
-		// QT2: Sanitize color slug with sanitize_html_class.
 		if ( $text_color ) {
-			$classes[] = 'has-' . sanitize_html_class( $text_color ) . '-color';
+			$classes[] = 'has-' . esc_attr( $text_color ) . '-color';
 		}
 
 		$h1->setAttribute( 'class', implode( ' ', $classes ) );
 
+		// Apply margin and padding from block attributes.
 		$styles  = DOM::get_styles( $h1 );
 		$margin  = $attrs['style']['spacing']['margin'] ?? [];
 		$padding = $attrs['style']['spacing']['padding'] ?? [];
@@ -109,6 +105,7 @@ class QueryTitle implements Renderable
 
 		DOM::add_styles( $h1, $styles );
 
+		// Set title text from the posts page or preview placeholder.
 		$title = $is_preview ? esc_html__( 'Archive', 'aegis' ) : get_the_title( $page_for_posts );
 
 		$h1->nodeValue = esc_html( $title );
