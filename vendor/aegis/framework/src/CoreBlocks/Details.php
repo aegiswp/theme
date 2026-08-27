@@ -17,13 +17,13 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for details block.
+declare( strict_types=1 );
 
-// Declares the namespace for core blocks within the Aegis Framework.
+// Declares the namespace for the details block.
 namespace Aegis\Framework\CoreBlocks;
 
-// Imports utility classes and interfaces for DOM manipulation, CSS helpers, scripts, and renderable blocks.
+// Imports classes, interfaces, and functions used by the details block.
 use Aegis\Framework\InlineAssets\Scriptable;
 use Aegis\Framework\InlineAssets\Scripts;
 use Aegis\Dom\CSS;
@@ -32,7 +32,6 @@ use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
 use function explode;
 
-// Implements the Details class to support details block rendering.
 
 /**
  * Handles the rendering and assets for the core/details block.
@@ -45,8 +44,7 @@ use function explode;
  * @package Aegis\Framework\CoreBlocks
  * @since   1.0.0
  */
-class Details implements Renderable, Scriptable
-{
+class Details implements Renderable, Scriptable {
 
 	/**
 	 * Renders the details block with custom icon styles and padding.
@@ -66,50 +64,49 @@ class Details implements Renderable, Scriptable
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render(string $block_content, array $block, WP_Block $instance): string
-	{
-		$dom = DOM::create($block_content);
-		$details = DOM::get_element('details', $dom);
+	public function render( string $block_content, array $block, WP_Block $instance ): string {
+		$dom     = DOM::create( $block_content );
+		$details = DOM::get_element( 'details', $dom );
 
-		if (!$details) {
+		if ( ! $details ) {
 			return $block_content;
 		}
 
-		$summary = DOM::get_element('summary', $details);
-		$attrs = $block['attrs'] ?? [];
-		$padding = $attrs['style']['spacing']['padding'] ?? [];
+		$summary     = DOM::get_element( 'summary', $details );
+		$attrs       = $block['attrs'] ?? [];
+		$padding     = $attrs['style']['spacing']['padding'] ?? [];
 		$expand_icon = $attrs['expandIcon'] ?? '';
-		$classes = explode(' ', $details->getAttribute('class'));
+		$classes     = explode( ' ', $details->getAttribute( 'class' ) );
 
 		// Add a class to the <details> element based on the selected icon style.
-		if (!$expand_icon || 'chevron' === $expand_icon) {
+		if ( ! $expand_icon || 'chevron' === $expand_icon ) {
 			$classes[] = 'is-style-chevron';
 		}
-		if ('plus' === $expand_icon) {
+		if ( 'plus' === $expand_icon ) {
 			$classes[] = 'is-style-plus';
 		}
-		if ('circle' === $expand_icon) {
+		if ( 'circle' === $expand_icon ) {
 			$classes[] = 'is-style-circle';
 		}
 
-		$details->setAttribute('class', implode(' ', $classes));
+		$details->setAttribute( 'class', implode( ' ', $classes ) );
 
 		// Apply custom padding to the <summary> element.
-		if ($summary && $padding) {
-			$summary_styles = CSS::string_to_array($summary->getAttribute('style'));
+		if ( $summary && $padding ) {
+			$summary_styles = CSS::string_to_array( $summary->getAttribute( 'style' ) );
 
 			// Apply padding from attributes.
-			$summary_styles['padding-top'] = $padding['top'] ?? '';
+			$summary_styles['padding-top']    = $padding['top'] ?? '';
 			$summary_styles['padding-bottom'] = $padding['bottom'] ?? '';
-			$summary_styles['padding-left'] = $padding['left'] ?? '';
+			$summary_styles['padding-left']   = $padding['left'] ?? '';
 
 			// Apply negative margins to counteract the padding, ensuring the element's
 			// outer dimensions remain unchanged, which prevents layout shifts.
-			$summary_styles['margin-top'] = 'calc(0px - ' . ($padding['top'] ?? '') . ')';
-			$summary_styles['margin-bottom'] = 'calc(0px - ' . ($padding['bottom'] ?? '') . ')';
-			$summary_styles['margin-left'] = 'calc(0px - ' . ($padding['left'] ?? '') . ')';
+			$summary_styles['margin-top']    = 'calc(0px - ' . ( $padding['top'] ?? '' ) . ')';
+			$summary_styles['margin-bottom'] = 'calc(0px - ' . ( $padding['bottom'] ?? '' ) . ')';
+			$summary_styles['margin-left']   = 'calc(0px - ' . ( $padding['left'] ?? '' ) . ')';
 
-			$summary->setAttribute('style', CSS::array_to_string($summary_styles));
+			$summary->setAttribute( 'style', CSS::array_to_string( $summary_styles ) );
 		}
 
 		return $dom->saveHTML();
@@ -125,8 +122,7 @@ class Details implements Renderable, Scriptable
 	 *
 	 * @param Scripts $scripts The script manager instance.
 	 */
-	public function scripts(Scripts $scripts): void
-	{
-		$scripts->add_file('details.js', ['wp-block-details']);
+	public function scripts( Scripts $scripts ): void {
+		$scripts->add_file( 'details.js', [ 'wp-block-details' ] );
 	}
 }
