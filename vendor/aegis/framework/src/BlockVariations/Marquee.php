@@ -17,23 +17,19 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for blocks variations.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for marquee block variation.
+declare( strict_types=1 );
 
-// Declares the namespace for block variations within the Aegis Framework.
+// Declares the namespace for the marquee block variation.
 namespace Aegis\Framework\BlockVariations;
 
-// Imports utility classes and interfaces for DOM manipulation, CSS helpers, and renderable blocks.
-use Aegis\Framework\ServiceProvider;
+// Imports classes, interfaces, and functions used by the marquee block variation.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
-use function absint;
 use function is_array;
-use function min;
 
-// Implements the Marquee class to support marquee block rendering.
 
 /**
  * Handles the "Marquee" layout variation for the core/group block.
@@ -46,8 +42,7 @@ use function min;
  * @package Aegis\Framework\BlockVariations
  * @since   1.0.0
  */
-class Marquee implements Renderable
-{
+class Marquee implements Renderable {
 
 	/**
 	 * Renders the group block as a marquee.
@@ -67,81 +62,68 @@ class Marquee implements Renderable
 	 *
 	 * @return string The modified block content, structured for a marquee effect.
 	 */
-	public function render(string $block_content, array $block, WP_Block $instance): string
-	{
-		// Check if block is enabled in admin settings.
-		if ( ! ServiceProvider::is_block_enabled( 'marquee' ) ) {
-			return $block_content;
-		}
-
-		$attrs = $block['attrs'] ?? [];
+	public function render( string $block_content, array $block, WP_Block $instance ): string {
+		$attrs       = $block['attrs'] ?? [];
 		$orientation = $attrs['layout']['orientation'] ?? '';
 
 		// Only run on Group blocks with the "marquee" orientation.
-		if ('marquee' !== $orientation) {
+		if ( 'marquee' !== $orientation ) {
 			return $block_content;
 		}
 
-		$dom = DOM::create($block_content);
-		$first = DOM::get_element('*', $dom); // The main group block wrapper.
-		if (!$first) {
+		$dom   = DOM::create( $block_content );
+		$first = DOM::get_element( '*', $dom ); // The main group block wrapper.
+		if ( ! $first ) {
 			return $block_content;
 		}
 
 		// --- Prepare Styles and Wrapper ---
-		// Validate and cap repeat count to prevent excessive DOM cloning.
-		$repeat = min(absint($attrs['repeatItems'] ?? 2), 10);
-		$wrap = DOM::create_element('div', $dom); // The new inner wrapper for the scrolling items.
-		$styles = CSS::string_to_array($first->getAttribute('style'));
-		$classes = array_diff(explode(' ', $first->getAttribute('class')), ['is-marquee']);
+		$repeat  = $attrs['repeatItems'] ?? 2;
+		$wrap    = DOM::create_element( 'div', $dom ); // The new inner wrapper for the scrolling items.
+		$styles  = CSS::string_to_array( $first->getAttribute( 'style' ) );
+		$classes = array_diff( explode( ' ', $first->getAttribute( 'class' ) ), [ 'is-marquee' ] );
 
 		// Apply blockGap as a CSS custom property for the marquee gap.
 		$gap = $attrs['style']['spacing']['blockGap'] ?? null;
-		if ($gap || '0' === $gap) {
-			if (is_array($gap)) {
+		if ( $gap || '0' === $gap ) {
+			if ( is_array( $gap ) ) {
 				$gap = $gap['horizontal'] ?? $gap['left'] ?? $gap['right'] ?? null;
 			}
-			if ($gap) {
-				$styles['--marquee-gap'] = CSS::format_custom_property($gap);
+			if ( $gap ) {
+				$styles['--marquee-gap'] = CSS::format_custom_property( $gap );
 			}
 		}
 
-		$first->setAttribute('class', implode(' ', $classes));
-		$first->setAttribute('style', CSS::array_to_string($styles));
-		$wrap->setAttribute('class', 'is-marquee');
-		// Accessibility: identify the scrolling region for assistive technology.
-		$wrap->setAttribute('role', 'marquee');
-		$wrap->setAttribute('aria-roledescription', 'scrolling content');
+		$first->setAttribute( 'class', implode( ' ', $classes ) );
+		$first->setAttribute( 'style', CSS::array_to_string( $styles ) );
+		$wrap->setAttribute( 'class', 'is-marquee' );
 
 		// --- Clone and Append Items ---
-		// Collect child nodes into a static array first to avoid live NodeList mutation bugs.
-		$children = [];
-		foreach ($first->childNodes as $child) {
-			if ($child && method_exists($child, 'setAttribute')) {
-				$children[] = $child;
+		$count = $first->childNodes->count();
+		for ( $i = 0; $i < $count; $i++ ) {
+			$item = $first->childNodes->item( $i );
+			if ( ! $item || ! method_exists( $item, 'setAttribute' ) ) {
+				continue;
 			}
-		}
-		foreach ($children as $item) {
+
 			// Move the original item into the new marquee wrapper.
-			$wrap->appendChild($item);
+			$wrap->appendChild( $item );
 
 			// Create multiple clones of the item to create the infinite scroll effect.
-			for ($j = 0; $j < $repeat; $j++) {
-				$clone = DOM::node_to_element($item->cloneNode(true));
-				if (!$clone) {
+			for ( $j = 0; $j < $repeat; $j++ ) {
+				$clone = DOM::node_to_element( $item->cloneNode( true ) );
+				if ( ! $clone ) {
 					continue;
 				}
-				$clone_classes = explode(' ', $clone->getAttribute('class'));
+				$clone_classes   = explode( ' ', $clone->getAttribute( 'class' ) );
 				$clone_classes[] = 'is-cloned';
-				$clone->setAttribute('class', implode(' ', $clone_classes));
-				// Accessibility: hide cloned items from screen readers.
-				$clone->setAttribute('aria-hidden', 'true');
-				$wrap->appendChild($clone);
+				$clone->setAttribute( 'class', implode( ' ', $clone_classes ) );
+				$wrap->appendChild( $clone );
 			}
 		}
 
 		// Insert the new wrapper containing all original and cloned items into the main group block.
-		$first->insertBefore($wrap, $first->firstChild);
+		$first->insertBefore( $wrap, $first->firstChild );
 
 		return $dom->saveHTML();
 	}
