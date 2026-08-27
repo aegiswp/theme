@@ -17,14 +17,13 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for blocks variations.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for counter block variation.
+declare( strict_types=1 );
 
-// Declares the namespace for block variations within the Aegis Framework.
+// Declares the namespace for the counter block variation.
 namespace Aegis\Framework\BlockVariations;
 
-// Imports utility classes and interfaces for asset management, DOM manipulation, and renderable blocks.
-use Aegis\Framework\ServiceProvider;
+// Imports classes, interfaces, and functions used by the counter block variation.
 use Aegis\Framework\InlineAssets\Scriptable;
 use Aegis\Framework\InlineAssets\Scripts;
 use Aegis\Dom\DOM;
@@ -32,11 +31,8 @@ use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
 use function esc_attr;
 use function esc_html;
-use function is_string;
-use function in_array;
 use function trim;
 
-// Implements the Counter class to support counter block rendering and scripting.
 
 /**
  * Handles the "Counter" style variation for the core/paragraph block.
@@ -48,8 +44,7 @@ use function trim;
  * @package Aegis\Framework\BlockVariations
  * @since   1.0.0
  */
-class Counter implements Renderable, Scriptable
-{
+class Counter implements Renderable, Scriptable {
 
 	/**
 	 * Renders the paragraph block with data attributes for the counter animation.
@@ -69,53 +64,27 @@ class Counter implements Renderable, Scriptable
 	 *
 	 * @return string The modified block content with data attributes.
 	 */
-	public function render(string $block_content, array $block, WP_Block $instance): string
-	{
-		// Check if block is enabled in admin settings.
-		if ( ! ServiceProvider::is_block_enabled( 'counter' ) ) {
-			return $block_content;
-		}
-
+	public function render( string $block_content, array $block, WP_Block $instance ): string {
 		$counter = $block['attrs']['style']['counter'] ?? '';
 
-		if (!$counter) {
+		if ( ! $counter ) {
 			return $block_content;
 		}
 
-		$dom = DOM::create($block_content);
-		$p = DOM::get_element('p', $dom);
+		$dom = DOM::create( $block_content );
+		$p   = DOM::get_element( 'p', $dom );
 
-		if (!$p) {
+		if ( ! $p ) {
 			return $block_content;
 		}
-
-		// Allowlist of valid counter data attributes to prevent arbitrary attribute injection.
-		$allowed_attrs = ['start', 'end', 'delay', 'duration', 'prefix', 'suffix'];
 
 		// Loop through the counter settings and apply them as data attributes.
-		foreach ($counter as $attribute => $value) {
-			if (!in_array($attribute, $allowed_attrs, true)) {
-				continue;
-			}
-			$p->setAttribute("data-$attribute", esc_attr((string) $value));
-		}
-
-		// Add accessibility attributes for screen readers.
-		$p->setAttribute('aria-live', 'polite');
-		if (isset($counter['end'])) {
-			$label = '';
-			if (isset($counter['prefix'])) {
-				$label .= (string) $counter['prefix'];
-			}
-			$label .= (string) $counter['end'];
-			if (isset($counter['suffix'])) {
-				$label .= (string) $counter['suffix'];
-			}
-			$p->setAttribute('aria-label', esc_attr($label));
+		foreach ( $counter as $attribute => $value ) {
+			$p->setAttribute( "data-$attribute", esc_attr( $value ) );
 		}
 
 		// Ensure the text content is trimmed and properly escaped.
-		$p->textContent = esc_html(trim($p->textContent));
+		$p->textContent = esc_html( trim( $p->textContent ) );
 
 		return $dom->saveHTML();
 	}
@@ -131,8 +100,7 @@ class Counter implements Renderable, Scriptable
 	 *
 	 * @param Scripts $scripts The Scripts service instance.
 	 */
-	public function scripts(Scripts $scripts): void
-	{
-		$scripts->add_file('counter.js', ['is-style-counter']);
+	public function scripts( Scripts $scripts ): void {
+		$scripts->add_file( 'counter.js', [ 'is-style-counter' ] );
 	}
 }
