@@ -17,23 +17,23 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
+// Enforces strict type checking for all code in this file, ensuring type safety for template part block.
 declare( strict_types=1 );
 
-// Declares the namespace for core blocks within the Aegis Framework.
+// Declares the namespace for the template part block.
 namespace Aegis\Framework\CoreBlocks;
 
-// Imports utility classes and interfaces for DOM manipulation, CSS helpers, renderable blocks, and WordPress helpers.
+// Imports classes, interfaces, and functions used by the template part block.
+use Aegis\Framework\Traits\InjectionPoints;
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
 use function esc_attr;
 
-// Implements the TemplatePart class to support template part block rendering.
+class TemplatePart implements Renderable {
 
-class TemplatePart implements Renderable
-{
+	use InjectionPoints;
 
 	/**
 	 * Modifies the template part block.
@@ -48,63 +48,76 @@ class TemplatePart implements Renderable
 	 *
 	 * @return string
 	 */
-	public function render(string $block_content, array $block, WP_Block $instance): string
-	{
-		$dom = DOM::create($block_content);
-		$first = DOM::get_element('*', $dom);
+	public function render( string $block_content, array $block, WP_Block $instance ): string {
+		// Parse block HTML and locate the root element.
+		$dom   = DOM::create( $block_content );
+		$first = DOM::get_element( '*', $dom );
 
-		if (!$first) {
+		if ( ! $first ) {
 			return $block_content;
 		}
 
-		$attrs = $block['attrs'] ?? [];
-		$styles = CSS::string_to_array($first->getAttribute('style'));
-		$color = $attrs['style']['color'] ?? [];
+		// Apply background and text colors from block attributes.
+		$attrs  = $block['attrs'] ?? [];
+		$styles = CSS::string_to_array( $first->getAttribute( 'style' ) );
+		$color  = $attrs['style']['color'] ?? [];
 
-		if (isset($color['background'])) {
-			$styles['background'] = esc_attr($color['background']);
+		if ( isset( $color['background'] ) ) {
+			$styles['background'] = esc_attr( $color['background'] );
 		}
 
-		if (isset($attrs['backgroundColor'])) {
-			$styles['background'] = 'var(--wp--preset--color--' . esc_attr($attrs['backgroundColor']) . ')';
+		if ( isset( $attrs['backgroundColor'] ) ) {
+			$styles['background'] = 'var(--wp--preset--color--' . esc_attr( $attrs['backgroundColor'] ) . ')';
 		}
 
-		if (isset($color['gradient'])) {
-			$styles['background'] = esc_attr($color['gradient']);
+		if ( isset( $color['gradient'] ) ) {
+			$styles['background'] = esc_attr( $color['gradient'] );
 		}
 
-		if (isset($attrs['gradient'])) {
-			$styles['background'] = 'var(--wp--preset--gradient--' . esc_attr($attrs['gradient']) . ')';
+		if ( isset( $attrs['gradient'] ) ) {
+			$styles['background'] = 'var(--wp--preset--gradient--' . esc_attr( $attrs['gradient'] ) . ')';
 		}
 
-		if (isset($color['text'])) {
-			$styles['color'] = esc_attr($color['text']);
+		if ( isset( $color['text'] ) ) {
+			$styles['color'] = esc_attr( $color['text'] );
 		}
 
-		if (isset($attrs['textColor'])) {
-			$styles['color'] = 'var(--wp--preset--color--' . esc_attr($attrs['textColor']) . ')';
+		if ( isset( $attrs['textColor'] ) ) {
+			$styles['color'] = 'var(--wp--preset--color--' . esc_attr( $attrs['textColor'] ) . ')';
 		}
 
-		$styles = CSS::array_to_string($styles);
+		$styles = CSS::array_to_string( $styles );
 
-		if ($styles) {
-			$first->setAttribute('style', $styles);
+		if ( $styles ) {
+			$first->setAttribute( 'style', $styles );
 		} else {
-			$first->removeAttribute('style');
+			$first->removeAttribute( 'style' );
 		}
 
-		if ($block['attrs']['slug'] === 'header') {
-			$first->setAttribute('role', 'banner');
+		// Set landmark roles based on template part slug.
+		if ( $block['attrs']['slug'] === 'header' ) {
+			$first->setAttribute( 'role', 'banner' );
 		}
 
-		if ($block['attrs']['slug'] === 'main') {
-			$first->setAttribute('role', 'main');
+		if ( $block['attrs']['slug'] === 'main' ) {
+			$first->setAttribute( 'role', 'main' );
 		}
 
-		if ($block['attrs']['slug'] === 'footer') {
-			$first->setAttribute('role', 'contentinfo');
+		if ( $block['attrs']['slug'] === 'footer' ) {
+			$first->setAttribute( 'role', 'contentinfo' );
 		}
 
-		return $dom->saveHTML();
+		$output = $dom->saveHTML();
+		$slug   = (string) ( $block['attrs']['slug'] ?? '' );
+
+		if ( $slug !== '' ) {
+			return $this->wrap_with_injection_hooks(
+				"aegis_before_{$slug}",
+				"aegis_after_{$slug}",
+				$output
+			);
+		}
+
+		return $output;
 	}
 }
