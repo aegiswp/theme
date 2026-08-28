@@ -17,18 +17,16 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
+// Enforces strict type checking for all code in this file, ensuring type safety for block supports component.
 declare( strict_types=1 );
 
-// Declares the namespace for design system components within the Aegis Framework.
+// Declares the namespace for the block supports component.
 namespace Aegis\Framework\DesignSystem;
 
-// Imports scriptable interface, scripts service, and WordPress admin detection helper.
+// Imports classes, interfaces, and functions used by the block supports component.
 use Aegis\Framework\InlineAssets\Scriptable;
 use Aegis\Framework\InlineAssets\Scripts;
 use function is_admin;
-
-// Implements the BlockSupports class to support block supports configuration and management for the editor.
 
 class BlockSupports implements Scriptable
 {
@@ -307,8 +305,24 @@ class BlockSupports implements Scriptable
 			'aegisBackground' => true,
 			'aegisBoxShadow' => true,
 			'aegisFilter' => true,
-			'aegisIcon' => true,
 			'aegisNegativeMargin' => true,
+			'aegisPosition' => true,
+			'aegisTransform' => true,
+			'aegisOnclick' => true,
+			'aegisIcon' => true,
+		],
+		'core/icon' => [
+			'color' => [
+				'gradients' => true,
+				'background' => true,
+				'text' => true,
+			],
+			'spacing' => [
+				'margin' => true,
+				'padding' => true,
+			],
+			'aegisAnimation' => true,
+			'aegisBoxShadow' => true,
 			'aegisPosition' => true,
 			'aegisTransform' => true,
 			'aegisOnclick' => true,
