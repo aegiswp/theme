@@ -17,21 +17,29 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
+// Enforces strict type checking for all code in this file, ensuring type safety for admin bar component.
 declare( strict_types=1 );
 
-// Declares the namespace for design system components within the Aegis Framework.
+// Declares the namespace for the admin bar component.
 namespace Aegis\Framework\DesignSystem;
 
-// Imports interfaces and helpers for styling and admin bar detection.
+// Imports classes, interfaces, and functions used by the admin bar component.
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
 use function is_admin_bar_showing;
 
-// Implements the AdminBar class to support admin bar rendering and asset management.
+class AdminBar implements Styleable {
 
-class AdminBar implements Styleable
-{
+	/**
+	 * Constructor.
+	 *
+	 * Theme support must be declared before bump styles enqueue (wp_enqueue_scripts).
+	 * Hooking after_setup_theme from ServiceProvider is too late because the framework
+	 * boots on init.
+	 */
+	public function __construct() {
+		$this->remove_default_callback();
+	}
 
 	/**
 	 * Registers service with access to provider.
@@ -42,8 +50,7 @@ class AdminBar implements Styleable
 	 *
 	 * @return void
 	 */
-	public function styles(Styles $styles): void
-	{
+	public function styles( Styles $styles ): void {
 		$styles->add_file(
 			'components/admin-bar.css',
 			[],
@@ -52,18 +59,15 @@ class AdminBar implements Styleable
 	}
 
 	/**
-	 * Removes the default callback for the admin bar.
+	 * Disables core admin-bar bump styles (html margin-top) for in-flow admin bar.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @hook  after_setup_theme
-	 *
 	 * @return void
 	 */
-	public function remove_default_callback()
-	{
-		add_theme_support('admin-bar', [
+	public function remove_default_callback() {
+		add_theme_support( 'admin-bar', [
 			'callback' => '__return_false',
-		]);
+		] );
 	}
 }
