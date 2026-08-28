@@ -17,19 +17,17 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
+// Enforces strict type checking for all code in this file, ensuring type safety for system fonts component.
 declare( strict_types=1 );
 
-// Declares the namespace for design system components within the Aegis Framework.
+// Declares the namespace for the system fonts component.
 namespace Aegis\Framework\DesignSystem;
 
-// Imports WordPress helpers for filters, arrays, and file system access.
+// Imports classes, interfaces, and functions used by the system fonts component.
 use function apply_filters;
 use function array_merge;
 use function get_template_directory;
 use function is_readable;
-
-// Implements the SystemFonts class to support system font stack management for the design system.
 
 class SystemFonts {
 
@@ -46,8 +44,10 @@ class SystemFonts {
 		$data        = $theme_json->get_data();
 		$theme_fonts = $data['settings']['typography']['fontFamilies']['theme'] ?? [];
 
+		// Track whether framework fonts were merged once.
 		static $added = false;
 
+		// Seed fonts from framework theme.json when the child theme has none.
 		if ( ! $theme_fonts && ! $added ) {
 			$added = true;
 
@@ -71,6 +71,7 @@ class SystemFonts {
 			);
 		}
 
+		// Prepend system font stacks to the current theme fonts.
 		$data['settings']['typography']['fontFamilies']['theme'] = array_merge(
 			$this->get_system_font_stacks(),
 			$data['settings']['typography']['fontFamilies']['theme'] ?? [],
