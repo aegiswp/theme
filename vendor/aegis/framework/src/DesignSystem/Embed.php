@@ -1,359 +1,206 @@
 <?php
 /**
- * Embed Component
+ * Embed Block Enhancements
  *
- * Customises the WordPress oEmbed provider output so that posts embedded
- * on external sites match the Aegis theme's design system.
+ * Replaces heavy third-party iframes with a click-to-load facade for
+ * supported providers (YouTube, Vimeo).
  *
- * Responsibilities:
- * - Enqueues a dedicated embed stylesheet (`aegis-embed-template`)
- * - Registers and enforces a custom `aegis-embed` image size
- *   (640 × 360, hard-crop) for consistent featured-image cards
- * - Shortens the embed excerpt to 25 words and rewrites the
- *   "Continue reading" CTA to "Read more"
- * - Replaces the default site-title markup, removing the WordPress
- *   logo fallback and using the site icon when available
- * - Appends the publication date and primary taxonomy term below
- *   the excerpt (skipped when a custom embed-content.php template
- *   already renders them)
- * - Removes the share button and sharing dialog for a cleaner card
- *
- * @package    Aegis\Framework\DesignSystem
- * @since      1.0.0
- * @author     Atmostfear Entertainment
- * @link       https://github.com/aegiswp/theme
- *
- * For developer documentation and onboarding. No logic changes in this
- * documentation update.
+ * @package Aegis\Framework\DesignSystem
+ * @since   1.0.0
  */
 
-// Enforces strict type checking for all code in this file.
 declare( strict_types=1 );
 
-// Declares the namespace for design-system components within the Aegis Framework.
 namespace Aegis\Framework\DesignSystem;
 
-// Imports classes and functions used throughout this file.
-use Aegis\Utilities\Debug;
-use WP_HTML_Tag_Processor;
-use function add_image_size;
+use Aegis\Framework\InlineAssets\Scriptable;
+use Aegis\Framework\InlineAssets\Scripts;
+use Aegis\Framework\InlineAssets\Styleable;
+use Aegis\Framework\InlineAssets\Styles;
+use Aegis\Framework\Interfaces\Renderable;
+use WP_Block;
 use function esc_attr;
-use function esc_html;
 use function esc_html__;
 use function esc_url;
-use function get_bloginfo;
-use function get_post_type;
-use function get_site_icon_url;
-use function get_template_directory;
-use function get_template_directory_uri;
-use function get_the_date;
-use function get_the_ID;
-use function get_the_terms;
-use function home_url;
-use function is_embed;
-use function is_single;
-use function is_wp_error;
-use function remove_action;
-use function wp_enqueue_style;
+use function get_block_wrapper_attributes;
+use function preg_match;
+use function sprintf;
+use function str_contains;
+use function wp_parse_args;
+use function wp_strip_all_tags;
 
 /**
- * Embed component.
- *
- * Customises every aspect of the WordPress oEmbed provider card so
- * that posts embedded on external sites are visually consistent with
- * the Aegis design system. Hooks into image size registration,
- * embed script/style enqueueing, excerpt filtering, site-title
- * markup, content meta output, and share-button removal.
- *
- * When the active theme ships its own `embed-content.php` template,
- * the date and terms hooks are automatically skipped to avoid
- * duplicate output.
- *
- * @since 1.0.0
+ * Facade pattern for core/embed blocks.
  */
-class Embed {
+class Embed implements Renderable, Scriptable, Styleable {
 
 	/**
-	 * Whether the theme provides a custom embed-content.php template.
+	 * Replace iframe embeds with a lightweight facade.
 	 *
-	 * When `true`, date and terms are rendered directly in the
-	 * template, so the `embed_content` hook callbacks should not
-	 * duplicate them. Lazily resolved on first access via
-	 * {@see has_custom_template()} and cached for the request.
+	 * @param string   $block_content Block HTML.
+	 * @param array    $block         Block data.
+	 * @param WP_Block $instance      Block instance.
 	 *
-	 * @since 1.0.0
+	 * @hook render_block_core/embed 10
 	 *
-	 * @var bool|null
+	 * @return string
 	 */
-	private ?bool $has_custom_template = null;
-
-	/**
-	 * Check if the theme has a custom embed-content.php template.
-	 *
-	 * Looks for `embed-content.php` in the active theme's root
-	 * directory and caches the result in `$has_custom_template`.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return bool True when the template file exists.
-	 */
-	private function has_custom_template(): bool {
-		if ( $this->has_custom_template === null ) {
-			$this->has_custom_template = file_exists( get_template_directory() . '/embed-content.php' );
+	public function render( string $block_content, array $block, WP_Block $instance ): string {
+		if ( ! $this->is_facade_enabled() || ! str_contains( $block_content, '<iframe' ) ) {
+			return $block_content;
 		}
 
-		return $this->has_custom_template;
-	}
+		$provider = (string) ( $block['attrs']['providerNameSlug'] ?? '' );
+		$url      = (string) ( $block['attrs']['url'] ?? '' );
 
-	/**
-	 * Register the custom embed image size.
-	 *
-	 * Adds the `aegis-embed` image size (640 × 360, hard-crop) used
-	 * for featured-image thumbnails in oEmbed cards.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @hook  after_setup_theme
-	 *
-	 * @return void
-	 */
-	public function register_image_size(): void {
-		add_image_size( 'aegis-embed', 640, 360, true );
-	}
+		if ( ! preg_match( '/src=["\']([^"\']+)["\']/i', $block_content, $matches ) ) {
+			return $block_content;
+		}
 
-	/**
-	 * Enqueue the embed stylesheet.
-	 *
-	 * Registers `aegis-embed-template` with a dependency on
-	 * `wp-embed-template`. Uses a timestamp version when debug
-	 * mode is enabled for cache-busting during development.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @hook  enqueue_embed_scripts
-	 *
-	 * @return void
-	 */
-	public function enqueue_styles(): void {
-		wp_enqueue_style(
-			'aegis-embed-template',
-			get_template_directory_uri() . '/vendor/aegis/framework/public/css/embed-template.css',
-			[ 'wp-embed-template' ],
-			Debug::is_enabled() ? filemtime( get_template_directory() . '/vendor/aegis/framework/public/css/embed-template.css' ) : '1.0.0'
+		$iframe_src = html_entity_decode( $matches[1], ENT_QUOTES );
+		$poster     = $this->get_poster_url( $provider, $url, $iframe_src );
+
+		if ( $poster === '' ) {
+			return $block_content;
+		}
+
+		$aspect_ratio = $this->get_aspect_ratio( $block['attrs'] ?? [] );
+		$title        = (string) ( $block['attrs']['caption'] ?? __( 'Embedded content', 'aegis' ) );
+
+		$wrapper_attributes = get_block_wrapper_attributes(
+			[
+				'class' => 'aegis-embed aegis-embed--facade',
+			]
 		);
-	}
-
-	/**
-	 * Enforce rectangular (above-title) featured image layout.
-	 *
-	 * Returns `'rectangular'` so the thumbnail renders as a
-	 * full-width banner above the embed title instead of a
-	 * small square.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @hook  embed_thumbnail_image_shape
-	 *
-	 * @return string Image shape identifier.
-	 */
-	public function enforce_image_shape(): string {
-		return 'rectangular';
-	}
-
-	/**
-	 * Use the custom embed image size for thumbnails.
-	 *
-	 * Returns the `aegis-embed` size registered by
-	 * {@see register_image_size()} for consistently cropped
-	 * featured images in oEmbed cards.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @hook  embed_thumbnail_image_size
-	 *
-	 * @return string WordPress image-size slug.
-	 */
-	public function enforce_image_size(): string {
-		return 'aegis-embed';
-	}
-
-	/**
-	 * Shorten the excerpt to 25 words in embed context.
-	 *
-	 * Only overrides the default length when `is_embed()` is true;
-	 * all other contexts pass through unchanged.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @hook  excerpt_length
-	 *
-	 * @param int $length Default excerpt word count.
-	 *
-	 * @return int Filtered excerpt word count.
-	 */
-	public function shorten_excerpt( int $length ): int {
-		return is_embed() ? 25 : $length;
-	}
-
-	/**
-	 * Change the excerpt "Continue reading" CTA to "Read more".
-	 *
-	 * Uses `WP_HTML_Tag_Processor` to locate the anchor tag inside
-	 * the default more string and rewrite its visible text. Only
-	 * applies in the embed context.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @hook  excerpt_more 21
-	 *
-	 * @param string $more_string The default more markup.
-	 *
-	 * @return string Filtered more markup.
-	 */
-	public function excerpt_cta( string $more_string ): string {
-		if ( ! is_embed() ) {
-			return $more_string;
-		}
-
-		$processor = new WP_HTML_Tag_Processor( $more_string );
-
-		if ( $processor->next_tag( 'a' ) ) {
-			$processor->next_token();
-			$processor->set_modifiable_text( esc_html__( 'Read more', 'aegis' ) );
-		}
-
-		return $processor->get_updated_html();
-	}
-
-	/**
-	 * Customise the site title in the embed footer.
-	 *
-	 * Renders the site icon (32 × 32, when set) alongside the site
-	 * name, linking both to the home URL. Omits the WordPress logo
-	 * fallback present in the default implementation.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @hook  embed_site_title_html
-	 *
-	 * @return string Site-title HTML for the embed footer.
-	 */
-	public function site_title(): string {
-		$site_name = esc_html( get_bloginfo( 'name' ) );
-		$site_icon = get_site_icon_url( 32 );
-
-		if ( $site_icon ) {
-			return sprintf(
-				'<div class="wp-embed-site-title"><a href="%s"><img src="%s" width="32" height="32" alt="%s" class="wp-embed-site-icon" /></a> <a href="%s">%s</a></div>',
-				esc_url( home_url() ),
-				esc_url( $site_icon ),
-				esc_attr( $site_name ),
-				esc_url( home_url() ),
-				$site_name
-			);
-		}
 
 		return sprintf(
-			'<div class="wp-embed-site-title"><a href="%s">%s</a></div>',
-			esc_url( home_url() ),
-			$site_name
+			'<figure %1$s><div class="wp-block-embed__wrapper aegis-embed__wrapper" style="aspect-ratio:%2$s"><div class="aegis-embed__facade" role="group" aria-label="%3$s"><img class="aegis-embed__poster" src="%4$s" alt="" loading="lazy" decoding="async" width="1280" height="720" /><button type="button" class="aegis-embed__activate" aria-label="%5$s" data-embed-src="%6$s"><span class="aegis-embed__activate-icon" aria-hidden="true"></span><span class="aegis-embed__activate-label">%7$s</span></button></div><div class="aegis-embed__player" hidden></div></div></figure>',
+			$wrapper_attributes,
+			esc_attr( $aspect_ratio ),
+			esc_attr( wp_strip_all_tags( $title ) ),
+			esc_url( $poster ),
+			esc_attr( sprintf(
+				/* translators: %s: embed provider name. */
+				__( 'Play %s video', 'aegis' ),
+				$provider !== '' ? ucfirst( $provider ) : __( 'embedded', 'aegis' )
+			) ),
+			esc_attr( $iframe_src ),
+			esc_html__( 'Play video', 'aegis' )
 		);
 	}
 
 	/**
-	 * Append the publication date for single posts.
+	 * Register facade activation script.
 	 *
-	 * Outputs a `<time>` element with a W3C datetime attribute and
-	 * a localised display date. Skipped when the theme ships a
-	 * custom embed-content.php template or the current request is
-	 * not a single post.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @hook  embed_content
+	 * @param Scripts $scripts Scripts service.
 	 *
 	 * @return void
 	 */
-	public function add_post_date(): void {
-		if ( $this->has_custom_template() || ! is_single() ) {
-			return;
-		}
-
-		$time = sprintf(
-			'<time datetime="%1$s">%2$s</time>',
-			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date() )
-		);
-
-		printf(
-			'<p class="wp-embed-posted-on">%s</p>',
-			sprintf(
-				/* translators: %s: Publish date. */
-				esc_html__( 'Posted on %s', 'aegis' ),
-				$time // phpcs:ignore WordPress.Security.EscapeOutput
-			)
-		);
+	public function scripts( Scripts $scripts ): void {
+		$scripts->add_file( 'embed-facade.js', [ 'aegis-embed__facade', 'aegis-embed--facade' ] );
 	}
 
 	/**
-	 * Append the primary category or tag below the excerpt.
+	 * Register facade styles.
 	 *
-	 * Tries the `category` taxonomy first, then `post_tag`, and
-	 * outputs the first term found. Skipped when the theme ships a
-	 * custom embed-content.php template or no terms are assigned.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @hook  embed_content
+	 * @param Styles $styles Styles service.
 	 *
 	 * @return void
 	 */
-	public function add_post_terms(): void {
-		if ( $this->has_custom_template() ) {
-			return;
+	public function styles( Styles $styles ): void {
+		$styles->add_file( 'core-blocks/embed.css', [ 'wp-block-embed', 'aegis-embed__facade' ] );
+		$styles->add_file( 'core-blocks/embed-facade.css', [ 'aegis-embed__facade', 'aegis-embed--facade' ] );
+	}
+
+	/**
+	 * Whether embed facades are enabled.
+	 *
+	 * @return bool
+	 */
+	private function is_facade_enabled(): bool {
+		if ( class_exists( '\Aegis\Plugin\Blocks\Settings' ) ) {
+			return \Aegis\Plugin\Blocks\Settings::is_enabled( 'embed_facades' );
 		}
 
-		$post_type = get_post_type();
+		return true;
+	}
 
-		if ( ! $post_type ) {
-			return;
+	/**
+	 * Resolve a poster image for supported providers.
+	 *
+	 * @param string $provider   Provider slug.
+	 * @param string $url        Original embed URL.
+	 * @param string $iframe_src Resolved iframe source.
+	 *
+	 * @return string
+	 */
+	private function get_poster_url( string $provider, string $url, string $iframe_src ): string {
+		if ( $provider === 'youtube' || str_contains( $iframe_src, 'youtube.com' ) || str_contains( $url, 'youtu' ) ) {
+			$video_id = $this->get_youtube_id( $url, $iframe_src );
+
+			return $video_id !== '' ? 'https://i.ytimg.com/vi/' . $video_id . '/hqdefault.jpg' : '';
 		}
 
-		// Try category first, then post_tag.
-		$taxonomies = [ 'category', 'post_tag' ];
+		if ( $provider === 'vimeo' || str_contains( $iframe_src, 'vimeo.com' ) || str_contains( $url, 'vimeo.com' ) ) {
+			$video_id = $this->get_vimeo_id( $url, $iframe_src );
 
-		foreach ( $taxonomies as $taxonomy ) {
-			$terms = get_the_terms( get_the_ID(), $taxonomy );
+			return $video_id !== '' ? 'https://vumbnail.com/' . $video_id . '.jpg' : '';
+		}
 
-			if ( ! $terms || is_wp_error( $terms ) ) {
-				continue;
+		return '';
+	}
+
+	/**
+	 * Extract a YouTube video ID.
+	 *
+	 * @param string $url        Source URL.
+	 * @param string $iframe_src Iframe source URL.
+	 *
+	 * @return string
+	 */
+	private function get_youtube_id( string $url, string $iframe_src ): string {
+		foreach ( [ $url, $iframe_src ] as $candidate ) {
+			if ( preg_match( '#(?:youtube\.com/(?:watch\?v=|embed/|shorts/)|youtu\.be/)([a-zA-Z0-9_-]{11})#', $candidate, $matches ) ) {
+				return $matches[1];
 			}
-
-			$term = $terms[0];
-
-			printf(
-				'<p class="wp-embed-terms"><span class="wp-embed-term">%s</span></p>',
-				esc_html( $term->name )
-			);
-
-			return;
 		}
+
+		return '';
 	}
 
 	/**
-	 * Remove the share button and sharing dialog for a cleaner embed card.
+	 * Extract a Vimeo video ID.
 	 *
-	 * Unhooks `print_embed_sharing_button` from `embed_content_meta`
-	 * and `print_embed_sharing_dialog` from `embed_footer`.
+	 * @param string $url        Source URL.
+	 * @param string $iframe_src Iframe source URL.
 	 *
-	 * @since 1.0.0
-	 *
-	 * @hook  init
-	 *
-	 * @return void
+	 * @return string
 	 */
-	public function remove_share_button(): void {
-		remove_action( 'embed_content_meta', 'print_embed_sharing_button' );
-		remove_action( 'embed_footer', 'print_embed_sharing_dialog' );
+	private function get_vimeo_id( string $url, string $iframe_src ): string {
+		foreach ( [ $url, $iframe_src ] as $candidate ) {
+			if ( preg_match( '#vimeo\.com/(?:video/)?(\d+)#', $candidate, $matches ) ) {
+				return $matches[1];
+			}
+		}
+
+		return '';
+	}
+
+	/**
+	 * Resolve aspect ratio from block attributes.
+	 *
+	 * @param array<string, mixed> $attrs Block attributes.
+	 *
+	 * @return string
+	 */
+	private function get_aspect_ratio( array $attrs ): string {
+		$defaults = [
+			'aspectRatio' => '16 / 9',
+		];
+
+		$attrs = wp_parse_args( $attrs, $defaults );
+		$ratio = (string) ( $attrs['aspectRatio'] ?? '16 / 9' );
+
+		return str_contains( $ratio, '/' ) ? $ratio : '16 / 9';
 	}
 }
