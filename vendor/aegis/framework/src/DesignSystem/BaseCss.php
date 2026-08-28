@@ -17,19 +17,17 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
+// Enforces strict type checking for all code in this file, ensuring type safety for base css component.
 declare( strict_types=1 );
 
-// Declares the namespace for design system components within the Aegis Framework.
+// Declares the namespace for the base css component.
 namespace Aegis\Framework\DesignSystem;
 
-// Imports interfaces and helpers for styling, stylesheet management, and debugging.
+// Imports classes, interfaces, and functions used by the base css component.
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
 use Aegis\Utilities\Debug;
 use function function_exists;
-
-// Implements the BaseCss class to support base CSS registration and management.
 
 class BaseCss implements Styleable
 {
@@ -128,11 +126,17 @@ class BaseCss implements Styleable
 			'search-toggle' => ['is-style-toggle'],
 			'square-list' => ['is-style-square'],
 			'sub-heading' => ['is-style-sub-heading'],
-			'dark' => ['is-style-dark'],
-			'light' => ['is-style-light'],
+			'bordered' => ['is-style-bordered'],
+			'callout' => ['is-style-callout'],
+			'card' => ['is-style-card'],
 			'highlight-block' => ['is-style-highlight'],
 			'pill' => ['is-style-pill', 'is-style-pills'],
 			'surface' => ['is-style-surface'],
+		];
+
+		$styles['core-blocks'] = [
+			'core-icon' => ['wp-block-icon'],
+			'breadcrumbs' => ['wp-block-breadcrumbs'],
 		];
 
 		$styles['block-variations'] = [
