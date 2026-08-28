@@ -17,13 +17,13 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
+// Enforces strict type checking for all code in this file, ensuring type safety for editor assets component.
 declare( strict_types=1 );
 
-// Declares the namespace for design system components within the Aegis Framework.
+// Declares the namespace for the editor assets component.
 namespace Aegis\Framework\DesignSystem;
 
-// Imports scripts and styles services, debug utilities, and WordPress helpers for asset management.
+// Imports classes, interfaces, and functions used by the editor assets component.
 use Aegis\Framework\BlockSettings\Responsive;
 use Aegis\Framework\InlineAssets\Scripts;
 use Aegis\Framework\InlineAssets\Styles;
@@ -36,6 +36,7 @@ use function get_admin_url;
 use function get_home_url;
 use function is_admin;
 use function filemtime;
+use function wp_add_inline_script;
 use function wp_dequeue_style;
 use function wp_enqueue_style;
 use function wp_localize_script;
@@ -47,8 +48,6 @@ use function wp_roles;
 use function translate_user_role;
 use function get_template_directory;
 use function get_template_directory_uri;
-
-// Implements the EditorAssets class to support editor asset management for the design system.
 
 class EditorAssets
 {
@@ -115,6 +114,12 @@ class EditorAssets
 
 		wp_enqueue_script($handle);
 
+		wp_add_inline_script(
+			$handle,
+			"wp.domReady(function(){if(wp.blocks&&wp.blocks.unregisterBlockVariation){wp.blocks.unregisterBlockVariation('core/query','related-posts');}});",
+			'after'
+		);
+
 		$default = [
 			'siteUrl' => esc_url(get_home_url()),
 			'adminUrl' => esc_url(get_admin_url()),
@@ -140,9 +145,6 @@ class EditorAssets
 		// Enqueue visibility toggles extension script.
 		$this->enqueue_visibility_toggles();
 
-		// Enqueue display panel extension script.
-		$this->enqueue_display_panel();
-
 		// @todo Uncomment for v1.0.0 release.
 		// Enqueue global classes extension script.
 		// $this->enqueue_global_classes();
@@ -150,8 +152,91 @@ class EditorAssets
 		// Enqueue query enhancements extension script.
 		$this->enqueue_query_enhancements();
 
-		// Enqueue video editor extension script.
-		$this->enqueue_video_editor();
+		// Enqueue core/icon bridge (picker merge, transforms, link/gradient controls).
+		$this->enqueue_icon_block_editor( $handle, $data );
+
+		// Restore button labels when icons are rendered from attributes only.
+		$this->enqueue_button_block_editor( $handle );
+	}
+
+	/**
+	 * Enqueue core/icon editor extension.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string               $parent_handle Parent script handle.
+	 * @param array<string, mixed> $parent_data   Localized aegis data.
+	 *
+	 * @return void
+	 */
+	private function enqueue_icon_block_editor( string $parent_handle, array $parent_data ): void {
+		$asset_file = $this->scripts->dir . 'icon-block-editor.asset.php';
+
+		if ( ! file_exists( $asset_file ) ) {
+			return;
+		}
+
+		$asset  = require $asset_file;
+		$handle = $this->scripts->handle . '-icon-block-editor';
+
+		wp_register_script(
+			$handle,
+			$this->scripts->url . 'icon-block-editor.js',
+			array_merge(
+				$asset['dependencies'] ?? [],
+				[ $parent_handle ]
+			),
+			$asset['version'] ?? ( Debug::is_enabled() ? (string) filemtime( $this->scripts->dir . 'icon-block-editor.js' ) : '1.0.0' ),
+			true
+		);
+
+		wp_enqueue_script( $handle );
+
+		wp_localize_script(
+			$handle,
+			'aegis',
+			array_merge(
+				$parent_data,
+				[
+					'iconMigration' => \Aegis\Framework\Icons\IconMigrationMapper::get_rules_for_editor(),
+				]
+			)
+		);
+
+		wp_set_script_translations( $handle, 'aegis' );
+	}
+
+	/**
+	 * Enqueue core/button label fix for icon buttons saved without inner HTML.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $parent_handle Parent script handle.
+	 *
+	 * @return void
+	 */
+	private function enqueue_button_block_editor( string $parent_handle ): void {
+		$asset_file = $this->scripts->dir . 'button-block-editor.asset.php';
+
+		if ( ! file_exists( $asset_file ) ) {
+			return;
+		}
+
+		$asset  = require $asset_file;
+		$handle = $this->scripts->handle . '-button-block-editor';
+
+		wp_register_script(
+			$handle,
+			$this->scripts->url . 'button-block-editor.js',
+			array_merge(
+				$asset['dependencies'] ?? [],
+				[ $parent_handle ]
+			),
+			$asset['version'] ?? ( Debug::is_enabled() ? (string) filemtime( $this->scripts->dir . 'button-block-editor.js' ) : '1.0.0' ),
+			true
+		);
+
+		wp_enqueue_script( $handle );
 	}
 
 	/**
@@ -182,8 +267,10 @@ class EditorAssets
 
 		wp_enqueue_script($handle);
 
-		// Get conditional logic settings from the single source of truth
-		$conditionalLogicSettings = Responsive::get_conditional_logic_settings();
+		// Get conditional logic settings from the plugin settings repository.
+		$conditionalLogicSettings = class_exists( '\Aegis\Plugin\Conditionals\Settings' )
+			? \Aegis\Plugin\Conditionals\Settings::get_for_editor()
+			: array();
 
 		// Build dynamic role list from WordPress
 		$wp_roles = wp_roles();
@@ -200,46 +287,31 @@ class EditorAssets
 		$data = $this->scripts->get_data('', true);
 		$data['conditionalLogicSettings'] = $conditionalLogicSettings;
 		$data['userRoles'] = $roles;
+		$data['canManageConditionals'] = class_exists( '\Aegis\Plugin\Conditionals\Capabilities' )
+			? \Aegis\Plugin\Conditionals\Capabilities::current_user_can_manage()
+			: true;
+
+		if ( class_exists( '\AegisPro\Conditionals\Presets' ) ) {
+			$data['visibilityPresets'] = \AegisPro\Conditionals\Presets::get_presets_for_editor();
+		}
+
+		if ( function_exists( 'wpf_get_tags' ) ) {
+			$raw_tags = wpf_get_tags();
+			$wp_tags  = array();
+			if ( is_array( $raw_tags ) ) {
+				foreach ( $raw_tags as $tag_id => $tag_label ) {
+					$wp_tags[] = array(
+						'label' => is_string( $tag_label ) ? $tag_label : (string) $tag_id,
+						'value' => is_string( $tag_id ) ? $tag_id : (string) $tag_label,
+					);
+				}
+			}
+			$data['wpFusionTags'] = $wp_tags;
+		}
 
 		if (!empty($data)) {
 			wp_localize_script($handle, 'aegis', $data);
 		}
-
-		wp_set_script_translations(
-			$handle,
-			'aegis'
-		);
-	}
-
-	/**
-	 * Enqueue display panel editor extension script.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return void
-	 */
-	private function enqueue_display_panel(): void
-	{
-		$asset_file = $this->scripts->dir . 'display-panel.asset.php';
-
-		if (!file_exists($asset_file)) {
-			return;
-		}
-
-		$asset = require $asset_file;
-		$handle = $this->scripts->handle . '-display-panel';
-		$deps  = $asset['dependencies'] ?? [];
-		$deps[] = $this->scripts->handle . '-visibility-toggles';
-
-		wp_register_script(
-			$handle,
-			$this->scripts->url . 'display-panel.js',
-			$deps,
-			$asset['version'] ?? (Debug::is_enabled() ? (string) filemtime($this->scripts->dir . 'display-panel.js') : '1.0.0'),
-			true
-		);
-
-		wp_enqueue_script($handle);
 
 		wp_set_script_translations(
 			$handle,
@@ -344,47 +416,6 @@ class EditorAssets
 		wp_enqueue_script($handle);
 
 		wp_set_script_translations(
-			$handle,
-			'aegis'
-		);
-	}
-
-	/**
-	 * Enqueue video editor extension script.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return void
-	 */
-	private function enqueue_video_editor(): void
-	{
-		$theme_dir = \get_template_directory();
-		$theme_url = \get_template_directory_uri();
-		$asset_file = $theme_dir . '/src/Blocks/editor/video-editor.asset.php';
-
-		if (!\file_exists($asset_file)) {
-			return;
-		}
-
-		$asset = require $asset_file;
-		$handle = 'aegis-video-editor';
-
-		\wp_register_script(
-			$handle,
-			$theme_url . '/src/Blocks/editor/video-editor.js',
-			$asset['dependencies'] ?? [],
-			$asset['version'] ?? (Debug::is_enabled() ? (string) \filemtime($theme_dir . '/src/Blocks/editor/video-editor.js') : '1.0.0'),
-			true
-		);
-
-		\wp_enqueue_script($handle);
-
-		// Pass data to JavaScript
-		\wp_localize_script($handle, 'aegisVideo', [
-			'isPro' => \class_exists('AegisPro\\Video\\BunnyCDN'),
-		]);
-
-		\wp_set_script_translations(
 			$handle,
 			'aegis'
 		);
