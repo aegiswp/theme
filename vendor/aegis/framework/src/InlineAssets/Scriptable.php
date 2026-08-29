@@ -17,10 +17,10 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for inline asset management.
+// Enforces strict type checking for all code in this file, ensuring type safety for scriptable interface.
 declare( strict_types=1 );
 
-// Declares the namespace for inline assets components within the Aegis Framework.
+// Declares the namespace for the scriptable interface.
 namespace Aegis\Framework\InlineAssets;
 
 // Declares the Scriptable interface for script registration in the design system.
