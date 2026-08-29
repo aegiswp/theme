@@ -18,29 +18,25 @@
  * For developer documentation and onboarding. No logic changes in this doc update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for icon functions.
+// Enforces strict type checking for all code in this file, ensuring type safety for icon utilities.
 declare( strict_types=1 );
 
-// Declares the namespace for icon classes within the Aegis Framework.
+// Declares the namespace for the icon utilities.
 namespace Aegis\Icons;
 
-// Imports Aegis framework utilities for DOM, CSS, and string manipulation.
+// Imports classes, interfaces, and functions used by the icon utilities.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Utilities\Str;
 
-// Imports core PHP classes for DOM manipulation.
 use DOMDocument;
 use DOMElement;
 
-// Imports the third-party SVG sanitizer library.
 use enshrined\svgSanitize\Sanitizer;
 
-// Imports WordPress classes for creating REST API endpoints.
 use WP_REST_Request;
 use WP_REST_Server;
 
-// Imports WordPress and PHP functions for file operations, security, and REST API.
 use function add_action;
 use function add_filter;
 use function apply_filters;
@@ -61,7 +57,6 @@ use function strtolower;
 use function trim;
 use function uniqid;
 
-// Imports PHP constants for file globbing.
 use const GLOB_ONLYDIR;
 
 /**
@@ -257,14 +252,16 @@ class Icon {
 			'permission_callback' => static fn() => current_user_can( 'edit_posts' ),
 			'callback'            => static fn( WP_REST_Request $request ): array => static::get_icon_data( $request ),
 			'methods'             => WP_REST_Server::READABLE,
-			'args'                => [
-				'sets' => [
-					'required' => false,
-					'type'     => 'string',
-				],
-				'set'  => [
-					'required' => false,
-					'type'     => 'string',
+			[
+				'args' => [
+					'sets' => [
+						'required' => false,
+						'type'     => 'string',
+					],
+					'set'  => [
+						'required' => false,
+						'type'     => 'string',
+					],
 				],
 			],
 		];
@@ -373,6 +370,85 @@ HTML;
 		}
 
 		return $icon_data;
+	}
+
+	/**
+	 * Builds a registry-style icon identifier for the Aegis namespace.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $set  Icon set slug.
+	 * @param string $name Icon file slug.
+	 *
+	 * @return string e.g. aegis/wordpress/home
+	 */
+	public static function to_registry_id( string $set, string $name ): string {
+		return 'aegis/' . strtolower( $set ) . '/' . strtolower( $name );
+	}
+
+	/**
+	 * Parses an Aegis registry icon identifier.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $id Icon id (aegis/{set}/{name} or core/{name}).
+	 *
+	 * @return array{namespace: string, set: string, name: string}|null
+	 */
+	public static function from_registry_id( string $id ): ?array {
+		$id = trim( $id );
+
+		if ( ! preg_match( '#^(core|aegis)/([a-z0-9-]+)(?:/([a-z0-9-]+))?$#', $id, $matches ) ) {
+			return null;
+		}
+
+		$namespace = $matches[1];
+
+		if ( $namespace === 'core' ) {
+			return [
+				'namespace' => 'core',
+				'set'       => 'wordpress',
+				'name'      => $matches[2],
+			];
+		}
+
+		if ( empty( $matches[3] ) ) {
+			return null;
+		}
+
+		return [
+			'namespace' => 'aegis',
+			'set'       => $matches[2],
+			'name'      => $matches[3],
+		];
+	}
+
+	/**
+	 * Returns flat picker items for REST/editor merge.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return list<array{name: string, label: string, source: string, set: string}>
+	 */
+	public static function get_picker_items(): array {
+		$items = [];
+
+		foreach ( static::get_icon_data( null ) as $set => $icons ) {
+			if ( ! is_array( $icons ) ) {
+				continue;
+			}
+
+			foreach ( array_keys( $icons ) as $name ) {
+				$items[] = [
+					'name'   => static::to_registry_id( (string) $set, (string) $name ),
+					'label'  => Str::title_case( (string) $name ),
+					'source' => 'aegis',
+					'set'    => (string) $set,
+				];
+			}
+		}
+
+		return $items;
 	}
 
 	/**
