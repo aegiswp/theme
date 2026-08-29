@@ -5,7 +5,7 @@
 - Decorative icons: **`core/icon`** with attribute `icon` (`core/{slug}` or `aegis/{set}/{slug}`).
 - **Aegis bridge:** `Aegis\Framework\CoreBlocks\Icon` renders `aegis/*` IDs; `RestIconsMerge` appends Aegis picker items to `GET /wp/v2/icons`.
 - **Legacy:** `core/image` + `is-style-icon` still renders via `Aegis\Framework\BlockVariations\Icon` (image blocks only).
-- **Migration:** `wp aegis migrate-icons` or `studio wp eval-file wp-content/themes/aegis/bin/migrate-icon-patterns-wp.php`.
+- **Migration:** `wp aegis migrate-icons` (or `studio wp aegis migrate-icons` in WordPress Studio).
 
 ## Planned (7.1+)
 
