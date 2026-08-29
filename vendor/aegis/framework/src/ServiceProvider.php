@@ -17,14 +17,15 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for the service provider.
+// Enforces strict type checking for all code in this file, ensuring type safety for aegis service provider.
 declare( strict_types=1 );
 
-// Declares the namespace for the core of the Aegis Framework.
+// Declares the namespace for the aegis service provider.
 namespace Aegis\Framework;
 
-// Imports container, service contracts, inline asset managers, and hooks.
+// Imports classes, interfaces, and functions used by the aegis service provider.
 use Aegis\Container\Container;
+use Aegis\Container\Interfaces\Conditional;
 use Aegis\Container\Interfaces\Registerable;
 use Aegis\Framework\InlineAssets\Scriptable;
 use Aegis\Framework\InlineAssets\Scripts;
@@ -32,11 +33,10 @@ use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
 use Aegis\Hooks\Hook;
 use function class_exists;
+use function did_action;
 use function is_object;
 use function wp_get_global_settings;
 use function wp_get_global_styles;
-
-// Implements the Aegis Framework service provider for dependency registration and management.
 
 class ServiceProvider implements Registerable
 {
@@ -68,6 +68,11 @@ class ServiceProvider implements Registerable
 	 */
 	public static function get_global_settings(): array
 	{
+		if ( ! did_action( 'init' ) ) {
+			return [];
+		}
+
+		// Cache global settings after init.
 		if ( self::$global_settings === null ) {
 			self::$global_settings = wp_get_global_settings();
 		}
@@ -84,6 +89,11 @@ class ServiceProvider implements Registerable
 	 */
 	public static function get_global_styles(): array
 	{
+		if ( ! did_action( 'init' ) ) {
+			return [];
+		}
+
+		// Cache global styles after init.
 		if ( self::$global_styles === null ) {
 			self::$global_styles = wp_get_global_styles();
 		}
@@ -105,7 +115,7 @@ class ServiceProvider implements Registerable
 		BlockSettings\BoxShadow::class,
 		BlockSettings\CopyToClipboard::class,
 		BlockSettings\CssFilter::class,
-		// Off for 1.0.0-rc.x; enable for stable 1.0.0 when Global Classes is finalized.
+		// @todo Uncomment for v1.0.0 release.
 		// BlockSettings\GlobalClasses::class,
 		BlockSettings\Image::class,
 		BlockSettings\QueryEnhancements::class,
@@ -135,19 +145,17 @@ class ServiceProvider implements Registerable
 		CoreBlocks\Calendar::class,
 		CoreBlocks\Code::class,
 		CoreBlocks\Columns::class,
-		CoreBlocks\Countdown::class,
 		CoreBlocks\Cover::class,
 		CoreBlocks\Details::class,
 		CoreBlocks\Group::class,
 		CoreBlocks\Heading::class,
+		CoreBlocks\Icon::class,
+		CoreBlocks\IconBlockAttributes::class,
+		Icons\RestIconsMerge::class,
+		Icons\IconCli::class,
 		CoreBlocks\Image::class,
 		CoreBlocks\ListBlock::class,
-		CoreBlocks\Map::class,
-		CoreBlocks\Modal::class,
 		CoreBlocks\Navigation::class,
-		CoreBlocks\RelatedPosts::class,
-		CoreBlocks\Slider::class,
-		CoreBlocks\Toggle::class,
 		CoreBlocks\NavigationSubmenu::class,
 		CoreBlocks\PageList::class,
 		CoreBlocks\Paragraph::class,
@@ -183,11 +191,18 @@ class ServiceProvider implements Registerable
 		DesignSystem\ConicGradient::class,
 		DesignSystem\CustomProperties::class,
 		DesignSystem\DarkMode::class,
-		// Off for 1.0.0-rc.x; enable for stable 1.0.0 when utility-class generation is finalized.
+		// @todo Uncomment for v1.0.0 release.
 		// DesignSystem\UtilityClasses::class,
 		DesignSystem\Embed::class,
+		DesignSystem\OEmbed::class,
 		DesignSystem\Emojis::class,
 		DesignSystem\EditorAssets::class,
+		DesignSystem\EditorOverlayFix::class,
+		DesignSystem\FrontendContentContext::class,
+		DesignSystem\DynamicTemplateParts::class,
+		DesignSystem\TemplatePatternExpander::class,
+		DesignSystem\BlockPatternsRest::class,
+		DesignSystem\NavigationOverlay::class,
 		DesignSystem\Hooks::class,
 		DesignSystem\Layout::class,
 		DesignSystem\Patterns::class,
@@ -195,7 +210,6 @@ class ServiceProvider implements Registerable
 		DesignSystem\SvgUpload::class,
 		DesignSystem\SystemFonts::class,
 		DesignSystem\Templates::class,
-		ThemeUpdater\ThemeUpdater::class,
 	];
 
 	/**
@@ -206,20 +220,23 @@ class ServiceProvider implements Registerable
 	 * @var array<string, string>
 	 */
 	private array $integrations = [
-		Integrations\Plugins\AdvancedCustomFields::class => 'advanced_custom_fields',
-		Integrations\Plugins\BunnyCDN::class => 'bunny_cdn',
-		Integrations\Plugins\CoAuthorsPlus::class => 'co_authors_plus',
-		Integrations\Plugins\CodeBlockPro::class => 'code_block_pro',
-		Integrations\Plugins\FluentBooking::class => 'fluent_booking',
-		Integrations\Plugins\FluentForms::class => 'fluent_forms',
-		Integrations\Plugins\LearnDash::class => 'learndash',
-		Integrations\Plugins\LifterLMS::class => 'lifter_lms',
-		Integrations\Plugins\MetaBox::class => 'meta_box',
-		Integrations\Plugins\RankMath::class => 'rank_math',
-		Integrations\Plugins\SenseiLMS::class => 'sensei_lms',
-		Integrations\Plugins\SyntaxHighlightingCodeBlock::class => 'syntax_highlighting',
-		Integrations\Plugins\WooCommerce::class => 'woocommerce',
-		Integrations\Plugins\WooCommerce\BlockStyles::class => 'woocommerce',
+		Integrations\WooCommerce::class => 'woocommerce',
+		Integrations\WooCommerce\BlockStyles::class => 'woocommerce',
+		Integrations\EasyDigitalDownloads::class => 'easy_digital_downloads',
+		Integrations\AffiliateWP::class => 'affiliate_wp',
+		Integrations\GravityForms::class => 'gravity_forms',
+		Integrations\NinjaForms::class => 'ninja_forms',
+		Integrations\FluentForms::class => 'fluent_forms',
+		Integrations\FluentBooking::class => 'fluent_booking',
+		Integrations\LifterLMS::class => 'lifter_lms',
+		Integrations\LearnDash::class => 'learndash',
+		Integrations\SenseiLMS::class => 'sensei_lms',
+		Integrations\SyntaxHighlightingCodeBlock::class => 'syntax_highlighting',
+		Integrations\CodeBlockPro::class => 'code_block_pro',
+		Integrations\BunnyCDN::class => 'bunny_cdn',
+		Integrations\CoAuthorsPlus::class => 'co_authors_plus',
+		Integrations\MetaBox::class => 'meta_box',
+		Integrations\BbPress::class => 'bbpress',
 	];
 
 	/**
@@ -250,6 +267,7 @@ class ServiceProvider implements Registerable
 	 */
 	public function register(Container $container): void
 	{
+		// Resolve shared inline asset services.
 		$scripts = $container->make(Scripts::class, $this->file);
 		$styles = $container->make(Styles::class, $this->file);
 
@@ -258,11 +276,17 @@ class ServiceProvider implements Registerable
 			$this->register_service($container, $id, $scripts, $styles);
 		}
 
-		// Register integrations (only if enabled in admin settings)
+		// Register integrations (only if enabled in admin settings and plugin condition met)
 		foreach ($this->integrations as $id => $setting_key) {
-			if ($this->is_integration_enabled($setting_key)) {
-				$this->register_service($container, $id, $scripts, $styles);
+			if ( ! $this->is_integration_enabled( $setting_key ) ) {
+				continue;
 			}
+
+			if ( ! $this->integration_condition_met( $id ) ) {
+				continue;
+			}
+
+			$this->register_service( $container, $id, $scripts, $styles );
 		}
 
 		Hook::annotations($scripts);
@@ -281,12 +305,17 @@ class ServiceProvider implements Registerable
 	 */
 	private function register_service(Container $container, string $id, Scripts $scripts, Styles $styles): void
 	{
+		if ( ! class_exists( $id ) ) {
+			return;
+		}
+
 		$service = $container->make($id);
 
 		if (is_object($service)) {
 			Hook::annotations($service);
 		}
 
+		// Wire script and style registration when supported.
 		if ($service instanceof Scriptable) {
 			$service->scripts($scripts);
 		}
@@ -305,13 +334,29 @@ class ServiceProvider implements Registerable
 	 */
 	private function is_integration_enabled(string $setting_key): bool
 	{
-		// Check if the admin settings class exists
-		if (class_exists('\Aegis\Admin\ConditionalLogicSettings')) {
-			return \Aegis\Admin\ConditionalLogicSettings::is_integration_enabled($setting_key);
+		if (class_exists('\Aegis\Plugin\Settings\Repository')) {
+			return \Aegis\Plugin\Settings\Repository::is_integration_enabled($setting_key);
 		}
 
-		// Default to enabled if settings class not available
+		// Default to enabled when settings are unavailable.
 		return true;
+	}
+
+	/**
+	 * Check if an integration class condition is met.
+	 *
+	 * @param string $class Integration class name.
+	 *
+	 * @return bool
+	 */
+	private function integration_condition_met( string $class ): bool {
+		$implements = class_implements( $class );
+
+		if ( ! is_array( $implements ) || ! in_array( Conditional::class, $implements, true ) ) {
+			return true;
+		}
+
+		return $class::condition();
 	}
 
 	/**
@@ -329,31 +374,11 @@ class ServiceProvider implements Registerable
 	 */
 	public static function is_block_enabled(string $block): bool
 	{
-		if (class_exists('\Aegis\Admin\ConditionalLogicSettings')) {
-			return \Aegis\Admin\ConditionalLogicSettings::is_block_enabled($block);
+		if (class_exists('\Aegis\Plugin\Settings\Repository')) {
+			return \Aegis\Plugin\Settings\Repository::is_block_enabled($block);
 		}
 
+		// Default to enabled when settings are unavailable.
 		return true;
-	}
-
-	/**
-	 * Check if a schema type is handled by Rank Math.
-	 *
-	 * Encapsulates the class_exists() + is_schema_handled_by_rank_math()
-	 * pattern. Returns false when the settings class is not available.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param string $schema_key Integration key for the schema handoff option.
-	 *
-	 * @return bool
-	 */
-	public static function is_schema_handled_by_rank_math(string $schema_key): bool
-	{
-		if (class_exists('\Aegis\Admin\ConditionalLogicSettings')) {
-			return \Aegis\Admin\ConditionalLogicSettings::is_schema_handled_by_rank_math($schema_key);
-		}
-
-		return false;
 	}
 }
