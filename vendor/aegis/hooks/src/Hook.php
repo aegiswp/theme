@@ -1,92 +1,64 @@
 <?php
-/**
- * Aegis Hook Utility
- *
- * Provides annotation-based hook registration for the Aegis Framework, enabling automatic binding of class methods to WordPress hooks.
- *
- * Responsibilities:
- * - Parses docblock annotations and registers methods as WordPress hooks
- * - Integrates with the Aegis Framework's onboarding and developer experience
- *
- * Based on Hook Annotations by Viktor Szépe.
- *
- * @package    Aegis\Hooks
- * @since      1.0.0
- * @author     Atmostfear Entertainment
- * @link       https://github.com/aegiswp/theme
- *
- * For developer documentation and onboarding. No logic changes in this
- * documentation update.
- *
- * Original: https://github.com/szepeviktor/SentencePress
- */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for hook utilities.
+// Enforces strict type checking for all code in this file, ensuring type safety for hook annotation dispatch.
 declare( strict_types=1 );
 
-// Declares the namespace for hook utilities within the Aegis Framework.
+// Declares the namespace for the hook annotation dispatch.
 namespace Aegis\Hooks;
 
-// Imports reflection and WordPress utility functions for annotation-based hook registration.
+// Imports classes, interfaces, and functions used by the hook annotation dispatch.
 use ReflectionClass;
+use ReflectionException;
 use ReflectionMethod;
 use function add_filter;
 use function explode;
+use function is_string;
 use function preg_match_all;
 use function str_replace;
 use function trim;
 
-// Implements the Aegis hook utility class for annotation-driven hook registration.
-
+/**
+ * Handles WordPress hooks automatically based on method annotations.
+ *
+ * This class scans a given object or class for public methods with `@hook`
+ * annotations in their docblocks and registers them with the WordPress
+ * filter and action system.
+ *
+ * Based on Hook Annotations by Viktor Szépe.
+ *
+ * @link https://github.com/szepeviktor/SentencePress
+ */
 class Hook {
 
 	/**
-	 * Cache of parsed annotations keyed by class name.
+	 * Registers methods as WordPress hooks based on their annotations.
 	 *
-	 * @var array
-	 */
-	private static array $cache = [];
-
-	/**
-	 * Hook methods based on annotation.
+	 * It uses reflection to find all public methods in the given class or object,
+	 * parses their docblocks for `@hook` annotations, and attaches them to the
+	 * corresponding WordPress filter or action.
 	 *
-	 * @param object $object Object or class name.
+	 * @param object|string $object_or_class The object or class to scan for hooks.
 	 *
 	 * @return void
 	 */
-	public static function annotations( object $object ): void {
-		$class = get_class( $object );
-
-		if ( ! isset( self::$cache[ $class ] ) ) {
-			self::$cache[ $class ] = self::parse_annotations( $class );
+	public static function annotations( $object_or_class ): void {
+		try {
+			$reflection = new ReflectionClass( $object_or_class );
+		} catch ( ReflectionException $e ) {
+			return;
 		}
 
-		foreach ( self::$cache[ $class ] as $entry ) {
-			add_filter(
-				$entry['tag'],
-				[ $object, $entry['method'] ],
-				$entry['priority'],
-				$entry['params']
-			);
-		}
-	}
-
-	/**
-	 * Parse annotations for a class and return hook entries.
-	 *
-	 * @param string $class Fully qualified class name.
-	 *
-	 * @return array
-	 */
-	private static function parse_annotations( string $class ): array {
-		$entries        = [];
-		$reflection     = new ReflectionClass( $class );
 		$public_methods = $reflection->getMethods( ReflectionMethod::IS_PUBLIC );
 
 		foreach ( $public_methods as $method ) {
 
 			// Do not hook constructors.
 			if ( $method->isConstructor() ) {
+				continue;
+			}
+
+			// Do not hook non-static methods for non-object classes.
+			if ( is_string( $object_or_class ) && $method->isStatic() ) {
 				continue;
 			}
 
@@ -97,24 +69,25 @@ class Hook {
 			}
 
 			foreach ( $annotations as $annotation ) {
-				$entries[] = [
-					'tag'      => $annotation['tag'],
-					'method'   => $method->name,
-					'priority' => $annotation['priority'],
-					'params'   => $method->getNumberOfParameters(),
-				];
+				add_filter(
+					$annotation['tag'],
+					[ $object_or_class, $method->name ],
+					$annotation['priority'],
+					$method->getNumberOfParameters()
+				);
 			}
 		}
-
-		return $entries;
 	}
 
 	/**
-	 * Read hook tag from docblock.
+	 * Parses a docblock to find all `@hook` annotations.
 	 *
-	 * @param string $doc_block Method doc block.
+	 * This method uses a regular expression to extract the hook tag and priority
+	 * from the docblock.
 	 *
-	 * @return ?array
+	 * @param string $doc_block The docblock to parse.
+	 *
+	 * @return array|null An array of found annotations or null if none exist.
 	 */
 	private static function get_annotations( string $doc_block ): ?array {
 		$pattern = '/@hook\s+([^\s]+)(\s+[0-9]+)?/';
@@ -134,10 +107,11 @@ class Hook {
 
 			$annotations[] = [
 				'tag'      => $tag,
-				'priority' => (int) ($parts[1] ?? 10),
+				'priority' => $parts[1] ?? 10,
 			];
 		}
 
 		return $annotations;
 	}
+
 }
