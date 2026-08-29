@@ -1,0 +1,15 @@
+{
+	"name": "aegis/hooks",
+	"description": "Aegis hooks package (vendored — path stub for Composer).",
+	"type": "library",
+	"license": "GPL-2.0-or-later",
+	"version": "dev-main",
+	"require": {
+		"php": ">=7.4"
+	},
+	"autoload": {
+		"psr-4": {
+			"Aegis\\Hooks\\": "src/"
+		}
+	}
+}
