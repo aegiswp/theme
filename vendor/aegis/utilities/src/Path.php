@@ -1,29 +1,12 @@
 <?php
-/**
- * Aegis Path Utilities
- *
- * Provides utility functions for working with file and directory paths in the Aegis Framework.
- *
- * Responsibilities:
- * - Offers helper methods for resolving, normalizing, and checking paths
- * - Ensures consistency and reusability of path logic across the framework
- *
- * @package    Aegis\Utilities
- * @since      1.0.0
- * @author     Atmostfear Entertainment
- * @link       https://github.com/aegiswp/theme
- *
- * For developer documentation and onboarding. No logic changes in this
- * documentation update.
- */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
+// Enforces strict type checking for all code in this file, ensuring type safety for path utility helpers.
 declare( strict_types=1 );
 
-// Declares the namespace for utility classes within the Aegis Framework.
+// Declares the namespace for the path utility helpers.
 namespace Aegis\Utilities;
 
-// Imports PHP helper functions for path operations.
+// Imports classes, interfaces, and functions used by the path utility helpers.
 use function array_slice;
 use function content_url;
 use function dirname;
@@ -35,22 +18,24 @@ use function untrailingslashit;
 use const DIRECTORY_SEPARATOR;
 
 /**
- * Aegis Path class.
+ * Path utility class for handling file and URL paths within a WordPress context.
  *
- * Provides utility methods for working with file and directory paths in the Aegis Framework.
- * Package class.
+ * This class provides methods for resolving package and project directories and URLs,
+ * assuming a specific project structure.
  *
  * @since 1.0.0
  */
 class Path {
 
 	/**
-	 * Returns the package directory path.
+	 * Constructs a package's directory path from the project and package directories.
 	 *
-	 * @param string $project_dir Main plugin or theme file.
-	 * @param string $package_dir Package src directory.
+	 * @since 1.0.0
 	 *
-	 * @return string
+	 * @param string $project_dir The root directory of the project.
+	 * @param string $package_dir A directory within the package (e.g., `__DIR__`).
+	 *
+	 * @return string The full, correctly-slashed path to the package directory.
 	 */
 	public static function get_package_dir( string $project_dir, string $package_dir ): string {
 		return trailingslashit(
@@ -65,55 +50,70 @@ class Path {
 	}
 
 	/**
-	 * Returns the package URI.
+	 * Constructs a package's URL from the project and package directories.
 	 *
-	 * @param string $project_dir Package directory.
-	 * @param string $package_dir Package src directory.
+	 * @since 1.0.0
 	 *
-	 * @return string
+	 * @param string $project_dir The root directory of the project.
+	 * @param string $package_dir A directory within the package (e.g., `__DIR__`).
+	 *
+	 * @return string The full URL to the package directory.
 	 */
 	public static function get_package_url( string $project_dir, string $package_dir ): string {
+		// Extract the package path segment from the directory.
 		$package_path = static::get_segment( $package_dir, -3, true );
 
+		// Build the full package URL from the project URL and path.
 		return static::get_project_url( $project_dir ) . Str::unleadingslashit( $package_path );
 	}
 
 	/**
-	 * Returns the project directory path.
+	 * Determines the project's root directory from a package directory inside it.
 	 *
-	 * @param string $package_dir Package dir.
+	 * Assumes the project root is 3 levels above the given package directory.
 	 *
-	 * @return string
+	 * @since 1.0.0
+	 *
+	 * @param string $package_dir A directory within the package (e.g., `__DIR__`).
+	 *
+	 * @return string The project's root directory path.
 	 */
 	public static function get_project_dir( string $package_dir ): string {
 		return trailingslashit( dirname( $package_dir, 3 ) );
 	}
 
 	/**
-	 * Returns the project URI.
+	 * Determines the project's root URL from its directory path.
 	 *
-	 * @param string $project_dir Project dir.
+	 * @since 1.0.0
 	 *
-	 * @return string
+	 * @param string $project_dir The project's root directory path.
+	 *
+	 * @return string The project's root URL.
 	 */
 	public static function get_project_url( string $project_dir ): string {
 		return content_url( static::get_segment( $project_dir, -2, true ) );
 	}
 
 	/**
-	 * Extracts specific number of segments from a path as string.
+	 * Extracts a specific number of segments from a path string.
+	 *
+	 * @since 1.0.0
 	 *
 	 * @param string $path   The input path.
 	 * @param int    $number Positive for first segments, negative for last segments.
-	 * @param bool   $wrap   Whether to wrap in leading and trailing slashes.
+	 * @param bool   $wrap   Whether to wrap the result in leading and trailing slashes.
 	 *
-	 * @return string
+	 * @return string The extracted path segment.
 	 */
 	public static function get_segment( string $path, int $number, bool $wrap = false ): string {
+		// Split the path into segments.
 		$segments  = explode( DIRECTORY_SEPARATOR, trim( $path, DIRECTORY_SEPARATOR ) );
+		// Extract the requested number of segments from the start or end.
 		$extracted = $number > 0 ? array_slice( $segments, 0, $number ) : array_slice( $segments, $number );
 		$slash     = $wrap ? '/' : ''; // DIRECTORY_SEPARATOR breaks in Windows.
 
+		// Rejoin segments with optional leading and trailing slashes.
 		return $slash . implode( '/', $extracted ) . $slash;
 	}
 }
