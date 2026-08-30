@@ -1,31 +1,13 @@
 <?php
-/**
- * Aegis Pattern Utilities
- *
- * Provides utility functions for registering and managing block patterns in the Aegis Framework.
- *
- * Responsibilities:
- * - Offers helper methods for parsing, registering, and managing block patterns
- * - Ensures consistency and reusability of pattern logic across the framework
- *
- * @package    Aegis\Utilities
- * @since      1.0.0
- * @author     Atmostfear Entertainment
- * @link       https://github.com/aegiswp/theme
- *
- * For developer documentation and onboarding. No logic changes in this
- * documentation update.
- */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
+// Enforces strict type checking for all code in this file, ensuring type safety for block pattern registration utilities.
 declare( strict_types=1 );
 
-// Declares the namespace for utility classes within the Aegis Framework.
+// Declares the namespace for the block pattern registration utilities.
 namespace Aegis\Utilities;
 
-// Imports WordPress and PHP helper functions for pattern operations.
+// Imports classes, interfaces, and functions used by the block pattern registration utilities.
 use function _cleanup_header_comment;
-use function array_filter;
 use function explode;
 use function get_file_data;
 use function get_stylesheet;
@@ -46,24 +28,43 @@ use function strtoupper;
 use function ucwords;
 use function wp_get_global_settings;
 
-// Implements the Aegis pattern utility class for reusable pattern operations.
-
+/**
+ * Utility class for registering and parsing WordPress block patterns from files.
+ *
+ * This class provides methods to read pattern data from a PHP file's header
+ * comment and register it as a block pattern, including its categories.
+ *
+ * @since 1.0.0
+ */
 class Pattern {
 
 	/**
-	 * Parses and registers block pattern from PHP file with header comment.
+	 * Parses and registers a block pattern from a PHP file.
+	 *
+	 * This method reads the pattern's metadata from the file's header comment,
+	 * registers its categories, and then registers the block pattern itself.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $file Path to PHP file or content.
+	 * @param string $file The absolute path to the pattern's PHP file.
 	 *
 	 * @return void
 	 */
 	public static function register_from_file( string $file ): void {
-		$pattern    = self::parse_file( $file );
+		$pattern = self::parse_file( $file );
+
+		if ( ! isset( $pattern['slug'] ) ) {
+			return;
+		}
+
 		$categories = $pattern['categories'] ?? [];
 
 		foreach ( $categories as $category ) {
+			$category = trim( (string) $category );
+
+			if ( ctype_digit( $category ) ) {
+				$category = 'error-' . $category;
+			}
 
 			if ( in_array( $category, [ 'cta', 'faq' ], true ) ) {
 				$label = strtoupper( $category );
@@ -83,13 +84,17 @@ class Pattern {
 	}
 
 	/**
-	 * Parses a pattern file and returns the pattern data.
+	 * Parses a file for block pattern metadata and content.
+	 *
+	 * This method reads a PHP file's header for pattern details (Title, Slug,
+	 * Categories, etc.) and uses the file's output as the pattern content.
+	 * It can also parse the metadata from a string containing the file's content.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $file The file path.
+	 * @param string $file The file path or a string containing the file's content.
 	 *
-	 * @return array
+	 * @return array An array of parsed pattern data or an empty array on failure.
 	 */
 	public static function parse_file( string $file ): array {
 		if ( ! $file ) {
@@ -101,7 +106,6 @@ class Pattern {
 			'categories'  => 'Categories',
 			'title'       => 'Title',
 			'slug'        => 'Slug',
-			'description' => 'Description',
 			'block_types' => 'Block Types',
 			'inserter'    => 'Inserter',
 			'ID'          => 'ID',
@@ -172,7 +176,7 @@ class Pattern {
 			'content'     => $content,
 			'categories'  => [ ...$categories ],
 			'description' => $headers['description'] ?? '',
-			'blockTypes'  => array_filter( explode( ',', $headers['block_types'] ) ),
+			'blockTypes'  => explode( ',', $headers['block_types'] ?? [] ),
 			'ID'          => $headers['ID'] ?? null,
 			'theme'       => $theme,
 		];
@@ -183,4 +187,5 @@ class Pattern {
 
 		return $pattern;
 	}
+
 }
