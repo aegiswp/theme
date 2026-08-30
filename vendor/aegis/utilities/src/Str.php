@@ -1,31 +1,15 @@
 <?php
-/**
- * Aegis String Utilities
- *
- * Provides utility functions for working with strings in the Aegis Framework.
- *
- * Responsibilities:
- * - Offers helper methods for searching, formatting, and manipulating strings
- * - Ensures consistency and reusability of string logic across the framework
- *
- * @package    Aegis\Utilities
- * @since      1.0.0
- * @author     Atmostfear Entertainment
- * @link       https://github.com/aegiswp/theme
- *
- * For developer documentation and onboarding. No logic changes in this
- * documentation update.
- */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
+// Enforces strict type checking for all code in this file, ensuring type safety for string utility helpers.
 declare( strict_types=1 );
 
-// Declares the namespace for utility classes within the Aegis Framework.
+// Declares the namespace for the string utility helpers.
 namespace Aegis\Utilities;
 
-// Imports PHP and WordPress helper functions and constants for string operations.
+// Imports classes, interfaces, and functions used by the string utility helpers.
 use function _deprecated_function;
 use function capital_P_dangit;
+use function esc_html;
 use function implode;
 use function lcfirst;
 use function ltrim;
@@ -39,19 +23,25 @@ use function ucwords;
 use const DIRECTORY_SEPARATOR;
 use const PHP_EOL;
 
-// Implements the Aegis string utility class for reusable string operations.
-
+/**
+ * String utility class for common string manipulations.
+ *
+ * This class provides a collection of static methods for string searching,
+ * replacement, case conversion, and sanitization.
+ *
+ * @since 1.0.0
+ */
 class Str {
 
 	/**
-	 * Checks if any of the given needles are in the haystack.
+	 * Checks if a string contains any of the given substrings.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $haystack   The string to search.
-	 * @param mixed  ...$needles The strings to search for.
+	 * @param string $haystack The string to search within.
+	 * @param string ...$needles A variable number of substrings to search for.
 	 *
-	 * @return bool
+	 * @return bool True if any of the needles are found, false otherwise.
 	 */
 	public static function contains_any( string $haystack, ...$needles ): bool {
 		foreach ( $needles as $needle ) {
@@ -64,14 +54,14 @@ class Str {
 	}
 
 	/**
-	 * Checks if all given needles are in the haystack.
+	 * Checks if a string contains all of the given substrings.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $haystack   The string to search.
-	 * @param mixed  ...$needles The strings to search for.
+	 * @param string $haystack The string to search within.
+	 * @param string ...$needles A variable number of substrings to search for.
 	 *
-	 * @return bool
+	 * @return bool True if all of the needles are found, false otherwise.
 	 */
 	public static function contains_all( string $haystack, ...$needles ): bool {
 		foreach ( $needles as $needle ) {
@@ -84,26 +74,26 @@ class Str {
 	}
 
 	/**
-	 * Replaces multiple whitespace with single.
+	 * Reduces multiple consecutive whitespace characters to a single space.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $string The string to search.
+	 * @param string $string The input string.
 	 *
-	 * @return string
+	 * @return string The string with reduced whitespace.
 	 */
 	public static function reduce_whitespace( string $string ): string {
 		return preg_replace( '/\s+/', ' ', $string );
 	}
 
 	/**
-	 * Removes line breaks from a string.
+	 * Removes line breaks and other invisible characters from a string.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $string The string to search.
+	 * @param string $string The input string.
 	 *
-	 * @return string
+	 * @return string The cleaned string.
 	 */
 	public static function remove_line_breaks( string $string ): string {
 
@@ -111,23 +101,24 @@ class Str {
 		$string = preg_replace( '/^[\pZ\pC]+|[\pZ\pC]+$/u', '', $string );
 
 		// Replace line breaks.
-		$string = str_replace( [ "\r", "\n", PHP_EOL ], '', $string );
+		str_replace( [ "\r", "\n", PHP_EOL, ], '', $string
+		);
 
 		return trim( $string );
 	}
 
 	/**
-	 * Returns parts of a string between two strings using regular expressions.
+	 * Extracts the substring between two delimiter strings.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $start  Start string.
-	 * @param string $end    End string.
-	 * @param string $string String content.
-	 * @param bool   $omit   Omit start and end strings.
-	 * @param bool   $all    Return all occurrences.
+	 * @param string $start  The starting delimiter.
+	 * @param string $end    The ending delimiter.
+	 * @param string $string The string to search within.
+	 * @param bool   $omit   If true, the delimiters are excluded from the result.
+	 * @param bool   $all    If true, returns an array of all matches.
 	 *
-	 * @return string|array
+	 * @return string|string[] The matched substring or an array of matches.
 	 */
 	public static function between( string $start, string $end, string $string, bool $omit = false, bool $all = false ) {
 		$ds      = '/'; // Cannot use DIRECTORY_SEPARATOR because of Windows.
@@ -141,28 +132,28 @@ class Str {
 	}
 
 	/**
-	 * Removes non-alphanumeric characters from string.
+	 * Removes all characters that are not letters, numbers, or hyphens.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $string String to sanitize.
+	 * @param string $string The string to sanitize.
 	 *
-	 * @return string
+	 * @return string The sanitized string.
 	 */
 	public static function remove_non_alphanumeric( string $string ): string {
 		return preg_replace( '/[^A-Za-z0-9\-]/', '', $string );
 	}
 
 	/**
-	 * Replace first occurrence of a string.
+	 * Replaces only the first occurrence of a substring.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $needle      The string to search for.
-	 * @param string $replacement The string to replace with.
-	 * @param string $haystack    The string to search.
+	 * @param string $needle      The substring to search for.
+	 * @param string $replacement The string to replace it with.
+	 * @param string $haystack    The string to perform the replacement in.
 	 *
-	 * @return string
+	 * @return string The modified string.
 	 */
 	public static function replace_first( string $needle, string $replacement, string $haystack ): string {
 		if ( ! $needle || ! $haystack ) {
@@ -179,25 +170,29 @@ class Str {
 	}
 
 	/**
-	 * Converts a string to title case.
+	 * Converts a string to title case, respecting WordPress naming conventions.
+	 *
+	 * @since 1.0.0
 	 *
 	 * @param string   $string The string to convert.
-	 * @param string[] $search Characters to replace (optional).
+	 * @param string[] $search An array of characters to be replaced with spaces.
 	 *
-	 * @return string
+	 * @return string The title-cased and escaped string.
 	 */
 	public static function title_case( string $string, array $search = [ '-', '_' ] ): string {
 		$title_case = trim( ucwords( str_replace( $search, ' ', $string ) ) );
 
-		return capital_P_dangit( $title_case );
+		return esc_html( capital_P_dangit( $title_case ) );
 	}
 
 	/**
-	 * Converts a camelCase string to kebab case.
+	 * Converts a camelCase string to kebab-case.
 	 *
-	 * @param string $string camelCase string to convert.
+	 * @since 1.0.0
 	 *
-	 * @return string
+	 * @param string $string The camelCase string to convert.
+	 *
+	 * @return string The kebab-cased string.
 	 */
 	public static function camel_to_kebab( string $string ): string {
 		$strings = preg_split( '/(?=[A-Z])/', lcfirst( $string ) );
@@ -225,11 +220,13 @@ class Str {
 	}
 
 	/**
-	 * Converts a string to camelCase.
+	 * Converts a string with hyphens or underscores to camelCase.
 	 *
-	 * @param string $string The string to convert.
+	 * @since 1.0.0
 	 *
-	 * @return string
+	 * @param string $string The input string (e.g., 'kebab-case' or 'snake_case').
+	 *
+	 * @return string The camelCased string.
 	 */
 	public static function to_camel_case( string $string ): string {
 		return lcfirst(
@@ -247,33 +244,31 @@ class Str {
 	}
 
 	/**
-	 * Prepends a leading slash.
+	 * Ensures a string starts with a single slash.
 	 *
-	 * Will remove leading forward and backslashes if it exists already before adding
-	 * a leading forward slash. This prevents double slashing a string or path.
+	 * Removes any existing leading slashes and then adds a single one.
 	 *
-	 * The primary use of this is for paths and thus should be used for paths. It is
-	 * not restricted to paths and offers no specific path support.
+	 * @since 1.0.0
 	 *
-	 * @param string $string What to add the leading slash to.
+	 * @param string $string The string to modify.
 	 *
-	 * @return string String with leading slash added.
+	 * @return string The modified string with a leading slash.
 	 */
 	public static function leadingslashit( string $string ): string {
 		return DIRECTORY_SEPARATOR . self::unleadingslashit( $string );
 	}
 
 	/**
-	 * Removes leading forward slashes and backslashes if they exist.
+	 * Removes any leading slashes from a string.
 	 *
-	 * The primary use of this is for paths and thus should be used for paths. It is
-	 * not restricted to paths and offers no specific path support.
+	 * @since 1.0.0
 	 *
-	 * @param string $string What to remove the leading slashes from.
+	 * @param string $string The string to modify.
 	 *
-	 * @return string String without the leading slashes.
+	 * @return string The string without leading slashes.
 	 */
 	public static function unleadingslashit( string $string ): string {
 		return ltrim( $string, '/\\' );
 	}
+
 }
