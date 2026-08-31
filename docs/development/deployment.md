@@ -100,10 +100,9 @@ deploy:
 
 | Include | Exclude |
 |---------|---------|
-| `build/Blocks/` | `node_modules/` |
+| `src/Blocks/` (compiled JS/CSS + block.json) | `node_modules/` |
 | `vendor/` (no-dev) | `tests/` |
-| `src/Blocks/` (block.json) | `.git/` |
-| `src/` (PHP) | `.github/` |
+| `src/` (PHP) | `.git/` |
 | `parts/` | `assets/` (source files) |
 | `patterns/` | `*.config.js` |
 | `styles/` | `phpunit.xml.dist` |

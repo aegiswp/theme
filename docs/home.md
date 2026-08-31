@@ -48,6 +48,8 @@ Companion plugins extend functionality:
 - [[woocommerce-integration]] — WooCommerce FSE templates (theme) and gated commerce block patterns (companion plugin)
 - [[plugin-integrations]] — Framework integration styling
 - [[hook-patterns]] — Injection hooks fired by framework
+- [[dynamic-template-parts]] — Contextually swap header, footer, or sidebar at render time
+- [[maintenance-mode]] — On-brand planned-outage page for advanced users
 - [[accessibility]], [[performance]], [[navigation-styles]], [[svg-icons]], [[embed-template]]
 
 ### Companion Plugins

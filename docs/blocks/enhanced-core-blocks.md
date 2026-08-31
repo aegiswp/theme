@@ -147,6 +147,24 @@ All enhanced blocks include responsive improvements:
 - **Table** becomes horizontally scrollable on small screens.
 - **Gallery** adjusts column count based on available width.
 
+### Core Responsive States and Aegis Breakpoints
+
+WordPress Core responsive style states (viewport-specific spacing, color, typography, and related supports in the Site Editor) apply to blocks that use standard block supports. Aegis continues to provide complementary controls Core does not fully replace:
+
+| Concern | Handled by |
+|---------|------------|
+| Per-viewport styles on standard supports | Core responsive style states |
+| Show/hide by viewport (`aegis-hide-mobile`, and related) | Aegis visibility |
+| Display, order, and width per device | Aegis Display panel |
+| Landscape / tablet editor breakpoints | Aegis responsive breakpoint UI |
+| Query column counts per breakpoint | Aegis Query layout |
+
+Keep both systems. Prefer Core for ordinary style changes; use Aegis for visibility, layout, and query column behavior. If editor preview controls look duplicated after a WordPress update, see [[common-issues]].
+
+### Breadcrumbs
+
+`core/breadcrumbs` receives theme.json styles and the `aegis-breadcrumbs` stylesheet. WooCommerce Store Breadcrumbs (`woocommerce/breadcrumbs`) share the same stylesheet and delimiter treatment for visual parity. See [[woocommerce-integration#breadcrumbs]].
+
 ## Accessibility
 
 Enhanced blocks maintain or improve accessibility:

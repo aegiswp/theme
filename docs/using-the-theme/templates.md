@@ -132,6 +132,18 @@ The **Wishlist** template requires **WooCommerce**, the **Aegis companion plugin
 
 See [[woocommerce-integration#wishlist-ti-woocommerce-wishlist]] for shortcode details and troubleshooting.
 
+## Maintenance and Coming Soon
+
+Aegis includes utility templates for planned outages and launch pages:
+
+| Template | Filename | Description |
+|----------|----------|-------------|
+| Maintenance | `maintenance.html` | On-brand maintenance page (loads `template-maintenance`). |
+| Coming Soon | `coming-soon.html` | Site-wide coming soon layout. |
+| Page Coming Soon | `page-coming-soon.html` | Page-assigned coming soon layout. |
+
+Forcing the Maintenance template for logged-out visitors requires a small `template_include` hook in a child theme or plugin. See [[maintenance-mode]] for the full advanced how-to and code snippets.
+
 ## Customization Tips
 
 - Use the **Full Width** template for portfolio or gallery pages that benefit from wider layouts.

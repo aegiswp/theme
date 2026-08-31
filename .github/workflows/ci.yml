@@ -73,11 +73,11 @@ jobs:
       - name: PHPCS (WordPress Coding Standards)
         run: vendor/bin/phpcs
 
-      # aegis/wpaudit — path repo tools/wpaudit; tracked in git (see .gitignore exception).
-      - name: WPAudit (aegis/wpaudit) unit tests
+      # WPAudit lives only in tools/wpaudit (not a theme Composer package).
+      - name: WPAudit unit tests
         run: |
           if [ ! -f tools/wpaudit/composer.json ]; then
-            echo "::error::tools/wpaudit is missing. It must be committed so CI can run aegis/wpaudit (dev dependency). Un-ignore it in .gitignore and add the directory."
+            echo "::error::tools/wpaudit is missing. It must be committed so CI can run the WPAudit suite."
             exit 1
           fi
           composer install --no-interaction --no-progress --working-dir=tools/wpaudit

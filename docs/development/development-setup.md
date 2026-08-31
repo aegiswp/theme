@@ -168,8 +168,7 @@ aegis/
 ├── assets/               # Source files
 │   ├── css/              # Source stylesheets
 │   └── js/              # Source JavaScript
-├── build/Blocks/         # Compiled block output
-├── src/                  # PHP services + block sources
+├── src/                  # Theme glue + block sources (compiled in place)
 ├── parts/                # Template parts
 ├── patterns/             # Block patterns
 ├── styles/               # Style variations

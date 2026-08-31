@@ -64,9 +64,7 @@ Navigation styles can be applied in template HTML using the WordPress block styl
 
 ## Technical Details
 
-The navigation styles are registered by the `Aegis\Navigation\Overlay` class (`src/Navigation/Overlay.php`). Inline CSS is generated for each style variation and attached during block registration.
-
-The navigation overlay CSS is conditionally loaded only when a `core/navigation` block is present on the page, ensuring no performance impact on pages without navigation.
+The navigation styles are registered by `Aegis\Framework\DesignSystem\NavigationOverlay`. Inline CSS is generated for each style variation and attached during block registration. Overlay stylesheet lives at `vendor/aegis/framework/public/css/block-styles/navigation-overlay.css` and loads when a `core/navigation` block (or overlay style class) is present.
 
 ## Accessibility
 

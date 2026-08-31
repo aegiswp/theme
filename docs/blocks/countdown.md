@@ -42,7 +42,7 @@ When **Aegis Pro** is active, additional Countdown options may appear under **Ae
 
 - Source: `src/Blocks/countdown/` — `block.json`, `edit.tsx`, `view.ts`, `render.php`
 - Frontend animation runs in `view.js`; digits update on an interval
-- Build output: `build/Blocks/countdown/`
+- Compiled output: `src/Blocks/countdown/` (`index.js`, `view.js`, `style.css`)
 
 ## Next Steps
 

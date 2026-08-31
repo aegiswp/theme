@@ -17,35 +17,21 @@ FSE **templates** remain in the theme (`templates/` + `theme.json`). WooCommerce
 
 ## Theme Overview
 
-- **PSR-4 autoloading** via Composer — namespace `Aegis\` mapped to `src/`
+- **PSR-4 autoloading** via Composer — namespace `Aegis\` mapped to `src/` (theme glue + blocks)
 - **Framework bootstrap** — `Aegis::register()` from `vendor/aegis/framework`
-- **Theme services** — wired in `src/bootstrap.php`
+- **Theme services** — `BlockRegistrar` and `CompanionNotice` in `src/bootstrap.php`
 
 ## Namespace Structure (`src/`)
 
 ```
 src/
-├── bootstrap.php              # Composer autoload entry — wires init services
-├── helpers.php                # Pattern and URL helpers
-├── BlockPatterns.php          # Pattern registration bridge
-├── BlockPatternsRest.php      # REST payload trimming for Site Editor
-├── TemplatePatternExpander.php
-├── Core/
-│   └── AssetManager.php       # Theme-local asset enqueue
-├── Blocks/
-│   └── BlockRegistrar.php     # Theme custom blocks (countdown, slider, …)
-├── Navigation/
-│   └── Overlay.php            # Navigation overlay block styles
-├── Checkout/
-│   └── MultiStep.php          # WooCommerce multi-step checkout
-├── CoreBlocks/
-│   └── Breadcrumbs.php        # Breadcrumb trail filters
-├── Editor/
-│   └── EditorOverlayFix.php   # WP 7.0 editor workaround
+├── bootstrap.php              # Composer files autoload — BlockRegistrar + CompanionNotice
+├── helpers.php                # Pattern URL helpers (required from functions.php)
 ├── Admin/
-│   ├── CompanionNotice.php    # Install companion plugin notice
-│   └── …                      # Legacy facades delegating to plugin
-└── Blocks/                    # Block source (TSX) → build/Blocks/
+│   └── CompanionNotice.php    # Install companion plugin notice
+└── Blocks/                    # block.json + TSX sources (compiled in place)
+    ├── BlockRegistrar.php
+    └── RelatedPostsQuery.php
 ```
 
 ## Framework (`vendor/aegis/framework`)
@@ -55,7 +41,7 @@ Registered via `ServiceProvider` when `Aegis::register()` runs:
 - 37+ core block render filters (`CoreBlocks\`)
 - Block settings (Visibility, Animation, Query enhancements, …)
 - Block variations (Accordion, Counter, Marquee, …)
-- Design system (Patterns scanner, DarkMode, BlockStyles, EditorAssets)
+- Design system (Patterns scanner, REST trim, template pattern expander, dynamic template parts, DarkMode, BlockStyles, EditorAssets, navigation overlay, editor overlay fix)
 - Integration CSS (gated by plugin settings when plugin active)
 - Injection hook firing on template parts and post content
 
@@ -63,15 +49,15 @@ Registered via `ServiceProvider` when `Aegis::register()` runs:
 
 ### 1. functions.php
 
-Loads Composer autoload, helpers, pattern bridge, registers framework, loads `src/bootstrap.php`.
+Loads Composer autoload, helpers, textdomain, and `Aegis::register()`.
 
 ### 2. src/bootstrap.php
 
-Initializes theme services: AssetManager, BlockRegistrar, Navigation Overlay, WooCommerce MultiStep, CompanionNotice, etc.
+Initializes `CompanionNotice` and `BlockRegistrar`.
 
 ### 3. Aegis::register()
 
-Boots the framework ServiceProvider (~100 services).
+Boots the framework ServiceProvider (design system, core blocks, integrations).
 
 ## What Moved to Plugins
 
@@ -81,6 +67,8 @@ These features are **not** in theme PHP — see plugin docs:
 |---------|---------------|
 | Analytics | [Plugin Analytics](../../plugins/aegis/docs/features/analytics.md) |
 | Conditionals admin/evaluator | [Conditional Logic](../../plugins/aegis/docs/features/conditional-logic.md) |
+| Admin dashboard | [Plugin Architecture](../../plugins/aegis/docs/development/architecture.md) |
+| Multi-step checkout | [WooCommerce Checkout](../../plugins/aegis/docs/features/woocommerce-checkout.md) |
 | Integrations dashboard | [Integrations Dashboard](../../plugins/aegis/docs/features/integrations-dashboard.md) |
 | Hook pattern CPT | [Pro Hook Patterns](../../plugins/aegis-pro/docs/features/hook-patterns-pro.md) |
 | Map / Modal blocks | [Plugin Custom Blocks](../../plugins/aegis/docs/blocks/custom-blocks.md) |
@@ -89,7 +77,7 @@ These features are **not** in theme PHP — see plugin docs:
 
 Dual build — see [[building-assets]]:
 
-- **Theme:** `npm run build` → `build/Blocks/` (theme-owned blocks)
+- **Theme:** `npm run build` → compiled assets in `src/Blocks/` (theme-owned blocks)
 - **Plugin:** `npm run build` in `wp-content/plugins/aegis` (map, modal, admin)
 
 ## Next Steps

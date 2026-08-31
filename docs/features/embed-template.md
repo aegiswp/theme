@@ -64,6 +64,14 @@ aegis/embed-content.php
 
 WordPress automatically uses this file when it detects an embed content template in the active theme.
 
+oEmbed card styling lives in the framework:
+
+```
+vendor/aegis/framework/public/css/elements/oembed.css
+```
+
+It loads on `enqueue_embed_scripts` (handle `aegis-oembed`) alongside WordPress core `wp-embed-template` styles.
+
 ## Next Steps
 
 - [[performance]] — Learn about other performance features.

@@ -10,17 +10,23 @@ Integration styles use design tokens and adapt to style variations and dark mode
 |--------|---------------------|
 | WooCommerce | Templates, forms, product grids — see [[woocommerce-integration]] |
 | Fluent Forms | Form element styling |
+| Fluent Booking | Calendar and booking UI styling |
 | Gravity Forms | Form element styling |
 | LifterLMS | Course and membership layouts |
+| LearnDash | Course layouts, Focus Mode theme chrome |
 | Sensei LMS | Course and lesson styling |
 | Easy Digital Downloads | Download and checkout styling |
 | AffiliateWP | Affiliate dashboard styling |
+| Co-Authors Plus | Multi-author block display |
+| Meta Box | Field UI / frontend form styling |
 | bbPress | Forum styling |
 | Syntax Highlighting Code Block | Code block styling |
+| Code Block Pro | Code block radius/typography overlay |
+| BunnyCDN | Stream player embed styling |
 
 ## Integrations Dashboard
 
-Additional plugins (ACF, Meta Box, Rank Math, Yoast, LearnDash pattern control, BunnyCDN, Google Maps, etc.) are managed via the **Aegis plugin** Integrations dashboard, not theme PHP.
+Credentials, pattern control, and extra toggles (ACF, Meta Box, Rank Math, Yoast, LearnDash pattern keep, BunnyCDN API, Google Maps, etc.) are managed via the **Aegis plugin** Integrations dashboard. Framework CSS above still loads when the matching integration toggle is enabled.
 
 See [Integrations Dashboard](../../plugins/aegis/docs/features/integrations-dashboard.md).
 

@@ -51,6 +51,7 @@ Use WordPress conditional tags to limit context (`is_front_page()`, `is_single()
 ## Next Steps
 
 - [[hooks-and-filters]] — Verified hooks and filters reference
+- [[dynamic-template-parts]] — Contextually swap template part slugs at render time
 - [Plugin Hook Patterns](../../plugins/aegis/docs/features/hook-patterns.md)
 - [Pro Hook Patterns](../../plugins/aegis-pro/docs/features/hook-patterns-pro.md)
 - [Code Snippets](../../plugins/aegis/docs/features/code-snippets.md)

@@ -93,6 +93,32 @@ Update WordPress to version 7.0 or later via **Dashboard → Updates**.
 4. Check if the issue resolves.
 5. If not, re-upload the theme files.
 
+### Editor Styles Missing Inside the Canvas
+
+**Symptom:** Global Styles, icons, or Aegis inspector panels look unstyled or broken in the Post Editor or Site Editor, while the front end looks fine.
+
+**Cause:** The block editor canvas is iframed; styles or scripts may target the wrong document.
+
+**Solution:**
+
+1. Hard-refresh the editor and clear any object cache / CDN cache for admin assets.
+2. Confirm the issue persists with only Aegis (and WooCommerce if required) active.
+3. Check the browser console for failed CSS/JS loads or cross-frame errors.
+4. If you maintain custom editor scripts, query the editor canvas document rather than the parent `document` when reading DOM nodes inside the canvas.
+
+### Responsive Preview Mismatch
+
+**Symptom:** Device preview or Landscape/Tablet controls disagree with the front end, or Core viewport styles and Aegis Display controls appear to fight each other.
+
+**Cause:** Core responsive style states and Aegis visibility/layout breakpoints are separate systems.
+
+**Solution:**
+
+1. Confirm which system you intended: Core for standard style supports; Aegis for hide/show, display/order/width, and query columns.
+2. Clear conflicting per-device Display values on the block if Core viewport styles already cover the change.
+3. Test the front end at the same widths (mobile, landscape ~480–767px, tablet ~768–1023px, desktop).
+4. See [[enhanced-core-blocks#core-responsive-states-and-aegis-breakpoints]] for the supported relationship.
+
 ## Display Issues
 
 ### Fonts Not Loading

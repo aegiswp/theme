@@ -86,6 +86,12 @@ Full catalog: [Plugin Hook Patterns](../../plugins/aegis/docs/features/hook-patt
 | `aegis_placeholder_svg` | Placeholder SVG markup |
 | `aegis_format_inline_js` | Inline JS formatting |
 
+## Theme Filters
+
+| Filter | Description |
+|--------|-------------|
+| `aegis_dynamic_template_part_slug` | Swap a `core/template-part` slug at render time when an alternate `parts/{slug}.html` exists. See [[dynamic-template-parts]]. |
+
 ## Pro Filters
 
 | Filter | Description |
@@ -114,5 +120,6 @@ add_action( 'aegis_after_content', function () {
 ## Next Steps
 
 - [[hook-patterns]] — Injection hook guide
+- [[dynamic-template-parts]] — Contextual template part slug swaps
 - [Plugin Architecture](../../plugins/aegis/docs/development/architecture.md)
 - [[architecture]] — Theme architecture

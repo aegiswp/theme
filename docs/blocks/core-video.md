@@ -22,7 +22,9 @@ Aegis does **not** register a custom `aegis/video` block. Video uses WordPress *
 Older sites may still contain **`aegis/video`** blocks. Migrate to **`core/video`** before or after updating:
 
 ```bash
-studio wp eval-file wp-content/themes/aegis/tools/migrate-aegis-video.php
+npm run migrate:video
+# WordPress Studio:
+npm run migrate:video:studio
 ```
 
 See [[../getting-started/updating#aegisvideo--corevideo]] and [Pro Known Issues](../../plugins/aegis-pro/docs/troubleshooting/known-issues.md#legacy-aegisvideo-block).

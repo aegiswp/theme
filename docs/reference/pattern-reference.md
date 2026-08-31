@@ -280,6 +280,12 @@ Patterns for team member displays.
 
 Patterns used for template-level composition (header + content + footer structures).
 
+| Pattern | Slug | Description |
+|---------|------|-------------|
+| Maintenance | `template-maintenance` | Branded maintenance layout with header, cover message, login link, and footer. Used by `templates/maintenance.html`. See [[maintenance-mode]]. |
+| Coming Soon | `template-coming-soon` | Site-wide coming soon composition. |
+| Page Coming Soon | `template-page-coming-soon` | Coming soon layout for page templates. |
+
 ### Testimonial
 
 Patterns for reviews and social proof.

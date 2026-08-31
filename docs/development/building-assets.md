@@ -8,11 +8,11 @@ Aegis uses a **dual build** workflow: the theme compiles theme-owned blocks; the
 cd wp-content/themes/aegis
 composer install
 npm install
-npm run build             # Theme blocks → build/Blocks/
+npm run build             # Theme blocks → src/Blocks/
 npm run dev               # Watch mode
 ```
 
-Output: `build/Blocks/` (countdown, slider, slide, toggle, toggle-content, related-posts).
+Output: `src/Blocks/` (countdown, slider, slide, toggle, toggle-content, related-posts).
 
 Video uses WordPress **`core/video`** — editor assets are built in the companion plugin. See [Plugin Building Assets](../../plugins/aegis/docs/development/building-assets.md).
 
@@ -82,10 +82,10 @@ Press `Ctrl + C` to stop the watcher.
 
 ## Build Output
 
-Compiled assets are placed in the `build/Blocks/` directory:
+Compiled assets are placed in the `src/Blocks/` directory (gitignored; run `npm run build` after clone):
 
 ```
-build/Blocks/
+src/Blocks/
 ├── countdown/
 ├── slider/
 ├── slide/
@@ -204,7 +204,7 @@ To remove all compiled assets:
 npm run clean
 ```
 
-Or manually delete the `build/` directory.
+Or manually delete compiled files under `src/Blocks/` (see `.gitignore`).
 
 ## Environment Variables
 

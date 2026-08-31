@@ -12,142 +12,40 @@ Aegis uses a multi-layered testing approach covering unit tests, performance aud
 
 ## PHPUnit
 
-PHPUnit is used for unit and integration testing of the theme PHP codebase.
+PHPUnit coverage is the **WPAudit** suite in `tools/wpaudit/`. CI runs the same command. There is no separate `tests/Unit` tree in this theme.
 
 ### Running PHPUnit
 
 ```bash
-# Run all tests
-composer run test
+# Same as CI
+composer test:wpaudit
 
-# Or directly
-./vendor/bin/phpunit
-
-# Run a specific test file
-./vendor/bin/phpunit tests/unit/Test_Example.php
-
-# Run a specific test method
-./vendor/bin/phpunit --filter test_method_name
-
-# Run with coverage report
-./vendor/bin/phpunit --coverage-html coverage/
-```
-
-### Running with wp-env
-
-PHPUnit can run inside the Docker environment for integration tests that require WordPress:
-
-```bash
-npx wp-env run tests-cli --env-cwd=wp-content/themes/aegis phpunit
+# Or from the package directory
+composer install --working-dir=tools/wpaudit
+composer test --working-dir=tools/wpaudit
+composer test:coverage --working-dir=tools/wpaudit
 ```
 
 ### Configuration
 
-PHPUnit is configured via `phpunit.xml.dist`:
-
-```xml
-<?xml version="1.0"?>
-<phpunit
-    bootstrap="tests/bootstrap.php"
-    backupGlobals="false"
-    colors="true"
->
-    <testsuites>
-        <testsuite name="unit">
-            <directory suffix="Test.php">./tests/unit</directory>
-        </testsuite>
-        <testsuite name="integration">
-            <directory suffix="Test.php">./tests/integration</directory>
-        </testsuite>
-    </testsuites>
-    <coverage>
-        <include>
-            <directory suffix=".php">./inc</directory>
-        </include>
-    </coverage>
-</phpunit>
-```
+PHPUnit is configured in `tools/wpaudit/phpunit.xml` (PHPUnit 10.5, bootstrap `vendor/autoload.php`).
 
 ### Test Structure
 
 ```
-tests/
-├── bootstrap.php          # Test initialization
-├── unit/                  # Unit tests (no WordPress dependency)
-│   ├── Test_Assets.php
-│   ├── Test_Blocks.php
-│   └── Test_Helpers.php
-└── integration/           # Integration tests (requires WordPress)
-    ├── Test_Templates.php
-    ├── Test_Patterns.php
-    └── Test_Hooks.php
+tools/wpaudit/
+├── phpunit.xml
+├── src/                   # Analyzers, models, configuration
+└── tests/Unit/            # PHPUnit tests (WPAudit\Tests\)
 ```
 
 ### Writing Tests
 
-Unit tests extend the base PHPUnit TestCase:
-
-```php
-<?php
-
-namespace Aegis\Tests\Unit;
-
-use PHPUnit\Framework\TestCase;
-
-class Test_Example extends TestCase {
-
-    public function test_something_returns_expected_value(): void {
-        $result = some_function();
-        $this->assertEquals( 'expected', $result );
-    }
-}
-```
-
-Integration tests extend the WordPress test case:
-
-```php
-<?php
-
-namespace Aegis\Tests\Integration;
-
-use WP_UnitTestCase;
-
-class Test_Templates extends WP_UnitTestCase {
-
-    public function test_all_templates_exist(): void {
-        $templates = wp_get_theme()->get_page_templates();
-        $this->assertNotEmpty( $templates );
-    }
-}
-```
+Add cases under `tools/wpaudit/tests/Unit/` in the `WPAudit\Tests\` namespace. See existing analyzer and model tests in that tree.
 
 ## WPAudit
 
-WPAudit performs WordPress-specific performance auditing, checking for common performance issues and best practices.
-
-### Running WPAudit
-
-```bash
-npm run audit
-```
-
-### What WPAudit Checks
-
-| Category | Checks |
-|----------|--------|
-| Assets | Unused scripts, render-blocking resources, bundle sizes |
-| Database | Excessive queries, slow queries, autoloaded options |
-| Caching | Cache headers, object cache usage |
-| Images | Missing dimensions, unoptimized sizes, lazy loading |
-| Theme | Theme check standards, required files, best practices |
-
-### Interpreting Results
-
-WPAudit outputs a report with:
-
-- **Pass** — The check meets performance standards.
-- **Warning** — The check could be improved but is not critical.
-- **Fail** — The check does not meet standards and should be fixed.
+WPAudit is the PHPUnit package in `tools/wpaudit/`. It analyzes theme files for performance, SEO, and accessibility findings. Run it with `composer test:wpaudit`. Rule IDs and configuration are documented in `tools/wpaudit/README.md`.
 
 ## pa11y-ci (Accessibility)
 
@@ -264,6 +162,20 @@ Coverage targets:
 | Utility functions | 90%+ |
 | Block registration | 70%+ |
 | Overall | 75%+ |
+
+## WordPress 7.1 Compatibility Checklist
+
+Run this matrix before raising `Tested up to` to 7.1. Do **not** remove Aegis breakpoints; they complement Core responsive style states (see [[enhanced-core-blocks#core-responsive-states-and-aegis-breakpoints]]).
+
+| Check | How |
+|-------|-----|
+| Core responsive style states | Edit Group/Columns/Image/Heading/Button with viewport styles; confirm front-end CSS |
+| Aegis Display / visibility | Toggle hide-on-mobile, display/order/width; confirm Landscape/Tablet buttons still work |
+| Iframed editor | Post Editor + Site Editor: Global Styles, overlays, icons, Aegis inspector panels |
+| React 19 experiment | Enable Gutenberg `gutenberg-react-19`; open theme blocks and companion plugin admin/editor UIs; watch console |
+| Regression baseline | Spot-check the same flows on WordPress 7.0 |
+
+Static scan (theme + Aegis plugin sources): no `__next40pxDefaultSize` or `useResizeCanvas` usage found. Vendored map libraries in Aegis Pro may still reference legacy React APIs — retest those screens under the React 19 experiment and update upstream packages when available.
 
 ## Next Steps
 

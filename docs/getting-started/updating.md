@@ -17,10 +17,12 @@ Before performing any update, take the following precautions:
 
 The **`aegis/video`** custom block was removed. Existing content still using that block should be migrated to **`core/video`** before or after updating.
 
-Run the migration script via WP-CLI from your WordPress root:
+Run the migration script from the theme directory:
 
 ```bash
-wp eval-file wp-content/themes/aegis/tools/migrate-aegis-video.php
+npm run migrate:video
+# WordPress Studio:
+npm run migrate:video:studio
 ```
 
 The script converts `aegis/video` block markup to `core/video` in post content. Review affected pages in the Site Editor after running it.

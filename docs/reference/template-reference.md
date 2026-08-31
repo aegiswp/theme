@@ -24,6 +24,14 @@ This page provides a complete reference of all 23 templates included in the Aegi
 | 11 | Full Width | `full-width.html` | Pages | Content spans the full wide width (1620px) without sidebar or narrow constraints. |
 | 12 | Blank | `blank.html` | Pages | Minimal template with no header, footer, or wrapper. Contains only the Post Content block. |
 
+## Utility Templates
+
+| Template | Filename | Area | Description |
+|----------|----------|------|-------------|
+| Maintenance | `maintenance.html` | Utility | On-brand maintenance page. Loads the `template-maintenance` pattern. See [[maintenance-mode]] for the advanced activation hook. |
+| Coming Soon | `coming-soon.html` | Utility | Site-wide coming soon layout. |
+| Page Coming Soon | `page-coming-soon.html` | Pages | Coming soon layout assignable to a specific page. |
+
 ## WooCommerce Templates
 
 These templates are active only when WooCommerce is installed:

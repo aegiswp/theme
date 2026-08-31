@@ -7,16 +7,15 @@ Directory layout of the Aegis theme repository.
 ```
 aegis/
 ├── assets/                  # Fonts and static assets
-├── build/                   # Compiled block assets (generated)
 ├── docs/                    # Theme documentation (primary docs hub)
 ├── parts/                   # Template parts (.html)
 ├── patterns/                # Block patterns (.php)
-├── src/                     # PHP classes + block sources (PSR-4)
+├── src/                     # Theme glue + block sources (PSR-4)
 ├── styles/                  # Style variation JSON files
 ├── templates/               # Page templates (.html)
-├── tests/                   # PHPUnit tests
 ├── tools/                   # Dev utilities (tracked in Git; excluded from release zip)
-│   └── scratch/             # Local-only probes (gitignored)
+│   ├── scratch/             # Local-only probes (gitignored)
+│   └── wpaudit/             # WPAudit PHPUnit suite (source tracked; vendor/ is not)
 ├── vendor/                  # Composer dependencies (framework, utilities)
 ├── functions.php            # Theme bootstrap
 ├── theme.json               # Design tokens
@@ -36,34 +35,20 @@ PHP services and block source files:
 src/
 ├── bootstrap.php
 ├── helpers.php
-├── BlockPatterns.php
-├── Blocks/                  # block.json + TSX sources
-│   ├── countdown/
-│   ├── slider/
-│   ├── slide/
-│   ├── toggle/
-│   ├── toggle-content/
-│   └── related-posts/
-├── Checkout/js/             # Multi-step checkout JS source
-├── Navigation/
-├── Core/
-└── Admin/
+├── Admin/
+│   └── CompanionNotice.php
+└── Blocks/                  # block.json + TSX sources (compiled in place)
+    ├── BlockRegistrar.php
+    ├── RelatedPostsQuery.php
+    ├── countdown/
+    ├── slider/
+    ├── slide/
+    ├── toggle/
+    ├── toggle-content/
+    └── related-posts/
 ```
 
-### build/Blocks/
-
-Webpack output from `npm run build`:
-
-```
-build/Blocks/
-├── countdown/
-├── slider/
-├── slide/
-├── toggle/
-├── toggle-content/
-├── related-posts/
-└── blocks-manifest.php
-```
+Engine PHP (patterns REST, template expander, dynamic parts, navigation overlay, editor overlay fix, Woo breadcrumbs) lives in `vendor/aegis/framework`. Admin dashboard, conditionals, and multi-step checkout live in the companion plugin.
 
 ### vendor/aegis/
 

@@ -97,6 +97,16 @@ The single product template provides a complete product detail experience:
 - Related products section.
 - Upsell products section.
 
+## Breadcrumbs
+
+Shop templates use the WooCommerce Store Breadcrumbs block (`woocommerce/breadcrumbs`). Aegis styles them to match WordPress `core/breadcrumbs`:
+
+- Shared `aegis-breadcrumbs` stylesheet (enqueued for either block).
+- Accessible delimiter markup (`.aegis-breadcrumb-separator` with `aria-hidden="true"`).
+- Core `theme.json` / CSS tokens that cascade through Woo’s `.wp-block-breadcrumbs` wrapper.
+
+No template markup changes are required — keep `<!-- wp:woocommerce/breadcrumbs /-->` in shop layouts.
+
 ## Wishlist (TI WooCommerce Wishlist)
 
 The **Wishlist** template (`page-wishlist.html`) provides a styled layout for saved products. It requires:

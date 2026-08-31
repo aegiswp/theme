@@ -40,7 +40,7 @@ For advanced related-post logic on **`core/query`**, use **Aegis Pro** `aegisPro
 
 ## Developer notes
 
-- Query logic: `src/Blocks/related-posts/RelatedPostsQuery.php`
+- Query logic: `src/Blocks/RelatedPostsQuery.php`
 - Filter: `aegis_related_posts_query` — see [[../reference/hooks-and-filters#block-filters-examples]]
 
 ```php

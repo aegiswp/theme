@@ -135,6 +135,10 @@ If you need a different header or footer for a specific template:
 
 This override only affects the current template; other templates continue using the original part.
 
+## Loading Parts Contextually
+
+To swap header, footer, or sidebar based on page context without duplicating templates, use Aegis’s `aegis_dynamic_template_part_slug` filter. See [[dynamic-template-parts]] for examples (category sidebars, landing headers, checkout footers).
+
 ## Reverting Template Parts
 
 To restore a template part to its original state:
