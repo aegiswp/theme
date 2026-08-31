@@ -40,7 +40,7 @@ class BlockStyles implements Scriptable {
 	public function scripts( Scripts $scripts ): void {
 		$scripts->add_data(
 			'blockStyles',
-			$this->get_data( wp_get_global_settings() ?? [] ),
+			fn() => $this->get_data( wp_get_global_settings() ?? [] ),
 			[],
 			is_admin(),
 		);

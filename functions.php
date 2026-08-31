@@ -28,3 +28,5 @@ require_once __DIR__ . '/src/helpers.php';
 // Theme-level classes are bootstrapped via Composer files autoload (src/bootstrap.php).
 // Register the framework immediately so after_setup_theme and init annotations attach in time.
 Aegis::register( __FILE__ );
+
+\Aegis\Utilities\I18n::register( \Aegis\Utilities\Data::from( __FILE__ ) );

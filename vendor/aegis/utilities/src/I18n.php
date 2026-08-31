@@ -9,6 +9,8 @@ namespace Aegis\Utilities;
 // Imports classes, interfaces, and functions used by the internationalization helpers.
 use Aegis\Hooks\Hook;
 use function load_plugin_textdomain;
+use function load_theme_textdomain;
+use function str_contains;
 
 /**
  * Handles internationalization (I18n) for plugins and themes.
@@ -63,20 +65,49 @@ class I18n {
 	/**
 	 * Loads the plugin or theme text domain.
 	 *
-	 * This method is automatically hooked into the `plugins_loaded` action.
+	 * This method is automatically hooked into the `init` action.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @hook  plugins_loaded
+	 * @hook  init
 	 *
 	 * @return void
 	 */
 	public function load_textdomain(): void {
+		$domain = $this->data->slug;
+
+		if ( $domain === '' ) {
+			return;
+		}
+
+		if ( str_contains( $this->data->file, 'content/themes' ) ) {
+			$path = $this->data->dir . ltrim( $this->data->domain_path, '/' );
+			load_theme_textdomain( $domain, $path );
+
+			return;
+		}
+
 		load_plugin_textdomain(
-			$this->data->slug,
+			$domain,
 			false,
-			$this->data->dir . $this->data->domain_path
+			$this->plugin_textdomain_path()
 		);
+	}
+
+	/**
+	 * Relative path (from wp-content/plugins) for plugin language files.
+	 *
+	 * @return string
+	 */
+	private function plugin_textdomain_path(): string {
+		$relative    = dirname( $this->data->basename );
+		$domain_path = ltrim( $this->data->domain_path, '/' );
+
+		if ( $domain_path !== '' ) {
+			return $relative . '/' . $domain_path;
+		}
+
+		return $relative . '/languages';
 	}
 
 }

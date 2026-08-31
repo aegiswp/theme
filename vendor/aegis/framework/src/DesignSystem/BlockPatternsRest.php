@@ -26,10 +26,12 @@ use function is_readable;
 use function preg_match_all;
 
 /**
- * Prevents multi-megabyte block-patterns REST responses from freezing the editor.
+ * Trims hidden pattern content from block-patterns REST responses.
  *
- * Patterns referenced by theme templates and template parts must keep their content
+ * Inserter-visible patterns must keep their content so Gutenberg can render previews.
+ * Patterns referenced by theme templates and template parts must also keep content
  * so the editor can hydrate wp:pattern blocks (empty content yields blocks without attributes).
+ * Only `inserter: false` patterns that are not required for hydration are stripped.
  */
 final class BlockPatternsRest {
 
@@ -134,7 +136,7 @@ final class BlockPatternsRest {
 	}
 
 	/**
-	 * Strip content from inserter-only patterns in the block-patterns REST payload.
+	 * Strip content from hidden (non-inserter) patterns in the block-patterns REST payload.
 	 *
 	 * @param WP_REST_Response|\WP_Error $response Response.
 	 * @param array                      $handler  Route handler.
@@ -166,8 +168,9 @@ final class BlockPatternsRest {
 			}
 
 			$slug = $this->pattern_slug( $pattern );
+			$keep = $slug === '' || isset( $required[ $slug ] ) || ( $pattern['inserter'] ?? true ) !== false;
 
-			if ( $slug === '' || isset( $required[ $slug ] ) ) {
+			if ( $keep ) {
 				continue;
 			}
 
