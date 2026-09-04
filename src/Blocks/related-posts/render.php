@@ -16,13 +16,9 @@ defined( 'ABSPATH' ) || exit;
 
 use Aegis\Blocks\RelatedPostsQuery;
 
-if ( ! is_singular() || is_front_page() ) {
-	return '';
-}
+$is_editor_preview = defined( 'REST_REQUEST' ) && REST_REQUEST;
 
-$current_post_id = get_the_ID();
-
-if ( ! $current_post_id ) {
+if ( ! $is_editor_preview && ( ! is_singular() || is_front_page() ) ) {
 	return '';
 }
 
@@ -36,6 +32,8 @@ $heading            = $attributes['heading'] ?? __( 'Related Posts', 'aegis' );
 $heading_tag        = $attributes['headingTag'] ?? 'h2';
 $style_variant      = $attributes['styleVariant'] ?? 'grid';
 $taxonomy_source    = $attributes['taxonomySource'] ?? 'auto';
+$order_by           = $attributes['orderBy'] ?? 'date';
+$order              = $attributes['order'] ?? 'desc';
 $fallback_behavior  = $attributes['fallbackBehavior'] ?? 'latest';
 $excerpt_length     = (int) ( $attributes['excerptLength'] ?? 20 );
 $image_aspect_ratio = $attributes['imageAspectRatio'] ?? '16/9';
@@ -43,6 +41,11 @@ $image_aspect_ratio = $attributes['imageAspectRatio'] ?? '16/9';
 if ( class_exists( '\Aegis\Plugin\Settings\Repository' ) ) {
 	if ( ! \Aegis\Plugin\Settings\Repository::is_block_enabled( 'related_posts_taxonomy_source' ) ) {
 		$taxonomy_source = 'auto';
+	}
+
+	if ( ! \Aegis\Plugin\Settings\Repository::is_block_enabled( 'related_posts_orderby' ) ) {
+		$order_by = 'date';
+		$order    = 'desc';
 	}
 
 	if ( ! \Aegis\Plugin\Settings\Repository::is_block_enabled( 'related_posts_fallback' ) ) {
@@ -67,14 +70,31 @@ if ( ! in_array( $heading_tag, $allowed_tags, true ) ) {
 	$heading_tag = 'h2';
 }
 
-$related_query = RelatedPostsQuery::query(
-	$current_post_id,
-	array(
-		'postsPerPage'     => $posts_per_page,
-		'taxonomySource'   => $taxonomy_source,
-		'fallbackBehavior' => $fallback_behavior,
-	)
-);
+$current_post_id = (int) ( $block->context['postId'] ?? get_the_ID() );
+
+if ( RelatedPostsQuery::is_public_post( $current_post_id ) ) {
+	$related_query = RelatedPostsQuery::query(
+		$current_post_id,
+		array(
+			'postsPerPage'     => $posts_per_page,
+			'taxonomySource'   => $taxonomy_source,
+			'orderBy'          => $order_by,
+			'order'            => $order,
+			'fallbackBehavior' => $fallback_behavior,
+		)
+	);
+} elseif ( $is_editor_preview ) {
+	$related_query = RelatedPostsQuery::latest(
+		$posts_per_page,
+		'post',
+		array(
+			'orderBy' => $order_by,
+			'order'   => $order,
+		)
+	);
+} else {
+	return '';
+}
 
 if ( ! $related_query instanceof WP_Query ) {
 	return '';

@@ -30,6 +30,8 @@ interface RelatedPostsAttributes {
 	headingTag: string;
 	styleVariant: string;
 	taxonomySource: string;
+	orderBy: string;
+	order: string;
 	fallbackBehavior: string;
 	excerptLength: number;
 	imageAspectRatio: string;
@@ -55,10 +57,27 @@ const HEADING_TAGS = [
 	{ label: __( 'H6', 'aegis' ), value: 'h6' },
 ];
 
-const TAXONOMY_OPTIONS = [
-	{ label: __( 'Auto (all public)', 'aegis' ), value: 'auto' },
+const RELATED_BY_OPTIONS = [
+	{ label: __( 'Auto (all public taxonomies)', 'aegis' ), value: 'auto' },
 	{ label: __( 'Category', 'aegis' ), value: 'category' },
 	{ label: __( 'Tag', 'aegis' ), value: 'post_tag' },
+	{ label: __( 'Author', 'aegis' ), value: 'author' },
+];
+
+const ORDER_BY_OPTIONS = [
+	{ label: __( 'Date', 'aegis' ), value: 'date' },
+	{ label: __( 'Title', 'aegis' ), value: 'title' },
+	{ label: __( 'Random', 'aegis' ), value: 'rand' },
+];
+
+const ORDER_OPTIONS = [
+	{ label: __( 'Newest to oldest', 'aegis' ), value: 'desc' },
+	{ label: __( 'Oldest to newest', 'aegis' ), value: 'asc' },
+];
+
+const TITLE_ORDER_OPTIONS = [
+	{ label: __( 'A to Z', 'aegis' ), value: 'asc' },
+	{ label: __( 'Z to A', 'aegis' ), value: 'desc' },
 ];
 
 const FALLBACK_OPTIONS = [
@@ -101,39 +120,49 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 					<RangeControl
 						label={ __( 'Number of Posts', 'aegis' ) }
 						value={ attributes.postsPerPage }
-						onChange={ ( value ) =>
-							setAttributes( { postsPerPage: value } )
-						}
+						onChange={ ( value ) => {
+							if ( undefined !== value ) {
+								setAttributes( { postsPerPage: value } );
+							}
+						} }
 						min={ 1 }
 						max={ 12 }
 					/>
 					<RangeControl
 						label={ __( 'Columns', 'aegis' ) }
 						value={ attributes.columns }
-						onChange={ ( value ) =>
-							setAttributes( { columns: value } )
-						}
+						onChange={ ( value ) => {
+							if ( undefined !== value ) {
+								setAttributes( { columns: value } );
+							}
+						} }
 						min={ 1 }
 						max={ 4 }
 					/>
-					<RangeControl
-						label={ __( 'Excerpt Length (words)', 'aegis' ) }
-						value={ attributes.excerptLength }
-						onChange={ ( value ) =>
-							setAttributes( { excerptLength: value } )
-						}
-						min={ 5 }
-						max={ 55 }
-						step={ 5 }
-					/>
-					<SelectControl
-						label={ __( 'Image Aspect Ratio', 'aegis' ) }
-						value={ attributes.imageAspectRatio }
-						options={ ASPECT_RATIO_OPTIONS }
-						onChange={ ( value ) =>
-							setAttributes( { imageAspectRatio: value } )
-						}
-					/>
+					{ attributes.showExcerpt && (
+						<RangeControl
+							label={ __( 'Excerpt Length (words)', 'aegis' ) }
+							value={ attributes.excerptLength }
+							onChange={ ( value ) => {
+								if ( undefined !== value ) {
+									setAttributes( { excerptLength: value } );
+								}
+							} }
+							min={ 5 }
+							max={ 55 }
+							step={ 5 }
+						/>
+					) }
+					{ attributes.showFeaturedImage && (
+						<SelectControl
+							label={ __( 'Image Aspect Ratio', 'aegis' ) }
+							value={ attributes.imageAspectRatio }
+							options={ ASPECT_RATIO_OPTIONS }
+							onChange={ ( value ) =>
+								setAttributes( { imageAspectRatio: value } )
+							}
+						/>
+					) }
 				</PanelBody>
 
 				<PanelBody
@@ -200,17 +229,39 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 					initialOpen={ false }
 				>
 					<SelectControl
-						label={ __( 'Taxonomy Source', 'aegis' ) }
+						label={ __( 'Related By', 'aegis' ) }
 						value={ attributes.taxonomySource }
-						options={ TAXONOMY_OPTIONS }
+						options={ RELATED_BY_OPTIONS }
 						onChange={ ( value ) =>
 							setAttributes( { taxonomySource: value } )
 						}
 						help={ __(
-							'Auto detects all public taxonomies on the current post type.',
+							'Match posts that share taxonomies with the current post, or the same author.',
 							'aegis'
 						) }
 					/>
+					<SelectControl
+						label={ __( 'Order By', 'aegis' ) }
+						value={ attributes.orderBy }
+						options={ ORDER_BY_OPTIONS }
+						onChange={ ( value ) =>
+							setAttributes( { orderBy: value } )
+						}
+					/>
+					{ 'rand' !== attributes.orderBy && (
+						<SelectControl
+							label={ __( 'Order', 'aegis' ) }
+							value={ attributes.order }
+							options={
+								'title' === attributes.orderBy
+									? TITLE_ORDER_OPTIONS
+									: ORDER_OPTIONS
+							}
+							onChange={ ( value ) =>
+								setAttributes( { order: value } )
+							}
+						/>
+					) }
 					<SelectControl
 						label={ __( 'Fallback Behavior', 'aegis' ) }
 						value={ attributes.fallbackBehavior }
@@ -229,12 +280,14 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 			<ServerSideRender
 				block="aegis/related-posts"
 				attributes={ attributes }
+				httpMethod="POST"
+				skipBlockSupportAttributes
 				EmptyResponsePlaceholder={ () => (
 					<Placeholder
 						icon="admin-links"
 						label={ __( 'Related Posts', 'aegis' ) }
 						instructions={ __(
-							'Related posts will appear here on singular post views.',
+							'No posts available to preview.',
 							'aegis'
 						) }
 					/>

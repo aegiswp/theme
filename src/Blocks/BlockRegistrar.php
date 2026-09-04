@@ -60,6 +60,10 @@ final class BlockRegistrar {
 
 		$block_json_files = glob( $blocks_dir . '/*/block.json' );
 
+		// #region agent log
+		$__dbg_rows = array();
+		// #endregion
+
 		foreach ( is_array( $block_json_files ) ? $block_json_files : array() as $block_json ) {
 			$block_dir = dirname( $block_json );
 			$dir_name  = basename( $block_dir );
@@ -69,8 +73,17 @@ final class BlockRegistrar {
 			}
 
 			$parent_key = self::parent_block_key( $dir_name );
+			$enabled    = $parent_key === '' || \Aegis\Framework\ServiceProvider::is_block_enabled( $parent_key );
 
-			if ( $parent_key !== '' && ! \Aegis\Framework\ServiceProvider::is_block_enabled( $parent_key ) ) {
+			if ( $parent_key !== '' && ! $enabled ) {
+				// #region agent log
+				$__dbg_rows[] = array(
+					'dir'     => $dir_name,
+					'parent'  => $parent_key,
+					'enabled' => false,
+					'skipped' => 'disabled',
+				);
+				// #endregion
 				continue;
 			}
 
@@ -86,12 +99,63 @@ final class BlockRegistrar {
 				continue;
 			}
 
-			if ( $registry->is_registered( $name ) ) {
+			$already = $registry->is_registered( $name );
+
+			if ( $already ) {
+				// #region agent log
+				$__dbg_rows[] = array(
+					'dir'        => $dir_name,
+					'name'       => $name,
+					'parent'     => $parent_key,
+					'enabled'    => $enabled,
+					'skipped'    => 'already_registered',
+					'indexJs'    => file_exists( $block_dir . '/index.js' ),
+					'styleCss'   => file_exists( $block_dir . '/style.css' ),
+				);
+				// #endregion
 				continue;
 			}
 
-			register_block_type( $block_dir );
+			$result = register_block_type( $block_dir );
+
+			// #region agent log
+			$__dbg_rows[] = array(
+				'dir'        => $dir_name,
+				'name'       => $name,
+				'parent'     => $parent_key,
+				'enabled'    => $enabled,
+				'skipped'    => null,
+				'indexJs'    => file_exists( $block_dir . '/index.js' ),
+				'styleCss'   => file_exists( $block_dir . '/style.css' ),
+				'registered' => $result instanceof \WP_Block_Type,
+				'nowInReg'   => $registry->is_registered( $name ),
+			);
+			// #endregion
 		}
+
+		// #region agent log
+		$rp = $registry->get_registered( 'aegis/related-posts' );
+		@file_put_contents(
+			( defined( 'ABSPATH' ) ? ABSPATH : '' ) . 'debug-286df9.log',
+			wp_json_encode(
+				array(
+					'sessionId'    => '286df9',
+					'hypothesisId' => 'A',
+					'location'     => 'BlockRegistrar.php:register_from_glob',
+					'message'      => 'theme block registration',
+					'data'         => array(
+						'rows'              => $__dbg_rows,
+						'relatedRegistered' => $registry->is_registered( 'aegis/related-posts' ),
+						'relatedScripts'    => $rp instanceof \WP_Block_Type ? $rp->editor_script_handles : null,
+						'relatedPostsKey'   => \Aegis\Framework\ServiceProvider::is_block_enabled( 'related_posts' ),
+						'relatedPostsHyphen'=> \Aegis\Framework\ServiceProvider::is_block_enabled( 'related-posts' ),
+					),
+					'timestamp'    => (int) round( microtime( true ) * 1000 ),
+				)
+			) . "\n",
+			FILE_APPEND
+		);
+		// #endregion
 	}
 
 	/**
@@ -105,6 +169,7 @@ final class BlockRegistrar {
 		return match ( $dir_name ) {
 			'slide' => 'slider',
 			'toggle-content' => 'toggle',
+			'related-posts' => 'related_posts',
 			default => $dir_name,
 		};
 	}

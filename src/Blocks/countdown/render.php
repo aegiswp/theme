@@ -10,7 +10,14 @@ declare(strict_types=1);
 
 defined( 'ABSPATH' ) || exit;
 
-// Extract attributes with defaults.
+$feature_on = static function ( string $key ): bool {
+	if ( class_exists( '\Aegis\Framework\ServiceProvider' ) ) {
+		return \Aegis\Framework\ServiceProvider::is_block_enabled( $key );
+	}
+
+	return true;
+};
+
 $datetime       = $attributes['datetime'] ?? '';
 $show_days      = $attributes['showDays'] ?? true;
 $show_hours     = $attributes['showHours'] ?? true;
@@ -27,7 +34,38 @@ $layout         = $attributes['layout'] ?? 'inline';
 $expiry_message = $attributes['expiryMessage'] ?? '';
 $timezone       = $attributes['timezone'] ?? 'utc';
 
-// Separator characters.
+if ( ! $feature_on( 'countdown_segments' ) ) {
+	$show_days    = true;
+	$show_hours   = true;
+	$show_minutes = true;
+	$show_seconds = true;
+}
+
+if ( ! $feature_on( 'countdown_labels' ) ) {
+	$labels = array(
+		'days'    => 'Days',
+		'hours'   => 'Hours',
+		'minutes' => 'Minutes',
+		'seconds' => 'Seconds',
+	);
+}
+
+if ( ! $feature_on( 'countdown_separator' ) ) {
+	$separator = 'colon';
+}
+
+if ( ! $feature_on( 'countdown_layout' ) ) {
+	$layout = 'inline';
+}
+
+if ( ! $feature_on( 'countdown_expiry_message' ) ) {
+	$expiry_message = '';
+}
+
+if ( ! $feature_on( 'countdown_timezone' ) ) {
+	$timezone = 'utc';
+}
+
 $separator_chars = array(
 	'colon' => ':',
 	'dot'   => '·',
@@ -36,9 +74,6 @@ $separator_chars = array(
 );
 $sep_char        = $separator_chars[ $separator ] ?? '';
 
-// Build wrapper attributes using get_block_wrapper_attributes() to
-// honour block supports (color, spacing, typography) and handle
-// className / anchor / align automatically.
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
 		'class'               => 'aegis-countdown aegis-countdown--' . esc_attr( $layout ),
@@ -61,7 +96,6 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	)
 );
 
-// Build visible segments list.
 $segments = array();
 if ( $show_days ) {
 	$segments[] = array(
@@ -88,7 +122,6 @@ if ( $show_seconds ) {
 	);
 }
 
-// Format the target date for noscript fallback.
 $formatted_date = '';
 if ( $datetime ) {
 	$timestamp = strtotime( $datetime );
@@ -125,3 +158,45 @@ if ( $datetime ) {
 		<?php endif; ?>
 	</noscript>
 </div>
+<?php
+$schema_enabled = ! empty( $attributes['schemaEnabled'] );
+$event_name     = sanitize_text_field( (string) ( $attributes['schemaEventName'] ?? '' ) );
+
+if (
+	$schema_enabled
+	&& $event_name !== ''
+	&& $datetime !== ''
+	&& $feature_on( 'countdown_schema' )
+	&& (
+		! class_exists( '\Aegis\Plugin\Settings\Repository' )
+		|| ! \Aegis\Plugin\Settings\Repository::is_schema_delegated_to_seo( 'event' )
+	)
+) {
+	$schema = array(
+		'@context'  => 'https://schema.org',
+		'@type'     => 'Event',
+		'name'      => $event_name,
+		'startDate' => $datetime,
+	);
+
+	$description = sanitize_text_field( (string) ( $attributes['schemaEventDescription'] ?? '' ) );
+	$location    = sanitize_text_field( (string) ( $attributes['schemaEventLocation'] ?? '' ) );
+	$event_url   = esc_url_raw( (string) ( $attributes['schemaEventUrl'] ?? '' ) );
+
+	if ( $description !== '' ) {
+		$schema['description'] = $description;
+	}
+
+	if ( $location !== '' ) {
+		$schema['location'] = array(
+			'@type' => 'Place',
+			'name'  => $location,
+		);
+	}
+
+	if ( $event_url !== '' ) {
+		$schema['url'] = $event_url;
+	}
+
+	echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES ) . '</script>';
+}

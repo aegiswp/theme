@@ -90,11 +90,7 @@
 		}
 		wrapper.setAttribute( INIT_FLAG, '' );
 
-		const config = parseConfig( wrapper );
-
-		if ( ! config.datetime ) {
-			return;
-		}
+		let config = parseConfig( wrapper );
 
 		const segmentsContainer = wrapper.querySelector< HTMLElement >(
 			'.aegis-countdown__segments'
@@ -111,7 +107,6 @@
 			'.aegis-countdown__sr'
 		);
 
-		// Collect digit elements by unit.
 		const digitElements: Record< string, HTMLElement | null > = {};
 		const units = [ 'days', 'hours', 'minutes', 'seconds' ];
 		units.forEach( ( unit ) => {
@@ -126,8 +121,16 @@
 		} );
 
 		let lastSrUpdate = 0;
+		let intervalId: ReturnType< typeof setInterval > | undefined;
+		let expired = false;
 
 		function updateDisplay(): void {
+			config = parseConfig( wrapper );
+
+			if ( ! config.datetime ) {
+				return;
+			}
+
 			const time = getTimeRemaining( config.datetime, config.timezone );
 
 			if ( time.total <= 0 ) {
@@ -135,7 +138,14 @@
 				return;
 			}
 
-			// Update digit text content.
+			if ( expired ) {
+				expired = false;
+				segmentsContainer.removeAttribute( 'hidden' );
+				if ( expiredContainer ) {
+					expiredContainer.setAttribute( 'hidden', '' );
+				}
+			}
+
 			if ( digitElements.days ) {
 				digitElements.days.textContent = pad( time.days );
 			}
@@ -149,7 +159,6 @@
 				digitElements.seconds.textContent = pad( time.seconds );
 			}
 
-			// Throttled screen reader announcement.
 			const now = Date.now();
 			if ( srRegion && now - lastSrUpdate >= SR_INTERVAL ) {
 				lastSrUpdate = now;
@@ -171,28 +180,32 @@
 		}
 
 		function handleExpiry(): void {
-			clearInterval( intervalId );
+			if ( expired ) {
+				return;
+			}
+			expired = true;
 
-			// Zero out all digits.
+			if ( intervalId !== undefined ) {
+				clearInterval( intervalId );
+				intervalId = undefined;
+			}
+
 			units.forEach( ( unit ) => {
 				if ( digitElements[ unit ] ) {
 					( digitElements[ unit ] as HTMLElement ).textContent = '00';
 				}
 			} );
 
-			// Show expiry message if configured.
 			if ( config.expiryMessage && expiredContainer ) {
 				segmentsContainer.setAttribute( 'hidden', '' );
 				expiredContainer.removeAttribute( 'hidden' );
 			}
 
-			// Update screen reader region.
 			if ( srRegion ) {
 				srRegion.textContent =
 					config.expiryMessage || 'Countdown complete';
 			}
 
-			// Dispatch custom event.
 			wrapper.dispatchEvent(
 				new CustomEvent( 'aegis:countdown:expired', {
 					bubbles: true,
@@ -201,9 +214,22 @@
 			);
 		}
 
-		// Initial update + 1s interval.
-		updateDisplay();
-		const intervalId = setInterval( updateDisplay, 1000 );
+		function start(): void {
+			if ( intervalId !== undefined ) {
+				clearInterval( intervalId );
+			}
+			expired = false;
+			updateDisplay();
+			if ( ! expired ) {
+				intervalId = setInterval( updateDisplay, 1000 );
+			}
+		}
+
+		wrapper.addEventListener( 'aegis:countdown:restart', () => {
+			start();
+		} );
+
+		start();
 	}
 
 	function initAll(): void {

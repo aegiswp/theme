@@ -10,6 +10,7 @@ import { SVG, Path } from '@wordpress/primitives';
 
 import Edit from './edit';
 import metadata from './block.json';
+import './style.scss';
 
 const icon = (
 	<SVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

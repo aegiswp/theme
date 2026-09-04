@@ -117,7 +117,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 <?php
 if ( $faq_schema && ! empty( $heading ) &&
 	class_exists( '\Aegis\Framework\ServiceProvider' ) &&
-	\Aegis\Framework\ServiceProvider::is_block_enabled( 'accordion_faq_schema' )
+	\Aegis\Framework\ServiceProvider::is_block_enabled( 'toggle_faq' )
 ) {
 	$answer_text = wp_strip_all_tags( $content );
 	if ( ! empty( $answer_text ) ) {

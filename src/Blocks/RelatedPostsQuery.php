@@ -10,10 +10,14 @@ declare( strict_types=1 );
 
 namespace Aegis\Blocks;
 
+use WP_Post;
+use WP_Post_Type;
 use WP_Query;
 use function apply_filters;
 use function get_object_taxonomies;
+use function get_post;
 use function get_post_type;
+use function get_post_type_object;
 use function get_the_terms;
 use function is_wp_error;
 use function wp_list_pluck;
@@ -43,7 +47,7 @@ final class RelatedPostsQuery {
 		$taxonomy_source   = (string) ( $options['taxonomySource'] ?? 'auto' );
 		$fallback_behavior = (string) ( $options['fallbackBehavior'] ?? 'latest' );
 
-		$query_args = self::build_args( $post_id, $post_type, $posts_per_page, $taxonomy_source );
+		$query_args = self::build_args( $post_id, $post_type, $posts_per_page, $taxonomy_source, $options );
 		$query_args = apply_filters( 'aegis_related_posts_query', $query_args, $post_id, $filter_context );
 
 		$related_query = new WP_Query( $query_args );
@@ -56,7 +60,7 @@ final class RelatedPostsQuery {
 			return null;
 		}
 
-		unset( $query_args['tax_query'] );
+		unset( $query_args['tax_query'], $query_args['author'] );
 		$query_args = apply_filters( 'aegis_related_posts_query', $query_args, $post_id, $filter_context . '-fallback' );
 
 		$fallback_query = new WP_Query( $query_args );
@@ -65,30 +69,118 @@ final class RelatedPostsQuery {
 	}
 
 	/**
+	 * Latest posts for editor preview when there is no public post context.
+	 *
+	 * @param int                  $posts_per_page Posts to fetch.
+	 * @param string               $post_type      Post type slug.
+	 * @param array<string, mixed> $options        Query options (orderBy, order).
+	 *
+	 * @return WP_Query|null Null when no posts should display.
+	 */
+	public static function latest( int $posts_per_page, string $post_type = 'post', array $options = array() ): ?WP_Query {
+		$query_args = array(
+			'post_type'           => $post_type,
+			'posts_per_page'      => $posts_per_page,
+			'ignore_sticky_posts' => true,
+			'no_found_rows'       => true,
+		);
+
+		$query_args = self::apply_order( $query_args, $options );
+		$query_args = apply_filters( 'aegis_related_posts_query', $query_args, 0, 'block-preview' );
+
+		$preview_query = new WP_Query( $query_args );
+
+		return $preview_query->have_posts() ? $preview_query : null;
+	}
+
+	/**
+	 * Whether a post ID belongs to a public post type (not templates or patterns).
+	 *
+	 * @param int $post_id Post ID.
+	 *
+	 * @return bool
+	 */
+	public static function is_public_post( int $post_id ): bool {
+		if ( $post_id <= 0 ) {
+			return false;
+		}
+
+		$post_type = get_post_type( $post_id );
+
+		if ( ! $post_type ) {
+			return false;
+		}
+
+		$post_type_object = get_post_type_object( $post_type );
+
+		return $post_type_object instanceof WP_Post_Type && $post_type_object->public;
+	}
+
+	/**
 	 * Build base query arguments.
 	 *
-	 * @param int    $post_id         Post ID.
-	 * @param string $post_type       Post type slug.
-	 * @param int    $posts_per_page  Posts to fetch.
-	 * @param string $taxonomy_source auto|category|post_tag.
+	 * @param int                  $post_id         Post ID.
+	 * @param string               $post_type       Post type slug.
+	 * @param int                  $posts_per_page  Posts to fetch.
+	 * @param string               $taxonomy_source auto|category|post_tag|author.
+	 * @param array<string, mixed> $options         Query options (orderBy, order).
 	 *
 	 * @return array<string, mixed>
 	 */
-	public static function build_args( int $post_id, string $post_type, int $posts_per_page, string $taxonomy_source ): array {
+	public static function build_args( int $post_id, string $post_type, int $posts_per_page, string $taxonomy_source, array $options = array() ): array {
 		$query_args = array(
 			'post_type'           => $post_type,
 			'posts_per_page'      => $posts_per_page,
 			'post__not_in'        => array( $post_id ),
-			'order'               => 'DESC',
-			'orderby'             => 'date',
 			'ignore_sticky_posts' => true,
 			'no_found_rows'       => true,
 		);
+
+		$query_args = self::apply_order( $query_args, $options );
+
+		if ( 'author' === $taxonomy_source ) {
+			$post = get_post( $post_id );
+
+			if ( $post instanceof WP_Post && (int) $post->post_author > 0 ) {
+				$query_args['author'] = (int) $post->post_author;
+			}
+
+			return $query_args;
+		}
 
 		$tax_query = self::build_tax_query( $post_id, $post_type, $taxonomy_source );
 
 		if ( ! empty( $tax_query ) ) {
 			$query_args['tax_query'] = $tax_query;
+		}
+
+		return $query_args;
+	}
+
+	/**
+	 * Apply orderby/order from block options.
+	 *
+	 * @param array<string, mixed> $query_args Query arguments.
+	 * @param array<string, mixed> $options    Block query options.
+	 *
+	 * @return array<string, mixed>
+	 */
+	private static function apply_order( array $query_args, array $options ): array {
+		$orderby = (string) ( $options['orderBy'] ?? 'date' );
+		$order   = strtoupper( (string) ( $options['order'] ?? 'desc' ) );
+
+		if ( ! in_array( $orderby, array( 'date', 'rand', 'title' ), true ) ) {
+			$orderby = 'date';
+		}
+
+		if ( ! in_array( $order, array( 'ASC', 'DESC' ), true ) ) {
+			$order = 'DESC';
+		}
+
+		$query_args['orderby'] = $orderby;
+
+		if ( 'rand' !== $orderby ) {
+			$query_args['order'] = $order;
 		}
 
 		return $query_args;

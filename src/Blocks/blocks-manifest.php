@@ -204,6 +204,11 @@ return array (
         'margin' => true,
       ),
     ),
+    'usesContext' => 
+    array (
+      0 => 'postId',
+      1 => 'postType',
+    ),
     'attributes' => 
     array (
       'postsPerPage' => 
@@ -275,6 +280,28 @@ return array (
           0 => 'auto',
           1 => 'category',
           2 => 'post_tag',
+          3 => 'author',
+        ),
+      ),
+      'orderBy' => 
+      array (
+        'type' => 'string',
+        'default' => 'date',
+        'enum' => 
+        array (
+          0 => 'date',
+          1 => 'rand',
+          2 => 'title',
+        ),
+      ),
+      'order' => 
+      array (
+        'type' => 'string',
+        'default' => 'desc',
+        'enum' => 
+        array (
+          0 => 'asc',
+          1 => 'desc',
         ),
       ),
       'fallbackBehavior' => 
@@ -306,7 +333,7 @@ return array (
       ),
     ),
     'editorScript' => 'file:index.js',
-    'style' => 'file:style.css',
+    'style' => 'file:style-index.css',
     'render' => 'file:render.php',
   ),
   'slide' => 
