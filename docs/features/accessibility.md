@@ -120,7 +120,7 @@ Aegis templates and patterns enforce a logical heading hierarchy:
 
 - All animations respect the `prefers-reduced-motion` media query.
 - When reduced motion is preferred, animations are replaced with instant transitions.
-- Marquee blocks stop scrolling when `prefers-reduced-motion: reduce` is active.
+- Marquee blocks stop scrolling on the frontend when `prefers-reduced-motion: reduce` is active. Pause on hover is a separate Blocks extra.
 - Countdown animations switch to static displays.
 
 ## Forms

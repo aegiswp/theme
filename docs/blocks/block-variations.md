@@ -154,19 +154,19 @@ Enable extras at **Aegis → Blocks → Marquee**. See [Plugin Marquee](../../pl
 ### Features
 
 - Continuous horizontal scroll animation (CSS only; no frontend Marquee JS).
-- Speed, direction, pause on hover, and repeat clones — each gated by a Blocks extra.
-- Pro: separate desktop duration (**Responsive Speed**).
+- Speed (loop duration in seconds; lower is faster), direction, pause on hover, and repeat clones — each gated by a Blocks extra.
+- Pro: separate **Desktop** duration from **Mobile** (**Responsive Speed**, from 782px wide).
 - Fade edges via the `fade-horizontal` utility (always available while Marquee is on).
-- Accessible — pause on hover when that extra is on; respects `prefers-reduced-motion`.
+- Accessible — pause on hover when that extra is on; frontend respects `prefers-reduced-motion`.
 
 ### Usage
 
 1. Enable Marquee at **Aegis → Blocks → Marquee**.
 2. Insert the **Marquee** block (Group variation).
 3. Add content (logos, text, images, or any blocks).
-4. Set speed, direction, repeats, pause, and fade edges in **Marquee Settings**.
+4. Set loop duration, direction, repeats, pause, and fade edges in **Marquee Settings**.
 
-When Marquee is off, the variation is hidden from the inserter and saved marquees render as ordinary Groups.
+When Marquee is off, the variation is hidden from the inserter and `is-marquee` is stripped so saved blocks render as ordinary Groups.
 
 ### Common Use Cases
 
