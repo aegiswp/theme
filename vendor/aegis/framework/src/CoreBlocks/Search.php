@@ -28,11 +28,13 @@ use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Icons\Icon;
 use Aegis\Framework\Interfaces\Renderable;
+use Aegis\Framework\ServiceProvider;
 use Aegis\Utilities\Str;
 use WP_Block;
 use function array_unique;
 use function esc_attr;
 use function explode;
+use function str_contains;
 use function trim;
 
 class Search implements Renderable {
@@ -65,7 +67,10 @@ class Search implements Renderable {
 		$button              = DOM::get_element( 'button', $wrap );
 		$use_icon            = $block['attrs']['buttonUseIcon'] ?? false;
 		$button_position     = $block['attrs']['buttonPosition'] ?? 'button-outside';
-		$show_icon           = ! $use_icon || ( $button_position === 'button-outside' || $button_position === 'no-button' );
+		$class_name          = (string) ( $block['attrs']['className'] ?? '' );
+		$is_newsletter       = ServiceProvider::is_block_enabled( 'newsletter' )
+			&& str_contains( $class_name, 'is-style-newsletter' );
+		$show_icon           = ! $is_newsletter && ( ! $use_icon || ( $button_position === 'button-outside' || $button_position === 'no-button' ) );
 		$padding             = $block['attrs']['style']['spacing']['padding'] ?? [];
 		$margin              = $block['attrs']['style']['spacing']['margin'] ?? [];
 		$text_color          = $block['attrs']['textColor'] ?? '';

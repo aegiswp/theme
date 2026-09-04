@@ -26,10 +26,11 @@ namespace Aegis\Framework\CoreBlocks;
 // Imports classes, interfaces, and functions used by the template part block.
 use Aegis\Framework\Traits\InjectionPoints;
 use Aegis\Dom\CSS;
-use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
+use WP_HTML_Tag_Processor;
 use function esc_attr;
+use function str_contains;
 
 class TemplatePart implements Renderable {
 
@@ -49,66 +50,77 @@ class TemplatePart implements Renderable {
 	 * @return string
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		// Parse block HTML and locate the root element.
-		$dom   = DOM::create( $block_content );
-		$first = DOM::get_element( '*', $dom );
+		unset( $instance );
 
-		if ( ! $first ) {
+		$processor = new WP_HTML_Tag_Processor( $block_content );
+		$found     = false;
+
+		while ( $processor->next_tag() ) {
+			$class = (string) $processor->get_attribute( 'class' );
+
+			if ( str_contains( $class, 'skip-link' ) ) {
+				continue;
+			}
+
+			$found = true;
+			break;
+		}
+
+		if ( ! $found ) {
 			return $block_content;
 		}
 
-		// Apply background and text colors from block attributes.
 		$attrs  = $block['attrs'] ?? [];
-		$styles = CSS::string_to_array( $first->getAttribute( 'style' ) );
+		$styles = CSS::string_to_array( (string) $processor->get_attribute( 'style' ) );
 		$color  = $attrs['style']['color'] ?? [];
 
 		if ( isset( $color['background'] ) ) {
-			$styles['background'] = esc_attr( $color['background'] );
+			$styles['background'] = esc_attr( (string) $color['background'] );
 		}
 
 		if ( isset( $attrs['backgroundColor'] ) ) {
-			$styles['background'] = 'var(--wp--preset--color--' . esc_attr( $attrs['backgroundColor'] ) . ')';
+			$styles['background'] = 'var(--wp--preset--color--' . esc_attr( (string) $attrs['backgroundColor'] ) . ')';
 		}
 
 		if ( isset( $color['gradient'] ) ) {
-			$styles['background'] = esc_attr( $color['gradient'] );
+			$styles['background'] = esc_attr( (string) $color['gradient'] );
 		}
 
 		if ( isset( $attrs['gradient'] ) ) {
-			$styles['background'] = 'var(--wp--preset--gradient--' . esc_attr( $attrs['gradient'] ) . ')';
+			$styles['background'] = 'var(--wp--preset--gradient--' . esc_attr( (string) $attrs['gradient'] ) . ')';
 		}
 
 		if ( isset( $color['text'] ) ) {
-			$styles['color'] = esc_attr( $color['text'] );
+			$styles['color'] = esc_attr( (string) $color['text'] );
 		}
 
 		if ( isset( $attrs['textColor'] ) ) {
-			$styles['color'] = 'var(--wp--preset--color--' . esc_attr( $attrs['textColor'] ) . ')';
+			$styles['color'] = 'var(--wp--preset--color--' . esc_attr( (string) $attrs['textColor'] ) . ')';
 		}
 
-		$styles = CSS::array_to_string( $styles );
+		$style_string = CSS::array_to_string( $styles );
 
-		if ( $styles ) {
-			$first->setAttribute( 'style', $styles );
+		if ( $style_string !== '' ) {
+			$processor->set_attribute( 'style', $style_string );
 		} else {
-			$first->removeAttribute( 'style' );
+			$processor->remove_attribute( 'style' );
 		}
 
-		// Set landmark roles based on template part slug.
-		if ( $block['attrs']['slug'] === 'header' ) {
-			$first->setAttribute( 'role', 'banner' );
+		$slug = (string) ( $attrs['slug'] ?? '' );
+
+		if ( $slug === 'header' ) {
+			$processor->set_attribute( 'role', 'banner' );
 		}
 
-		if ( $block['attrs']['slug'] === 'main' ) {
-			$first->setAttribute( 'role', 'main' );
+		if ( $slug === 'main' ) {
+			$processor->set_attribute( 'role', 'main' );
 		}
 
-		if ( $block['attrs']['slug'] === 'footer' ) {
-			$first->setAttribute( 'role', 'contentinfo' );
+		if ( $slug === 'footer' ) {
+			$processor->set_attribute( 'role', 'contentinfo' );
 		}
 
-		$output = $dom->saveHTML();
-		$slug   = (string) ( $block['attrs']['slug'] ?? '' );
+		$output = $processor->get_updated_html();
 
 		if ( $slug !== '' ) {
 			return $this->wrap_with_injection_hooks(

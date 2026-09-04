@@ -1,10 +1,30 @@
 .wp-block-icon {
-	line-height: 1;
+	line-height: 0;
+	color: var(--wp--custom--icon--color, currentColor);
 }
 
 .wp-block-icon svg {
+	display: block;
+	box-sizing: border-box;
 	width: var(--wp--custom--icon--size, 1.5em);
-	height: var(--wp--custom--icon--size, 1.5em);
+	height: auto;
+	aspect-ratio: 1;
+	fill: currentColor;
+	color: inherit;
+}
+
+.wp-block-icon svg[fill="none"] {
+	fill: none;
+	stroke: currentColor;
+}
+
+.wp-block-icon svg [fill="none"] {
+	fill: none;
+}
+
+.wp-block-icon svg [stroke]:not([fill]),
+.wp-block-icon svg [fill="none"][stroke] {
+	stroke: currentColor;
 }
 
 .wp-block-icon.has-gradient::after {
@@ -35,4 +55,12 @@
 
 a>.wp-block-icon {
 	display: inline-block;
+}
+
+.wp-block-template-part > svg[data-icon] {
+	display: block;
+	fill: currentColor;
+	color: inherit;
+	height: auto;
+	aspect-ratio: 1;
 }

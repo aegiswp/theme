@@ -41,6 +41,9 @@ class IconBlockAttributes {
 		'animation' => [
 			'type' => 'string',
 		],
+		'iconSvgString' => [
+			'type' => 'string',
+		],
 	];
 
 	/**

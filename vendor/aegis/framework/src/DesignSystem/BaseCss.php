@@ -135,15 +135,14 @@ class BaseCss implements Styleable
 		];
 
 		$styles['core-blocks'] = [
-			'core-icon' => ['wp-block-icon'],
+			'icon' => ['wp-block-icon'],
 			'breadcrumbs' => ['wp-block-breadcrumbs'],
 		];
 
 		$styles['block-variations'] = [
 			'accordion' => ['is-style-accordion'],
 			'counter' => ['is-style-counter'],
-			'icon' => ['is-style-icon'],
-			'marquee' => ['is-marquee'],
+			'marquee' => [ 'is-marquee', 'orientation":"marquee', '--marquee-speed' ],
 			'newsletter' => ['is-style-newsletter'],
 			'svg' => ['is-style-svg'],
 		];

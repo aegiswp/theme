@@ -29,6 +29,7 @@ use Aegis\Dom\DOM;
 use Aegis\Framework\BlockSettings\Image as ImageSettings;
 use Aegis\Framework\BlockSettings\Responsive;
 use Aegis\Framework\Interfaces\Renderable;
+use DOMElement;
 use WP_Block;
 use function esc_attr;
 use function esc_html;
@@ -36,6 +37,7 @@ use function esc_html__;
 use function explode;
 use function implode;
 use function in_array;
+use function str_contains;
 
 /**
  * Handles the rendering of the core/image and core/post-featured-image blocks.
@@ -101,13 +103,10 @@ class Image implements Renderable {
 		$border_radius = $style['border']['radius'] ?? '';
 
 		// --- Responsive Classes ---
-		// The presence of an icon or custom SVG suggests a different kind of block
-		// (like an icon block using an image mask), which may not need standard
-		// responsive image handling.
-		$has_icon = ( $attrs['iconSet'] ?? '' ) && ( $attrs['iconName'] ?? '' ) || ( $attrs['iconSvgString'] ?? '' );
-		$has_svg  = $style['svgString'] ?? '';
+		// Custom SVG image variations skip standard responsive image handling.
+		$has_svg = $style['svgString'] ?? '';
 
-		if ( ! $has_icon && ! $has_svg ) {
+		if ( ! $has_svg ) {
 			if ( in_array( $name, [ 'core/image', 'core/post-featured-image' ], true ) ) {
 				$block_content = $this->responsive->add_responsive_classes(
 					$block_content,
@@ -137,5 +136,65 @@ class Image implements Renderable {
 		}
 
 		return $dom->saveHTML();
+	}
+
+	/**
+	 * Wrap the lightbox image and trigger so Core positions the button on the image.
+	 *
+	 * Aegis centers images in a full-width figure. Core's trigger math treats leftover
+	 * figure space as left-aligned, which puts the expand control in the wrong place.
+	 *
+	 * @param string $block_content Block HTML.
+	 * @param array  $block         Block data.
+	 *
+	 * @hook render_block_core/image 17
+	 *
+	 * @return string
+	 */
+	public function wrap_lightbox_trigger( string $block_content, array $block ): string {
+		if ( ! str_contains( $block_content, 'lightbox-trigger' ) || str_contains( $block_content, 'aegis-lightbox-media' ) ) {
+			return $block_content;
+		}
+
+		$dom    = DOM::create( $block_content );
+		$figure = DOM::get_element( 'figure', $dom );
+
+		if ( ! $figure ) {
+			return $block_content;
+		}
+
+		$img    = DOM::get_element( 'img', $figure );
+		$button = $this->lightbox_trigger_button( $figure );
+
+		if ( ! $img || ! $button || ! $figure->ownerDocument ) {
+			return $block_content;
+		}
+
+		$wrap = DOM::create_element( 'span', $figure->ownerDocument );
+
+		if ( ! $wrap || ! $img->parentNode ) {
+			return $block_content;
+		}
+
+		$wrap->setAttribute( 'class', 'aegis-lightbox-media' );
+		$img->parentNode->insertBefore( $wrap, $img );
+		$wrap->appendChild( $img );
+		$wrap->appendChild( $button );
+
+		return $dom->saveHTML();
+	}
+
+	private function lightbox_trigger_button( DOMElement $figure ): ?DOMElement {
+		foreach ( $figure->getElementsByTagName( 'button' ) as $candidate ) {
+			if ( ! $candidate instanceof DOMElement ) {
+				continue;
+			}
+
+			if ( str_contains( $candidate->getAttribute( 'class' ), 'lightbox-trigger' ) ) {
+				return $candidate;
+			}
+		}
+
+		return null;
 	}
 }

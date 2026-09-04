@@ -65,15 +65,14 @@ class SkipLink implements Scriptable {
 	/**
 	 * Inject skip link before the header template part.
 	 *
-	 * This method is hooked into the `render_block_core/template-part` filter.
-	 * It prepends a skip link to the header template part output.
+	 * Runs after TemplatePart so the skip link is not parsed as the header root.
 	 *
 	 * @since 1.0.0
 	 *
 	 * @param string $block_content Block HTML.
 	 * @param array  $block         Block data.
 	 *
-	 * @hook  render_block_core/template-part 4
+	 * @hook  render_block_core/template-part 11
 	 *
 	 * @return string
 	 */

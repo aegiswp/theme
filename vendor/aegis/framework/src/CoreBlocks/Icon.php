@@ -15,11 +15,14 @@ namespace Aegis\Framework\CoreBlocks;
 // Imports classes, interfaces, and functions used by the core/icon bridge, gradient mask, and link enhancements.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
+use Aegis\Framework\BlockSettings\Responsive;
 use Aegis\Framework\Interfaces\Renderable;
 use Aegis\Framework\ServiceProvider;
 use Aegis\Icons\Icon as IconUtility;
+use Aegis\Utilities\Block;
 use WP_Block;
 use WP_HTML_Tag_Processor;
+use function do_blocks;
 use function esc_attr;
 use function esc_url;
 use function get_block_wrapper_attributes;
@@ -28,12 +31,27 @@ use function preg_match;
 use function sprintf;
 use function str_contains;
 use function str_starts_with;
+use function strtolower;
 use function wp_style_engine_get_styles;
 
 /**
  * Renders Aegis icon IDs and enhances core/icon output.
  */
 class Icon implements Renderable {
+
+	/**
+	 * The Responsive settings handler.
+	 *
+	 * @var Responsive
+	 */
+	private Responsive $responsive;
+
+	/**
+	 * @param Responsive $responsive The Responsive settings handler instance.
+	 */
+	public function __construct( Responsive $responsive ) {
+		$this->responsive = $responsive;
+	}
 
 	/**
 	 * @hook render_block 11
@@ -54,23 +72,63 @@ class Icon implements Renderable {
 		}
 
 		$attrs = $block['attrs'] ?? [];
-		$icon  = (string) ( $attrs['icon'] ?? '' );
+		$class = (string) ( $attrs['className'] ?? '' );
 
-		if ( $icon === '' ) {
+		if ( str_contains( $class, 'all-icons' ) ) {
+			if ( ! ServiceProvider::is_block_enabled( 'icon_gallery' ) ) {
+				return $block_content;
+			}
+
+			$set = 'wordpress';
+			$parsed = IconUtility::from_registry_id( (string) ( $attrs['icon'] ?? '' ) );
+
+			if ( is_array( $parsed ) && ! empty( $parsed['set'] ) ) {
+				$set = (string) $parsed['set'];
+			}
+
+			return $this->render_all_icons( $set );
+		}
+		$icon       = (string) ( $attrs['icon'] ?? '' );
+		$svg_string = ServiceProvider::is_block_enabled( 'icon_custom_svg' )
+			? (string) ( $attrs['iconSvgString'] ?? '' )
+			: '';
+
+		if ( $icon === '' && $svg_string === '' ) {
 			return $block_content;
 		}
 
-		// Replace core output with Aegis registry SVG markup.
-		if ( str_starts_with( $icon, 'aegis/' ) ) {
-			$block_content = $this->render_aegis_icon( $attrs, $icon );
+		if ( $svg_string !== '' ) {
+			$custom = $this->wrap_icon_svg( $attrs, IconUtility::sanitize_svg( $svg_string ) );
+
+			if ( $custom !== '' ) {
+				$block_content = $custom;
+			} elseif ( $this->should_render_library_icon( $icon, $block_content ) ) {
+				$library = $this->render_aegis_icon( $attrs, $icon );
+
+				if ( $library !== '' ) {
+					$block_content = $library;
+				}
+			}
+		} elseif ( $this->should_render_library_icon( $icon, $block_content ) ) {
+			$library = $this->render_aegis_icon( $attrs, $icon );
+
+			if ( $library !== '' ) {
+				$block_content = $library;
+			}
 		}
 
 		if ( $block_content === '' ) {
 			return $block_content;
 		}
 
-		// Apply gradient mask, link wrapper, and animation classes.
-		return $this->apply_enhancements( $block_content, $attrs );
+		$block_content = $this->apply_enhancements( $block_content, $attrs );
+
+		if ( ServiceProvider::is_block_enabled( 'icon_responsive' ) ) {
+			$block_content = $this->responsive->add_responsive_classes( $block_content, $block, Responsive::SETTINGS );
+			$block_content = $this->responsive->add_responsive_styles( $block_content, $block, Responsive::SETTINGS );
+		}
+
+		return $block_content;
 	}
 
 	/**
@@ -80,16 +138,55 @@ class Icon implements Renderable {
 	 * @param string               $icon  Registry id.
 	 */
 	private function render_aegis_icon( array $attrs, string $icon ): string {
-		// Resolve the icon from the Aegis registry.
 		$parsed = IconUtility::from_registry_id( $icon );
 
-		if ( $parsed === null || $parsed['namespace'] !== 'aegis' ) {
+		if ( $parsed === null ) {
 			return '';
 		}
 
 		$width = $attrs['style']['dimensions']['width'] ?? null;
 		$svg   = IconUtility::get_svg( $parsed['set'], $parsed['name'], $width );
 
+		if ( $svg === '' ) {
+			return '';
+		}
+
+		return $this->wrap_icon_svg( $attrs, $svg );
+	}
+
+	/**
+	 * Whether Aegis should render the icon from the local library.
+	 */
+	private function should_render_library_icon( string $icon, string $block_content ): bool {
+		if ( $icon === '' ) {
+			return false;
+		}
+
+		if ( str_starts_with( $icon, 'aegis/' ) ) {
+			return true;
+		}
+
+		if ( $block_content === '' ) {
+			return true;
+		}
+
+		$parsed = IconUtility::from_registry_id( $icon );
+
+		if ( $parsed === null ) {
+			return false;
+		}
+
+		// Core's kses sanitizer strips stroke/opacity; re-render Aegis sets from disk.
+		return ( $parsed['namespace'] ?? '' ) !== 'core';
+	}
+
+	/**
+	 * Wraps SVG markup in the core/icon block wrapper.
+	 *
+	 * @param array<string, mixed> $attrs Block attributes.
+	 * @param string               $svg   SVG markup.
+	 */
+	private function wrap_icon_svg( array $attrs, string $svg ): string {
 		if ( $svg === '' ) {
 			return '';
 		}
@@ -108,6 +205,11 @@ class Icon implements Renderable {
 		// Apply styles and accessibility attributes to the SVG element.
 		$processor = new WP_HTML_Tag_Processor( $svg );
 		if ( $processor->next_tag( 'svg' ) ) {
+			$fill = (string) $processor->get_attribute( 'fill' );
+
+			if ( $fill === '' || $fill === 'black' || strtolower( $fill ) === '#000' || strtolower( $fill ) === '#000000' ) {
+				$processor->set_attribute( 'fill', 'currentColor' );
+			}
 			if ( ! empty( $styles['css'] ) ) {
 				$processor->set_attribute( 'style', $styles['css'] );
 			}
@@ -126,7 +228,7 @@ class Icon implements Renderable {
 		}
 
 		// Wrap the SVG in standard block wrapper markup.
-		$wrapper = get_block_wrapper_attributes();
+		$wrapper  = get_block_wrapper_attributes();
 		$svg_html = $processor->get_updated_html();
 
 		return sprintf( '<div %s>%s</div>', $wrapper, $svg_html );
@@ -138,8 +240,8 @@ class Icon implements Renderable {
 	 * @param array<string, mixed> $attrs Block attributes.
 	 */
 	private function apply_enhancements( string $block_content, array $attrs ): string {
-		$gradient  = $attrs['gradient'] ?? null;
-		$animation = $attrs['animation'] ?? null;
+		$gradient  = ServiceProvider::is_block_enabled( 'icon_gradient' ) ? ( $attrs['gradient'] ?? null ) : null;
+		$animation = ServiceProvider::is_block_enabled( 'icon_animation' ) ? ( $attrs['animation'] ?? null ) : null;
 		$url       = $attrs['url'] ?? null;
 
 		if ( $gradient ) {
@@ -314,5 +416,49 @@ class Icon implements Renderable {
 		}
 
 		return $dimensions;
+	}
+
+	/**
+	 * Renders a grid of all icons from a set when the all-icons class is present.
+	 */
+	private function render_all_icons( string $set = 'wordpress' ): string {
+		$icons        = IconUtility::get_icon_data( null )[ $set ] ?? [];
+		$inner_blocks = [];
+		$limit        = 300;
+
+		foreach ( $icons as $icon => $svg ) {
+			unset( $svg );
+
+			if ( $limit-- <= 0 ) {
+				break;
+			}
+
+			$inner_blocks[] = [
+				'blockName' => 'core/icon',
+				'attrs'     => [
+					'icon'  => IconUtility::to_registry_id( $set, (string) $icon ),
+					'style' => [
+						'dimensions' => [ 'width' => '1em' ],
+					],
+				],
+			];
+		}
+
+		$block = [
+			'blockName'   => 'core/group',
+			'attrs'       => [
+				'style'     => [
+					'spacing'             => [ 'blockGap' => 'var(--wp--preset--spacing--sm)' ],
+					'display'             => [ 'all' => 'grid' ],
+					'gridTemplateColumns' => [ 'all' => 'repeat(auto-fill, minmax(1.5em, 1fr))' ],
+				],
+				'fontSize'  => '24',
+				'textColor' => 'heading',
+				'layout'    => [ 'type' => 'flex', 'orientation' => 'grid' ],
+			],
+			'innerBlocks' => $inner_blocks,
+		];
+
+		return do_blocks( Block::get_html( $block ) );
 	}
 }

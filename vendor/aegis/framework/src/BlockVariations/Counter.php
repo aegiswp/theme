@@ -28,9 +28,11 @@ use Aegis\Framework\InlineAssets\Scriptable;
 use Aegis\Framework\InlineAssets\Scripts;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
+use Aegis\Framework\ServiceProvider;
 use WP_Block;
 use function esc_attr;
 use function esc_html;
+use function is_array;
 use function trim;
 
 
@@ -65,11 +67,33 @@ class Counter implements Renderable, Scriptable {
 	 * @return string The modified block content with data attributes.
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$counter = $block['attrs']['style']['counter'] ?? '';
-
-		if ( ! $counter ) {
+		if ( ! ServiceProvider::is_block_enabled( 'counter' ) ) {
 			return $block_content;
 		}
+
+		$counter = $block['attrs']['style']['counter'] ?? null;
+
+		if ( ! is_array( $counter ) || $counter === [] ) {
+			return $block_content;
+		}
+
+		if ( ! ServiceProvider::is_block_enabled( 'counter_prefix' ) ) {
+			unset( $counter['prefix'] );
+		}
+
+		if ( ! ServiceProvider::is_block_enabled( 'counter_suffix' ) ) {
+			unset( $counter['suffix'] );
+		}
+
+		if ( ! ServiceProvider::is_block_enabled( 'counter_delay' ) ) {
+			unset( $counter['delay'] );
+		}
+
+		if ( ! ServiceProvider::is_block_enabled( 'counter_duration' ) ) {
+			unset( $counter['duration'] );
+		}
+
+		$counter['intersection'] = ServiceProvider::is_block_enabled( 'counter_intersection' ) ? 'true' : 'false';
 
 		$dom = DOM::create( $block_content );
 		$p   = DOM::get_element( 'p', $dom );
@@ -78,12 +102,10 @@ class Counter implements Renderable, Scriptable {
 			return $block_content;
 		}
 
-		// Loop through the counter settings and apply them as data attributes.
 		foreach ( $counter as $attribute => $value ) {
-			$p->setAttribute( "data-$attribute", esc_attr( $value ) );
+			$p->setAttribute( 'data-' . $attribute, esc_attr( (string) $value ) );
 		}
 
-		// Ensure the text content is trimmed and properly escaped.
 		$p->textContent = esc_html( trim( $p->textContent ) );
 
 		return $dom->saveHTML();
@@ -101,6 +123,10 @@ class Counter implements Renderable, Scriptable {
 	 * @param Scripts $scripts The Scripts service instance.
 	 */
 	public function scripts( Scripts $scripts ): void {
+		if ( ! ServiceProvider::is_block_enabled( 'counter' ) ) {
+			return;
+		}
+
 		$scripts->add_file( 'counter.js', [ 'is-style-counter' ] );
 	}
 }

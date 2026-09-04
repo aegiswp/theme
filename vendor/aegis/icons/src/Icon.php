@@ -43,15 +43,23 @@ use function apply_filters;
 use function basename;
 use function class_exists;
 use function current_user_can;
+use function defined;
+use function explode;
 use function esc_html__;
 use function file_exists;
 use function file_get_contents;
+use function function_exists;
 use function get_stylesheet_directory;
 use function get_template_directory;
 use function glob;
 use function implode;
+use function in_array;
+use function is_array;
 use function is_dir;
+use function is_numeric;
 use function is_null;
+use function is_readable;
+use function is_string;
 use function str_replace;
 use function strtolower;
 use function trim;
@@ -168,18 +176,25 @@ class Icon {
 		$file = $dir . '/' . $name . '.svg';
 
 		if ( ! file_exists( $file ) ) {
+			if ( $set === 'wordpress' && function_exists( 'wp_get_icon' ) ) {
+				$core = wp_get_icon(
+					'core/' . $name,
+					[
+						'size' => is_numeric( $size ) ? (int) $size : 24,
+					]
+				);
+
+				if ( is_string( $core ) && $core !== '' ) {
+					$cache[ $cache_key ] = $core;
+
+					return $core;
+				}
+			}
+
 			return '';
 		}
 
 		$html = file_get_contents( $file );
-
-		if ( $set === 'WordPress' ) {
-			$html = str_replace(
-				[ 'fill="none"' ],
-				[ 'fill="currentColor"' ],
-				$html
-			);
-		}
 
 		$dom = DOM::create( trim( $html ) );
 		$svg = DOM::get_element( 'svg', $dom );
@@ -218,15 +233,59 @@ class Icon {
 			}
 		}
 
-		$fill = $svg->getAttribute( 'fill' );
-
-		if ( ! $fill ) {
-			$svg->setAttribute( 'fill', 'currentColor' );
-		}
+		static::apply_theme_color( $svg );
 
 		$cache[ $cache_key ] = static::sanitize_svg( $dom->saveHTML() );
 
 		return $cache[ $cache_key ];
+	}
+
+	/**
+	 * Makes hardcoded black fills/strokes follow the current text color.
+	 */
+	private static function apply_theme_color( DOMElement $svg ): void {
+		$fill = strtolower( trim( $svg->getAttribute( 'fill' ) ) );
+
+		if ( $fill === '' || static::is_literal_ink( $fill ) ) {
+			$svg->setAttribute( 'fill', 'currentColor' );
+		}
+
+		$stroke = strtolower( trim( $svg->getAttribute( 'stroke' ) ) );
+
+		if ( static::is_literal_ink( $stroke ) ) {
+			$svg->setAttribute( 'stroke', 'currentColor' );
+		}
+
+		foreach ( $svg->getElementsByTagName( '*' ) as $el ) {
+			if ( ! $el instanceof DOMElement ) {
+				continue;
+			}
+
+			$child_fill = strtolower( trim( $el->getAttribute( 'fill' ) ) );
+
+			if ( static::is_literal_ink( $child_fill ) ) {
+				$el->setAttribute( 'fill', 'currentColor' );
+			}
+
+			$child_stroke = strtolower( trim( $el->getAttribute( 'stroke' ) ) );
+
+			if ( static::is_literal_ink( $child_stroke ) ) {
+				$el->setAttribute( 'stroke', 'currentColor' );
+			}
+		}
+	}
+
+	/**
+	 * Whether a paint value is a hardcoded dark ink color.
+	 */
+	private static function is_literal_ink( string $value ): bool {
+		$value = strtolower( str_replace( ' ', '', $value ) );
+
+		return in_array(
+			$value,
+			[ '#000', '#000000', 'black', '#111', '#111111', '#1e1e1e', '#0a0a0a', 'rgb(0,0,0)' ],
+			true
+		);
 	}
 
 	/**
@@ -359,6 +418,12 @@ HTML;
 			}
 		}
 
+		foreach ( array_keys( static::get_core_library_slugs() ) as $core_slug ) {
+			if ( ! isset( $icon_data['wordpress'][ $core_slug ] ) ) {
+				$icon_data['wordpress'][ $core_slug ] = static::get_svg( 'wordpress', $core_slug, 24, null );
+			}
+		}
+
 		if ( $request && $request->get_param( 'set' ) ) {
 			$set = $request->get_param( 'set' );
 
@@ -380,47 +445,97 @@ HTML;
 	 * @param string $set  Icon set slug.
 	 * @param string $name Icon file slug.
 	 *
-	 * @return string e.g. aegis/wordpress/home
+	 * @return string e.g. social/facebook or core/plus
 	 */
 	public static function to_registry_id( string $set, string $name ): string {
-		return 'aegis/' . strtolower( $set ) . '/' . strtolower( $name );
+		$set  = strtolower( $set );
+		$name = strtolower( $name );
+
+		if ( $set === 'wordpress' && isset( static::get_core_library_slugs()[ $name ] ) ) {
+			return 'core/' . $name;
+		}
+
+		return $set . '/' . $name;
 	}
 
 	/**
-	 * Parses an Aegis registry icon identifier.
+	 * Parses a registry icon identifier.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $id Icon id (aegis/{set}/{name} or core/{name}).
+	 * @param string $id Icon id (`core/{name}`, `{set}/{name}`, or legacy `aegis/{set}/{name}`).
 	 *
 	 * @return array{namespace: string, set: string, name: string}|null
 	 */
 	public static function from_registry_id( string $id ): ?array {
-		$id = trim( $id );
+		$id = strtolower( trim( $id ) );
 
-		if ( ! preg_match( '#^(core|aegis)/([a-z0-9-]+)(?:/([a-z0-9-]+))?$#', $id, $matches ) ) {
+		if ( $id === '' ) {
 			return null;
 		}
 
-		$namespace = $matches[1];
+		$parts = explode( '/', $id );
 
-		if ( $namespace === 'core' ) {
+		if ( $parts[0] === 'core' && isset( $parts[1] ) && ! isset( $parts[2] ) ) {
 			return [
 				'namespace' => 'core',
 				'set'       => 'wordpress',
-				'name'      => $matches[2],
+				'name'      => $parts[1],
 			];
 		}
 
-		if ( empty( $matches[3] ) ) {
-			return null;
+		if ( $parts[0] === 'aegis' && isset( $parts[1], $parts[2] ) && ! isset( $parts[3] ) ) {
+			return [
+				'namespace' => 'aegis',
+				'set'       => $parts[1],
+				'name'      => $parts[2],
+			];
 		}
 
-		return [
-			'namespace' => 'aegis',
-			'set'       => $matches[2],
-			'name'      => $matches[3],
-		];
+		if ( isset( $parts[0], $parts[1] ) && ! isset( $parts[2] ) ) {
+			return [
+				'namespace' => 'aegis',
+				'set'       => $parts[0],
+				'name'      => $parts[1],
+			];
+		}
+
+		return null;
+	}
+
+	/**
+	 * Core Icon library slugs shipped by WordPress.
+	 *
+	 * @return array<string, true>
+	 */
+	public static function get_core_library_slugs(): array {
+		static $slugs = null;
+
+		if ( $slugs !== null ) {
+			return $slugs;
+		}
+
+		$slugs = [];
+
+		if ( ! defined( 'ABSPATH' ) || ! defined( 'WPINC' ) ) {
+			return $slugs;
+		}
+
+		$manifest = ABSPATH . WPINC . '/assets/icon-library-manifest.php';
+
+		if ( ! is_readable( $manifest ) ) {
+			return $slugs;
+		}
+
+		$collection = include $manifest;
+
+		if ( is_array( $collection ) ) {
+			foreach ( array_keys( $collection ) as $slug ) {
+				$slugs[ (string) $slug ] = true;
+			}
+		}
+
+		return $slugs;
 	}
 
 	/**

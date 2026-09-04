@@ -9,18 +9,21 @@
 	const { createHigherOrderComponent } = wp.compose;
 	const { Fragment, createElement: el, cloneElement } = wp.element;
 	const { InspectorControls } = wp.blockEditor;
-	const { PanelBody, TextControl, SelectControl, GradientPicker } = wp.components;
+	const { PanelBody, TextControl, TextareaControl, ToggleControl, GradientPicker } = wp.components;
+	const { createBlock } = wp.blocks;
 	const { __ } = wp.i18n;
 	const MAPPER = window.aegis?.iconMigration || {};
+	const FEATURES = window.aegis?.iconFeatures || {};
 	const EXTENDED_ATTRIBUTES = {
 		gradient: { type: 'string' },
 		url: { type: 'string' },
 		linkTarget: { type: 'string' },
 		rel: { type: 'string' },
 		animation: { type: 'string' },
+		iconSvgString: { type: 'string' },
 	};
 
-	const ICON_STYLE_BLOCK_NAMES = [ 'core/image', 'core/button', 'aegis/tab' ];
+	const ICON_STYLE_BLOCK_NAMES = [ 'core/button', 'aegis/tab' ];
 
 	function supportsIconStyles( blockName ) {
 		return ICON_STYLE_BLOCK_NAMES.includes( blockName );
@@ -45,14 +48,10 @@
 			return false;
 		}
 
-		if ( blockName === 'core/button' ) {
-			return Boolean(
-				attributes?.iconSvgString ||
-					( attributes?.iconSet && attributes?.iconName )
-			);
-		}
-
-		return isLegacyImageIcon( attributes );
+		return Boolean(
+			attributes?.iconSvgString ||
+				( attributes?.iconSet && attributes?.iconName )
+		);
 	}
 
 	/**
@@ -62,9 +61,7 @@
 		const styles = {};
 		let background = '';
 
-		const isIconImage = attributes?.className?.includes( 'is-style-icon' );
-
-		if ( ! ( ( attributes?.iconSet && attributes?.iconName ) || isIconImage ) ) {
+		if ( ! ( ( attributes?.iconSet && attributes?.iconName ) || attributes?.iconSvgString ) ) {
 			return styles;
 		}
 
@@ -217,7 +214,7 @@
 		const icon =
 			set === 'wordpress' && coreSlugs.includes( name )
 				? 'core/' + name
-				: 'aegis/' + set + '/' + name;
+				: set + '/' + name;
 
 		const next = {
 			icon,
@@ -246,6 +243,9 @@
 		}
 		if ( attributes.animation ) {
 			next.animation = attributes.animation;
+		}
+		if ( attributes.iconSvgString ) {
+			next.iconSvgString = attributes.iconSvgString;
 		}
 		if ( attributes.align ) {
 			next.align = attributes.align;
@@ -289,19 +289,30 @@
 				return settings;
 			}
 
+			const from = settings.transforms?.from || [];
+
 			return {
 				...settings,
 				attributes: {
 					...( settings.attributes || {} ),
 					...EXTENDED_ATTRIBUTES,
 				},
+				transforms: {
+					...( settings.transforms || {} ),
+					from: [
+						...from,
+						{
+							type: 'block',
+							blocks: [ 'core/image' ],
+							isMatch: ( attributes ) => isLegacyImageIcon( attributes ),
+							transform: ( attributes ) =>
+								createBlock( 'core/icon', mapToCoreIcon( attributes ) ),
+						},
+					],
+				},
 			};
 		}
 	);
-
-	if ( wp.blocks.registerBlockTransforms ) {
-		// Legacy pattern icons remain core/image until pattern sources migrate to core/icon.
-	}
 
 	// WP 7 / block API v3: extraProps no longer runs during save validation.
 	addFilter(
@@ -330,10 +341,15 @@
 			}
 
 			const { attributes, setAttributes, isSelected } = props;
+			const editorSettings =
+				wp.data.select( 'core/block-editor' )?.getSettings() || {};
 			const gradients =
-				wp.data
-					.select( 'core/block-editor' )
-					?.getSettings()?.colors?.gradients || [];
+				editorSettings.gradients ||
+				editorSettings.color?.gradients ||
+				editorSettings.colors?.gradients ||
+				[];
+			const className = attributes.className || '';
+			const isGallery = className.split( /\s+/ ).includes( 'all-icons' );
 
 			return el(
 				Fragment,
@@ -363,7 +379,55 @@
 								onChange: ( rel ) => setAttributes( { rel } ),
 							} )
 						),
-						gradients.length > 0 &&
+						FEATURES.customSvg !== false &&
+							el(
+								PanelBody,
+								{
+									title: __( 'Custom SVG', 'aegis' ),
+									initialOpen: false,
+								},
+								el( TextareaControl, {
+									label: __( 'SVG markup', 'aegis' ),
+									value: attributes.iconSvgString || '',
+									onChange: ( iconSvgString ) =>
+										setAttributes( { iconSvgString } ),
+									help: __(
+										'Paste SVG markup to override the selected icon.',
+										'aegis'
+									),
+									rows: 6,
+								} )
+							),
+						FEATURES.gallery !== false &&
+							el(
+								PanelBody,
+								{
+									title: __( 'Icon gallery', 'aegis' ),
+									initialOpen: false,
+								},
+								el( ToggleControl, {
+									label: __(
+										'Display all icons from the selected set',
+										'aegis'
+									),
+									checked: isGallery,
+									onChange: ( enabled ) => {
+										const classes = className
+											.split( /\s+/ )
+											.filter(
+												( item ) => item && item !== 'all-icons'
+											);
+										if ( enabled ) {
+											classes.push( 'all-icons' );
+										}
+										setAttributes( {
+											className: classes.join( ' ' ),
+										} );
+									},
+								} )
+							),
+						FEATURES.gradient !== false &&
+							gradients.length > 0 &&
 							el(
 								PanelBody,
 								{

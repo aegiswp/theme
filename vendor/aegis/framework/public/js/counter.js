@@ -1,1 +1,78 @@
-document.addEventListener("DOMContentLoaded",(()=>{var t;const e=window.matchMedia("(prefers-reduced-motion)");if(e&&e.matches)return;const n=new IntersectionObserver((t=>{t.forEach((t=>{const e=t.target;e&&t.isIntersecting&&(t=>{var e,n,r,a;if(t.innerHTML===t.getAttribute("data-end"))return;const o={start:parseFloat(null!==(e=t.getAttribute("data-start"))&&void 0!==e?e:"0"),end:parseFloat(null!==(n=t.getAttribute("data-end"))&&void 0!==n?n:"0"),delay:parseInt(null!==(r=t.getAttribute("data-delay"))&&void 0!==r?r:"0")||0,duration:parseInt(null!==(a=t.getAttribute("data-duration"))&&void 0!==a?a:"0")||1};let i=o.start;const d=Math.ceil(1e3*o.duration/(o.end-o.start));t.innerHTML=i.toString(),setTimeout((()=>{const e=setInterval((()=>{i+=(o.end-o.start)/Math.abs(o.end-o.start),t.innerHTML=i.toString(),e&&i===o.end&&clearInterval(e)}),d)}),1e3*o.delay)})(e)}))}),{rootMargin:null!==(t=window?.aegis?.animationOffset)&&void 0!==t?t:"0px 0px 50px 0px"});[...document.querySelectorAll(".is-style-counter")].forEach((t=>{t.innerHTML="0",n.observe(t)}))}));
+document.addEventListener( 'DOMContentLoaded', () => {
+	const reduced = window.matchMedia( '(prefers-reduced-motion)' );
+
+	if ( reduced && reduced.matches ) {
+		return;
+	}
+
+	const counters = [ ...document.querySelectorAll( '.is-style-counter' ) ].filter(
+		( el ) => el.hasAttribute( 'data-end' )
+	);
+
+	if ( ! counters.length ) {
+		return;
+	}
+
+	const rootMargin =
+		window?.aegis?.animationOffset ?? '0px 0px 50px 0px';
+
+	function animate( el ) {
+		const start = parseFloat( el.getAttribute( 'data-start' ) || '0' );
+		const end = parseFloat( el.getAttribute( 'data-end' ) || '0' );
+		const delay = parseFloat( el.getAttribute( 'data-delay' ) || '0' ) || 0;
+		const duration = parseFloat( el.getAttribute( 'data-duration' ) || '0' ) || 1;
+
+		el.textContent = String( start );
+
+		if ( start === end ) {
+			return;
+		}
+
+		const step = ( end - start ) / Math.abs( end - start );
+		const intervalMs = Math.max(
+			16,
+			Math.ceil( ( 1000 * duration ) / Math.abs( end - start ) )
+		);
+
+		window.setTimeout( () => {
+			let current = start;
+			const timer = window.setInterval( () => {
+				current += step;
+				if ( ( step > 0 && current >= end ) || ( step < 0 && current <= end ) ) {
+					current = end;
+					window.clearInterval( timer );
+				}
+				el.textContent = String( current );
+			}, intervalMs );
+		}, 1000 * delay );
+	}
+
+	function startCounter( el ) {
+		if ( el.getAttribute( 'data-animated' ) === 'true' ) {
+			return;
+		}
+		el.setAttribute( 'data-animated', 'true' );
+		animate( el );
+	}
+
+	const observer = new IntersectionObserver(
+		( entries ) => {
+			entries.forEach( ( entry ) => {
+				if ( ! entry.target || ! entry.isIntersecting ) {
+					return;
+				}
+				startCounter( entry.target );
+				observer.unobserve( entry.target );
+			} );
+		},
+		{ rootMargin }
+	);
+
+	counters.forEach( ( el ) => {
+		if ( el.getAttribute( 'data-intersection' ) === 'false' ) {
+			startCounter( el );
+			return;
+		}
+		observer.observe( el );
+	} );
+} );

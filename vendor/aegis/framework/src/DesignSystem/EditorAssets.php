@@ -27,6 +27,7 @@ namespace Aegis\Framework\DesignSystem;
 use Aegis\Framework\BlockSettings\Responsive;
 use Aegis\Framework\InlineAssets\Scripts;
 use Aegis\Framework\InlineAssets\Styles;
+use Aegis\Framework\ServiceProvider;
 use Aegis\Utilities\Debug;
 use function apply_filters;
 use function array_merge;
@@ -133,11 +134,31 @@ class EditorAssets
 			)
 		);
 
+		$marquee_features = [
+			'enabled'         => ServiceProvider::is_block_enabled( 'marquee' ),
+			'pauseHover'      => ServiceProvider::is_block_enabled( 'marquee_pause_hover' ),
+			'direction'       => ServiceProvider::is_block_enabled( 'marquee_direction' ),
+			'speed'           => ServiceProvider::is_block_enabled( 'marquee_speed' ),
+			'repeat'          => ServiceProvider::is_block_enabled( 'marquee_repeat' ),
+			'responsiveSpeed' => ServiceProvider::is_block_enabled( 'marquee_responsive_speed' ),
+		];
+
+		$newsletter_features = [
+			'enabled'          => ServiceProvider::is_block_enabled( 'newsletter' ),
+			'emailValidation'  => ServiceProvider::is_block_enabled( 'newsletter_email_validation' ),
+			'successMessage'   => ServiceProvider::is_block_enabled( 'newsletter_success_message' ),
+			'placeholder'      => ServiceProvider::is_block_enabled( 'newsletter_placeholder' ),
+		];
+
 		wp_localize_script(
 			$handle,
 			'aegis',
 			$data
 		);
+
+		$this->enqueue_marquee_block_editor( $handle, $marquee_features );
+
+		$this->enqueue_newsletter_block_editor( $handle, $newsletter_features );
 
 		// Enqueue responsive breakpoints extension script.
 		$this->enqueue_responsive_breakpoints();
@@ -153,10 +174,102 @@ class EditorAssets
 		$this->enqueue_query_enhancements();
 
 		// Enqueue core/icon bridge (picker merge, transforms, link/gradient controls).
-		$this->enqueue_icon_block_editor( $handle, $data );
+		if ( ServiceProvider::is_block_enabled( 'icon' ) ) {
+			$this->enqueue_icon_block_editor( $handle, $data );
+		}
 
 		// Restore button labels when icons are rendered from attributes only.
 		$this->enqueue_button_block_editor( $handle );
+	}
+
+	/**
+	 * Enqueue Group Marquee inspector gating.
+	 *
+	 * Replaces the bundled Marquee Settings panel so extras follow
+	 * Aegis → Blocks → Marquee. Unregisters the variation when the parent is off.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string              $parent_handle Parent editor script handle.
+	 * @param array<string, bool> $features      Marquee feature flags.
+	 *
+	 * @return void
+	 */
+	private function enqueue_marquee_block_editor( string $parent_handle, array $features ): void {
+		$asset_file = $this->scripts->dir . 'marquee-editor.asset.php';
+
+		if ( ! file_exists( $asset_file ) ) {
+			return;
+		}
+
+		$asset  = require $asset_file;
+		$handle = $this->scripts->handle . '-marquee-editor';
+
+		wp_register_script(
+			$handle,
+			$this->scripts->url . 'marquee-editor.js',
+			array_merge(
+				$asset['dependencies'] ?? [],
+				[ $parent_handle ]
+			),
+			$asset['version'] ?? ( Debug::is_enabled() ? (string) filemtime( $this->scripts->dir . 'marquee-editor.js' ) : '1.0.0' ),
+			true
+		);
+
+		wp_enqueue_script( $handle );
+
+		wp_localize_script(
+			$handle,
+			'aegisMarqueeFeatures',
+			$features
+		);
+
+		wp_set_script_translations( $handle, 'aegis' );
+	}
+
+	/**
+	 * Enqueue Search Newsletter variation gating.
+	 *
+	 * Replaces the bundled Newsletter variation description and unregisters
+	 * it when Aegis → Blocks → Newsletter is off.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string              $parent_handle Parent editor script handle.
+	 * @param array<string, bool> $features      Newsletter feature flags.
+	 *
+	 * @return void
+	 */
+	private function enqueue_newsletter_block_editor( string $parent_handle, array $features ): void {
+		$asset_file = $this->scripts->dir . 'newsletter-editor.asset.php';
+
+		if ( ! file_exists( $asset_file ) ) {
+			return;
+		}
+
+		$asset  = require $asset_file;
+		$handle = $this->scripts->handle . '-newsletter-editor';
+
+		wp_register_script(
+			$handle,
+			$this->scripts->url . 'newsletter-editor.js',
+			array_merge(
+				$asset['dependencies'] ?? [],
+				[ $parent_handle ]
+			),
+			$asset['version'] ?? ( Debug::is_enabled() ? (string) filemtime( $this->scripts->dir . 'newsletter-editor.js' ) : '1.0.0' ),
+			true
+		);
+
+		wp_enqueue_script( $handle );
+
+		wp_localize_script(
+			$handle,
+			'aegisNewsletterFeatures',
+			$features
+		);
+
+		wp_set_script_translations( $handle, 'aegis' );
 	}
 
 	/**
@@ -199,6 +312,11 @@ class EditorAssets
 				$parent_data,
 				[
 					'iconMigration' => \Aegis\Framework\Icons\IconMigrationMapper::get_rules_for_editor(),
+					'iconFeatures'  => [
+						'gradient'  => ServiceProvider::is_block_enabled( 'icon_gradient' ),
+						'customSvg' => ServiceProvider::is_block_enabled( 'icon_custom_svg' ),
+						'gallery'   => ServiceProvider::is_block_enabled( 'icon_gallery' ),
+					],
 				]
 			)
 		);

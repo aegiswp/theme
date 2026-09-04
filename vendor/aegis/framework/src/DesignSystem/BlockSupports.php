@@ -32,9 +32,6 @@ class BlockSupports implements Scriptable
 {
 
 	private array $config = [
-		'aegis/accordion' => [
-			'aegisBoxShadow' => true,
-		],
 		'arraypress/edd-image-slider' => [
 			'aegisPosition' => true,
 		],
@@ -113,7 +110,6 @@ class BlockSupports implements Scriptable
 				// 2. Add PHP rendering logic in CoreBlocks\Button.php to apply these CSS variables
 				//    (currently Button.php removes --wp--custom--icon--* variables at lines 282-287)
 				// 3. Add CSS rules that actually use these custom properties in the stylesheet
-				// Note: --wp--custom--icon--color is used in BlockVariations\Icon.php but not for buttons
 				//'iconColor'       => [
 				//	'property' => '--wp--custom--icon--color',
 				//	'selector' => '.%1$s > div',
@@ -299,7 +295,7 @@ class BlockSupports implements Scriptable
 				'padding' => true,
 			],
 			'typography' => [
-				'fontSize' => true, // Used by icons.
+				'fontSize' => true,
 			],
 			'aegisAnimation' => true,
 			'aegisBackground' => true,
@@ -309,7 +305,6 @@ class BlockSupports implements Scriptable
 			'aegisPosition' => true,
 			'aegisTransform' => true,
 			'aegisOnclick' => true,
-			'aegisIcon' => true,
 		],
 		'core/icon' => [
 			'color' => [

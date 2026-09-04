@@ -65,6 +65,7 @@ final class FrontendContentContext {
 	private const BLOCK_MARKERS = [
 		'aegis/slider'     => [ 'splide', 'wp-block-aegis-slider', 'wp:aegis/slider' ],
 		'core/embed'       => [ 'wp-block-embed', 'wp:embed', 'aegis-embed__facade' ],
+		'core/image'       => [ 'wp:image', 'wp-lightbox-container', 'aegis-lightbox' ],
 		'core/navigation'  => [ 'wp-block-navigation__submenu-container' ],
 		'aegis/map'        => [ 'aegis-map', 'wp-block-aegis-map' ],
 	];

@@ -102,9 +102,9 @@ class Placeholder implements Renderable, Styleable {
 			return $block_content;
 		}
 
-		// Do not run if an image ID, icon, or custom SVG is already set.
+		// Do not run if an image ID or custom SVG is already set.
 		$attrs = $block['attrs'] ?? [];
-		if ( ( $attrs['id'] ?? '' ) || ( ( $attrs['iconSet'] ?? '' ) && ( $attrs['iconName'] ?? '' ) ) || ( $attrs['iconSvgString'] ?? '' ) || ( $attrs['style']['svgString'] ?? '' ) ) {
+		if ( ( $attrs['id'] ?? '' ) || ( $attrs['style']['svgString'] ?? '' ) ) {
 			return $block_content;
 		}
 
@@ -113,8 +113,8 @@ class Placeholder implements Renderable, Styleable {
 			return $block_content;
 		}
 
-		// Do not run on blocks that are already styled as icons or SVGs.
-		if ( Str::contains_any( $block_content, 'is-style-icon', 'is-style-svg' ) ) {
+		// Do not run on blocks that are already styled as SVGs.
+		if ( Str::contains_any( $block_content, 'is-style-svg' ) ) {
 			return $block_content;
 		}
 

@@ -15,8 +15,12 @@ namespace Aegis\Framework\Icons;
 // Imports classes, interfaces, and functions used by the maps legacy core/image icon block attributes to core/icon.
 use Aegis\Icons\Icon;
 use function array_filter;
+use function defined;
 use function explode;
 use function is_array;
+use function is_readable;
+use function is_string;
+use function preg_replace_callback;
 use function str_contains;
 use function trim;
 
@@ -104,6 +108,10 @@ class IconMigrationMapper {
 			$mapped['animation'] = $attrs['animation'];
 		}
 
+		if ( ! empty( $attrs['iconSvgString'] ) ) {
+			$mapped['iconSvgString'] = (string) $attrs['iconSvgString'];
+		}
+
 		$style = is_array( $attrs['style'] ?? null ) ? $attrs['style'] : [];
 
 		if ( ! empty( $attrs['iconSize'] ) ) {
@@ -136,11 +144,7 @@ class IconMigrationMapper {
 	 * Resolves icon registry id from set + name.
 	 */
 	public static function resolve_icon_id( string $set, string $name ): string {
-		if ( $set === 'wordpress' && self::core_slug_exists( $name ) ) {
-			return 'core/' . $name;
-		}
-
-		return 'aegis/' . strtolower( $set ) . '/' . strtolower( $name );
+		return Icon::to_registry_id( $set, $name );
 	}
 
 	/**
@@ -154,6 +158,10 @@ class IconMigrationMapper {
 		];
 	}
 
+	public static function is_core_icon( string $slug ): bool {
+		return self::core_slug_exists( strtolower( $slug ) );
+	}
+
 	/**
 	 * @return array<string, true>
 	 */
@@ -164,14 +172,19 @@ class IconMigrationMapper {
 
 		self::$core_slugs = [];
 
-		$manifest = ABSPATH . 'wp-includes/assets/icon-library-manifest.php';
+		if ( ! defined( 'ABSPATH' ) || ! defined( 'WPINC' ) ) {
+			return self::$core_slugs;
+		}
+
+		$manifest = ABSPATH . WPINC . '/assets/icon-library-manifest.php';
 
 		if ( is_readable( $manifest ) ) {
-			/** @var array<string, array<string, mixed>> $collection */
 			$collection = include $manifest;
 
-			foreach ( array_keys( $collection ) as $slug ) {
-				self::$core_slugs[ $slug ] = true;
+			if ( is_array( $collection ) ) {
+				foreach ( array_keys( $collection ) as $slug ) {
+					self::$core_slugs[ (string) $slug ] = true;
+				}
 			}
 		}
 
@@ -188,6 +201,8 @@ class IconMigrationMapper {
 	 * Migrates block comments in post content or pattern source.
 	 */
 	public static function migrate_block_comments( string $content ): string {
+		$content = self::migrate_icon_attribute_ids( $content );
+
 		$search  = '<!-- wp:image ';
 		$offset  = 0;
 		$length  = strlen( $search );
@@ -240,36 +255,24 @@ class IconMigrationMapper {
 
 			if ( is_array( $attrs ) && self::is_legacy_image_icon( $attrs ) ) {
 				$mapped  = self::map_image_icon_to_core_icon( $attrs );
-				$encoded = wp_json_encode( $mapped, JSON_UNESCAPED_SLASHES ) ?: '{}';
+				$encoded = wp_json_encode( $mapped, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) ?: '{}';
 				$open    = '<!-- wp:icon ' . $encoded . ' /-->';
 				$tag_end = $end + 1;
 				$tail    = substr( $content, $tag_end );
 
 				if ( preg_match( '/^\s*\/-->/', $tail, $self_closing_match ) === 1 ) {
 					$tag_end += strlen( $self_closing_match[0] );
-				} else {
-					$suffix = substr( $content, $tag_end, 4 );
+				} elseif ( preg_match( '/^\s*-->/', $tail, $open_match ) === 1 ) {
+					$tag_end += strlen( $open_match[0] );
+					$close_pos = strpos( $content, '<!-- /wp:image -->', $tag_end );
 
-					if ( $suffix === ' -->' ) {
-						$tag_end += 4;
+					if ( $close_pos !== false ) {
+						$tag_end = $close_pos + strlen( '<!-- /wp:image -->' );
 					}
 				}
 
 				$content = substr_replace( $content, $open, $pos, $tag_end - $pos );
 				$offset  = $pos + strlen( $open );
-
-				// Remove legacy static <figure class="wp-block-image is-style-icon"> markup.
-				if ( preg_match( '/\s*<figure[^>]*is-style-icon[^>]*>.*?<\/figure>\s*/s', $content, $figure_match, 0, $offset ) ) {
-					$match_pos = $figure_match[0][1] ?? -1;
-					if ( $match_pos >= $offset && $match_pos < $offset + 5000 ) {
-						$content = substr_replace( $content, "\n", $match_pos, strlen( $figure_match[0][0] ) );
-					}
-				}
-
-				$close_pos = strpos( $content, '<!-- /wp:image -->', $offset );
-				if ( $close_pos !== false && $close_pos < $offset + 5000 ) {
-					$content = substr_replace( $content, '', $close_pos, strlen( '<!-- /wp:image -->' ) );
-				}
 
 				continue;
 			}
@@ -278,6 +281,25 @@ class IconMigrationMapper {
 		}
 
 		return $content;
+	}
+
+	/**
+	 * Rewrites legacy `aegis/{set}/{name}` core/icon ids to library ids.
+	 */
+	private static function migrate_icon_attribute_ids( string $content ): string {
+		if ( ! str_contains( $content, '"icon":"aegis/' ) && ! str_contains( $content, '"icon": "aegis/' ) ) {
+			return $content;
+		}
+
+		$updated = preg_replace_callback(
+			'/"icon"\s*:\s*"aegis\/([a-z0-9_-]+)\/([a-z0-9_-]+)"/',
+			static function ( array $matches ): string {
+				return '"icon":"' . Icon::to_registry_id( $matches[1], $matches[2] ) . '"';
+			},
+			$content
+		);
+
+		return is_string( $updated ) ? $updated : $content;
 	}
 
 	private static function strip_icon_variation_classes( string $class_name ): string {

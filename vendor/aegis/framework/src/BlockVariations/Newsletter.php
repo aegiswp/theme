@@ -25,9 +25,18 @@ namespace Aegis\Framework\BlockVariations;
 
 // Imports classes, interfaces, and functions used by the newsletter block variation.
 use Aegis\Dom\DOM;
+use Aegis\Framework\InlineAssets\Scriptable;
+use Aegis\Framework\InlineAssets\Scripts;
 use Aegis\Framework\Interfaces\Renderable;
+use Aegis\Framework\ServiceProvider;
+use DOMDocument;
+use DOMElement;
 use WP_Block;
+use function __;
+use function register_block_style;
 use function str_contains;
+use function strtolower;
+use function trim;
 
 
 /**
@@ -40,7 +49,26 @@ use function str_contains;
  * @package Aegis\Framework\BlockVariations
  * @since   1.0.0
  */
-class Newsletter implements Renderable {
+class Newsletter implements Renderable, Scriptable {
+
+	/**
+	 * Register the Newsletter style on core/search for the editor and PHP registry.
+	 *
+	 * @hook init
+	 */
+	public function register_style(): void {
+		if ( ! ServiceProvider::is_block_enabled( 'newsletter' ) ) {
+			return;
+		}
+
+		register_block_style(
+			'core/search',
+			array(
+				'name'  => 'newsletter',
+				'label' => __( 'Newsletter', 'aegis' ),
+			)
+		);
+	}
 
 	/**
 	 * Renders the search block as a newsletter signup form.
@@ -61,6 +89,10 @@ class Newsletter implements Renderable {
 	 * @return string The modified block content, now structured as a newsletter form.
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
+		if ( ! ServiceProvider::is_block_enabled( 'newsletter' ) ) {
+			return $block_content;
+		}
+
 		$attrs      = $block['attrs'] ?? [];
 		$class_name = $attrs['className'] ?? '';
 
@@ -87,10 +119,99 @@ class Newsletter implements Renderable {
 		// Prevent the form from submitting via a page reload.
 		$form->setAttribute( 'onsubmit', 'event.preventDefault();' );
 
-		// Change the input to a standard text field named "newsletter".
-		$input->setAttribute( 'type', 'text' );
 		$input->setAttribute( 'name', 'newsletter' );
 
+		$placeholder = $this->resolve_placeholder( $attrs );
+		$input->setAttribute( 'placeholder', $placeholder );
+
+		if ( empty( $attrs['showLabel'] ) ) {
+			$input->setAttribute( 'aria-label', $placeholder );
+		}
+
+		if ( $this->should_validate_email( $placeholder ) ) {
+			$input->setAttribute( 'type', 'email' );
+			$input->setAttribute( 'autocomplete', 'email' );
+			$input->setAttribute( 'inputmode', 'email' );
+			$input->setAttribute( 'required', 'required' );
+		} else {
+			$input->setAttribute( 'type', 'text' );
+			$input->removeAttribute( 'required' );
+		}
+
+		if ( ServiceProvider::is_block_enabled( 'newsletter_success_message' ) ) {
+			$this->append_success_message( $dom, $form );
+		}
+
 		return $dom->saveHTML();
+	}
+
+	/**
+	 * Conditionally enqueues the newsletter submit handler.
+	 *
+	 * Loaded only when a newsletter-styled search block is on the page.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param Scripts $scripts The Scripts service instance.
+	 */
+	public function scripts( Scripts $scripts ): void {
+		if ( ! ServiceProvider::is_block_enabled( 'newsletter' ) ) {
+			return;
+		}
+
+		$scripts->add_file( 'newsletter.js', [ 'is-style-newsletter' ] );
+	}
+
+	/**
+	 * Resolve the email input placeholder from extras and block attributes.
+	 *
+	 * @param array<string, mixed> $attrs Block attributes.
+	 */
+	private function resolve_placeholder( array $attrs ): string {
+		$default = __( 'Email address', 'aegis' );
+		$custom  = trim( (string) ( $attrs['placeholder'] ?? '' ) );
+
+		if ( ServiceProvider::is_block_enabled( 'newsletter_placeholder' ) && $custom !== '' ) {
+			return $custom;
+		}
+
+		return $default;
+	}
+
+	/**
+	 * Whether HTML5 email validation should apply to this field.
+	 *
+	 * Decorative newsletter-styled inputs (name, phone) keep type=text.
+	 */
+	private function should_validate_email( string $placeholder ): bool {
+		if ( ! ServiceProvider::is_block_enabled( 'newsletter_email_validation' ) ) {
+			return false;
+		}
+
+		$normalized = strtolower( trim( $placeholder ) );
+
+		return $normalized === '' || str_contains( $normalized, 'email' );
+	}
+
+	/**
+	 * Append a hidden status node used by the frontend script after signup.
+	 */
+	private function append_success_message( DOMDocument $dom, DOMElement $form ): void {
+		$message = __( 'Thanks for subscribing.', 'aegis' );
+
+		$form->setAttribute( 'data-aegis-newsletter-success', 'true' );
+		$form->setAttribute( 'data-aegis-newsletter-success-text', $message );
+
+		$status = DOM::create_element( 'p', $dom );
+
+		if ( ! $status ) {
+			return;
+		}
+
+		$status->setAttribute( 'class', 'aegis-newsletter__success' );
+		$status->setAttribute( 'role', 'status' );
+		$status->setAttribute( 'hidden', 'hidden' );
+
+		$form->appendChild( $status );
 	}
 }
