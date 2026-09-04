@@ -19,7 +19,7 @@ npm run clean       # clean-build.js
 npm run translate   # prepare-translate.js + wp i18n make-pot + finish-translate.js
 ```
 
-On WordPress Studio sites, use `npm run translate:studio` instead of `npm run translate`. The prepare step copies Icon library PHP/JS and the plugin Blocks admin page into `build/` so those strings are included even though `vendor/` is excluded from the scan.
+On WordPress Studio sites, use `npm run translate:studio` instead of `npm run translate`. The prepare step copies Icon library PHP/JS, the plugin Blocks admin page, and Map block PHP/JS into `build/` so those strings are included even though `vendor/` and the plugin tree are excluded from the scan.
 
 ## audit-patterns.php
 

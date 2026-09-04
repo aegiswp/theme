@@ -173,8 +173,8 @@ Patterns for logo grids and client showcases.
 | Pattern | Description |
 |---------|-------------|
 | Logo Grid | Multi-column grid of partner/client logos. |
-| Logo Marquee | Continuously scrolling logo bar. |
-| Logo Simple | Single row of logos with label. |
+| Logo Row | Single row of logos with a label. |
+| Logo Marquee | Not a standalone theme pattern. Use the Group **Marquee** variation (theme Feature Banner, or Pro Feature Icon Boxes). |
 
 ### Modal
 

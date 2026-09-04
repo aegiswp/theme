@@ -145,24 +145,28 @@ A CSS Grid container that arranges child blocks into a configurable grid layout.
 
 A continuously scrolling horizontal band of content that loops infinitely.
 
+Enable extras at **Aegis → Blocks → Marquee**. See [Plugin Marquee](../../plugins/aegis/docs/blocks/marquee.md).
+
 ### Base Block
 
-`core/group` with CSS animation and cloned content.
+`core/group` with CSS animation and cloned content (`layout.orientation` is `marquee`). Not the Slider block’s `type: marquee` option.
 
 ### Features
 
-- Continuous horizontal scroll animation.
-- Configurable speed and direction.
-- Pause on hover option.
-- Content duplicated for seamless loop.
-- Accessible — can be paused, respects `prefers-reduced-motion`.
+- Continuous horizontal scroll animation (CSS only; no frontend Marquee JS).
+- Speed, direction, pause on hover, and repeat clones — each gated by a Blocks extra.
+- Pro: separate desktop duration (**Responsive Speed**).
+- Fade edges via the `fade-horizontal` utility (always available while Marquee is on).
+- Accessible — pause on hover when that extra is on; respects `prefers-reduced-motion`.
 
 ### Usage
 
-1. Insert the **Marquee** block.
-2. Add content (logos, text, images, or any blocks).
-3. Set the scroll speed and direction.
-4. Enable or disable pause on hover.
+1. Enable Marquee at **Aegis → Blocks → Marquee**.
+2. Insert the **Marquee** block (Group variation).
+3. Add content (logos, text, images, or any blocks).
+4. Set speed, direction, repeats, pause, and fade edges in **Marquee Settings**.
+
+When Marquee is off, the variation is hidden from the inserter and saved marquees render as ordinary Groups.
 
 ### Common Use Cases
 
@@ -170,6 +174,8 @@ A continuously scrolling horizontal band of content that loops infinitely.
 - News ticker strips
 - Decorative text banners
 - Testimonial scrollers
+
+Theme **Feature Banner** (`patterns/cta/banner.php`) is a scrolling announcement. Pro **Feature Icon Boxes** uses two logo marquees.
 
 ## Newsletter
 

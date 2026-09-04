@@ -15,7 +15,7 @@ Slide blocks **only** insert inside a Slider (`parent: aegis/slider` in `block.j
 
 | Attribute | Type | Default | Description |
 |-----------|------|---------|-------------|
-| `type` | string | `slider` | `slider` or `marquee` |
+| `type` | string | `slider` | `slider` or `marquee` (Splide AutoScroll; not the Group Marquee variation) |
 | `perPage` | number | `3` | Visible slides |
 | `perMove` | number | `1` | Slides advanced per navigation |
 | `autoplay` | boolean | `false` | Auto-advance |
@@ -40,7 +40,7 @@ Slide blocks **only** insert inside a Slider (`parent: aegis/slider` in `block.j
 1. Insert the **Slider** block (defaults include three Slide children).
 2. Build content inside each **Slide**.
 3. Configure autoplay, arrows, dots, and loop in Slider settings.
-4. Set **Type** to `marquee` for continuous scrolling (uses Splide AutoScroll).
+4. Set **Type** to `marquee` for continuous scrolling (uses Splide AutoScroll). That is not the Group **Marquee** variation — see [[block-variations#marquee]] and [Plugin Marquee](../../plugins/aegis/docs/blocks/marquee.md).
 
 ## Pro sub-features
 
