@@ -18,7 +18,7 @@ A block variation is a preconfigured version of an existing block with specific 
 | Grid | `core/group` | A CSS Grid container with configurable columns. |
 | Marquee | `core/group` | Continuously scrolling horizontal content. |
 | Newsletter | `core/group` | Pre-configured email signup section. |
-| SVG | `core/group` | A container for inline SVG markup. |
+| SVG | `core/image` | Inline SVG markup on an Image block (`is-style-svg`). Decorative icons use `core/icon` instead — see [[svg-icons]]. |
 
 > **Related posts:** Use the **`aegis/related-posts`** theme block (see [[custom-blocks]]). The former `core/query` Related Posts variation was removed. For advanced related-post querying on Query Loop, enable **`aegisProRelatedPosts`** on `core/query` with [Aegis Pro](../../plugins/aegis-pro/docs/features/query-loop-pro.md).
 
@@ -196,26 +196,26 @@ A pre-configured email signup section with input field, submit button, and suppo
 
 ## SVG
 
-A container for inserting inline SVG markup directly into the editor.
+An Image block variation for inserting inline SVG markup. For library glyphs, use the WordPress **Icon** block (`core/icon`) instead of this variation — see [[svg-icons]].
 
 ### Base Block
 
-`core/group` with SVG content support.
+`core/image` with the `is-style-svg` style.
 
 ### Features
 
-- Paste or write SVG markup directly.
-- SVG rendered inline (not as an image) for CSS styling.
-- Color inheritance from parent text color.
+- Paste or write SVG markup on the Image block.
+- SVG rendered inline (not as a raster image) for CSS styling.
+- Color inheritance from parent text color when the SVG uses `currentColor`.
 - Size controls (width, height).
 - Accessible `role` and `aria-label` attributes.
 
 ### Usage
 
-1. Insert the **SVG** block.
+1. Insert the **SVG** variation (Image block).
 2. Paste your SVG code into the content area.
 3. Adjust dimensions in block settings.
-4. Colors can be controlled via the parent block color settings if the SVG uses `currentColor`.
+4. Colors follow the parent text color when the SVG uses `currentColor`.
 
 ## Inserting Variations
 

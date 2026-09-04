@@ -2,7 +2,7 @@
 
 Analytics configuration has moved to the **Aegis companion plugin**.
 
-Configure providers at **Aegis → Integrations → Analytics**. Nothing is sent to third-party services until you enable a provider and save credentials.
+Configure providers at **Aegis → Connectors** (one tab per service). Nothing is sent to third-party services until you enable a provider and save credentials.
 
 ## Documentation
 

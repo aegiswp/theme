@@ -59,7 +59,7 @@ Composer packages:
 | `framework/` | Design system engine, core block enhancements, patterns |
 | `utilities/` | Pattern helper, shared utilities |
 | `container/`, `dom/`, `hooks/` | Supporting libraries |
-| `icons/` | Icon registry |
+| `icons/` | SVG files and `Aegis\Icons\Icon` utility (library registration lives in `framework/src/Icons/`) |
 
 ### patterns/
 

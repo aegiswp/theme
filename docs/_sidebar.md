@@ -47,6 +47,7 @@
 - [[dynamic-template-parts|Dynamic Template Parts]]
 - [[maintenance-mode|Maintenance Mode]]
 - [[svg-icons|SVG Icons]]
+- [[image-lightbox|Image Lightbox]]
 - [[embed-template|Embed Template]]
 - [[navigation-styles|Navigation Styles]]
 

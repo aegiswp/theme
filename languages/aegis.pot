@@ -9,13 +9,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-18T17:42:09+00:00\n"
+"POT-Creation-Date: 2026-09-03T23:19:04+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: aegis\n"
 
 #. Theme Name of the theme
 #: style.css
+#: vendor/aegis/framework/src/Icons/Library.php:137
 msgid "Aegis"
 msgstr ""
 
@@ -37,6 +38,1438 @@ msgstr ""
 #. Author URI of the theme
 #: style.css
 msgid "https://www.atmostfear-entertainment.com/"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:66
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:76
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:77
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:103
+msgid "Blocks"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:114
+msgid "Accordion"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:118
+msgid "Countdown"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:122
+msgid "Counter"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:126
+msgid "Icon"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:130
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:260
+msgid "Image Lightbox"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:134
+msgid "Map"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:138
+#: src/Blocks/slider/index.js:1
+msgid "Marquee"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:142
+msgid "Modal"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:146
+#: patterns/newsletter/split.php:19
+msgid "Newsletter"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:150
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:363
+msgid "Query Loop"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:154
+#: src/Blocks/related-posts/render.php:31
+#: src/Blocks/related-posts/render.php:120
+#: src/Blocks/related-posts/index.js:1
+msgid "Related Posts"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:158
+#: src/Blocks/slider/render.php:130
+#: src/Blocks/slider/index.js:1
+msgid "Slider"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:162
+msgid "SVG"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:166
+msgid "Toggle"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:176
+#: ../../plugins/aegis/assets/editor/build/video-editor.tsx.js:1
+msgid "Video"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:183
+msgid "Accordion Block"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:183
+msgid "List block variation that transforms lists into semantic accordions."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:186
+msgid "Open First Item"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:186
+msgid "Automatically expand the first accordion item on load."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:187
+msgid "Open All Items"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:187
+msgid "Expand all accordion items by default."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:188
+msgid "Toggle Icon"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:188
+msgid "Show expand/collapse icon indicator."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:189
+msgid "Border Separator"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:189
+msgid "Show border separator between title and content."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:194
+#: src/Blocks/toggle/index.js:1
+msgid "Add FAQPage structured data markup for SEO."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:195
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:456
+#: src/Blocks/toggle/index.js:1
+msgid "FAQ Schema"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:197
+msgid "Single Open Mode"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:197
+msgid "Close other items when one is opened."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:204
+msgid "Countdown Block"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:204
+msgid "Countdown timer block that counts down to a specific date and time."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:207
+msgid "Segment Toggles"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:207
+msgid "Show or hide individual segments (days, hours, minutes, seconds)."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:208
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:452
+msgid "Custom Labels"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:208
+msgid "Customize the text labels below each countdown segment."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:209
+msgid "Separator Style"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:209
+msgid "Choose separator between segments: colon, dot, dash, or none."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:210
+msgid "Layout Options"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:210
+msgid "Switch between inline and stacked layout modes."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:211
+#: src/Blocks/countdown/index.js:1
+msgid "Expiry Message"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:211
+msgid "Display a custom message when the countdown reaches zero."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:212
+msgid "Timezone Control"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:212
+msgid "Choose between UTC and visitor local timezone."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:217
+#: src/Blocks/countdown/index.js:1
+msgid "Add Schema.org Event structured data for search engines."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:218
+#: src/Blocks/countdown/index.js:1
+msgid "Schema.org Event"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:220
+msgid "Evergreen Countdown"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:220
+msgid "Each visitor gets their own countdown starting from their first visit."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:221
+msgid "Animation Styles"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:221
+msgid "Animate digit transitions when values change."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:222
+msgid "Auto-Restart"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:222
+msgid "Automatically restart the countdown after it expires."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:223
+msgid "Expiry Actions"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:223
+msgid "Perform actions when the countdown reaches zero (redirect, hide)."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:224
+msgid "Urgency Styling"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:224
+msgid "Change appearance when time is running low."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:231
+msgid "Counter Block"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:231
+msgid "Paragraph block variation that animates numbers with counting effects."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:234
+msgid "Prefix Text"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:234
+msgid "Display text before the counter number (e.g. currency symbol)."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:235
+msgid "Suffix Text"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:235
+msgid "Display text after the counter number (e.g. percentage sign)."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:236
+msgid "Start Delay"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:236
+msgid "Delay before the counting animation begins."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:237
+msgid "Custom Duration"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:237
+msgid "Control the speed of the counting animation."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:238
+msgid "Scroll Trigger"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:238
+msgid "Start animation when the counter scrolls into view."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:245
+msgid "Icon Block"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:245
+msgid "Enhancements for the WordPress Icon block: Core Icon library collections, gradients, animation, custom SVG, gallery, and responsive sizing."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:248
+msgid "Gradient Colors"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:248
+msgid "Apply gradient colors to icons using CSS mask technique."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:249
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:338
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:455
+msgid "Animations"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:249
+msgid "Add animation effects to icon elements."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:250
+#: vendor/aegis/framework/public/js/icon-block-editor.js:386
+msgid "Custom SVG"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:250
+msgid "Paste custom SVG markup on the Icon block."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:251
+msgid "Icon Gallery"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:251
+msgid "Display every icon from the selected library set in a grid."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:252
+msgid "Responsive Sizing"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:252
+msgid "Different icon sizes per breakpoint."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:253
+msgid "REST API Endpoint"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:253
+msgid "Expose Aegis icon sets via REST for the button/tab picker. On WordPress 7.0 this also merges sets into the editor; WordPress 7.1+ registers collections on the Core Icon library."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:260
+msgid "Enhances the native WordPress Image lightbox (Expand on click). Enable extras for grouped navigation, pinch/wheel zoom, thumbnail strips, and swipe."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:263
+msgid "Gallery Navigation"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:263
+msgid "Navigate between images in the same group with prev/next arrows and keyboard."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:264
+msgid "Zoom"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:264
+msgid "Double-click, scroll wheel, and pinch-to-zoom with pan support."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:265
+msgid "Thumbnail Strip"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:265
+msgid "Show a thumbnail navigation strip for galleries with 4+ images."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:266
+msgid "Swipe Gestures"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:266
+msgid "Navigate between images with touch swipe on mobile devices."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:273
+msgid "Map Block"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:273
+msgid "Google Maps and OpenStreetMap block with markers, styles, and interactive controls."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:276
+msgid "Multiple Markers"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:276
+msgid "Add multiple markers with title and description info windows."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:277
+msgid "Map Style Presets"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:277
+msgid "Silver, Dark, Retro, Night, Aubergine style presets."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:278
+msgid "Map Controls"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:278
+msgid "Zoom, map type, street view, and fullscreen controls."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:279
+msgid "OpenStreetMap Fallback"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:279
+msgid "Use OpenStreetMap when no Google Maps API key is configured."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:280
+msgid "Directions"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:280
+msgid "Route directions with travel mode selector."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:281
+msgid "Store Locator"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:281
+msgid "Search with radius filter and CPT markers."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:282
+msgid "Geolocation"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:282
+msgid "Show user current position on the map."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:283
+msgid "Heatmap Layer"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:283
+msgid "Visualize density data on the map."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:284
+msgid "Drawing Tools"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:284
+msgid "Polygon, circle, and rectangle overlays."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:285
+msgid "KML/GeoJSON Import"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:285
+msgid "Load external geographic data layers."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:290
+msgid "Auto-generate LocalBusiness structured data."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:291
+msgid "Schema.org Markup"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:293
+msgid "Dynamic CPT Markers"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:293
+msgid "Pull markers from custom post types with lat/lng fields."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:294
+msgid "Custom Style JSON"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:294
+msgid "Paste raw Google Maps style array for full control."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:295
+msgid "Custom Marker Icons"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:295
+msgid "Upload custom marker icons from the media library."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:296
+msgid "Marker Clustering"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:296
+msgid "Group nearby markers at lower zoom levels."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:300
+msgid "Google Maps API"
+msgstr ""
+
+#. translators: %s: link to Connectors page
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:304
+#, php-format
+msgid "Configure your Google Maps API key in %s."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:305
+msgid "Connectors → Google Maps"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:315
+msgid "Marquee Block"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:315
+msgid "Group block variation that creates CSS-powered infinite scrolling banners."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:318
+#: src/Blocks/slider/index.js:1
+msgid "Pause on Hover"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:318
+msgid "Pause the scrolling animation on hover and focus."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:319
+msgid "Direction Control"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:319
+msgid "Set scroll direction (left-to-right or right-to-left)."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:320
+msgid "Speed Control"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:320
+msgid "Adjust the animation speed of the scrolling content."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:321
+msgid "Repeat Items"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:321
+msgid "Control how many times items are cloned for seamless looping."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:322
+msgid "Responsive Speed"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:322
+msgid "Different animation speeds for mobile and desktop."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:329
+msgid "Modal Block"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:329
+msgid "Popup/modal block with various trigger types."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:332
+msgid "Button Trigger"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:332
+msgid "Open modal on button click."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:333
+msgid "Icon Trigger"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:333
+msgid "Open modal on icon click."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:334
+msgid "Text Trigger"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:334
+msgid "Open modal on text link click."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:335
+msgid "Image Trigger"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:335
+msgid "Open modal on image click."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:336
+msgid "Off-Canvas Modes"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:336
+msgid "Left, right off-canvas and bottom sheet styles."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:337
+msgid "Fullscreen Mode"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:337
+msgid "Full viewport modal style."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:338
+msgid "Fade, scale, slide, flip, zoom effects."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:339
+msgid "Exit Intent"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:339
+msgid "Open modal when user moves to leave the page."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:340
+msgid "Scroll Depth"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:340
+msgid "Open modal after scrolling a percentage of the page."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:341
+msgid "Time Delay"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:341
+msgid "Open modal after a specified time delay."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:342
+msgid "Auto Close"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:342
+msgid "Automatically close modal after delay."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:343
+msgid "Show Once"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:343
+msgid "Remember if user has seen this modal."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:344
+msgid "Device Visibility"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:344
+msgid "Show/hide on specific devices."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:351
+msgid "Newsletter Block"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:351
+msgid "Search block variation that transforms the search form into a newsletter signup."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:354
+msgid "Email Validation"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:354
+msgid "Validate email format on the input field before submission."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:355
+msgid "Success Message"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:355
+msgid "Display a confirmation message after successful signup."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:356
+msgid "Custom Placeholder"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:356
+msgid "Set custom placeholder text for the email input field."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:363
+msgid "Advanced query parameters and layout controls for the Query Loop block."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:366
+msgid "Multiple Post Types"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:366
+msgid "Query multiple post types in a single loop."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:367
+msgid "Taxonomy Filtering"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:367
+msgid "Filter by categories, tags, and custom taxonomies."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:368
+msgid "Include/Exclude Posts"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:368
+msgid "Manually select posts to include or exclude."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:369
+msgid "Custom Field Query"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:369
+msgid "Filter posts by custom field values."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:370
+msgid "Order by Custom Field"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:370
+msgid "Sort posts by custom field values."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:371
+msgid "Responsive Columns"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:371
+msgid "Different column counts per breakpoint."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:372
+msgid "Gap Controls"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:372
+msgid "Custom row and column gap settings."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:373
+msgid "Featured First Post"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:373
+msgid "Make the first post span multiple columns."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:374
+msgid "Equal Height Cards"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:374
+msgid "Force all cards to have equal height."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:375
+msgid "No Results Template"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:375
+msgid "Custom message when no posts match query."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:376
+msgid "Extended Ordering"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:376
+msgid "Random, comment count, modified date, etc."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:377
+msgid "Advanced Meta Query"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:377
+msgid "Multiple meta queries with AND/OR relation."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:378
+msgid "Date Query"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:378
+msgid "Filter by date ranges and relative dates."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:379
+msgid "Parent/Child Posts"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:379
+msgid "Query child pages of current or specific post."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:380
+msgid "ACF/MetaBox Integration"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:380
+msgid "Field picker for ACF and Meta Box plugins."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:381
+msgid "AJAX Pagination"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:381
+msgid "Load more, infinite scroll, AJAX page nav."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:382
+msgid "Frontend Filters"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:382
+msgid "Taxonomy, search, and sort filters."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:383
+msgid "Masonry Layout"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:383
+msgid "CSS and JS masonry grid with animations."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:384
+msgid "Carousel Layout"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:384
+msgid "Slider with navigation, pagination, autoplay."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:385
+msgid "WooCommerce Integration"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:385
+msgid "Product filtering, sorting, and display options."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:392
+msgid "Related Posts Block"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:392
+msgid "Display posts related to the current content by shared taxonomy terms."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:395
+#: src/Blocks/related-posts/index.js:1
+msgid "Related By"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:395
+msgid "Choose category, tag, author, or auto-detect from the current post."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:396
+#: src/Blocks/related-posts/index.js:1
+msgid "Order By"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:396
+msgid "Order related posts by date, title, or randomly."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:397
+#: src/Blocks/related-posts/index.js:1
+msgid "Fallback Behavior"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:397
+msgid "Show latest posts or hide block when no related matches found."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:398
+msgid "Style Variants"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:398
+msgid "Grid, list, cards, and minimal layout options."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:399
+msgid "Excerpt Length"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:399
+msgid "Custom excerpt word count for related post summaries."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:400
+#: src/Blocks/related-posts/index.js:1
+msgid "Image Aspect Ratio"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:400
+msgid "Custom featured image aspect ratio for related posts."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:407
+msgid "Slider Block"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:407
+msgid "Slider/carousel block with multiple navigation options."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:410
+msgid "Slide Effect"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:410
+msgid "Basic slide transition between slides."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:411
+msgid "Fade Effect"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:411
+msgid "Fade transition between slides."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:412
+msgid "Navigation Arrows"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:412
+msgid "Show previous/next navigation arrows."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:413
+msgid "Pagination Dots"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:413
+msgid "Show pagination dots below the slider."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:414
+msgid "Infinite Loop"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:414
+msgid "Loop slides infinitely."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:415
+msgid "Keyboard Navigation"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:415
+msgid "Navigate slides with arrow keys."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:416
+msgid "Responsive Slides"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:416
+msgid "Different slides per view on devices."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:417
+#: src/Blocks/slider/index.js:1
+msgid "Autoplay"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:417
+msgid "Auto-advance slides with configurable delay."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:418
+msgid "Advanced Effects"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:418
+msgid "Cube, coverflow, flip, cards, creative effects."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:419
+msgid "Thumbnail Navigation"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:419
+msgid "Thumbnail strip for slide navigation."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:420
+msgid "Lightbox Mode"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:420
+msgid "Open slides in fullscreen lightbox."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:421
+msgid "Mousewheel Control"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:421
+msgid "Navigate slides with mouse scroll."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:422
+msgid "Aspect Ratio Lock"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:422
+msgid "Lock to specific aspect ratios."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:423
+msgid "Lazy Loading"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:423
+msgid "Performance optimization for images."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:424
+msgid "Custom Arrow Styles"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:424
+msgid "Minimal, rounded, square arrow styles."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:425
+msgid "Custom Dot Styles"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:425
+msgid "Line, dash, fraction pagination styles."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:432
+msgid "SVG Block"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:432
+msgid "Image block variation and settings for inline SVG rendering and manipulation."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:435
+msgid "Mask Mode"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:435
+msgid "Render SVG as a CSS mask for colorization via background-color."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:436
+msgid "Onclick Action"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:436
+msgid "Attach custom onclick behavior to SVG elements."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:437
+msgid "Inline SVG"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:437
+msgid "Replace CSS-masked images with raw inline SVG elements."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:438
+msgid "Inline SVG Files"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:438
+msgid "Replace image tags linking to .svg files with inline SVG markup."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:445
+msgid "Toggle Block"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:445
+msgid "Expandable/collapsible toggle block for content."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:448
+msgid "Pill Style"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:448
+msgid "Pill-shaped toggle control."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:449
+msgid "Switch Style"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:449
+msgid "On/off switch style toggle."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:450
+msgid "Button Style"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:450
+msgid "Button group style toggle."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:451
+msgid "Position Control"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:451
+msgid "Left, center, right alignment options."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:452
+msgid "Customizable toggle labels."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:453
+msgid "URL Sync"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:453
+msgid "Sync toggle state with URL parameter."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:454
+msgid "State Persistence"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:454
+msgid "Remember user choice via localStorage."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:455
+msgid "Fade, slide, scale transitions."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:456
+msgid "Structured data markup for SEO."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:457
+msgid "Nested Toggles"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:457
+msgid "Toggles within toggles for complex content."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:458
+msgid "Conditional Visibility"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:458
+msgid "Show/hide other elements based on state."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:484
+msgid "Video Block"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:484
+msgid "Enhanced video player with modern controls and features."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:487
+msgid "Custom Player"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:487
+msgid "Modern player with custom controls."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:488
+msgid "Theater Mode"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:488
+msgid "Expand video to viewport width."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:489
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:489
+msgid "Space, arrows, M, F keyboard controls."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:494
+msgid "VideoObject SEO schema for search engines."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:495
+msgid "Schema Markup"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:497
+msgid "Ambient Light"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:497
+msgid "Glow effect behind video based on colors."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:498
+msgid "Thumbnail Preview"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:498
+msgid "Show preview when hovering progress bar."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:499
+msgid "Touch Gestures"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:499
+msgid "Double-tap seek, swipe volume controls."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:500
+msgid "Playlists"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:500
+msgid "Multi-video playlists with autoplay."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:505
+msgid "Generate video sitemap for search engines."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:506
+msgid "Video Sitemap"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:508
+msgid "Sticky Player"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:508
+msgid "Floating video when scrolling past."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:509
+msgid "Focus Mode"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:509
+msgid "Dim background when video plays."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:510
+msgid "Save Progress"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:510
+msgid "Remember playback position."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:511
+msgid "Chapters"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:511
+msgid "Video chapters with navigation."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:512
+msgid "Email Capture"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:512
+msgid "Collect emails during playback."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:513
+msgid "Analytics"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:513
+msgid "Track video engagement metrics."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:514
+msgid "Multi-Audio"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:514
+msgid "Multiple audio track support."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:515
+msgid "Privacy Controls"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:515
+msgid "Private videos, watermarks, expiring URLs."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:519
+msgid "BunnyCDN Integration"
+msgstr ""
+
+#. translators: %s: link to Connectors page
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:523
+#, php-format
+msgid "Configure BunnyCDN features for cloud video hosting in %s."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:524
+msgid "Connectors → BunnyCDN"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:533
+msgid "Save Settings"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:551
+msgid "your SEO plugin"
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:554
+#, php-format
+msgid "%s handles FAQ Schema. Disable in Integrations to use built-in schema."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:555
+#, php-format
+msgid "%s handles Event Schema. Disable in Integrations to use built-in schema."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:556
+#, php-format
+msgid "%s handles Local Business Schema. Disable in Integrations to use built-in schema."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:557
+#, php-format
+msgid "%s handles Video Schema. Disable in Integrations to use built-in schema."
+msgstr ""
+
+#: ../../plugins/aegis/src/Blocks/AdminPage.php:558
+#, php-format
+msgid "Video sitemap is handled by %s. Disable in Integrations to use built-in sitemap."
+msgstr ""
+
+#. translators: %s: icon set label
+#: vendor/aegis/framework/src/Icons/Library.php:105
+#, php-format
+msgid "Aegis %s icons."
+msgstr ""
+
+#: vendor/aegis/framework/src/Icons/Library.php:138
+msgid "Social"
+msgstr ""
+
+#: vendor/aegis/framework/src/Icons/Library.php:139
+msgid "Remix Icon"
+msgstr ""
+
+#: vendor/aegis/framework/src/Icons/Library.php:140
+msgid "Plugins"
+msgstr ""
+
+#: vendor/aegis/framework/src/Icons/Library.php:141
+msgid "Hand Drawn"
+msgstr ""
+
+#: vendor/aegis/framework/src/Icons/Library.php:142
+msgid "Phosphor Duotone"
+msgstr ""
+
+#: vendor/aegis/framework/src/Icons/Library.php:143
+msgid "Heroicons"
+msgstr ""
+
+#: vendor/aegis/framework/src/Icons/Library.php:144
+msgid "Feather"
+msgstr ""
+
+#: vendor/aegis/framework/src/Icons/Library.php:145
+msgid "Brand"
 msgstr ""
 
 #. translators: %s: Publish date.
@@ -1040,15 +2473,12 @@ msgid "A boxed contact form layout."
 msgstr ""
 
 #: patterns/contact/form-boxed.php:15
-#: patterns/contact/form-map-overlay.php:18
 #: patterns/page/about.php:265
 #: patterns/page/contact.php:19
 msgid "Get in Touch"
 msgstr ""
 
 #: patterns/contact/form-boxed.php:19
-#: patterns/contact/form-map-overlay.php:22
-#: patterns/contact/form-map.php:16
 #: patterns/contact/two-column.php:16
 #: patterns/footer/store-default.php:79
 #: patterns/hero/video.php:32
@@ -1056,15 +2486,11 @@ msgid "Contact Us"
 msgstr ""
 
 #: patterns/contact/form-boxed.php:24
-#: patterns/contact/form-map-overlay.php:28
-#: patterns/contact/form-map.php:22
 #: patterns/page/contact.php:51
 msgid "Name"
 msgstr ""
 
 #: patterns/contact/form-boxed.php:26
-#: patterns/contact/form-map-overlay.php:30
-#: patterns/contact/form-map.php:24
 #: patterns/contact/icons.php:19
 #: patterns/contact/two-column.php:41
 #: patterns/page/contact.php:57
@@ -1072,36 +2498,12 @@ msgid "Email"
 msgstr ""
 
 #: patterns/contact/form-boxed.php:28
-#: patterns/contact/form-map-overlay.php:32
-#: patterns/contact/form-map.php:26
 #: patterns/page/contact.php:70
 msgid "Message"
 msgstr ""
 
 #: patterns/contact/form-boxed.php:31
-#: patterns/contact/form-map-overlay.php:35
-#: patterns/contact/form-map.php:29
 msgid "Send"
-msgstr ""
-
-#: patterns/contact/form-map-overlay.php
-msgctxt "Pattern title"
-msgid "Contact Form Map Overlay"
-msgstr ""
-
-#: patterns/contact/form-map-overlay.php
-msgctxt "Pattern description"
-msgid "A contact form with map overlay background."
-msgstr ""
-
-#: patterns/contact/form-map.php
-msgctxt "Pattern title"
-msgid "Contact Form Map"
-msgstr ""
-
-#: patterns/contact/form-map.php
-msgctxt "Pattern description"
-msgid "A contact form with embedded map."
 msgstr ""
 
 #: patterns/contact/icons.php
@@ -1492,6 +2894,7 @@ msgstr ""
 #: patterns/event/cinema-hero.php:65
 #: patterns/page/cinema.php:69
 #: patterns/page/talk.php:49
+#: src/Blocks/related-posts/index.js:1
 msgid "Date"
 msgstr ""
 
@@ -2012,6 +3415,7 @@ msgstr ""
 
 #: patterns/event/exhibition-info.php:43
 #: patterns/page/music-festival.php:356
+#: src/Blocks/countdown/index.js:1
 msgid "Location"
 msgstr ""
 
@@ -3003,7 +4407,7 @@ msgstr ""
 
 #: patterns/faq/accordion.php:86
 #: patterns/page/home.php:1556
-msgid "Use the Icon Block to manage curated sets or the Inline SVG variation to paste raw XML code directly onto the canvas."
+msgid "Insert the Icon block and pick from the WordPress Icon library, including Aegis collections. Paste custom SVG in the Icon block, or use the SVG Image variation for inline SVG files."
 msgstr ""
 
 #: patterns/faq/accordion.php:90
@@ -3235,12 +4639,6 @@ msgstr ""
 #: patterns/footer/default.php:57
 #: patterns/footer/default.php:74
 #: patterns/footer/default.php:84
-#: patterns/footer/wide - Copy.php:41
-#: patterns/footer/wide - Copy.php:51
-#: patterns/footer/wide - Copy.php:67
-#: patterns/footer/wide - Copy.php:77
-#: patterns/footer/wide - Copy.php:93
-#: patterns/footer/wide - Copy.php:103
 #: patterns/footer/wide.php:36
 #: patterns/footer/wide.php:46
 #: patterns/footer/wide.php:62
@@ -3248,6 +4646,7 @@ msgstr ""
 #: patterns/footer/wide.php:88
 #: patterns/footer/wide.php:98
 #: patterns/page/home.php:658
+#: src/Blocks/slider/index.js:1
 msgid "Navigation"
 msgstr ""
 
@@ -3448,7 +4847,6 @@ msgstr ""
 #: patterns/footer/minimal.php:29
 #: patterns/footer/store-default.php:125
 #: patterns/footer/store-minimal.php:20
-#: patterns/footer/wide - Copy.php:136
 #: patterns/footer/wide.php:131
 msgid "© Copyright {year}"
 msgstr ""
@@ -3457,7 +4855,6 @@ msgstr ""
 #: patterns/footer/default.php:109
 #: patterns/footer/minimal.php:35
 #: patterns/footer/store-default.php:131
-#: patterns/footer/wide - Copy.php:142
 #: patterns/footer/wide.php:137
 msgid "· All rights reserved."
 msgstr ""
@@ -3465,7 +4862,6 @@ msgstr ""
 #: patterns/footer/centered.php:57
 #: patterns/footer/default.php:118
 #: patterns/footer/minimal.php:57
-#: patterns/footer/wide - Copy.php:154
 #: patterns/footer/wide.php:146
 msgid "Back to Top"
 msgstr ""
@@ -3568,13 +4964,11 @@ msgstr ""
 msgid "Refund Policy"
 msgstr ""
 
-#: patterns/footer/wide - Copy.php
 #: patterns/footer/wide.php
 msgctxt "Pattern title"
 msgid "Wide"
 msgstr ""
 
-#: patterns/footer/wide - Copy.php
 #: patterns/footer/wide.php
 msgctxt "Pattern description"
 msgid "A wide footer with multiple columns."
@@ -3809,7 +5203,7 @@ msgstr ""
 
 #: patterns/library/icon-grid.php
 msgctxt "Pattern description"
-msgid "Static grid of core icons — use instead of the legacy all-icons image variation."
+msgid "Static grid of WordPress Icon library glyphs."
 msgstr ""
 
 #: patterns/library/icon-grid.php:15
@@ -3922,10 +5316,6 @@ msgstr ""
 #: patterns/newsletter/split.php
 msgctxt "Pattern description"
 msgid "A split layout with content on one side and newsletter signup on the other."
-msgstr ""
-
-#: patterns/newsletter/split.php:19
-msgid "Newsletter"
 msgstr ""
 
 #: patterns/newsletter/split.php:23
@@ -8160,25 +9550,12 @@ msgstr ""
 msgid "Install Aegis Plugin"
 msgstr ""
 
-#: src/Blocks/countdown/render.php:59
+#: src/Blocks/countdown/render.php:94
 msgid "Countdown timer"
-msgstr ""
-
-#: src/Blocks/related-posts/render.php:35
-#: src/Blocks/related-posts/render.php:100
-msgid "Related Posts"
 msgstr ""
 
 #: src/Blocks/slider/render.php:129
 msgid "carousel"
-msgstr ""
-
-#: src/Blocks/slider/render.php:130
-msgid "Slider"
-msgstr ""
-
-#: ../../plugins/aegis/assets/editor/build/video-editor.tsx.js:1
-msgid "Video"
 msgstr ""
 
 #: ../../plugins/aegis/assets/editor/build/video-editor.tsx.js:1
@@ -8263,4 +9640,455 @@ msgstr ""
 
 #: ../../plugins/aegis/assets/editor/build/video-editor.tsx.js:1
 msgid "Video (deprecated)"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/icon-block-editor.js:364
+msgid "Icon link"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/icon-block-editor.js:366
+msgid "URL"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/icon-block-editor.js:371
+msgid "Link target"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/icon-block-editor.js:377
+msgid "Rel"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/icon-block-editor.js:390
+msgid "SVG markup"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/icon-block-editor.js:394
+msgid "Paste SVG markup to override the selected icon."
+msgstr ""
+
+#: vendor/aegis/framework/public/js/icon-block-editor.js:405
+msgid "Icon gallery"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/icon-block-editor.js:409
+msgid "Display all icons from the selected set"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/icon-block-editor.js:434
+msgid "Icon gradient"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Countdown Settings"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Timezone"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "UTC"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Visitor Local"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+#: src/Blocks/related-posts/index.js:1
+msgid "Display"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Show Days"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Show Hours"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Show Minutes"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Show Seconds"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Separator"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Colon (:)"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Dot (·)"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Dash (—)"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "None"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Layout"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Inline"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Stacked"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Labels"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Days Label"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Hours Label"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Minutes Label"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Seconds Label"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Expiry"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Text displayed when the countdown reaches zero. Leave empty to keep showing 00:00:00."
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Enable Event Schema"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Event Name"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Description"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Event URL"
+msgstr ""
+
+#: src/Blocks/countdown/index.js:1
+msgid "Select a target date and time in the block settings."
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Grid"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "List"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Cards"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Minimal"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+#: src/Blocks/toggle/index.js:1
+msgid "H2"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+#: src/Blocks/toggle/index.js:1
+msgid "H3"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+#: src/Blocks/toggle/index.js:1
+msgid "H4"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+#: src/Blocks/toggle/index.js:1
+msgid "H5"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+#: src/Blocks/toggle/index.js:1
+msgid "H6"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Auto (all public taxonomies)"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Category"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Tag"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Author"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Title"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Random"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Newest to oldest"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Oldest to newest"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "A to Z"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Z to A"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Show latest posts"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Hide block"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Content"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Heading"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+#: src/Blocks/toggle/index.js:1
+msgid "Heading Tag"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Number of Posts"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Columns"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Excerpt Length (words)"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Show Featured Image"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Show Date"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Show Excerpt"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Show Category"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Style Variant"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Query"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Match posts that share taxonomies with the current post, or the same author."
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "Order"
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "What to do when no related posts are found."
+msgstr ""
+
+#: src/Blocks/related-posts/index.js:1
+msgid "No posts available to preview."
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Slider Settings"
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Type"
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Slides Per Page"
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Slides Per Move"
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Transition Speed (ms)"
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Direction"
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Left to Right"
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Right to Left"
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Top to Bottom"
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Height"
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Required for vertical sliders (e.g. 400px)."
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Enable Autoplay"
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Interval (ms)"
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Show Arrows"
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Show Dots"
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Loop"
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Drag"
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Responsive"
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Enable Responsive Breakpoints"
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "Automatically reduces slides per page on smaller screens."
+msgstr ""
+
+#: src/Blocks/slider/index.js:1
+msgid "per page"
+msgstr ""
+
+#: src/Blocks/toggle-content/index.js:1
+msgid "Toggle content…"
+msgstr ""
+
+#: src/Blocks/toggle/index.js:1
+msgid "Toggle Settings"
+msgstr ""
+
+#: src/Blocks/toggle/index.js:1
+msgid "Paragraph"
+msgstr ""
+
+#: src/Blocks/toggle/index.js:1
+msgid "Open by Default"
+msgstr ""
+
+#: src/Blocks/toggle/index.js:1
+msgid "Icon Position"
+msgstr ""
+
+#: src/Blocks/toggle/index.js:1
+msgid "Left"
+msgstr ""
+
+#: src/Blocks/toggle/index.js:1
+msgid "Right"
+msgstr ""
+
+#: src/Blocks/toggle/index.js:1
+msgid "Icon Type"
+msgstr ""
+
+#: src/Blocks/toggle/index.js:1
+msgid "Chevron"
+msgstr ""
+
+#: src/Blocks/toggle/index.js:1
+msgid "Plus/Minus"
+msgstr ""
+
+#: src/Blocks/toggle/index.js:1
+msgid "Arrow"
+msgstr ""
+
+#: src/Blocks/toggle/index.js:1
+msgid "Animation Duration (ms)"
+msgstr ""
+
+#: src/Blocks/toggle/index.js:1
+msgid "Allow Multiple Open"
+msgstr ""
+
+#: src/Blocks/toggle/index.js:1
+msgid "Allow multiple toggles to be open at the same time."
+msgstr ""
+
+#: src/Blocks/toggle/index.js:1
+msgid "Toggle heading…"
 msgstr ""

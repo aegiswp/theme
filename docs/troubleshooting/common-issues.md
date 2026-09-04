@@ -119,6 +119,23 @@ Update WordPress to version 7.0 or later via **Dashboard → Updates**.
 3. Test the front end at the same widths (mobile, landscape ~480–767px, tablet ~768–1023px, desktop).
 4. See [[enhanced-core-blocks#core-responsive-states-and-aegis-breakpoints]] for the supported relationship.
 
+### Icons Visible in the Editor but Missing on the Front End
+
+**Symptom:** Icon blocks, header SVGs, or dark/light toggle glyphs render in the Site Editor but are invisible, clipped, or missing on the published page.
+
+**Cause:** Two separate issues can look like a dark-mode failure:
+
+1. The skip-to-content link was prepended *before* the header template part was parsed, so the entire `<header>` nested inside `.skip-link.screen-reader-text`.
+2. Outline (stroked) icons lost `stroke` / `fill="none"` to Core SVG sanitization, or fills stayed hardcoded `#000` instead of `currentColor`.
+
+**Solution:**
+
+1. View page source: the skip link must be a **sibling** of `<header role="banner">`, not a parent of the header.
+2. Confirm Aegis `SkipLink` runs at priority 11 and `TemplatePart` uses the HTML tag processor (not wrapping the skip link as the landmark root).
+3. For custom collections, confirm the Icon block `icon` attribute is `{collection}/{name}` (for example `social/facebook`), not a removed Image Icon variation (`is-style-icon`).
+4. Hard-refresh and check that icon CSS loads on the front end (`core-blocks/icon.css`).
+5. See [[svg-icons]].
+
 ## Display Issues
 
 ### Fonts Not Loading
@@ -192,8 +209,8 @@ See [[dark-mode]] for configuration details.
 4. Enable page caching.
 5. Check server response time (TTFB).
 6. See [[performance]] for theme optimization strategies.
-7. Enable plugin toggles at **Aegis → Blocks → Performance** (oEmbed, dashicons, heartbeat) — see [[../../plugins/aegis/docs/features/performance|Plugin Performance]].
-8. For Query Loops, enable **Performance Optimization** under **Aegis → Blocks → Query Loop**; with Pro, configure per-block options in [[../../plugins/aegis-pro/docs/features/query-performance|Query Performance (Pro)]].
+7. Enable plugin toggles at **Aegis → Performance** (oEmbed, dashicons, heartbeat, emoji) — see [[../../plugins/aegis/docs/features/performance|Plugin Performance]].
+8. For Query Loops, enable **Query Loop Performance** at **Aegis → Performance**; with Pro, configure per-block options in [[../../plugins/aegis-pro/docs/features/query-performance|Query Performance (Pro)]].
 
 ### Assets Loading on Every Page
 

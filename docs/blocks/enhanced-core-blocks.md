@@ -34,7 +34,8 @@ The following 37 core blocks receive enhancements in Aegis:
 
 | Block | Enhancements |
 |-------|-------------|
-| Image | Shadow options, border radius, hover effects, aspect ratio presets |
+| Image | Shadow options, border radius, hover effects, aspect ratio presets. Lightbox overlay follows light/dark (or the Site Editor background). Expand-on-click trigger sits on the image, not the full-width figure. Image captions stay on the figure, not the overlay. The former Image Icon variation was removed — use `core/icon`. Extra lightbox features are gated at **Aegis → Blocks → Image Lightbox** — see [[../features/image-lightbox]] |
+| Icon | WordPress Icon library (`core/{name}`) plus Aegis collections (`social/{name}`, Pro sets). Custom SVG, gradients, gallery, and `currentColor` for dark mode — see [[svg-icons]] |
 | Gallery | Gap controls, rounded styles, hover overlay effects |
 | Cover | Gradient overlay presets, minimum height options, parallax improvements |
 | Media & Text | Responsive stacking improvements, gap controls |

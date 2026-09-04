@@ -34,7 +34,7 @@ Yes. The theme provides templates, patterns, style variations, and theme-registe
 
 ### What version of WordPress do I need?
 
-Aegis requires WordPress 7.0 or later.
+Aegis requires WordPress 7.0 or later. Native Icon library registration (`wp_register_icon`) needs WordPress 7.1 or later; on 7.0 Aegis still merges custom sets into the editor over REST. See [[../features/svg-icons]].
 
 ### What PHP version do I need?
 
@@ -63,6 +63,12 @@ See [[global-styles]] and [[style-variations]] for details.
 Navigate to **Appearance → Editor → Styles → Typography**. You can change the font family, size, weight, and other properties for body text, headings, links, and buttons.
 
 See [[typography]] for the available font options.
+
+### How do I add icons?
+
+Insert the WordPress **Icon** block (`core/icon`) and choose from the Core library or Aegis collections (`social/…`, Pro sets such as Remix Icon). There is no Image Icon variation. Paste custom SVG on the Icon block, or use the SVG Image variation (`is-style-svg`) for inline SVG files.
+
+See [[../features/svg-icons]].
 
 ### Can I use custom fonts not included with the theme?
 
@@ -153,8 +159,7 @@ Yes. Aegis is compatible with all major caching plugins (WP Super Cache, W3 Tota
 
 The theme handles zero-base asset loading — see [[../features/performance|Theme Performance]]. Additional site-wide toggles (oEmbed, dashicons, heartbeat) and Query Loop performance options live in the **Aegis plugin** admin:
 
-- **Aegis → Blocks → Performance** — site-wide frontend toggles
-- **Aegis → Blocks → Query Loop → Performance Optimization** — master switch for query performance
+- **Aegis → Performance** — WordPress script toggles, embed facades, and Query Loop Performance
 
 With **Aegis Pro**, per-block Query Loop options appear in the editor under **Performance (Pro)** — see [[../../plugins/aegis-pro/docs/features/query-performance|Query Performance (Pro)]].
 

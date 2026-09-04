@@ -96,6 +96,10 @@ You can apply dark mode to individual sections rather than the entire page:
 
 This technique is useful for creating visual contrast between sections, such as a dark hero section followed by light content.
 
+## Icons in Dark Mode
+
+The WordPress **Icon** block uses `currentColor` for fills (and strokes on outline sets). Literal black in library SVGs is rewritten to `currentColor`, so icons follow the surrounding text token when `is-style-dark` is applied. Do not treat missing front-end icons as a dark-mode bug until you have ruled out skip-link / template-part wrapping — see [[svg-icons]] and [[common-issues#icons-visible-in-the-editor-but-missing-on-the-front-end]].
+
 ## Disabling Dark Mode
 
 If you do not want dark mode available on your site:

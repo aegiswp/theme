@@ -43,15 +43,17 @@ Full catalog: [Plugin Hook Patterns](../../plugins/aegis/docs/features/hook-patt
 | `aegis_admin_before_blocks_page` | Before Blocks admin render |
 | `aegis_admin_before_modals_page` | Before Modals admin render |
 | `aegis_admin_before_hooks_page` | Before Hooks admin render |
+| `aegis_admin_before_visibility_presets_page` | Before Visibility Presets admin render |
 | `aegis_admin_before_snippets_page` | Before Snippets admin render |
 | `aegis_admin_before_integrations_page` | Before Integrations admin render |
+| `aegis_admin_before_connectors_page` | Before Connectors admin render |
 | `aegis_admin_before_conditionals_page` | Before Conditionals admin render |
 | `aegis_admin_before_general_settings_page` | Before Settings admin render |
 | `aegis_admin_before_license_page` | Before License admin render (Pro) |
-| `aegis_admin_conditionals_sections` | Extra Conditionals admin sections (Pro presets) |
-| `aegis_integrations_nav_items` | Integrations sidebar nav |
-| `aegis_integrations_maps_section` | Maps settings section |
-| `aegis_integrations_analytics_section` | Analytics settings section |
+| `aegis_admin_conditionals_sections` | Extra Conditionals admin sections |
+| `aegis_connectors_nav_items` | Connectors sidebar nav |
+| `aegis_connectors_maps_section` | Google Maps settings section |
+| `aegis_connectors_analytics_section` | Analytics settings section |
 
 ## Admin Filters (Plugin / Pro)
 

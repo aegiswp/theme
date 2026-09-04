@@ -50,7 +50,7 @@ Companion plugins extend functionality:
 - [[hook-patterns]] — Injection hooks fired by framework
 - [[dynamic-template-parts]] — Contextually swap header, footer, or sidebar at render time
 - [[maintenance-mode]] — On-brand planned-outage page for advanced users
-- [[accessibility]], [[performance]], [[navigation-styles]], [[svg-icons]], [[embed-template]]
+- [[accessibility]], [[performance]], [[navigation-styles]], [[svg-icons]], [[image-lightbox]], [[embed-template]]
 
 ### Companion Plugins
 

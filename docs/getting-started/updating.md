@@ -31,6 +31,22 @@ The script converts `aegis/video` block markup to `core/video` in post content. 
 
 The **`core/query` Related Posts** block variation was removed. Replace those blocks with the **`aegis/related-posts`** theme block, or use **`aegisProRelatedPosts`** on Query Loop with [Aegis Pro](../../plugins/aegis-pro/docs/features/query-loop-pro.md) for advanced related-post queries.
 
+### Image Icon → `core/icon`
+
+The **Image Icon** variation (`core/image` with `is-style-icon`) was removed. Insert the WordPress **Icon** block instead. IDs look like `core/home` or `social/facebook`.
+
+Migrate leftover Image icons and legacy `aegis/{set}/{name}` Icon IDs:
+
+```bash
+wp aegis migrate-icons
+# WordPress Studio:
+studio wp aegis migrate-icons
+# Preview only:
+studio wp aegis migrate-icons --dry-run
+```
+
+The command updates all public post types and `widget_block` widgets. Review headers and patterns in the Site Editor afterward. See [[../features/svg-icons]].
+
 ## Update Methods
 
 ### Method 1: Manual Update via Upload

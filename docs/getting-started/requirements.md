@@ -8,7 +8,7 @@ The following are the minimum requirements for running Aegis on a live WordPress
 
 | Requirement | Minimum Version |
 |-------------|-----------------|
-| WordPress | 7.0 or later |
+| WordPress | 7.0 or later (7.1+ for native Icon library registration) |
 | PHP | 8.1 or later |
 | MySQL | 5.7 or later (or MariaDB 10.3 or later) |
 | HTTPS | Recommended for all sites |

@@ -19,7 +19,7 @@ npm run clean       # clean-build.js
 npm run translate   # prepare-translate.js + wp i18n make-pot + finish-translate.js
 ```
 
-On WordPress Studio sites, use `npm run translate:studio` instead of `npm run translate`.
+On WordPress Studio sites, use `npm run translate:studio` instead of `npm run translate`. The prepare step copies Icon library PHP/JS and the plugin Blocks admin page into `build/` so those strings are included even though `vendor/` is excluded from the scan.
 
 ## audit-patterns.php
 
@@ -54,6 +54,19 @@ npm run migrate:video:studio
 ```
 
 Review affected pages in the Site Editor after running. See [[../getting-started/updating#aegisvideo--corevideo]].
+
+## migrate-icons (WP-CLI)
+
+Converts leftover **Image Icon** blocks (`core/image` + `is-style-icon`) and legacy `aegis/{set}/{name}` Icon IDs to the WordPress **Icon** block (`core/icon`).
+
+```bash
+wp aegis migrate-icons
+# WordPress Studio:
+studio wp aegis migrate-icons
+studio wp aegis migrate-icons --dry-run
+```
+
+See [[../getting-started/updating#image-icon--coreicon]] and [[../features/svg-icons]].
 
 ## WPAudit (`tools/wpaudit/`)
 

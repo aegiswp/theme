@@ -161,6 +161,7 @@ General-purpose reusable section patterns.
 | Pattern | Description |
 |---------|-------------|
 | Content Section | Standard text content block with heading. |
+| Icon Grid | Static grid of WordPress Icon library glyphs (`core/icon`). |
 | Image Gallery | Responsive image grid. |
 | Video Section | Video embed with surrounding context. |
 | Divider Section | Decorative section separator. |

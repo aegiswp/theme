@@ -85,10 +85,14 @@ Aegis uses ARIA attributes to enhance screen reader experiences:
 
 A skip-to-content link is the first focusable element on every page:
 
-- Hidden visually by default.
+- Hidden visually by default (`.screen-reader-text`).
 - Becomes visible when focused via keyboard.
 - Links directly to the `<main>` content area.
 - Allows keyboard users to bypass repetitive navigation.
+
+The framework injects the skip link **after** the header template part is rendered (`SkipLink` priority 11, `TemplatePart` priority 10). That order keeps `<header role="banner">` as a sibling of the skip link, not nested inside it. Nesting the header inside the skip link hid header content (logo, navigation, dark-mode icons) from sighted visitors on the front end while the editor still looked correct.
+
+The **Skip to Content** pattern remains available for templates that need an explicit skip link in markup.
 
 ## Headings
 
