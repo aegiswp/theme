@@ -149,6 +149,7 @@ Store header patterns with mini-cart blocks require WooCommerce and the companio
 | `npm run translate:studio` | Same POT via `studio wp i18n make-pot` (Studio sites on Windows) |
 | `make audit-patterns` | Validates pattern slugs, blocks, templates (`tools/audit-patterns.php`; also `npm run audit-patterns`) |
 | `make migrate-video` | Migrates legacy `aegis/video` post content to `core/video` (`npm run migrate:video`) |
+| `wp aegis migrate-icons` | Migrates leftover Image Icon blocks and legacy `aegis/{set}/{name}` IDs to `core/icon` (Studio: `studio wp aegis migrate-icons`) |
 | `make clean` | Removes all build artefacts including `aegis/` dist dir |
 | `make validate` | Validates `theme.json` JSON syntax |
 

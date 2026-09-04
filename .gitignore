@@ -81,6 +81,7 @@ src/Blocks/*/view.js
 src/Blocks/*/style.js
 src/Blocks/*/index.css
 src/Blocks/*/style.css
+src/Blocks/*/style-index.css
 src/Blocks/*/style-style.css
 src/Blocks/*/*.asset.php
 src/Blocks/*/*.js.map

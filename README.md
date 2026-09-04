@@ -339,7 +339,7 @@ Aegis is a comprehensive Full Site Editing (FSE) theme that extends the capabili
 
 ### Content & Design Tools
 
-**SVG Icon System**: Use the WordPress **Icon** block (`core/icon`, WordPress 7.0+) with Aegis enhancements (gradient mask, links, animation). The editor merges the core icon library with Aegis sets (WordPress, social, remixicon, plugin, and more) via `wp/v2/icons` + `aegis/v1/icons/`. Legacy `core/image` + `is-style-icon` content is still rendered for backward compatibility.
+**SVG Icon System**: Use the WordPress **Icon** block (`core/icon`). Aegis registers custom collections with the Core Icon library (WordPress 7.1+) and does not duplicate Core glyphs. There is no Image Icon variation. Migrate leftover Image icons with `wp aegis migrate-icons` (Studio: `studio wp aegis migrate-icons`).
 
 **Variable Font Library**: Access a curated collection of popular variable Google Fonts, with fonts conditionally loaded based on selections made in Site Editor > Styles. This ensures optimal typography without unnecessary asset bloat.
 
@@ -364,8 +364,8 @@ Aegis extends the following WordPress core blocks with additional functionality,
 | Details | `core/details` | Styled accordion/disclosure elements |
 | Group | `core/group` | Enhanced group block with additional layout options |
 | Heading | `core/heading` | Extended heading styles with gradient and decoration support |
-| Icon | `core/icon` | Core icon block with Aegis library bridge, gradients, and links |
-| Image | `core/image` | Advanced image controls (legacy icon variation deprecated) |
+| Icon | `core/icon` | Core Icon library collections, `currentColor` dark/light fills, gradients, custom SVG, and optional links |
+| Image | `core/image` | Advanced image controls plus optional lightbox extras (grouped nav, zoom, thumbnails, swipe) |
 | List | `core/list` | Enhanced list styling with custom markers |
 | Navigation | `core/navigation` | Mega menu support and advanced navigation styles |
 | Navigation Submenu | `core/navigation-submenu` | Multi-column dropdown menu support |
@@ -459,7 +459,7 @@ Framework styling applies when integrations are enabled in the **Aegis plugin** 
 
 **Custom Block Collection**: The theme registers six custom blocks — Countdown, Slider, Slide, Toggle, Toggle Content, and Related Posts. Video uses enhanced **`core/video`**. Map and Modal require the [Aegis companion plugin](../plugins/aegis/docs/blocks/custom-blocks.md), which requires the Aegis theme.
 
-**Analytics**: Configured in the companion plugin at **Aegis → Integrations → Analytics**. See [plugin analytics docs](../plugins/aegis/docs/features/analytics.md).
+**Analytics**: Configured in the companion plugin at **Aegis → Connectors** (one tab per provider). See [plugin analytics docs](../plugins/aegis/docs/features/analytics.md).
 
 **Hook Patterns**: Framework fires injection hooks on template parts and content. Hook pattern CPT management requires [Aegis Pro](../plugins/aegis-pro/docs/features/hook-patterns-pro.md).
 
