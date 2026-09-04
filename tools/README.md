@@ -25,8 +25,9 @@ Utility scripts for building, translating, auditing, and migrating the Aegis the
 ```bash
 make audit-patterns             # or: npm run audit-patterns
 npm run audit-patterns:studio   # WordPress Studio sites
-npm run translate               # Regenerate languages/aegis.pot
+npm run translate               # Regenerate theme languages/aegis.pot (not the plugin catalog)
 npm run migrate:video           # Legacy aegis/video → core/video
+studio wp aegis migrate-icons   # Legacy Image Icon / aegis/{set}/{name} → core/icon
 composer test:wpaudit           # Run WPAudit unit tests
 ```
 

@@ -1,9 +1,15 @@
 /**
- * Prepare compiled JS assets for `wp i18n make-pot`.
+ * Prepare vendored PHP/JS for `wp i18n make-pot`.
  *
- * WP-CLI scans JavaScript but not TypeScript. Block sources under `src/Blocks`
- * compile in place, and the companion plugin `core/video` editor extension
- * ships from `plugins/aegis/assets/editor/build/`.
+ * WP-CLI scans JavaScript but not TypeScript. Theme block sources under
+ * `src/Blocks` compile in place.
+ *
+ * `vendor/` is excluded from make-pot, so Icon library PHP/JS and Marquee
+ * editor JS are copied into `build/I18nScan` for the scan. finish-translate.js
+ * rewrites POT references back to the real vendor paths.
+ *
+ * Companion plugin strings (Map, Modal, Blocks admin, video editor) live in
+ * `wp-content/plugins/aegis/languages/aegis.pot`. Do not copy them here.
  *
  * @package
  */
@@ -12,19 +18,50 @@ const fs = require( 'fs' );
 const path = require( 'path' );
 
 const themeRoot = path.resolve( __dirname, '..' );
-const editorBuildDir = path.join( themeRoot, 'build', 'Editor' );
-const editorBuildFile = path.join( editorBuildDir, 'video-editor.js' );
-const pluginEditorSource = path.resolve(
-	themeRoot,
-	'..',
-	'..',
-	'plugins',
-	'aegis',
-	'assets',
-	'editor',
-	'build',
-	'video-editor.tsx.js'
-);
+const i18nScanDir = path.join( themeRoot, 'build', 'I18nScan' );
+const editorBuildFile = path.join( themeRoot, 'build', 'Editor', 'video-editor.js' );
+
+const scanCopies = [
+	{
+		from: path.join(
+			themeRoot,
+			'vendor',
+			'aegis',
+			'framework',
+			'src',
+			'Icons',
+			'Library.php'
+		),
+		to: path.join( i18nScanDir, 'Library.php' ),
+		label: 'Icon library PHP',
+	},
+	{
+		from: path.join(
+			themeRoot,
+			'vendor',
+			'aegis',
+			'framework',
+			'public',
+			'js',
+			'icon-block-editor.js'
+		),
+		to: path.join( i18nScanDir, 'icon-block-editor.js' ),
+		label: 'Icon block editor script',
+	},
+	{
+		from: path.join(
+			themeRoot,
+			'vendor',
+			'aegis',
+			'framework',
+			'public',
+			'js',
+			'marquee-editor.js'
+		),
+		to: path.join( i18nScanDir, 'marquee-editor.js' ),
+		label: 'Marquee editor script',
+	},
+];
 
 if ( ! fs.existsSync( path.join( themeRoot, 'src', 'Blocks' ) ) ) {
 	console.warn(
@@ -32,12 +69,22 @@ if ( ! fs.existsSync( path.join( themeRoot, 'src', 'Blocks' ) ) ) {
 	);
 }
 
-if ( fs.existsSync( pluginEditorSource ) ) {
-	fs.mkdirSync( editorBuildDir, { recursive: true } );
-	fs.copyFileSync( pluginEditorSource, editorBuildFile );
-	console.log( 'Copied companion plugin video editor build for translation scan.' );
-} else if ( ! fs.existsSync( editorBuildFile ) ) {
-	console.warn(
-		'Warning: video editor build not found. Video block extension strings may be missing from the POT file.'
-	);
+if ( fs.existsSync( editorBuildFile ) ) {
+	fs.unlinkSync( editorBuildFile );
+	console.log( 'Removed leftover plugin video editor copy from the theme translation scan.' );
+}
+
+if ( fs.existsSync( i18nScanDir ) ) {
+	fs.rmSync( i18nScanDir, { recursive: true, force: true } );
+}
+
+fs.mkdirSync( i18nScanDir, { recursive: true } );
+
+for ( const item of scanCopies ) {
+	if ( fs.existsSync( item.from ) ) {
+		fs.copyFileSync( item.from, item.to );
+		console.log( `Copied ${ item.label } for translation scan.` );
+	} else {
+		console.warn( `Warning: ${ item.label } not found at ${ item.from }.` );
+	}
 }

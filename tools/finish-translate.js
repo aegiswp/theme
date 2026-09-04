@@ -15,7 +15,15 @@ if ( ! fs.existsSync( potFile ) ) {
 
 let content = fs.readFileSync( potFile, 'utf8' );
 content = content.replaceAll(
-	'#: build/Editor/video-editor.js:1',
-	'#: ../../plugins/aegis/assets/editor/build/video-editor.tsx.js:1'
+	'#: build/I18nScan/Library.php',
+	'#: vendor/aegis/framework/src/Icons/Library.php'
+);
+content = content.replaceAll(
+	'#: build/I18nScan/icon-block-editor.js',
+	'#: vendor/aegis/framework/public/js/icon-block-editor.js'
+);
+content = content.replaceAll(
+	'#: build/I18nScan/marquee-editor.js',
+	'#: vendor/aegis/framework/public/js/marquee-editor.js'
 );
 fs.writeFileSync( potFile, content );
