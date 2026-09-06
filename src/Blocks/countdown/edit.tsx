@@ -61,6 +61,55 @@ const SEPARATOR_MAP: Record< string, string > = {
 	none: '',
 };
 
+const DEFAULT_LABELS: CountdownLabels = {
+	days: 'Days',
+	hours: 'Hours',
+	minutes: 'Minutes',
+	seconds: 'Seconds',
+};
+
+interface CountdownFeatures {
+	segments: boolean;
+	labels: boolean;
+	separator: boolean;
+	layout: boolean;
+	expiryMessage: boolean;
+	timezone: boolean;
+	schema: boolean;
+}
+
+declare global {
+	interface Window {
+		aegisCountdownFeatures?: Partial< CountdownFeatures >;
+	}
+}
+
+function countdownFeatures(): CountdownFeatures {
+	const raw = window.aegisCountdownFeatures;
+
+	if ( ! raw ) {
+		return {
+			segments: true,
+			labels: true,
+			separator: true,
+			layout: true,
+			expiryMessage: true,
+			timezone: true,
+			schema: true,
+		};
+	}
+
+	return {
+		segments: !! raw.segments,
+		labels: !! raw.labels,
+		separator: !! raw.separator,
+		layout: !! raw.layout,
+		expiryMessage: !! raw.expiryMessage,
+		timezone: !! raw.timezone,
+		schema: !! raw.schema,
+	};
+}
+
 function getTimeRemaining( datetime: string, timezone: string ): TimeRemaining {
 	if ( ! datetime ) {
 		return { days: 0, hours: 0, minutes: 0, seconds: 0, total: 0 };
@@ -91,6 +140,7 @@ function pad( value: number ): string {
 }
 
 export default function Edit( { attributes, setAttributes }: EditProps ) {
+	const extras = countdownFeatures();
 	const {
 		datetime,
 		showDays,
@@ -109,8 +159,18 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 		schemaEventUrl,
 	} = attributes;
 
+	const previewTimezone = extras.timezone ? timezone : 'utc';
+	const previewLayout = extras.layout ? layout : 'inline';
+	const previewSeparator = extras.separator ? separator : 'colon';
+	const previewLabels = extras.labels ? labels : DEFAULT_LABELS;
+	const previewExpiry = extras.expiryMessage ? expiryMessage : '';
+	const previewShowDays = extras.segments ? showDays : true;
+	const previewShowHours = extras.segments ? showHours : true;
+	const previewShowMinutes = extras.segments ? showMinutes : true;
+	const previewShowSeconds = extras.segments ? showSeconds : true;
+
 	const [ time, setTime ] = useState< TimeRemaining >( () =>
-		getTimeRemaining( datetime, timezone )
+		getTimeRemaining( datetime, previewTimezone )
 	);
 
 	useEffect( () => {
@@ -119,18 +179,18 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 			return;
 		}
 
-		const tick = () => setTime( getTimeRemaining( datetime, timezone ) );
+		const tick = () => setTime( getTimeRemaining( datetime, previewTimezone ) );
 		tick();
 		const id = setInterval( tick, 1000 );
 		return () => clearInterval( id );
-	}, [ datetime, timezone ] );
+	}, [ datetime, previewTimezone ] );
 
 	const blockProps = useBlockProps( {
-		className: `aegis-countdown aegis-countdown--${ layout }`,
+		className: `aegis-countdown aegis-countdown--${ previewLayout }`,
 	} );
 
 	const isExpired = datetime !== '' && time.total <= 0;
-	const sep = SEPARATOR_MAP[ separator ] || '';
+	const sep = SEPARATOR_MAP[ previewSeparator ] || '';
 
 	const segments: {
 		key: string;
@@ -138,28 +198,35 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 		value: number;
 		label: string;
 	}[] = [
-		{ key: 'days', show: showDays, value: time.days, label: labels.days },
+		{
+			key: 'days',
+			show: previewShowDays,
+			value: time.days,
+			label: previewLabels.days,
+		},
 		{
 			key: 'hours',
-			show: showHours,
+			show: previewShowHours,
 			value: time.hours,
-			label: labels.hours,
+			label: previewLabels.hours,
 		},
 		{
 			key: 'minutes',
-			show: showMinutes,
+			show: previewShowMinutes,
 			value: time.minutes,
-			label: labels.minutes,
+			label: previewLabels.minutes,
 		},
 		{
 			key: 'seconds',
-			show: showSeconds,
+			show: previewShowSeconds,
 			value: time.seconds,
-			label: labels.seconds,
+			label: previewLabels.seconds,
 		},
 	];
 
 	const visibleSegments = segments.filter( ( s ) => s.show );
+	const showDisplayPanel =
+		extras.segments || extras.separator || extras.layout;
 
 	return (
 		<div { ...blockProps }>
@@ -172,86 +239,111 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 						}
 						is12Hour={ false }
 					/>
-					<SelectControl
-						label={ __( 'Timezone', 'aegis' ) }
-						value={ timezone }
-						options={ [
-							{ label: __( 'UTC', 'aegis' ), value: 'utc' },
-							{
-								label: __( 'Visitor Local', 'aegis' ),
-								value: 'local',
-							},
-						] }
-						onChange={ ( value ) =>
-							setAttributes( { timezone: value } )
-						}
-					/>
+					{ extras.timezone && (
+						<SelectControl
+							label={ __( 'Timezone', 'aegis' ) }
+							value={ timezone }
+							options={ [
+								{ label: __( 'UTC', 'aegis' ), value: 'utc' },
+								{
+									label: __( 'Visitor Local', 'aegis' ),
+									value: 'local',
+								},
+							] }
+							onChange={ ( value ) =>
+								setAttributes( { timezone: value } )
+							}
+						/>
+					) }
 				</PanelBody>
 
-				<PanelBody
-					title={ __( 'Display', 'aegis' ) }
-					initialOpen={ false }
-				>
-					<ToggleControl
-						label={ __( 'Show Days', 'aegis' ) }
-						checked={ showDays }
-						onChange={ ( value ) =>
-							setAttributes( { showDays: value } )
-						}
-					/>
-					<ToggleControl
-						label={ __( 'Show Hours', 'aegis' ) }
-						checked={ showHours }
-						onChange={ ( value ) =>
-							setAttributes( { showHours: value } )
-						}
-					/>
-					<ToggleControl
-						label={ __( 'Show Minutes', 'aegis' ) }
-						checked={ showMinutes }
-						onChange={ ( value ) =>
-							setAttributes( { showMinutes: value } )
-						}
-					/>
-					<ToggleControl
-						label={ __( 'Show Seconds', 'aegis' ) }
-						checked={ showSeconds }
-						onChange={ ( value ) =>
-							setAttributes( { showSeconds: value } )
-						}
-					/>
-					<SelectControl
-						label={ __( 'Separator', 'aegis' ) }
-						value={ separator }
-						options={ [
-							{
-								label: __( 'Colon (:)', 'aegis' ),
-								value: 'colon',
-							},
-							{ label: __( 'Dot (·)', 'aegis' ), value: 'dot' },
-							{ label: __( 'Dash (—)', 'aegis' ), value: 'dash' },
-							{ label: __( 'None', 'aegis' ), value: 'none' },
-						] }
-						onChange={ ( value ) =>
-							setAttributes( { separator: value } )
-						}
-					/>
-					<SelectControl
-						label={ __( 'Layout', 'aegis' ) }
-						value={ layout }
-						options={ [
-							{ label: __( 'Inline', 'aegis' ), value: 'inline' },
-							{
-								label: __( 'Stacked', 'aegis' ),
-								value: 'stacked',
-							},
-						] }
-						onChange={ ( value ) =>
-							setAttributes( { layout: value } )
-						}
-					/>
-				</PanelBody>
+				{ showDisplayPanel && (
+					<PanelBody
+						title={ __( 'Display', 'aegis' ) }
+						initialOpen={ false }
+					>
+						{ extras.segments && (
+							<>
+								<ToggleControl
+									label={ __( 'Show Days', 'aegis' ) }
+									checked={ showDays }
+									onChange={ ( value ) =>
+										setAttributes( { showDays: value } )
+									}
+								/>
+								<ToggleControl
+									label={ __( 'Show Hours', 'aegis' ) }
+									checked={ showHours }
+									onChange={ ( value ) =>
+										setAttributes( { showHours: value } )
+									}
+								/>
+								<ToggleControl
+									label={ __( 'Show Minutes', 'aegis' ) }
+									checked={ showMinutes }
+									onChange={ ( value ) =>
+										setAttributes( { showMinutes: value } )
+									}
+								/>
+								<ToggleControl
+									label={ __( 'Show Seconds', 'aegis' ) }
+									checked={ showSeconds }
+									onChange={ ( value ) =>
+										setAttributes( { showSeconds: value } )
+									}
+								/>
+							</>
+						) }
+						{ extras.separator && (
+							<SelectControl
+								label={ __( 'Separator', 'aegis' ) }
+								value={ separator }
+								options={ [
+									{
+										label: __( 'Colon (:)', 'aegis' ),
+										value: 'colon',
+									},
+									{
+										label: __( 'Dot (·)', 'aegis' ),
+										value: 'dot',
+									},
+									{
+										label: __( 'Dash (—)', 'aegis' ),
+										value: 'dash',
+									},
+									{
+										label: __( 'None', 'aegis' ),
+										value: 'none',
+									},
+								] }
+								onChange={ ( value ) =>
+									setAttributes( { separator: value } )
+								}
+							/>
+						) }
+						{ extras.layout && (
+							<SelectControl
+								label={ __( 'Layout', 'aegis' ) }
+								value={ layout }
+								options={ [
+									{
+										label: __( 'Inline', 'aegis' ),
+										value: 'inline',
+									},
+									{
+										label: __( 'Stacked', 'aegis' ),
+										value: 'stacked',
+									},
+								] }
+								onChange={ ( value ) =>
+									setAttributes( { layout: value } )
+								}
+							/>
+						) }
+					</PanelBody>
+				) }
 
+				{ extras.labels && (
 				<PanelBody
 					title={ __( 'Labels', 'aegis' ) }
 					initialOpen={ false }
@@ -293,7 +385,9 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 						}
 					/>
 				</PanelBody>
+				) }
 
+				{ extras.expiryMessage && (
 				<PanelBody
 					title={ __( 'Expiry', 'aegis' ) }
 					initialOpen={ false }
@@ -310,7 +404,9 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 						) }
 					/>
 				</PanelBody>
+				) }
 
+				{ extras.schema && (
 				<PanelBody
 					title={ __( 'Schema.org Event', 'aegis' ) }
 					initialOpen={ false }
@@ -364,6 +460,7 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 						</>
 					) }
 				</PanelBody>
+				) }
 			</InspectorControls>
 
 			{ ! datetime && (
@@ -378,13 +475,13 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 				</div>
 			) }
 
-			{ datetime && isExpired && expiryMessage && (
+			{ datetime && isExpired && previewExpiry && (
 				<div className="aegis-countdown__expired">
-					<p>{ expiryMessage }</p>
+					<p>{ previewExpiry }</p>
 				</div>
 			) }
 
-			{ datetime && ( ! isExpired || ! expiryMessage ) && (
+			{ datetime && ( ! isExpired || ! previewExpiry ) && (
 				<div className="aegis-countdown__segments">
 					{ visibleSegments.map( ( segment, index ) => (
 						<>

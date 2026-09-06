@@ -33,12 +33,13 @@
       "default": "slider",
       "enum": [
         "slider",
-        "marquee"
+        "marquee",
+        "fade"
       ]
     },
     "perPage": {
       "type": "number",
-      "default": 3
+      "default": 1
     },
     "perMove": {
       "type": "number",
@@ -92,14 +93,21 @@
     "breakpoints": {
       "type": "boolean",
       "default": true
+    },
+    "keyboard": {
+      "type": "boolean",
+      "default": true
     }
   },
   "editorScript": "file:index.js",
-  "style": "file:style.css",
+  "style": [
+    "file:style-index.css",
+    "splide"
+  ],
   "viewScript": [
-    "file:view.js",
     "splide",
-    "splide-autoscroll"
+    "splide-autoscroll",
+    "file:view.js"
   ],
   "render": "file:render.php"
 }

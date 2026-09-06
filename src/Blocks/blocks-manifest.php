@@ -375,7 +375,7 @@ return array (
     array (
     ),
     'editorScript' => 'file:index.js',
-    'style' => 'file:style.css',
+    'style' => 'file:style-index.css',
     'render' => 'file:render.php',
   ),
   'slider' => 
@@ -422,12 +422,13 @@ return array (
         array (
           0 => 'slider',
           1 => 'marquee',
+          2 => 'fade',
         ),
       ),
       'perPage' => 
       array (
         'type' => 'number',
-        'default' => 3,
+        'default' => 1,
       ),
       'perMove' => 
       array (
@@ -495,14 +496,23 @@ return array (
         'type' => 'boolean',
         'default' => true,
       ),
+      'keyboard' => 
+      array (
+        'type' => 'boolean',
+        'default' => true,
+      ),
     ),
     'editorScript' => 'file:index.js',
-    'style' => 'file:style.css',
+    'style' => 
+    array (
+      0 => 'file:style-index.css',
+      1 => 'splide',
+    ),
     'viewScript' => 
     array (
-      0 => 'file:view.js',
-      1 => 'splide',
-      2 => 'splide-autoscroll',
+      0 => 'splide',
+      1 => 'splide-autoscroll',
+      2 => 'file:view.js',
     ),
     'render' => 'file:render.php',
   ),
@@ -511,19 +521,19 @@ return array (
     '$schema' => 'https://schemas.wp.org/trunk/block.json',
     'apiVersion' => 3,
     'name' => 'aegis/toggle',
-    'version' => '1.0.0',
+    'version' => '1.1.0',
     'title' => 'Toggle',
     'category' => 'design',
-    'description' => 'An accessible accordion/toggle block with expandable content sections.',
-    'icon' => 'arrow-down-alt2',
+    'description' => 'A content switcher with two labeled views. Not an accordion — use Accordion List for FAQ sections.',
+    'icon' => 'image-flip-horizontal',
     'textdomain' => 'aegis',
     'keywords' => 
     array (
       0 => 'toggle',
-      1 => 'accordion',
-      2 => 'collapse',
-      3 => 'expand',
-      4 => 'faq',
+      1 => 'switcher',
+      2 => 'switch',
+      3 => 'content',
+      4 => 'compare',
     ),
     'supports' => 
     array (
@@ -548,78 +558,86 @@ return array (
     ),
     'attributes' => 
     array (
-      'heading' => 
+      'switchStyle' => 
+      array (
+        'type' => 'string',
+        'default' => 'switch',
+        'enum' => 
+        array (
+          0 => 'pill',
+          1 => 'switch',
+          2 => 'buttons',
+        ),
+      ),
+      'alignment' => 
+      array (
+        'type' => 'string',
+        'default' => 'center',
+        'enum' => 
+        array (
+          0 => 'left',
+          1 => 'center',
+          2 => 'right',
+        ),
+      ),
+      'primaryLabel' => 
       array (
         'type' => 'string',
         'default' => '',
       ),
-      'headingTag' => 
+      'secondaryLabel' => 
       array (
         'type' => 'string',
-        'default' => 'h3',
-        'enum' => 
-        array (
-          0 => 'h2',
-          1 => 'h3',
-          2 => 'h4',
-          3 => 'h5',
-          4 => 'h6',
-          5 => 'p',
-        ),
+        'default' => '',
       ),
-      'isOpen' => 
-      array (
-        'type' => 'boolean',
-        'default' => false,
-      ),
-      'iconPosition' => 
+      'initialContent' => 
       array (
         'type' => 'string',
-        'default' => 'right',
+        'default' => 'a',
         'enum' => 
         array (
-          0 => 'left',
-          1 => 'right',
+          0 => 'a',
+          1 => 'b',
         ),
-      ),
-      'iconType' => 
-      array (
-        'type' => 'string',
-        'default' => 'chevron',
-        'enum' => 
-        array (
-          0 => 'chevron',
-          1 => 'plus',
-          2 => 'arrow',
-        ),
-      ),
-      'allowMultiple' => 
-      array (
-        'type' => 'boolean',
-        'default' => true,
       ),
       'animationDuration' => 
       array (
         'type' => 'number',
         'default' => 300,
       ),
-      'faqSchema' => 
+      'allowNested' => 
       array (
         'type' => 'boolean',
         'default' => false,
       ),
+      'instanceId' => 
+      array (
+        'type' => 'string',
+        'default' => '',
+      ),
+    ),
+    'providesContext' => 
+    array (
+      'aegis/toggleAllowNested' => 'allowNested',
+      'aegis/toggleActiveSlot' => 'initialContent',
     ),
     'example' => 
     array (
       'attributes' => 
       array (
-        'heading' => 'Toggle heading',
+        'primaryLabel' => 'Monthly',
+        'secondaryLabel' => 'Yearly',
+        'switchStyle' => 'pill',
       ),
       'innerBlocks' => 
       array (
         0 => 
         array (
           'name' => 'aegis/toggle-content',
+          'attributes' => 
+          array (
+            'slot' => 'a',
+          ),
           'innerBlocks' => 
           array (
             0 => 
@@ -627,7 +645,26 @@ return array (
               'name' => 'core/paragraph',
               'attributes' => 
               array (
-                'content' => 'Toggle content goes here.',
+                'content' => 'First view.',
+              ),
+            ),
+          ),
+        ),
+        1 => 
+        array (
+          'name' => 'aegis/toggle-content',
+          'attributes' => 
+          array (
+            'slot' => 'b',
+          ),
+          'innerBlocks' => 
+          array (
+            0 => 
+            array (
+              'name' => 'core/paragraph',
+              'attributes' => 
+              array (
+                'content' => 'Second view.',
               ),
             ),
           ),
@@ -635,7 +672,7 @@ return array (
       ),
     ),
     'editorScript' => 'file:index.js',
-    'style' => 'file:style.css',
+    'style' => 'file:style-index.css',
     'viewScript' => 'file:view.js',
     'render' => 'file:render.php',
   ),
@@ -644,11 +681,11 @@ return array (
     '$schema' => 'https://schemas.wp.org/trunk/block.json',
     'apiVersion' => 3,
     'name' => 'aegis/toggle-content',
-    'version' => '1.0.0',
+    'version' => '1.1.0',
     'title' => 'Toggle Content',
     'category' => 'design',
-    'description' => 'Content area for the toggle block.',
-    'icon' => 'arrow-down-alt2',
+    'description' => 'One view in a Toggle content switcher (primary or secondary).',
+    'icon' => 'screenoptions',
     'textdomain' => 'aegis',
     'parent' => 
     array (
@@ -658,11 +695,12 @@ return array (
     array (
       0 => 'toggle',
       1 => 'content',
-      2 => 'accordion',
+      2 => 'switcher',
     ),
     'supports' => 
     array (
       'html' => false,
+      'reusable' => false,
       'className' => true,
       'color' => 
       array (
@@ -676,9 +714,25 @@ return array (
     ),
     'attributes' => 
     array (
+      'slot' => 
+      array (
+        'type' => 'string',
+        'default' => 'a',
+        'enum' => 
+        array (
+          0 => 'a',
+          1 => 'b',
+        ),
+      ),
+    ),
+    'usesContext' => 
+    array (
+      0 => 'aegis/toggleAllowNested',
+      1 => 'aegis/toggleActiveSlot',
+      2 => 'aegis/toggleDomId',
     ),
     'editorScript' => 'file:index.js',
-    'style' => 'file:style.css',
+    'style' => 'file:style-index.css',
     'render' => 'file:render.php',
   ),
 );

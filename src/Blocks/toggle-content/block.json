@@ -2,11 +2,11 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "aegis/toggle-content",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Toggle Content",
   "category": "design",
-  "description": "Content area for the toggle block.",
-  "icon": "arrow-down-alt2",
+  "description": "One view in a Toggle content switcher (primary or secondary).",
+  "icon": "screenoptions",
   "textdomain": "aegis",
   "parent": [
     "aegis/toggle"
@@ -14,10 +14,11 @@
   "keywords": [
     "toggle",
     "content",
-    "accordion"
+    "switcher"
   ],
   "supports": {
     "html": false,
+    "reusable": false,
     "className": true,
     "color": {
       "background": true,
@@ -27,8 +28,22 @@
       "padding": true
     }
   },
-  "attributes": {},
+  "attributes": {
+    "slot": {
+      "type": "string",
+      "default": "a",
+      "enum": [
+        "a",
+        "b"
+      ]
+    }
+  },
+  "usesContext": [
+    "aegis/toggleAllowNested",
+    "aegis/toggleActiveSlot",
+    "aegis/toggleDomId"
+  ],
   "editorScript": "file:index.js",
-  "style": "file:style.css",
+  "style": "file:style-index.css",
   "render": "file:render.php"
 }

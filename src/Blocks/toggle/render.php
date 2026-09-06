@@ -2,140 +2,152 @@
 /**
  * Toggle Block - Server-side Render
  *
+ * Content switcher with two labeled views (not an accordion).
+ *
  * @package Aegis
- * @since   1.0.0
+ * @since   1.1.0
  */
 
 declare(strict_types=1);
 
 defined( 'ABSPATH' ) || exit;
 
-$heading            = $attributes['heading'] ?? '';
-$heading_tag        = $attributes['headingTag'] ?? 'h3';
-$is_open            = $attributes['isOpen'] ?? false;
-$icon_position      = $attributes['iconPosition'] ?? 'right';
-$icon_type          = $attributes['iconType'] ?? 'chevron';
-$allow_multiple     = $attributes['allowMultiple'] ?? true;
+$switch_style       = $attributes['switchStyle'] ?? 'switch';
+$alignment          = $attributes['alignment'] ?? 'center';
+$primary_label      = $attributes['primaryLabel'] ?? '';
+$secondary_label    = $attributes['secondaryLabel'] ?? '';
+$initial_content    = $attributes['initialContent'] ?? 'a';
 $animation_duration = $attributes['animationDuration'] ?? 300;
-$faq_schema         = $attributes['faqSchema'] ?? false;
 
-// Sanitize heading tag against allowlist.
-$allowed_heading_tags = array( 'h2', 'h3', 'h4', 'h5', 'h6', 'p' );
-if ( ! in_array( $heading_tag, $allowed_heading_tags, true ) ) {
-	$heading_tag = 'h3';
+$feature_on = static function ( string $key ): bool {
+	if ( class_exists( '\Aegis\Framework\ServiceProvider' ) ) {
+		return \Aegis\Framework\ServiceProvider::is_block_enabled( $key );
+	}
+
+	return true;
+};
+
+$enabled_styles = array();
+
+if ( $feature_on( 'toggle_pill' ) ) {
+	$enabled_styles[] = 'pill';
 }
 
-// Sanitize icon position against allowlist (R1).
-$allowed_positions = array( 'left', 'right' );
-if ( ! in_array( $icon_position, $allowed_positions, true ) ) {
-	$icon_position = 'right';
+if ( $feature_on( 'toggle_switch' ) ) {
+	$enabled_styles[] = 'switch';
 }
 
-// Sanitize icon type against allowlist (R2).
-$allowed_icon_types = array( 'chevron', 'plus', 'arrow' );
-if ( ! in_array( $icon_type, $allowed_icon_types, true ) ) {
-	$icon_type = 'chevron';
+if ( $feature_on( 'toggle_buttons' ) ) {
+	$enabled_styles[] = 'buttons';
 }
 
-// Sanitize animation duration to a positive integer.
+if ( $enabled_styles === array() ) {
+	$enabled_styles[] = 'switch';
+}
+
+if ( ! in_array( $switch_style, $enabled_styles, true ) ) {
+	$switch_style = $enabled_styles[0];
+}
+
+if ( ! $feature_on( 'toggle_position' ) ) {
+	$alignment = 'center';
+}
+
+if ( ! $feature_on( 'toggle_labels' ) ) {
+	$primary_label   = __( 'First', 'aegis' );
+	$secondary_label = __( 'Second', 'aegis' );
+}
+
+if ( ! $feature_on( 'toggle_animations' ) ) {
+	$animation_duration = 300;
+}
+
+$allowed_styles = array( 'pill', 'switch', 'buttons' );
+if ( ! in_array( $switch_style, $allowed_styles, true ) ) {
+	$switch_style = 'switch';
+}
+
+$allowed_align = array( 'left', 'center', 'right' );
+if ( ! in_array( $alignment, $allowed_align, true ) ) {
+	$alignment = 'center';
+}
+
+$initial_content    = $initial_content === 'b' ? 'b' : 'a';
 $animation_duration = absint( $animation_duration );
 
-$toggle_id  = 'aegis-toggle-' . wp_unique_id();
-$content_id = $toggle_id . '-content';
-
-// Build extra classes for the wrapper (R9: use get_block_wrapper_attributes).
-$extra_classes = array(
-	'aegis-toggle',
-	'aegis-toggle--icon-' . $icon_position,
-	'aegis-toggle--icon-' . $icon_type,
-);
-
-if ( $is_open ) {
-	$extra_classes[] = 'aegis-toggle--open';
+if ( $primary_label === '' ) {
+	$primary_label = __( 'First', 'aegis' );
 }
 
-// Icon SVGs.
-$icons = array(
-	'chevron' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>',
-	'plus'    => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg>',
-	'arrow'   => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>',
+if ( $secondary_label === '' ) {
+	$secondary_label = __( 'Second', 'aegis' );
+}
+
+$toggle_id = \Aegis\Blocks\ToggleId::from_block(
+	( isset( $block ) && $block instanceof \WP_Block ) ? $block : null,
+	is_array( $attributes ) ? $attributes : array(),
+	is_string( $content ) ? $content : ''
 );
 
-$icon_svg = $icons[ $icon_type ] ?? $icons['chevron'];
-
-$allowed_svg = array(
-	'svg'  => array(
-		'xmlns'       => true,
-		'viewbox'     => true,
-		'width'       => true,
-		'height'      => true,
-		'aria-hidden' => true,
-		'focusable'   => true,
-	),
-	'path' => array(
-		'd' => true,
-	),
-);
+$a_active = $initial_content === 'a';
+$b_active = $initial_content === 'b';
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'class'                   => implode( ' ', $extra_classes ),
-		'data-allow-multiple'     => $allow_multiple ? 'true' : 'false',
-		'data-animation-duration' => (string) $animation_duration,
+		'class'          => implode(
+			' ',
+			array(
+				'aegis-toggle',
+				'aegis-toggle--style-' . $switch_style,
+				'aegis-toggle--align-' . $alignment,
+			)
+		),
+		'data-toggle-id' => $toggle_id,
+		'data-active'    => $initial_content,
+		'style'          => sprintf(
+			'--toggle-animation-duration: %1$dms; --aegis-toggle-duration: %1$dms;',
+			$animation_duration
+		),
 	)
 );
 
 ?>
 <div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped by get_block_wrapper_attributes(). ?>>
-	<<?php echo esc_html( $heading_tag ); ?> class="aegis-toggle__header">
+	<div
+		class="aegis-toggle__control"
+		role="tablist"
+		aria-label="<?php echo esc_attr__( 'Content switcher', 'aegis' ); ?>"
+	>
 		<button
 			type="button"
-			class="aegis-toggle__trigger"
-			id="<?php echo esc_attr( $toggle_id ); ?>"
-			aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>"
-			aria-controls="<?php echo esc_attr( $content_id ); ?>"
+			class="aegis-toggle__button<?php echo $a_active ? ' is-active' : ''; ?>"
+			data-toggle-target="a"
+			role="tab"
+			aria-selected="<?php echo $a_active ? 'true' : 'false'; ?>"
+			aria-controls="<?php echo esc_attr( $toggle_id . '-a' ); ?>"
+			id="<?php echo esc_attr( $toggle_id . '-tab-a' ); ?>"
 		>
-			<span class="aegis-toggle__heading"><?php echo wp_kses_post( $heading ); ?></span>
-			<span class="aegis-toggle__icon">
-				<?php echo wp_kses( $icon_svg, $allowed_svg ); ?>
-			</span>
+			<?php echo wp_kses_post( $primary_label ); ?>
 		</button>
-	</<?php echo esc_html( $heading_tag ); ?>>
-
-	<div
-		id="<?php echo esc_attr( $content_id ); ?>"
-		class="aegis-toggle__content"
-		role="region"
-		aria-labelledby="<?php echo esc_attr( $toggle_id ); ?>"
-		<?php echo $is_open ? '' : 'hidden'; ?>
-	>
-		<div class="aegis-toggle__body">
-			<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-		</div>
+		<?php if ( $switch_style === 'switch' ) : ?>
+			<span class="aegis-toggle__track" aria-hidden="true"><span class="aegis-toggle__thumb"></span></span>
+		<?php endif; ?>
+		<?php if ( $switch_style === 'pill' ) : ?>
+			<span class="aegis-toggle__indicator" aria-hidden="true"></span>
+		<?php endif; ?>
+		<button
+			type="button"
+			class="aegis-toggle__button<?php echo $b_active ? ' is-active' : ''; ?>"
+			data-toggle-target="b"
+			role="tab"
+			aria-selected="<?php echo $b_active ? 'true' : 'false'; ?>"
+			aria-controls="<?php echo esc_attr( $toggle_id . '-b' ); ?>"
+			id="<?php echo esc_attr( $toggle_id . '-tab-b' ); ?>"
+		>
+			<?php echo wp_kses_post( $secondary_label ); ?>
+		</button>
+	</div>
+	<div class="aegis-toggle__panels">
+		<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</div>
 </div>
-<?php
-if ( $faq_schema && ! empty( $heading ) &&
-	class_exists( '\Aegis\Framework\ServiceProvider' ) &&
-	\Aegis\Framework\ServiceProvider::is_block_enabled( 'toggle_faq' )
-) {
-	$answer_text = wp_strip_all_tags( $content );
-	if ( ! empty( $answer_text ) ) {
-		$schema = array(
-			'@context'   => 'https://schema.org',
-			'@type'      => 'FAQPage',
-			'mainEntity' => array(
-				array(
-					'@type'          => 'Question',
-					'name'           => wp_strip_all_tags( $heading ),
-					'acceptedAnswer' => array(
-						'@type' => 'Answer',
-						'text'  => $answer_text,
-					),
-				),
-			),
-		);
-		echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES ) . '</script>';
-	}
-}
-?>

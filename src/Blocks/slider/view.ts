@@ -24,48 +24,65 @@ interface SliderConfig {
 	direction: string;
 	height: string;
 	breakpoints: boolean;
+	keyboard: boolean;
 	gap: string;
 	lightbox: boolean;
 	lazyLoad: boolean;
 	lazyPreload: number;
 	proLazyThreshold: number;
+	proFade: boolean;
+	proWheel: boolean;
 }
 
 ( function () {
 	'use strict';
 
+	function parseProConfig( el: HTMLElement ): Record< string, any > | null {
+		const raw = el.getAttribute( 'data-slider-pro' );
+
+		if ( ! raw ) {
+			return null;
+		}
+
+		try {
+			return JSON.parse( raw );
+		} catch {
+			return null;
+		}
+	}
+
 	function parseProLazyConfig( el: HTMLElement ): {
 		enabled: boolean;
 		threshold: number;
 	} {
-		const raw = el.getAttribute( 'data-slider-pro' );
+		const config = parseProConfig( el );
 
-		if ( ! raw ) {
+		if ( ! config ) {
 			return { enabled: false, threshold: 1 };
 		}
 
-		try {
-			const config = JSON.parse( raw );
-			return {
-				enabled: Boolean( config?.lazyLoad?.enabled ),
-				threshold: parseInt(
-					String( config?.lazyLoad?.threshold ?? 1 ),
-					10
-				),
-			};
-		} catch {
-			return { enabled: false, threshold: 1 };
-		}
+		return {
+			enabled: Boolean( config?.lazyLoad?.enabled ),
+			threshold: parseInt(
+				String( config?.lazyLoad?.threshold ?? 1 ),
+				10
+			),
+		};
 	}
 
 	function parseConfig( el: HTMLElement ): SliderConfig {
+		const pro = parseProConfig( el );
 		const proLazy = parseProLazyConfig( el );
 		const lazyLoad =
 			el.getAttribute( 'data-lazy-load' ) === 'true' || proLazy.enabled;
+		const proFade = Boolean(
+			pro?.effects?.enabled && pro?.effects?.effect === 'fade'
+		);
+		const type = el.getAttribute( 'data-type' ) || 'slider';
 
 		return {
-			type: el.getAttribute( 'data-type' ) || 'slider',
-			perPage: parseInt( el.getAttribute( 'data-per-page' ) || '3', 10 ),
+			type: proFade ? 'fade' : type,
+			perPage: parseInt( el.getAttribute( 'data-per-page' ) || '1', 10 ),
 			perMove: parseInt( el.getAttribute( 'data-per-move' ) || '1', 10 ),
 			autoplay: el.getAttribute( 'data-autoplay' ) === 'true',
 			pauseOnHover: el.getAttribute( 'data-pause-on-hover' ) !== 'false',
@@ -81,6 +98,7 @@ interface SliderConfig {
 			direction: el.getAttribute( 'data-direction' ) || 'ltr',
 			height: el.getAttribute( 'data-height' ) || '',
 			breakpoints: el.getAttribute( 'data-breakpoints' ) !== 'false',
+			keyboard: el.getAttribute( 'data-keyboard' ) !== 'false',
 			gap: el.getAttribute( 'data-gap' ) || '0',
 			lightbox: el.getAttribute( 'data-lightbox' ) === 'true',
 			lazyLoad,
@@ -89,22 +107,23 @@ interface SliderConfig {
 				10
 			),
 			proLazyThreshold: proLazy.threshold,
+			proFade,
+			proWheel: Boolean( pro?.mousewheel?.enabled ) && ! Boolean( pro?.mousewheel?.invert ),
 		};
 	}
 
 	function initSlider( el: HTMLElement ): void {
-		// Performance: skip already-initialized sliders.
 		if ( el.hasAttribute( 'data-aegis-slider-init' ) ) {
 			return;
 		}
 
-		// Guard: ensure Splide is available.
 		if ( typeof Splide === 'undefined' ) {
 			return;
 		}
 
 		const config = parseConfig( el );
 		const isMarquee = config.type === 'marquee';
+		const isFade = config.type === 'fade' || config.proFade;
 
 		let options: Record< string, any >;
 
@@ -120,6 +139,7 @@ interface SliderConfig {
 					speed: config.speed / 1000,
 					autoStart: config.autoplay,
 				},
+				keyboard: config.keyboard ? 'focused' : false,
 				breakpoints: config.breakpoints
 					? {
 							782: {
@@ -141,8 +161,8 @@ interface SliderConfig {
 			};
 		} else {
 			options = {
-				type: config.loop ? 'loop' : 'slide',
-				perPage: config.perPage,
+				type: isFade ? 'fade' : config.loop ? 'loop' : 'slide',
+				perPage: isFade ? 1 : config.perPage,
 				perMove: config.perMove,
 				autoplay: config.autoplay,
 				pauseOnHover: config.pauseOnHover,
@@ -156,10 +176,16 @@ interface SliderConfig {
 				speed: config.speed,
 				interval: config.interval,
 				easing: 'linear',
+				keyboard: config.keyboard ? 'focused' : false,
+				wheel: config.proWheel,
 				breakpoints: config.breakpoints
 					? {
 							782: {
-								perPage: config.perPage > 1 ? 2 : 1,
+								perPage: isFade
+									? 1
+									: config.perPage > 1
+									? 2
+									: 1,
 								perMove: config.perMove > 1 ? 2 : 1,
 							},
 							512: { perPage: 1, perMove: 1 },
@@ -484,6 +510,26 @@ interface SliderConfig {
 		closeBtn.focus();
 	}
 
+	function whenSplideReady( callback: () => void ): void {
+		if ( typeof Splide !== 'undefined' ) {
+			callback();
+			return;
+		}
+
+		const started = Date.now();
+		const timer = window.setInterval( () => {
+			if ( typeof Splide !== 'undefined' ) {
+				window.clearInterval( timer );
+				callback();
+				return;
+			}
+
+			if ( Date.now() - started > 8000 ) {
+				window.clearInterval( timer );
+			}
+		}, 50 );
+	}
+
 	function initAllSliders(): void {
 		const sliders = document.querySelectorAll< HTMLElement >(
 			'.wp-block-aegis-slider'
@@ -491,9 +537,11 @@ interface SliderConfig {
 		sliders.forEach( initSlider );
 	}
 
-	if ( document.readyState === 'loading' ) {
-		document.addEventListener( 'DOMContentLoaded', initAllSliders );
-	} else {
-		initAllSliders();
-	}
+	whenSplideReady( () => {
+		if ( document.readyState === 'loading' ) {
+			document.addEventListener( 'DOMContentLoaded', initAllSliders );
+		} else {
+			initAllSliders();
+		}
+	} );
 } )();

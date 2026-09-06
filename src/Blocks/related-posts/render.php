@@ -15,6 +15,7 @@ declare(strict_types=1);
 defined( 'ABSPATH' ) || exit;
 
 use Aegis\Blocks\RelatedPostsQuery;
+use Aegis\Framework\ServiceProvider;
 
 $is_editor_preview = defined( 'REST_REQUEST' ) && REST_REQUEST;
 
@@ -38,31 +39,29 @@ $fallback_behavior  = $attributes['fallbackBehavior'] ?? 'latest';
 $excerpt_length     = (int) ( $attributes['excerptLength'] ?? 20 );
 $image_aspect_ratio = $attributes['imageAspectRatio'] ?? '16/9';
 
-if ( class_exists( '\Aegis\Plugin\Settings\Repository' ) ) {
-	if ( ! \Aegis\Plugin\Settings\Repository::is_block_enabled( 'related_posts_taxonomy_source' ) ) {
-		$taxonomy_source = 'auto';
-	}
+if ( ! ServiceProvider::is_block_enabled( 'related_posts_taxonomy_source' ) ) {
+	$taxonomy_source = 'auto';
+}
 
-	if ( ! \Aegis\Plugin\Settings\Repository::is_block_enabled( 'related_posts_orderby' ) ) {
-		$order_by = 'date';
-		$order    = 'desc';
-	}
+if ( ! ServiceProvider::is_block_enabled( 'related_posts_orderby' ) ) {
+	$order_by = 'date';
+	$order    = 'desc';
+}
 
-	if ( ! \Aegis\Plugin\Settings\Repository::is_block_enabled( 'related_posts_fallback' ) ) {
-		$fallback_behavior = 'latest';
-	}
+if ( ! ServiceProvider::is_block_enabled( 'related_posts_fallback' ) ) {
+	$fallback_behavior = 'latest';
+}
 
-	if ( ! \Aegis\Plugin\Settings\Repository::is_block_enabled( 'related_posts_style_variants' ) ) {
-		$style_variant = 'grid';
-	}
+if ( ! ServiceProvider::is_block_enabled( 'related_posts_style_variants' ) ) {
+	$style_variant = 'grid';
+}
 
-	if ( ! \Aegis\Plugin\Settings\Repository::is_block_enabled( 'related_posts_excerpt_length' ) ) {
-		$excerpt_length = 20;
-	}
+if ( ! ServiceProvider::is_block_enabled( 'related_posts_excerpt_length' ) ) {
+	$excerpt_length = 20;
+}
 
-	if ( ! \Aegis\Plugin\Settings\Repository::is_block_enabled( 'related_posts_image_ratio' ) ) {
-		$image_aspect_ratio = '16/9';
-	}
+if ( ! ServiceProvider::is_block_enabled( 'related_posts_image_ratio' ) ) {
+	$image_aspect_ratio = '16/9';
 }
 
 $allowed_tags = array( 'h2', 'h3', 'h4', 'h5', 'h6' );
@@ -100,24 +99,16 @@ if ( ! $related_query instanceof WP_Query ) {
 	return '';
 }
 
-$wrapper_classes = array(
-	'wp-block-aegis-related-posts',
-	'is-style-' . sanitize_html_class( $style_variant ),
-	'columns-' . $columns,
-);
-
-if ( ! empty( $attributes['className'] ) ) {
-	$wrapper_classes[] = $attributes['className'];
-}
-
-if ( ! empty( $attributes['align'] ) ) {
-	$wrapper_classes[] = 'align' . $attributes['align'];
-}
-
 $wrapper_attrs = get_block_wrapper_attributes(
 	array(
-		'class'      => implode( ' ', $wrapper_classes ),
-		'aria-label' => esc_attr( ! empty( $heading ) ? $heading : __( 'Related Posts', 'aegis' ) ),
+		'class'      => implode(
+			' ',
+			array(
+				'is-style-' . sanitize_html_class( $style_variant ),
+				'columns-' . $columns,
+			)
+		),
+		'aria-label' => ! empty( $heading ) ? $heading : __( 'Related Posts', 'aegis' ),
 	)
 );
 

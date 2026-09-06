@@ -42,6 +42,21 @@ interface EditProps {
 	setAttributes: ( attrs: Partial< RelatedPostsAttributes > ) => void;
 }
 
+interface RelatedPostsFeatures {
+	taxonomySource: boolean;
+	orderBy: boolean;
+	fallback: boolean;
+	styleVariants: boolean;
+	excerptLength: boolean;
+	imageRatio: boolean;
+}
+
+declare global {
+	interface Window {
+		aegisRelatedPostsFeatures?: Partial< RelatedPostsFeatures >;
+	}
+}
+
 const STYLE_VARIANTS = [
 	{ label: __( 'Grid', 'aegis' ), value: 'grid' },
 	{ label: __( 'List', 'aegis' ), value: 'list' },
@@ -92,8 +107,35 @@ const ASPECT_RATIO_OPTIONS = [
 	{ label: '3:2', value: '3/2' },
 ];
 
+function relatedPostsFeatures(): RelatedPostsFeatures {
+	const raw = window.aegisRelatedPostsFeatures;
+
+	if ( ! raw ) {
+		return {
+			taxonomySource: true,
+			orderBy: true,
+			fallback: true,
+			styleVariants: true,
+			excerptLength: true,
+			imageRatio: true,
+		};
+	}
+
+	return {
+		taxonomySource: !! raw.taxonomySource,
+		orderBy: !! raw.orderBy,
+		fallback: !! raw.fallback,
+		styleVariants: !! raw.styleVariants,
+		excerptLength: !! raw.excerptLength,
+		imageRatio: !! raw.imageRatio,
+	};
+}
+
 export default function Edit( { attributes, setAttributes }: EditProps ) {
 	const blockProps = useBlockProps();
+	const extras = relatedPostsFeatures();
+	const showQueryPanel =
+		extras.taxonomySource || extras.orderBy || extras.fallback;
 
 	return (
 		<div { ...blockProps }>
@@ -139,7 +181,7 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 						min={ 1 }
 						max={ 4 }
 					/>
-					{ attributes.showExcerpt && (
+					{ extras.excerptLength && attributes.showExcerpt && (
 						<RangeControl
 							label={ __( 'Excerpt Length (words)', 'aegis' ) }
 							value={ attributes.excerptLength }
@@ -153,7 +195,7 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 							step={ 5 }
 						/>
 					) }
-					{ attributes.showFeaturedImage && (
+					{ extras.imageRatio && attributes.showFeaturedImage && (
 						<SelectControl
 							label={ __( 'Image Aspect Ratio', 'aegis' ) }
 							value={ attributes.imageAspectRatio }
@@ -199,82 +241,92 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 					/>
 				</PanelBody>
 
-				<PanelBody
-					title={ __( 'Style Variant', 'aegis' ) }
-					initialOpen={ false }
-				>
-					<ButtonGroup className="aegis-related-posts-variants">
-						{ STYLE_VARIANTS.map( ( variant ) => (
-							<Button
-								key={ variant.value }
-								variant={
-									attributes.styleVariant === variant.value
-										? 'primary'
-										: 'secondary'
-								}
-								onClick={ () =>
-									setAttributes( {
-										styleVariant: variant.value,
-									} )
-								}
-							>
-								{ variant.label }
-							</Button>
-						) ) }
-					</ButtonGroup>
-				</PanelBody>
+				{ extras.styleVariants && (
+					<PanelBody
+						title={ __( 'Style Variant', 'aegis' ) }
+						initialOpen={ false }
+					>
+						<ButtonGroup className="aegis-related-posts-variants">
+							{ STYLE_VARIANTS.map( ( variant ) => (
+								<Button
+									key={ variant.value }
+									variant={
+										attributes.styleVariant === variant.value
+											? 'primary'
+											: 'secondary'
+									}
+									onClick={ () =>
+										setAttributes( {
+											styleVariant: variant.value,
+										} )
+									}
+								>
+									{ variant.label }
+								</Button>
+							) ) }
+						</ButtonGroup>
+					</PanelBody>
+				) }
 
-				<PanelBody
-					title={ __( 'Query', 'aegis' ) }
-					initialOpen={ false }
-				>
-					<SelectControl
-						label={ __( 'Related By', 'aegis' ) }
-						value={ attributes.taxonomySource }
-						options={ RELATED_BY_OPTIONS }
-						onChange={ ( value ) =>
-							setAttributes( { taxonomySource: value } )
-						}
-						help={ __(
-							'Match posts that share taxonomies with the current post, or the same author.',
-							'aegis'
+				{ showQueryPanel && (
+					<PanelBody
+						title={ __( 'Query', 'aegis' ) }
+						initialOpen={ false }
+					>
+						{ extras.taxonomySource && (
+							<SelectControl
+								label={ __( 'Related By', 'aegis' ) }
+								value={ attributes.taxonomySource }
+								options={ RELATED_BY_OPTIONS }
+								onChange={ ( value ) =>
+									setAttributes( { taxonomySource: value } )
+								}
+								help={ __(
+									'Match posts that share taxonomies with the current post, or the same author.',
+									'aegis'
+								) }
+							/>
 						) }
-					/>
-					<SelectControl
-						label={ __( 'Order By', 'aegis' ) }
-						value={ attributes.orderBy }
-						options={ ORDER_BY_OPTIONS }
-						onChange={ ( value ) =>
-							setAttributes( { orderBy: value } )
-						}
-					/>
-					{ 'rand' !== attributes.orderBy && (
-						<SelectControl
-							label={ __( 'Order', 'aegis' ) }
-							value={ attributes.order }
-							options={
-								'title' === attributes.orderBy
-									? TITLE_ORDER_OPTIONS
-									: ORDER_OPTIONS
-							}
-							onChange={ ( value ) =>
-								setAttributes( { order: value } )
-							}
-						/>
-					) }
-					<SelectControl
-						label={ __( 'Fallback Behavior', 'aegis' ) }
-						value={ attributes.fallbackBehavior }
-						options={ FALLBACK_OPTIONS }
-						onChange={ ( value ) =>
-							setAttributes( { fallbackBehavior: value } )
-						}
-						help={ __(
-							'What to do when no related posts are found.',
-							'aegis'
+						{ extras.orderBy && (
+							<SelectControl
+								label={ __( 'Order By', 'aegis' ) }
+								value={ attributes.orderBy }
+								options={ ORDER_BY_OPTIONS }
+								onChange={ ( value ) =>
+									setAttributes( { orderBy: value } )
+								}
+							/>
 						) }
-					/>
-				</PanelBody>
+						{ extras.orderBy && 'rand' !== attributes.orderBy && (
+							<SelectControl
+								label={ __( 'Order', 'aegis' ) }
+								value={ attributes.order }
+								options={
+									'title' === attributes.orderBy
+										? TITLE_ORDER_OPTIONS
+										: ORDER_OPTIONS
+								}
+								onChange={ ( value ) =>
+									setAttributes( { order: value } )
+								}
+							/>
+						) }
+						{ extras.fallback && (
+							<SelectControl
+								label={ __( 'Fallback Behavior', 'aegis' ) }
+								value={ attributes.fallbackBehavior }
+								options={ FALLBACK_OPTIONS }
+								onChange={ ( value ) =>
+									setAttributes( { fallbackBehavior: value } )
+								}
+								help={ __(
+									'What to do when no related posts are found.',
+									'aegis'
+								) }
+							/>
+						) }
+					</PanelBody>
+				) }
 			</InspectorControls>
 
 			<ServerSideRender

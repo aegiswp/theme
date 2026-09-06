@@ -9,6 +9,19 @@
 	position: relative;
 	width: 100%;
 
+	// Keep arrows and dots inside the slider so parent overflow does not clip them.
+	.splide__arrow--prev {
+		left: 0.75em;
+	}
+
+	.splide__arrow--next {
+		right: 0.75em;
+	}
+
+	.splide__pagination {
+		bottom: 0.75em;
+	}
+
 	// Splide overrides for theme consistency.
 	.splide__arrow {
 		background: rgba(0, 0, 0, 0.5);
@@ -61,10 +74,10 @@
 
 // Editor styles.
 .aegis-slider-editor {
+	--aegis-slider-per-page: 1;
 	border: 1px dashed currentcolor;
 	border-radius: 4px;
 	padding: 16px;
-	opacity: 0.8;
 
 	&__label {
 		font-size: 12px;
@@ -83,17 +96,81 @@
 		border-radius: 3px;
 	}
 
-	&__preview {
+	&__viewport {
+		display: flex;
+		align-items: stretch;
+		gap: 8px;
+	}
 
-		.block-editor-inner-blocks {
-			display: flex;
-			gap: 8px;
-			overflow-x: auto;
+	&__list,
+	&__list > .block-editor-block-list__layout {
+		display: flex !important;
+		flex-direction: row !important;
+		flex-wrap: nowrap !important;
+		align-items: stretch;
+		gap: 12px;
+		flex: 1 1 auto;
+		min-width: 0;
+		overflow-x: auto;
+	}
 
-			> .block-editor-block-list__layout {
-				display: flex;
-				gap: 8px;
-				flex-wrap: nowrap;
+	.block-editor-block-list__block.wp-block-aegis-slide,
+	.wp-block-aegis-slide {
+		flex: 0 0 calc((100% - (var(--aegis-slider-per-page) - 1) * 12px) / var(--aegis-slider-per-page));
+		max-width: calc((100% - (var(--aegis-slider-per-page) - 1) * 12px) / var(--aegis-slider-per-page));
+		min-width: 0;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		width: auto;
+	}
+
+	&__arrow {
+		flex: 0 0 2em;
+		align-self: center;
+		width: 2em;
+		height: 2em;
+		border-radius: 50%;
+		background: currentcolor;
+		opacity: 0.35;
+		pointer-events: none;
+		position: relative;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 0.45em;
+			height: 0.45em;
+			border-right: 2px solid #fff;
+			border-bottom: 2px solid #fff;
+		}
+
+		&.is-prev::before {
+			transform: translate(-35%, -50%) rotate(135deg);
+		}
+
+		&.is-next::before {
+			transform: translate(-65%, -50%) rotate(-45deg);
+		}
+	}
+
+	&__dots {
+		display: flex;
+		justify-content: center;
+		gap: 6px;
+		margin-top: 12px;
+		pointer-events: none;
+
+		span {
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: currentcolor;
+			opacity: 0.35;
+
+			&.is-active {
+				opacity: 1;
 			}
 		}
 	}

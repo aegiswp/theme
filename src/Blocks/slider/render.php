@@ -64,7 +64,7 @@ if ( ! function_exists( 'aegis_slider_apply_lazy_load' ) ) {
 
 // Extract attributes with defaults.
 $type           = $attributes['type'] ?? 'slider';
-$per_page       = $attributes['perPage'] ?? 3;
+$per_page       = $attributes['perPage'] ?? 1;
 $per_move       = $attributes['perMove'] ?? 1;
 $autoplay       = $attributes['autoplay'] ?? false;
 $pause_on_hover = $attributes['pauseOnHover'] ?? true;
@@ -80,22 +80,58 @@ $breakpoints    = $attributes['breakpoints'] ?? true;
 $gap_raw        = $attributes['style']['spacing']['blockGap'] ?? '0';
 $gap            = is_array( $gap_raw ) ? ( $gap_raw['left'] ?? $gap_raw['horizontal'] ?? '0' ) : $gap_raw;
 
-// Lightbox mode — check admin toggle.
-$lightbox = false;
-if ( class_exists( '\Aegis\Framework\ServiceProvider' ) ) {
-	$lightbox = \Aegis\Framework\ServiceProvider::is_block_enabled( 'slider_lightbox' );
+$extra_on = static function ( string $key ): bool {
+	if ( class_exists( '\Aegis\Framework\ServiceProvider' ) ) {
+		return \Aegis\Framework\ServiceProvider::is_block_enabled( $key );
+	}
+
+	return true;
+};
+
+if ( ! $extra_on( 'slider_navigation' ) ) {
+	$show_arrows = false;
 }
 
-$lazy_load = false;
+if ( ! $extra_on( 'slider_pagination' ) ) {
+	$show_dots = false;
+}
+
+if ( ! $extra_on( 'slider_loop' ) ) {
+	$loop = false;
+}
+
+if ( ! $extra_on( 'slider_autoplay' ) ) {
+	$autoplay = false;
+}
+
+if ( ! $extra_on( 'slider_responsive' ) ) {
+	$breakpoints = false;
+}
+
+if ( $type === 'fade' && ! $extra_on( 'slider_fade' ) ) {
+	$type = 'slider';
+}
+
+if ( $type === 'fade' ) {
+	$per_page = 1;
+}
+
+$keyboard = $extra_on( 'slider_keyboard' ) && ( $attributes['keyboard'] ?? true );
+
+$lightbox = false;
+if ( $extra_on( 'slider_lightbox' ) ) {
+	$lightbox = ! array_key_exists( 'lightboxEnabled', $attributes ) || ! empty( $attributes['lightboxEnabled'] );
+}
+
+$lazy_load    = false;
 $lazy_preload = 1;
 
-if ( class_exists( '\Aegis\Plugin\Blocks\Settings' ) ) {
-	$lazy_load = \Aegis\Plugin\Blocks\Settings::is_enabled( 'slider_lazy_load' );
-}
+if ( $extra_on( 'slider_lazy_load' ) ) {
+	$lazy_load = ! array_key_exists( 'lazyLoadEnabled', $attributes ) || ! empty( $attributes['lazyLoadEnabled'] );
 
-if ( ! empty( $attributes['lazyLoadEnabled'] ) ) {
-	$lazy_load    = true;
-	$lazy_preload = max( 1, (int) ( $attributes['lazyLoadThreshold'] ?? 1 ) );
+	if ( $lazy_load ) {
+		$lazy_preload = max( 1, (int) ( $attributes['lazyLoadThreshold'] ?? 1 ) );
+	}
 }
 
 if ( $lazy_load && $content !== '' ) {
@@ -121,6 +157,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		'data-direction'       => esc_attr( $direction ),
 		'data-height'          => esc_attr( $height ),
 		'data-breakpoints'     => $breakpoints ? 'true' : 'false',
+		'data-keyboard'        => $keyboard ? 'true' : 'false',
 		'data-gap'             => esc_attr( $gap ),
 		'data-lightbox'        => $lightbox ? 'true' : 'false',
 		'data-lazy-load'       => $lazy_load ? 'true' : 'false',

@@ -2,18 +2,18 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "aegis/toggle",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Toggle",
   "category": "design",
-  "description": "An accessible accordion/toggle block with expandable content sections.",
-  "icon": "arrow-down-alt2",
+  "description": "A content switcher with two labeled views. Not an accordion — use Accordion List for FAQ sections.",
+  "icon": "image-flip-horizontal",
   "textdomain": "aegis",
   "keywords": [
     "toggle",
-    "accordion",
-    "collapse",
-    "expand",
-    "faq"
+    "switcher",
+    "switch",
+    "content",
+    "compare"
   ],
   "supports": {
     "html": false,
@@ -33,68 +33,88 @@
     }
   },
   "attributes": {
-    "heading": {
+    "switchStyle": {
       "type": "string",
-      "default": ""
-    },
-    "headingTag": {
-      "type": "string",
-      "default": "h3",
+      "default": "switch",
       "enum": [
-        "h2",
-        "h3",
-        "h4",
-        "h5",
-        "h6",
-        "p"
+        "pill",
+        "switch",
+        "buttons"
       ]
     },
-    "isOpen": {
-      "type": "boolean",
-      "default": false
-    },
-    "iconPosition": {
+    "alignment": {
       "type": "string",
-      "default": "right",
+      "default": "center",
       "enum": [
         "left",
+        "center",
         "right"
       ]
     },
-    "iconType": {
+    "primaryLabel": {
       "type": "string",
-      "default": "chevron",
-      "enum": [
-        "chevron",
-        "plus",
-        "arrow"
-      ]
+      "default": ""
     },
-    "allowMultiple": {
-      "type": "boolean",
-      "default": true
+    "secondaryLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "initialContent": {
+      "type": "string",
+      "default": "a",
+      "enum": [
+        "a",
+        "b"
+      ]
     },
     "animationDuration": {
       "type": "number",
       "default": 300
     },
-    "faqSchema": {
+    "allowNested": {
       "type": "boolean",
       "default": false
+    },
+    "instanceId": {
+      "type": "string",
+      "default": ""
     }
+  },
+  "providesContext": {
+    "aegis/toggleAllowNested": "allowNested",
+    "aegis/toggleActiveSlot": "initialContent"
   },
   "example": {
     "attributes": {
-      "heading": "Toggle heading"
+      "primaryLabel": "Monthly",
+      "secondaryLabel": "Yearly",
+      "switchStyle": "pill"
     },
     "innerBlocks": [
       {
         "name": "aegis/toggle-content",
+        "attributes": {
+          "slot": "a"
+        },
         "innerBlocks": [
           {
             "name": "core/paragraph",
             "attributes": {
-              "content": "Toggle content goes here."
+              "content": "First view."
+            }
+          }
+        ]
+      },
+      {
+        "name": "aegis/toggle-content",
+        "attributes": {
+          "slot": "b"
+        },
+        "innerBlocks": [
+          {
+            "name": "core/paragraph",
+            "attributes": {
+              "content": "Second view."
             }
           }
         ]
@@ -102,7 +122,7 @@
     ]
   },
   "editorScript": "file:index.js",
-  "style": "file:style.css",
+  "style": "file:style-index.css",
   "viewScript": "file:view.js",
   "render": "file:render.php"
 }
