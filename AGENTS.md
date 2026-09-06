@@ -101,8 +101,8 @@ Every pattern file must start with a PHP doc-comment header:
 | Owner | Patterns |
 |-------|----------|
 | **Theme** | Sections (hero, cta, blog, …), generic commerce marketing (core blocks only), FSE template HTML files |
-| **Aegis Plugin** | Slider/modal/contact/blog demos; **WooCommerce block patterns** (`patterns/woocommerce/`, gated on WC); **TI Wishlist pattern** (`patterns/wishlist/`, gated on WC + TI Wishlist) |
-| **Aegis Pro** | `wp-content/plugins/aegis-pro/patterns/aegis/`, `patterns/slider/`, `patterns/utility/` — do not duplicate theme slugs |
+| **Aegis Plugin** | Slider/modal/contact demos (slider gated on extras); **WooCommerce block patterns** (`patterns/woocommerce/`, gated on WC); **TI Wishlist pattern** (`patterns/wishlist/`, gated on WC + TI Wishlist) |
+| **Aegis Pro** | `wp-content/plugins/aegis-pro/patterns/aegis/`, `patterns/utility/` — do not duplicate theme slugs |
 
 Store header patterns with mini-cart blocks require WooCommerce and the companion plugin. WC-free header variants for non-shop sites are a future enhancement.
 
@@ -144,7 +144,7 @@ Store header patterns with mini-cart blocks require WooCommerce and the companio
 | `make dev` | Webpack watch mode |
 | `make lint` | JS + CSS linters |
 | `make lint:php` | PHPCS with WordPress standards |
-| `make translate` | Regenerates `languages/aegis.pot` (monorepo; uses `npm run translate` per product) |
+| `make translate` | Regenerates `languages/aegis.pot` (theme only; plugin and Pro have their own POT files) |
 | `npm run translate` | Same POT via `wp i18n make-pot` (requires `wp` on PATH) |
 | `npm run translate:studio` | Same POT via `studio wp i18n make-pot` (Studio sites on Windows) |
 | `make audit-patterns` | Validates pattern slugs, blocks, templates (`tools/audit-patterns.php`; also `npm run audit-patterns`) |
@@ -187,7 +187,7 @@ The `vendor/` runtime (autoloader + `enshrined/svg-sanitize` + `psr/container`) 
 
 ## Block ownership
 
-The theme registers six canonical blocks under `src/Blocks/` (countdown, slider, slide, toggle, toggle-content, related-posts). Video uses WordPress **`core/video`** (framework + plugin editor + Pro). The free plugin requires this theme and owns `aegis/map` and `aegis/modal`. Pro registers **only** `aegis/tabs`, `aegis/tab`, and `aegis/image-compare` from the [aegis/blocks](../../plugins/aegis-pro/vendor/aegis/blocks/AGENTS.md) Composer package — never bulk `Blocks::register()` from that package when this theme is active.
+The theme registers six canonical blocks under `src/Blocks/` (countdown, slider, slide, toggle, toggle-content, related-posts). Video uses WordPress **`core/video`** (framework + plugin editor + Pro). The free plugin requires this theme and owns `aegis/map` and `aegis/modal`. Pro registers **only** `aegis/tabs` and `aegis/tab` from the [aegis/blocks](../../plugins/aegis-pro/vendor/aegis/blocks) Composer package, and `aegis/image-compare` from Pro `src/Blocks/image-compare` — never bulk `Blocks::register()` from that package when this theme is active.
 
 ---
 

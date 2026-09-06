@@ -249,14 +249,18 @@ style: format CSS files according to standards
 
 #### Contributing Translations
 
-1. **Generate Translation Files**:
+1. **Generate Translation Files** (theme catalog only):
 ```bash
 npm run translate
 ```
 
+Plugin strings belong in `wp-content/plugins/aegis/languages/aegis.pot` (`npm run translate` or `npm run translate:studio` in the plugin directory). Pro uses `aegis-pro.pot`.
+
 2. **Translation Process**:
-   - Use the generated `languages/aegis.pot` file as your template
-   - Copy `aegis.pot` to create your language file (e.g., `aegis-fr_FR.po`)
+   - Theme: `wp-content/themes/aegis/languages/aegis.pot`
+   - Plugin: `wp-content/plugins/aegis/languages/aegis.pot`
+   - Pro: `wp-content/plugins/aegis-pro/languages/aegis-pro.pot`
+   - Copy the matching `.pot` to create your language file (e.g., `aegis-fr_FR.po` or `aegis-pro-fr_FR.po`)
    - Translate using tools like Poedit or translation software
    - Validate your translation file format
 

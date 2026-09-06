@@ -255,8 +255,9 @@ This runs the Aegis WPAudit PHPUnit suite in `tools/wpaudit` (same as CI).
 
 5. Generate translations:
    ```bash
-   npm run translate
+   npm run translate              # Theme: languages/aegis.pot
    ```
+   In `wp-content/plugins/aegis`, run `npm run translate` (or `translate:studio`) for the plugin POT. Pro has `languages/aegis-pro.pot`.
 
 6. Test thoroughly
 

@@ -29,12 +29,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Plugin-specific docs moved to `wp-content/plugins/aegis/docs/` and `wp-content/plugins/aegis-pro/docs/`.
 - Theme docs updated for four-layer architecture (theme, framework, free plugin, Pro).
 - Map docs cover Static Maps facade styles, vendored MarkerClusterer, and Pro editor preview (custom icons, custom JSON, clustering).
-- Marquee docs cover **Aegis → Blocks → Marquee** extras (pause, direction, speed, repeat, Pro responsive speed), fade-edge class cleanup, and the Feature Banner pattern.
+- Marquee docs cover **Aegis → Blocks → Marquee** extras (pause, direction, loop duration, repeat, Pro responsive speed), frontend duration on cloned items, fade-edge class cleanup, and the Feature Banner pattern.
+- Related Posts docs cover **Aegis → Blocks → Related Posts** extras, inspector/frontend fallbacks, theme `blog-related-posts-*` patterns, and the split from Query Loop Pro `aegisProRelatedPosts`.
+- Slider docs cover **Aegis → Blocks → Slider** extras, inspector/frontend fallbacks, plugin `aegis/slider-*` pattern gating, Pro Splide extras (not Swiper), Splide handle registration, compiled `style-index.css`, default `perPage` 1, and saved-content `perPage` on existing templates.
+- SVG Image variation extras at **Aegis → Blocks → SVG** now apply: Paste Markup implies the variation, Mask Mode inlines as a CSS mask, Onclick is kept on the inlined SVG, Inline SVG in text and Inline SVG files are gated. Saved `is-style-svg` blocks still render when the variation is implied off. An empty SVG block shows the Aegis placeholder (preview-only) instead of the Image upload UI. The SVGOMG Optimize control is removed from the inspector and from the bundled editor script. SVG, Newsletter, and Accordion styles are registered once in PHP (`register_style()`), not also via `BlockStyles`. Inlined SVGs receive Image width/height responsive vars on the figure. Placeholder CSS loads whenever `is-placeholder` is in the HTML. Docs and `languages/aegis.pot` match: Accordion PHP style strings are in the translate scan; SVG inspector strings come from `svg-editor.js`.
+- Countdown docs cover **Aegis → Blocks** extras (inspector/frontend fallbacks). Toggle is a two-view content switcher (pill / switch / buttons, alignment, labels), not an accordion. Accordion leftover extras (`toggle_faq`, heading/icon/allow-multiple) are removed. Pill and button styles use Aegis body/button custom properties so labels stay readable in light and dark. Styles compile to `style-index.css`. Pro URL sync, persist, animations, nested, and conditional visibility bind to the switcher DOM; fade/slide/flip/scale run on click (`aegis:toggle:changed` then `animateTransition()`). Nested queries, persist ids, pill indicator, switch-track clicks, duplicate slot assignment, editor view switching, and ARIA tab/panel ids are scoped per instance.
+- Pro testimonial, hero, CTA, contact, and feature patterns no longer concatenate a missing `placeholder.svg` onto image filenames. Empty `core/image` blocks use the framework placeholder.
 
 ### Architecture
 
 - Companion plugin owns admin dashboard, Map/Modal blocks, analytics, snippets, conditionals, and integrations (requires Aegis theme).
 - Theme registers six custom blocks: countdown, slider, slide, toggle, toggle-content, and related-posts.
+
+### Slider
+
+- Splide JS and CSS register as WordPress script/style handles so the slider view script mounts a real carousel (arrows, dots, horizontal track). Default **Slides Per Page** is 1; saved blocks keep their stored `perPage`. Webpack compiles slider/slide `style.scss` to `style-index.css`. The editor lays slides out horizontally to match.
+
+### SVG
+
+- **Aegis → Blocks → SVG** extras now apply on the Image SVG variation: Paste Markup implies the variation in the inserter, Mask Mode uses a CSS mask, Onclick is copied onto the inlined SVG, Inline SVG in text and Inline SVG files honor their toggles. Saved `is-style-svg` content still inlines when the variation is implied off.
+
+### Translations
+
+- Regenerated theme `languages/aegis.pot`, plugin `languages/aegis.pot`, and Pro `languages/aegis-pro.pot` for Countdown, Toggle content-switcher, and Slider inspector strings.
 
 ### Map
 
@@ -45,8 +62,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Marquee
 
-- **Aegis → Blocks → Marquee** extras now apply to the Group Marquee variation: pause on hover, direction, speed, repeat clones, and Pro responsive desktop speed. The variation unregisters when Marquee is off. Fade edges use the `fade-horizontal` utility (legacy `fade-edges` class is stripped on render).
-- Theme Feature Banner pattern now uses marquee layout (it previously kept leftover marquee attributes on a constrained Group). Pro Feature Icon Boxes logo strips use `fade-horizontal` instead of the unused `fade-edges` class.
+- **Aegis → Blocks → Marquee** extras now apply to the Group Marquee variation: pause on hover, direction, loop duration (lower is faster), repeat clones, and Pro responsive desktop speed from 782px. The variation unregisters when Marquee is off; `is-marquee` is stripped so saved Groups do not keep scrolling. Fade edges use the `fade-horizontal` utility (legacy `fade-edges` class is stripped on render).
+- Frontend render clones items onto an inner track and sets per-block `animation-duration` on `.aegis-marquee-item` so inspector durations apply on the live site. Theme Feature Banner pattern now uses marquee layout (it previously kept leftover marquee attributes on a constrained Group). Pro Feature Icon Boxes logo strips use `fade-horizontal` instead of the unused `fade-edges` class.
+
+### Related Posts
+
+- **Aegis → Blocks → Related Posts** extras now gate the `aegis/related-posts` inspector (Related By, Order By, Fallback, Style Variants, Excerpt Length, Image Aspect Ratio) to match frontend fallbacks. Feature flags are inlined as `window.aegisRelatedPostsFeatures` on the block editor script. Duplicate plugin copies of the theme related-posts patterns were removed; theme patterns `blog-related-posts-*` unregister when the block is implied off. Leftover `core/query` Related Posts variation unregisters were deleted. Webpack remaps `file:index.js` / `file:view.js` entries to `index.tsx` / `view.ts` so theme blocks compile from TypeScript.
+
+### Slider
+
+- **Aegis → Blocks → Slider** extras now gate the `aegis/slider` inspector (Fade, Navigation, Pagination, Loop, Keyboard, Responsive, Autoplay) to match frontend fallbacks. Feature flags are inlined as `window.aegisSliderFeatures`. Plugin `aegis/slider-*` patterns register only when the block is implied on. Pro extras (thumbnails, lightbox, mousewheel, aspect ratio, lazy load, arrow/dot styles) honor admin toggles on Splide; leftover Swiper view code, unused `config/slider.php`, and never-registered Ken Burns/parallax pattern demos were removed.
 
 ## [1.0.0] - 0000-00-00
 

@@ -418,7 +418,7 @@ Aegis includes the following custom block variations that extend WordPress core 
 | Counter | `core/paragraph` | Animated number counter with customizable start/end values and duration |
 | Curved Text | `core/paragraph` | Text displayed along a curved SVG path for creative typography |
 | Grid | `core/group` | Advanced CSS grid layout with responsive column controls |
-| Marquee | `core/group` | Continuously scrolling horizontal content ticker animation |
+| Marquee | `core/group` | Continuously scrolling horizontal ticker (CSS loop duration; Group variation, not Slider marquee type) |
 | Newsletter | `core/group` | Pre-styled newsletter signup form layout |
 | SVG | `core/image` | Inline SVG rendering with sanitization and styling support |
 
