@@ -1,1 +1,23 @@
-html.admin-bar{margin-top:0 !important}body{--wp-admin--admin-bar--height: 0 !important}#wpadminbar{position:relative}.admin-bar{--wp--custom--site-blocks--min-height: calc(100vh - 46px)}@media (min-width: 600px){.admin-bar .wp-site-blocks{margin-top:var(--wp-admin--admin-bar--height)}}@media (min-width: 783px){.admin-bar{--wp--custom--site-blocks--min-height: calc(100vh - 32px)}}
+/**
+ * Logged-in frontend: keep the WordPress toolbar at the viewport top
+ * (position:fixed; top:0) and size .wp-site-blocks under the core bump.
+ *
+ * Do not set #wpadminbar to position:relative. That plus core html
+ * margin-top (or html overflow creating a containing block) pulls the
+ * bar down and leaves a gap above it.
+ */
+#wpadminbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.admin-bar {
+	--wp--custom--site-blocks--min-height: calc(100vh - var(--wp-admin--admin-bar--height, 32px));
+}
+
+@media screen and (max-width: 782px) {
+	.admin-bar {
+		--wp--custom--site-blocks--min-height: calc(100vh - var(--wp-admin--admin-bar--height, 46px));
+	}
+}

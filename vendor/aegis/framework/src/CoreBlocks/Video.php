@@ -31,12 +31,14 @@ use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
 use function add_action;
 use function add_theme_support;
+use function did_action;
 use function esc_attr;
 use function file_exists;
 use function get_template_directory;
 use function get_template_directory_uri;
 use function wp_enqueue_script;
 use function wp_enqueue_style;
+use function wp_localize_script;
 
 class Video implements Renderable {
 
@@ -88,10 +90,14 @@ class Video implements Renderable {
 		static $is_enqueued = false;
 
 		if ( ! $is_enqueued ) {
-			add_action( 'wp_enqueue_scripts', [ $this, 'video_scripts_styles' ] );
-		}
+			if ( did_action( 'wp_enqueue_scripts' ) ) {
+				$this->video_scripts_styles();
+			} else {
+				add_action( 'wp_enqueue_scripts', [ $this, 'video_scripts_styles' ] );
+			}
 
-		$is_enqueued = true;
+			$is_enqueued = true;
+		}
 
 		return $block_content;
 	}
@@ -127,6 +133,16 @@ class Video implements Renderable {
 			$asset['dependencies'] ?? [],
 			$asset['version'] ?? '1.0.0',
 			true
+		);
+
+		wp_localize_script(
+			'aegis-video-player',
+			'aegisVideoPlayer',
+			[
+				'theaterMode' => ServiceProvider::is_block_enabled( 'video_theater_mode' ),
+				'keyboard'    => ServiceProvider::is_block_enabled( 'video_keyboard_shortcuts' ),
+				'sticky'      => false,
+			]
 		);
 	}
 

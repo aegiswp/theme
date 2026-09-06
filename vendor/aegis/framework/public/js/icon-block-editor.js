@@ -44,6 +44,10 @@
 	}
 
 	function shouldApplyIconSaveStyles( blockName, attributes ) {
+		if ( 'core/button' === blockName ) {
+			return false;
+		}
+
 		if ( ! supportsIconStyles( blockName ) ) {
 			return false;
 		}
@@ -315,6 +319,9 @@
 	);
 
 	// WP 7 / block API v3: extraProps no longer runs during save validation.
+	// core/button icons are previewed via BlockListBlock wrapperProps and inlined
+	// by PHP on the front end. Writing those CSS variables into save() invalidates
+	// pattern HTML that only stores the label.
 	addFilter(
 		'blocks.getSaveElement',
 		'aegis/save-icon-styles-api-v3',
@@ -332,6 +339,37 @@
 				buildIconCustomProperties( attributes )
 			);
 		}
+	);
+
+	addFilter(
+		'blocks.getSaveContent.extraProps',
+		'aegis/skip-button-icon-save-styles',
+		function ( extraProps, blockType ) {
+			if ( ! extraProps || blockType?.name !== 'core/button' ) {
+				return extraProps;
+			}
+
+			if ( ! extraProps.style ) {
+				return extraProps;
+			}
+
+			const style = { ...extraProps.style };
+			let changed = false;
+
+			Object.keys( style ).forEach( function ( key ) {
+				if ( String( key ).indexOf( '--wp--custom--icon--' ) === 0 ) {
+					delete style[ key ];
+					changed = true;
+				}
+			} );
+
+			if ( ! changed ) {
+				return extraProps;
+			}
+
+			return { ...extraProps, style };
+		},
+		20
 	);
 
 	const withIconExtensions = createHigherOrderComponent( function ( BlockEdit ) {

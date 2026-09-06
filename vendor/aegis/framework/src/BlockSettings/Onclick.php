@@ -66,6 +66,27 @@ class Onclick implements Renderable {
 	}
 
 	/**
+	 * Format an onclick handler (template tags + inline JS sanitization).
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string   $js       Raw onclick script.
+	 * @param array    $block    Block data.
+	 * @param WP_Block $instance Block instance.
+	 */
+	public function format_script( string $js, array $block, WP_Block $instance ): string {
+		$js = trim( $js );
+
+		if ( $js === '' ) {
+			return '';
+		}
+
+		$js = $this->template_tags->render( $js, $block, $instance );
+
+		return JS::format_inline_js( $js );
+	}
+
+	/**
 	 * Renders the block with a custom `onclick` attribute.
 	 *
 	 * This method is hooked into the generic `render_block` filter. If it finds
@@ -84,17 +105,14 @@ class Onclick implements Renderable {
 	 * @return string The modified block content.
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		$js = trim( strval( $block['attrs']['onclick'] ?? '' ) );
+		$on_click = $this->format_script( strval( $block['attrs']['onclick'] ?? '' ), $block, $instance );
 
-		if ( ! $js ) {
+		if ( ! $on_click ) {
 			return $block_content;
 		}
 
-		// First, process the JS string for any dynamic template tags (e.g., `{post_title}`).
-		$js       = $this->template_tags->render( $js, $block, $instance );
-		$on_click = JS::format_inline_js( $js );
-		$link     = null;
-		$name     = $block['blockName'] ?? '';
+		$link = null;
+		$name = $block['blockName'] ?? '';
 
 		// --- Apply onclick to Groups and Buttons ---
 		if ( $on_click && $block_content ) {

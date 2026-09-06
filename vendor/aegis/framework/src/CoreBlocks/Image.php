@@ -72,11 +72,12 @@ class Image implements Renderable {
 	}
 
 	/**
-	 * Renders the image block with custom enhancements.
+	 * Renders core image blocks with custom enhancements.
 	 *
 	 * This method is hooked into the generic `render_block` filter and acts on
-	 * multiple image-related blocks. It applies responsive classes and adds
-	 * inline styles for margin and border-radius based on block attributes.
+	 * `core/image` and `core/post-featured-image` only. `aegis/image-compare`
+	 * is a Pro block with its own render.php; aspect-ratio classes for that
+	 * block come from BlockSettings\Image::render_image_compare.
 	 *
 	 * @since 1.0.0
 	 *
@@ -91,8 +92,9 @@ class Image implements Renderable {
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
 		$name = $block['blockName'] ?? '';
 
-		// This renderer targets multiple image-related blocks.
-		if ( ! in_array( $name, [ 'core/image', 'core/post-featured-image', 'aegis/image-compare' ], true ) ) {
+		// This renderer targets core image blocks. aegis/image-compare is a
+		// Pro block with its own render.php and theme Image settings filter.
+		if ( ! in_array( $name, [ 'core/image', 'core/post-featured-image' ], true ) ) {
 			return $block_content;
 		}
 
@@ -102,12 +104,21 @@ class Image implements Renderable {
 		$margin        = $style['spacing']['margin'] ?? '';
 		$border_radius = $style['border']['radius'] ?? '';
 
-		// --- Responsive Classes ---
-		// Custom SVG image variations skip standard responsive image handling.
-		$has_svg = $style['svgString'] ?? '';
-
-		if ( ! $has_svg ) {
-			if ( in_array( $name, [ 'core/image', 'core/post-featured-image' ], true ) ) {
+		// Raster images apply size/object-fit to the `<img>`. Inlined SVGs
+		// replace that node, so the same Image settings go on the figure.
+		if ( in_array( $name, [ 'core/image', 'core/post-featured-image' ], true ) ) {
+			if ( $style['svgString'] ?? '' ) {
+				$block_content = $this->responsive->add_responsive_classes(
+					$block_content,
+					$block,
+					ImageSettings::SETTINGS
+				);
+				$block_content = $this->responsive->add_responsive_styles(
+					$block_content,
+					$block,
+					ImageSettings::SETTINGS
+				);
+			} else {
 				$block_content = $this->responsive->add_responsive_classes(
 					$block_content,
 					$block,

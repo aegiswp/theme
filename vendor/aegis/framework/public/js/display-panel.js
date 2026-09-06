@@ -4,7 +4,8 @@
  * Provides a separate Display panel in the Block Editor sidebar with:
  *  - Device & Browser rules (all blocks)
  *  - Display/Order/Width controls (blocks with aegisPosition support)
- *  - Columns (Mobile), Row Gap, Equal Height Cards (core/query blocks)
+ *
+ * Query Loop layout lives in query-enhancements-editor.js.
  *
  * @package Aegis
  * @since   1.0.0
@@ -22,8 +23,6 @@
     ButtonGroup,
     Flex,
     FlexItem,
-    TextControl,
-    ToggleControl,
     __experimentalNumberControl: NumberControl,
     __experimentalUnitControl: UnitControl,
   } = wp.components;
@@ -268,7 +267,6 @@
       return function (props) {
         const { attributes, setAttributes, name } = props;
         const vis = attributes.visibility || {};
-        const isQuery = name === "core/query";
         const hasDisplay = hasPositionSupport(name);
         const settings = window.aegis?.conditionalLogicSettings || {};
         const hasBrowserDevice = !!settings.visibility?.browser_device;
@@ -369,68 +367,6 @@
                 },
                 style: { marginTop: "8px" },
               }, __("Reset Display", "aegis"))
-            )
-          );
-        }
-
-        /* Query-specific controls */
-        if (isQuery) {
-          sections.push(
-            el("div", { key: "query-display" },
-              el("h3", { style: headingStyle }, __("Query Layout", "aegis")),
-              el(NumberControl, {
-                label: __("Columns (Mobile)", "aegis"),
-                value: attributes.aegisColumnsMobile || 1,
-                onChange: function (v) { setAttributes({ aegisColumnsMobile: v }); },
-                min: 1,
-                max: 6,
-              }),
-              el(NumberControl, {
-                label: __("Columns (Tablet)", "aegis"),
-                value: attributes.aegisColumnsTablet || 2,
-                onChange: function (v) { setAttributes({ aegisColumnsTablet: v }); },
-                min: 1,
-                max: 6,
-              }),
-              el(NumberControl, {
-                label: __("Columns (Desktop)", "aegis"),
-                value: attributes.aegisColumnsDesktop || 3,
-                onChange: function (v) { setAttributes({ aegisColumnsDesktop: v }); },
-                min: 1,
-                max: 6,
-              }),
-              el(TextControl, {
-                label: __("Row Gap", "aegis"),
-                value: attributes.aegisRowGap || "",
-                onChange: function (v) { setAttributes({ aegisRowGap: v }); },
-                placeholder: __("e.g., 2rem, 20px", "aegis"),
-              }),
-              el(TextControl, {
-                label: __("Column Gap", "aegis"),
-                value: attributes.aegisColumnGap || "",
-                onChange: function (v) { setAttributes({ aegisColumnGap: v }); },
-                placeholder: __("e.g., 2rem, 20px", "aegis"),
-              }),
-              el(ToggleControl, {
-                label: __("Equal Height Cards", "aegis"),
-                help: __("Force all cards to have equal height.", "aegis"),
-                checked: attributes.aegisEqualHeight || false,
-                onChange: function (v) { setAttributes({ aegisEqualHeight: v }); },
-              }),
-              el(ToggleControl, {
-                label: __("Featured First Post", "aegis"),
-                help: __("Make the first post span multiple columns.", "aegis"),
-                checked: attributes.aegisFeaturedFirst || false,
-                onChange: function (v) { setAttributes({ aegisFeaturedFirst: v }); },
-              }),
-              attributes.aegisFeaturedFirst &&
-                el(NumberControl, {
-                  label: __("Featured Span", "aegis"),
-                  value: attributes.aegisFeaturedFirstSpan || 2,
-                  onChange: function (v) { setAttributes({ aegisFeaturedFirstSpan: v }); },
-                  min: 2,
-                  max: 6,
-                })
             )
           );
         }

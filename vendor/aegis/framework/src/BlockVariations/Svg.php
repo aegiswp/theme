@@ -8,46 +8,43 @@
  * - Handles the logic for displaying and manipulating SVG block content
  * - Integrates with utility classes for DOM and CSS
  *
- * @package    Aegis\Framework\BlockVariations
+ * @package    Aegis\Framework
  * @since      1.0.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
- *
- * For developer documentation and onboarding. No logic changes in this
- * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for svg block variation.
 declare( strict_types=1 );
 
-// Declares the namespace for the svg block variation.
 namespace Aegis\Framework\BlockVariations;
 
-// Imports classes, interfaces, and functions used by the svg block variation.
-use Aegis\Framework\BlockSettings\Onclick;
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
-use Aegis\Icons\Icon;
+use Aegis\Framework\BlockSettings\Onclick;
 use Aegis\Framework\Interfaces\Renderable;
+use Aegis\Framework\ServiceProvider;
+use Aegis\Icons\Icon;
 use Aegis\Utilities\Str;
 use DOMDocument;
 use DOMElement;
 use WP_Block;
+use function __;
 use function esc_attr;
 use function explode;
 use function implode;
+use function is_array;
+use function is_scalar;
 use function rawurlencode;
+use function register_block_style;
 use function str_contains;
 use function str_replace;
 use function trim;
 
-
 /**
- * Handles the "SVG" style variation for the core/image block.
+ * Handles the "SVG" variation for the core/image block.
  *
- * This class transforms an image block into a custom inline SVG. It has two
- * rendering modes: direct injection of the SVG markup, and a currently-disabled
- * mode that uses the SVG as a CSS mask for colorization.
+ * Pasted markup is inlined as an `<svg>`. Mask mode (Aegis → Blocks → SVG → Mask)
+ * uses the SVG as a CSS mask so it follows `currentColor`.
  *
  * @package Aegis\Framework\BlockVariations
  * @since   1.0.0
@@ -73,11 +70,29 @@ class Svg implements Renderable {
 	}
 
 	/**
+	 * Register the SVG style on core/image when the variation is implied on.
+	 *
+	 * @hook init
+	 */
+	public function register_style(): void {
+		if ( ! ServiceProvider::is_block_enabled( 'svg' ) ) {
+			return;
+		}
+
+		register_block_style(
+			'core/image',
+			array(
+				'name'  => 'svg',
+				'label' => __( 'SVG', 'aegis' ),
+			)
+		);
+	}
+
+	/**
 	 * Renders the image block as a custom inline SVG.
 	 *
-	 * This method is hooked into the `render_block_core/image` filter. If it
-	 * finds the `is-style-svg` class and a `style.svgString` attribute, it
-	 * replaces the content of the block with the provided SVG markup.
+	 * Saved `is-style-svg` blocks still inline on the front end when the variation
+	 * is implied off (inserter hidden), so theme patterns keep working.
 	 *
 	 * @since 1.0.0
 	 *
@@ -93,7 +108,6 @@ class Svg implements Renderable {
 		$attrs      = $block['attrs'] ?? [];
 		$svg_string = Icon::sanitize_svg( $attrs['style']['svgString'] ?? '' );
 
-		// Only run if an SVG string is provided and the block has the correct style variation.
 		if ( ! $svg_string || ! str_contains( $block_content, 'is-style-svg' ) ) {
 			return $block_content;
 		}
@@ -103,43 +117,39 @@ class Svg implements Renderable {
 		$link     = DOM::get_element( 'a', $figure );
 		$img      = DOM::get_element( 'img', $link ?? $figure );
 		$svg      = DOM::get_element( 'svg', $link ?? $figure );
-		$width    = esc_attr( $attrs['width'] ?? '' );
-		$height   = esc_attr( $attrs['height'] ?? '' );
-		$mask     = (bool) ( $attrs['style']['maskSvg'] ?? false );
-		$on_click = $attrs['onclick'] ?? '';
+		$width    = $this->dimension( $attrs['width'] ?? $attrs['style']['width'] ?? '' );
+		$height   = $this->dimension( $attrs['height'] ?? $attrs['style']['height'] ?? '' );
+		$mask     = ServiceProvider::is_block_enabled( 'svg_mask' )
+			&& (bool) ( $attrs['style']['maskSvg'] ?? false );
+		$on_click = ServiceProvider::is_block_enabled( 'svg_onclick' )
+			? $this->onclick->format_script( (string) ( $attrs['onclick'] ?? '' ), $block, $instance )
+			: '';
 
-		// The "mask" render path is currently disabled.
-		if ( $mask ) {
-			//return $this->render_mask( $img, $svg_string, $dom, $width, $height );
+		if ( $mask && $img instanceof DOMElement ) {
+			return $this->render_mask( $img, $svg_string, $dom, $width, $height, $on_click );
 		}
 
-		// Apply onclick attribute if it exists.
-		if ( $on_click ) {
+		if ( $on_click && ( $link ?? $figure ?? $img ) ) {
 			( $link ?? $figure ?? $img )->setAttribute( 'onclick', $on_click );
 			$block_content = $dom->saveHTML();
 		}
 
-		// If there is already an SVG, do not re-render.
 		if ( $svg ) {
 			return $block_content;
 		}
 
-		// Remove the original `<img>` tag to make way for the new SVG.
-		if ( $img ) {
+		if ( $img && $img->parentNode ) {
 			$img->parentNode->removeChild( $img );
 		}
 
-		// Create a new SVG element from the provided string.
 		$svg_dom     = DOM::create( $svg_string );
 		$svg_element = DOM::get_element( 'svg', $svg_dom );
 		if ( ! $svg_element ) {
 			return $block_content;
 		}
 
-		// Import the new SVG into the main document.
 		$imported = DOM::node_to_element( $dom->importNode( $svg_element, true ) );
 
-		// Apply width and height attributes.
 		if ( $width ) {
 			$imported->setAttribute( 'width', $width );
 		}
@@ -147,10 +157,9 @@ class Svg implements Renderable {
 			$imported->setAttribute( 'height', $height );
 		}
 
-		// Append the new SVG to the link if it exists, otherwise to the figure.
 		if ( $link ) {
 			$link->appendChild( $imported );
-		} else {
+		} elseif ( $figure ) {
 			$figure->appendChild( $imported );
 		}
 
@@ -160,11 +169,6 @@ class Svg implements Renderable {
 	/**
 	 * Renders an SVG as a CSS mask on a `<span>` element.
 	 *
-	 * @todo This method is currently unused as the call to it is commented out.
-	 *
-	 * This method allows an SVG to be "colored" by the `background-color` of
-	 * its parent element by using the SVG as a CSS mask.
-	 *
 	 * @since 1.0.0
 	 *
 	 * @param  DOMElement  $img        The original `<img>` element to be replaced.
@@ -172,18 +176,19 @@ class Svg implements Renderable {
 	 * @param  DOMDocument $dom        The main DOM document.
 	 * @param  string      $width      The desired width.
 	 * @param  string      $height     The desired height.
+	 * @param  string      $on_click   Optional onclick handler.
 	 *
 	 * @return string The HTML for the new `<span>` element with the SVG mask.
 	 */
-	public function render_mask( DOMElement $img, string $svg_string, DOMDocument $dom, string $width, string $height ): string {
+	public function render_mask( DOMElement $img, string $svg_string, DOMDocument $dom, string $width, string $height, string $on_click = '' ): string {
 		$span   = DOM::change_tag_name( 'span', $img );
 		$styles = CSS::string_to_array( $span->getAttribute( 'style' ) );
 
-		// URL-encode the SVG and set it as the mask image.
 		$encoded                      = rawurlencode( str_replace( '"', "'", trim( $svg_string ) ) );
-		$styles['-webkit-mask-image'] = 'url("data:image/svg+xml;utf8,' . $encoded . '")';
+		$mask_image                   = 'url("data:image/svg+xml;utf8,' . $encoded . '")';
+		$styles['-webkit-mask-image'] = $mask_image;
+		$styles['mask-image']         = $mask_image;
 
-		// Apply width and height.
 		if ( $width ) {
 			$unit            = Str::contains_any( $width, 'px', 'em', 'rem', 'vh', 'vw', '%' ) ? '' : 'px';
 			$styles['width'] = $width . $unit;
@@ -195,21 +200,39 @@ class Svg implements Renderable {
 			$span->removeAttribute( 'height' );
 		}
 
-		// Transfer alternative text to an aria-label for accessibility.
-		if ( $alt = $img->getAttribute( 'alt' ) ) {
+		if ( $alt = $span->getAttribute( 'alt' ) ) {
 			$span->setAttribute( 'aria-label', esc_attr( $alt ) );
 			$span->removeAttribute( 'alt' );
 		}
 
-		// Clean up and set final attributes.
 		$classes   = explode( ' ', $span->getAttribute( 'class' ) );
 		$classes[] = 'wp-block-image__svg';
 		$span->setAttribute( 'class', implode( ' ', $classes ) );
 		$span->setAttribute( 'role', 'img' );
+		if ( $on_click ) {
+			$span->setAttribute( 'onclick', $on_click );
+		}
 		$span->removeAttribute( 'style' );
 		$span->setAttribute( 'style', CSS::array_to_string( $styles ) );
 		$span->removeAttribute( 'src' );
 
 		return $dom->saveHTML();
+	}
+
+	/**
+	 * Normalize a width/height attribute that may be a string or `{ all: "80px" }`.
+	 *
+	 * @param mixed $value Block dimension attribute.
+	 */
+	private function dimension( mixed $value ): string {
+		if ( is_array( $value ) ) {
+			$value = $value['all'] ?? '';
+		}
+
+		if ( ! is_scalar( $value ) ) {
+			return '';
+		}
+
+		return esc_attr( (string) $value );
 	}
 }

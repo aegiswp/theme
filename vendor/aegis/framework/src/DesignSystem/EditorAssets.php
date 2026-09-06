@@ -31,13 +31,13 @@ use Aegis\Framework\ServiceProvider;
 use Aegis\Utilities\Debug;
 use function apply_filters;
 use function array_merge;
+use function class_exists;
 use function esc_url;
 use function file_exists;
 use function get_admin_url;
 use function get_home_url;
 use function is_admin;
 use function filemtime;
-use function wp_add_inline_script;
 use function wp_dequeue_style;
 use function wp_enqueue_style;
 use function wp_localize_script;
@@ -115,12 +115,6 @@ class EditorAssets
 
 		wp_enqueue_script($handle);
 
-		wp_add_inline_script(
-			$handle,
-			"wp.domReady(function(){if(wp.blocks&&wp.blocks.unregisterBlockVariation){wp.blocks.unregisterBlockVariation('core/query','related-posts');}});",
-			'after'
-		);
-
 		$default = [
 			'siteUrl' => esc_url(get_home_url()),
 			'adminUrl' => esc_url(get_admin_url()),
@@ -144,10 +138,13 @@ class EditorAssets
 		];
 
 		$newsletter_features = [
-			'enabled'          => ServiceProvider::is_block_enabled( 'newsletter' ),
-			'emailValidation'  => ServiceProvider::is_block_enabled( 'newsletter_email_validation' ),
-			'successMessage'   => ServiceProvider::is_block_enabled( 'newsletter_success_message' ),
-			'placeholder'      => ServiceProvider::is_block_enabled( 'newsletter_placeholder' ),
+			'enabled' => ServiceProvider::is_block_enabled( 'newsletter' ),
+		];
+
+		$svg_features = [
+			'enabled'    => ServiceProvider::is_block_enabled( 'svg' ),
+			'mask'       => ServiceProvider::is_block_enabled( 'svg_mask' ),
+			'inline'     => ServiceProvider::is_block_enabled( 'svg_inline' ),
 		];
 
 		wp_localize_script(
@@ -159,6 +156,14 @@ class EditorAssets
 		$this->enqueue_marquee_block_editor( $handle, $marquee_features );
 
 		$this->enqueue_newsletter_block_editor( $handle, $newsletter_features );
+
+		$this->enqueue_svg_block_editor( $handle, $svg_features );
+
+		wp_localize_script(
+			$handle,
+			'aegisQueryLoopFeatures',
+			$this->query_loop_features()
+		);
 
 		// Enqueue responsive breakpoints extension script.
 		$this->enqueue_responsive_breakpoints();
@@ -266,6 +271,52 @@ class EditorAssets
 		wp_localize_script(
 			$handle,
 			'aegisNewsletterFeatures',
+			$features
+		);
+
+		wp_set_script_translations( $handle, 'aegis' );
+	}
+
+	/**
+	 * Enqueue SVG Image variation gating.
+	 *
+	 * Unregisters the bundled SVG variation when Aegis → Blocks → SVG is implied
+	 * off, hides Mask Mode unless that extra is on, and unregisters the Inline SVG
+	 * rich-text format unless that extra is on.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string              $parent_handle Parent editor script handle.
+	 * @param array<string, bool> $features      SVG feature flags.
+	 *
+	 * @return void
+	 */
+	private function enqueue_svg_block_editor( string $parent_handle, array $features ): void {
+		$asset_file = $this->scripts->dir . 'svg-editor.asset.php';
+
+		if ( ! file_exists( $asset_file ) ) {
+			return;
+		}
+
+		$asset  = require $asset_file;
+		$handle = $this->scripts->handle . '-svg-editor';
+
+		wp_register_script(
+			$handle,
+			$this->scripts->url . 'svg-editor.js',
+			array_merge(
+				$asset['dependencies'] ?? [],
+				[ $parent_handle ]
+			),
+			$asset['version'] ?? ( Debug::is_enabled() ? (string) filemtime( $this->scripts->dir . 'svg-editor.js' ) : '1.0.0' ),
+			true
+		);
+
+		wp_enqueue_script( $handle );
+
+		wp_localize_script(
+			$handle,
+			'aegisSvgFeatures',
 			$features
 		);
 
@@ -506,6 +557,42 @@ class EditorAssets
 	}
 
 	/**
+	 * Query Loop extras for editor inspector gating.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return array<string, bool>
+	 */
+	private function query_loop_features(): array
+	{
+		return [
+			'enabled'            => ServiceProvider::is_block_enabled( 'query_loop' ),
+			'postTypes'          => ServiceProvider::is_block_enabled( 'query_loop_post_types' ),
+			'taxonomy'           => ServiceProvider::is_block_enabled( 'query_loop_taxonomy' ),
+			'includeExclude'     => ServiceProvider::is_block_enabled( 'query_loop_include_exclude' ),
+			'metaQuery'          => ServiceProvider::is_block_enabled( 'query_loop_meta_query' ),
+			'orderMeta'          => ServiceProvider::is_block_enabled( 'query_loop_order_meta' ),
+			'extendedOrder'      => ServiceProvider::is_block_enabled( 'query_loop_extended_order' ),
+			'responsiveColumns'  => ServiceProvider::is_block_enabled( 'query_loop_responsive_columns' ),
+			'gapControls'        => ServiceProvider::is_block_enabled( 'query_loop_gap_controls' ),
+			'featuredFirst'      => ServiceProvider::is_block_enabled( 'query_loop_featured_first' ),
+			'equalHeight'        => ServiceProvider::is_block_enabled( 'query_loop_equal_height' ),
+			'noResults'          => ServiceProvider::is_block_enabled( 'query_loop_no_results' ),
+			'advancedMeta'       => ServiceProvider::is_block_enabled( 'query_loop_advanced_meta' ),
+			'dateQuery'          => ServiceProvider::is_block_enabled( 'query_loop_date_query' ),
+			'parentChild'        => ServiceProvider::is_block_enabled( 'query_loop_parent_child' ),
+			'acfIntegration'     => ServiceProvider::is_block_enabled( 'query_loop_acf_integration' ),
+			'ajaxPagination'     => ServiceProvider::is_block_enabled( 'query_loop_ajax_pagination' ),
+			'frontendFilters'    => ServiceProvider::is_block_enabled( 'query_loop_frontend_filters' ),
+			'masonryLayout'      => ServiceProvider::is_block_enabled( 'query_loop_masonry_layout' ),
+			'carouselLayout'     => ServiceProvider::is_block_enabled( 'query_loop_carousel_layout' ),
+			'woocommerce'        => ServiceProvider::is_block_enabled( 'query_loop_woocommerce' ),
+			'woocommerceActive'  => class_exists( 'WooCommerce' ),
+			'performance'        => ServiceProvider::is_block_enabled( 'query_loop_performance' ),
+		];
+	}
+
+	/**
 	 * Enqueue query enhancements editor extension script.
 	 *
 	 * @since 1.0.0
@@ -514,6 +601,10 @@ class EditorAssets
 	 */
 	private function enqueue_query_enhancements(): void
 	{
+		if ( ! ServiceProvider::is_block_enabled( 'query_loop' ) ) {
+			return;
+		}
+
 		$asset_file = $this->scripts->dir . 'query-enhancements-editor.asset.php';
 
 		if (!file_exists($asset_file)) {
@@ -526,8 +617,11 @@ class EditorAssets
 		wp_register_script(
 			$handle,
 			$this->scripts->url . 'query-enhancements-editor.js',
-			$asset['dependencies'] ?? [],
-			$asset['version'] ?? (Debug::is_enabled() ? (string) filemtime($this->scripts->dir . 'query-enhancements-editor.js') : '1.0.0'),
+			array_merge(
+				$asset['dependencies'] ?? [],
+				[ $this->scripts->handle . '-editor' ]
+			),
+			$asset['version'] ?? (Debug::is_enabled() ? (string) filemtime($this->scripts->dir . 'query-enhancements-editor.js') : '20260904150000'),
 			true
 		);
 
@@ -564,6 +658,32 @@ class EditorAssets
 		);
 
 		wp_enqueue_style($handle);
+
+		if ( ServiceProvider::is_block_enabled( 'query_loop' ) ) {
+			$layout_css = $this->styles->dir . 'core-blocks/query-layout.css';
+
+			if ( file_exists( $layout_css ) ) {
+				wp_enqueue_style(
+					$this->styles->handle . '-query-layout',
+					$this->styles->url . 'core-blocks/query-layout.css',
+					[],
+					(string) filemtime( $layout_css )
+				);
+			}
+		}
+
+		if ( ServiceProvider::is_block_enabled( 'query_loop_no_results' ) ) {
+			$no_results_css = $this->styles->dir . 'core-blocks/query-no-results.css';
+
+			if ( file_exists( $no_results_css ) ) {
+				wp_enqueue_style(
+					$this->styles->handle . '-query-no-results',
+					$this->styles->url . 'core-blocks/query-no-results.css',
+					[],
+					(string) filemtime( $no_results_css )
+				);
+			}
+		}
 
 		wp_enqueue_style(
 			'wp-codemirror'

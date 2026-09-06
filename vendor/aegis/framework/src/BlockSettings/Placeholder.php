@@ -26,7 +26,6 @@ namespace Aegis\Framework\BlockSettings;
 // Imports classes, interfaces, and functions used by the placeholder block setting.
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
-use Aegis\Utilities\Block;
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Icons\Icon;
@@ -40,9 +39,11 @@ use function esc_url;
 use function explode;
 use function implode;
 use function in_array;
-use function is_archive;
 use function property_exists;
 use function str_replace;
+use function str_starts_with;
+use function trim;
+use function urldecode;
 
 
 /**
@@ -62,8 +63,8 @@ class Placeholder implements Renderable, Styleable {
 	/**
 	 * Conditionally enqueues the stylesheet for placeholder images.
 	 *
-	 * The styles are only loaded on archive pages or in the editor preview,
-	 * and only if a block with the `is-placeholder` class exists on the page.
+	 * The styles load when a block with the `is-placeholder` class is in
+	 * the rendered HTML (any template, not only archives).
 	 *
 	 * @since 1.0.0
 	 *
@@ -72,8 +73,7 @@ class Placeholder implements Renderable, Styleable {
 	public function styles( Styles $styles ): void {
 		$styles->add_file(
 			'block-extensions/placeholder-image.css',
-			[ 'is-placeholder' ],
-			is_archive() || Block::is_rendering_preview()
+			[ 'is-placeholder' ]
 		);
 	}
 
@@ -113,18 +113,13 @@ class Placeholder implements Renderable, Styleable {
 			return $block_content;
 		}
 
-		// Do not run on blocks that are already styled as SVGs.
-		if ( Str::contains_any( $block_content, 'is-style-svg' ) ) {
-			return $block_content;
-		}
-
 		// Check the DOM to see if an `<img>` with a `src` or an `<svg>` already exists.
 		$dom    = DOM::create( $block_content );
 		$figure = DOM::get_element( 'figure', $dom );
 		$img    = DOM::get_element( 'img', $figure );
 		$link   = DOM::get_element( 'a', $figure );
 		$svg    = DOM::get_element( 'svg', $link ?? $figure );
-		if ( $svg || ( $img && $img->getAttribute( 'src' ) ) ) {
+		if ( $svg || $this->img_has_real_src( $img ) ) {
 			return $block_content;
 		}
 
@@ -228,5 +223,34 @@ class Placeholder implements Renderable, Styleable {
 		$figure->setAttribute( 'class', implode( ' ', $classes ) );
 
 		return $dom->saveHTML();
+	}
+
+	/**
+	 * Whether an image already has a src that should skip the placeholder.
+	 *
+	 * Empty mask hashes and blank SVG data URIs left by the editor are not
+	 * real media — treat them as empty so the Aegis placeholder can render.
+	 *
+	 * @param DOMElement|null $img Image element, if any.
+	 */
+	private function img_has_real_src( ?DOMElement $img ): bool {
+		if ( ! $img instanceof DOMElement ) {
+			return false;
+		}
+
+		$src = trim( (string) $img->getAttribute( 'src' ) );
+
+		if ( '' === $src || '#' === $src ) {
+			return false;
+		}
+
+		if ( ! str_starts_with( $src, 'data:image/svg+xml' ) ) {
+			return true;
+		}
+
+		$comma = strrpos( $src, ',' );
+		$payload = false === $comma ? '' : substr( $src, $comma + 1 );
+
+		return '' !== trim( urldecode( $payload ) );
 	}
 }

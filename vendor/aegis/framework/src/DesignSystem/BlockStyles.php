@@ -26,7 +26,6 @@ namespace Aegis\Framework\DesignSystem;
 // Imports classes, interfaces, and functions used by the block styles component.
 use Aegis\Framework\InlineAssets\Scriptable;
 use Aegis\Framework\InlineAssets\Scripts;
-use Aegis\Framework\ServiceProvider;
 use function is_admin;
 
 class BlockStyles implements Scriptable {
@@ -90,14 +89,6 @@ class BlockStyles implements Scriptable {
 			'core/tag-cloud'           => [ 'badges' ],
 			'core/quote'               => [ 'surface' ],
 		];
-
-		if ( ServiceProvider::is_block_enabled( 'accordion' ) ) {
-			$register['core/list'][] = 'accordion';
-		}
-
-		if ( ServiceProvider::is_block_enabled( 'newsletter' ) ) {
-			$register['core/search'][] = 'newsletter';
-		}
 
 		$register['core/code'][]    = 'light';
 		$register['core/code'][]    = 'dark';

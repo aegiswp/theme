@@ -27,6 +27,7 @@ namespace Aegis\Framework\BlockSettings;
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
+use Aegis\Framework\ServiceProvider;
 use Aegis\Icons\Icon;
 use WP_Block;
 use function array_diff;
@@ -81,6 +82,10 @@ class InlineSvg implements Renderable {
 	 * @return string The modified block content with the `<img>` replaced by an `<svg>`.
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
+		if ( ! ServiceProvider::is_block_enabled( 'svg_inline' ) ) {
+			return $block_content;
+		}
+
 		// As a performance optimization, only parse the DOM if the class is present.
 		if ( ! str_contains( $block_content, 'has-inline-svg' ) ) {
 			return $block_content;
@@ -168,6 +173,10 @@ class InlineSvg implements Renderable {
 	 * @return string The modified block content with the `<img>` replaced by an `<svg>`.
 	 */
 	public function render_inline_svg( string $block_content, array $block, WP_Block $instance ): string {
+		if ( ! ServiceProvider::is_block_enabled( 'svg_inline_file' ) ) {
+			return $block_content;
+		}
+
 		$blocks_to_check = [ 'core/button', 'core/image', 'core/site-logo', 'core/post-featured-image' ];
 		$name            = $block['blockName'] ?? '';
 

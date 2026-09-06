@@ -33,6 +33,11 @@ use DOMDocument;
 use DOMElement;
 use WP_Block;
 use function __;
+use function array_diff;
+use function array_filter;
+use function array_values;
+use function explode;
+use function implode;
 use function register_block_style;
 use function str_contains;
 use function strtolower;
@@ -73,10 +78,9 @@ class Newsletter implements Renderable, Scriptable {
 	/**
 	 * Renders the search block as a newsletter signup form.
 	 *
-	 * This method is hooked into the `render_block_core/search` filter. If the
-	 * block has the `is-style-newsletter` class, it removes the form's default
-	 * submission behavior and changes the input type and name to prepare it
-	 * for a custom newsletter submission script.
+	 * Runs after CoreBlocks\Search so a leftover search icon can be removed.
+	 * When Newsletter is off, `is-style-newsletter` is stripped so CSS does not
+	 * hide the search icon on an ordinary search form.
 	 *
 	 * @since 1.0.0
 	 *
@@ -84,21 +88,19 @@ class Newsletter implements Renderable, Scriptable {
 	 * @param  array    $block         The full block object.
 	 * @param  WP_Block $instance      The block instance.
 	 *
-	 * @hook   render_block_core/search
+	 * @hook   render_block_core/search 11
 	 *
 	 * @return string The modified block content, now structured as a newsletter form.
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		if ( ! ServiceProvider::is_block_enabled( 'newsletter' ) ) {
+		$attrs = $block['attrs'] ?? [];
+
+		if ( ! $this->is_newsletter_block( $attrs, $block_content ) ) {
 			return $block_content;
 		}
 
-		$attrs      = $block['attrs'] ?? [];
-		$class_name = $attrs['className'] ?? '';
-
-		// Only run on blocks with the "newsletter" style variation.
-		if ( ! str_contains( $class_name, 'is-style-newsletter' ) ) {
-			return $block_content;
+		if ( ! ServiceProvider::is_block_enabled( 'newsletter' ) ) {
+			return $this->strip_newsletter_style( $block_content );
 		}
 
 		$dom   = DOM::create( $block_content );
@@ -108,6 +110,12 @@ class Newsletter implements Renderable, Scriptable {
 
 		if ( ! $form || ! $input ) {
 			return $block_content;
+		}
+
+		foreach ( DOM::get_elements_by_class_name( 'wp-block-search__icon', $dom ) as $icon ) {
+			if ( $icon->parentNode ) {
+				$icon->parentNode->removeChild( $icon );
+			}
 		}
 
 		// --- Repurpose the form for JavaScript handling ---
@@ -128,17 +136,24 @@ class Newsletter implements Renderable, Scriptable {
 			$input->setAttribute( 'aria-label', $placeholder );
 		}
 
-		if ( $this->should_validate_email( $placeholder ) ) {
-			$input->setAttribute( 'type', 'email' );
-			$input->setAttribute( 'autocomplete', 'email' );
-			$input->setAttribute( 'inputmode', 'email' );
+		$is_signup = $this->is_signup_field( $attrs );
+
+		if ( $is_signup ) {
+			$form->setAttribute( 'data-aegis-newsletter-signup', 'true' );
 			$input->setAttribute( 'required', 'required' );
 		} else {
-			$input->setAttribute( 'type', 'text' );
 			$input->removeAttribute( 'required' );
 		}
 
-		if ( ServiceProvider::is_block_enabled( 'newsletter_success_message' ) ) {
+		if ( $is_signup && ServiceProvider::is_block_enabled( 'newsletter_email_validation' ) ) {
+			$input->setAttribute( 'type', 'email' );
+			$input->setAttribute( 'autocomplete', 'email' );
+			$input->setAttribute( 'inputmode', 'email' );
+		} else {
+			$input->setAttribute( 'type', 'text' );
+		}
+
+		if ( $is_signup && ServiceProvider::is_block_enabled( 'newsletter_success_message' ) ) {
 			$this->append_success_message( $dom, $form );
 		}
 
@@ -163,6 +178,46 @@ class Newsletter implements Renderable, Scriptable {
 	}
 
 	/**
+	 * Whether this Search block uses the Newsletter style.
+	 *
+	 * @param array<string, mixed> $attrs          Block attributes.
+	 * @param string               $block_content Rendered HTML.
+	 */
+	private function is_newsletter_block( array $attrs, string $block_content ): bool {
+		$class_name = (string) ( $attrs['className'] ?? '' );
+
+		return str_contains( $class_name, 'is-style-newsletter' )
+			|| str_contains( $block_content, 'is-style-newsletter' );
+	}
+
+	/**
+	 * Remove the Newsletter style class so leftover CSS does not hide search UI.
+	 */
+	private function strip_newsletter_style( string $block_content ): string {
+		$dom  = DOM::create( $block_content );
+		$form = DOM::get_element( 'form', $dom );
+
+		if ( ! $form ) {
+			return $block_content;
+		}
+
+		$classes = array_values(
+			array_diff(
+				array_filter( explode( ' ', $form->getAttribute( 'class' ) ) ),
+				[ 'is-style-newsletter' ]
+			)
+		);
+
+		if ( $classes ) {
+			$form->setAttribute( 'class', implode( ' ', $classes ) );
+		} else {
+			$form->removeAttribute( 'class' );
+		}
+
+		return $dom->saveHTML();
+	}
+
+	/**
 	 * Resolve the email input placeholder from extras and block attributes.
 	 *
 	 * @param array<string, mixed> $attrs Block attributes.
@@ -179,16 +234,21 @@ class Newsletter implements Renderable, Scriptable {
 	}
 
 	/**
-	 * Whether HTML5 email validation should apply to this field.
+	 * Whether this block is a signup field rather than a decorative input skin.
 	 *
-	 * Decorative newsletter-styled inputs (name, phone) keep type=text.
+	 * Uses the saved placeholder (not the forced default) so Custom Placeholder
+	 * being off does not turn name/phone fields into email signups.
+	 *
+	 * @param array<string, mixed> $attrs Block attributes.
 	 */
-	private function should_validate_email( string $placeholder ): bool {
-		if ( ! ServiceProvider::is_block_enabled( 'newsletter_email_validation' ) ) {
-			return false;
+	private function is_signup_field( array $attrs ): bool {
+		$position = $attrs['buttonPosition'] ?? 'button-outside';
+
+		if ( $position !== 'no-button' ) {
+			return true;
 		}
 
-		$normalized = strtolower( trim( $placeholder ) );
+		$normalized = strtolower( trim( (string) ( $attrs['placeholder'] ?? '' ) ) );
 
 		return $normalized === '' || str_contains( $normalized, 'email' );
 	}

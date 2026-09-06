@@ -38,14 +38,13 @@ use Aegis\Framework\InlineAssets\Scripts;
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
 use Aegis\Framework\Interfaces\Renderable;
+use Aegis\Framework\ServiceProvider;
 use WP_Block;
 use function add_filter;
 use function array_merge;
 use function do_blocks;
 use function esc_attr__;
 use function esc_html__;
-use function file_exists;
-use function file_get_contents;
 use function is_admin;
 use function str_contains;
 use function wp_kses_post;
@@ -200,6 +199,10 @@ class QueryNoResults implements Renderable, Scriptable, Styleable {
 	 * @return string Modified block HTML with no-results container.
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
+		if ( ! ServiceProvider::is_block_enabled( 'query_loop_no_results' ) ) {
+			return $block_content;
+		}
+
 		$attrs = $block['attrs'] ?? [];
 
 		// Check if no results template is enabled.
@@ -409,19 +412,22 @@ class QueryNoResults implements Renderable, Scriptable, Styleable {
 		$scripts->add_data(
 			'queryNoResults',
 			[
-				'templates' => array_map(
-					fn( $value, $label ) => [ 'value' => $value, 'label' => $label ],
-					array_keys( $this->templates ),
-					array_values( $this->templates )
-				),
-				'icons' => array_map(
-					fn( $value, $label ) => [ 'value' => $value, 'label' => $label ],
-					array_keys( $this->icons ),
-					array_values( $this->icons )
-				),
+				'templates' => [
+					[ 'value' => 'default', 'label' => esc_html__( 'Default', 'aegis' ) ],
+					[ 'value' => 'minimal', 'label' => esc_html__( 'Minimal', 'aegis' ) ],
+					[ 'value' => 'card', 'label' => esc_html__( 'Card', 'aegis' ) ],
+					[ 'value' => 'centered', 'label' => esc_html__( 'Centered', 'aegis' ) ],
+				],
+				'icons' => [
+					[ 'value' => 'search', 'label' => esc_html__( 'Search', 'aegis' ) ],
+					[ 'value' => 'folder', 'label' => esc_html__( 'Folder', 'aegis' ) ],
+					[ 'value' => 'document', 'label' => esc_html__( 'Document', 'aegis' ) ],
+					[ 'value' => 'info', 'label' => esc_html__( 'Info', 'aegis' ) ],
+					[ 'value' => 'none', 'label' => esc_html__( 'None', 'aegis' ) ],
+				],
 			],
 			[],
-			is_admin()
+			is_admin() && ServiceProvider::is_block_enabled( 'query_loop_no_results' )
 		);
 	}
 
@@ -440,9 +446,10 @@ class QueryNoResults implements Renderable, Scriptable, Styleable {
 	 * @return void
 	 */
 	public function styles( Styles $styles ): void {
-		$file = $styles->dir . 'core-blocks/query-no-results.css';
-		if ( file_exists( $file ) ) {
-			$styles->add_callback( fn() => file_get_contents( $file ) );
-		}
+		$styles->add_file(
+			'core-blocks/query-no-results.css',
+			[ 'aegis-query-no-results' ],
+			ServiceProvider::is_block_enabled( 'query_loop_no_results' )
+		);
 	}
 }

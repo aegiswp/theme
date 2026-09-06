@@ -36,6 +36,10 @@
 					return;
 				}
 
+				if ( form.getAttribute( 'data-aegis-newsletter-signup' ) !== 'true' ) {
+					return;
+				}
+
 				form.dispatchEvent(
 					new CustomEvent( 'aegis-newsletter-submit', {
 						bubbles: true,

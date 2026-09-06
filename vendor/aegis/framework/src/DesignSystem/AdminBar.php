@@ -31,17 +31,6 @@ use function is_admin_bar_showing;
 class AdminBar implements Styleable {
 
 	/**
-	 * Constructor.
-	 *
-	 * Theme support must be declared before bump styles enqueue (wp_enqueue_scripts).
-	 * Hooking after_setup_theme from ServiceProvider is too late because the framework
-	 * boots on init.
-	 */
-	public function __construct() {
-		$this->remove_default_callback();
-	}
-
-	/**
 	 * Registers service with access to provider.
 	 *
 	 * @since 1.0.0
@@ -56,18 +45,5 @@ class AdminBar implements Styleable {
 			[],
 			is_admin_bar_showing()
 		);
-	}
-
-	/**
-	 * Disables core admin-bar bump styles (html margin-top) for in-flow admin bar.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return void
-	 */
-	public function remove_default_callback() {
-		add_theme_support( 'admin-bar', [
-			'callback' => '__return_false',
-		] );
 	}
 }

@@ -36,12 +36,11 @@ use Aegis\Framework\InlineAssets\Scripts;
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
 use Aegis\Framework\Interfaces\Renderable;
+use Aegis\Framework\ServiceProvider;
 use WP_Block;
 use function add_filter;
 use function array_merge;
 use function explode;
-use function file_exists;
-use function file_get_contents;
 use function implode;
 use function is_admin;
 
@@ -51,7 +50,10 @@ use function is_admin;
  * Extends the core/query block with responsive grid layout controls.
  * Column counts for mobile, tablet, and desktop breakpoints are stored
  * as block attributes and output as CSS custom properties consumed by
- * the inline grid stylesheet. Additional features include configurable
+ * the layout stylesheet. A count of 0 leaves that breakpoint on the
+ * Query Loop’s own layout; a count greater than 0 adds
+ * `aegis-query-cols-{mobile|tablet|desktop}` so only that breakpoint
+ * is forced to an Aegis grid. Additional features include configurable
  * row/column gaps, a featured-first post spanning multiple columns,
  * and equal-height card layout using flexbox.
  *
@@ -77,15 +79,15 @@ class QueryLayout implements Renderable, Scriptable, Styleable {
 		// Responsive columns
 		'aegisColumnsMobile' => [
 			'type'    => 'number',
-			'default' => 1,
+			'default' => 0,
 		],
 		'aegisColumnsTablet' => [
 			'type'    => 'number',
-			'default' => 2,
+			'default' => 0,
 		],
 		'aegisColumnsDesktop' => [
 			'type'    => 'number',
-			'default' => 3,
+			'default' => 0,
 		],
 		// Gap controls
 		'aegisRowGap' => [
@@ -176,18 +178,36 @@ class QueryLayout implements Renderable, Scriptable, Styleable {
 	 * @return string Modified block HTML with layout properties.
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
+		if ( ! ServiceProvider::is_block_enabled( 'query_loop' ) ) {
+			return $block_content;
+		}
+
 		$attrs = $block['attrs'] ?? [];
 
-		// Check if any layout enhancements are enabled
-		$columns_mobile  = $this->sanitize_column_count( $attrs['aegisColumnsMobile'] ?? 0 );
-		$columns_tablet  = $this->sanitize_column_count( $attrs['aegisColumnsTablet'] ?? 0 );
-		$columns_desktop = $this->sanitize_column_count( $attrs['aegisColumnsDesktop'] ?? 0 );
-		$row_gap         = $this->sanitize_css_value( $attrs['aegisRowGap'] ?? '' );
-		$column_gap      = $this->sanitize_css_value( $attrs['aegisColumnGap'] ?? '' );
-		$featured_first  = $attrs['aegisFeaturedFirst'] ?? false;
-		$equal_height    = $attrs['aegisEqualHeight'] ?? false;
+		$columns_mobile  = 0;
+		$columns_tablet  = 0;
+		$columns_desktop = 0;
+		if ( ServiceProvider::is_block_enabled( 'query_loop_responsive_columns' ) ) {
+			$columns_mobile  = $this->sanitize_column_count( $attrs['aegisColumnsMobile'] ?? 0 );
+			$columns_tablet  = $this->sanitize_column_count( $attrs['aegisColumnsTablet'] ?? 0 );
+			$columns_desktop = $this->sanitize_column_count( $attrs['aegisColumnsDesktop'] ?? 0 );
+		}
 
-		$has_enhancements = $columns_mobile > 0 || $columns_tablet > 0 || $columns_desktop > 0 ||
+		$row_gap    = '';
+		$column_gap = '';
+		if ( ServiceProvider::is_block_enabled( 'query_loop_gap_controls' ) ) {
+			$row_gap    = $this->sanitize_css_value( $attrs['aegisRowGap'] ?? '' );
+			$column_gap = $this->sanitize_css_value( $attrs['aegisColumnGap'] ?? '' );
+		}
+
+		$featured_first = ServiceProvider::is_block_enabled( 'query_loop_featured_first' )
+			&& ! empty( $attrs['aegisFeaturedFirst'] );
+		$equal_height   = ServiceProvider::is_block_enabled( 'query_loop_equal_height' )
+			&& ! empty( $attrs['aegisEqualHeight'] );
+
+		$has_columns = $columns_mobile > 0 || $columns_tablet > 0 || $columns_desktop > 0;
+
+		$has_enhancements = $has_columns ||
 		                    ! empty( $row_gap ) || ! empty( $column_gap ) ||
 		                    $featured_first || $equal_height;
 
@@ -209,14 +229,20 @@ class QueryLayout implements Renderable, Scriptable, Styleable {
 		// Add layout class
 		$classes[] = 'aegis-query-layout';
 
-		// Add responsive column CSS variables
+		if ( $has_columns ) {
+			$classes[] = 'aegis-query-has-columns';
+		}
+
 		if ( $columns_mobile > 0 ) {
+			$classes[] = 'aegis-query-cols-mobile';
 			$styles['--aegis-query-columns-mobile'] = (string) $columns_mobile;
 		}
 		if ( $columns_tablet > 0 ) {
+			$classes[] = 'aegis-query-cols-tablet';
 			$styles['--aegis-query-columns-tablet'] = (string) $columns_tablet;
 		}
 		if ( $columns_desktop > 0 ) {
+			$classes[] = 'aegis-query-cols-desktop';
 			$styles['--aegis-query-columns-desktop'] = (string) $columns_desktop;
 		}
 
@@ -268,13 +294,13 @@ class QueryLayout implements Renderable, Scriptable, Styleable {
 			'queryLayout',
 			[
 				'breakpoints' => [
-					'mobile'  => '480px',
-					'tablet'  => '782px',
-					'desktop' => '1024px',
+					'mobile'  => '< 782px',
+					'tablet'  => '782px+',
+					'desktop' => '1024px+',
 				],
 			],
 			[],
-			is_admin()
+			is_admin() && ServiceProvider::is_block_enabled( 'query_loop' )
 		);
 	}
 
@@ -293,10 +319,15 @@ class QueryLayout implements Renderable, Scriptable, Styleable {
 	 * @return void
 	 */
 	public function styles( Styles $styles ): void {
-		$file = $styles->dir . 'core-blocks/query-layout.css';
-		if ( file_exists( $file ) ) {
-			$styles->add_callback( fn() => file_get_contents( $file ) );
-		}
+		$layout_on = ServiceProvider::is_block_enabled( 'query_loop' )
+			&& (
+				ServiceProvider::is_block_enabled( 'query_loop_responsive_columns' )
+				|| ServiceProvider::is_block_enabled( 'query_loop_gap_controls' )
+				|| ServiceProvider::is_block_enabled( 'query_loop_featured_first' )
+				|| ServiceProvider::is_block_enabled( 'query_loop_equal_height' )
+			);
+
+		$styles->add_file( 'core-blocks/query-layout.css', [ 'aegis-query-layout' ], $layout_on );
 	}
 
 	/**

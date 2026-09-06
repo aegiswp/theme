@@ -31,9 +31,11 @@ namespace Aegis\Framework\BlockSettings;
 // Imports classes, interfaces, and functions used throughout this file.
 use Aegis\Framework\InlineAssets\Scriptable;
 use Aegis\Framework\InlineAssets\Scripts;
+use Aegis\Framework\ServiceProvider;
 use WP_Block;
 use function absint;
 use function add_filter;
+use function apply_filters;
 use function array_filter;
 use function array_map;
 use function array_merge;
@@ -268,11 +270,15 @@ class QueryEnhancements implements Scriptable {
 	 * @return array Modified WP_Query arguments.
 	 */
 	public function modify_query( array $query, WP_Block $block, int $page ): array {
+		if ( ! ServiceProvider::is_block_enabled( 'query_loop' ) ) {
+			return $query;
+		}
+
 		$attrs = $block->attributes ?? [];
 
 		// Multiple post types (QE1: validate against registered public post types).
 		$post_types = $attrs['aegisPostTypes'] ?? [];
-		if ( ! empty( $post_types ) && is_array( $post_types ) ) {
+		if ( ServiceProvider::is_block_enabled( 'query_loop_post_types' ) && ! empty( $post_types ) && is_array( $post_types ) ) {
 			$valid_types = array_filter( $post_types, function ( string $type ): bool {
 				if ( ! post_type_exists( $type ) ) {
 					return false;
@@ -288,20 +294,20 @@ class QueryEnhancements implements Scriptable {
 
 		// Taxonomy query.
 		$tax_query = $attrs['aegisTaxQuery'] ?? [];
-		if ( ! empty( $tax_query ) && is_array( $tax_query ) ) {
+		if ( ServiceProvider::is_block_enabled( 'query_loop_taxonomy' ) && ! empty( $tax_query ) && is_array( $tax_query ) ) {
 			$query['tax_query'] = $this->build_tax_query( $tax_query );
 		}
 
 		// Include specific posts.
 		$include_posts = $attrs['aegisIncludePosts'] ?? [];
-		if ( ! empty( $include_posts ) && is_array( $include_posts ) ) {
+		if ( ServiceProvider::is_block_enabled( 'query_loop_include_exclude' ) && ! empty( $include_posts ) && is_array( $include_posts ) ) {
 			$query['post__in'] = array_map( 'absint', $include_posts );
 			$query['orderby']  = 'post__in';
 		}
 
 		// Exclude specific posts.
 		$exclude_posts = $attrs['aegisExcludePosts'] ?? [];
-		if ( ! empty( $exclude_posts ) && is_array( $exclude_posts ) ) {
+		if ( ServiceProvider::is_block_enabled( 'query_loop_include_exclude' ) && ! empty( $exclude_posts ) && is_array( $exclude_posts ) ) {
 			$query['post__not_in'] = array_map( 'absint', $exclude_posts );
 		}
 
@@ -329,7 +335,9 @@ class QueryEnhancements implements Scriptable {
 		}
 
 		// Meta query (QE2/QE3/QE4: validate compare, type, and sanitize key).
-		$meta_key = sanitize_key( $attrs['aegisMetaKey'] ?? '' );
+		$meta_key = ServiceProvider::is_block_enabled( 'query_loop_meta_query' )
+			? sanitize_key( $attrs['aegisMetaKey'] ?? '' )
+			: '';
 		if ( ! empty( $meta_key ) ) {
 			$meta_value   = sanitize_text_field( $attrs['aegisMetaValue'] ?? '' );
 			$meta_compare = $attrs['aegisMetaCompare'] ?? '=';
@@ -365,7 +373,8 @@ class QueryEnhancements implements Scriptable {
 		}
 
 		// Order by meta key.
-		$order_by_meta = $attrs['aegisOrderByMeta'] ?? false;
+		$order_by_meta = ServiceProvider::is_block_enabled( 'query_loop_order_meta' )
+			&& ( $attrs['aegisOrderByMeta'] ?? false );
 		if ( $order_by_meta ) {
 			$order_meta_key  = sanitize_key( $attrs['aegisOrderMetaKey'] ?? '' );
 			$order_meta_type = $attrs['aegisOrderMetaType'] ?? 'CHAR';
@@ -387,7 +396,9 @@ class QueryEnhancements implements Scriptable {
 		}
 
 		// Extended order by options (validated via allowlist in switch).
-		$order_by = $attrs['aegisOrderBy'] ?? '';
+		$order_by = ServiceProvider::is_block_enabled( 'query_loop_extended_order' )
+			? ( $attrs['aegisOrderBy'] ?? '' )
+			: '';
 		if ( ! empty( $order_by ) && ! $order_by_meta ) {
 			switch ( $order_by ) {
 				case 'rand':
@@ -483,15 +494,18 @@ class QueryEnhancements implements Scriptable {
 	public function scripts( Scripts $scripts ): void {
 		$scripts->add_data(
 			'queryEnhancements',
-			fn() => [
-				'postTypes'  => $this->get_post_types(),
-				'taxonomies' => $this->get_taxonomies(),
-				'metaCompareOperators' => $this->get_meta_compare_operators(),
-				'metaTypes'  => $this->get_meta_types(),
-				'orderByOptions' => $this->get_order_by_options(),
-			],
+			fn() => apply_filters(
+				'aegis_query_enhancements_data',
+				[
+					'postTypes'            => $this->get_post_types(),
+					'taxonomies'           => $this->get_taxonomies(),
+					'metaCompareOperators' => $this->get_meta_compare_operators(),
+					'metaTypes'            => $this->get_meta_types(),
+					'orderByOptions'       => $this->get_order_by_options(),
+				]
+			),
 			[],
-			is_admin()
+			is_admin() && ServiceProvider::is_block_enabled( 'query_loop' )
 		);
 	}
 
