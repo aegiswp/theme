@@ -4,9 +4,12 @@
  * WP-CLI scans JavaScript but not TypeScript. Theme block sources under
  * `src/Blocks` compile in place.
  *
- * `vendor/` is excluded from make-pot, so Icon library PHP/JS and Marquee
- * editor JS are copied into `build/I18nScan` for the scan. finish-translate.js
- * rewrites POT references back to the real vendor paths.
+ * `vendor/` is excluded from make-pot, so Icon library PHP/JS, Marquee
+ * editor JS, Newsletter PHP/JS, Accordion PHP, SVG editor JS/PHP, and Query Loop PHP/JS are copied into
+ * `build/I18nScan` for the scan. finish-translate.js rewrites POT
+ * references back to the real vendor paths.
+ * Bundled `public/js/editor.js` is not copied (minified leftover inspector
+ * strings are unreachable; live SVG inspector strings come from `svg-editor.js`).
  *
  * Companion plugin strings (Map, Modal, Blocks admin, video editor) live in
  * `wp-content/plugins/aegis/languages/aegis.pot`. Do not copy them here.
@@ -60,6 +63,110 @@ const scanCopies = [
 		),
 		to: path.join( i18nScanDir, 'marquee-editor.js' ),
 		label: 'Marquee editor script',
+	},
+	{
+		from: path.join(
+			themeRoot,
+			'vendor',
+			'aegis',
+			'framework',
+			'public',
+			'js',
+			'newsletter-editor.js'
+		),
+		to: path.join( i18nScanDir, 'newsletter-editor.js' ),
+		label: 'Newsletter editor script',
+	},
+	{
+		from: path.join(
+			themeRoot,
+			'vendor',
+			'aegis',
+			'framework',
+			'public',
+			'js',
+			'svg-editor.js'
+		),
+		to: path.join( i18nScanDir, 'svg-editor.js' ),
+		label: 'SVG editor script',
+	},
+	{
+		from: path.join(
+			themeRoot,
+			'vendor',
+			'aegis',
+			'framework',
+			'src',
+			'BlockVariations',
+			'Svg.php'
+		),
+		to: path.join( i18nScanDir, 'Svg.php' ),
+		label: 'SVG variation PHP',
+	},
+	{
+		from: path.join(
+			themeRoot,
+			'vendor',
+			'aegis',
+			'framework',
+			'src',
+			'BlockVariations',
+			'Newsletter.php'
+		),
+		to: path.join( i18nScanDir, 'Newsletter.php' ),
+		label: 'Newsletter variation PHP',
+	},
+	{
+		from: path.join(
+			themeRoot,
+			'vendor',
+			'aegis',
+			'framework',
+			'src',
+			'BlockVariations',
+			'AccordionList.php'
+		),
+		to: path.join( i18nScanDir, 'AccordionList.php' ),
+		label: 'Accordion variation PHP',
+	},
+	{
+		from: path.join(
+			themeRoot,
+			'vendor',
+			'aegis',
+			'framework',
+			'public',
+			'js',
+			'query-enhancements-editor.js'
+		),
+		to: path.join( i18nScanDir, 'query-enhancements-editor.js' ),
+		label: 'Query Loop editor script',
+	},
+	{
+		from: path.join(
+			themeRoot,
+			'vendor',
+			'aegis',
+			'framework',
+			'src',
+			'BlockSettings',
+			'QueryEnhancements.php'
+		),
+		to: path.join( i18nScanDir, 'QueryEnhancements.php' ),
+		label: 'Query Loop enhancements PHP',
+	},
+	{
+		from: path.join(
+			themeRoot,
+			'vendor',
+			'aegis',
+			'framework',
+			'src',
+			'BlockSettings',
+			'QueryNoResults.php'
+		),
+		to: path.join( i18nScanDir, 'QueryNoResults.php' ),
+		label: 'Query Loop no-results PHP',
 	},
 ];
 
