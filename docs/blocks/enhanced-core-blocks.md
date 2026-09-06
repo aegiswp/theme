@@ -80,7 +80,7 @@ The following 37 core blocks receive enhancements in Aegis:
 
 | Block | Enhancements |
 |-------|-------------|
-| Query Loop | Grid layout options, masonry style, load more styling |
+| Query Loop | Responsive columns, gaps, featured-first, equal-height, no-results — gated at **Aegis → Blocks → Query Loop**. See [Plugin Query Loop](../../plugins/aegis/docs/blocks/query-loop.md). |
 | Pagination | Styled number navigation, accessible landmarks |
 | Comments | Thread styling, alternating backgrounds, avatar sizes |
 | Table | Responsive horizontal scroll, striped rows, border options |

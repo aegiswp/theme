@@ -136,6 +136,32 @@ Update WordPress to version 7.0 or later via **Dashboard → Updates**.
 4. Hard-refresh and check that icon CSS loads on the front end (`core-blocks/icon.css`).
 5. See [[svg-icons]].
 
+### SVG Image variation shows the media uploader or an Optimize SVG button
+
+**Symptom:** Inserting the **SVG** Image variation opens Core’s image placeholder, or **SVG Settings** still offers Optimize SVG / SVGOMG.
+
+**Cause:** The live inspector is `svg-editor.js`. An empty SVG uses the Aegis placeholder (preview-only). Optimize SVG was removed. A cached `editor.js` can still show the old bundled panel.
+
+**Solution:**
+
+1. Hard-refresh the editor so `svg-editor.js` and bundled `editor.js` reload.
+2. Enable at least one extra at **Aegis → Blocks → SVG** (Paste Markup is enough).
+3. Paste markup in **SVG Settings**. Do not store an empty `data:image/svg+xml` URL.
+4. See [[block-variations#svg]].
+
+### Slider Arrows and Dots Missing
+
+**Symptom:** Slides stack or pack together with no arrows or dots, or Splide never initializes.
+
+**Cause:** Saved **Slides Per Page** may be 3 on a block that only has three slides. Splide hides overflow UI when every slide is visible. Older templates still store `perPage: 3` after the default changed to 1.
+
+**Solution:**
+
+1. Select the Slider and set **Slides Per Page** to 1, or add more slides than `perPage`.
+2. Confirm arrows and dots are on in the inspector, and that **Aegis → Blocks → Slider** Navigation and Pagination extras are on.
+3. On the front end, confirm `splide.js`, `splide.css`, and the slider view script load.
+4. See [[slider]].
+
 ## Display Issues
 
 ### Fonts Not Loading

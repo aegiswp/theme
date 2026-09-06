@@ -10,7 +10,7 @@ See the full SVG upload guide:
 
 SVG gating when upload is disabled requires **Aegis Pro** — see [SVG Gating](../../plugins/aegis-pro/docs/features/svg-gating.md).
 
-The **SVG block variation** toggle is separate, under **Aegis → Blocks**. That variation is `core/image` (`is-style-svg`). Decorative icons use the WordPress **Icon** block — see [[svg-icons]].
+The **SVG block variation** toggle is separate, under **Aegis → Blocks**. That variation is `core/image` (`is-style-svg`). The style is registered once in PHP. Paste markup in **SVG Settings**; there is no Optimize SVG control. Decorative icons use the WordPress **Icon** block — see [[svg-icons]].
 
 ## Next Steps
 

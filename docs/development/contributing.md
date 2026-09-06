@@ -222,7 +222,7 @@ Documentation PRs use the `docs/*` branch prefix and typically update:
 
 Translations are managed through WordPress.org or direct contributions:
 
-1. Generate a fresh `.pot` file: `npm run translate`.
+1. Generate a fresh theme `.pot` file: `npm run translate`. Plugin strings: `npm run translate` in `wp-content/plugins/aegis`. Pro: regenerate `languages/aegis-pro.pot`.
 2. Create a `.po` file for your locale.
 3. Submit the translation via PR or the WordPress translation platform.
 

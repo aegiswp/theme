@@ -17,7 +17,7 @@ A block variation is a preconfigured version of an existing block with specific 
 | Curved Text | `core/paragraph` | Text rendered along a curved SVG path. |
 | Grid | `core/group` | A CSS Grid container with configurable columns. |
 | Marquee | `core/group` | Continuously scrolling horizontal content. |
-| Newsletter | `core/group` | Pre-configured email signup section. |
+| Newsletter | `core/search` | Search form styled as an email signup (`is-style-newsletter`). |
 | SVG | `core/image` | Inline SVG markup on an Image block (`is-style-svg`). Decorative icons use `core/icon` instead — see [[svg-icons]]. |
 
 > **Related posts:** Use the **`aegis/related-posts`** theme block (see [[custom-blocks]]). The former `core/query` Related Posts variation was removed. For advanced related-post querying on Query Loop, enable **`aegisProRelatedPosts`** on `core/query` with [Aegis Pro](../../plugins/aegis-pro/docs/features/query-loop-pro.md).
@@ -28,7 +28,7 @@ An interactive list where each item can be expanded to reveal additional content
 
 ### Base Block
 
-`core/list` with custom attributes and JavaScript interaction.
+`core/list` with the `is-style-accordion` class. The style is registered once in PHP (`AccordionList::register_style()`), gated by **Aegis → Blocks → Accordion**. Other list styles (`checklist`, `dash`, and so on) stay on `BlockStyles`.
 
 ### Features
 
@@ -49,9 +49,9 @@ An interactive list where each item can be expanded to reveal additional content
 
 | Feature | Accordion List | Toggle Block |
 |---------|---------------|--------------|
-| Structure | List-based | Container-based |
-| Content flexibility | Text-focused | Any blocks |
-| Best for | Simple FAQ items | Complex expandable sections |
+| Structure | List items as expand/collapse | Two inner views + switcher control |
+| Content flexibility | Text-focused list | Any blocks in each view |
+| Best for | FAQ sections | Pricing monthly/yearly, compare plans, before/after |
 
 ## Counter
 
@@ -179,49 +179,75 @@ Theme **Feature Banner** (`patterns/cta/banner.php`) is a scrolling announcement
 
 ## Newsletter
 
-A pre-configured email signup section with input field, submit button, and supporting text.
+A Search block variation that turns the search form into an email signup field.
+
+Enable extras at **Aegis → Blocks → Newsletter**. See [Plugin Newsletter](../../plugins/aegis/docs/blocks/newsletter.md).
 
 ### Base Block
 
-`core/group` with pre-arranged inner blocks.
+`core/search` with `className` `is-style-newsletter`. The style is registered once in PHP (`Newsletter::register_style()`), gated by Newsletter extras. Not a Group pattern and not the Modal Newsletter starter.
 
 ### Features
 
-- Ready-to-use email signup layout.
-- Integrates with form plugins (Fluent Forms, or custom endpoints).
-- Customizable heading, description, and button text.
-- Responsive layout (stacks on mobile).
-- Style variation support.
+- Strips search `action` / `method` so submit does not run a site search.
+- **Signup** fields (a submit button, or `no-button` with an email-like saved placeholder) are required. Decorative no-button skins (name, phone) are not.
+- Email validation (`type="email"`), success message, and custom placeholder — each gated by a Blocks extra. Success and `aegis-newsletter-submit` run only on signup fields.
+- Dispatches `aegis-newsletter-submit` with the email so a mailing-list plugin or snippet can subscribe the visitor.
+- Search icon is omitted on the frontend while Newsletter is on.
 
 ### Usage
 
-1. Insert the **Newsletter** block.
-2. Customize the heading and description text.
-3. Configure the form action (connect to your email service).
-4. Style using Group block controls.
+1. Enable Newsletter extras at **Aegis → Blocks → Newsletter**.
+2. Insert the **Newsletter** block (Search variation) or apply the Newsletter style to Search.
+3. Set button text (default **Subscribe**) and, with Custom Placeholder on, the email placeholder.
+4. Listen for `aegis-newsletter-submit` or replace the block with a form plugin when you need a real list API.
+
+When Newsletter is off, the variation is hidden from the inserter and `is-style-newsletter` is stripped so saved blocks render as ordinary Search forms (search icon included).
+
+Theme **Newsletter CTA** / **Commerce Newsletter** use this variation. The **Newsletter** pattern category (banner, inline, split) is Group + Button marketing CTAs, not this Search variation.
+
+### Common Use Cases
+
+- Footer or sidebar email capture
+- Blog page signup (theme Blog pattern)
+- Store newsletter CTA with a discount line
 
 ## SVG
 
-An Image block variation for inserting inline SVG markup. For library glyphs, use the WordPress **Icon** block (`core/icon`) instead of this variation — see [[svg-icons]].
+An Image block variation for inserting inline SVG markup (logos, wordmarks, illustrations). For library glyphs, use the WordPress **Icon** block (`core/icon`) instead — see [[svg-icons]]. Media Library `.svg` uploads are **Aegis → Settings**, not this section.
 
 ### Base Block
 
-`core/image` with the `is-style-svg` style.
+`core/image` with the `is-style-svg` class (inserter name **SVG**). The style is registered once in PHP (`Svg::register_style()`).
+
+There is no parent SVG toggle. Enabling any extra at **Aegis → Blocks → SVG** implies the variation. Without the plugin, all extras behave as on.
+
+| Extra | Inspector / render | Off fallback |
+|-------|--------------------|--------------|
+| `svg_markup` | Implies the variation (paste markup stays available on saved blocks) | Variation hidden from the inserter when no SVG extra is on |
+| `svg_mask` | Preview mask (CSS mask / `currentColor`) | Inline `<svg>` instead of a mask |
+| `svg_onclick` | Image onclick kept on the inlined SVG or mask span | onclick not copied after the `img` is removed |
+| `svg_inline` | Rich-text **Inline SVG** format in paragraphs | Format hidden; CSS-masked `has-inline-svg` images stay as images |
+| `svg_inline_file` | Inline `.svg` files on Image, Button, Site Logo, Featured Image | `img src="*.svg"` stays an image |
+
+Saved `is-style-svg` blocks still inline on the front end when the variation is implied off, so theme patterns (logo clouds, home brand marks) keep working.
 
 ### Features
 
-- Paste or write SVG markup on the Image block.
-- SVG rendered inline (not as a raster image) for CSS styling.
-- Color inheritance from parent text color when the SVG uses `currentColor`.
-- Size controls (width, height).
-- Accessible `role` and `aria-label` attributes.
+- Paste SVG markup on the Image block (administrators only; capability is checked with `manage_options`, not an empty `roles` array). The inspector is `svg-editor.js`. There is no Optimize SVG / SVGOMG control.
+- An empty SVG variation shows the Aegis image placeholder and a hint to paste markup in **SVG Settings**. That glyph is preview-only (not saved in `svgString`). Do not store an empty `data:image/svg+xml` URL. Placeholder CSS loads on any template that outputs `is-placeholder`.
+- SVG rendered inline (not as a raster) unless Mask Mode is on.
+- Independent width and height (not square like `core/icon`). Aegis stores these as `style.width.all` / `style.height.all`; the variation reads those when inlining. Per-breakpoint Image size vars apply to the figure after the SVG is inlined.
+- Color inheritance from parent text color when the SVG uses `currentColor` or Mask Mode.
+- Skipped by Image lightbox.
 
 ### Usage
 
-1. Insert the **SVG** variation (Image block).
-2. Paste your SVG code into the content area.
-3. Adjust dimensions in block settings.
-4. Colors follow the parent text color when the SVG uses `currentColor`.
+1. Enable at least one extra at **Aegis → Blocks → SVG** (Paste Markup is enough).
+2. Insert the **SVG** variation (Image block).
+3. Paste SVG markup in **SVG Settings**.
+4. Adjust width and height in block settings.
+5. Optionally enable Mask Mode so the glyph follows text color.
 
 ## Inserting Variations
 
@@ -239,4 +265,5 @@ Some variations also appear under their parent block in the inserter hierarchy.
 - [[enhanced-core-blocks]] — Framework core block enhancements.
 - [[block-patterns]] — Pre-built layouts using variations.
 - [Block variation toggles (Plugin)](../../plugins/aegis/docs/blocks/block-variations.md)
+- [Plugin Newsletter](../../plugins/aegis/docs/blocks/newsletter.md)
 - [[svg-icons]] — Using SVGs with the icon system.

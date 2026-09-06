@@ -19,7 +19,9 @@ npm run clean       # clean-build.js
 npm run translate   # prepare-translate.js + wp i18n make-pot + finish-translate.js
 ```
 
-On WordPress Studio sites, use `npm run translate:studio` instead of `npm run translate`. The prepare step copies Icon library PHP/JS, the plugin Blocks admin page, and Map block PHP/JS into `build/` so those strings are included even though `vendor/` and the plugin tree are excluded from the scan.
+On WordPress Studio sites, use `npm run translate:studio` instead of `npm run translate`. The prepare step copies Icon library PHP/JS, Marquee editor JS, Newsletter PHP/JS, Accordion PHP, SVG editor JS/PHP, and Query Loop PHP/JS into `build/` so those vendor strings are included even though `vendor/` is excluded from the scan. Bundled `editor.js` is not copied; SVG inspector strings come from `svg-editor.js`. Run `npm run build` first if you changed theme block TypeScript (`*.tsx` / `*.ts`); WP-CLI scans the compiled JavaScript.
+
+Companion plugin strings are **not** in this catalog. Generate `wp-content/plugins/aegis/languages/aegis.pot` from the plugin (`npm run translate` or `npm run translate:studio` in `wp-content/plugins/aegis`). Pro uses `wp-content/plugins/aegis-pro/languages/aegis-pro.pot`.
 
 ## audit-patterns.php
 

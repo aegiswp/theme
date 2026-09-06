@@ -31,6 +31,8 @@ The script converts `aegis/video` block markup to `core/video` in post content. 
 
 The **`core/query` Related Posts** block variation was removed. Replace those blocks with the **`aegis/related-posts`** theme block, or use **`aegisProRelatedPosts`** on Query Loop with [Aegis Pro](../../plugins/aegis-pro/docs/features/query-loop-pro.md) for advanced related-post queries.
 
+There is no parent Related Posts admin toggle. Enable at least one extra at **Aegis → Blocks → Related Posts** to register the theme block and its `blog-related-posts-*` patterns. See [[../blocks/related-posts]].
+
 ### Image Icon → `core/icon`
 
 The **Image Icon** variation (`core/image` with `is-style-icon`) was removed. Insert the WordPress **Icon** block instead. IDs look like `core/home` or `social/facebook`.

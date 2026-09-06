@@ -10,7 +10,7 @@ There is no Image Icon variation. Do not insert an Image block and style it as a
 - WordPress Core ships the `core` collection. Aegis registers additional collections and skips icons Core already provides.
 - Icon IDs are `{collection}/{name}` — for example `core/home` or `social/facebook`.
 - Hardcoded black fills are rewritten to `currentColor` so icons follow text color and dark/light mode.
-- Button and tab icons (`iconSet` / `iconName` on `core/button` and `aegis/tab`) are separate from the Icon block and still work as before.
+- Button and tab icons (`iconSet` / `iconName` on `core/button` and `aegis/tab`) are separate from the Icon block. The editor previews them with CSS; the front end inlines SVG. Icon CSS is not written into saved button HTML (that flags invalid content in WordPress 7).
 
 ## Using the Icon Block
 
@@ -34,7 +34,11 @@ Prefer `viewBox` and `fill="currentColor"`. Remove fixed width/height so the blo
 
 ### SVG Image Variation
 
-The **SVG** variation is still an Image block (`core/image` with `is-style-svg`) for pasted inline SVG files. It is not a replacement for the Icon block. See [[block-variations]].
+The **SVG** variation is an Image block (`core/image` with `is-style-svg`) for pasted inline SVG files (logos, wordmarks). It is not a replacement for the Icon block.
+
+The `svg` style is registered once in PHP (`Svg::register_style()`), not via `BlockStyles`. Paste markup in **SVG Settings**. There is no Optimize SVG / SVGOMG control. An empty SVG block shows the Aegis placeholder (preview-only) instead of the Image upload UI.
+
+**Aegis → Blocks → SVG** extras: Paste Markup (implies the variation), Mask Mode, Onclick, Inline SVG in text, Inline SVG files. See [[block-variations#svg]].
 
 ## Icon Library Collections
 

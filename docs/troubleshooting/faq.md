@@ -66,9 +66,17 @@ See [[typography]] for the available font options.
 
 ### How do I add icons?
 
-Insert the WordPress **Icon** block (`core/icon`) and choose from the Core library or Aegis collections (`social/…`, Pro sets such as Remix Icon). There is no Image Icon variation. Paste custom SVG on the Icon block, or use the SVG Image variation (`is-style-svg`) for inline SVG files.
+Insert the WordPress **Icon** block (`core/icon`) and choose from the Core library or Aegis collections (`social/…`, Pro sets such as Remix Icon). There is no Image Icon variation. Paste custom SVG on the Icon block, or use the SVG Image variation (`is-style-svg`) for logos and illustrations (**Aegis → Blocks → SVG**).
 
 See [[../features/svg-icons]].
+
+### Why does an empty SVG Image block look like a placeholder instead of an upload button?
+
+That is the Aegis empty canvas for `is-style-svg`. Paste markup in **SVG Settings**. The glyph is preview-only and is not saved. There is no Optimize SVG / SVGOMG control.
+
+### Why does the editor say a Button block contains unexpected or invalid content?
+
+Button icon CSS variables (`--wp--custom--icon--*`) are editor preview only. They are not written into saved button HTML. Hard-refresh the editor after updating Aegis so `icon-block-editor.js` loads.
 
 ### Can I use custom fonts not included with the theme?
 

@@ -48,6 +48,12 @@ Patterns for blog listing pages and post layouts.
 | Blog List | Posts in a vertical list with thumbnails. |
 | Blog Featured | Large featured post followed by smaller post grid. |
 | Blog Minimal | Text-only post list without thumbnails. |
+| Related Posts: Grid | `aegis/related-posts` in a 3-column grid (`blog-related-posts-grid`). |
+| Related Posts: List | Related posts as a vertical list (`blog-related-posts-list`). |
+| Related Posts: Cards | Related posts as cards (`blog-related-posts-cards`). |
+| Related Posts: Minimal | Compact related posts (`blog-related-posts-minimal`). |
+
+These four Related Posts patterns unregister when **Aegis → Blocks → Related Posts** is implied off. They are theme-owned; do not copy them into the companion plugin.
 
 ### Commerce
 
@@ -82,6 +88,8 @@ Patterns for conversion-focused sections.
 | CTA Split | Text on one side, form or button on the other. |
 | CTA Banner | Full-width background with overlay text and button. |
 | CTA With Stats | Call to action combined with achievement numbers. |
+| Newsletter CTA | Split heading and Search Newsletter signup (`is-style-newsletter`). |
+| Commerce Newsletter | Store signup CTA using the Search Newsletter variation. |
 
 ### Event
 
@@ -188,13 +196,13 @@ Patterns for popup and overlay layouts.
 
 ### Newsletter
 
-Patterns for email signup sections.
+Patterns for email signup sections. Banner, inline, and split are Group + Button CTAs — not the Search Newsletter variation (`is-style-newsletter`). That variation is used by **Newsletter CTA** and **Commerce Newsletter** under CTA.
 
 | Pattern | Description |
 |---------|-------------|
-| Newsletter Simple | Basic email input with subscribe button. |
-| Newsletter With Benefits | Signup form with listed benefits. |
-| Newsletter Banner | Full-width newsletter signup band. |
+| Newsletter Banner | Full-width dark signup band with a subscribe button. |
+| Newsletter Inline | Centered heading, copy, and subscribe button. |
+| Newsletter Split | Two-column layout with copy and a subscribe CTA. |
 
 ### Notice
 

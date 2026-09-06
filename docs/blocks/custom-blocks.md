@@ -32,7 +32,7 @@ Aegis does not register `aegis/video`. Use WordPress **`core/video`** — see [[
 
 | Block | Requires |
 |-------|----------|
-| Countdown, Slider/Slide, Toggle/Toggle Content, Related Posts | Aegis theme only |
+| Countdown, Slider/Slide, Toggle/Toggle Content, Related Posts | Aegis theme only (plugin extras at **Aegis → Blocks** when the plugin is active; extras imply the parent block) |
 | Map, Modal | Aegis theme + Aegis Plugin |
 | `core/video` enhancements | Theme framework; editor scripts need plugin; Pro stack optional |
 

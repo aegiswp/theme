@@ -8,6 +8,7 @@ Directory layout of the Aegis theme repository.
 aegis/
 ├── assets/                  # Fonts and static assets
 ├── docs/                    # Theme documentation (primary docs hub)
+├── languages/               # aegis.pot (theme text domain; plugin has its own catalog)
 ├── parts/                   # Template parts (.html)
 ├── patterns/                # Block patterns (.php)
 ├── src/                     # Theme glue + block sources (PSR-4)
@@ -69,7 +70,9 @@ Companion plugin pattern directories (see [Plugin File Structure](../../plugins/
 
 - `wp-content/plugins/aegis/patterns/woocommerce/` — gated on WooCommerce
 - `wp-content/plugins/aegis/patterns/wishlist/` — gated on WooCommerce + TI Wishlist
-- `wp-content/plugins/aegis/patterns/{slider,modal,contact,blog}/` — demo patterns
+- `wp-content/plugins/aegis/patterns/{slider,modal,contact}/` — demo patterns
+
+Related Posts layouts (`blog-related-posts-*`) live in the **theme** `patterns/blog/related-posts-*.php`. They are not registered from the plugin.
 
 Pro premium patterns: `wp-content/plugins/aegis-pro/patterns/`.
 

@@ -64,6 +64,8 @@ Aegis organizes its patterns into 30 categories:
 | Timeline | Chronological content layouts | Company history, roadmaps |
 | Utility | Helper patterns and spacers | Layout utilities |
 
+Related Posts layouts (`blog-related-posts-grid`, `list`, `cards`, `minimal`) are in the **Blog** category. They unregister when **Aegis → Blocks → Related Posts** is implied off. See [[../blocks/related-posts]].
+
 ## Customizing Patterns After Insertion
 
 Once inserted, a pattern becomes regular blocks that you can fully customize:

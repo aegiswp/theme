@@ -36,7 +36,7 @@ All interactive elements are fully keyboard accessible:
 - **Dropdown menus** are navigable with arrow keys.
 - **Modal dialogs** trap focus correctly and return focus on close.
 - **Sliders** support keyboard arrow key navigation.
-- **Toggles/Accordions** respond to Enter and Space keys.
+- **Toggles** (content switcher) respond to click (including the switch track) and Left/Right arrows on the tablist. Pro fade/slide/flip/scale honors `prefers-reduced-motion: reduce` (instant swap). **Accordion List** responds to Enter and Space on each item.
 
 ### Focus Styles
 
@@ -74,7 +74,8 @@ Aegis uses ARIA attributes to enhance screen reader experiences:
 | Pattern | ARIA Implementation |
 |---------|---------------------|
 | Navigation | `aria-label` identifying the nav purpose |
-| Toggles/Accordions | `aria-expanded`, `aria-controls` |
+| Toggles (content switcher) | `role="tablist"` / `tab` / `tabpanel`, `aria-selected`, `aria-controls` / `aria-labelledby`, `aria-hidden` on inactive views |
+| Accordion List | `aria-expanded` on details/summary |
 | Modals | `aria-modal`, `aria-labelledby`, focus trapping |
 | Tabs | `role="tablist"`, `role="tab"`, `role="tabpanel"` |
 | Sliders | `aria-roledescription`, `aria-label` for controls |

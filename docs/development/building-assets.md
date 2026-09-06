@@ -21,7 +21,7 @@ Video uses WordPress **`core/video`** — editor assets are built in the compani
 ```bash
 cd wp-content/plugins/aegis
 npm install
-npm run build             # Map, modal, admin, video editor
+npm run build             # Admin + video editor (does not compile Map/Modal)
 ```
 
 See [Plugin Building Assets](../../plugins/aegis/docs/development/building-assets.md).
@@ -130,20 +130,7 @@ Video editor assets are built in the companion plugin (`wp-content/plugins/aegis
 
 ## Webpack Configuration
 
-Aegis extends the default `@wordpress/scripts` Webpack config:
-
-```javascript
-// webpack.config.js
-const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
-
-module.exports = {
-    ...defaultConfig,
-    entry: {
-        ...defaultConfig.entry(),
-        // Additional entry points if needed
-    },
-};
-```
+Aegis extends the default `@wordpress/scripts` Webpack config. Entries from `block.json` `file:index.js` / `file:view.js` are remapped to `index.tsx` / `view.ts` when those sources exist, then emitted in place under `src/Blocks/`.
 
 The default configuration handles:
 
@@ -235,6 +222,18 @@ npm run build
 - Ensure your editor saves files to disk (not just to memory).
 - Check that file watchers are not being blocked (increase `fs.inotify.max_user_watches` on Linux).
 - Restart the watcher.
+
+## Translations
+
+The theme catalog is `languages/aegis.pot` (text domain `aegis`). It does **not** include companion plugin strings.
+
+```bash
+cd wp-content/themes/aegis
+npm run translate             # Requires `wp` on PATH
+npm run translate:studio      # WordPress Studio
+```
+
+`prepare-translate.js` copies vendored Icon, Marquee, Newsletter, Accordion, SVG, and Query Loop sources into `build/I18nScan` for the scan (`vendor/` is excluded). Bundled `editor.js` is not scanned; live SVG inspector strings come from `svg-editor.js`. WP-CLI scans JavaScript, not TypeScript, so run `npm run build` first if you changed theme block `*.tsx` / `*.ts` sources (for example `src/Blocks/slider/edit.tsx`, `countdown/edit.tsx`, `toggle/index.tsx`, `related-posts/edit.tsx`). Plugin strings belong in `wp-content/plugins/aegis/languages/aegis.pot`. Pro strings belong in `wp-content/plugins/aegis-pro/languages/aegis-pro.pot`. See [Plugin Building Assets](../../plugins/aegis/docs/development/building-assets.md#translations) and [[tools]].
 
 ## Next Steps
 

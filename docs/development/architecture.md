@@ -19,7 +19,7 @@ FSE **templates** remain in the theme (`templates/` + `theme.json`). WooCommerce
 
 - **PSR-4 autoloading** via Composer — namespace `Aegis\` mapped to `src/` (theme glue + blocks)
 - **Framework bootstrap** — `Aegis::register()` from `vendor/aegis/framework`
-- **Theme services** — `BlockRegistrar` and `CompanionNotice` in `src/bootstrap.php`
+- **Theme services** — `BlockRegistrar` (theme blocks, Related Posts and Slider extras localization, Related Posts pattern gating) and `CompanionNotice` in `src/bootstrap.php`
 
 ## Namespace Structure (`src/`)
 
@@ -41,8 +41,8 @@ Registered via `ServiceProvider` when `Aegis::register()` runs:
 - 37+ core block render filters (`CoreBlocks\`), including `core/icon` and Image lightbox extras
 - Icon library registration (`Icons\Library`) on WordPress 7.1+; `wp aegis migrate-icons` for leftover Image icons
 - Block settings (Visibility, Animation, Query enhancements, …)
-- Block variations (Accordion, Counter, Marquee, SVG Image — not Image Icon). Marquee extras are gated at **Aegis → Blocks → Marquee**.
-- Design system (Patterns scanner, REST trim, template pattern expander, dynamic template parts, DarkMode, SkipLink, BlockStyles, EditorAssets, navigation overlay, editor overlay fix)
+- Block variations (Accordion, Counter, Marquee, Newsletter, SVG Image — not Image Icon). Marquee extras are gated at **Aegis → Blocks → Marquee**. Accordion, Newsletter, and SVG styles register once in PHP (`register_style()`), not via `BlockStyles`. The SVG inspector is `svg-editor.js` (no SVGOMG Optimize control).
+- Design system (Patterns scanner, REST trim, template pattern expander, dynamic template parts, DarkMode, SkipLink, BlockStyles for decorative styles such as surface/checklist, EditorAssets, navigation overlay, editor overlay fix)
 - Integration CSS (gated by plugin settings when plugin active)
 - Injection hook firing on template parts and post content
 
