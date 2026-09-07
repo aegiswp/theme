@@ -5,7 +5,8 @@
  * `src/Blocks` compile in place.
  *
  * `vendor/` is excluded from make-pot, so Icon library PHP/JS, Marquee
- * editor JS, Newsletter PHP/JS, Accordion PHP, SVG editor JS/PHP, and Query Loop PHP/JS are copied into
+ * editor JS, Newsletter PHP/JS, Accordion PHP, SVG editor JS/PHP,
+ * Visibility editor JS, and Query Loop PHP/JS are copied into
  * `build/I18nScan` for the scan. finish-translate.js rewrites POT
  * references back to the real vendor paths.
  * Bundled `public/js/editor.js` is not copied (minified leftover inspector
@@ -128,6 +129,19 @@ const scanCopies = [
 		),
 		to: path.join( i18nScanDir, 'AccordionList.php' ),
 		label: 'Accordion variation PHP',
+	},
+	{
+		from: path.join(
+			themeRoot,
+			'vendor',
+			'aegis',
+			'framework',
+			'public',
+			'js',
+			'visibility-toggles.js'
+		),
+		to: path.join( i18nScanDir, 'visibility-toggles.js' ),
+		label: 'Visibility editor script',
 	},
 	{
 		from: path.join(

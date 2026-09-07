@@ -47,6 +47,10 @@ content = content.replaceAll(
 	'#: vendor/aegis/framework/src/BlockVariations/AccordionList.php'
 );
 content = content.replaceAll(
+	'#: build/I18nScan/visibility-toggles.js',
+	'#: vendor/aegis/framework/public/js/visibility-toggles.js'
+);
+content = content.replaceAll(
 	'#: build/I18nScan/query-enhancements-editor.js',
 	'#: vendor/aegis/framework/public/js/query-enhancements-editor.js'
 );

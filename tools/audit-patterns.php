@@ -93,6 +93,32 @@ function aegis_audit_build_expected_registry( array $files ): array {
 }
 
 /**
+ * Theme Woo-free `header-default` plus the plugin mini-cart overlay share a slug on purpose.
+ *
+ * @param list<string> $sources Pattern file paths for one registered slug.
+ */
+function aegis_audit_is_commerce_overlay( array $sources ): bool {
+	if ( count( $sources ) !== 2 ) {
+		return false;
+	}
+
+	$theme  = false;
+	$plugin = false;
+
+	foreach ( $sources as $path ) {
+		$normalized = str_replace( '\\', '/', $path );
+		if ( str_contains( $normalized, '/themes/aegis/patterns/' ) ) {
+			$theme = true;
+		}
+		if ( str_contains( $normalized, '/plugins/aegis/patterns/woocommerce/' ) ) {
+			$plugin = true;
+		}
+	}
+
+	return $theme && $plugin;
+}
+
+/**
  * @param string $content File contents.
  * @return list<string>
  */
@@ -118,7 +144,7 @@ $pattern_files = aegis_audit_pattern_files();
 $expected      = aegis_audit_build_expected_registry( $pattern_files );
 
 foreach ( $expected as $slug => $sources ) {
-	if ( count( $sources ) > 1 ) {
+	if ( count( $sources ) > 1 && ! aegis_audit_is_commerce_overlay( $sources ) ) {
 		$errors[] = "duplicate registered slug '$slug': " . implode( ', ', $sources );
 	}
 }

@@ -104,7 +104,7 @@ Every pattern file must start with a PHP doc-comment header:
 | **Aegis Plugin** | Slider/modal/contact demos (slider gated on extras); **WooCommerce block patterns** (`patterns/woocommerce/`, gated on WC); **TI Wishlist pattern** (`patterns/wishlist/`, gated on WC + TI Wishlist) |
 | **Aegis Pro** | `wp-content/plugins/aegis-pro/patterns/aegis/`, `patterns/utility/` — do not duplicate theme slugs |
 
-Store header patterns with mini-cart blocks require WooCommerce and the companion plugin. WC-free header variants for non-shop sites are a future enhancement.
+The theme keeps a Woo-free `header/default` for `parts/header.html`. When WooCommerce is active, the plugin overlays that slug with the mini-cart header. `header/store-minimal` stays in the theme for checkout/funnel pages.
 
 ### Internationalisation
 - All user-visible strings must be wrapped: `<?php echo esc_html__( 'String', 'aegis' ); ?>`.

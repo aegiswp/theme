@@ -83,7 +83,7 @@
 		<details class="wp-block-details is-style-surface is-style-default" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
 			<summary><?php echo esc_html__( 'How do I add custom SVG images?', 'aegis' ); ?></summary>
 			<!-- wp:paragraph {"placeholder":"Type / to add a hidden block","className":"is-style-default","fontSize":"16"} -->
-			<p class="is-style-default has-16-font-size"><?php echo esc_html__( 'Use the Icon Block to manage curated sets or the Inline SVG variation to paste raw XML code directly onto the canvas.', 'aegis' ); ?></p>
+			<p class="is-style-default has-16-font-size"><?php echo esc_html__( 'Insert the Icon block and pick from the WordPress Icon library, including Aegis collections. Paste custom SVG in the Icon block, or use the SVG Image variation for inline SVG files.', 'aegis' ); ?></p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph {"placeholder":"Type / to add a hidden block","className":"is-style-default","fontSize":"16"} -->

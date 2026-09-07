@@ -433,6 +433,7 @@ Framework styling applies when integrations are enabled in the **Aegis plugin** 
 | LearnDash / LifterLMS / Sensei | LMS | Framework styling; pattern control in Pro |
 | Rank Math / Yoast / AIOSEO / SEOPress | SEO | Schema delegation via plugin — not theme CSS |
 | ACF / Meta Box | Developer | Plugin integration toggles |
+| FluentCRM / WP Fusion | CRM | Plugin Integrations; FluentCRM Pro video events; WP Fusion tag/list/CRM logged-in conditions. No theme CSS |
 | BunnyCDN | Performance | Credentials in plugin Integrations; video API in Pro |
 
 ### Layout & Navigation
