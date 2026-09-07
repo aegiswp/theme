@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-06T00:33:27+00:00\n"
+"POT-Creation-Date: 2026-09-07T01:09:25+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: aegis\n"
@@ -274,6 +274,7 @@ msgstr ""
 
 #: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:426
 #: vendor/aegis/framework/public/js/query-enhancements-editor.js:866
+#: vendor/aegis/framework/public/js/visibility-toggles.js:519
 #: src/Blocks/countdown/index.js:1
 msgid "None"
 msgstr ""
@@ -946,7 +947,6 @@ msgstr ""
 
 #: patterns/commerce/product-comparison.php:47
 #: patterns/commerce/trust-badges.php:48
-#: patterns/template/single-product.php:74
 msgid "Free Shipping"
 msgstr ""
 
@@ -1020,25 +1020,6 @@ msgstr ""
 
 #: patterns/commerce/product-reviews.php:123
 msgid "Emily R. — Verified Buyer"
-msgstr ""
-
-#: patterns/commerce/recently-viewed.php
-msgctxt "Pattern title"
-msgid "Recently Viewed Products"
-msgstr ""
-
-#: patterns/commerce/recently-viewed.php
-msgctxt "Pattern description"
-msgid "A section displaying recently viewed products using a product collection grid."
-msgstr ""
-
-#: patterns/commerce/recently-viewed.php:15
-#: patterns/page/product-landing-dynamic.php:50
-msgid "Recently Viewed"
-msgstr ""
-
-#: patterns/commerce/recently-viewed.php:19
-msgid "Pick up where you left off."
 msgstr ""
 
 #: patterns/commerce/shipping-info.php
@@ -1244,7 +1225,6 @@ msgstr ""
 
 #: patterns/commerce/trust-badges.php:18
 #: patterns/header/store-minimal.php:32
-#: patterns/template/single-product.php:67
 msgid "Secure Checkout"
 msgstr ""
 
@@ -3734,7 +3714,6 @@ msgid "FAQ"
 msgstr ""
 
 #: patterns/footer/store-default.php:88
-#: patterns/template/page-my-account.php:20
 msgid "My Account"
 msgstr ""
 
@@ -3787,53 +3766,9 @@ msgctxt "Pattern description"
 msgid "A wide footer with multiple columns."
 msgstr ""
 
-#: patterns/header/center-logo.php
-msgctxt "Pattern title"
-msgid "Center Logo"
-msgstr ""
-
-#: patterns/header/center-logo.php
-msgctxt "Pattern description"
-msgid "A header with centered logo and navigation."
-msgstr ""
-
-#: patterns/header/center-menu.php
-msgctxt "Pattern title"
-msgid "Header Center Menu"
-msgstr ""
-
-#: patterns/header/center-menu.php
-msgctxt "Pattern description"
-msgid "A header with centered menu navigation."
-msgstr ""
-
 #: patterns/header/default.php
 msgctxt "Pattern title"
 msgid "Header Default"
-msgstr ""
-
-#: patterns/header/menu-left.php
-msgctxt "Pattern title"
-msgid "Menu Left"
-msgstr ""
-
-#: patterns/header/menu-left.php
-msgctxt "Pattern description"
-msgid "A header with left-aligned menu."
-msgstr ""
-
-#: patterns/header/store-default.php
-msgctxt "Pattern title"
-msgid "Store Header Default"
-msgstr ""
-
-#: patterns/header/store-default.php
-msgctxt "Pattern description"
-msgid "A full store header with logo, shop navigation, search, customer account, and mini-cart."
-msgstr ""
-
-#: patterns/header/store-default.php:33
-msgid "Search products…"
 msgstr ""
 
 #: patterns/header/store-minimal.php
@@ -5050,62 +4985,6 @@ msgstr ""
 msgid "We respect your privacy. Unsubscribe at any time."
 msgstr ""
 
-#: patterns/page/funnel-thank-you.php
-msgctxt "Pattern title"
-msgid "Funnel Thank You Page"
-msgstr ""
-
-#: patterns/page/funnel-thank-you.php
-msgctxt "Pattern description"
-msgid "A post-purchase thank you page with order confirmation message, next steps, upsell product grid, and social sharing — uses minimal header/footer."
-msgstr ""
-
-#: patterns/page/funnel-thank-you.php:25
-msgid "Thank You for Your Purchase!"
-msgstr ""
-
-#: patterns/page/funnel-thank-you.php:29
-msgid "Your order has been confirmed and is being processed. You'll receive a confirmation email shortly with your order details."
-msgstr ""
-
-#: patterns/page/funnel-thank-you.php:35
-msgid "What Happens Next?"
-msgstr ""
-
-#: patterns/page/funnel-thank-you.php:41
-msgid "1. Check your email for order confirmation and receipt"
-msgstr ""
-
-#: patterns/page/funnel-thank-you.php:45
-msgid "2. Your order will be prepared and shipped within 24 hours"
-msgstr ""
-
-#: patterns/page/funnel-thank-you.php:49
-msgid "3. You'll receive a tracking number once your order ships"
-msgstr ""
-
-#: patterns/page/funnel-thank-you.php:59
-msgid "View My Orders"
-msgstr ""
-
-#: patterns/page/funnel-thank-you.php:63
-#: patterns/template/order-confirmation.php:126
-#: patterns/template/page-wishlist.php:40
-msgid "Continue Shopping"
-msgstr ""
-
-#: patterns/page/funnel-thank-you.php:75
-msgid "You Might Also Like"
-msgstr ""
-
-#: patterns/page/funnel-thank-you.php:79
-msgid "Customers who bought this also loved these products."
-msgstr ""
-
-#: patterns/page/funnel-thank-you.php:109
-msgid "Share Your Purchase"
-msgstr ""
-
 #: patterns/page/home.php
 msgctxt "Pattern title"
 msgid "Page Home"
@@ -5885,32 +5764,6 @@ msgstr ""
 msgid "Start a Conversation"
 msgstr ""
 
-#: patterns/page/product-landing-dynamic.php
-msgctxt "Pattern title"
-msgid "Product Landing Page (Dynamic)"
-msgstr ""
-
-#: patterns/page/product-landing-dynamic.php
-msgctxt "Pattern description"
-msgid "A dynamic product landing page using WooCommerce product collections, featured products, on-sale grid, and category browsing."
-msgstr ""
-
-#: patterns/page/product-landing-dynamic.php:22
-msgid "Discover Our Collection"
-msgstr ""
-
-#: patterns/page/product-landing-dynamic.php:26
-msgid "Curated products designed to elevate your experience. Browse our latest arrivals, best sellers, and exclusive deals."
-msgstr ""
-
-#: patterns/page/product-landing-dynamic.php:32
-msgid "Shop All Products"
-msgstr ""
-
-#: patterns/page/product-landing-dynamic.php:54
-msgid "Pick up where you left off with products you've recently browsed."
-msgstr ""
-
 #: patterns/page/product-landing-static.php
 msgctxt "Pattern title"
 msgid "Product Landing Page (Static)"
@@ -6143,119 +5996,6 @@ msgstr ""
 msgid "View Pricing"
 msgstr ""
 
-#: patterns/page/shop-full-width.php
-msgctxt "Pattern title"
-msgid "Shop Full Width"
-msgstr ""
-
-#: patterns/page/shop-full-width.php
-msgctxt "Pattern description"
-msgid "A full-width shop page with top-bar filters and a wide product grid without sidebar."
-msgstr ""
-
-#: patterns/page/shop-full-width.php:18
-#: patterns/page/shop.php:20
-msgid "Our Store"
-msgstr ""
-
-#: patterns/page/shop-full-width.php:22
-#: patterns/template/search-product.php:157
-msgid "Browse All Products"
-msgstr ""
-
-#: patterns/page/shop-full-width.php:26
-msgid "Explore our full catalog of premium products."
-msgstr ""
-
-#: patterns/page/shop-full-width.php:35
-#: patterns/page/shop-full-width.php:37
-#: patterns/page/shop-full-width.php:38
-#: patterns/template/archive-product.php:42
-#: patterns/template/archive-product.php:45
-#: patterns/template/search-product.php:41
-#: patterns/template/search-product.php:44
-#: patterns/template/taxonomy-product_cat.php:43
-#: patterns/template/taxonomy-product_cat.php:46
-#: patterns/template/taxonomy-product_tag.php:43
-#: patterns/template/taxonomy-product_tag.php:46
-msgid "Price"
-msgstr ""
-
-#: patterns/page/shop-full-width.php:45
-#: patterns/page/shop-full-width.php:47
-#: patterns/page/shop-full-width.php:48
-#: patterns/template/archive-product.php:70
-#: patterns/template/archive-product.php:73
-#: patterns/template/search-product.php:69
-#: patterns/template/search-product.php:72
-#: patterns/template/taxonomy-product_cat.php:71
-#: patterns/template/taxonomy-product_cat.php:74
-#: patterns/template/taxonomy-product_tag.php:71
-#: patterns/template/taxonomy-product_tag.php:74
-msgid "Availability"
-msgstr ""
-
-#: patterns/page/shop-full-width.php:55
-#: patterns/page/shop-full-width.php:57
-#: patterns/page/shop-full-width.php:58
-#: patterns/template/archive-product.php:84
-#: patterns/template/archive-product.php:87
-#: patterns/template/search-product.php:83
-#: patterns/template/search-product.php:86
-#: patterns/template/taxonomy-product_cat.php:85
-#: patterns/template/taxonomy-product_cat.php:88
-#: patterns/template/taxonomy-product_tag.php:85
-#: patterns/template/taxonomy-product_tag.php:88
-msgid "Rating"
-msgstr ""
-
-#: patterns/page/shop-full-width.php:65
-#: patterns/template/archive-product.php:98
-#: patterns/template/archive-product.php:101
-#: patterns/template/search-product.php:97
-#: patterns/template/search-product.php:100
-#: patterns/template/taxonomy-product_cat.php:99
-#: patterns/template/taxonomy-product_cat.php:102
-#: patterns/template/taxonomy-product_tag.php:99
-#: patterns/template/taxonomy-product_tag.php:102
-msgid "Active Filters"
-msgstr ""
-
-#: patterns/page/shop-full-width.php:116
-#: patterns/template/search-product.php:147
-#: patterns/template/taxonomy-product_cat.php:149
-#: patterns/template/taxonomy-product_tag.php:149
-msgid "No products found"
-msgstr ""
-
-#: patterns/page/shop-full-width.php:120
-#: patterns/template/archive-product.php:152
-#: patterns/template/taxonomy-product_cat.php:153
-#: patterns/template/taxonomy-product_tag.php:153
-msgid "You can try"
-msgstr ""
-
-#: patterns/page/shop-full-width.php:120
-#: patterns/template/archive-product.php:152
-#: patterns/template/taxonomy-product_cat.php:153
-#: patterns/template/taxonomy-product_tag.php:153
-msgid "clearing any filters"
-msgstr ""
-
-#: patterns/page/shop-full-width.php:120
-#: patterns/template/archive-product.php:152
-#: patterns/template/taxonomy-product_cat.php:153
-#: patterns/template/taxonomy-product_tag.php:153
-msgid "or head to our"
-msgstr ""
-
-#: patterns/page/shop-full-width.php:120
-#: patterns/template/archive-product.php:152
-#: patterns/template/taxonomy-product_cat.php:153
-#: patterns/template/taxonomy-product_tag.php:153
-msgid "store's home"
-msgstr ""
-
 #: patterns/page/shop.php
 msgctxt "Pattern title"
 msgid "Shop Page"
@@ -6264,6 +6004,10 @@ msgstr ""
 #: patterns/page/shop.php
 msgctxt "Pattern description"
 msgid "A complete shop landing page for e-commerce sites."
+msgstr ""
+
+#: patterns/page/shop.php:20
+msgid "Our Store"
 msgstr ""
 
 #: patterns/page/shop.php:24
@@ -6307,7 +6051,6 @@ msgid "In-depth guides and tutorials"
 msgstr ""
 
 #: patterns/page/shop.php:133
-#: patterns/product/featured-grid.php:17
 msgid "Featured Products"
 msgstr ""
 
@@ -7100,50 +6843,6 @@ msgstr ""
 msgid "12 Products"
 msgstr ""
 
-#: patterns/product/featured-grid.php
-msgctxt "Pattern title"
-msgid "Featured Product Grid"
-msgstr ""
-
-#: patterns/product/featured-grid.php
-msgctxt "Pattern description"
-msgid "A three-column featured products grid with sale badges, ratings, and Add to Cart buttons."
-msgstr ""
-
-#: patterns/product/featured-grid.php:23
-msgid "View All →"
-msgstr ""
-
-#: patterns/product/featured-grid.php:60
-msgid "No featured products found. Mark products as featured in WooCommerce to display them here."
-msgstr ""
-
-#: patterns/product/on-sale.php
-msgctxt "Pattern title"
-msgid "On Sale Products"
-msgstr ""
-
-#: patterns/product/on-sale.php
-msgctxt "Pattern description"
-msgid "On-sale products grid filtered to show only discounted items."
-msgstr ""
-
-#: patterns/product/on-sale.php:19
-msgid "On Sale Now"
-msgstr ""
-
-#: patterns/product/on-sale.php:23
-msgid "Limited Time"
-msgstr ""
-
-#: patterns/product/on-sale.php:31
-msgid "View All Sales →"
-msgstr ""
-
-#: patterns/product/on-sale.php:66
-msgid "No products are currently on sale. Check back soon for deals!"
-msgstr ""
-
 #: patterns/sidebar/default.php
 msgctxt "Pattern title"
 msgid "Sidebar Default"
@@ -7543,32 +7242,6 @@ msgctxt "Pattern title"
 msgid "Template 404"
 msgstr ""
 
-#: patterns/template/archive-product.php
-msgctxt "Pattern title"
-msgid "Archive Product"
-msgstr ""
-
-#: patterns/template/archive-product.php:39
-#: patterns/template/taxonomy-product_cat.php:40
-#: patterns/template/taxonomy-product_tag.php:40
-msgid "Filter Products"
-msgstr ""
-
-#: patterns/template/archive-product.php:56
-#: patterns/template/archive-product.php:59
-#: patterns/template/search-product.php:55
-#: patterns/template/search-product.php:58
-#: patterns/template/taxonomy-product_cat.php:57
-#: patterns/template/taxonomy-product_cat.php:60
-#: patterns/template/taxonomy-product_tag.php:57
-#: patterns/template/taxonomy-product_tag.php:60
-msgid "Color"
-msgstr ""
-
-#: patterns/template/archive-product.php:148
-msgid "No results found"
-msgstr ""
-
 #: patterns/template/archive.php
 msgctxt "Pattern title"
 msgid "Template Archive"
@@ -7647,109 +7320,6 @@ msgstr ""
 msgid "Our site is temporarily unavailable while we perform maintenance. Thank you for your patience."
 msgstr ""
 
-#: patterns/template/order-confirmation.php
-msgctxt "Pattern title"
-msgid "Order Confirmation"
-msgstr ""
-
-#: patterns/template/order-confirmation.php:26
-msgid "Thank You for Your Order"
-msgstr ""
-
-#: patterns/template/order-confirmation.php:30
-msgid "Your order has been received and is being processed. You will receive a confirmation email shortly."
-msgstr ""
-
-#: patterns/template/order-confirmation.php:46
-msgid "Order Details"
-msgstr ""
-
-#: patterns/template/order-confirmation.php:56
-msgid "Downloads"
-msgstr ""
-
-#: patterns/template/order-confirmation.php:70
-msgid "Shipping Address"
-msgstr ""
-
-#: patterns/template/order-confirmation.php:84
-msgid "Billing Address"
-msgstr ""
-
-#: patterns/template/order-confirmation.php:102
-msgid "You May Also Like"
-msgstr ""
-
-#: patterns/template/page-cart.php
-msgctxt "Pattern title"
-msgid "Page Cart"
-msgstr ""
-
-#: patterns/template/page-cart.php:20
-msgid "Your Cart"
-msgstr ""
-
-#: patterns/template/page-cart.php:36
-msgid "You may also like"
-msgstr ""
-
-#: patterns/template/page-cart.php:77
-msgid "Your cart is currently empty"
-msgstr ""
-
-#: patterns/template/page-cart.php:81
-msgid "Looks like you haven't added anything to your cart yet."
-msgstr ""
-
-#: patterns/template/page-cart.php:87
-msgid "Browse Products"
-msgstr ""
-
-#: patterns/template/page-checkout-multi-step.php
-msgctxt "Pattern title"
-msgid "Page Checkout Multi-Step"
-msgstr ""
-
-#: patterns/template/page-checkout-multi-step.php:20
-#: patterns/template/page-checkout.php:20
-msgid "Checkout"
-msgstr ""
-
-#: patterns/template/page-checkout-multi-step.php:32
-msgid "Shipping"
-msgstr ""
-
-#: patterns/template/page-checkout-multi-step.php:48
-msgid "Payment"
-msgstr ""
-
-#: patterns/template/page-checkout-multi-step.php:64
-msgid "Review"
-msgstr ""
-
-#: patterns/template/page-checkout-multi-step.php:132
-msgid "← Previous Step"
-msgstr ""
-
-#: patterns/template/page-checkout-multi-step.php:140
-msgid "Continue to Payment →"
-msgstr ""
-
-#: patterns/template/page-checkout-multi-step.php:150
-#: patterns/template/page-checkout.php:70
-msgid "Secure checkout powered by industry-standard encryption"
-msgstr ""
-
-#: patterns/template/page-checkout.php
-msgctxt "Pattern title"
-msgid "Page Checkout"
-msgstr ""
-
-#: patterns/template/page-coming-soon.php
-msgctxt "Pattern title"
-msgid "Page Coming Soon"
-msgstr ""
-
 #: patterns/template/page-contact.php
 msgctxt "Pattern title"
 msgid "Page Contact"
@@ -7760,27 +7330,9 @@ msgctxt "Pattern title"
 msgid "Page Landing"
 msgstr ""
 
-#: patterns/template/page-my-account.php
-msgctxt "Pattern title"
-msgid "Page My Account"
-msgstr ""
-
 #: patterns/template/page-no-title.php
 msgctxt "Pattern title"
 msgid "Page No Title"
-msgstr ""
-
-#: patterns/template/page-wishlist.php
-msgctxt "Pattern title"
-msgid "Page Wishlist"
-msgstr ""
-
-#: patterns/template/page-wishlist.php:20
-msgid "My Wishlist"
-msgstr ""
-
-#: patterns/template/page-wishlist.php:24
-msgid "Save your favorite items and come back to them anytime."
 msgstr ""
 
 #: patterns/template/page-with-sidebar.php
@@ -7793,25 +7345,13 @@ msgctxt "Pattern title"
 msgid "Template Page"
 msgstr ""
 
-#: patterns/template/search-product.php
-msgctxt "Pattern title"
-msgid "Search Product"
-msgstr ""
-
-#: patterns/template/search-product.php:38
-msgid "Refine Results"
-msgstr ""
-
-#: patterns/template/search-product.php:151
-msgid "Sorry, we couldn't find any products matching your search. Try a different keyword or browse our store."
-msgstr ""
-
 #: patterns/template/search.php
 msgctxt "Pattern title"
 msgid "Template Search"
 msgstr ""
 
 #: patterns/template/search.php:16
+#: vendor/aegis/framework/public/js/visibility-toggles.js:114
 msgid "Search Results"
 msgstr ""
 
@@ -7823,32 +7363,6 @@ msgstr ""
 #: patterns/template/single-no-featured-image.php
 msgctxt "Pattern title"
 msgid "Single No Featured Image"
-msgstr ""
-
-#: patterns/template/single-product-landing.php
-msgctxt "Pattern title"
-msgid "Single Product Landing"
-msgstr ""
-
-#: patterns/template/single-product.php
-msgctxt "Pattern title"
-msgid "Single Product"
-msgstr ""
-
-#: patterns/template/single-product.php:56
-msgid "Category: "
-msgstr ""
-
-#: patterns/template/single-product.php:58
-msgid "Tags: "
-msgstr ""
-
-#: patterns/template/single-product.php:81
-msgid "30-Day Returns"
-msgstr ""
-
-#: patterns/template/single-product.php:100
-msgid "Related Products"
 msgstr ""
 
 #: patterns/template/single.php
@@ -7931,43 +7445,6 @@ msgstr ""
 
 #: patterns/template/taxonomy-post_tag.php:37
 msgid "No posts with this tag."
-msgstr ""
-
-#: patterns/template/taxonomy-product_attribute.php
-msgctxt "Pattern title"
-msgid "Product Attribute"
-msgstr ""
-
-#: patterns/template/taxonomy-product_attribute.php:47
-#: patterns/template/taxonomy-product_cat-clothing.php:47
-#: patterns/template/taxonomy-product_cat-digital.php:47
-#: patterns/template/taxonomy-product_cat-outlet.php:47
-msgid "No products found."
-msgstr ""
-
-#: patterns/template/taxonomy-product_cat-clothing.php
-msgctxt "Pattern title"
-msgid "Product Category Clothing"
-msgstr ""
-
-#: patterns/template/taxonomy-product_cat-digital.php
-msgctxt "Pattern title"
-msgid "Product Category Digital"
-msgstr ""
-
-#: patterns/template/taxonomy-product_cat-outlet.php
-msgctxt "Pattern title"
-msgid "Product Category Outlet"
-msgstr ""
-
-#: patterns/template/taxonomy-product_cat.php
-msgctxt "Pattern title"
-msgid "Taxonomy Product Category"
-msgstr ""
-
-#: patterns/template/taxonomy-product_tag.php
-msgctxt "Pattern title"
-msgid "Taxonomy Product Tag"
 msgstr ""
 
 #: patterns/testimonial/brands.php
@@ -8457,10 +7934,12 @@ msgid "Lower is faster. This is the time for one full loop."
 msgstr ""
 
 #: vendor/aegis/framework/public/js/marquee-editor.js:220
+#: vendor/aegis/framework/public/js/visibility-toggles.js:131
 msgid "Desktop"
 msgstr ""
 
 #: vendor/aegis/framework/public/js/marquee-editor.js:234
+#: vendor/aegis/framework/public/js/visibility-toggles.js:129
 msgid "Mobile"
 msgstr ""
 
@@ -8509,6 +7988,7 @@ msgid "Taxonomy Filters"
 msgstr ""
 
 #: vendor/aegis/framework/public/js/query-enhancements-editor.js:478
+#: vendor/aegis/framework/public/js/visibility-toggles.js:210
 msgid "Remove"
 msgstr ""
 
@@ -8578,6 +8058,7 @@ msgid "Compare"
 msgstr ""
 
 #: vendor/aegis/framework/public/js/query-enhancements-editor.js:673
+#: vendor/aegis/framework/public/js/visibility-toggles.js:485
 msgid "Value"
 msgstr ""
 
@@ -8729,12 +8210,346 @@ msgstr ""
 msgid "SVG Settings"
 msgstr ""
 
+#: vendor/aegis/framework/public/js/visibility-toggles.js:48
+msgid "Site timezone"
+msgstr ""
+
+#. translators: %s: saved timezone string that is not IANA
+#: vendor/aegis/framework/public/js/visibility-toggles.js:56
+#, js-format
+msgid "%s (invalid, using site timezone)"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:66
+msgid "Applies to Date & Time, daily range, and weekdays. Leave empty to use the site timezone."
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:68
+msgid "The saved value is not an IANA timezone, so the site timezone is used."
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:74
+msgid "Show when matched"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:75
+msgid "Hide when matched"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:79
+msgid "All rules must match"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:80
+msgid "Any rule must match"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:84
+#: vendor/aegis/framework/public/js/visibility-toggles.js:97
+msgid "is"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:85
+#: vendor/aegis/framework/public/js/visibility-toggles.js:98
+msgid "is not"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:99
+msgid "exists"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:100
+msgid "does not exist"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:101
+msgid "contains"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:102
+msgid "greater than"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:103
+msgid "less than"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:104
+msgid "greater than or equal"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:105
+msgid "less than or equal"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:109
+msgid "All pages"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:110
+msgid "Front Page"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:111
+msgid "Blog Page"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:112
+msgid "All Singular"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:113
+msgid "All Archives"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:115
+msgid "404 Page"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:119
+msgid "Select…"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:130
+msgid "Tablet"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:135
+msgid "Sunday"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:136
+msgid "Monday"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:137
+msgid "Tuesday"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:138
+msgid "Wednesday"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:139
+msgid "Thursday"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:140
+msgid "Friday"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:141
+msgid "Saturday"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:165
+#: vendor/aegis/framework/public/js/visibility-toggles.js:438
+#: vendor/aegis/framework/public/js/visibility-toggles.js:495
+msgid "Logic"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:172
+msgid "Relation"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:213
+msgid "Add Rule"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:231
+msgid "Replace current visibility settings with this preset?"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:243
+msgid "Apply Preset"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:246
+msgid "Select preset…"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:259
+msgid "Lockdown (hide on frontend)"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:270
+msgid "User Status"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:273
+msgid "All Users"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:274
+msgid "Logged In"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:275
+msgid "Logged Out"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:284
+msgid "Any Role"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:289
+msgid "User Role Rules"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:298
+msgid "Role"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:299
+#: vendor/aegis/framework/public/js/visibility-toggles.js:328
+#: vendor/aegis/framework/public/js/visibility-toggles.js:462
+#: vendor/aegis/framework/public/js/visibility-toggles.js:484
+msgid "Operator"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:311
+msgid "User Capability Rules"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:323
+msgid "Capability"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:326
+msgid "Use a primitive capability slug such as edit_posts. Object caps like edit_post need a post ID and will not match."
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:339
+msgid "Interpreted in the schedule timezone, or the site timezone if Timezone is empty."
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:340
+msgid "Interpreted in the site timezone."
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:342
+msgid "Schedule Start"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:343
+msgid "Schedule End"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:347
+msgid "If end is before start, the window wraps overnight."
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:349
+msgid "Daily Start Time"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:350
+msgid "Daily End Time"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:357
 #: src/Blocks/countdown/index.js:1
-msgid "Countdown Settings"
+msgid "Timezone"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:375
+msgid "Active Weekdays"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:399
+msgid "Hide on Mobile"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:399
+msgid "Below 480px."
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:400
+msgid "Hide on Tablet"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:400
+msgid "480px to 1023px."
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:401
+msgid "Hide on Desktop"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:401
+msgid "1024px and up."
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:409
+msgid "Hide below width (px)"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:417
+msgid "Hide above width (px)"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:430
+msgid "Page Type"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:452
+msgid "Browser & Device"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:461
+msgid "Device"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:474
+msgid "URL Query String"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:483
+msgid "Parameter"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:494
+msgid "User IDs (comma-separated)"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:501
+msgid "Screen reader only"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:507
+msgid "Hide when reduced motion preferred"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:515
+msgid "Hide for color scheme"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:516
+msgid "Hides the block when the Aegis dark/light toggle, the site default, or the operating system matches that scheme."
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:520
+msgid "Dark"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:521
+msgid "Light"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:531
+msgid "Hide when high contrast preferred"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:537
+msgid "Hide when forced colors active"
+msgstr ""
+
+#: vendor/aegis/framework/public/js/visibility-toggles.js:554
+msgid "Visibility"
 msgstr ""
 
 #: src/Blocks/countdown/index.js:1
-msgid "Timezone"
+msgid "Countdown Settings"
 msgstr ""
 
 #: src/Blocks/countdown/index.js:1
