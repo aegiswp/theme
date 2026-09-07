@@ -8,7 +8,7 @@ This page provides a complete reference of all 23 templates included in the Aegi
 |---|----------|----------|------|-------------|
 | 1 | Index | `index.html` | Blog | The default fallback template. Displays a post list with pagination. |
 | 2 | Front Page | `front-page.html` | Homepage | Static homepage when configured in Settings → Reading. |
-| 3 | Page | `page.html` | Pages | Default template for static pages. Includes title, content, header, and footer. |
+| 3 | Page | `page.html` | Pages | Default template for static pages. Includes title, content, header, and footer. Also wraps bbPress forum views when the Aegis bbPress integration is on (`locate_block_template` with the `page` type and `page.php` hierarchy). |
 | 4 | Single Post | `single.html` | Posts | Individual blog post view with title, meta, content, and comments. |
 | 5 | Archive | `archive.html` | Archives | Displays posts for categories, tags, dates, and custom taxonomies. |
 | 6 | Author | `author.html` | Archives | Displays an author bio and their published posts. |
@@ -85,6 +85,7 @@ WordPress selects templates in priority order. For Aegis:
 |--------------|-------------------|
 | Front page | front-page.html → page.html → index.html |
 | Static page | Custom template → page.html → index.html |
+| bbPress (integration on) | Page block template (`page` / `page.php` hierarchy) → PHP theme-compat fallback |
 | Single post | single.html → index.html |
 | Category archive | archive.html → index.html |
 | Author archive | author.html → archive.html → index.html |

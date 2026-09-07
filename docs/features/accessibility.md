@@ -175,6 +175,16 @@ To maintain accessibility, content authors should:
 5. **Use sufficient color contrast** when choosing custom colors.
 6. **Test with keyboard** — navigate your pages without a mouse to catch issues.
 
+## Conditionals extras
+
+Block and page visibility extras at **Aegis → Conditionals → Accessibility** hide or visually clip content with CSS. They do not strip HTML on the server.
+
+**Color Scheme** follows the Aegis visitor toggle (`is-style-dark` / `is-style-light` on `body`), then the theme default (`default-mode-dark`, `default-mode-light`, or `default-mode-system`), then the OS `prefers-color-scheme` when dark mode is off. That matches the header dark-mode toggle utilities in `dark-mode.css`.
+
+On posts, those classes are added to the existing `core/post-content` wrapper. Hook patterns wrap the whole pattern. Turning an extra off skips both the classes and the CSS.
+
+See [Plugin Conditional Logic](../../plugins/aegis/docs/features/conditional-logic.md#accessibility-extras).
+
 ## Next Steps
 
 - [[testing]] — Running automated accessibility tests.

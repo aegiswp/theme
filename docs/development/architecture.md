@@ -40,7 +40,7 @@ Registered via `ServiceProvider` when `Aegis::register()` runs:
 
 - 37+ core block render filters (`CoreBlocks\`), including `core/icon` and Image lightbox extras
 - Icon library registration (`Icons\Library`) on WordPress 7.1+; `wp aegis migrate-icons` for leftover Image icons
-- Block settings (Visibility, Animation, Query enhancements, …)
+- Block settings (Visibility, Animation, Query enhancements, …). Visibility viewport/a11y extras add CSS classes to the block or post-content root; hook patterns wrap. Color Scheme follows `is-style-*` and `default-mode-*` on `body`.
 - Block variations (Accordion, Counter, Marquee, Newsletter, SVG Image — not Image Icon). Marquee extras are gated at **Aegis → Blocks → Marquee**. Accordion, Newsletter, and SVG styles register once in PHP (`register_style()`), not via `BlockStyles`. The SVG inspector is `svg-editor.js` (no SVGOMG Optimize control).
 - Design system (Patterns scanner, REST trim, template pattern expander, dynamic template parts, DarkMode, SkipLink, BlockStyles for decorative styles such as surface/checklist, EditorAssets, navigation overlay, editor overlay fix)
 - Integration CSS (gated by plugin settings when plugin active)

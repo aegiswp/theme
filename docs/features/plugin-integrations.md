@@ -17,16 +17,16 @@ Integration styles use design tokens and adapt to style variations and dark mode
 | Sensei LMS | Course and lesson styling |
 | Easy Digital Downloads | Download and checkout styling |
 | AffiliateWP | Affiliate dashboard styling |
-| Co-Authors Plus | Multi-author block display |
+| Co-Authors Plus | Multi-author `core/post-author*` replace when the Aegis plugin is absent. With the plugin active, the plugin owns guest URLs, CSS (`public/css/co-authors-plus.css`), and the optional **Author Schema** extra. The framework class does not emit JSON-LD. |
 | Meta Box | Field UI / frontend form styling |
-| bbPress | Forum styling |
+| bbPress | Forum styling (`plugins/bbpress.css`, dequeues bbPress default CSS); FSE **Page** wrap via `locate_block_template( $template, 'page', array( 'page.php' ) )` |
 | Syntax Highlighting Code Block | Code block styling |
 | Code Block Pro | Code block radius/typography overlay |
 | BunnyCDN | Stream player embed styling |
 
 ## Integrations Dashboard
 
-Credentials, pattern control, and extra toggles (ACF, Meta Box, Rank Math, Yoast, LearnDash pattern keep, BunnyCDN API, Google Maps, etc.) are managed via the **Aegis plugin** Integrations dashboard. Framework CSS above still loads when the matching integration toggle is enabled.
+Credentials live at **Aegis → Connectors**. Pattern control and extra toggles (WooCommerce, EDD, AffiliateWP, ACF, Meta Box, Rank Math, Yoast, LearnDash pattern keep, Co-Authors Plus, and so on) are on **Aegis → Integrations**. Extras stay off unless that plugin is active and the parent integration is on. Framework CSS above still loads when the matching integration toggle is enabled.
 
 See [Integrations Dashboard](../../plugins/aegis/docs/features/integrations-dashboard.md).
 

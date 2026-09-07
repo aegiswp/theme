@@ -1,6 +1,6 @@
 # Custom Blocks
 
-The Aegis **theme** registers six custom blocks from `src/Blocks/`. Map and Modal require the [Aegis companion plugin](../../plugins/aegis/docs/blocks/custom-blocks.md). Pro adds [tabs, image compare, and block sub-features](../../plugins/aegis-pro/docs/features/pro-blocks.md).
+The Aegis **theme** registers six custom blocks from `src/Blocks/`. Map and Modal require the [Aegis companion plugin](../../plugins/aegis/docs/blocks/custom-blocks.md). Pro adds [tabs, image compare, and block sub-features](../../plugins/aegis-pro/docs/features/pro-blocks.md). Image Compare uses the theme Image inspector (aspect ratio, height, object-fit, object-position) in addition to Pro extras at **Aegis → Blocks → Image Compare**.
 
 Block feature toggles are at **Aegis → Blocks** when the plugin is active — see [Plugin Block Variations](../../plugins/aegis/docs/blocks/block-variations.md).
 
@@ -35,6 +35,7 @@ Aegis does not register `aegis/video`. Use WordPress **`core/video`** — see [[
 | Countdown, Slider/Slide, Toggle/Toggle Content, Related Posts | Aegis theme only (plugin extras at **Aegis → Blocks** when the plugin is active; extras imply the parent block) |
 | Map, Modal | Aegis theme + Aegis Plugin |
 | `core/video` enhancements | Theme framework; editor scripts need plugin; Pro stack optional |
+| Image Compare (`aegis/image-compare`) | Aegis theme + Aegis Plugin + Aegis Pro; extras at **Aegis → Blocks → Image Compare** |
 
 ## Next Steps
 

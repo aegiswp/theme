@@ -30,8 +30,9 @@ Fired when integrations are enabled (free plugin `IntegrationInjector`):
 | `aegis_before_fluentform` / `aegis_after_fluentform` | Fluent Forms |
 | `aegis_before_gform` / `aegis_after_gform` | Gravity Forms |
 | `aegis_before_nf_form` / `aegis_after_nf_form` | Ninja Forms |
-| `aegis_before_bbpress_forum` / `aegis_after_bbpress_topic` | bbPress |
-| `aegis_before_post_author` / `aegis_after_post_author` | Co-Authors Plus |
+| `aegis_before_bbpress_forum` / `aegis_after_bbpress_forum` | bbPress forums loop |
+| `aegis_before_bbpress_topic` / `aegis_after_bbpress_topic` | bbPress single topic |
+| `aegis_before_post_author` / `aegis_after_post_author` | `core/post-author` and `co-authors/block` |
 | `aegis_before_map_block` / `aegis_after_map_block` | Map block |
 
 Full catalog: [Plugin Hook Patterns](../../plugins/aegis/docs/features/hook-patterns.md).

@@ -86,6 +86,8 @@ Dark mode in Aegis maintains WCAG 2.1 AA contrast requirements:
 - Interactive elements retain visible focus indicators.
 - Color is never the sole indicator of meaning.
 
+To hide a block, post, or hook pattern in light or dark mode, use **Aegis → Conditionals → Accessibility → Color Scheme**. Those rules follow the same `is-style-*` / `default-mode-*` classes as the visitor toggle. See [Plugin Conditional Logic](../../plugins/aegis/docs/features/conditional-logic.md#accessibility-extras).
+
 ## Per-Section Dark Mode
 
 You can apply dark mode to individual sections rather than the entire page:

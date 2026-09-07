@@ -105,7 +105,7 @@ The theme still includes generic **Commerce** and **Product** marketing patterns
 
 ### Store headers
 
-WC header patterns with mini-cart and customer-account blocks live in the **companion plugin** (`patterns/woocommerce/header/`) and require WooCommerce. The theme retains **`header/store-minimal`** for non-shop sites. Additional WC-free header variants for the inserter are planned as future work.
+WC header patterns with mini-cart and customer-account blocks live in the **companion plugin** (`patterns/woocommerce/header/`) and require WooCommerce. The theme keeps a Woo-free **`header/default`** for `parts/header.html` when WooCommerce is inactive, and **`header/store-minimal`** for checkout/funnel pages. When WooCommerce is active, the plugin overlays `header-default` with the mini-cart variant.
 
 ## Creating Your Own Patterns
 

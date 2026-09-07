@@ -26,7 +26,7 @@ Examples: `aegis_before_header`, `aegis_after_footer`.
 
 ## Integration-Bridged Hooks
 
-When the **Aegis plugin** integration is enabled, additional hooks are bridged from third-party plugins (WooCommerce checkout/cart, Gravity Forms, Fluent Forms, EDD, bbPress, map block, etc.). These appear in the plugin injection catalog but are not fired by the theme alone.
+When the **Aegis plugin** integration is enabled, additional hooks are bridged from third-party plugins (WooCommerce checkout/cart, Gravity Forms, Fluent Forms, EDD, bbPress forum/topic pairs, Co-Authors Plus, map block, etc.). These appear in the plugin injection catalog but are not fired by the theme alone. bbPress locations: `aegis_before_bbpress_forum` / `aegis_after_bbpress_forum` (forums loop) and `aegis_before_bbpress_topic` / `aegis_after_bbpress_topic` (single topic). Co-Authors Plus locations: `aegis_before_post_author` / `aegis_after_post_author` (`core/post-author` and `co-authors/block`).
 
 See the [Aegis Plugin Hook Patterns documentation](../../plugins/aegis/docs/features/hook-patterns.md).
 

@@ -14,7 +14,7 @@ In a block theme, templates are HTML files composed entirely of block markup. Th
 |----------|----------|-------------|
 | Index | `index.html` | The fallback template used when no more specific template is available. Displays a standard blog layout. |
 | Front Page | `front-page.html` | The site homepage when configured to show a static page under **Settings → Reading**. |
-| Page | `page.html` | The default template for static pages. |
+| Page | `page.html` | The default template for static pages. Also used for bbPress forum views when the Aegis bbPress integration is on. |
 | Single Post | `single.html` | The template for individual blog posts. |
 | Archive | `archive.html` | Used for category, tag, date, and author archive listings. |
 | Author | `author.html` | Displays posts by a specific author with author information. |
@@ -131,6 +131,10 @@ The **Wishlist** template requires **WooCommerce**, the **Aegis companion plugin
 5. Link to the page from your navigation or My Account area as needed.
 
 See [[woocommerce-integration#wishlist-ti-woocommerce-wishlist]] for shortcode details and troubleshooting.
+
+## bbPress
+
+There is no dedicated `single-forum.html` (or similar) template. When **Aegis → Integrations → Content → bbPress** is on, the framework wraps bbPress views in the **Page** template: `locate_block_template( $template, 'page', array( 'page.php' ) )`. WordPress resolves `templates/page.html`; the PHP fallback from bbPress theme-compat is kept. Editing **Page** in the Site Editor is what changes the forum chrome (header, footer, and surrounding layout).
 
 ## Maintenance and Coming Soon
 

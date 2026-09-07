@@ -64,7 +64,7 @@ Composer packages:
 
 ### patterns/
 
-**Theme-owned** block patterns by category (`hero/`, `cta/`, `template/`, etc.) — generic sections and marketing layouts using core blocks. WooCommerce block patterns (`wp:woocommerce/*`) and the TI Wishlist pattern live in the **companion plugin**, not here.
+**Theme-owned** block patterns by category (`hero/`, `cta/`, `template/`, etc.) — generic sections and marketing layouts using core blocks. WooCommerce block patterns (`wp:woocommerce/*`) and the TI Wishlist pattern live in the **companion plugin**, not here. The theme keeps a Woo-free `header/default` so `parts/header.html` still resolves when WooCommerce is inactive.
 
 Companion plugin pattern directories (see [Plugin File Structure](../../plugins/aegis/docs/development/file-structure.md)):
 
