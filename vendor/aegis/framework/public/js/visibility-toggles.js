@@ -11,10 +11,19 @@
 	const { Fragment, createElement: el } = wp.element;
 	const { InspectorControls } = wp.blockEditor;
 	const { PanelBody, SelectControl, ToggleControl, TextControl, Button, Flex, FlexItem } = wp.components;
-	const { __ } = wp.i18n;
+	const { __, sprintf } = wp.i18n;
+
+	addFilter( 'blocks.registerBlockType', 'aegis/visibility-attribute', function ( blockSettings ) {
+		blockSettings.attributes = blockSettings.attributes || {};
+		if ( ! blockSettings.attributes.visibility ) {
+			blockSettings.attributes.visibility = { type: 'object' };
+		}
+		return blockSettings;
+	} );
 
 	const settings = window.aegis?.conditionalLogicSettings || {};
 	const userRoles = window.aegis?.userRoles || [];
+	const timezones = window.aegis?.timezones || [];
 	const canManage = window.aegis?.canManageConditionals !== false;
 	const presets = window.aegis?.visibilityPresets || [];
 
@@ -24,6 +33,41 @@
 
 	function isEnabled( group, feature ) {
 		return !!( settings[ group ] && settings[ group ][ feature ] );
+	}
+
+	function isListedTimezone( value ) {
+		const zone = String( value || '' );
+		if ( zone === '' ) {
+			return true;
+		}
+		return timezones.some( ( o ) => String( o.value ) === zone );
+	}
+
+	function timezoneSelectOptions( current ) {
+		const opts = [
+			{ label: __( 'Site timezone', 'aegis' ), value: '' },
+			...timezones,
+		];
+		const value = String( current || '' );
+		if ( value !== '' && ! isListedTimezone( value ) ) {
+			opts.splice( 1, 0, {
+				label: sprintf(
+					/* translators: %s: saved timezone string that is not IANA */
+					__( '%s (invalid, using site timezone)', 'aegis' ),
+					value
+				),
+				value,
+			} );
+		}
+		return opts;
+	}
+
+	function timezoneHelp( current ) {
+		const base = __( 'Applies to Date & Time, daily range, and weekdays. Leave empty to use the site timezone.', 'aegis' );
+		if ( String( current || '' ) !== '' && ! isListedTimezone( current ) ) {
+			return base + ' ' + __( 'The saved value is not an IANA timezone, so the site timezone is used.', 'aegis' );
+		}
+		return base;
 	}
 
 	const showHideOptions = [
@@ -39,6 +83,36 @@
 	const isIsNotOptions = [
 		{ label: __( 'is', 'aegis' ), value: 'is' },
 		{ label: __( 'is not', 'aegis' ), value: 'isNot' },
+	];
+
+	function normalizeCapability( value ) {
+		return String( value || '' )
+			.trim()
+			.toLowerCase()
+			.replace( /\s+/g, '_' )
+			.replace( /[^a-z0-9_\-]/g, '' );
+	}
+
+	const queryOperatorOptions = [
+		{ label: __( 'is', 'aegis' ), value: 'is' },
+		{ label: __( 'is not', 'aegis' ), value: 'isNot' },
+		{ label: __( 'exists', 'aegis' ), value: 'exists' },
+		{ label: __( 'does not exist', 'aegis' ), value: 'notExists' },
+		{ label: __( 'contains', 'aegis' ), value: 'contains' },
+		{ label: __( 'greater than', 'aegis' ), value: 'greaterThan' },
+		{ label: __( 'less than', 'aegis' ), value: 'lessThan' },
+		{ label: __( 'greater than or equal', 'aegis' ), value: 'greaterThanOrEqual' },
+		{ label: __( 'less than or equal', 'aegis' ), value: 'lessThanOrEqual' },
+	];
+
+	const pageTypeOptions = [
+		{ label: __( 'All pages', 'aegis' ), value: '' },
+		{ label: __( 'Front Page', 'aegis' ), value: 'front-page' },
+		{ label: __( 'Blog Page', 'aegis' ), value: 'blog' },
+		{ label: __( 'All Singular', 'aegis' ), value: 'singular' },
+		{ label: __( 'All Archives', 'aegis' ), value: 'archive' },
+		{ label: __( 'Search Results', 'aegis' ), value: 'search' },
+		{ label: __( '404 Page', 'aegis' ), value: '404' },
 	];
 
 	const deviceOptions = [
@@ -119,8 +193,13 @@
 						return el( TextControl, {
 							key: field.key,
 							label: field.label,
+							placeholder: field.placeholder || '',
+							help: field.help,
 							value: rule[ field.key ] || '',
-							onChange: ( v ) => updateRule( index, { [ field.key ]: v } ),
+							onChange: ( v ) => {
+								const next = field.normalize === 'capability' ? normalizeCapability( v ) : v;
+								updateRule( index, { [ field.key ]: next } );
+							},
 							__nextHasNoMarginBottom: true,
 						} );
 					} ),
@@ -224,23 +303,64 @@
 				);
 			}
 
+			if ( isEnabled( 'user', 'user_capability' ) ) {
+				sections.push(
+					el(
+						'div',
+						{ key: 'userCapability' },
+						el( 'p', { className: 'components-base-control__label' }, __( 'User Capability Rules', 'aegis' ) ),
+						el( RuleList, {
+							rulesKey: 'userCapabilityRules',
+							logicKey: 'userCapabilityLogic',
+							relationKey: 'userCapabilityRelation',
+							defaultRule: { capability: '', operator: 'is' },
+							visibility,
+							updateVisibility,
+							fields: [
+								{
+									key: 'capability',
+									type: 'text',
+									label: __( 'Capability', 'aegis' ),
+									placeholder: 'edit_posts',
+									normalize: 'capability',
+									help: __( 'Use a primitive capability slug such as edit_posts. Object caps like edit_post need a post ID and will not match.', 'aegis' ),
+								},
+								{ key: 'operator', type: 'select', label: __( 'Operator', 'aegis' ), options: isIsNotOptions },
+							],
+						} )
+					)
+				);
+			}
+
 			if ( isEnabled( 'schedule', 'date_time' ) || isEnabled( 'schedule', 'time_range' ) || isEnabled( 'schedule', 'timezone' ) ) {
 				const scheduleFields = [];
 				if ( isEnabled( 'schedule', 'date_time' ) ) {
+					const datetimeHelp = isEnabled( 'schedule', 'timezone' )
+						? __( 'Interpreted in the schedule timezone, or the site timezone if Timezone is empty.', 'aegis' )
+						: __( 'Interpreted in the site timezone.', 'aegis' );
 					scheduleFields.push(
-						el( TextControl, { key: 'scheduleStart', label: __( 'Schedule Start', 'aegis' ), type: 'datetime-local', value: visibility.scheduleStart || '', onChange: ( v ) => updateVisibility( 'scheduleStart', v ), __nextHasNoMarginBottom: true } ),
+						el( TextControl, { key: 'scheduleStart', label: __( 'Schedule Start', 'aegis' ), type: 'datetime-local', help: datetimeHelp, value: visibility.scheduleStart || '', onChange: ( v ) => updateVisibility( 'scheduleStart', v ), __nextHasNoMarginBottom: true } ),
 						el( TextControl, { key: 'scheduleEnd', label: __( 'Schedule End', 'aegis' ), type: 'datetime-local', value: visibility.scheduleEnd || '', onChange: ( v ) => updateVisibility( 'scheduleEnd', v ), __nextHasNoMarginBottom: true } )
 					);
 				}
 				if ( isEnabled( 'schedule', 'time_range' ) ) {
+					const overnightHelp = __( 'If end is before start, the window wraps overnight.', 'aegis' );
 					scheduleFields.push(
-						el( TextControl, { key: 'scheduleTimeStart', label: __( 'Daily Start Time', 'aegis' ), type: 'time', value: visibility.scheduleTimeStart || '', onChange: ( v ) => updateVisibility( 'scheduleTimeStart', v ), __nextHasNoMarginBottom: true } ),
+						el( TextControl, { key: 'scheduleTimeStart', label: __( 'Daily Start Time', 'aegis' ), type: 'time', help: overnightHelp, value: visibility.scheduleTimeStart || '', onChange: ( v ) => updateVisibility( 'scheduleTimeStart', v ), __nextHasNoMarginBottom: true } ),
 						el( TextControl, { key: 'scheduleTimeEnd', label: __( 'Daily End Time', 'aegis' ), type: 'time', value: visibility.scheduleTimeEnd || '', onChange: ( v ) => updateVisibility( 'scheduleTimeEnd', v ), __nextHasNoMarginBottom: true } )
 					);
 				}
 				if ( isEnabled( 'schedule', 'timezone' ) ) {
 					scheduleFields.push(
-						el( TextControl, { key: 'scheduleTimezone', label: __( 'Timezone', 'aegis' ), help: __( 'Leave empty for site timezone.', 'aegis' ), value: visibility.scheduleTimezone || '', onChange: ( v ) => updateVisibility( 'scheduleTimezone', v ), __nextHasNoMarginBottom: true } )
+						el( SelectControl, {
+							key: 'scheduleTimezone',
+							label: __( 'Timezone', 'aegis' ),
+							help: timezoneHelp( visibility.scheduleTimezone ),
+							value: visibility.scheduleTimezone || '',
+							options: timezoneSelectOptions( visibility.scheduleTimezone ),
+							onChange: ( v ) => updateVisibility( 'scheduleTimezone', v ),
+							__nextHasNoMarginBottom: true,
+						} )
 					);
 				}
 				sections.push.apply( sections, scheduleFields );
@@ -276,9 +396,51 @@
 
 			if ( isEnabled( 'visibility', 'screen_size' ) ) {
 				sections.push(
-					el( ToggleControl, { key: 'hideMobile', label: __( 'Hide on Mobile', 'aegis' ), checked: !! visibility.hideOnMobile, onChange: ( v ) => updateVisibility( 'hideOnMobile', v ) } ),
-					el( ToggleControl, { key: 'hideTablet', label: __( 'Hide on Tablet', 'aegis' ), checked: !! visibility.hideOnTablet, onChange: ( v ) => updateVisibility( 'hideOnTablet', v ) } ),
-					el( ToggleControl, { key: 'hideDesktop', label: __( 'Hide on Desktop', 'aegis' ), checked: !! visibility.hideOnDesktop, onChange: ( v ) => updateVisibility( 'hideOnDesktop', v ) } )
+					el( ToggleControl, { key: 'hideMobile', label: __( 'Hide on Mobile', 'aegis' ), help: __( 'Below 480px.', 'aegis' ), checked: !! visibility.hideOnMobile, onChange: ( v ) => updateVisibility( 'hideOnMobile', v ) } ),
+					el( ToggleControl, { key: 'hideTablet', label: __( 'Hide on Tablet', 'aegis' ), help: __( '480px to 1023px.', 'aegis' ), checked: !! visibility.hideOnTablet, onChange: ( v ) => updateVisibility( 'hideOnTablet', v ) } ),
+					el( ToggleControl, { key: 'hideDesktop', label: __( 'Hide on Desktop', 'aegis' ), help: __( '1024px and up.', 'aegis' ), checked: !! visibility.hideOnDesktop, onChange: ( v ) => updateVisibility( 'hideOnDesktop', v ) } )
+				);
+			}
+
+			if ( isEnabled( 'visibility', 'custom_breakpoints' ) ) {
+				sections.push(
+					el( TextControl, {
+						key: 'hideBelow',
+						label: __( 'Hide below width (px)', 'aegis' ),
+						type: 'number',
+						value: visibility.hideBelowWidth || '',
+						onChange: ( v ) => updateVisibility( 'hideBelowWidth', v === '' ? '' : parseInt( v, 10 ) || '' ),
+						__nextHasNoMarginBottom: true,
+					} ),
+					el( TextControl, {
+						key: 'hideAbove',
+						label: __( 'Hide above width (px)', 'aegis' ),
+						type: 'number',
+						value: visibility.hideAboveWidth || '',
+						onChange: ( v ) => updateVisibility( 'hideAboveWidth', v === '' ? '' : parseInt( v, 10 ) || '' ),
+						__nextHasNoMarginBottom: true,
+					} )
+				);
+			}
+
+			if ( isEnabled( 'visibility', 'page_type' ) ) {
+				sections.push(
+					el( SelectControl, {
+						key: 'location',
+						label: __( 'Page Type', 'aegis' ),
+						value: visibility.location || '',
+						options: pageTypeOptions,
+						onChange: ( v ) => updateVisibility( 'location', v ),
+						__nextHasNoMarginBottom: true,
+					} ),
+					el( SelectControl, {
+						key: 'locationLogic',
+						label: __( 'Logic', 'aegis' ),
+						value: visibility.locationLogic || 'show',
+						options: showHideOptions,
+						onChange: ( v ) => updateVisibility( 'locationLogic', v ),
+						__nextHasNoMarginBottom: true,
+					} )
 				);
 			}
 
@@ -319,7 +481,7 @@
 							updateVisibility,
 							fields: [
 								{ key: 'param', type: 'text', label: __( 'Parameter', 'aegis' ) },
-								{ key: 'operator', type: 'select', label: __( 'Operator', 'aegis' ), options: isIsNotOptions },
+								{ key: 'operator', type: 'select', label: __( 'Operator', 'aegis' ), options: queryOperatorOptions },
 								{ key: 'value', type: 'text', label: __( 'Value', 'aegis' ) },
 							],
 						} )
@@ -351,6 +513,7 @@
 					el( SelectControl, {
 						key: 'colorScheme',
 						label: __( 'Hide for color scheme', 'aegis' ),
+						help: __( 'Hides the block when the Aegis dark/light toggle, the site default, or the operating system matches that scheme.', 'aegis' ),
 						value: visibility.colorScheme || '',
 						options: [
 							{ label: __( 'None', 'aegis' ), value: '' },

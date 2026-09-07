@@ -36,8 +36,8 @@ use function is_admin;
  * 1. It acts as a central configuration service, defining settings for image
  *    controls like aspect ratio and object-fit, and exposing them to the
  *    block editor's JavaScript.
- * 2. It handles the server-side rendering for the custom `aegis/image-compare`
- *    block, applying responsive visibility classes to it.
+ * 2. It applies Image settings (aspect ratio, height, object-fit,
+ *    object-position) on the Pro `aegis/image-compare` block.
  *
  * @package Aegis\Framework\BlockSettings
  * @since   1.0.0
@@ -154,8 +154,8 @@ class Image implements Scriptable {
 	 * Renders the custom `aegis/image-compare` block.
 	 *
 	 * This method is hooked into the `render_block_aegis/image-compare` filter
-	 * and is responsible for applying the responsive visibility classes to this
-	 * specific custom block.
+	 * and applies Image inspector classes and CSS custom properties (including
+	 * height) to the comparison wrapper.
 	 *
 	 * @since 1.0.0
 	 *
@@ -167,6 +167,8 @@ class Image implements Scriptable {
 	 * @return string The modified block content.
 	 */
 	public function render_image_compare( string $content, array $block ): string {
-		return $this->responsive->add_responsive_classes( $content, $block, self::SETTINGS );
+		$content = $this->responsive->add_responsive_classes( $content, $block, self::SETTINGS );
+
+		return $this->responsive->add_responsive_styles( $content, $block, self::SETTINGS );
 	}
 }

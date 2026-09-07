@@ -28,10 +28,13 @@ use Aegis\Container\Interfaces\Conditional;
 use WP_Block_Patterns_Registry;
 use function add_action;
 use function class_exists;
+use function defined;
 use function esc_html;
+use function get_option;
+use function is_array;
 use function is_string;
-use function remove_action;
 use function str_contains;
+use function str_starts_with;
 
 class WooCommerce implements Conditional {
 
@@ -56,12 +59,6 @@ class WooCommerce implements Conditional {
 	 * @return void
 	 */
 	public function hooks(): void {
-		// Defer WooCommerce block pattern registration to this class.
-		remove_action( 'init', [
-			'Automattic\WooCommerce\Blocks\BlockPatterns',
-			'register_block_patterns',
-		] );
-
 		add_action( 'init', [ $this, 'unregister_woocommerce_block_patterns' ], 11 );
 	}
 
@@ -96,21 +93,34 @@ class WooCommerce implements Conditional {
 	}
 
 	/**
-	 * Unregister WooCommerce block patterns.
+	 * Unregister WooCommerce plugin block patterns.
+	 *
+	 * Aegis commerce patterns replace WooCommerce's own patterns by default.
+	 * Pro can keep WooCommerce plugin patterns via Integrations → WooCommerce
+	 * Patterns (`woocommerce_keep_patterns`).
+	 *
+	 * Only `woocommerce/`-namespaced patterns are removed so Aegis companion
+	 * slugs are never unregistered.
 	 *
 	 * @since 1.0.0
 	 *
 	 * @return void
 	 */
 	public function unregister_woocommerce_block_patterns(): void {
+		$control = get_option( 'aegis_pattern_control', [] );
+		$keep    = is_array( $control ) && ! empty( $control['woocommerce_keep_patterns'] );
+
+		if ( $keep && defined( 'AEGIS_PRO_VERSION' ) ) {
+			return;
+		}
+
 		$registry   = WP_Block_Patterns_Registry::get_instance();
 		$registered = $registry->get_all_registered();
 
-		// Remove all registered WooCommerce block patterns.
 		foreach ( $registered as $pattern ) {
 			$name = $pattern['name'];
 
-			if ( str_contains( $name, 'woocommerce' ) ) {
+			if ( str_starts_with( $name, 'woocommerce/' ) ) {
 				$registry->unregister( $name );
 			}
 		}

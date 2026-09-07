@@ -31,6 +31,7 @@ use Aegis\Framework\InlineAssets\Styles;
 use WP_Block;
 
 // WordPress functions — explicitly imported for static analysis in strict namespaced PHP.
+use function class_exists;
 use function function_exists;
 use function get_the_ID;
 use function get_avatar;
@@ -57,8 +58,8 @@ use function wp_json_encode;
  * conditionally inlined when the `aegis-coauthors-plus` body class is
  * present in the rendered template.
  *
- * Also outputs JSON-LD Person schema in `wp_head` for multi-author
- * singular posts, providing structured data for search engines.
+ * JSON-LD Person schema is handled by the Aegis plugin Author Schema extra
+ * when that plugin is active.
  *
  * @since 1.0.0
  */
@@ -67,16 +68,19 @@ class CoAuthorsPlus implements Conditional, Styleable {
 	/**
 	 * Determine whether the Co-Authors Plus plugin is active.
 	 *
-	 * Checks for the existence of the `get_coauthors()` function, which
-	 * is defined by the Co-Authors Plus plugin. The framework's service
-	 * provider calls this before instantiation — if it returns false,
-	 * the class is never loaded and no hooks are registered.
+	 * Checks for the Aegis plugin implementation first — that class owns
+	 * guest-author URLs, avatars, schema, and CSS when the companion plugin
+	 * is active. Otherwise requires `get_coauthors()` from Co-Authors Plus.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @return bool True when Co-Authors Plus is active.
+	 * @return bool True when Co-Authors Plus is active and the plugin is not.
 	 */
 	public static function condition(): bool {
+		if ( class_exists( '\\Aegis\\Plugin\\CoAuthors\\CoAuthorsPlus' ) ) {
+			return false;
+		}
+
 		return function_exists( 'get_coauthors' );
 	}
 
@@ -284,70 +288,6 @@ class CoAuthorsPlus implements Conditional, Styleable {
 		$output .= '</div>';
 
 		return $output;
-	}
-
-	/**
-	 * Output JSON-LD structured data for co-authors on singular posts.
-	 *
-	 * Renders a `schema.org/ItemList` containing `Person` objects for each
-	 * co-author, including name, author archive URL, and 96px avatar.
-	 * This provides search engines with explicit multi-author metadata
-	 * that the default WordPress markup does not convey.
-	 *
-	 * Only fires on singular `post` pages with multiple co-authors.
-	 * The redundant `function_exists` check guards against edge cases
-	 * where the plugin may be deactivated mid-request (e.g. during
-	 * plugin updates).
-	 *
-	 * Hooked at priority 5 to run before most SEO plugins, which
-	 * typically operate at priority 10 and may want to reference or
-	 * merge this structured data.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @hook  wp_head 5
-	 *
-	 * @return void
-	 */
-	public function output_author_schema(): void {
-		if ( ! is_singular( 'post' ) || ! function_exists( 'get_coauthors' ) ) {
-			return;
-		}
-
-		$post_id   = get_the_ID();
-		$coauthors = get_coauthors( $post_id );
-
-		// Only output structured data when there are multiple authors.
-		if ( empty( $coauthors ) || count( $coauthors ) <= 1 ) {
-			return;
-		}
-
-		$persons = [];
-
-		foreach ( $coauthors as $coauthor ) {
-			$person = [
-				'@type' => 'Person',
-				'name'  => $coauthor->display_name,
-				'url'   => get_author_posts_url( (int) $coauthor->ID, $coauthor->user_nicename ),
-			];
-
-			// Include avatar only if one is available (Gravatar or local).
-			$avatar_url = get_avatar_url( $coauthor->ID, [ 'size' => 96 ] );
-			if ( $avatar_url ) {
-				$person['image'] = $avatar_url;
-			}
-
-			$persons[] = $person;
-		}
-
-		$schema = [
-			'@context' => 'https://schema.org',
-			'@type'    => 'ItemList',
-			'name'     => 'Authors',
-			'itemListElement' => $persons,
-		];
-
-		echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n";
 	}
 
 	/**

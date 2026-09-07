@@ -456,6 +456,9 @@ class EditorAssets
 		$data = $this->scripts->get_data('', true);
 		$data['conditionalLogicSettings'] = $conditionalLogicSettings;
 		$data['userRoles'] = $roles;
+		$data['timezones'] = class_exists( '\Aegis\Plugin\Conditionals\Settings' )
+			? \Aegis\Plugin\Conditionals\Settings::timezone_choices()
+			: array();
 		$data['canManageConditionals'] = class_exists( '\Aegis\Plugin\Conditionals\Capabilities' )
 			? \Aegis\Plugin\Conditionals\Capabilities::current_user_can_manage()
 			: true;
@@ -464,18 +467,9 @@ class EditorAssets
 			$data['visibilityPresets'] = \AegisPro\Conditionals\Presets::get_presets_for_editor();
 		}
 
-		if ( function_exists( 'wpf_get_tags' ) ) {
-			$raw_tags = wpf_get_tags();
-			$wp_tags  = array();
-			if ( is_array( $raw_tags ) ) {
-				foreach ( $raw_tags as $tag_id => $tag_label ) {
-					$wp_tags[] = array(
-						'label' => is_string( $tag_label ) ? $tag_label : (string) $tag_id,
-						'value' => is_string( $tag_id ) ? $tag_id : (string) $tag_label,
-					);
-				}
-			}
-			$data['wpFusionTags'] = $wp_tags;
+		if ( class_exists( '\Aegis\Plugin\Integrations\WPFusion' ) ) {
+			$data['wpFusionTags']  = \Aegis\Plugin\Integrations\WPFusion::editor_tags();
+			$data['wpFusionLists'] = \Aegis\Plugin\Integrations\WPFusion::editor_lists();
 		}
 
 		if (!empty($data)) {

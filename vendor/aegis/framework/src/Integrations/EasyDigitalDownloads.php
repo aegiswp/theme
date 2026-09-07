@@ -14,7 +14,6 @@ use Aegis\Container\Interfaces\Conditional;
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
 use function class_exists;
-use function defined;
 
 class EasyDigitalDownloads implements Conditional, Styleable {
 
@@ -32,15 +31,5 @@ class EasyDigitalDownloads implements Conditional, Styleable {
 				'edd_download',
 			]
 		);
-
-		if ( defined( 'EDD_FES_FILE' ) || class_exists( 'EDD_Front_End_Submissions' ) ) {
-			$styles->add_file(
-				'plugins/edd/edd-fes.css',
-				[
-					'fes-vendor-dashboard-wrap',
-					'edd-fes',
-				]
-			);
-		}
 	}
 }

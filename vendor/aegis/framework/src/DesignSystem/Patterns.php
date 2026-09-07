@@ -31,6 +31,7 @@ use WP_Block;
 use function apply_filters;
 use function array_unique;
 use function basename;
+use function class_exists;
 use function do_blocks;
 use function get_stylesheet_directory;
 use function glob;
@@ -145,6 +146,11 @@ class Patterns implements Renderable {
 					continue;
 				}
 
+				// Plugin commerce patterns own these slugs when WooCommerce is active.
+				if ( $this->skip_theme_commerce_overlay( $category, $basename ) ) {
+					continue;
+				}
+
 				$registered_categories[ $category ][] = $basename;
 
 				Pattern::register_from_file( $file );
@@ -181,6 +187,21 @@ class Patterns implements Renderable {
 	$block_content
 <!-- /$slug -->
 HTML;
+	}
+
+	/**
+	 * Skip theme patterns that the companion plugin overlays when WooCommerce is on.
+	 *
+	 * `header-default` stays in the theme (no Woo blocks) so the site header
+	 * still resolves when WooCommerce is inactive. The plugin registers the
+	 * mini-cart variant of the same slug when WooCommerce is active.
+	 */
+	private function skip_theme_commerce_overlay( string $category, string $basename ): bool {
+		if ( 'header' !== $category || 'default' !== $basename ) {
+			return false;
+		}
+
+		return class_exists( 'WooCommerce' );
 	}
 
 	/**

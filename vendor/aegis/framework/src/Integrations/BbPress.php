@@ -6,33 +6,28 @@
  *
  * Responsibilities:
  * - Checks for bbPress plugin presence and conditionally adds theme compatibility
+ * - Registers Aegis forum styles and dequeues bbPress default CSS
  * - Integrates with the Aegis container and conditional system
  *
  * @package    Aegis\Framework\Integrations
  * @since      1.0.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
- *
- * For developer documentation and onboarding. No logic changes in this
- * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for bbpress integration component.
 declare( strict_types=1 );
 
-// Declares the namespace for the bbpress integration component.
 namespace Aegis\Framework\Integrations;
 
-// Imports classes, interfaces, and functions used by the bbpress integration component.
 use Aegis\Container\Interfaces\Conditional;
+use Aegis\Framework\InlineAssets\Styleable;
+use Aegis\Framework\InlineAssets\Styles;
 use function class_exists;
-use function file_exists;
-use function get_stylesheet_directory;
-use function get_template_directory;
 use function is_bbpress;
 use function locate_block_template;
+use function wp_dequeue_style;
 
-class BbPress implements Conditional {
+class BbPress implements Conditional, Styleable {
 
 	/**
 	 * Condition.
@@ -46,11 +41,47 @@ class BbPress implements Conditional {
 	}
 
 	/**
-	 * Adds bbPress theme compatibility.
+	 * Register styles.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $template Template file.
+	 * @param Styles $styles Styles instance.
+	 *
+	 * @return void
+	 */
+	public function styles( Styles $styles ): void {
+		$styles->add_file(
+			'plugins/bbpress.css',
+			array(
+				'bbpress-forums',
+				'bbp-forum',
+				'bbp-topic',
+				'bbp-reply',
+				'bbp-breadcrumb',
+			)
+		);
+	}
+
+	/**
+	 * Dequeue bbPress default CSS so Aegis tokens apply.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @hook  bbp_enqueue_scripts
+	 *
+	 * @return void
+	 */
+	public function dequeue_default_styles(): void {
+		wp_dequeue_style( 'bbp-default' );
+		wp_dequeue_style( 'bbp-default-rtl' );
+	}
+
+	/**
+	 * Serve the FSE page template instead of bbPress PHP theme-compat.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $template PHP fallback from bbPress theme compat.
 	 *
 	 * @hook  bbp_template_include_theme_compat
 	 *
@@ -61,15 +92,6 @@ class BbPress implements Conditional {
 			return $template;
 		}
 
-		// Resolve the block page template from child or parent theme.
-		$child  = get_stylesheet_directory() . '/templates/page.html';
-		$parent = get_template_directory() . '/templates/page.html';
-		$file   = file_exists( $child ) ? $child : $parent;
-
-		if ( file_exists( $file ) ) {
-			$template = locate_block_template( $file, 'page', [] );
-		}
-
-		return $template;
+		return locate_block_template( $template, 'page', array( 'page.php' ) );
 	}
 }

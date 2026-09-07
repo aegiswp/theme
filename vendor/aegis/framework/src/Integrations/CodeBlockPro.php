@@ -21,19 +21,32 @@ namespace Aegis\Framework\Integrations;
 use Aegis\Container\Interfaces\Conditional;
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
-use function defined;
+use WP_Block_Type_Registry;
+use function class_exists;
 
 class CodeBlockPro implements Conditional, Styleable {
 
 	/**
 	 * Condition.
 	 *
+	 * Code Block Pro does not define CODE_BLOCK_PRO_VERSION. Prefer the
+	 * plugin helper when the Aegis plugin is loaded.
+	 *
 	 * @since 1.0.0
 	 *
 	 * @return bool
 	 */
 	public static function condition(): bool {
-		return defined( 'CODE_BLOCK_PRO_VERSION' );
+		if ( class_exists( \Aegis\Plugin\Integrations\CodeBlockPro::class ) ) {
+			return \Aegis\Plugin\Integrations\CodeBlockPro::is_plugin_active();
+		}
+
+		if ( class_exists( 'CBPRouter' ) ) {
+			return true;
+		}
+
+		return class_exists( WP_Block_Type_Registry::class )
+			&& WP_Block_Type_Registry::get_instance()->is_registered( 'kevinbatdorf/code-block-pro' );
 	}
 
 	/**

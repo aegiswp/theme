@@ -74,6 +74,10 @@ class MetaBox implements Conditional, Styleable {
 	 * @return bool True when Meta Box is active.
 	 */
 	public static function condition(): bool {
+		if ( class_exists( \Aegis\Plugin\Integrations\MetaBox::class ) ) {
+			return \Aegis\Plugin\Integrations\MetaBox::is_plugin_active();
+		}
+
 		return class_exists( 'RWMB_Loader' ) || function_exists( 'rwmb_meta' );
 	}
 
