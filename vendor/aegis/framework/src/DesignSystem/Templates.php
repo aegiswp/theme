@@ -38,7 +38,6 @@ use function get_template_directory;
 use function in_array;
 use function is_post_type_archive;
 use function is_search;
-use function str_contains;
 use function str_starts_with;
 
 class Templates {
@@ -65,6 +64,7 @@ class Templates {
 		'page-coming-soon',
 		'order-confirmation',
 		'page-my-account',
+		'search-product',
 	);
 
 	/**
@@ -112,11 +112,12 @@ class Templates {
 			return $query_result ?? array();
 		}
 
-		$woocommerce   = class_exists( 'WooCommerce' );
-		$ti_wishlist   = defined( 'TINVWL_VERSION' ) || function_exists( 'tinvwl_get_wishlist' );
-		$edd           = class_exists( 'Easy_Digital_Downloads' );
-		$template      = get_template();
-		$stylesheet    = get_stylesheet();
+		$woocommerce = class_exists( \Aegis\Plugin\Integrations\WooCommerce::class )
+			? \Aegis\Plugin\Integrations\WooCommerce::is_plugin_active()
+			: ( class_exists( 'WooCommerce' ) || function_exists( 'WC' ) || defined( 'WC_VERSION' ) );
+		$ti_wishlist = defined( 'TINVWL_VERSION' ) || function_exists( 'tinvwl_get_wishlist' );
+		$template    = get_template();
+		$stylesheet  = get_stylesheet();
 
 		foreach ( $query_result as $index => $wp_block_template ) {
 			$slug  = $wp_block_template->slug;
@@ -132,11 +133,6 @@ class Templates {
 			}
 
 			if ( ( ! $woocommerce || ! $ti_wishlist ) && 'page-wishlist' === $slug ) {
-				unset( $query_result[ $index ] );
-				continue;
-			}
-
-			if ( ! $edd && str_contains( $slug, 'download' ) ) {
 				unset( $query_result[ $index ] );
 			}
 		}
@@ -154,7 +150,6 @@ class Templates {
 			return true;
 		}
 
-		return str_starts_with( $slug, 'taxonomy-product_' )
-			|| str_contains( $slug, 'product' );
+		return str_starts_with( $slug, 'taxonomy-product_' );
 	}
 }

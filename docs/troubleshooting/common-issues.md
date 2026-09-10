@@ -269,13 +269,14 @@ See [[dark-mode]] for configuration details.
 
 **Symptom:** The checkout displays as a single page instead of multiple steps.
 
-**Cause:** The page is not using the multi-step checkout template.
+**Cause:** The page is not using the multi-step checkout template, or the WooCommerce integration is off so checkout assets do not load.
 
 **Solution:**
 
-1. Edit the checkout page.
-2. Change the template to **Multi-Step Checkout**.
-3. Or verify the template is correctly assigned in the Site Editor.
+1. Enable **Aegis → Integrations → E-commerce → WooCommerce**.
+2. Edit the checkout page.
+3. Change the template to **Multi-Step Checkout**.
+4. Or verify the template is correctly assigned in the Site Editor.
 
 ### Wishlist Page Empty
 

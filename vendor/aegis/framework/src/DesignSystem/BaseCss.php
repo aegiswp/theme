@@ -136,7 +136,7 @@ class BaseCss implements Styleable
 
 		$styles['core-blocks'] = [
 			'icon' => ['wp-block-icon'],
-			'breadcrumbs' => ['wp-block-breadcrumbs'],
+			'breadcrumbs' => ['wp-block-breadcrumbs', 'rank-math-breadcrumb', 'seopress-breadcrumbs', 'yoast-breadcrumbs', 'id="breadcrumbs"'],
 		];
 
 		$styles['block-variations'] = [

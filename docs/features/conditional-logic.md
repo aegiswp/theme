@@ -8,7 +8,7 @@ See the full conditional logic guide, including where extras live (**Conditional
 
 **[Aegis Plugin — Conditional Logic](../../plugins/aegis/docs/features/conditional-logic.md)**
 
-Pro query conditions (WooCommerce, EDD cart/customer/download, WP Fusion tags and lists) and visibility presets:
+Pro query conditions (WooCommerce, EDD cart/customer/download, WP Fusion tags, lists, and CRM logged-in) and visibility presets:
 
 - **[Query Conditions](../../plugins/aegis-pro/docs/features/query-conditions.md)**
 - **[Visibility Presets](../../plugins/aegis-pro/docs/features/visibility-presets.md)**

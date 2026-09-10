@@ -7,6 +7,7 @@
  * Responsibilities:
  * - Checks for Fluent Forms plugin presence and conditionally registers styles
  * - Integrates with the Aegis container and inline assets system
+ * - Unregisters Fluent Forms plugin patterns when pattern control is active
  *
  * @package    Aegis\Framework\Integrations
  * @since      1.0.0
@@ -24,6 +25,17 @@ namespace Aegis\Framework\Integrations;
 use Aegis\Container\Interfaces\Conditional;
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
+use WP_Block_Patterns_Registry;
+use function add_filter;
+use function class_exists;
+use function defined;
+use function function_exists;
+use function get_option;
+use function is_array;
+use function is_string;
+use function str_contains;
+use function str_replace;
+use function str_starts_with;
 
 class FluentForms implements Conditional, Styleable {
 
@@ -35,7 +47,14 @@ class FluentForms implements Conditional, Styleable {
 	 * @return bool
 	 */
 	public static function condition(): bool {
-		return defined( 'FLUENTFORM' ) || class_exists( 'FluentForm\App\Modules\Form\Form' );
+		if ( class_exists( '\\Aegis\\Plugin\\Integrations\\FluentForms' ) ) {
+			return \Aegis\Plugin\Integrations\FluentForms::is_plugin_active();
+		}
+
+		return defined( 'FLUENTFORM' )
+			|| defined( 'FLUENTFORM_VERSION' )
+			|| class_exists( 'FluentForm\\App\\Modules\\Form\\Form' )
+			|| function_exists( 'wpFluentForm' );
 	}
 
 	/**
@@ -54,6 +73,8 @@ class FluentForms implements Conditional, Styleable {
 				'fluentform',
 				'ff_form',
 				'fluent_form',
+				'fluent-form',
+				'ff-form',
 			]
 		);
 	}
@@ -67,8 +88,53 @@ class FluentForms implements Conditional, Styleable {
 	 *
 	 * @return void
 	 */
-	public function remove_default_styles() {
-		// Disables Fluent Forms default styles
+	public function remove_default_styles(): void {
+		// Disables Fluent Forms default styles.
 		add_filter( 'fluentform_load_default_public', '__return_false' );
+	}
+
+	/**
+	 * Unregister Fluent Forms plugin block patterns when enabled.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @hook init 11
+	 *
+	 * @return void
+	 */
+	public function unregister_fluentforms_block_patterns(): void {
+		$control = get_option( 'aegis_pattern_control', [] );
+		$remove  = is_array( $control ) && ! empty( $control['fluentforms_keep_patterns'] );
+
+		if ( ! $remove || ! defined( 'AEGIS_PRO_VERSION' ) ) {
+			return;
+		}
+
+		$registry   = WP_Block_Patterns_Registry::get_instance();
+		$registered = $registry->get_all_registered();
+
+		foreach ( $registered as $pattern ) {
+			$name = $pattern['name'] ?? '';
+
+			if ( $name === '' || str_starts_with( $name, 'aegis/' ) ) {
+				continue;
+			}
+
+			$file           = $pattern['filePath'] ?? '';
+			$from_ff_plugin = str_starts_with( $name, 'fluentform/' )
+				|| str_starts_with( $name, 'fluentforms/' )
+				|| str_starts_with( $name, 'fluent-forms/' )
+				|| str_starts_with( $name, 'fluent-form/' )
+				|| ( is_string( $file ) && (
+					str_contains( str_replace( '\\', '/', $file ), '/fluentform/' )
+					|| str_contains( str_replace( '\\', '/', $file ), '/fluentformpro/' )
+					|| str_contains( str_replace( '\\', '/', $file ), '/fluent-forms/' )
+					|| str_contains( str_replace( '\\', '/', $file ), '/fluent-form/' )
+				) );
+
+			if ( $from_ff_plugin ) {
+				$registry->unregister( $name );
+			}
+		}
 	}
 }

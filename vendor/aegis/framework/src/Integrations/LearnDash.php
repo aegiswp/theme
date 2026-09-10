@@ -25,15 +25,21 @@ use Aegis\Container\Interfaces\Conditional;
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
 use WP_Block_Patterns_Registry;
+use function class_exists;
 use function defined;
+use function did_action;
 use function do_action;
 use function function_exists;
 use function get_bloginfo;
+use function get_option;
 use function get_post_type;
 use function get_theme_mod;
 use function in_array;
+use function is_array;
 use function is_string;
 use function str_contains;
+use function str_starts_with;
+use function trim;
 use function wp_get_attachment_image_url;
 
 class LearnDash implements Conditional, Styleable {
@@ -46,7 +52,14 @@ class LearnDash implements Conditional, Styleable {
 	 * @return bool
 	 */
 	public static function condition(): bool {
-		return defined( 'LEARNDASH_VERSION' );
+		if ( class_exists( '\\Aegis\\Plugin\\Integrations\\LearnDash' ) ) {
+			return \Aegis\Plugin\Integrations\LearnDash::is_plugin_active();
+		}
+
+		return defined( 'LEARNDASH_VERSION' )
+			|| class_exists( 'SFWD_LMS' )
+			|| defined( 'LEARNDASH_LMS_PLUGIN_DIR' )
+			|| function_exists( 'learndash_init' );
 	}
 
 	/**
@@ -63,11 +76,15 @@ class LearnDash implements Conditional, Styleable {
 			'plugins/learndash.css',
 			[
 				'learndash-wrapper',
+				'learndash',
 				'ld-focus',
+				'ld-course',
+				'ld-lesson',
 				'sfwd-courses',
 				'sfwd-lessons',
 				'sfwd-topic',
 				'sfwd-quiz',
+				'aegis-learndash',
 			]
 		);
 	}
@@ -82,13 +99,24 @@ class LearnDash implements Conditional, Styleable {
 	 * @return void
 	 */
 	public function unregister_learndash_block_patterns(): void {
+		$control = get_option( 'aegis_pattern_control', [] );
+		$remove  = is_array( $control ) && ! empty( $control['learndash_keep_patterns'] );
+
+		if ( ! $remove || ! defined( 'AEGIS_PRO_VERSION' ) ) {
+			return;
+		}
+
 		$registry   = WP_Block_Patterns_Registry::get_instance();
 		$registered = $registry->get_all_registered();
 
 		foreach ( $registered as $pattern ) {
-			$name = $pattern['name'];
+			$name = $pattern['name'] ?? '';
 
-			if ( str_contains( $name, 'learndash' ) ) {
+			if ( $name === '' || str_starts_with( $name, 'aegis/' ) || str_starts_with( $name, 'aegis-pro/' ) ) {
+				continue;
+			}
+
+			if ( str_starts_with( $name, 'learndash/' ) || str_contains( $name, 'learndash' ) ) {
 				$registry->unregister( $name );
 			}
 		}
@@ -107,8 +135,8 @@ class LearnDash implements Conditional, Styleable {
 	 *
 	 * @return string
 	 */
-	public function add_theme_wrapper_class( string $wrapper_class, $post, string $additional_classes ): string {
-		return $wrapper_class . ' aegis-learndash';
+	public function add_theme_wrapper_class( string $wrapper_class = '', $post = null, string $additional_classes = '' ): string {
+		return trim( $wrapper_class . ' aegis-learndash' );
 	}
 
 	/**
@@ -116,6 +144,7 @@ class LearnDash implements Conditional, Styleable {
 	 *
 	 * @since 1.0.0
 	 *
+	 * @hook learndash_focus_header_logo_url
 	 * @hook learndash_focus_mode_logo
 	 *
 	 * @param string $logo_url  The logo URL.
@@ -124,7 +153,7 @@ class LearnDash implements Conditional, Styleable {
 	 *
 	 * @return string
 	 */
-	public function focus_mode_logo( string $logo_url, int $course_id, int $user_id ): string {
+	public function focus_mode_logo( string $logo_url = '', int $course_id = 0, int $user_id = 0 ): string {
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
 
 		if ( $custom_logo_id ) {
@@ -151,8 +180,10 @@ class LearnDash implements Conditional, Styleable {
 	 *
 	 * @return string
 	 */
-	public function focus_mode_logo_alt( string $alt_text, int $course_id, int $user_id ): string {
-		return get_bloginfo( 'name' );
+	public function focus_mode_logo_alt( string $alt_text = '', int $course_id = 0, int $user_id = 0 ): string {
+		$site_name = get_bloginfo( 'name' );
+
+		return is_string( $site_name ) && '' !== $site_name ? $site_name : $alt_text;
 	}
 
 	/**
@@ -162,10 +193,31 @@ class LearnDash implements Conditional, Styleable {
 	 *
 	 * @hook learndash-focus-template-start
 	 *
+	 * @param int $course_id The course ID.
+	 *
 	 * @return void
 	 */
-	public function focus_mode_header(): void {
-		do_action( 'aegis_learndash_focus_header' );
+	public function focus_mode_header( int $course_id = 0 ): void {
+		if ( ! did_action( 'aegis_learndash_focus_header' ) ) {
+			do_action( 'aegis_learndash_focus_header', $course_id );
+		}
+	}
+
+	/**
+	 * Add theme footer to Focus Mode.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @hook learndash-focus-template-end
+	 *
+	 * @param int $course_id The course ID.
+	 *
+	 * @return void
+	 */
+	public function focus_mode_footer( int $course_id = 0 ): void {
+		if ( ! did_action( 'aegis_learndash_focus_footer' ) ) {
+			do_action( 'aegis_learndash_focus_footer', $course_id );
+		}
 	}
 
 	/**
@@ -195,10 +247,6 @@ class LearnDash implements Conditional, Styleable {
 	 * @return bool
 	 */
 	private function is_learndash_page(): bool {
-		if ( ! function_exists( 'get_post_type' ) ) {
-			return false;
-		}
-
 		$learndash_post_types = [
 			'sfwd-courses',
 			'sfwd-lessons',
@@ -210,6 +258,22 @@ class LearnDash implements Conditional, Styleable {
 			'groups',
 		];
 
-		return in_array( get_post_type(), $learndash_post_types, true );
+		if ( function_exists( 'get_post_type' ) ) {
+			$post_type = get_post_type();
+
+			if ( is_string( $post_type ) && in_array( $post_type, $learndash_post_types, true ) ) {
+				return true;
+			}
+		}
+
+		if ( function_exists( 'is_post_type_archive' ) && is_post_type_archive( $learndash_post_types ) ) {
+			return true;
+		}
+
+		if ( function_exists( 'is_tax' ) && is_tax( [ 'ld_course_category', 'ld_course_tag', 'ld_lesson_category', 'ld_lesson_tag', 'ld_topic_category', 'ld_topic_tag' ] ) ) {
+			return true;
+		}
+
+		return false;
 	}
 }

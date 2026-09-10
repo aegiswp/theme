@@ -32,8 +32,10 @@ use Aegis\Utilities\Debug;
 use function apply_filters;
 use function array_merge;
 use function class_exists;
+use function defined;
 use function esc_url;
 use function file_exists;
+use function function_exists;
 use function get_admin_url;
 use function get_home_url;
 use function is_admin;
@@ -580,9 +582,14 @@ class EditorAssets
 			'frontendFilters'    => ServiceProvider::is_block_enabled( 'query_loop_frontend_filters' ),
 			'masonryLayout'      => ServiceProvider::is_block_enabled( 'query_loop_masonry_layout' ),
 			'carouselLayout'     => ServiceProvider::is_block_enabled( 'query_loop_carousel_layout' ),
-			'woocommerce'        => ServiceProvider::is_block_enabled( 'query_loop_woocommerce' ),
-			'woocommerceActive'  => class_exists( 'WooCommerce' ),
-			'performance'        => ServiceProvider::is_block_enabled( 'query_loop_performance' ),
+			'woocommerce'            => ServiceProvider::is_block_enabled( 'query_loop_woocommerce' ),
+			'woocommerceActive'      => class_exists( \Aegis\Plugin\Integrations\WooCommerce::class )
+				? \Aegis\Plugin\Integrations\WooCommerce::is_plugin_active()
+				: ( class_exists( 'WooCommerce' ) || function_exists( 'WC' ) || defined( 'WC_VERSION' ) ),
+			'woocommerceIntegration' => class_exists( \Aegis\Plugin\Settings\Repository::class )
+				? \Aegis\Plugin\Settings\Repository::is_integration_enabled( 'woocommerce' )
+				: true,
+			'performance'            => ServiceProvider::is_block_enabled( 'query_loop_performance' ),
 		];
 	}
 

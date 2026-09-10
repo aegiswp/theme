@@ -32,7 +32,9 @@ use function apply_filters;
 use function array_unique;
 use function basename;
 use function class_exists;
+use function defined;
 use function do_blocks;
+use function function_exists;
 use function get_stylesheet_directory;
 use function glob;
 use function in_array;
@@ -201,7 +203,9 @@ HTML;
 			return false;
 		}
 
-		return class_exists( 'WooCommerce' );
+		return class_exists( \Aegis\Plugin\Integrations\WooCommerce::class )
+			? \Aegis\Plugin\Integrations\WooCommerce::is_plugin_active()
+			: ( class_exists( 'WooCommerce' ) || function_exists( 'WC' ) || defined( 'WC_VERSION' ) );
 	}
 
 	/**

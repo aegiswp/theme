@@ -27,6 +27,10 @@ namespace Aegis\Framework\Integrations;
 use Aegis\Container\Interfaces\Conditional;
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
+use function add_filter;
+use function class_exists;
+use function defined;
+use function function_exists;
 
 class GravityForms implements Conditional, Styleable {
 
@@ -38,7 +42,14 @@ class GravityForms implements Conditional, Styleable {
 	 * @return bool
 	 */
 	public static function condition(): bool {
-		return class_exists( 'GFForms' );
+		if ( class_exists( '\\Aegis\\Plugin\\Integrations\\GravityForms' ) ) {
+			return \Aegis\Plugin\Integrations\GravityForms::is_plugin_active();
+		}
+
+		return class_exists( 'GFForms' )
+			|| class_exists( 'GFAPI' )
+			|| defined( 'GF_MIN_WP_VERSION' )
+			|| function_exists( 'gravity_form' );
 	}
 
 	/**
@@ -54,7 +65,12 @@ class GravityForms implements Conditional, Styleable {
 		$styles->add_file(
 			'plugins/gravity-forms.css',
 			[
+				'gform_wrapper',
+				'gravity-theme',
+				'gform',
+				'gform_body',
 				'gform-body',
+				'gfield',
 			]
 		);
 	}
@@ -65,10 +81,15 @@ class GravityForms implements Conditional, Styleable {
 	 * @since 1.0.0
 	 *
 	 * @hook  init
+	 * @hook  gform_disable_form_theme_css
 	 *
-	 * @return void
+	 * @param bool $disabled Whether form theme CSS is disabled.
+	 *
+	 * @return bool
 	 */
-	public function remove_default_styles() {
+	public function remove_default_styles( bool $disabled = false ): bool {
 		add_filter( 'gform_disable_form_theme_css', '__return_true' );
+
+		return true;
 	}
 }

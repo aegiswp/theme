@@ -164,7 +164,7 @@ Keep both systems. Prefer Core for ordinary style changes; use Aegis for visibil
 
 ### Breadcrumbs
 
-`core/breadcrumbs` receives theme.json styles and the `aegis-breadcrumbs` stylesheet. WooCommerce Store Breadcrumbs (`woocommerce/breadcrumbs`) share the same stylesheet and delimiter treatment for visual parity. See [[woocommerce-integration#breadcrumbs]].
+`core/breadcrumbs` receives theme.json styles and the `breadcrumbs.css` stylesheet (also applied when `.rank-math-breadcrumb`, `.seopress-breadcrumbs`, `#breadcrumbs`, or `.yoast-breadcrumbs` markup is present; separators styled via Rank Math `.separator` and SEOPress `.breadcrumb-sep`; Yoast current crumb via `.breadcrumb_last` without a forced flex wrapper). WooCommerce Store Breadcrumbs (`woocommerce/breadcrumbs`) use `woocommerce-breadcrumbs.css` and wrap the delimiter in `.aegis-breadcrumb-separator`, same as classic Woo breadcrumbs. See [[woocommerce-integration#breadcrumbs]] and [SEO Schema Delegation](../../plugins/aegis/docs/features/seo-schema-delegation.md).
 
 ## Accessibility
 

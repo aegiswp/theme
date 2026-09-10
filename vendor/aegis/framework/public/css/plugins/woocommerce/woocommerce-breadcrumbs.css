@@ -1,4 +1,5 @@
 .wc-block-breadcrumbs,
+.wp-block-woocommerce-breadcrumbs,
 .woocommerce-breadcrumb{
 	font-size:var(--wp--preset--font-size--sm,14px);
 	line-height:1.5;
@@ -7,16 +8,24 @@
 	margin:0 0 var(--wp--preset--spacing--sm);
 	padding:0;
 }
+.wc-block-breadcrumbs a,
+.wp-block-woocommerce-breadcrumbs a,
 .woocommerce-breadcrumb a{
 	font-weight:400;
 	color:var(--wp--preset--color--neutral-500);
 	text-decoration:none;
 	transition:color var(--wp--custom--transition,.15s ease);
 }
+.wc-block-breadcrumbs a:hover,
+.wc-block-breadcrumbs a:focus,
+.wp-block-woocommerce-breadcrumbs a:hover,
+.wp-block-woocommerce-breadcrumbs a:focus,
 .woocommerce-breadcrumb a:hover,
 .woocommerce-breadcrumb a:focus{
 	color:var(--wp--preset--color--primary-700);
 }
+.wc-block-breadcrumbs .aegis-breadcrumb-separator,
+.wp-block-woocommerce-breadcrumbs .aegis-breadcrumb-separator,
 .woocommerce-breadcrumb .aegis-breadcrumb-separator{
 	margin:0 .5em;
 	opacity:.5;

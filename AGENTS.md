@@ -27,8 +27,7 @@ aegis/
 │   ├── footer/            Public footer patterns
 │   └── template/          Template patterns (`Inserter: false`)
 ├── src/                   PHP service classes (PSR-4, namespace Aegis\)
-│   ├── bootstrap.php      Composer autoload entry — wires init services
-│   └── Checkout/          WooCommerce multi-step checkout assets
+│   └── bootstrap.php      Composer autoload entry — wires init services
 ├── styles/                Style variation JSON files (dark mode, etc.)
 ├── templates/             FSE page templates (.html)
 ├── tools/                 Dev utilities (build, translate, audit, migration; see tools/README.md)

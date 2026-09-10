@@ -424,17 +424,22 @@ Aegis includes the following custom block variations that extend WordPress core 
 
 ### Plugin Integrations
 
-Framework styling applies when integrations are enabled in the **Aegis plugin** dashboard. Full toggle list and SEO delegation: [Integrations Dashboard](../plugins/aegis/docs/features/integrations-dashboard.md). Theme framework CSS covers WooCommerce, Fluent Forms, Gravity Forms, LifterLMS, Sensei, EDD, AffiliateWP, bbPress, and Syntax Highlighting Code Block when toggled on.
+Framework styling applies when integrations are enabled in the **Aegis plugin** dashboard. Full toggle list and SEO delegation: [Integrations Dashboard](../plugins/aegis/docs/features/integrations-dashboard.md). Theme framework CSS covers WooCommerce, Fluent Forms, Fluent Booking, Gravity Forms, Ninja Forms, LearnDash, LifterLMS, Sensei, EDD, AffiliateWP, bbPress, Meta Box, Syntax Highlighting Code Block, and Code Block Pro when toggled on.
 
 | Plugin | Category | Notes |
 |--------|----------|-------|
-| WooCommerce | E-commerce | Theme templates + framework CSS — see theme docs |
-| Fluent Forms / Gravity Forms | Forms | Framework styling when integration enabled |
-| LearnDash / LifterLMS / Sensei | LMS | Framework styling; pattern control in Pro |
-| Rank Math / Yoast / AIOSEO / SEOPress | SEO | Schema delegation via plugin — not theme CSS |
-| ACF / Meta Box | Developer | Plugin integration toggles |
+| WooCommerce | E-commerce | Framework shop/cart/checkout CSS (`plugins/woocommerce/woocommerce.css`) and breadcrumbs. Detected via `WooCommerce` / `WC()` / `WC_VERSION`. Pro cart, customer, and product extras |
+| Fluent Forms / Fluent Booking / Gravity Forms / Ninja Forms | Forms | Framework styling when integration enabled; Fluent Forms & Fluent Booking pattern control in Pro |
+| LearnDash / LifterLMS / Sensei | LMS | Framework course/lesson/quiz styling (`plugins/learndash.css`), Focus Mode chrome; pattern control and video progression in Pro |
+| Easy Digital Downloads | E-commerce | Framework download/checkout CSS (`plugins/edd/edd.css`). Detected via `Easy_Digital_Downloads` / `EDD()` / `EDD_VERSION`. Pro cart, customer, and download extras |
+| AffiliateWP | E-commerce | Framework Affiliate Area and login/register form CSS (`plugins/affiliate-wp.css`). Detected via `Affiliate_WP` / `affiliate_wp()` / `AFFILIATEWP_VERSION`. Skips `affwp-forms` on the frontend. Pro referral, account, and earnings extras |
+| Rank Math / Yoast / AIOSEO / SEOPress | SEO | Schema delegation via plugin; Rank Math `.rank-math-breadcrumb`, SEOPress `.seopress-breadcrumbs`, and Yoast `#breadcrumbs` / `.yoast-breadcrumbs` share theme breadcrumb CSS (separators via `.separator` / `.breadcrumb-sep`; Yoast `.breadcrumb_last`, no forced flex) |
+| ACF | Developer | Field visibility, Query Loop pickers, featured-image sources (plugin). No theme CSS |
+| Meta Box | Developer | Same field extras as ACF, plus framework form CSS (`plugins/meta-box.css`), `aegis/metabox` bindings, and theme palettes on Meta Box colour pickers |
+| Code Block Pro | Developer | Framework radius/typography overlay (`plugins/code-block-pro.css`). Detected via `CBPRouter` / `kevinbatdorf/code-block-pro`, not `CODE_BLOCK_PRO_VERSION`. No extras |
+| Syntax Highlighting Code Block | Developer | Framework overlay (`plugins/syntax-highlighting-code-block.css`) for Weston Ruter’s `core/code` highlighter. Detected via `PLUGIN_VERSION` / `boot()`. Overlay injects on `hljs` / `shcb-` markup. No extras |
 | FluentCRM / WP Fusion | CRM | Plugin Integrations; FluentCRM Pro video events; WP Fusion tag/list/CRM logged-in conditions. No theme CSS |
-| BunnyCDN | Performance | Credentials in plugin Integrations; video API in Pro |
+| BunnyCDN | Performance | Credentials + extras at plugin Connectors → BunnyCDN; Stream video API in Pro; theme CSS when connector on |
 
 ### Layout & Navigation
 
@@ -468,11 +473,11 @@ Framework styling applies when integrations are enabled in the **Aegis plugin** 
 
 **Framework Architecture**: Built on the Aegis Framework (`vendor/aegis/framework`) with ServiceProvider pattern. Provides a robust foundation for theme development and extensibility.
 
-**Core Block Extensions**: Uses WordPress `core/breadcrumbs` with theme styles, and styles WooCommerce Store Breadcrumbs (`woocommerce/breadcrumbs`) to match. No custom or docs-specific breadcrumbs block.
+**Core Block Extensions**: Uses WordPress `core/breadcrumbs` with theme styles, styles Rank Math `.rank-math-breadcrumb`, SEOPress `.seopress-breadcrumbs`, and Yoast `#breadcrumbs` / `.yoast-breadcrumbs` from the same stylesheet when present (separators via Rank Math `.separator` and SEOPress `.breadcrumb-sep`; Yoast current crumb `.breadcrumb_last` without forced flex), and styles WooCommerce Store Breadcrumbs (`woocommerce/breadcrumbs`) to match — including wrapping classic and Store Breadcrumb delimiters in `.aegis-breadcrumb-separator`. No custom or docs-specific breadcrumbs block.
 
 **Video Editor Extensions**: Advanced video editing capabilities in the block editor. Provides comprehensive video controls and customization options.
 
-**WooCommerce Integration**: Full WooCommerce support with store templates, mini-cart variants, and multi-step checkout enhancements. Optimized for e-commerce performance.
+**WooCommerce Integration**: Full WooCommerce support with store templates, mini-cart variants, and multi-step checkout (companion plugin assets on the multi-step template when the integration is on). Optimized for e-commerce performance.
 
 ## Pattern Creation Guidelines
 

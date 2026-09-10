@@ -40,7 +40,7 @@ These templates are active only when WooCommerce is installed:
 |---|----------|----------|------|-------------|
 | 13 | Product Archive | `archive-product.html` | Shop | The main shop page. Displays product grid with filtering and sorting. |
 | 14 | Single Product | `single-product.html` | Products | Individual product detail page with gallery, price, add-to-cart, and tabs. |
-| 15 | Product Search Results | `product-search-results.html` | Search | Results from product-specific searches. |
+| 15 | Product Search Results | `product-search-results.html`, `search-product.html` | Search | Results from product-specific searches. |
 | 16 | Product Category | `taxonomy-product_cat.html` | Taxonomy | Products filtered by a specific WooCommerce category. |
 | 17 | Product Tag | `taxonomy-product_tag.html` | Taxonomy | Products filtered by a specific WooCommerce tag. |
 | 18 | Cart | `page-cart.html` | Checkout | Shopping cart with item list, quantities, and totals. |

@@ -1,33 +1,28 @@
 <?php
 /**
- * SyntaxHighlightingCodeBlock Integration Component
+ * Syntax Highlighting Code Block Integration Component
  *
- * Provides support for integrating Syntax Highlighting Code Block plugin compatibility in the Aegis Framework.
- *
- * Responsibilities:
- * - Checks for Syntax Highlighting Code Block plugin presence and conditionally sets theme colors
- * - Integrates with the Aegis container and inline assets system
+ * Overlay CSS and optional theme.json highlight.js theme lock for
+ * Weston Ruter’s Syntax Highlighting Code Block plugin.
  *
  * @package    Aegis\Framework\Integrations
  * @since      1.0.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
- *
- * For developer documentation and onboarding. No logic changes in this
- * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for syntaxhighlightingcodeblock integration component.
 declare( strict_types=1 );
 
-// Declares the namespace for the syntaxhighlightingcodeblock integration component.
 namespace Aegis\Framework\Integrations;
 
-// Imports classes, interfaces, and functions used by the syntaxhighlightingcodeblock integration component.
 use Aegis\Container\Interfaces\Conditional;
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
+use function class_exists;
 use function defined;
+use function function_exists;
+use function is_array;
+use function is_string;
 use function wp_get_global_settings;
 
 class SyntaxHighlightingCodeBlock implements Conditional, Styleable {
@@ -35,12 +30,40 @@ class SyntaxHighlightingCodeBlock implements Conditional, Styleable {
 	/**
 	 * Condition.
 	 *
+	 * Prefer the plugin helper when the Aegis plugin is loaded.
+	 *
 	 * @since 1.0.0
 	 *
 	 * @return bool
 	 */
 	public static function condition(): bool {
-		return defined( '\\Syntax_Highlighting_Code_Block\\PLUGIN_VERSION' );
+		if ( class_exists( \Aegis\Plugin\Integrations\SyntaxHighlighting::class ) ) {
+			return \Aegis\Plugin\Integrations\SyntaxHighlighting::is_plugin_active();
+		}
+
+		return defined( 'Syntax_Highlighting_Code_Block\\PLUGIN_VERSION' )
+			|| function_exists( 'Syntax_Highlighting_Code_Block\\boot' );
+	}
+
+	/**
+	 * Lock the highlight.js theme from theme.json when `custom.highlightJs` is set.
+	 *
+	 * Hooking `syntax_highlighting_code_block_style` hides the plugin’s
+	 * Customizer theme picker, so only register when the theme actually
+	 * defines a stylesheet name.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @hook  after_setup_theme
+	 *
+	 * @return void
+	 */
+	public function maybe_lock_highlight_theme(): void {
+		if ( $this->theme_json_highlight_js() === null ) {
+			return;
+		}
+
+		add_filter( 'syntax_highlighting_code_block_style', [ $this, 'set_syntax_highlighting_code_theme' ] );
 	}
 
 	/**
@@ -48,17 +71,14 @@ class SyntaxHighlightingCodeBlock implements Conditional, Styleable {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $theme The theme to use.
-	 *
-	 * @hook  syntax_highlighting_code_block_style
+	 * @param string $theme The plugin default theme name.
 	 *
 	 * @return string
 	 */
 	public function set_syntax_highlighting_code_theme( string $theme ): string {
-		$global_settings = wp_get_global_settings();
+		$from_theme = $this->theme_json_highlight_js();
 
-		// Use highlightJs theme from theme.json when defined.
-		return $global_settings['custom']['highlightJs'] ?? 'atom-one-dark';
+		return $from_theme ?? $theme;
 	}
 
 	/**
@@ -73,8 +93,25 @@ class SyntaxHighlightingCodeBlock implements Conditional, Styleable {
 	public function styles( Styles $styles ): void {
 		$styles->add_file(
 			'plugins/syntax-highlighting-code-block.css',
-			[ 'wp-block-code' ],
-			static::condition()
+			[
+				'hljs',
+				'shcb-',
+			]
 		);
+	}
+
+	/**
+	 * Highlight.js stylesheet name from theme.json `settings.custom.highlightJs`.
+	 */
+	private function theme_json_highlight_js(): ?string {
+		$custom = wp_get_global_settings()['custom'] ?? [];
+
+		if ( ! is_array( $custom ) ) {
+			return null;
+		}
+
+		$value = $custom['highlightJs'] ?? null;
+
+		return is_string( $value ) && $value !== '' ? $value : null;
 	}
 }

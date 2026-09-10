@@ -25,15 +25,24 @@ Fired when integrations are enabled (free plugin `IntegrationInjector`):
 | `aegis_before_woocommerce_cart` / `aegis_after_woocommerce_cart` | WooCommerce cart |
 | `aegis_before_edd_download` / `aegis_after_edd_download` | EDD |
 | `aegis_before_affwp_dashboard` / `aegis_after_affwp_dashboard` | AffiliateWP |
-| `aegis_before_llms_course` / `aegis_after_llms_course` | LifterLMS |
-| `aegis_before_sensei_lesson` / `aegis_after_sensei_lesson` | Sensei |
+| `aegis_before_llms_course` / `aegis_after_llms_course` | LifterLMS course |
+| `aegis_before_llms_lesson` / `aegis_after_llms_lesson` | LifterLMS lesson |
+| `aegis_before_sensei_course` / `aegis_after_sensei_course` | Sensei course |
+| `aegis_before_sensei_lesson` / `aegis_after_sensei_lesson` | Sensei lesson |
+| `aegis_before_sensei_quiz` / `aegis_after_sensei_quiz` | Sensei quiz |
 | `aegis_before_fluentform` / `aegis_after_fluentform` | Fluent Forms |
 | `aegis_before_gform` / `aegis_after_gform` | Gravity Forms |
 | `aegis_before_nf_form` / `aegis_after_nf_form` | Ninja Forms |
+| `aegis_before_learndash_course` / `aegis_after_learndash_course` | LearnDash course |
+| `aegis_before_learndash_lesson` / `aegis_after_learndash_lesson` | LearnDash lesson |
+| `aegis_before_learndash_topic` / `aegis_after_learndash_topic` | LearnDash topic |
+| `aegis_before_learndash_quiz` / `aegis_after_learndash_quiz` | LearnDash quiz |
+| `aegis_learndash_focus_header` / `aegis_learndash_focus_footer` | LearnDash Focus Mode template |
 | `aegis_before_bbpress_forum` / `aegis_after_bbpress_forum` | bbPress forums loop |
 | `aegis_before_bbpress_topic` / `aegis_after_bbpress_topic` | bbPress single topic |
 | `aegis_before_post_author` / `aegis_after_post_author` | `core/post-author` and `co-authors/block` |
 | `aegis_before_map_block` / `aegis_after_map_block` | Map block |
+| `aegis_before_video_block` / `aegis_after_video_block` | `core/video` when Connectors → BunnyCDN is on |
 
 Full catalog: [Plugin Hook Patterns](../../plugins/aegis/docs/features/hook-patterns.md).
 

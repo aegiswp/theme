@@ -49,7 +49,7 @@ src/
     └── related-posts/
 ```
 
-Engine PHP (patterns REST, template expander, dynamic parts, navigation overlay, editor overlay fix, Woo breadcrumbs) lives in `vendor/aegis/framework`. Admin dashboard, conditionals, and multi-step checkout live in the companion plugin.
+Engine PHP (patterns REST, template expander, dynamic parts, navigation overlay, editor overlay fix, Woo breadcrumbs including Store Breadcrumb delimiter wrap) lives in `vendor/aegis/framework`. Admin dashboard, conditionals, and multi-step checkout live in the companion plugin.
 
 ### vendor/aegis/
 

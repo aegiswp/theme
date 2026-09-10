@@ -30,7 +30,7 @@ class BunnyCDN implements Conditional, Styleable {
 	 * Condition.
 	 *
 	 * BunnyCDN is a service, not a WordPress plugin. Styles register when the
-	 * Integrations toggle is enabled and load only when embed markers are present.
+	 * Connectors → BunnyCDN toggle is enabled and load only when embed markers are present.
 	 *
 	 * @since 1.0.0
 	 *

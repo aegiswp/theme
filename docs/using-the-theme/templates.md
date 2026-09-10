@@ -114,7 +114,7 @@ The multi-step checkout template (`page-checkout-multi-step.html`) splits the ch
 2. **Payment** — Payment method and billing details.
 3. **Review** — Order summary and confirmation.
 
-This template requires WooCommerce to be active and configured.
+This template requires WooCommerce to be active and **Aegis → Integrations → E-commerce → WooCommerce** on. Checkout CSS/JS live in the companion plugin and load on this template (or when the page contains `aegis-checkout-multi-step` markup). See [WooCommerce Checkout](../../plugins/aegis/docs/features/woocommerce-checkout.md).
 
 ### Product Templates
 

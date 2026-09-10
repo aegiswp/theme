@@ -10,7 +10,7 @@ See the full analytics guide in the plugin documentation:
 
 **[Aegis Plugin — Analytics](../../plugins/aegis/docs/features/analytics.md)**
 
-Pro-only features (Meta Pixel, GA4 Consent Mode, GTM Data Layer, video analytics) are documented in **[Analytics Pro](../../plugins/aegis-pro/docs/features/analytics-pro.md)**.
+Pro-only features (Meta Pixel, Consent Mode v2, GTM Data Layer, video analytics) are documented in **[Analytics Pro](../../plugins/aegis-pro/docs/features/analytics-pro.md)**.
 
 ## Next Steps
 

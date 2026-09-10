@@ -21,6 +21,7 @@ Aegis includes dedicated WooCommerce templates that replace the default WooComme
 | Product Archive | `archive-product.html` | The main shop page showing all products. |
 | Single Product | `single-product.html` | Individual product detail pages. |
 | Product Search Results | `product-search-results.html` | Results from product-specific searches. |
+| Product Search | `search-product.html` | Alternate product search template (`search-product`). |
 | Product Category | `taxonomy-product_cat.html` | Products filtered by category. |
 | Product Tag | `taxonomy-product_tag.html` | Products filtered by tag. |
 | Cart | `page-cart.html` | Shopping cart page. |
@@ -57,7 +58,7 @@ The multi-step checkout template splits the checkout process into distinct, mana
 
 Alternatively, edit your checkout page and select the **Multi-Step Checkout** template from the page template selector.
 
-> **Note:** Multi-step checkout assets load when the WooCommerce integration is enabled at **Aegis → Integrations**. See [WooCommerce Checkout](../../plugins/aegis/docs/features/woocommerce-checkout.md).
+> **Note:** Multi-step checkout assets load when the WooCommerce integration is on at **Aegis → Integrations → E-commerce** and the checkout page uses the multi-step template (`page-checkout-multi-step`) or contains `aegis-checkout-multi-step` markup. See [WooCommerce Checkout](../../plugins/aegis/docs/features/woocommerce-checkout.md).
 
 ### Multi-Step Checkout Features
 
@@ -101,8 +102,8 @@ The single product template provides a complete product detail experience:
 
 Shop templates use the WooCommerce Store Breadcrumbs block (`woocommerce/breadcrumbs`). Aegis styles them to match WordPress `core/breadcrumbs`:
 
-- Shared `aegis-breadcrumbs` stylesheet (enqueued for either block).
-- Accessible delimiter markup (`.aegis-breadcrumb-separator` with `aria-hidden="true"`).
+- Shared `woocommerce-breadcrumbs.css` stylesheet (enqueued for `.woocommerce-breadcrumb` / `.wc-block-breadcrumbs` / `.wp-block-woocommerce-breadcrumbs`).
+- Classic PHP breadcrumbs (`woocommerce_breadcrumb_defaults`) and Store Breadcrumbs (`render_block_woocommerce/breadcrumbs`) wrap the delimiter in `.aegis-breadcrumb-separator` with `aria-hidden="true"`.
 - Core `theme.json` / CSS tokens that cascade through Woo’s `.wp-block-breadcrumbs` wrapper.
 
 No template markup changes are required — keep `<!-- wp:woocommerce/breadcrumbs /-->` in shop layouts.
@@ -195,8 +196,9 @@ See [[dark-mode]] for dark mode configuration.
 
 WooCommerce pages use the same conditional asset loading as the rest of Aegis:
 
-- WooCommerce-specific styles load only on WooCommerce pages.
-- Cart and checkout scripts load only when needed.
+- Shop/cart/checkout CSS (`woocommerce.css`) loads when the WooCommerce integration is on and the page has `woocommerce` / `wc-block` / `wp-block-woocommerce` markup.
+- Breadcrumb CSS loads when the page has `woocommerce-breadcrumb` / `wc-block-breadcrumbs` / `wp-block-woocommerce-breadcrumbs` markup.
+- Multi-step checkout CSS/JS load on the multi-step template (or `aegis-checkout-multi-step` markup), not on every checkout page.
 - Product images use lazy loading.
 - The facade pattern applies to product videos.
 
@@ -229,7 +231,7 @@ Include the WooCommerce Mini Cart block in your header template part:
 
 ### WooCommerce Templates Not Appearing
 
-- Ensure WooCommerce is activated.
+- Ensure WooCommerce is activated. WooCommerce templates (`archive-product`, `single-product`, `product-search-results`, `search-product`, `page-cart`, `page-checkout`, `page-checkout-multi-step`, `order-confirmation`, `page-my-account`, and product taxonomies) are hidden from the Site Editor template picker when WooCommerce is inactive.
 - Clear any page caches.
 - Check that WooCommerce block templates are enabled (not legacy PHP templates).
 

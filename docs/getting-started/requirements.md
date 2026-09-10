@@ -91,7 +91,7 @@ Aegis does not require any plugins to function as a theme. All core functionalit
 
 Framework styling integrations (when plugin toggles enabled):
 
-- WooCommerce, Fluent Forms, Gravity Forms, LifterLMS, Sensei LMS, Easy Digital Downloads, AffiliateWP, bbPress, Syntax Highlighting Code Block
+- WooCommerce, Fluent Forms, Gravity Forms, LifterLMS, Sensei LMS, Easy Digital Downloads, AffiliateWP, bbPress, Meta Box, Syntax Highlighting Code Block, Code Block Pro
 
 Additional integrations (ACF, SEO plugins, Google Maps, analytics) are configured in the [Aegis plugin Integrations dashboard](../../plugins/aegis/docs/features/integrations-dashboard.md).
 

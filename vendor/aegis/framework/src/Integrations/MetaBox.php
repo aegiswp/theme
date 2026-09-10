@@ -39,14 +39,22 @@ use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
 use Aegis\Framework\ServiceProvider;
 use function __;
+use function absint;
 use function class_exists;
 use function function_exists;
+use function get_post_meta;
 use function get_the_ID;
+use function implode;
 use function in_array;
 use function is_array;
 use function is_numeric;
+use function is_scalar;
+use function is_string;
+use function sanitize_key;
+use function sprintf;
 use function wp_get_attachment_url;
 use function wp_json_encode;
+use function wp_print_inline_script_tag;
 
 /**
  * Meta Box plugin integration.
@@ -260,7 +268,15 @@ class MetaBox implements Conditional, Styleable {
 		// Handle content/text attributes.
 		if ( in_array( $attribute_name, [ 'content', 'text', 'value' ], true ) ) {
 			if ( is_array( $value ) ) {
-				return implode( ', ', array_map( 'strval', $value ) );
+				$flat = [];
+
+				foreach ( $value as $item ) {
+					if ( is_scalar( $item ) ) {
+						$flat[] = (string) $item;
+					}
+				}
+
+				return $flat === [] ? '' : implode( ', ', $flat );
 			}
 		}
 
@@ -300,16 +316,11 @@ class MetaBox implements Conditional, Styleable {
 		}
 
 		$colors_json = wp_json_encode( $colors );
-		?>
-		<script type="text/javascript">
-		(function($) {
-			$(document).on('ready', function() {
-				if (typeof $.wp === 'object' && typeof $.wp.wpColorPicker === 'function') {
-					$.wp.wpColorPicker.prototype.options.palettes = <?php echo $colors_json; ?>;
-				}
-			});
-		})(jQuery);
-		</script>
-		<?php
+		$script      = sprintf(
+			'jQuery(function($){if(typeof $.wp==="object"&&typeof $.wp.wpColorPicker==="function"){$.wp.wpColorPicker.prototype.options.palettes=%s;}});',
+			$colors_json
+		);
+
+		wp_print_inline_script_tag( $script );
 	}
 }

@@ -30,6 +30,46 @@ See [Plugin FAQ](../../plugins/aegis/docs/troubleshooting/faq.md) and [Pro docs]
 
 Yes. The theme provides templates, patterns, style variations, and theme-registered custom blocks without the plugin. Map, Modal, the Aegis admin menu, analytics, snippets, and integration toggles require the free plugin. Pro features require Aegis Pro.
 
+### Why doesn’t Easy Digital Downloads pick up theme styles?
+
+Enable **Aegis → Integrations → E-commerce → Easy Digital Downloads**. Framework CSS (`plugins/edd/edd.css`) loads when that toggle is on **and** EDD is active (`Easy_Digital_Downloads`, `EDD()`, or `EDD_VERSION`), and only if the page has EDD blocks, submit buttons, download markup, or alerts. See [Plugin FAQ — Easy Digital Downloads](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-easy-digital-downloads-configured) and [[plugin-integrations]].
+
+### Why doesn’t Code Block Pro pick up theme radius?
+
+Enable **Aegis → Integrations → Developer → Code Block Pro**. The overlay (`vendor/aegis/framework/public/css/plugins/code-block-pro.css`) loads only when that toggle is on **and** Kevin Batdorf’s plugin is active (`CBPRouter` or the `kevinbatdorf/code-block-pro` block). See [Plugin FAQ — Code Block Pro](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-code-block-pro-configured) and [[plugin-integrations]].
+
+### Why doesn’t Syntax Highlighting Code Block pick up theme radius?
+
+Enable **Aegis → Integrations → Developer → Syntax Highlighting Code Block**. The overlay (`vendor/aegis/framework/public/css/plugins/syntax-highlighting-code-block.css`) loads only when that toggle is on **and** Weston Ruter’s plugin is active (`Syntax_Highlighting_Code_Block\PLUGIN_VERSION` or `boot()`), and only if the page has `hljs` / `shcb-` markup. See [Plugin FAQ — Syntax Highlighting](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-syntax-highlighting-code-block-configured) and [[plugin-integrations]].
+
+### Why doesn’t the AffiliateWP Affiliate Area pick up theme styles?
+
+Enable **Aegis → Integrations → E-commerce → AffiliateWP**. Framework CSS (`plugins/affiliate-wp.css`) loads when that toggle is on **and** AffiliateWP is active (`Affiliate_WP`, `affiliate_wp()`, or `AFFILIATEWP_VERSION`). It covers the Affiliate Area plus login and register forms. AffiliateWP’s bundled `affwp-forms` stylesheet is skipped on the frontend so theme tokens apply; admin screens still use it. See [Plugin FAQ — AffiliateWP](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-affiliatewp-configured) and [[plugin-integrations]].
+
+### Why don’t Meta Box fields pick up theme form styles?
+
+Enable **Aegis → Integrations → Developer → Meta Box**. Framework CSS (`plugins/meta-box.css`), the `aegis/metabox` binding source, and theme colour palettes on Meta Box colour pickers load only when that toggle is on **and** Meta Box (or AIO) is active (`RWMB_Loader` or `rwmb_meta()`). See [Plugin FAQ — Meta Box](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-meta-box-configured) and [[plugin-integrations]].
+
+### Why doesn’t Fluent Forms pick up theme styles?
+
+Enable **Aegis → Integrations → Forms → Fluent Forms**. Framework CSS (`plugins/fluent-forms.css`) loads when that toggle is on **and** Fluent Forms is active (`FLUENTFORM`, `FLUENTFORM_VERSION`, or `FluentForm\App\Modules\Form\Form`), and only if the page has `fluentform`, `ff_form`, `fluent_form`, `fluent-form`, or `ff-form` markup. Default plugin public styles are disabled via `fluentform_load_default_public`. See [Plugin FAQ — Fluent Forms](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-fluent-forms-configured) and [[plugin-integrations]].
+
+### Why doesn’t Fluent Booking pick up theme styles?
+
+Enable **Aegis → Integrations → Forms → Fluent Booking**. Framework CSS (`plugins/fluentbooking.css`) loads when that toggle is on **and** Fluent Booking is active (`FLUENT_BOOKING_VERSION` or `FluentBooking\App\App`), and only if the page has `fluent-booking`, `fcal_`, `fcal-`, or `fluentbooking` markup. See [Plugin FAQ — Fluent Booking](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-fluent-booking-configured) and [[plugin-integrations]].
+
+### Why doesn’t Gravity Forms pick up theme styles?
+
+Enable **Aegis → Integrations → Forms → Gravity Forms**. Framework CSS (`plugins/gravity-forms.css`) loads when that toggle is on **and** Gravity Forms is active (`GFForms`, `GFAPI`, `GF_MIN_WP_VERSION`, or `gravity_form()`), and only if the page has `gform_wrapper`, `gravity-theme`, `gform`, `gform_body`, `gform-body`, or `gfield` markup. Default plugin theme styles are disabled via `gform_disable_form_theme_css`. See [Plugin FAQ — Gravity Forms](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-gravity-forms-configured) and [[plugin-integrations]].
+
+### Why doesn’t Ninja Forms pick up theme styles?
+
+Enable **Aegis → Integrations → Forms → Ninja Forms**. Framework CSS (`plugins/ninja-forms.css`) loads when that toggle is on **and** Ninja Forms is active (`Ninja_Forms`, `function_exists( 'Ninja_Forms' )`, `defined( 'NF_PLUGIN_VERSION' )`, or `defined( 'NF_VERSION' )`), and only if the page has `ninja-forms`, `ninja_forms`, `ninja_form`, `nf-form`, `nf-field`, `nf-form-cont`, or `nf-form-content` markup. Default and opinionated plugin styles (`nf-display`, `ninja-forms-display`, `ninja-forms-display-opinions`, `nf-display-opinions`, `nf-layout-front-end`) are dequeued. See [Plugin FAQ — Ninja Forms](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-ninja-forms-configured) and [[plugin-integrations]].
+
+### Why doesn’t LearnDash pick up theme styles?
+
+Enable **Aegis → Integrations → LMS → LearnDash**. Framework CSS (`plugins/learndash.css`) loads when that toggle is on **and** LearnDash is active (`LEARNDASH_VERSION`, `class_exists( 'SFWD_LMS' )`, `defined( 'LEARNDASH_LMS_PLUGIN_DIR' )`, or `function_exists( 'learndash_init' )`), and only if the page has `learndash-wrapper`, `learndash`, `ld-course`, `ld-lesson`, or `aegis-learndash` markup. Theme styles apply design tokens and dark mode styling to courses, lessons, topics, quizzes, and Focus Mode chrome. See [Plugin FAQ — LearnDash](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-learndash-configured) and [[plugin-integrations]].
+
 ## Requirements
 
 ### What version of WordPress do I need?
@@ -133,6 +173,10 @@ Yes. Aegis is compatible with third-party block plugins. The theme styles are ap
 
 ## WooCommerce
 
+### Why doesn’t WooCommerce pick up theme styles?
+
+Enable **Aegis → Integrations → E-commerce → WooCommerce**. Framework CSS (`plugins/woocommerce/woocommerce.css` and `woocommerce-breadcrumbs.css`) loads when that toggle is on **and** WooCommerce is active (`WooCommerce`, `WC()`, or `WC_VERSION`), and only if the page has WooCommerce / cart / checkout / breadcrumb markup. See [Plugin FAQ — WooCommerce](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-woocommerce-configured) and [[plugin-integrations]].
+
 ### Does Aegis support WooCommerce?
 
 Yes. Aegis includes WooCommerce FSE templates (theme) and WooCommerce block patterns (companion plugin, when WC is active). See [[woocommerce-integration]] for details.
@@ -143,7 +187,7 @@ WooCommerce block patterns are registered by the **Aegis companion plugin** only
 
 ### What is the multi-step checkout?
 
-The multi-step checkout splits the WooCommerce checkout into three steps (Shipping → Payment → Review) for a cleaner user experience. It is an alternative to the standard single-page checkout.
+The multi-step checkout splits the WooCommerce checkout into three steps (Shipping → Payment → Review) for a cleaner user experience. It is an alternative to the standard single-page checkout. Assign the **Multi-Step Checkout** template, enable **Aegis → Integrations → E-commerce → WooCommerce**, and the companion plugin loads checkout CSS/JS on that template (or when the page contains `aegis-checkout-multi-step` markup). See [WooCommerce Checkout](../../plugins/aegis/docs/features/woocommerce-checkout.md).
 
 ### Do I need WooCommerce installed for the theme to work?
 

@@ -26,7 +26,7 @@ Those extras do nothing while Custom Player is off. Sticky playback is a **Pro**
 1. Insert the standard **Video** block (`core/video`) from the block inserter.
 2. Upload or embed a video as with any block theme.
 3. Configure Pro features in the block sidebar when Pro is active and the matching extra is on.
-4. Toggle extras at **Aegis → Blocks → Video**.
+4. Toggle player extras at **Aegis → Blocks → Video**. BunnyCDN Stream credentials and extras are at **Aegis → Connectors → BunnyCDN**.
 
 ## Migrating legacy `aegis/video` content
 
