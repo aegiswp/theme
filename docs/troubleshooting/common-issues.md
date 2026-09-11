@@ -235,7 +235,7 @@ See [[dark-mode]] for configuration details.
 4. Enable page caching.
 5. Check server response time (TTFB).
 6. See [[performance]] for theme optimization strategies.
-7. Enable plugin toggles at **Aegis → Performance** (oEmbed, dashicons, heartbeat, emoji) — see [[../../plugins/aegis/docs/features/performance|Plugin Performance]].
+7. Enable plugin toggles at **Aegis → Performance** (oEmbed, dashicons, heartbeat, XML-RPC/head cleanup, embed facades, emoji with Pro) — see [[../../plugins/aegis/docs/features/performance|Plugin Performance]].
 8. For Query Loops, enable **Query Loop Performance** at **Aegis → Performance**; with Pro, configure per-block options in [[../../plugins/aegis-pro/docs/features/query-performance|Query Performance (Pro)]].
 
 ### Assets Loading on Every Page

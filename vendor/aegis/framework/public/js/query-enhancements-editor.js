@@ -47,18 +47,18 @@
 
 		if ( ! raw ) {
 			return {
-				enabled: true,
-				postTypes: true,
-				taxonomy: true,
-				includeExclude: true,
-				metaQuery: true,
-				orderMeta: true,
-				extendedOrder: true,
-				responsiveColumns: true,
-				gapControls: true,
-				featuredFirst: true,
-				equalHeight: true,
-				noResults: true,
+				enabled: false,
+				postTypes: false,
+				taxonomy: false,
+				includeExclude: false,
+				metaQuery: false,
+				orderMeta: false,
+				extendedOrder: false,
+				responsiveColumns: false,
+				gapControls: false,
+				featuredFirst: false,
+				equalHeight: false,
+				noResults: false,
 			};
 		}
 

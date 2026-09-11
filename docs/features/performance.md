@@ -179,7 +179,7 @@ When building custom pages or templates:
 
 ## Next Steps
 
-- [[../../plugins/aegis/docs/features/performance|Plugin Performance]] — Free site-wide toggles
+- [[../../plugins/aegis/docs/features/performance|Plugin Performance]] — Free site-wide toggles (oEmbed, dashicons, heartbeat, head/API cleanup, embed facades) and Pro emoji / Query Loop Performance. With Pro active, the theme defers emoji stripping to that toggle; free-plugin and standalone theme installs keep zero-base frontend emoji removal. Standalone theme enables embed facades by default; with the free plugin they default off until toggled.
 - [[testing]] — Running performance tests
 - [[building-assets]] — Understanding the build process.
 - [[deployment]] — Production deployment considerations.

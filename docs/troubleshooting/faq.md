@@ -209,9 +209,11 @@ Yes. Aegis is compatible with all major caching plugins (WP Super Cache, W3 Tota
 
 ### Where do I configure performance toggles?
 
-The theme handles zero-base asset loading — see [[../features/performance|Theme Performance]]. Additional site-wide toggles (oEmbed, dashicons, heartbeat) and Query Loop performance options live in the **Aegis plugin** admin:
+The theme handles zero-base asset loading — see [[../features/performance|Theme Performance]]. Additional site-wide toggles (oEmbed, dashicons, heartbeat, XML-RPC/head cleanup, emoji with Pro) and Query Loop performance options live in the **Aegis plugin** admin:
 
-- **Aegis → Performance** — WordPress script toggles, embed facades, and Query Loop Performance
+- **Aegis → Performance** — WordPress script and head/API toggles, embed facades, WooCommerce cuts, and Query Loop Performance
+
+When **Aegis Pro** is active, frontend emoji removal is owned by **Remove Emoji Scripts** (default off). Free-plugin and standalone theme installs keep zero-base frontend emoji stripping.
 
 With **Aegis Pro**, per-block Query Loop options appear in the editor under **Performance (Pro)** — see [[../../plugins/aegis-pro/docs/features/query-performance|Query Performance (Pro)]].
 
