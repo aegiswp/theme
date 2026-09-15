@@ -20,12 +20,12 @@
 		<!-- /wp:paragraph -->
 
 		<!-- wp:separator {"opacity":"css","className":"has-text-color has-neutral-100-color is-style-wide","style":{"border":{"width":"1px"}}} -->
-		<hr class="wp-block-separator has-css-opacity has-text-color has-neutral-100-color is-style-wide" style="border-width:1px" />
+		<hr class="wp-block-separator has-text-color has-css-opacity is-style-wide has-neutral-100-color" style="border-width:1px" />
 		<!-- /wp:separator -->
 
 		<!-- wp:post-author-biography {"textAlign":"center","textColor":"neutral-400","fontSize":"18"} /-->
 
-		<!-- wp:social-links {"iconColor":"neutral-500","size":"has-normal-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"center"}} -->
+		<!-- wp:social-links {"iconColor":"neutral-500","size":"has-normal-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"center"},"iconColorValue":"#525252"} -->
 		<ul class="wp-block-social-links has-normal-icon-size has-icon-color is-style-logos-only"><!-- wp:social-link {"url":"#","service":"deviantart"} /-->
 
 			<!-- wp:social-link {"url":"#","service":"dribbble"} /-->
