@@ -26,8 +26,8 @@
 
 					<!-- wp:post-author-biography {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xxs"}}},"textColor":"neutral-400","fontSize":"16"} /-->
 
-					<!-- wp:social-links {"iconColor":"neutral-500","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"margin":{"top":"var:preset|spacing|xxs"}}},"layout":{"type":"flex","justifyContent":"left"}} -->
-					<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--xxs)"><!-- wp:social-link {"url":"#","service":"facebook"} /-->
+					<!-- wp:social-links {"iconColor":"neutral-500","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"margin":{"top":"var:preset|spacing|xxs"}}},"layout":{"type":"flex","justifyContent":"left"},"iconColorValue":"#525252"} -->
+					<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--xxs);"><!-- wp:social-link {"url":"#","service":"facebook"} /-->
 
 						<!-- wp:social-link {"url":"#","service":"linkedin"} /-->
 
