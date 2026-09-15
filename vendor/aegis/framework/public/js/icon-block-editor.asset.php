@@ -12,5 +12,5 @@ return array(
 		'wp-i18n',
 		'wp-block-editor',
 	),
-	'version'      => '20260905120000',
+	'version'      => '20260914180000',
 );

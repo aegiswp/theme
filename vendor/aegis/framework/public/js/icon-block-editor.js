@@ -341,15 +341,23 @@
 		}
 	);
 
+	// WP 7 still applies extraProps via useBlockProps.save(). Stripping icon
+	// custom properties keeps pattern HTML valid; PHP/render applies icons on
+	// the front end. Covers core/button and legacy is-style-icon images.
 	addFilter(
 		'blocks.getSaveContent.extraProps',
 		'aegis/skip-button-icon-save-styles',
-		function ( extraProps, blockType ) {
-			if ( ! extraProps || blockType?.name !== 'core/button' ) {
+		function ( extraProps, blockType, attributes ) {
+			if ( ! extraProps || ! extraProps.style ) {
 				return extraProps;
 			}
 
-			if ( ! extraProps.style ) {
+			const isButton = blockType?.name === 'core/button';
+			const isIconImage =
+				blockType?.name === 'core/image' &&
+				String( attributes?.className || '' ).includes( 'is-style-icon' );
+
+			if ( ! isButton && ! isIconImage ) {
 				return extraProps;
 			}
 

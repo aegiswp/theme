@@ -429,12 +429,12 @@ class BlockSupports implements Scriptable
 			],
 		],
 		'core/paragraph' => [
+			// Text alignment uses the `align` attribute + has-text-align-* classes.
+			// Do not enable block align left/center/right or Core will also emit
+			// alignleft/aligncenter/alignright and invalidate existing patterns.
 			'align' => [
 				'full',
 				'wide',
-				'left',
-				'center',
-				'right',
 				'none',
 			],
 			'alignWide' => true,

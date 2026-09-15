@@ -33,7 +33,6 @@ use Aegis\Framework\InlineAssets\Styles;
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
-use Aegis\Framework\ServiceProvider;
 use WP_Block;
 use function array_diff;
 use function array_keys;
@@ -107,10 +106,6 @@ class Animation implements Renderable, Styleable, Scriptable {
 			return $block_content;
 		}
 
-		if ( $this->is_icon_animation_disabled( $block ) ) {
-			return $block_content;
-		}
-
 		$dom   = DOM::create( $block_content );
 		$first = DOM::get_element( '*', $dom );
 		if ( ! $first ) {
@@ -162,21 +157,6 @@ class Animation implements Renderable, Styleable, Scriptable {
 		$first->setAttribute( 'class', implode( ' ', $classes ) );
 
 		return $dom->saveHTML();
-	}
-
-	/**
-	 * Whether icon-specific animation should be skipped for this block.
-	 *
-	 * @param array<string, mixed> $block Block data.
-	 */
-	private function is_icon_animation_disabled( array $block ): bool {
-		if ( ServiceProvider::is_block_enabled( 'icon_animation' ) ) {
-			return false;
-		}
-
-		$name = $block['blockName'] ?? '';
-
-		return $name === 'core/icon';
 	}
 
 	/**
