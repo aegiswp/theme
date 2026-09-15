@@ -20,7 +20,7 @@
 		<!-- /wp:paragraph -->
 
 		<!-- wp:separator {"opacity":"css","align":"wide","className":"has-text-color has-neutral-100-color is-style-wide"} -->
-		<hr class="wp-block-separator alignwide has-css-opacity has-text-color has-neutral-100-color is-style-wide" />
+		<hr class="wp-block-separator alignwide has-text-color has-css-opacity is-style-wide has-neutral-100-color" />
 		<!-- /wp:separator -->
 	</div>
 	<!-- /wp:group -->
