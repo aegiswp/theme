@@ -38,7 +38,7 @@
 <!-- /wp:button -->
 
 				<!-- wp:button {"className":"is-style-ghost","onclick":"","size":"large","iconSize":"20px","iconPosition":"end"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Learn More', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Learn More', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->
