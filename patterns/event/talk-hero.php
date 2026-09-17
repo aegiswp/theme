@@ -36,7 +36,7 @@
 		<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 		<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--md)">
 			<!-- wp:image {"width":"64px","height":"64px","scale":"cover","style":{"border":{"radius":"100%"}}} -->
-			<figure class="wp-block-image is-resized"><img style="border-radius:100%;object-fit:cover;width:64px;height:64px" alt="" /></figure>
+			<figure class="wp-block-image is-resized has-custom-border"><img style="height:auto;border-radius:100%;object-fit:cover;width:64px;height:64px" alt="" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","orientation":"vertical"}} -->
@@ -54,7 +54,7 @@
 		<!-- /wp:group -->
 
 		<!-- wp:separator {"opacity":"css","className":"is-style-wide","style":{"color":{"background":"var:preset|color|neutral-200"}}} -->
-		<hr class="wp-block-separator has-css-opacity is-style-wide has-background" style="background-color:var(--wp--preset--color--neutral-200)" />
+		<hr class="wp-block-separator has-text-color has-css-opacity has-background is-style-wide" style="background-color:var(--wp--preset--color--neutral-200);color:var:preset|color|neutral-200" />
 		<!-- /wp:separator -->
 
 		<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|md"}}}} -->
@@ -100,11 +100,11 @@
 		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 		<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 			<!-- wp:button {"fontSize":"16"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Reserve Your Seat', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Reserve Your Seat', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 
 			<!-- wp:button {"className":"is-style-ghost","fontSize":"16"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Watch Previous Talks', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Watch Previous Talks', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
