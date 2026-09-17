@@ -22,7 +22,7 @@
 	<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 	<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 		<!-- wp:button {"width":75,"fontSize":"18"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Get Your Tickets Now', 'aegis' ); ?></a></div>
+<div class="wp-block-button has-custom-width wp-block-button__width-75"><a class="wp-block-button__link has-18-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Get Your Tickets Now', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 	</div>
 	<!-- /wp:buttons -->
