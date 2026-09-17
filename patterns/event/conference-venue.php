@@ -20,7 +20,7 @@
 		<!-- wp:column {"width":"50%"} -->
 		<div class="wp-block-column" style="flex-basis:50%">
 			<!-- wp:image {"aspectRatio":"16/9","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-			<figure class="wp-block-image"><img style="border-radius:8px;aspect-ratio:16/9;object-fit:cover" alt="<?php echo esc_attr__( 'Conference venue', 'aegis' ); ?>" /></figure>
+			<figure class="wp-block-image has-custom-border"><img style="border-radius:8px;aspect-ratio:16/9;object-fit:cover" alt="<?php echo esc_attr__( 'Conference venue', 'aegis' ); ?>" /></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
@@ -56,7 +56,7 @@
 				<!-- wp:buttons -->
 				<div class="wp-block-buttons">
 					<!-- wp:button {"className":"is-style-outline","fontSize":"14"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'View Hotels', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'View Hotels', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
