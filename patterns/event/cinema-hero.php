@@ -20,7 +20,7 @@
 				<!-- wp:column {"verticalAlignment":"center","width":"45%"} -->
 				<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:45%">
 					<!-- wp:image {"aspectRatio":"2/3","scale":"cover","className":"is-style-default","style":{"border":{"radius":"8px"}}} -->
-					<figure class="wp-block-image is-style-default"><img style="border-radius:8px;aspect-ratio:2/3;object-fit:cover" alt="<?php echo esc_attr__( 'Film poster', 'aegis' ); ?>" /></figure>
+					<figure class="wp-block-image is-style-default has-custom-border"><img style="border-radius:8px;aspect-ratio:2/3;object-fit:cover" alt="<?php echo esc_attr__( 'Film poster', 'aegis' ); ?>" /></figure>
 					<!-- /wp:image -->
 				</div>
 				<!-- /wp:column -->
@@ -54,7 +54,7 @@
 						<!-- /wp:paragraph -->
 
 						<!-- wp:separator {"opacity":"css","className":"is-style-wide","style":{"color":{"background":"var:preset|color|neutral-200"}}} -->
-						<hr class="wp-block-separator has-css-opacity is-style-wide has-background" style="background-color:var(--wp--preset--color--neutral-200)" />
+						<hr class="wp-block-separator has-text-color has-css-opacity has-background is-style-wide" style="background-color:var(--wp--preset--color--neutral-200);color:var:preset|color|neutral-200" />
 						<!-- /wp:separator -->
 
 						<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|md"}}}} -->
@@ -100,11 +100,11 @@
 						<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}}} -->
 						<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--sm)">
 							<!-- wp:button {"fontSize":"16"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Reserve Tickets', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Reserve Tickets', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 
 							<!-- wp:button {"className":"is-style-outline","fontSize":"16"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Watch Trailer', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Watch Trailer', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 						</div>
 						<!-- /wp:buttons -->
