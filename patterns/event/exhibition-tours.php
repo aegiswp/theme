@@ -34,7 +34,7 @@
 			<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}}} -->
 			<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--sm)">
 				<!-- wp:button {"className":"is-style-outline","fontSize":"14"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Book Tour — Free', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Book Tour — Free', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->
@@ -58,7 +58,7 @@
 			<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}}} -->
 			<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--sm)">
 				<!-- wp:button {"className":"is-style-outline","fontSize":"14"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Book Tour — $25', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Book Tour — $25', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->
@@ -82,7 +82,7 @@
 			<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}}} -->
 			<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--sm)">
 				<!-- wp:button {"className":"is-style-outline","fontSize":"14"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Inquire — $500', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Inquire — $500', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->
