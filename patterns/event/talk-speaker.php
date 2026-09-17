@@ -16,7 +16,7 @@
 		<!-- wp:column {"verticalAlignment":"center","width":"40%"} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:40%">
 			<!-- wp:image {"aspectRatio":"3/4","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-			<figure class="wp-block-image"><img style="border-radius:8px;aspect-ratio:3/4;object-fit:cover" alt="<?php echo esc_attr__( 'Dr. Lena Voss', 'aegis' ); ?>" /></figure>
+			<figure class="wp-block-image has-custom-border"><img style="border-radius:8px;aspect-ratio:3/4;object-fit:cover" alt="<?php echo esc_attr__( 'Dr. Lena Voss', 'aegis' ); ?>" /></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
