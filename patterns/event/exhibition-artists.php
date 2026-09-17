@@ -20,7 +20,7 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:image {"aspectRatio":"1","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-			<figure class="wp-block-image"><img style="border-radius:8px;aspect-ratio:1;object-fit:cover" alt="" /></figure>
+			<figure class="wp-block-image has-custom-border"><img style="border-radius:8px;aspect-ratio:1;object-fit:cover" alt="" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:heading {"level":4,"fontSize":"18","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}}} -->
@@ -40,7 +40,7 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:image {"aspectRatio":"1","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-			<figure class="wp-block-image"><img style="border-radius:8px;aspect-ratio:1;object-fit:cover" alt="" /></figure>
+			<figure class="wp-block-image has-custom-border"><img style="border-radius:8px;aspect-ratio:1;object-fit:cover" alt="" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:heading {"level":4,"fontSize":"18","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}}} -->
@@ -60,7 +60,7 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:image {"aspectRatio":"1","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-			<figure class="wp-block-image"><img style="border-radius:8px;aspect-ratio:1;object-fit:cover" alt="" /></figure>
+			<figure class="wp-block-image has-custom-border"><img style="border-radius:8px;aspect-ratio:1;object-fit:cover" alt="" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:heading {"level":4,"fontSize":"18","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}}} -->
