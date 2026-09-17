@@ -16,21 +16,21 @@
 	<!-- /wp:heading -->
 
 	<!-- wp:gallery {"columns":4,"linkTo":"none","align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|lg"},"blockGap":{"left":"var:preset|spacing|sm","top":"var:preset|spacing|sm"}}}} -->
-	<figure class="wp-block-gallery alignwide has-nested-images columns-4" style="margin-top:var(--wp--preset--spacing--lg)">
+	<figure class="wp-block-gallery alignwide has-nested-images columns-4 is-cropped" style="margin-top:var(--wp--preset--spacing--lg)">
 		<!-- wp:image {"aspectRatio":"1","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-		<figure class="wp-block-image"><img style="border-radius:8px;aspect-ratio:1;object-fit:cover" alt="<?php echo esc_attr__( 'Workshop moment', 'aegis' ); ?>" /></figure>
+		<figure class="wp-block-image has-custom-border"><img style="border-radius:8px;aspect-ratio:1;object-fit:cover" alt="<?php echo esc_attr__( 'Workshop moment', 'aegis' ); ?>" /></figure>
 		<!-- /wp:image -->
 
 		<!-- wp:image {"aspectRatio":"1","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-		<figure class="wp-block-image"><img style="border-radius:8px;aspect-ratio:1;object-fit:cover" alt="<?php echo esc_attr__( 'Student work', 'aegis' ); ?>" /></figure>
+		<figure class="wp-block-image has-custom-border"><img style="border-radius:8px;aspect-ratio:1;object-fit:cover" alt="<?php echo esc_attr__( 'Student work', 'aegis' ); ?>" /></figure>
 		<!-- /wp:image -->
 
 		<!-- wp:image {"aspectRatio":"1","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-		<figure class="wp-block-image"><img style="border-radius:8px;aspect-ratio:1;object-fit:cover" alt="<?php echo esc_attr__( 'Ceramic piece', 'aegis' ); ?>" /></figure>
+		<figure class="wp-block-image has-custom-border"><img style="border-radius:8px;aspect-ratio:1;object-fit:cover" alt="<?php echo esc_attr__( 'Ceramic piece', 'aegis' ); ?>" /></figure>
 		<!-- /wp:image -->
 
 		<!-- wp:image {"aspectRatio":"1","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-		<figure class="wp-block-image"><img style="border-radius:8px;aspect-ratio:1;object-fit:cover" alt="<?php echo esc_attr__( 'Studio view', 'aegis' ); ?>" /></figure>
+		<figure class="wp-block-image has-custom-border"><img style="border-radius:8px;aspect-ratio:1;object-fit:cover" alt="<?php echo esc_attr__( 'Studio view', 'aegis' ); ?>" /></figure>
 		<!-- /wp:image -->
 	</figure>
 	<!-- /wp:gallery -->
