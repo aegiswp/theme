@@ -70,7 +70,7 @@
 	<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|lg"}}}} -->
 	<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--lg)">
 		<!-- wp:button {"className":"is-style-outline","fontSize":"14"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'View Full Series', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'View Full Series', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 	</div>
 	<!-- /wp:buttons -->
