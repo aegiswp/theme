@@ -16,17 +16,17 @@
 	<!-- /wp:heading -->
 
 	<!-- wp:gallery {"columns":3,"linkTo":"none","align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|lg"},"blockGap":{"left":"var:preset|spacing|md","top":"var:preset|spacing|md"}}}} -->
-	<figure class="wp-block-gallery alignwide has-nested-images columns-3" style="margin-top:var(--wp--preset--spacing--lg)">
+	<figure class="wp-block-gallery alignwide has-nested-images columns-3 is-cropped" style="margin-top:var(--wp--preset--spacing--lg)">
 		<!-- wp:image {"aspectRatio":"4/5","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-		<figure class="wp-block-image"><img style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" alt="<?php echo esc_attr__( 'Sculpture installation', 'aegis' ); ?>" /><figcaption class="wp-element-caption"><?php echo esc_html__( 'Resonance I — Yuki Tanaka', 'aegis' ); ?></figcaption></figure>
+		<figure class="wp-block-image has-custom-border"><img style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" alt="<?php echo esc_attr__( 'Sculpture installation', 'aegis' ); ?>" /><figcaption class="wp-element-caption"><?php echo esc_html__( 'Resonance I — Yuki Tanaka', 'aegis' ); ?></figcaption></figure>
 		<!-- /wp:image -->
 
 		<!-- wp:image {"aspectRatio":"4/5","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-		<figure class="wp-block-image"><img style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" alt="<?php echo esc_attr__( 'Sound installation', 'aegis' ); ?>" /><figcaption class="wp-element-caption"><?php echo esc_html__( 'Hollow Frequencies — Amira Bey', 'aegis' ); ?></figcaption></figure>
+		<figure class="wp-block-image has-custom-border"><img style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" alt="<?php echo esc_attr__( 'Sound installation', 'aegis' ); ?>" /><figcaption class="wp-element-caption"><?php echo esc_html__( 'Hollow Frequencies — Amira Bey', 'aegis' ); ?></figcaption></figure>
 		<!-- /wp:image -->
 
 		<!-- wp:image {"aspectRatio":"4/5","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-		<figure class="wp-block-image"><img style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" alt="<?php echo esc_attr__( 'Mixed media piece', 'aegis' ); ?>" /><figcaption class="wp-element-caption"><?php echo esc_html__( 'Tectonic Whisper — Carlos Mena', 'aegis' ); ?></figcaption></figure>
+		<figure class="wp-block-image has-custom-border"><img style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" alt="<?php echo esc_attr__( 'Mixed media piece', 'aegis' ); ?>" /><figcaption class="wp-element-caption"><?php echo esc_html__( 'Tectonic Whisper — Carlos Mena', 'aegis' ); ?></figcaption></figure>
 		<!-- /wp:image -->
 	</figure>
 	<!-- /wp:gallery -->
