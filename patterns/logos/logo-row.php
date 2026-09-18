@@ -18,27 +18,27 @@
 	<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center"}} -->
 	<div class="wp-block-group alignwide" style="margin-top:var(--wp--preset--spacing--md)">
 		<!-- wp:image {"width":"120px","sizeSlug":"full","linkDestination":"none","style":{"color":{"duotone":["#94a3b8","#94a3b8"]}}} -->
-		<figure class="wp-block-image size-full is-resized"><img alt="" style="width:120px" /></figure>
+		<figure class="wp-block-image size-full is-resized"><img alt="" style="height:auto;width:120px" /></figure>
 		<!-- /wp:image -->
 
 		<!-- wp:image {"width":"120px","sizeSlug":"full","linkDestination":"none","style":{"color":{"duotone":["#94a3b8","#94a3b8"]}}} -->
-		<figure class="wp-block-image size-full is-resized"><img alt="" style="width:120px" /></figure>
+		<figure class="wp-block-image size-full is-resized"><img alt="" style="height:auto;width:120px" /></figure>
 		<!-- /wp:image -->
 
 		<!-- wp:image {"width":"120px","sizeSlug":"full","linkDestination":"none","style":{"color":{"duotone":["#94a3b8","#94a3b8"]}}} -->
-		<figure class="wp-block-image size-full is-resized"><img alt="" style="width:120px" /></figure>
+		<figure class="wp-block-image size-full is-resized"><img alt="" style="height:auto;width:120px" /></figure>
 		<!-- /wp:image -->
 
 		<!-- wp:image {"width":"120px","sizeSlug":"full","linkDestination":"none","style":{"color":{"duotone":["#94a3b8","#94a3b8"]}}} -->
-		<figure class="wp-block-image size-full is-resized"><img alt="" style="width:120px" /></figure>
+		<figure class="wp-block-image size-full is-resized"><img alt="" style="height:auto;width:120px" /></figure>
 		<!-- /wp:image -->
 
 		<!-- wp:image {"width":"120px","sizeSlug":"full","linkDestination":"none","style":{"color":{"duotone":["#94a3b8","#94a3b8"]}}} -->
-		<figure class="wp-block-image size-full is-resized"><img alt="" style="width:120px" /></figure>
+		<figure class="wp-block-image size-full is-resized"><img alt="" style="height:auto;width:120px" /></figure>
 		<!-- /wp:image -->
 
 		<!-- wp:image {"width":"120px","sizeSlug":"full","linkDestination":"none","style":{"color":{"duotone":["#94a3b8","#94a3b8"]}}} -->
-		<figure class="wp-block-image size-full is-resized"><img alt="" style="width:120px" /></figure>
+		<figure class="wp-block-image size-full is-resized"><img alt="" style="height:auto;width:120px" /></figure>
 		<!-- /wp:image -->
 	</div>
 	<!-- /wp:group -->
