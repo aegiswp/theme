@@ -128,7 +128,7 @@
 
 	<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 	<div class="wp-block-buttons"><!-- wp:button {"className":"is-style-ghost"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'View All Projects', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'View All Projects', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 	</div>
 	<!-- /wp:buttons -->
