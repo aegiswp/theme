@@ -28,7 +28,7 @@
 		<!-- wp:column {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
 		<div class="wp-block-column is-style-surface" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
 			<!-- wp:image {"width":"100%","aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"8px"}}} -->
-			<figure class="wp-block-image size-full is-resized has-custom-border" style="border-radius:8px"><img alt="" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover;width:100%" /></figure>
+			<figure class="wp-block-image size-full is-resized has-custom-border" style="border-radius:8px"><img alt="" style="height:auto;border-radius:8px;aspect-ratio:4/3;object-fit:cover;width:100%" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"style":{"spacing":{"blockGap":"0","margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"constrained"}} -->
@@ -47,8 +47,8 @@
 			<p class="has-neutral-600-color has-text-color has-14-font-size" style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Former VP of Product at a Fortune 500 company. Passionate about building products that make complex things simple.', 'aegis' ); ?></p>
 			<!-- /wp:paragraph -->
 
-			<!-- wp:social-links {"iconColor":"neutral-400","size":"has-small-icon-size","className":"has-icon-color is-style-logos-only","style":{"spacing":{"blockGap":{"left":"16px"},"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex"}} -->
-			<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--sm)">
+			<!-- wp:social-links {"iconColor":"neutral-400","size":"has-small-icon-size","className":"has-icon-color is-style-logos-only","style":{"spacing":{"blockGap":{"left":"16px"},"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex"},"iconColorValue":"#525252"} -->
+			<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--sm);">
 				<!-- wp:social-link {"url":"#","service":"linkedin"} /-->
 				<!-- wp:social-link {"url":"#","service":"x"} /-->
 			</ul>
@@ -59,7 +59,7 @@
 		<!-- wp:column {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
 		<div class="wp-block-column is-style-surface" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
 			<!-- wp:image {"width":"100%","aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"8px"}}} -->
-			<figure class="wp-block-image size-full is-resized has-custom-border" style="border-radius:8px"><img alt="" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover;width:100%" /></figure>
+			<figure class="wp-block-image size-full is-resized has-custom-border" style="border-radius:8px"><img alt="" style="height:auto;border-radius:8px;aspect-ratio:4/3;object-fit:cover;width:100%" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"style":{"spacing":{"blockGap":"0","margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"constrained"}} -->
@@ -78,8 +78,8 @@
 			<p class="has-neutral-600-color has-text-color has-14-font-size" style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Architected systems serving millions of users. Believes that the best infrastructure is the kind you never have to think about.', 'aegis' ); ?></p>
 			<!-- /wp:paragraph -->
 
-			<!-- wp:social-links {"iconColor":"neutral-400","size":"has-small-icon-size","className":"has-icon-color is-style-logos-only","style":{"spacing":{"blockGap":{"left":"16px"},"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex"}} -->
-			<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--sm)">
+			<!-- wp:social-links {"iconColor":"neutral-400","size":"has-small-icon-size","className":"has-icon-color is-style-logos-only","style":{"spacing":{"blockGap":{"left":"16px"},"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex"},"iconColorValue":"#525252"} -->
+			<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--sm);">
 				<!-- wp:social-link {"url":"#","service":"linkedin"} /-->
 				<!-- wp:social-link {"url":"#","service":"github"} /-->
 			</ul>
@@ -90,7 +90,7 @@
 		<!-- wp:column {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
 		<div class="wp-block-column is-style-surface" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
 			<!-- wp:image {"width":"100%","aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"border":{"radius":"8px"}}} -->
-			<figure class="wp-block-image size-full is-resized has-custom-border" style="border-radius:8px"><img alt="" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover;width:100%" /></figure>
+			<figure class="wp-block-image size-full is-resized has-custom-border" style="border-radius:8px"><img alt="" style="height:auto;border-radius:8px;aspect-ratio:4/3;object-fit:cover;width:100%" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"style":{"spacing":{"blockGap":"0","margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"constrained"}} -->
@@ -109,8 +109,8 @@
 			<p class="has-neutral-600-color has-text-color has-14-font-size" style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Award-winning designer who led brand identity for multiple startups. Turns abstract ideas into interfaces people love using.', 'aegis' ); ?></p>
 			<!-- /wp:paragraph -->
 
-			<!-- wp:social-links {"iconColor":"neutral-400","size":"has-small-icon-size","className":"has-icon-color is-style-logos-only","style":{"spacing":{"blockGap":{"left":"16px"},"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex"}} -->
-			<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--sm)">
+			<!-- wp:social-links {"iconColor":"neutral-400","size":"has-small-icon-size","className":"has-icon-color is-style-logos-only","style":{"spacing":{"blockGap":{"left":"16px"},"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex"},"iconColorValue":"#525252"} -->
+			<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--sm);">
 				<!-- wp:social-link {"url":"#","service":"linkedin"} /-->
 				<!-- wp:social-link {"url":"#","service":"dribbble"} /-->
 			</ul>
