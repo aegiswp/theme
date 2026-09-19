@@ -33,7 +33,7 @@
 		<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 		<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--sm)">
 			<!-- wp:button {"backgroundColor":"white","textColor":"primary-900","style":{"typography":{"fontSize":"18px"}},"className":"is-style-fill"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button has-white-background-color has-background has-primary-900-color" href="#"><?php echo esc_html__( 'Yes, I Want This! →', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-primary-900-color has-white-background-color has-text-color has-background has-custom-font-size wp-element-button" href="#" style="font-size:18px"><?php echo esc_html__( 'Yes, I Want This! →', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
@@ -171,7 +171,7 @@
 		<!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 		<div class="wp-block-group">
 			<!-- wp:details {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs"}},"border":{"bottom":{"color":"var:preset|color|neutral-200","width":"1px"}}}} -->
-			<details style="border-bottom-color:var(--wp--preset--color--neutral-200);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)">
+			<details style="border-bottom-color:var(--wp--preset--color--neutral-200);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)" class="wp-block-details">
 				<summary><?php echo esc_html__( 'How quickly will I see results?', 'aegis' ); ?></summary>
 				<!-- wp:paragraph {"textColor":"neutral-600","fontSize":"14"} -->
 				<p class="has-neutral-600-color has-text-color has-14-font-size"><?php echo esc_html__( 'Most customers report seeing meaningful improvements within the first 14 days. However, the full system is designed to deliver transformative results over 30 days.', 'aegis' ); ?></p>
@@ -180,7 +180,7 @@
 			<!-- /wp:details -->
 
 			<!-- wp:details {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs"}},"border":{"bottom":{"color":"var:preset|color|neutral-200","width":"1px"}}}} -->
-			<details style="border-bottom-color:var(--wp--preset--color--neutral-200);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)">
+			<details style="border-bottom-color:var(--wp--preset--color--neutral-200);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)" class="wp-block-details">
 				<summary><?php echo esc_html__( 'Is there a money-back guarantee?', 'aegis' ); ?></summary>
 				<!-- wp:paragraph {"textColor":"neutral-600","fontSize":"14"} -->
 				<p class="has-neutral-600-color has-text-color has-14-font-size"><?php echo esc_html__( 'Absolutely. We offer a full 30-day money-back guarantee. If you\'re not satisfied for any reason, just let us know and we\'ll refund every penny.', 'aegis' ); ?></p>
@@ -189,7 +189,7 @@
 			<!-- /wp:details -->
 
 			<!-- wp:details {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs"}},"border":{"bottom":{"color":"var:preset|color|neutral-200","width":"1px"}}}} -->
-			<details style="border-bottom-color:var(--wp--preset--color--neutral-200);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)">
+			<details style="border-bottom-color:var(--wp--preset--color--neutral-200);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)" class="wp-block-details">
 				<summary><?php echo esc_html__( 'Do I need any technical skills?', 'aegis' ); ?></summary>
 				<!-- wp:paragraph {"textColor":"neutral-600","fontSize":"14"} -->
 				<p class="has-neutral-600-color has-text-color has-14-font-size"><?php echo esc_html__( 'Not at all. Our system is designed for beginners and experts alike. Everything is explained step-by-step with clear instructions.', 'aegis' ); ?></p>
@@ -226,7 +226,7 @@
 		<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 		<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--sm)">
 			<!-- wp:button {"backgroundColor":"white","textColor":"primary-900","style":{"typography":{"fontSize":"18px"}},"className":"is-style-fill"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button has-white-background-color has-background has-primary-900-color" href="#"><?php echo esc_html__( 'Get Instant Access Now →', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-primary-900-color has-white-background-color has-text-color has-background has-custom-font-size wp-element-button" href="#" style="font-size:18px"><?php echo esc_html__( 'Get Instant Access Now →', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
