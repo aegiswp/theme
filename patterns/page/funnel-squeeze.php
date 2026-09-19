@@ -33,7 +33,7 @@
 			<!-- /wp:paragraph -->
 
 			<!-- wp:image {"align":"center","width":"480px","aspectRatio":"16/9","scale":"cover","style":{"border":{"radius":"12px"},"spacing":{"margin":{"top":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm"}}}} -->
-			<figure class="wp-block-image aligncenter is-resized" style="border-radius:12px;margin-top:var(--wp--preset--spacing--sm);margin-bottom:var(--wp--preset--spacing--sm)"><img alt="" style="aspect-ratio:16/9;object-fit:cover;width:480px" width="480px" /></figure>
+			<figure class="wp-block-image aligncenter is-resized has-custom-border" style="border-radius:12px;margin-top:var(--wp--preset--spacing--sm);margin-bottom:var(--wp--preset--spacing--sm)"><img alt="" style="border-radius:12px;aspect-ratio:16/9;object-fit:cover;width:480px;height:auto" /></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs","margin":{"bottom":"var:preset|spacing|sm"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
