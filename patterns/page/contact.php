@@ -129,7 +129,7 @@
 						<h4 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'Follow Us', 'aegis' ); ?></h4>
 						<!-- /wp:heading -->
 
-						<!-- wp:social-links {"iconColor":"neutral-600","size":"has-normal-icon-size","className":"is-style-logos-only"} -->
+						<!-- wp:social-links {"iconColor":"neutral-600","size":"has-normal-icon-size","className":"is-style-logos-only","iconColorValue":"#525252"} -->
 						<ul class="wp-block-social-links has-normal-icon-size has-icon-color is-style-logos-only">
 							<!-- wp:social-link {"url":"#","service":"facebook"} /-->
 
