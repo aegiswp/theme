@@ -43,8 +43,8 @@
 			<p class="has-neutral-600-color has-text-color"><?php echo esc_html__( 'When not building the future of digital tools, you can find Alex mentoring early-stage founders, contributing to open-source projects, or hiking trails across the Pacific Northwest.', 'aegis' ); ?></p>
 			<!-- /wp:paragraph -->
 
-			<!-- wp:social-links {"iconColor":"neutral-400","size":"has-small-icon-size","className":"has-icon-color is-style-logos-only","style":{"spacing":{"blockGap":{"left":"20px"},"margin":{"top":"var:preset|spacing|md"}}}} -->
-			<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--md)">
+			<!-- wp:social-links {"iconColor":"neutral-400","size":"has-small-icon-size","className":"has-icon-color is-style-logos-only","style":{"spacing":{"blockGap":{"left":"20px"},"margin":{"top":"var:preset|spacing|md"}}},"iconColorValue":"#525252"} -->
+			<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--md);">
 				<!-- wp:social-link {"url":"#","service":"linkedin"} /-->
 				<!-- wp:social-link {"url":"#","service":"x"} /-->
 				<!-- wp:social-link {"url":"#","service":"github"} /-->
