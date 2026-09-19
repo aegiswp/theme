@@ -110,7 +110,7 @@
 		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|lg"}}}} -->
 		<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--lg)">
 			<!-- wp:button {"fontSize":"16"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Register — $180', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Register — $180', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
@@ -120,7 +120,7 @@
 	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
 	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
 		<!-- wp:gallery {"columns":2,"linkTo":"none","align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|xs","top":"var:preset|spacing|xs"}}}} -->
-		<figure class="wp-block-gallery alignwide has-nested-images columns-2">
+		<figure class="wp-block-gallery alignwide has-nested-images columns-2 is-cropped">
 			<!-- wp:image {"aspectRatio":"16/9","scale":"cover"} -->
 			<figure class="wp-block-image"><img style="aspect-ratio:16/9;object-fit:cover" alt="" /></figure>
 			<!-- /wp:image -->
@@ -268,7 +268,7 @@
 			<!-- wp:column {"verticalAlignment":"center","width":"40%"} -->
 			<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:40%">
 				<!-- wp:image {"width":"200px","height":"200px","scale":"cover","style":{"border":{"radius":"100%"}}} -->
-				<figure class="wp-block-image is-resized"><img style="border-radius:100%;object-fit:cover;width:200px;height:200px" alt="" /></figure>
+				<figure class="wp-block-image is-resized has-custom-border"><img style="height:auto;border-radius:100%;object-fit:cover;width:200px;height:200px" alt="" /></figure>
 				<!-- /wp:image -->
 			</div>
 			<!-- /wp:column -->
@@ -289,7 +289,7 @@
 					<p class="has-neutral-600-color has-text-color has-16-font-size"><?php echo esc_html__( 'Alejandra has been working with clay for over 20 years. Trained at the Escuela de Artes y Oficios in Bogotá and the Penland School of Craft in North Carolina, her work has been exhibited in galleries across Latin America, Europe, and Japan. She founded Taller Tierra in 2015 as a space for community-centered ceramic education.', 'aegis' ); ?></p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:social-links {"iconColor":"neutral-500","size":"has-small-icon-size","className":"is-style-logos-only"} -->
+					<!-- wp:social-links {"iconColor":"neutral-500","size":"has-small-icon-size","className":"is-style-logos-only","iconColorValue":"#525252"} -->
 					<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
 						<!-- wp:social-link {"url":"#","service":"instagram"} /-->
 
@@ -366,7 +366,7 @@
 		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 		<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 			<!-- wp:button {"width":75,"fontSize":"18"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Secure Your Spot — $180', 'aegis' ); ?></a></div>
+<div class="wp-block-button has-custom-width wp-block-button__width-75"><a class="wp-block-button__link has-18-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Secure Your Spot — $180', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
