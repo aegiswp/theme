@@ -24,7 +24,7 @@
 					<!-- wp:column {"verticalAlignment":"center","width":"45%"} -->
 					<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:45%">
 						<!-- wp:image {"aspectRatio":"2/3","scale":"cover","className":"is-style-default","style":{"border":{"radius":"8px"}}} -->
-						<figure class="wp-block-image is-style-default"><img style="border-radius:8px;aspect-ratio:2/3;object-fit:cover" alt="<?php echo esc_attr__( 'Film poster', 'aegis' ); ?>" /></figure>
+						<figure class="wp-block-image is-style-default has-custom-border"><img style="border-radius:8px;aspect-ratio:2/3;object-fit:cover" alt="<?php echo esc_attr__( 'Film poster', 'aegis' ); ?>" /></figure>
 						<!-- /wp:image -->
 					</div>
 					<!-- /wp:column -->
@@ -58,7 +58,7 @@
 							<!-- /wp:paragraph -->
 
 							<!-- wp:separator {"opacity":"css","className":"is-style-wide","style":{"color":{"background":"var:preset|color|neutral-200"}}} -->
-							<hr class="wp-block-separator has-css-opacity is-style-wide has-background" style="background-color:var(--wp--preset--color--neutral-200)" />
+							<hr class="wp-block-separator has-text-color has-css-opacity has-background is-style-wide" style="background-color:var(--wp--preset--color--neutral-200);color:var:preset|color|neutral-200" />
 							<!-- /wp:separator -->
 
 							<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|md"}}}} -->
@@ -104,11 +104,11 @@
 							<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}}} -->
 							<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--sm)">
 								<!-- wp:button {"fontSize":"16"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Reserve Tickets', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Reserve Tickets', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 
 								<!-- wp:button {"className":"is-style-outline","fontSize":"16"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Watch Trailer', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Watch Trailer', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 							</div>
 							<!-- /wp:buttons -->
@@ -137,7 +137,7 @@
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 				<div class="wp-block-group">
 					<!-- wp:image {"width":"140px","height":"140px","scale":"cover","style":{"border":{"radius":"100%"}}} -->
-					<figure class="wp-block-image is-resized"><img style="border-radius:100%;object-fit:cover;width:140px;height:140px" alt="" /></figure>
+					<figure class="wp-block-image is-resized has-custom-border"><img style="height:auto;border-radius:100%;object-fit:cover;width:140px;height:140px" alt="" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:paragraph {"align":"center","className":"is-style-heading","textColor":"white","fontSize":"16"} -->
@@ -157,7 +157,7 @@
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 				<div class="wp-block-group">
 					<!-- wp:image {"width":"140px","height":"140px","scale":"cover","style":{"border":{"radius":"100%"}}} -->
-					<figure class="wp-block-image is-resized"><img style="border-radius:100%;object-fit:cover;width:140px;height:140px" alt="" /></figure>
+					<figure class="wp-block-image is-resized has-custom-border"><img style="height:auto;border-radius:100%;object-fit:cover;width:140px;height:140px" alt="" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:paragraph {"align":"center","className":"is-style-heading","textColor":"white","fontSize":"16"} -->
@@ -177,7 +177,7 @@
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 				<div class="wp-block-group">
 					<!-- wp:image {"width":"140px","height":"140px","scale":"cover","style":{"border":{"radius":"100%"}}} -->
-					<figure class="wp-block-image is-resized"><img style="border-radius:100%;object-fit:cover;width:140px;height:140px" alt="" /></figure>
+					<figure class="wp-block-image is-resized has-custom-border"><img style="height:auto;border-radius:100%;object-fit:cover;width:140px;height:140px" alt="" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:paragraph {"align":"center","className":"is-style-heading","textColor":"white","fontSize":"16"} -->
@@ -197,7 +197,7 @@
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 				<div class="wp-block-group">
 					<!-- wp:image {"width":"140px","height":"140px","scale":"cover","style":{"border":{"radius":"100%"}}} -->
-					<figure class="wp-block-image is-resized"><img style="border-radius:100%;object-fit:cover;width:140px;height:140px" alt="" /></figure>
+					<figure class="wp-block-image is-resized has-custom-border"><img style="height:auto;border-radius:100%;object-fit:cover;width:140px;height:140px" alt="" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:paragraph {"align":"center","className":"is-style-heading","textColor":"white","fontSize":"16"} -->
@@ -297,7 +297,7 @@
 		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 		<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 			<!-- wp:button {"width":75,"fontSize":"18"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Get Your Tickets Now', 'aegis' ); ?></a></div>
+<div class="wp-block-button has-custom-width wp-block-button__width-75"><a class="wp-block-button__link has-18-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Get Your Tickets Now', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
