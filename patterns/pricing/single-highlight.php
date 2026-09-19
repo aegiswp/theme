@@ -48,7 +48,7 @@
 			<!-- /wp:paragraph -->
 
 			<!-- wp:separator {"style":{"border":{"width":"1px"}},"textColor":"neutral-200"} -->
-			<hr class="wp-block-separator has-alpha-channel-opacity has-neutral-200-color has-text-color" style="border-width:1px" />
+			<hr class="wp-block-separator has-text-color has-alpha-channel-opacity has-neutral-200-color" style="border-width:1px" />
 			<!-- /wp:separator -->
 
 			<!-- wp:columns {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}}} -->
@@ -106,7 +106,7 @@
 			<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 			<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 				<!-- wp:button {"backgroundColor":"neutral-800","width":100,"className":"is-style-fill","fontSize":"16"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button has-neutral-800-background-color has-background" href="#"><?php echo esc_html__( 'Get Started Today', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-fill has-custom-width wp-block-button__width-100"><a class="wp-block-button__link has-neutral-800-background-color has-background has-16-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Get Started Today', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->
