@@ -20,7 +20,7 @@
 			<!-- wp:group {"layout":{"type":"constrained","contentSize":"800px"}} -->
 			<div class="wp-block-group">
 				<!-- wp:paragraph {"align":"center","className":"is-style-sub-heading","textColor":"primary-400"} -->
-				<p class="aligncenter has-text-align-center is-style-sub-heading has-primary-400-color has-text-color aligncenter"><?php echo esc_html__( 'Introducing the Future', 'aegis' ); ?></p>
+				<p class="has-text-align-center is-style-sub-heading has-primary-400-color has-text-color"><?php echo esc_html__( 'Introducing the Future', 'aegis' ); ?></p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:heading {"textAlign":"center","level":1,"textColor":"white","fontSize":"60"} -->
@@ -28,18 +28,21 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"align":"center","textColor":"neutral-300","fontSize":"20"} -->
-				<p class="aligncenter has-text-align-center has-neutral-300-color has-text-color has-20-font-size aligncenter"><?php echo esc_html__( 'The all-in-one platform that empowers teams to create, collaborate, and deliver exceptional digital experiences.', 'aegis' ); ?></p>
+				<p class="has-text-align-center has-neutral-300-color has-text-color has-20-font-size"><?php echo esc_html__( 'The all-in-one platform that empowers teams to create, collaborate, and deliver exceptional digital experiences.', 'aegis' ); ?></p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 				<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 					<!-- wp:button {"fontSize":"18"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Start Free Trial', 'aegis' ); ?></a></div>
-<!-- /wp:button -->
+					<div class="wp-block-button"><a class="wp-block-button__link has-18-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Start Free Trial', 'aegis' ); ?></a></div>
+					<!-- /wp:button -->
+				</div>
+				<!-- /wp:buttons -->
+			</div>
+			<!-- /wp:group -->
 		</div>
-		<!-- /wp:buttons -->
 	</div>
-	<!-- /wp:group -->
+	<!-- /wp:cover -->
 
 </div>
 <!-- /wp:group -->
