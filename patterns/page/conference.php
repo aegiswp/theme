@@ -97,11 +97,11 @@
 
 			<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 			<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)"><!-- wp:button {"fontSize":"16"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Register Now', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Register Now', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 
 				<!-- wp:button {"className":"is-style-ghost","fontSize":"16"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'View Schedule', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'View Schedule', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->
@@ -313,7 +313,7 @@
 
 					<!-- wp:buttons -->
 					<div class="wp-block-buttons"><!-- wp:button {"className":"is-style-ghost","fontSize":"14"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'View Hotels', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'View Hotels', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 					</div>
 					<!-- /wp:buttons -->
@@ -337,7 +337,7 @@
 
 		<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 		<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)"><!-- wp:button {"width":75,"fontSize":"18"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Register Now — $349', 'aegis' ); ?></a></div>
+<div class="wp-block-button has-custom-width wp-block-button__width-75"><a class="wp-block-button__link has-18-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Register Now — $349', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
