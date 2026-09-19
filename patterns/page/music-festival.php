@@ -34,11 +34,11 @@
 				<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 				<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 					<!-- wp:button {"fontSize":"18"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Get Passes', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-18-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Get Passes', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 
 					<!-- wp:button {"className":"is-style-ghost","fontSize":"18"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'View Lineup', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link has-18-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'View Lineup', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
@@ -223,7 +223,7 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:list {"textColor":"neutral-600","fontSize":"15","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}}} -->
-				<ul class="has-neutral-600-color has-text-color has-15-font-size" style="margin-top:var(--wp--preset--spacing--sm)">
+				<ul class="has-neutral-600-color has-text-color has-15-font-size wp-block-list" style="margin-top:var(--wp--preset--spacing--sm)">
 					<!-- wp:list-item -->
 					<li><?php echo esc_html__( 'Single day access to all stages', 'aegis' ); ?></li>
 					<!-- /wp:list-item -->
@@ -241,7 +241,7 @@
 				<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 				<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 					<!-- wp:button {"className":"is-style-outline","width":100} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Select', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-outline has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Select', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
@@ -267,7 +267,7 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:list {"textColor":"neutral-600","fontSize":"15","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}}} -->
-				<ul class="has-neutral-600-color has-text-color has-15-font-size" style="margin-top:var(--wp--preset--spacing--sm)">
+				<ul class="has-neutral-600-color has-text-color has-15-font-size wp-block-list" style="margin-top:var(--wp--preset--spacing--sm)">
 					<!-- wp:list-item -->
 					<li><?php echo esc_html__( 'All 3 days access to all stages', 'aegis' ); ?></li>
 					<!-- /wp:list-item -->
@@ -289,7 +289,7 @@
 				<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 				<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 					<!-- wp:button {"width":100} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Select', 'aegis' ); ?></a></div>
+<div class="wp-block-button has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Select', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
@@ -307,7 +307,7 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:list {"textColor":"neutral-600","fontSize":"15","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}}} -->
-				<ul class="has-neutral-600-color has-text-color has-15-font-size" style="margin-top:var(--wp--preset--spacing--sm)">
+				<ul class="has-neutral-600-color has-text-color has-15-font-size wp-block-list" style="margin-top:var(--wp--preset--spacing--sm)">
 					<!-- wp:list-item -->
 					<li><?php echo esc_html__( 'Everything in Full Festival', 'aegis' ); ?></li>
 					<!-- /wp:list-item -->
@@ -329,7 +329,7 @@
 				<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 				<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 					<!-- wp:button {"className":"is-style-outline","width":100} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Select', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-outline has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Select', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
