@@ -91,12 +91,12 @@
 
 					<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 					<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
-						<!-- wp:button [] -->
+						<!-- wp:button -->
 <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Reserve Your Seat', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 
 						<!-- wp:button {"className":"is-style-outline"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Add to Calendar', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Add to Calendar', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 					</div>
 					<!-- /wp:buttons -->
@@ -108,7 +108,7 @@
 			<!-- wp:column {"verticalAlignment":"center","width":"45%"} -->
 			<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:45%">
 				<!-- wp:image {"aspectRatio":"4/5","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-				<figure class="wp-block-image"><img style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" alt="" /></figure>
+				<figure class="wp-block-image has-custom-border"><img style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" alt="" /></figure>
 				<!-- /wp:image -->
 			</div>
 			<!-- /wp:column -->
@@ -134,7 +134,7 @@
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|md"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
 				<div class="wp-block-group">
 					<!-- wp:image {"width":"120px","height":"120px","scale":"cover","style":{"border":{"radius":"100%"}}} -->
-					<figure class="wp-block-image is-resized"><img style="border-radius:100%;object-fit:cover;width:120px;height:120px" alt="" /></figure>
+					<figure class="wp-block-image is-resized has-custom-border"><img style="height:auto;border-radius:100%;object-fit:cover;width:120px;height:120px" alt="" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical"}} -->
@@ -151,8 +151,8 @@
 						<p class="has-neutral-600-color has-text-color has-15-font-size"><?php echo esc_html__( 'Dr. Vásquez leads the Attention & Design Lab at Universidad de los Andes. Her research bridges neuroscience and human-computer interaction, with publications in Nature, Science, and the ACM Digital Library. She has consulted for Google, Apple, and the World Health Organization on attention-aware design systems.', 'aegis' ); ?></p>
 						<!-- /wp:paragraph -->
 
-						<!-- wp:social-links {"iconColor":"neutral-500","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"margin":{"top":"var:preset|spacing|xxs"}}}} -->
-						<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--xxs)">
+						<!-- wp:social-links {"iconColor":"neutral-500","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"margin":{"top":"var:preset|spacing|xxs"}}},"iconColorValue":"#525252"} -->
+						<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--xxs);">
 							<!-- wp:social-link {"url":"#","service":"linkedin"} /-->
 
 							<!-- wp:social-link {"url":"#","service":"x"} /-->
@@ -187,7 +187,7 @@
 			<div class="wp-block-column" style="flex-basis:65%">
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|md"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 				<div class="wp-block-group">
-					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"},"border":{"bottom":{"color":"var:preset|color|neutral-200","width":"1px"}},"padding":{"bottom":"var:preset|spacing|md"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs","padding":{"bottom":"var:preset|spacing|md"}},"border":{"bottom":{"color":"var:preset|color|neutral-200","width":"1px"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
 					<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--neutral-200);border-bottom-width:1px;padding-bottom:var(--wp--preset--spacing--md)">
 						<!-- wp:heading {"level":4,"fontSize":"18"} -->
 						<h4 class="wp-block-heading has-18-font-size"><?php echo esc_html__( 'The Neuroscience of Focus', 'aegis' ); ?></h4>
@@ -199,7 +199,7 @@
 					</div>
 					<!-- /wp:group -->
 
-					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"},"border":{"bottom":{"color":"var:preset|color|neutral-200","width":"1px"}},"padding":{"bottom":"var:preset|spacing|md"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs","padding":{"bottom":"var:preset|spacing|md"}},"border":{"bottom":{"color":"var:preset|color|neutral-200","width":"1px"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
 					<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--neutral-200);border-bottom-width:1px;padding-bottom:var(--wp--preset--spacing--md)">
 						<!-- wp:heading {"level":4,"fontSize":"18"} -->
 						<h4 class="wp-block-heading has-18-font-size"><?php echo esc_html__( 'Design Patterns That Respect Cognition', 'aegis' ); ?></h4>
@@ -211,7 +211,7 @@
 					</div>
 					<!-- /wp:group -->
 
-					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"},"border":{"bottom":{"color":"var:preset|color|neutral-200","width":"1px"}},"padding":{"bottom":"var:preset|spacing|md"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs","padding":{"bottom":"var:preset|spacing|md"}},"border":{"bottom":{"color":"var:preset|color|neutral-200","width":"1px"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
 					<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--neutral-200);border-bottom-width:1px;padding-bottom:var(--wp--preset--spacing--md)">
 						<!-- wp:heading {"level":4,"fontSize":"18"} -->
 						<h4 class="wp-block-heading has-18-font-size"><?php echo esc_html__( 'Case Studies from the Field', 'aegis' ); ?></h4>
