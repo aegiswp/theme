@@ -60,7 +60,7 @@
 				<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}},"layout":{"type":"flex"}} -->
 				<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 					<!-- wp:button {"backgroundColor":"neutral-800","width":100,"className":"is-style-fill","fontSize":"15"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button has-neutral-800-background-color has-background" href="#"><?php echo esc_html__( 'Get Started', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-fill has-custom-width wp-block-button__width-100"><a class="wp-block-button__link has-neutral-800-background-color has-background has-15-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Get Started', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
