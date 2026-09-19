@@ -50,7 +50,7 @@
 				<!-- /wp:paragraph -->
 
 				<!-- wp:social-links {"iconColor":"neutral-500","iconColorValue":"#6b7280","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
-				<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="color:#6b7280">
+				<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
 					<!-- wp:social-link {"url":"#","service":"facebook"} /-->
 
 					<!-- wp:social-link {"url":"#","service":"linkedin"} /-->
@@ -84,7 +84,7 @@
 				<!-- /wp:paragraph -->
 
 				<!-- wp:social-links {"iconColor":"neutral-500","iconColorValue":"#6b7280","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
-				<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="color:#6b7280">
+				<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
 					<!-- wp:social-link {"url":"#","service":"facebook"} /-->
 
 					<!-- wp:social-link {"url":"#","service":"linkedin"} /-->
@@ -118,7 +118,7 @@
 				<!-- /wp:paragraph -->
 
 				<!-- wp:social-links {"iconColor":"neutral-500","iconColorValue":"#6b7280","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
-				<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="color:#6b7280">
+				<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
 					<!-- wp:social-link {"url":"#","service":"facebook"} /-->
 
 					<!-- wp:social-link {"url":"#","service":"linkedin"} /-->
