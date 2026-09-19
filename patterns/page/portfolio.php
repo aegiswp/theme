@@ -44,7 +44,7 @@
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 				<div class="wp-block-group">
 					<!-- wp:cover {"dimRatio":30,"overlayColor":"neutral-950","isUserOverlayColor":true,"minHeight":450,"contentPosition":"bottom left","isDark":false,"style":{"border":{"radius":"12px"},"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
-					<div class="wp-block-cover is-light" style="border-radius:12px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md);min-height:450px">
+					<div class="wp-block-cover is-light has-custom-content-position is-position-bottom-left" style="border-radius:12px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md);min-height:450px">
 						<span aria-hidden="true" class="wp-block-cover__background has-neutral-950-background-color has-background-dim-30 has-background-dim"></span>
 						<div class="wp-block-cover__inner-container">
 							<!-- wp:paragraph {"textColor":"white","fontSize":"12"} -->
@@ -65,7 +65,7 @@
 			<!-- wp:column {"width":"40%"} -->
 			<div class="wp-block-column" style="flex-basis:40%">
 				<!-- wp:cover {"dimRatio":30,"overlayColor":"neutral-950","isUserOverlayColor":true,"minHeight":450,"contentPosition":"bottom left","isDark":false,"style":{"border":{"radius":"12px"},"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
-				<div class="wp-block-cover is-light" style="border-radius:12px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md);min-height:450px">
+				<div class="wp-block-cover is-light has-custom-content-position is-position-bottom-left" style="border-radius:12px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md);min-height:450px">
 					<span aria-hidden="true" class="wp-block-cover__background has-neutral-950-background-color has-background-dim-30 has-background-dim"></span>
 					<div class="wp-block-cover__inner-container">
 						<!-- wp:paragraph {"textColor":"white","fontSize":"12"} -->
@@ -88,7 +88,7 @@
 			<!-- wp:column -->
 			<div class="wp-block-column">
 				<!-- wp:cover {"dimRatio":30,"overlayColor":"neutral-950","isUserOverlayColor":true,"minHeight":350,"contentPosition":"bottom left","isDark":false,"style":{"border":{"radius":"12px"},"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
-				<div class="wp-block-cover is-light" style="border-radius:12px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md);min-height:350px">
+				<div class="wp-block-cover is-light has-custom-content-position is-position-bottom-left" style="border-radius:12px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md);min-height:350px">
 					<span aria-hidden="true" class="wp-block-cover__background has-neutral-950-background-color has-background-dim-30 has-background-dim"></span>
 					<div class="wp-block-cover__inner-container">
 						<!-- wp:paragraph {"textColor":"white","fontSize":"12"} -->
@@ -107,7 +107,7 @@
 			<!-- wp:column -->
 			<div class="wp-block-column">
 				<!-- wp:cover {"dimRatio":30,"overlayColor":"neutral-950","isUserOverlayColor":true,"minHeight":350,"contentPosition":"bottom left","isDark":false,"style":{"border":{"radius":"12px"},"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
-				<div class="wp-block-cover is-light" style="border-radius:12px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md);min-height:350px">
+				<div class="wp-block-cover is-light has-custom-content-position is-position-bottom-left" style="border-radius:12px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md);min-height:350px">
 					<span aria-hidden="true" class="wp-block-cover__background has-neutral-950-background-color has-background-dim-30 has-background-dim"></span>
 					<div class="wp-block-cover__inner-container">
 						<!-- wp:paragraph {"textColor":"white","fontSize":"12"} -->
@@ -126,7 +126,7 @@
 			<!-- wp:column -->
 			<div class="wp-block-column">
 				<!-- wp:cover {"dimRatio":30,"overlayColor":"neutral-950","isUserOverlayColor":true,"minHeight":350,"contentPosition":"bottom left","isDark":false,"style":{"border":{"radius":"12px"},"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
-				<div class="wp-block-cover is-light" style="border-radius:12px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md);min-height:350px">
+				<div class="wp-block-cover is-light has-custom-content-position is-position-bottom-left" style="border-radius:12px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md);min-height:350px">
 					<span aria-hidden="true" class="wp-block-cover__background has-neutral-950-background-color has-background-dim-30 has-background-dim"></span>
 					<div class="wp-block-cover__inner-container">
 						<!-- wp:paragraph {"textColor":"white","fontSize":"12"} -->
@@ -149,7 +149,7 @@
 			<!-- wp:column {"width":"40%"} -->
 			<div class="wp-block-column" style="flex-basis:40%">
 				<!-- wp:cover {"dimRatio":30,"overlayColor":"neutral-950","isUserOverlayColor":true,"minHeight":400,"contentPosition":"bottom left","isDark":false,"style":{"border":{"radius":"12px"},"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
-				<div class="wp-block-cover is-light" style="border-radius:12px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md);min-height:400px">
+				<div class="wp-block-cover is-light has-custom-content-position is-position-bottom-left" style="border-radius:12px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md);min-height:400px">
 					<span aria-hidden="true" class="wp-block-cover__background has-neutral-950-background-color has-background-dim-30 has-background-dim"></span>
 					<div class="wp-block-cover__inner-container">
 						<!-- wp:paragraph {"textColor":"white","fontSize":"12"} -->
@@ -168,7 +168,7 @@
 			<!-- wp:column {"width":"60%"} -->
 			<div class="wp-block-column" style="flex-basis:60%">
 				<!-- wp:cover {"dimRatio":30,"overlayColor":"neutral-950","isUserOverlayColor":true,"minHeight":400,"contentPosition":"bottom left","isDark":false,"style":{"border":{"radius":"12px"},"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
-				<div class="wp-block-cover is-light" style="border-radius:12px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md);min-height:400px">
+				<div class="wp-block-cover is-light has-custom-content-position is-position-bottom-left" style="border-radius:12px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md);min-height:400px">
 					<span aria-hidden="true" class="wp-block-cover__background has-neutral-950-background-color has-background-dim-30 has-background-dim"></span>
 					<div class="wp-block-cover__inner-container">
 						<!-- wp:paragraph {"textColor":"white","fontSize":"12"} -->
@@ -201,7 +201,7 @@
 
 		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 		<div class="wp-block-buttons">
-			<!-- wp:button [] -->
+			<!-- wp:button -->
 <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Start a Conversation', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 		</div>
