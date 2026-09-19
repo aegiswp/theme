@@ -52,7 +52,7 @@
 			<!-- /wp:group -->
 
 			<!-- wp:list {"style":{"spacing":{"padding":{"left":"var:preset|spacing|sm"}}},"textColor":"neutral-600"} -->
-			<ul class="has-neutral-600-color has-text-color" style="padding-left:var(--wp--preset--spacing--sm)">
+			<ul class="has-neutral-600-color has-text-color wp-block-list" style="padding-left:var(--wp--preset--spacing--sm)">
 				<!-- wp:list-item -->
 				<li><?php echo esc_html__( 'Up to 5 projects', 'aegis' ); ?></li>
 				<!-- /wp:list-item -->
@@ -74,7 +74,7 @@
 			<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 			<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 				<!-- wp:button {"width":100,"className":"is-style-ghost"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Get Started', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-ghost has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Get Started', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->
@@ -112,7 +112,7 @@
 			<!-- /wp:group -->
 
 			<!-- wp:list {"style":{"spacing":{"padding":{"left":"var:preset|spacing|sm"}}},"textColor":"neutral-600"} -->
-			<ul class="has-neutral-600-color has-text-color" style="padding-left:var(--wp--preset--spacing--sm)">
+			<ul class="has-neutral-600-color has-text-color wp-block-list" style="padding-left:var(--wp--preset--spacing--sm)">
 				<!-- wp:list-item -->
 				<li><?php echo esc_html__( 'Unlimited projects', 'aegis' ); ?></li>
 				<!-- /wp:list-item -->
@@ -137,7 +137,7 @@
 			<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 			<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 				<!-- wp:button {"width":100} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Get Started', 'aegis' ); ?></a></div>
+<div class="wp-block-button has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Get Started', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->
