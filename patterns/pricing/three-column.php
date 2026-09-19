@@ -39,9 +39,9 @@
 		<div class="wp-block-group alignfull" style="margin-top:0;margin-bottom:0">
 			<!-- wp:columns {"verticalAlignment":"center","align":"full","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|md","left":"var:preset|spacing|sm"}}},"onclick":""} -->
 			<div class="wp-block-columns alignfull are-vertically-aligned-center">
-				<!-- wp:column {"verticalAlignment":"center","className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","right":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm","left":"var:preset|spacing|sm"}},"filter":{"hueRotate":"","brightness":"","backdrop":false}},"layout":{"type":"default"}} -->
+				<!-- wp:column {"verticalAlignment":"center","className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","right":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm","left":"var:preset|spacing|sm"}}},"layout":{"type":"default"}} -->
 				<div class="wp-block-column is-vertically-aligned-center is-style-surface"
-					style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm);filter:brightness(%) hue-rotate(deg)">
+					style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm)">
 					<!-- wp:heading {"level":3,"fontSize":"48"} -->
 					<h3 class="wp-block-heading has-48-font-size"><?php echo esc_html__( 'Basic', 'aegis' ); ?></h3>
 					<!-- /wp:heading -->
@@ -65,7 +65,7 @@
 					<!-- /wp:paragraph -->
 
 					<!-- wp:separator {"style":{"border":{"width":"1px"}},"textColor":"neutral-200"} -->
-					<hr class="wp-block-separator has-alpha-channel-opacity has-neutral-200-color has-text-color"
+					<hr class="wp-block-separator has-text-color has-alpha-channel-opacity has-neutral-200-color"
 						style="border-width:1px" />
 					<!-- /wp:separator -->
 
@@ -96,16 +96,16 @@
 					<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"2em"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 					<div class="wp-block-buttons" style="margin-top:2em">
 						<!-- wp:button {"width":100,"className":"is-style-ghost","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs"}}},"fontSize":"16","onclick":"","iconSet":"WordPress","iconSize":"15px","iconPosition":"end","iconSvgString":""} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Choose Plan', 'aegis' ); ?></a></div>
+<div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-ghost" style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)" href="#"><?php echo esc_html__( 'Choose Plan', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 					</div>
 					<!-- /wp:buttons -->
 				</div>
 				<!-- /wp:column -->
 
-				<!-- wp:column {"verticalAlignment":"center","className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","right":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm","left":"var:preset|spacing|sm"}},"filter":{"hueRotate":"","brightness":"","backdrop":false}},"layout":{"type":"default"}} -->
+				<!-- wp:column {"verticalAlignment":"center","className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","right":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm","left":"var:preset|spacing|sm"}}},"layout":{"type":"default"}} -->
 				<div class="wp-block-column is-vertically-aligned-center is-style-surface"
-					style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm);filter:brightness(%) hue-rotate(deg)">
+					style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm)">
 					<!-- wp:group {"fontSize":"48","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"},"onclick":""} -->
 					<div class="wp-block-group has-48-font-size"><!-- wp:heading {"level":3,"fontSize":"48"} -->
 						<h3 class="wp-block-heading has-48-font-size"><?php echo esc_html__( 'Pro', 'aegis' ); ?></h3>
@@ -138,7 +138,7 @@
 					<!-- /wp:paragraph -->
 
 					<!-- wp:separator {"style":{"border":{"width":"1px"}},"textColor":"neutral-200"} -->
-					<hr class="wp-block-separator has-alpha-channel-opacity has-neutral-200-color has-text-color"
+					<hr class="wp-block-separator has-text-color has-alpha-channel-opacity has-neutral-200-color"
 						style="border-width:1px" />
 					<!-- /wp:separator -->
 
@@ -169,16 +169,16 @@
 					<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"2em"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 					<div class="wp-block-buttons" style="margin-top:2em">
 						<!-- wp:button {"backgroundColor":"neutral-800","width":100,"className":"is-style-fill","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs"}}},"fontSize":"16","onclick":"","iconSet":"WordPress","iconSize":"15px","iconPosition":"end","iconSvgString":""} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button has-neutral-800-background-color has-background" href="#"><?php echo esc_html__( 'Choose Plan', 'aegis' ); ?></a></div>
+<div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-fill" style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)"><a class="wp-block-button__link has-neutral-800-background-color has-background has-16-font-size has-custom-font-size wp-element-button" style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)" href="#"><?php echo esc_html__( 'Choose Plan', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 					</div>
 					<!-- /wp:buttons -->
 				</div>
 				<!-- /wp:column -->
 
-				<!-- wp:column {"verticalAlignment":"center","className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","right":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm","left":"var:preset|spacing|sm"}},"filter":{"hueRotate":"","brightness":"","backdrop":false}},"layout":{"type":"default"}} -->
+				<!-- wp:column {"verticalAlignment":"center","className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","right":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm","left":"var:preset|spacing|sm"}}},"layout":{"type":"default"}} -->
 				<div class="wp-block-column is-vertically-aligned-center is-style-surface"
-					style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm);filter:brightness(%) hue-rotate(deg)">
+					style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm)">
 					<!-- wp:heading {"level":3,"fontSize":"48"} -->
 					<h3 class="wp-block-heading has-48-font-size"><?php echo esc_html__( 'Team', 'aegis' ); ?></h3>
 					<!-- /wp:heading -->
@@ -202,7 +202,7 @@
 					<!-- /wp:paragraph -->
 
 					<!-- wp:separator {"style":{"border":{"width":"1px"}},"textColor":"neutral-200"} -->
-					<hr class="wp-block-separator has-alpha-channel-opacity has-neutral-200-color has-text-color"
+					<hr class="wp-block-separator has-text-color has-alpha-channel-opacity has-neutral-200-color"
 						style="border-width:1px" />
 					<!-- /wp:separator -->
 
@@ -233,7 +233,7 @@
 					<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"2em"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 					<div class="wp-block-buttons" style="margin-top:2em">
 						<!-- wp:button {"width":100,"className":"is-style-ghost","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs"}}},"fontSize":"16","onclick":"","iconSet":"WordPress","iconSize":"15px","iconPosition":"end","iconSvgString":""} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Choose Plan', 'aegis' ); ?></a></div>
+<div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-ghost" style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)" href="#"><?php echo esc_html__( 'Choose Plan', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 					</div>
 					<!-- /wp:buttons -->
@@ -255,7 +255,7 @@
 
 		<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs","padding":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
 		<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--sm)">
-			<!-- wp:icon {"icon":"core/check","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-labelledby=\"icon-6a2cc03bd8cc0\" data-icon=\"wordpress-check\" style=\"min-width:1.2em;height:1.2em\" fill=\"currentColor\"><title id=\"icon-6a2cc03bd8cc0\">Check Icon</title><path d=\"m16.7 7.1-6.3 8.5-3.3-2.5-.9 1.2 4.5 3.4L17.9 8z\"></path></svg>","style":{"dimensions":{"width":"1.2em"}}} /-->
+			<!-- wp:image {"className":"is-style-icon","iconSet":"wordpress","iconName":"check","iconSize":"1.2em","iconSvgString":"\u003csvg xmlns=\u0022http://www.w3.org/2000/svg\u0022 viewBox=\u00220 0 24 24\u0022 role=\u0022img\u0022 aria-labelledby=\u0022icon-6a2cc03bd8cc0\u0022 data-icon=\u0022wordpress-check\u0022 style=\u0022min-width:1.2em;height:1.2em\u0022 fill=\u0022currentColor\u0022\u003e\u003ctitle id=\u0022icon-6a2cc03bd8cc0\u0022\u003eCheck Icon\u003c/title\u003e\u003cpath d=\u0022m16.7 7.1-6.3 8.5-3.3-2.5-.9 1.2 4.5 3.4L17.9 8z\u0022\u003e\u003c/path\u003e\u003c/svg\u003e"} --><figure class="wp-block-image is-style-icon"><img alt="" /></figure><!-- /wp:image -->
 <!-- wp:paragraph {"align":"center","fontSize":"14"} -->
 			<p class="aligncenter has-text-align-center has-14-font-size aligncenter"><?php echo esc_html__( '100% no-risk money back guarantee', 'aegis' ); ?></p>
 			<!-- /wp:paragraph -->
