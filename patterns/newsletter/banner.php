@@ -22,7 +22,7 @@
 	<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 	<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 		<!-- wp:button {"backgroundColor":"primary-25","textColor":"neutral-800","className":"is-style-fill","fontSize":"15"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button has-primary-25-background-color has-background has-neutral-800-color" href="#"><?php echo esc_html__( 'Subscribe Now', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-neutral-800-color has-primary-25-background-color has-text-color has-background has-15-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Subscribe Now', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 	</div>
 	<!-- /wp:buttons -->
