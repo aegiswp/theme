@@ -52,7 +52,7 @@
 		<!-- wp:column {"verticalAlignment":"center","width":"60px","style":{"spacing":{"blockGap":"0px"}}} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:60px">
 			<!-- wp:separator {"className":"is-style-wide","style":{"layout":{"selfStretch":"fixed","flexSize":"2px"}},"backgroundColor":"primary-500"} -->
-			<hr class="wp-block-separator has-text-color has-primary-500-color has-alpha-channel-opacity has-primary-500-background-color has-background is-style-wide" />
+			<hr class="wp-block-separator has-text-color has-alpha-channel-opacity has-background is-style-wide has-primary-500-color has-primary-500-background-color" />
 			<!-- /wp:separator -->
 		</div>
 		<!-- /wp:column -->
@@ -72,7 +72,7 @@
 		<!-- wp:column {"verticalAlignment":"center","width":"60px","style":{"spacing":{"blockGap":"0px"}}} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:60px">
 			<!-- wp:separator {"className":"is-style-wide","style":{"layout":{"selfStretch":"fixed","flexSize":"2px"}},"backgroundColor":"primary-500"} -->
-			<hr class="wp-block-separator has-text-color has-primary-500-color has-alpha-channel-opacity has-primary-500-background-color has-background is-style-wide" />
+			<hr class="wp-block-separator has-text-color has-alpha-channel-opacity has-background is-style-wide has-primary-500-color has-primary-500-background-color" />
 			<!-- /wp:separator -->
 		</div>
 		<!-- /wp:column -->
@@ -124,7 +124,7 @@
 		<!-- wp:column {"verticalAlignment":"center","width":"60px","style":{"spacing":{"blockGap":"0px"}}} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:60px">
 			<!-- wp:separator {"className":"is-style-wide","style":{"layout":{"selfStretch":"fixed","flexSize":"2px"}},"backgroundColor":"primary-500"} -->
-			<hr class="wp-block-separator has-text-color has-primary-500-color has-alpha-channel-opacity has-primary-500-background-color has-background is-style-wide" />
+			<hr class="wp-block-separator has-text-color has-alpha-channel-opacity has-background is-style-wide has-primary-500-color has-primary-500-background-color" />
 			<!-- /wp:separator -->
 		</div>
 		<!-- /wp:column -->
@@ -144,7 +144,7 @@
 		<!-- wp:column {"verticalAlignment":"center","width":"60px","style":{"spacing":{"blockGap":"0px"}}} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:60px">
 			<!-- wp:separator {"className":"is-style-wide","style":{"layout":{"selfStretch":"fixed","flexSize":"2px"}},"backgroundColor":"primary-500"} -->
-			<hr class="wp-block-separator has-text-color has-primary-500-color has-alpha-channel-opacity has-primary-500-background-color has-background is-style-wide" />
+			<hr class="wp-block-separator has-text-color has-alpha-channel-opacity has-background is-style-wide has-primary-500-color has-primary-500-background-color" />
 			<!-- /wp:separator -->
 		</div>
 		<!-- /wp:column -->
