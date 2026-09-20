@@ -45,11 +45,15 @@ setTimeout(()=>{
 }, 1000);
 JS;
 
-		foreach ( $shades as $shade => $hex ) {
-			$color = $name . '-' . $shade;
+		$copied_label = esc_html__( 'Copied!', 'aegis' );
 
-			if ( in_array( $shade, Color::SYSTEM_COLORS, true ) ) {
-				$color = $shade;
+		foreach ( $shades as $shade => $hex ) {
+			if ( in_array( (string) $shade, Color::SYSTEM_COLORS, true ) ) {
+				$color = (string) $shade;
+			} elseif ( '' === (string) $shade ) {
+				$color = $name;
+			} else {
+				$color = $name . '-' . $shade;
 			}
 
 			$on_click_value = Str::reduce_whitespace( Str::remove_line_breaks( str_replace( '{hex}', $hex, $on_click ) ) );
@@ -64,7 +68,7 @@ JS;
 	<p class="screen-reader-text">$color: $hex</p>
 	<!-- /wp:paragraph -->
 	<!-- wp:paragraph {"className":"has-display-none","style":{"position":{"all":"relative"}},"zIndex":{"all":"1"}} -->
-	<p class="has-display-none"><?php echo esc_html__( 'Copied!', 'aegis' ); ?></p>
+	<p class="has-display-none">$copied_label</p>
 	<!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
