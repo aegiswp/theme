@@ -28,7 +28,7 @@
 	<!-- /wp:group -->
 
 	<!-- wp:separator {"align":"wide","backgroundColor":"primary-200"} -->
-	<hr class="wp-block-separator alignwide has-text-color has-primary-200-color has-alpha-channel-opacity has-primary-200-background-color has-background" />
+	<hr class="wp-block-separator alignwide has-text-color has-alpha-channel-opacity has-background has-primary-200-color has-primary-200-background-color" />
 	<!-- /wp:separator -->
 
 	<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|md"},"margin":{"top":"var:preset|spacing|lg"}}}} -->
