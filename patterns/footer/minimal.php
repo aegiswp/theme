@@ -17,7 +17,7 @@
 		style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--md);padding-right:0;padding-bottom:var(--wp--preset--spacing--md);padding-left:0">
 		<!-- wp:group {"style":{"spacing":{"blockGap":"4px","margin":{"top":"0","bottom":"0"}},"zIndex":{"all":"0"}},"layout":{"type":"flex","flexWrap":"nowrap"},"onclick":""} -->
 		<div class="wp-block-group" style="margin-top:0;margin-bottom:0">
-			<!-- wp:icon {"icon":"social/aegis","textColor":"primary-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-labelledby=\"icon-6a2cc03b343f0\" data-icon=\"social-aegis\" style=\"min-width:30px;height:30px\" fill=\"currentColor\"><title id=\"icon-6a2cc03b343f0\">Aegis Icon</title><path d=\"M10.06 7.75 L12.02 3.87 L13.95 7.72 L16.65 9.29 L12.03 0 L7.34 9.3 L10.06 7.75 Z M18.37 12.72 L18.2 12.36 L15.5 10.79 L17.02 13.68 L20.05 18.61 L12.02 15.17 L3.98 18.62 L6.96 13.68 L8.39 10.81 L5.67 12.39 L5.5 12.71 L0 22.87 L12.01 16.87 L24 22.94 L18.37 12.72 Z\" stroke=\"none\" fill-rule=\"evenodd\"></path></svg>","style":{"dimensions":{"width":"30px"}}} /-->
+			<!-- wp:image {"className":"is-style-icon","iconSet":"social","iconName":"aegis","textColor":"primary-500","iconSize":"30px","iconSvgString":"\u003csvg xmlns=\u0022http://www.w3.org/2000/svg\u0022 viewBox=\u00220 0 24 24\u0022 role=\u0022img\u0022 aria-labelledby=\u0022icon-6a2cc03b343f0\u0022 data-icon=\u0022social-aegis\u0022 style=\u0022min-width:30px;height:30px\u0022 fill=\u0022currentColor\u0022\u003e\u003ctitle id=\u0022icon-6a2cc03b343f0\u0022\u003eAegis Icon\u003c/title\u003e\u003cpath d=\u0022M10.06 7.75 L12.02 3.87 L13.95 7.72 L16.65 9.29 L12.03 0 L7.34 9.3 L10.06 7.75 Z M18.37 12.72 L18.2 12.36 L15.5 10.79 L17.02 13.68 L20.05 18.61 L12.02 15.17 L3.98 18.62 L6.96 13.68 L8.39 10.81 L5.67 12.39 L5.5 12.71 L0 22.87 L12.01 16.87 L24 22.94 L18.37 12.72 Z\u0022 stroke=\u0022none\u0022 fill-rule=\u0022evenodd\u0022\u003e\u003c/path\u003e\u003c/svg\u003e"} --><figure class="wp-block-image is-style-icon"><img alt="" /></figure><!-- /wp:image -->
 </div>
 		<!-- /wp:group -->
 
@@ -39,7 +39,7 @@
 
 			<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 			<div class="wp-block-group">
-				<!-- wp:social-links {"iconColor":"neutral-400","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"top":"20px","left":"20px"}}},"layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
+				<!-- wp:social-links {"iconColor":"neutral-400","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"top":"20px","left":"20px"}}},"layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"},"iconColorValue":"#525252"} -->
 				<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
 					<!-- wp:social-link {"url":"#","service":"facebook"} /-->
 
@@ -54,7 +54,7 @@
 				<!-- wp:buttons -->
 				<div class="wp-block-buttons">
 					<!-- wp:button {"backgroundColor":"transparent","textColor":"current","className":"is-style-fill","style":{"spacing":{"padding":{"top":"0","right":"var:preset|spacing|xxs","bottom":"0","left":"var:preset|spacing|xxs"}}},"onclick":"window.scrollTo({ top: 0, behavior: 'smooth' })","shadowPreset":"none","shadowPresetHover":"sm","iconSet":"WordPress","iconName":"chevron-up","iconSize":"20px","iconPosition":"end","iconSvgString":"\u003csvg viewBox=\u00220 0 24 24\u0022 xmlns=\u0022http://www.w3.org/2000/svg\u0022\u003e\u003cpath d=\u0022M6.5 12.4 12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z\u0022/\u003e\u003c/svg\u003e"} -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button has-transparent-background-color has-background has-current-color"><?php echo esc_html__( 'Back to Top', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-fill  has-shadow has-none-shadow has-sm-shadow-hover" style="padding-top:0;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:0;padding-left:var(--wp--preset--spacing--xxs);"><a class="wp-block-button__link has-current-color has-transparent-background-color has-text-color has-background wp-element-button" style="padding-top:0;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:0;padding-left:var(--wp--preset--spacing--xxs);"><?php echo esc_html__( 'Back to Top', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
