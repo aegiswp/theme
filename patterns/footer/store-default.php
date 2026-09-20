@@ -29,7 +29,7 @@
 				<p class="has-neutral-600-color has-text-color has-14-font-size"><?php echo esc_html__( 'Quality products with fast shipping and exceptional customer service. Your satisfaction is our priority.', 'aegis' ); ?></p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:social-links {"iconColor":"neutral-400","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"left":"16px"}}},"layout":{"type":"flex"}} -->
+				<!-- wp:social-links {"iconColor":"neutral-400","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"left":"16px"}}},"layout":{"type":"flex"},"iconColorValue":"#525252"} -->
 				<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
 					<!-- wp:social-link {"url":"#","service":"facebook"} /-->
 					<!-- wp:social-link {"url":"#","service":"instagram"} /-->
@@ -49,7 +49,7 @@
 			<!-- /wp:heading -->
 
 			<!-- wp:list {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"className":"is-style-none","fontSize":"14"} -->
-			<ul style="list-style-type:none" class="is-style-none has-14-font-size">
+			<ul class="is-style-none has-14-font-size wp-block-list">
 				<!-- wp:list-item -->
 				<li><a href="#"><?php echo esc_html__( 'All Products', 'aegis' ); ?></a></li>
 				<!-- /wp:list-item -->
@@ -74,7 +74,7 @@
 			<!-- /wp:heading -->
 
 			<!-- wp:list {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"className":"is-style-none","fontSize":"14"} -->
-			<ul style="list-style-type:none" class="is-style-none has-14-font-size">
+			<ul class="is-style-none has-14-font-size wp-block-list">
 				<!-- wp:list-item -->
 				<li><a href="<?php echo esc_url( aegis_url( '/contact/' ) ); ?>"><?php echo esc_html__( 'Contact Us', 'aegis' ); ?></a></li>
 				<!-- /wp:list-item -->
@@ -114,7 +114,7 @@
 	<!-- /wp:columns -->
 
 	<!-- wp:separator {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md"}}},"className":"is-style-wide"} -->
-	<hr class="wp-block-separator alignwide is-style-wide" style="margin-top:var(--wp--preset--spacing--md);margin-bottom:var(--wp--preset--spacing--md)" />
+	<hr class="wp-block-separator alignwide is-style-wide has-alpha-channel-opacity" style="margin-top:var(--wp--preset--spacing--md);margin-bottom:var(--wp--preset--spacing--md)" />
 	<!-- /wp:separator -->
 
 	<!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
