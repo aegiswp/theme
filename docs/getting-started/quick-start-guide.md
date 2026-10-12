@@ -35,7 +35,7 @@ To create a homepage using Aegis block patterns:
 2. Give your page a title (for example, "Home").
 3. Open the block inserter by clicking the **+** icon in the top-left toolbar.
 4. Navigate to the **Patterns** tab.
-5. Browse categories such as **Hero**, **Feature**, **CTA**, or **Testimonial**.
+5. Browse categories such as **Hero**, **Featured**, **CTA**, or **Testimonial**.
 6. Click a pattern to insert it into your page.
 7. Repeat until you have assembled your desired layout.
 8. Publish the page.
@@ -84,14 +84,14 @@ See [[dark-mode]] for configuration details.
 
 Enhance Aegis with companion plugins:
 
-- **Aegis Plugin** (free) — Map and Modal blocks, admin dashboard, integrations, snippets, conditionals, analytics. See [Plugin docs](../../plugins/aegis/docs/getting-started/installation.md).
-- **Aegis Pro** — Hook patterns, video stack, query conditions, Pro blocks. Requires Aegis theme. See [Pro docs](../../plugins/aegis-pro/docs/getting-started/installation.md).
+- **Aegis Plugin** (free) — Map and Modal blocks, admin dashboard, integrations, snippets, conditionals, analytics. See [docs](../../plugins/aegis/docs/getting-started/installation.md) · [Wiki](https://github.com/aegiswp/plugin/wiki).
+- **Aegis Pro** — Hook patterns, video stack, query conditions, Pro blocks. Requires Aegis theme. See [docs](../../plugins/aegis-pro/docs/getting-started/installation.md) · [Wiki](https://github.com/aegiswp/pro/wiki).
 
 After installing the plugin, open **Aegis → Dashboard** to configure blocks and integrations.
 
 ## Building a Page with Patterns
 
-Aegis includes **~200 theme block patterns** across **30 categories** (plus companion plugin and Pro patterns). Here is a typical workflow for assembling a page:
+Aegis includes **236 theme block patterns** across **29 category folders** (plus companion plugin and Pro patterns). Here is a typical workflow for assembling a page:
 
 1. **Start with a Hero pattern** — Choose from the Hero category for your page header.
 2. **Add Feature sections** — Showcase your services or capabilities.

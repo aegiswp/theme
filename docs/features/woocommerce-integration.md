@@ -1,6 +1,6 @@
 # WooCommerce Integration
 
-Aegis provides deep integration with WooCommerce, including dedicated FSE templates, a multi-step checkout experience, and commerce block patterns registered by the companion plugin when WooCommerce is active.
+Aegis provides WooCommerce **FSE templates** in the theme. Multi-step checkout assets and WooCommerce **block patterns** are owned by the free companion plugin when WooCommerce is active — see [Plugin WooCommerce Checkout](../../plugins/aegis/docs/features/woocommerce-checkout.md) and [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md) ([Wiki](https://github.com/aegiswp/plugin/wiki)).
 
 ## Requirements
 
@@ -37,37 +37,11 @@ Block patterns that contain `wp:woocommerce/*` blocks (product grids, store head
 
 Generic commerce **marketing** patterns without WooCommerce blocks (for example trust badges, shipping info) remain in the theme `patterns/commerce/` directory.
 
-See [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md).
+See [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki).
 
 ## Multi-Step Checkout
 
-The multi-step checkout template splits the checkout process into distinct, manageable steps that reduce cognitive load and improve completion rates.
-
-### Steps
-
-1. **Shipping** — Customer enters shipping address and selects a shipping method.
-2. **Payment** — Customer provides payment details and billing information.
-3. **Review** — Customer reviews the complete order before confirming.
-
-### Enabling Multi-Step Checkout
-
-1. Open the Site Editor (**Appearance → Editor**).
-2. Navigate to **Templates**.
-3. Locate the **Multi-Step Checkout** template.
-4. Ensure it is assigned to your checkout page (or create a new page and assign the template).
-
-Alternatively, edit your checkout page and select the **Multi-Step Checkout** template from the page template selector.
-
-> **Note:** Multi-step checkout assets load when the WooCommerce integration is on at **Aegis → Integrations → E-commerce** and the checkout page uses the multi-step template (`page-checkout-multi-step`) or contains `aegis-checkout-multi-step` markup. See [WooCommerce Checkout](../../plugins/aegis/docs/features/woocommerce-checkout.md).
-
-### Multi-Step Checkout Features
-
-- Visual progress indicator showing current step.
-- Form validation at each step before advancing.
-- Back navigation to previous steps without data loss.
-- Order summary sidebar visible throughout.
-- Responsive layout — steps stack vertically on mobile.
-- Accessible step navigation with ARIA landmarks.
+The theme ships the **Multi-Step Checkout** FSE template (`page-checkout-multi-step.html`). Assign it in the Site Editor; checkout CSS/JS and integration gating are documented in the free plugin: [WooCommerce Checkout](../../plugins/aegis/docs/features/woocommerce-checkout.md) · [Wiki](https://github.com/aegiswp/plugin/wiki).
 
 ## Product Archive (Shop Page)
 

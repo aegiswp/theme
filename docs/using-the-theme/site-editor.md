@@ -79,7 +79,7 @@ See [[global-styles]] and [[style-variations]] for detailed instructions.
 
 ## Adding Content with Patterns
 
-Aegis provides **~200 theme block patterns** across **30 categories** (plus companion plugin and Pro patterns):
+Aegis provides **236 theme block patterns** across **29 category folders** (plus companion plugin and Pro patterns):
 
 1. Click the **Block Inserter** (+) in the top toolbar.
 2. Switch to the **Patterns** tab.

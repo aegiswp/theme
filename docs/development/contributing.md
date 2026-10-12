@@ -168,7 +168,7 @@ Closes #123
 
 - [ ] Code follows project coding standards
 - [ ] Tests pass locally
-- [ ] No accessibility regressions (pa11y passes)
+- [ ] No accessibility regressions (pa11y-ci / `npm run test:a11y` — threshold 0)
 - [ ] Documentation updated (if applicable)
 - [ ] Build completes without errors
 ```
@@ -189,7 +189,7 @@ All PRs go through code review:
 | Code quality | Follows coding standards, well-structured |
 | Functionality | Works as intended, no regressions |
 | Performance | Does not degrade page load performance |
-| Accessibility | Meets WCAG 2.1 AA, no a11y regressions |
+| Accessibility | Accessibility-ready foundation targeting WCAG 2.2 AA; no a11y regressions |
 | Testing | Appropriate tests included |
 | Documentation | Code is documented, user docs updated if needed |
 

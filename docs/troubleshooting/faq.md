@@ -6,7 +6,7 @@ This page answers common questions about the Aegis theme.
 
 ### What is Aegis?
 
-Aegis is a WordPress Full Site Editing (FSE) block theme built for performance and flexibility. It provides a zero-base loading architecture, 60 style variations, **~200 theme block patterns** (plus companion plugin and Pro patterns), and deep integration with the WordPress Site Editor.
+Aegis is a WordPress Full Site Editing (FSE) block theme built for performance and flexibility. It provides a zero-base loading architecture, 60 style variations, **236 theme block patterns** across 29 category folders (plus companion plugin and Pro patterns), and deep integration with the WordPress Site Editor.
 
 ### What does "zero-base loading" mean?
 
@@ -24,51 +24,15 @@ The Aegis theme is released under the GPL-2.0-or-later license. The companion Ae
 | **Aegis Plugin** (free) | Map and Modal blocks, admin dashboard, block toggles, snippets, conditionals, integrations, analytics |
 | **Aegis Pro** (premium) | Hook pattern CPT, video/BunnyCDN stack, query conditions, Pro blocks, block extensions, license — requires Aegis theme |
 
-See [Plugin FAQ](../../plugins/aegis/docs/troubleshooting/faq.md) and [Pro docs](../../plugins/aegis-pro/docs/home.md).
+See [Plugin FAQ](../../plugins/aegis/docs/troubleshooting/faq.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki) · [Pro docs](../../plugins/aegis-pro/docs/home.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki).
 
 ### Does Aegis work without the companion plugins?
 
 Yes. The theme provides templates, patterns, style variations, and theme-registered custom blocks without the plugin. Map, Modal, the Aegis admin menu, analytics, snippets, and integration toggles require the free plugin. Pro features require Aegis Pro.
 
-### Why doesn’t Easy Digital Downloads pick up theme styles?
+### Why don’t third-party plugins pick up theme styles?
 
-Enable **Aegis → Integrations → E-commerce → Easy Digital Downloads**. Framework CSS (`plugins/edd/edd.css`) loads when that toggle is on **and** EDD is active (`Easy_Digital_Downloads`, `EDD()`, or `EDD_VERSION`), and only if the page has EDD blocks, submit buttons, download markup, or alerts. See [Plugin FAQ — Easy Digital Downloads](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-easy-digital-downloads-configured) and [[plugin-integrations]].
-
-### Why doesn’t Code Block Pro pick up theme radius?
-
-Enable **Aegis → Integrations → Developer → Code Block Pro**. The overlay (`vendor/aegis/framework/public/css/plugins/code-block-pro.css`) loads only when that toggle is on **and** Kevin Batdorf’s plugin is active (`CBPRouter` or the `kevinbatdorf/code-block-pro` block). See [Plugin FAQ — Code Block Pro](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-code-block-pro-configured) and [[plugin-integrations]].
-
-### Why doesn’t Syntax Highlighting Code Block pick up theme radius?
-
-Enable **Aegis → Integrations → Developer → Syntax Highlighting Code Block**. The overlay (`vendor/aegis/framework/public/css/plugins/syntax-highlighting-code-block.css`) loads only when that toggle is on **and** Weston Ruter’s plugin is active (`Syntax_Highlighting_Code_Block\PLUGIN_VERSION` or `boot()`), and only if the page has `hljs` / `shcb-` markup. See [Plugin FAQ — Syntax Highlighting](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-syntax-highlighting-code-block-configured) and [[plugin-integrations]].
-
-### Why doesn’t the AffiliateWP Affiliate Area pick up theme styles?
-
-Enable **Aegis → Integrations → E-commerce → AffiliateWP**. Framework CSS (`plugins/affiliate-wp.css`) loads when that toggle is on **and** AffiliateWP is active (`Affiliate_WP`, `affiliate_wp()`, or `AFFILIATEWP_VERSION`). It covers the Affiliate Area plus login and register forms. AffiliateWP’s bundled `affwp-forms` stylesheet is skipped on the frontend so theme tokens apply; admin screens still use it. See [Plugin FAQ — AffiliateWP](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-affiliatewp-configured) and [[plugin-integrations]].
-
-### Why don’t Meta Box fields pick up theme form styles?
-
-Enable **Aegis → Integrations → Developer → Meta Box**. Framework CSS (`plugins/meta-box.css`), the `aegis/metabox` binding source, and theme colour palettes on Meta Box colour pickers load only when that toggle is on **and** Meta Box (or AIO) is active (`RWMB_Loader` or `rwmb_meta()`). See [Plugin FAQ — Meta Box](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-meta-box-configured) and [[plugin-integrations]].
-
-### Why doesn’t Fluent Forms pick up theme styles?
-
-Enable **Aegis → Integrations → Forms → Fluent Forms**. Framework CSS (`plugins/fluent-forms.css`) loads when that toggle is on **and** Fluent Forms is active (`FLUENTFORM`, `FLUENTFORM_VERSION`, or `FluentForm\App\Modules\Form\Form`), and only if the page has `fluentform`, `ff_form`, `fluent_form`, `fluent-form`, or `ff-form` markup. Default plugin public styles are disabled via `fluentform_load_default_public`. See [Plugin FAQ — Fluent Forms](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-fluent-forms-configured) and [[plugin-integrations]].
-
-### Why doesn’t Fluent Booking pick up theme styles?
-
-Enable **Aegis → Integrations → Forms → Fluent Booking**. Framework CSS (`plugins/fluentbooking.css`) loads when that toggle is on **and** Fluent Booking is active (`FLUENT_BOOKING_VERSION` or `FluentBooking\App\App`), and only if the page has `fluent-booking`, `fcal_`, `fcal-`, or `fluentbooking` markup. See [Plugin FAQ — Fluent Booking](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-fluent-booking-configured) and [[plugin-integrations]].
-
-### Why doesn’t Gravity Forms pick up theme styles?
-
-Enable **Aegis → Integrations → Forms → Gravity Forms**. Framework CSS (`plugins/gravity-forms.css`) loads when that toggle is on **and** Gravity Forms is active (`GFForms`, `GFAPI`, `GF_MIN_WP_VERSION`, or `gravity_form()`), and only if the page has `gform_wrapper`, `gravity-theme`, `gform`, `gform_body`, `gform-body`, or `gfield` markup. Default plugin theme styles are disabled via `gform_disable_form_theme_css`. See [Plugin FAQ — Gravity Forms](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-gravity-forms-configured) and [[plugin-integrations]].
-
-### Why doesn’t Ninja Forms pick up theme styles?
-
-Enable **Aegis → Integrations → Forms → Ninja Forms**. Framework CSS (`plugins/ninja-forms.css`) loads when that toggle is on **and** Ninja Forms is active (`Ninja_Forms`, `function_exists( 'Ninja_Forms' )`, `defined( 'NF_PLUGIN_VERSION' )`, or `defined( 'NF_VERSION' )`), and only if the page has `ninja-forms`, `ninja_forms`, `ninja_form`, `nf-form`, `nf-field`, `nf-form-cont`, or `nf-form-content` markup. Default and opinionated plugin styles (`nf-display`, `ninja-forms-display`, `ninja-forms-display-opinions`, `nf-display-opinions`, `nf-layout-front-end`) are dequeued. See [Plugin FAQ — Ninja Forms](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-ninja-forms-configured) and [[plugin-integrations]].
-
-### Why doesn’t LearnDash pick up theme styles?
-
-Enable **Aegis → Integrations → LMS → LearnDash**. Framework CSS (`plugins/learndash.css`) loads when that toggle is on **and** LearnDash is active (`LEARNDASH_VERSION`, `class_exists( 'SFWD_LMS' )`, `defined( 'LEARNDASH_LMS_PLUGIN_DIR' )`, or `function_exists( 'learndash_init' )`), and only if the page has `learndash-wrapper`, `learndash`, `ld-course`, `ld-lesson`, or `aegis-learndash` markup. Theme styles apply design tokens and dark mode styling to courses, lessons, topics, quizzes, and Focus Mode chrome. See [Plugin FAQ — LearnDash](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-learndash-configured) and [[plugin-integrations]].
+Integration toggles live in the **free plugin** at **Aegis → Integrations**. Framework CSS ships with the theme and loads only when the matching toggle and dependency are active. See [[plugin-integrations]] for the theme CSS inventory, and the [Plugin FAQ](../../plugins/aegis/docs/troubleshooting/faq.md) / [Plugin Wiki](https://github.com/aegiswp/plugin/wiki) for per-plugin configuration.
 
 ## Requirements
 
@@ -133,7 +97,7 @@ Style variations apply globally to the entire site. However, you can customize i
 ### How do I create a custom page layout?
 
 1. Create a new page.
-2. Use the block inserter to add patterns from categories like Hero, Feature, CTA, and Testimonial.
+2. Use the block inserter to add patterns from categories like Hero, Featured, CTA, and Testimonial.
 3. Customize each pattern to match your content.
 4. Alternatively, create a custom template in the Site Editor for reusable layouts.
 
@@ -145,7 +109,7 @@ Aegis includes 23 templates: 9 core WordPress templates, 3 custom page templates
 
 ### How many patterns are included?
 
-**~200 theme patterns** across 30 categories. The companion plugin adds demo and WooCommerce patterns (~45 files, gated on dependencies). Pro adds premium marketing layouts. See [[pattern-reference]] for theme categories and [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md) for commerce patterns.
+**236 theme patterns** across 29 category folders. The companion plugin adds Modal starters and WooCommerce patterns (gated on dependencies). Pro adds premium marketing layouts. See [[pattern-reference]] for theme categories, [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md) / [Plugin Wiki](https://github.com/aegiswp/plugin/wiki), and [Pro Patterns](../../plugins/aegis-pro/docs/patterns/pro-patterns.md) / [Pro Wiki](https://github.com/aegiswp/pro/wiki).
 
 ### Can I create my own patterns?
 
@@ -161,7 +125,7 @@ The Blank template provides an empty canvas with no header, footer, or wrapper. 
 
 ### What custom blocks does Aegis include?
 
-The theme registers Countdown, Slider, Slide, Toggle, Toggle Content, and Related Posts. Video uses WordPress **`core/video`** (enhanced by the framework and companion plugins). Map and Modal require the [Aegis Plugin](../../plugins/aegis/docs/blocks/custom-blocks.md). Block feature toggles are at **Aegis → Blocks**.
+The theme registers Countdown, Slider, Slide, Toggle, Toggle Content, and Related Posts. Video uses WordPress **`core/video`** (enhanced by the framework and companion plugins). Map and Modal require the [Aegis Plugin](../../plugins/aegis/docs/blocks/custom-blocks.md) ([Wiki](https://github.com/aegiswp/plugin/wiki)). Block feature toggles are at **Aegis → Blocks**.
 
 ### Do I need Gutenberg plugin installed?
 
@@ -173,21 +137,13 @@ Yes. Aegis is compatible with third-party block plugins. The theme styles are ap
 
 ## WooCommerce
 
-### Why doesn’t WooCommerce pick up theme styles?
-
-Enable **Aegis → Integrations → E-commerce → WooCommerce**. Framework CSS (`plugins/woocommerce/woocommerce.css` and `woocommerce-breadcrumbs.css`) loads when that toggle is on **and** WooCommerce is active (`WooCommerce`, `WC()`, or `WC_VERSION`), and only if the page has WooCommerce / cart / checkout / breadcrumb markup. See [Plugin FAQ — WooCommerce](../../plugins/aegis/docs/troubleshooting/faq.md#where-is-woocommerce-configured) and [[plugin-integrations]].
-
 ### Does Aegis support WooCommerce?
 
-Yes. Aegis includes WooCommerce FSE templates (theme) and WooCommerce block patterns (companion plugin, when WC is active). See [[woocommerce-integration]] for details.
+Yes. The theme ships WooCommerce FSE templates. WooCommerce block patterns and multi-step checkout assets come from the free plugin when WooCommerce is active. See [[woocommerce-integration]], [Plugin WooCommerce Checkout](../../plugins/aegis/docs/features/woocommerce-checkout.md), and [Plugin Wiki](https://github.com/aegiswp/plugin/wiki).
 
 ### Why don't I see shop or product patterns in the inserter?
 
-WooCommerce block patterns are registered by the **Aegis companion plugin** only when **WooCommerce is active**. Install and activate WooCommerce and the Aegis plugin. Generic commerce marketing patterns (core blocks only) remain in the theme.
-
-### What is the multi-step checkout?
-
-The multi-step checkout splits the WooCommerce checkout into three steps (Shipping → Payment → Review) for a cleaner user experience. It is an alternative to the standard single-page checkout. Assign the **Multi-Step Checkout** template, enable **Aegis → Integrations → E-commerce → WooCommerce**, and the companion plugin loads checkout CSS/JS on that template (or when the page contains `aegis-checkout-multi-step` markup). See [WooCommerce Checkout](../../plugins/aegis/docs/features/woocommerce-checkout.md).
+WooCommerce block patterns are registered by the **Aegis companion plugin** only when **WooCommerce is active**. Generic commerce marketing patterns (core blocks only) remain in the theme. See [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md).
 
 ### Do I need WooCommerce installed for the theme to work?
 
@@ -209,13 +165,7 @@ Yes. Aegis is compatible with all major caching plugins (WP Super Cache, W3 Tota
 
 ### Where do I configure performance toggles?
 
-The theme handles zero-base asset loading — see [[../features/performance|Theme Performance]]. Additional site-wide toggles (oEmbed, dashicons, heartbeat, XML-RPC/head cleanup, emoji with Pro) and Query Loop performance options live in the **Aegis plugin** admin:
-
-- **Aegis → Performance** — WordPress script and head/API toggles, embed facades, WooCommerce cuts, and Query Loop Performance
-
-When **Aegis Pro** is active, frontend emoji removal is owned by **Remove Emoji Scripts** (default off). Free-plugin and standalone theme installs keep zero-base frontend emoji stripping.
-
-With **Aegis Pro**, per-block Query Loop options appear in the editor under **Performance (Pro)** — see [[../../plugins/aegis-pro/docs/features/query-performance|Query Performance (Pro)]].
+The theme handles zero-base asset loading — see [[../features/performance|Theme Performance]]. Site-wide admin toggles and Query Loop options live in the free plugin ([Performance](../../plugins/aegis/docs/features/performance.md) · [Wiki](https://github.com/aegiswp/plugin/wiki)). Pro Query Loop extras: [Query Performance](../../plugins/aegis-pro/docs/features/query-performance.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki).
 
 ## Development
 
@@ -239,7 +189,7 @@ Report bugs on the [GitHub Issues page](https://github.com/aegiswp/theme/issues)
 
 ### Is Aegis accessible?
 
-Aegis is built to meet WCAG 2.1 Level AA requirements. The theme provides semantic HTML, keyboard navigation, visible focus indicators, proper ARIA attributes, and sufficient color contrast. See [[accessibility]] for details.
+Aegis ships an accessibility-ready foundation aimed at WCAG 2.2 Level AA (landmarks, skip links, focus styles, keyboard support, reduced motion). Full conformance still depends on editor content and runtime testing. See [[accessibility]] for details.
 
 ### Does Aegis support screen readers?
 

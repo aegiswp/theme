@@ -6,12 +6,12 @@ Welcome to the official documentation for the Aegis WordPress theme. Aegis is a 
 
 The theme provides templates, patterns, style variations, and six theme-registered custom blocks (Countdown, Slider, Slide, Toggle, Toggle Content, Related Posts). Video uses WordPress **`core/video`**, enhanced by the Aegis framework (see [[enhanced-core-blocks]]). The **Aegis framework** (`vendor/aegis/framework`) enhances 37 core blocks and registers block variations.
 
-Companion plugins extend functionality:
+Companion products extend the theme (documented separately):
 
-| Product | Documentation |
-|---------|---------------|
-| **Aegis Plugin** (free) | [Plugin docs](../../plugins/aegis/docs/home.md) — Map, Modal, admin, integrations, snippets, analytics, **WooCommerce/TI Wishlist block patterns** (when dependencies active) |
-| **Aegis Pro** | [Pro docs](../../plugins/aegis-pro/docs/home.md) — Video, hook patterns, query conditions, Pro blocks |
+| Product | Local docs | Wiki / GitHub |
+|---------|------------|---------------|
+| **Aegis Plugin** (free) | [Plugin docs](../../plugins/aegis/docs/home.md) | [Wiki](https://github.com/aegiswp/plugin/wiki) · [docs tree](https://github.com/aegiswp/plugin/tree/main/docs) |
+| **Aegis Pro** | [Pro docs](../../plugins/aegis-pro/docs/home.md) | [Wiki](https://github.com/aegiswp/pro/wiki) · [docs tree](https://github.com/aegiswp/pro/tree/main/docs) |
 
 ## Documentation Contents
 
@@ -41,24 +41,16 @@ Companion plugins extend functionality:
 - [[custom-blocks]] — Theme-registered blocks (index)
 - [[countdown]], [[slider]], [[toggle]], [[related-posts]], [[core-video]]
 - [[enhanced-core-blocks]] — Framework core block enhancements
-- [[block-variations]] — Framework variations (toggles in plugin)
+- [[block-variations]] — Framework variations (feature toggles live in the free plugin)
 
 ### Features
 
-- [[woocommerce-integration]] — WooCommerce FSE templates (theme) and gated commerce block patterns (companion plugin)
-- [[plugin-integrations]] — Framework integration styling
-- [[hook-patterns]] — Injection hooks fired by framework
+- [[woocommerce-integration]] — WooCommerce FSE templates (theme); patterns/checkout extras → free plugin
+- [[plugin-integrations]] — Framework integration styling shipped with the theme
+- [[hook-patterns]] — Injection hooks fired by framework (CPT management → Pro)
 - [[dynamic-template-parts]] — Contextually swap header, footer, or sidebar at render time
 - [[maintenance-mode]] — On-brand planned-outage page for advanced users
 - [[accessibility]], [[performance]], [[navigation-styles]], [[svg-icons]], [[image-lightbox]], [[embed-template]]
-
-### Companion Plugins
-
-- [[analytics]] → [Plugin Analytics](../../plugins/aegis/docs/features/analytics.md)
-- [[conditional-logic]] → [Plugin Conditionals](../../plugins/aegis/docs/features/conditional-logic.md)
-- [[svg-upload]] → [Plugin SVG Upload](../../plugins/aegis/docs/features/svg-upload.md)
-- [Full Plugin Documentation](../../plugins/aegis/docs/home.md)
-- [Aegis Pro Documentation](../../plugins/aegis-pro/docs/home.md)
 
 ### Development
 

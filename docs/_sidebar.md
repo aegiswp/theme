@@ -51,18 +51,12 @@
 - [[embed-template|Embed Template]]
 - [[navigation-styles|Navigation Styles]]
 
-## Companion Plugins
+## Companion Products
 
-Theme stubs — full docs in plugin repositories:
+Plugin-owned docs (not duplicated here):
 
-- [[analytics|Analytics → Plugin docs]]
-- [[conditional-logic|Conditional Logic → Plugin docs]]
-- [[svg-upload|SVG Upload → Plugin docs]]
-
-External documentation:
-
-- [Aegis Plugin Documentation](../../plugins/aegis/docs/home.md)
-- [Aegis Pro Documentation](../../plugins/aegis-pro/docs/home.md)
+- [Aegis Plugin docs](../../plugins/aegis/docs/home.md) · [Wiki](https://github.com/aegiswp/plugin/wiki)
+- [Aegis Pro docs](../../plugins/aegis-pro/docs/home.md) · [Wiki](https://github.com/aegiswp/pro/wiki)
 
 ## Development
 

@@ -36,7 +36,7 @@ Attach CSS, JS, HTML, or PHP snippets to any catalogued hook location via **Aegi
 
 ## Hook Pattern CPT (Pro)
 
-Managed hook pattern posts that inject block markup at runtime require **Aegis Pro**. See [Hook Patterns Pro](../../plugins/aegis-pro/docs/features/hook-patterns-pro.md).
+Managed hook pattern posts that inject block markup at runtime require **Aegis Pro**. See [Hook Patterns Pro](../../plugins/aegis-pro/docs/features/hook-patterns-pro.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki).
 
 ## Basic Usage
 
@@ -52,6 +52,6 @@ Use WordPress conditional tags to limit context (`is_front_page()`, `is_single()
 
 - [[hooks-and-filters]] — Verified hooks and filters reference
 - [[dynamic-template-parts]] — Contextually swap template part slugs at render time
-- [Plugin Hook Patterns](../../plugins/aegis/docs/features/hook-patterns.md)
-- [Pro Hook Patterns](../../plugins/aegis-pro/docs/features/hook-patterns-pro.md)
+- [Plugin Hook Patterns](../../plugins/aegis/docs/features/hook-patterns.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki)
+- [Pro Hook Patterns](../../plugins/aegis-pro/docs/features/hook-patterns-pro.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki)
 - [Code Snippets](../../plugins/aegis/docs/features/code-snippets.md)

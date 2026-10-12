@@ -2,9 +2,9 @@
 
 This page catalogs **theme-owned** block pattern categories — generic sections, commerce marketing layouts (core blocks only), and template composition patterns registered from `patterns/` in the theme.
 
-WooCommerce block patterns (`wp:woocommerce/*`) and the TI Wishlist template pattern are **not** theme-owned. They register from the [Aegis companion plugin](../../plugins/aegis/docs/features/plugin-patterns.md) when WooCommerce (and TI Wishlist, for wishlist) are active. Premium layouts live in [Aegis Pro](../../plugins/aegis-pro/docs/patterns/pro-patterns.md).
+WooCommerce block patterns (`wp:woocommerce/*`) and the TI Wishlist template pattern are **not** theme-owned. They register from the [Aegis companion plugin](../../plugins/aegis/docs/features/plugin-patterns.md) ([Wiki](https://github.com/aegiswp/plugin/wiki)) when WooCommerce (and TI Wishlist, for wishlist) are active. Premium layouts live in [Aegis Pro](../../plugins/aegis-pro/docs/patterns/pro-patterns.md) ([Wiki](https://github.com/aegiswp/pro/wiki)).
 
-The theme ships **~200 block patterns** across **30 categories**. With the companion plugin and Pro, the full Aegis pattern library exceeds **270** registered slugs.
+The theme ships **236 registered block patterns** across **29 category folders**. With the companion plugin (including Modal starters when Modal is enabled) and Pro, the full Aegis pattern library exceeds **270** registered slugs.
 
 ## Pattern Categories
 
@@ -111,17 +111,18 @@ Patterns for frequently asked questions.
 | FAQ Two Column | Questions and answers in side-by-side layout. |
 | FAQ Simple | Static list of questions with visible answers. |
 
-### Feature
+### Featured
 
-Patterns for showcasing features and services.
+Patterns for showcasing features and services (theme category merged into WordPress core **Featured**).
 
 | Pattern | Description |
 |---------|-------------|
-| Feature Grid | Multi-column feature cards with icons. |
+| Feature Grid Icons | Multi-column feature cards with icons. |
 | Feature Alternating | Alternating image-text rows. |
-| Feature Large | Full-width feature highlight with image. |
-| Feature List | Vertical list with checkmarks or icons. |
-| Feature Comparison | Side-by-side feature comparison. |
+| Image | Full-width feature highlight with image and content. |
+| Feature Icon Boxes | Grid of icon boxes for features or services. |
+| Feature Images Two Column | Two-column feature section with staggered images. |
+| Icon grid (library) | Static grid of core icons. |
 
 ### Footer
 
@@ -186,13 +187,7 @@ Patterns for logo grids and client showcases.
 
 ### Modal
 
-Patterns for popup and overlay layouts.
-
-| Pattern | Description |
-|---------|-------------|
-| Modal Newsletter | Popup with email signup form. |
-| Modal Announcement | Informational popup with dismiss button. |
-| Modal Promo | Promotional popup with image and CTA. |
+Modal starter patterns (`aegis/modal-newsletter`, `aegis/modal-contact`, `aegis/modal-video`, `aegis/modal-cookie-consent`) live in the **Aegis companion plugin** (`patterns/modal/`) and register only when the Modal block is enabled. They are not shipped in the theme. See [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md).
 
 ### Newsletter
 
@@ -215,15 +210,15 @@ Patterns for alert and notification banners.
 | Notice Success | Success confirmation message. |
 | Notice Dismissible | Notice with close button. |
 
-### Page
+### Pages
 
 Full page layout patterns.
 
 | Pattern | Description |
 |---------|-------------|
-| Page Landing | Complete landing page with hero, features, testimonials, and CTA. |
-| Page About | Full about page with story, team, and values. |
-| Page Contact | Complete contact page layout. |
+| Landing | Complete landing page with hero, features, testimonials, and CTA. |
+| About | Full about page with story, team, and values. |
+| Contact | Complete contact page layout. |
 
 ### Portfolio
 
@@ -336,7 +331,7 @@ Helper patterns for layout and spacing.
 ## Related Pages
 
 - [[block-patterns]] — Detailed guide on using and customizing patterns.
-- [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md) — WooCommerce and wishlist block patterns (companion plugin, gated).
-- [Pro Patterns](../../plugins/aegis-pro/docs/patterns/pro-patterns.md) — Premium marketing layouts.
+- [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki) — WooCommerce and wishlist block patterns (companion plugin, gated).
+- [Pro Patterns](../../plugins/aegis-pro/docs/patterns/pro-patterns.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki) — Premium marketing layouts.
 - [[templates]] — How patterns are used within templates.
 - [[style-variations]] — How patterns adapt to different style variations.

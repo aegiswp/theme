@@ -8,7 +8,7 @@ Aegis does **not** register a custom `aegis/video` block. Video uses WordPress *
 |-------|-------------|
 | **Theme framework** | Styling, MediaElement skins (`video.css`), optional custom player (`video_custom_player`) |
 | **Free plugin** | Type selector in the editor (YouTube / Vimeo / Audio / Bunny). Schema markup extra. Theater mode and keyboard extras require Custom Player |
-| **Aegis Pro** | BunnyCDN, chapters, engagement, marketing, analytics, advanced player extras, privacy, multi-audio, SEO sitemaps — see [Video Stack](../../plugins/aegis-pro/docs/features/video-stack.md) |
+| **Aegis Pro** | BunnyCDN, chapters, engagement, marketing, analytics, advanced player extras, privacy, multi-audio, SEO sitemaps — see [Video Stack](../../plugins/aegis-pro/docs/features/video-stack.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki) |
 
 ## Custom Player extras
 

@@ -174,7 +174,7 @@ The WordPress **Social Icons** block (`core/social-links`) is separate from the 
 
 - [[block-variations]] — SVG Image variation (`is-style-svg`).
 - [[image-lightbox]] — Image lightbox extras on `core/image`.
-- [[svg-upload]] — Uploading `.svg` files to the Media Library.
+- [Plugin SVG Upload](../../plugins/aegis/docs/features/svg-upload.md) — Uploading `.svg` files to the Media Library ([Wiki](https://github.com/aegiswp/plugin/wiki)).
 - [[enhanced-core-blocks]] — Other core block enhancements.
 - [[accessibility]] — Skip links and labeling.
 - [[dark-mode]] — Color tokens icons inherit.

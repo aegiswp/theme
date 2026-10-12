@@ -79,12 +79,14 @@ All 60 style variations support dark mode. Each variation defines both light and
 
 ## Accessibility Considerations
 
-Dark mode in Aegis maintains WCAG 2.1 AA contrast requirements:
+Dark mode in Aegis is designed to keep default token pairings at **WCAG 2.2 AA** contrast levels:
 
-- Text contrast ratios remain above 4.5:1 for normal text.
+- Text contrast ratios remain above 4.5:1 for normal text on swapped surfaces.
 - Large text maintains at least 3:1 contrast.
-- Interactive elements retain visible focus indicators.
+- Interactive elements retain visible `:focus` / `:focus-visible` indicators on dark backgrounds.
 - Color is never the sole indicator of meaning.
+
+Editor-chosen colors and media overlays still need a contrast check. See [[accessibility]].
 
 To hide a block, post, or hook pattern in light or dark mode, use **Aegis → Conditionals → Accessibility → Color Scheme**. Those rules follow the same `is-style-*` / `default-mode-*` classes as the visitor toggle. See [Plugin Conditional Logic](../../plugins/aegis/docs/features/conditional-logic.md#accessibility-extras).
 

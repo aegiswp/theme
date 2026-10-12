@@ -104,7 +104,8 @@ Because Lexend and Lexend Deca are variable fonts, all weights render smoothly w
 ### Code
 
 - Font family: JetBrains Mono
-- Size: `sm` (14px)
+- Code **blocks** / preformatted: typically `sm` (14px) via block styles
+- **Inline code** (`:not(pre) > code`): `1em` (matches surrounding text); light `neutral-100` surface; linked hover uses `neutral-200` with dark text for contrast
 - Weight: Normal (400)
 - Used in: Code blocks, inline code, preformatted text
 

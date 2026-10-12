@@ -4,17 +4,19 @@ Aegis uses a comprehensive color system based on the Tailwind CSS v3 scale, impl
 
 ## Color Architecture
 
-The palette is organized into five color families, each with a full range of shades:
+The palette is organized into these color families (no Secondary, Tertiary, or Quaternary scales):
 
-- **Primary (Zinc)** — The main brand color used for key UI elements.
+- **Primary (Zinc)** — The main brand color used for key UI elements and default buttons.
 - **Neutral** — Grayscale values for backgrounds, text, and borders.
 - **Success (Green)** — Positive states, confirmations, and success messages.
+- **Info (Blue)** — Informational states and accents.
 - **Warning (Orange)** — Cautionary states and attention-drawing elements.
 - **Error (Red)** — Error states, destructive actions, and alerts.
+- **Utility** — Transparent, Current, Inherit, Shadow.
 
 ## Primary Colors (Zinc)
 
-The primary palette provides 22 shades from near-white to near-black:
+The primary palette provides 12 steps from near-white to near-black:
 
 | Token | Shade | Typical Usage |
 |-------|-------|---------------|
@@ -42,13 +44,17 @@ The neutral palette provides pure grayscale values:
 | `neutral-100` | Very light gray | Section backgrounds |
 | `neutral-200` | Light gray | Borders, dividers |
 | `neutral-300` | Gray | Disabled borders |
-| `neutral-400` | Medium gray | Placeholder text, disabled text |
+| `neutral-400` | Medium gray (#666666) | Muted UI text that still meets ~4.5:1 on the default body background; prefer `neutral-600+` for small body copy |
 | `neutral-500` | Mid gray | Secondary text, icons |
-| `neutral-600` | Dark gray | Body text |
+| `neutral-600` | Dark gray | Body text, fine print, disclaimers |
 | `neutral-700` | Darker gray | Headings |
 | `neutral-800` | Very dark gray | High emphasis text |
 | `neutral-900` | Near-black | Primary text |
 | `neutral-950` | Darkest (#0a0a0a) | Page background (dark mode) |
+
+## Info Colors (Blue)
+
+Informational accents and status. Ships only `info-100`, `info-500`, and `info-600`.
 
 ## Success Colors (Green)
 
@@ -56,17 +62,11 @@ Used for positive feedback, confirmation states, and success indicators:
 
 | Token | Shade | Typical Usage |
 |-------|-------|---------------|
-| `success-50` | Lightest green | Success alert background |
-| `success-100` | Light green | Success badge background |
-| `success-200` | Soft green | Light borders |
-| `success-300` | Medium-light | Icons |
-| `success-400` | Medium | Secondary success elements |
-| `success-500` | Base green | Primary success indicators |
-| `success-600` | Dark green | Success text on light backgrounds |
-| `success-700` | Darker green | High emphasis success |
-| `success-800` | Very dark | Dark success backgrounds |
-| `success-900` | Darkest | Deepest success tone |
-| `success-950` | Near-black green | Maximum contrast |
+| `success-100` | Light | Success alert / badge backgrounds |
+| `success-500` | Base | Primary success indicators |
+| `success-600` | Dark | Success text / high emphasis on light backgrounds |
+
+Success ships only `success-100`, `success-500`, and `success-600`.
 
 ## Warning Colors (Orange)
 
@@ -74,17 +74,11 @@ Used for cautionary states, important notices, and attention elements:
 
 | Token | Shade | Typical Usage |
 |-------|-------|---------------|
-| `warning-50` | Lightest orange | Warning alert background |
-| `warning-100` | Light orange | Warning badge background |
-| `warning-200` | Soft orange | Light borders |
-| `warning-300` | Medium-light | Icons |
-| `warning-400` | Medium | Secondary warning elements |
-| `warning-500` | Base orange | Primary warning indicators |
-| `warning-600` | Dark orange | Warning text on light backgrounds |
-| `warning-700` | Darker orange | High emphasis warnings |
-| `warning-800` | Very dark | Dark warning backgrounds |
-| `warning-900` | Darkest | Deep warning tone |
-| `warning-950` | Near-black orange | Maximum contrast |
+| `warning-100` | Light | Warning alert / badge backgrounds |
+| `warning-500` | Base | Primary warning indicators |
+| `warning-600` | Dark | Warning text / high emphasis on light backgrounds |
+
+Warning ships only `warning-100`, `warning-500`, and `warning-600`.
 
 ## Error Colors (Red)
 
@@ -92,17 +86,11 @@ Used for error states, destructive actions, and critical alerts:
 
 | Token | Shade | Typical Usage |
 |-------|-------|---------------|
-| `error-50` | Lightest red | Error alert background |
-| `error-100` | Light red | Error badge background |
-| `error-200` | Soft red | Light borders |
-| `error-300` | Medium-light | Icons |
-| `error-400` | Medium | Secondary error elements |
-| `error-500` | Base red | Primary error indicators |
-| `error-600` | Dark red | Error text on light backgrounds |
-| `error-700` | Darker red | High emphasis errors |
-| `error-800` | Very dark | Dark error backgrounds |
-| `error-900` | Darkest | Deep error tone |
-| `error-950` | Near-black red | Maximum contrast |
+| `error-100` | Light | Error alert / badge backgrounds |
+| `error-500` | Base | Primary error indicators |
+| `error-600` | Dark | Error text / high emphasis on light backgrounds |
+
+Error ships only `error-100`, `error-500`, and `error-600`.
 
 ## Utility Colors
 
@@ -110,10 +98,10 @@ Additional colors used for specific interface needs:
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| `white` | #FFFFFF | Pure white |
-| `black` | #000000 | Pure black |
-| `transparent` | transparent | No color |
+| `transparent` | transparent | Transparent backgrounds / overlays |
 | `current` | currentColor | Inherits parent text color |
+| `inherit` | inherit | Inherits parent color |
+| `shadow` | rgba shadow token | Shared shadow tint |
 
 ## Using Colors in the Editor
 
@@ -149,6 +137,7 @@ All colors are available as CSS custom properties following the WordPress preset
 ```css
 var(--wp--preset--color--primary-500)
 var(--wp--preset--color--neutral-200)
+var(--wp--preset--color--info-500)
 var(--wp--preset--color--success-600)
 var(--wp--preset--color--warning-500)
 var(--wp--preset--color--error-500)
@@ -172,13 +161,14 @@ See [[dark-mode]] for complete dark mode documentation.
 
 ## Contrast and Accessibility
 
-The color system is designed to meet WCAG 2.1 AA contrast requirements:
+The palette is tuned so default body text and interactive tokens can meet **WCAG 2.2 AA** contrast when used as documented:
 
-- Body text on background: minimum 4.5:1 contrast ratio.
+- Body text on background: minimum 4.5:1 contrast ratio (`neutral-700` / `neutral-600` on the default surface).
 - Large text on background: minimum 3:1 contrast ratio.
-- Interactive elements: minimum 3:1 against adjacent colors.
+- Interactive elements and focus outlines: minimum 3:1 against adjacent colors.
+- `neutral-400` (`#666666`) is the lightest gray intended for readable muted text on the default body background; do not use lighter neutrals (`neutral-300` and below) for essential copy.
 
-When choosing colors for custom designs, always verify contrast using the WebAIM Contrast Checker or similar tools.
+Custom cover images, gradients, and editor-chosen colors still need a contrast check (WebAIM Contrast Checker or similar). See [[accessibility]].
 
 ## Next Steps
 

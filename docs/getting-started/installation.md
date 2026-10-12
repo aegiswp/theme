@@ -79,12 +79,13 @@ After activating Aegis:
 
 The theme works standalone (templates, patterns, theme blocks). For Map, Modal, the Aegis admin dashboard, integrations, snippets, conditionals, and analytics, install the companion plugins:
 
-- **Aegis Plugin** (free) — [Plugin documentation](../../plugins/aegis/docs/getting-started/installation.md)
-- **Aegis Pro** — Requires Aegis theme; [Pro documentation](../../plugins/aegis-pro/docs/getting-started/installation.md)
+- **Aegis Plugin** (free) — [docs](../../plugins/aegis/docs/getting-started/installation.md) · [Wiki](https://github.com/aegiswp/plugin/wiki)
+- **Aegis Pro** — Requires Aegis theme; [docs](../../plugins/aegis-pro/docs/getting-started/installation.md) · [Wiki](https://github.com/aegiswp/pro/wiki)
 
 ## Next Steps
 
 - [[quick-start-guide]] — Learn how to start building with Aegis.
 - [[site-editor]] — Explore the Full Site Editing experience.
 - [[block-patterns]] — Discover the available patterns for rapid page building.
-- [Aegis Plugin docs](../../plugins/aegis/docs/home.md) — Map, Modal, admin, integrations.
+- [Aegis Plugin docs](../../plugins/aegis/docs/home.md) · [Wiki](https://github.com/aegiswp/plugin/wiki) — Map, Modal, admin, integrations.
+- [Aegis Pro docs](../../plugins/aegis-pro/docs/home.md) · [Wiki](https://github.com/aegiswp/pro/wiki) — Video, query, Pro blocks.

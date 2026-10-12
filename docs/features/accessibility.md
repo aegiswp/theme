@@ -1,16 +1,16 @@
 # Accessibility
 
-Aegis is built with accessibility as a core principle. The theme meets WCAG 2.1 Level AA requirements and follows WordPress accessibility best practices to ensure all visitors can navigate and interact with your site.
+Aegis is built with accessibility as a core principle. The theme ships an **accessibility-ready foundation** aimed at [WCAG 2.2](https://www.w3.org/TR/WCAG22/) Level AA and WordPress accessibility best practices. Full conformance is content-dependent and must be verified on the live site (keyboard, screen reader, and automated tools).
 
 ## Accessibility Standards
 
-Aegis targets compliance with:
+Aegis targets:
 
-- **WCAG 2.1 Level AA** — Web Content Accessibility Guidelines.
+- **WCAG 2.2 Level AA** — Web Content Accessibility Guidelines (includes 2.1 AA criteria plus focus appearance / focus not obscured considerations).
 - **Section 508** — U.S. federal accessibility requirements.
 - **WordPress Accessibility Coding Standards** — Theme-specific guidelines from the WordPress project.
 
-> **Important:** Full WCAG compliance depends on content created by site editors. The theme provides the structural foundation, but accessible content (alt text, heading hierarchy, link text) is the responsibility of content authors.
+> **Important:** The theme provides landmarks, skip links, focus styles, keyboard support for interactive blocks, and reduced-motion hooks. Full WCAG conformance still depends on content created by site editors (alt text, heading hierarchy, link purpose, form labels, contrast of custom colors/media) and on runtime testing with sticky headers, plugins, and real viewports.
 
 ## Semantic HTML
 
@@ -34,7 +34,7 @@ All interactive elements are fully keyboard accessible:
 - **Focus indicators** are visible on all interactive elements (links, buttons, form fields).
 - **Skip links** allow keyboard users to bypass the header and jump to main content.
 - **Dropdown menus** are navigable with arrow keys.
-- **Modal dialogs** trap focus correctly and return focus on close.
+- **Search dialog** (theme header) and **`aegis/modal`** (companion plugin) trap focus and return it on close.
 - **Sliders** support keyboard arrow key navigation.
 - **Toggles** (content switcher) respond to click (including the switch track) and Left/Right arrows on the tablist. Pro fade/slide/flip/scale honors `prefers-reduced-motion: reduce` (instant swap). **Accordion List** responds to Enter and Space on each item.
 
@@ -53,10 +53,12 @@ The color system ensures sufficient contrast across all contexts:
 
 | Requirement | Standard | Aegis Implementation |
 |-------------|----------|---------------------|
-| Normal text | 4.5:1 minimum | All body text meets or exceeds 4.5:1 |
-| Large text (18px+ bold, 24px+ regular) | 3:1 minimum | All headings meet or exceeds 3:1 |
-| Interactive components | 3:1 minimum | Buttons, links, and inputs meet 3:1 |
-| Focus indicators | 3:1 minimum | Focus outlines provide clear contrast |
+| Normal text | 4.5:1 minimum | Default body/`neutral-600+` (and AA-safe `neutral-400`) tokens on the default surface |
+| Large text (18px+ bold, 24px+ regular) | 3:1 minimum | Default heading tokens meet or exceed 3:1 |
+| Interactive components | 3:1 minimum | Default buttons, links, and inputs target 3:1 |
+| Focus indicators | 3:1 minimum | Focus outlines use primary tokens for clear contrast |
+
+Custom colors, covers, and media still need a contrast check.
 
 ### Color Independence
 
@@ -76,7 +78,7 @@ Aegis uses ARIA attributes to enhance screen reader experiences:
 | Navigation | `aria-label` identifying the nav purpose |
 | Toggles (content switcher) | `role="tablist"` / `tab` / `tabpanel`, `aria-selected`, `aria-controls` / `aria-labelledby`, `aria-hidden` on inactive views |
 | Accordion List | `aria-expanded` on details/summary |
-| Modals | `aria-modal`, `aria-labelledby`, focus trapping |
+| Search dialog / plugin Modal | `role="dialog"`, `aria-modal`, accessible name, focus trapping |
 | Tabs | `role="tablist"`, `role="tab"`, `role="tabpanel"` |
 | Sliders | `aria-roledescription`, `aria-label` for controls |
 | Live regions | `aria-live` for dynamic content updates |
@@ -93,15 +95,15 @@ A skip-to-content link is the first focusable element on every page:
 
 The framework injects the skip link **after** the header template part is rendered (`SkipLink` priority 11, `TemplatePart` priority 10). That order keeps `<header role="banner">` as a sibling of the skip link, not nested inside it. Nesting the header inside the skip link hid header content (logo, navigation, dark-mode icons) from sighted visitors on the front end while the editor still looked correct.
 
-The **Skip to Content** pattern remains available for templates that need an explicit skip link in markup.
+The **Skip to Content** pattern remains available for templates that need an explicit skip link in markup (for example the **Blank** template, which has no header and therefore no injected skip link).
 
 ## Headings
 
-Aegis templates and patterns enforce a logical heading hierarchy:
+Aegis templates and stock patterns aim for a logical heading hierarchy:
 
-- Each page has exactly one `<h1>` (the page or post title).
-- Headings follow sequential order (H1 → H2 → H3) without skipping levels.
-- Headings are used structurally, not for visual sizing (use font size controls for visual adjustments).
+- Default page/post templates output one document `<h1>` (the title). The **Page No Title** and **Blank** templates omit an automatic title — authors must supply exactly one `<h1>` in content.
+- Section and slider titles in patterns use `<h2>` (or lower) so they do not compete with the page title.
+- Prefer sequential order (H1 → H2 → H3) without skipping levels; use font size controls for visual sizing.
 
 ## Images and Media
 
@@ -126,13 +128,12 @@ Aegis templates and patterns enforce a logical heading hierarchy:
 
 ## Forms
 
-All form elements in Aegis-styled plugins meet accessibility requirements:
+Stock Aegis demo forms use accessible names:
 
-- Labels are explicitly associated with inputs via `for`/`id` attributes.
-- Required fields are indicated with both visual and ARIA markers (`aria-required`).
-- Error messages are associated with inputs via `aria-describedby`.
-- Form groups use `<fieldset>` and `<legend>` elements.
-- Placeholder text does not replace visible labels.
+- Theme patterns (contact, funnel squeeze, store footer newsletter): labels via `for`/`id` (visible or `.screen-reader-text`); unique field IDs per pattern (e.g. `contact-page-email`, `store-footer-email`).
+- Plugin modal patterns (`aegis/modal-contact`, `aegis/modal-newsletter`): same label/`id` practice; registered only with the Modal block.
+- Placeholder text is supplemental and does not replace a label.
+- Plugin form builders (WPForms, Gravity Forms, etc.) remain responsible for production form handling, validation, and their own ARIA.
 
 ## Dark Mode Accessibility
 
@@ -150,7 +151,8 @@ Aegis uses automated accessibility testing during development:
 
 | Tool | Purpose |
 |------|---------|
-| pa11y-ci | Automated WCAG testing in CI/CD pipeline |
+| pa11y-ci | Automated WCAG2AA testing in CI (`.pa11yci.json`, threshold `0`) against home, `?p=1`, search, `?page_id=2`, and a missing post (404) |
+| WPAudit `AccessibilityAnalyzer` | Static PHP/HTML checks, including skip-link detection in `SkipLink.php` and `skip-to-content.php` |
 | Axe DevTools | Browser-based accessibility auditing |
 | WordPress Accessibility Checker | Plugin-level checks |
 
@@ -160,20 +162,19 @@ Aegis uses automated accessibility testing during development:
 npm run test:a11y
 ```
 
-This runs pa11y-ci against the development site to catch common accessibility issues.
-
-See [[testing]] for more details on running tests.
+Requires a running site at the URLs in `.pa11yci.json` (CI uses `http://localhost:8080/`; local wp-env often uses `8888` — override URLs as needed). See [[testing]].
 
 ## Content Author Guidelines
 
 To maintain accessibility, content authors should:
 
-1. **Always add alt text** to images that convey meaning.
-2. **Use headings sequentially** — do not skip levels for visual effect.
-3. **Write descriptive link text** — avoid "click here" or "read more" alone.
+1. **Always add alt text** to images that convey meaning; keep `alt=""` only when decorative.
+2. **Use headings sequentially** — one document `<h1>`; do not skip levels for visual effect. On **Page No Title** / **Blank**, supply the `<h1>` in content.
+3. **Write descriptive link text** — avoid "click here" or bare `#` destinations.
 4. **Provide captions** for videos and audio content.
-5. **Use sufficient color contrast** when choosing custom colors.
-6. **Test with keyboard** — navigate your pages without a mouse to catch issues.
+5. **Use sufficient color contrast** when choosing custom colors (`neutral-600+` for small text on light surfaces).
+6. **Test with keyboard** — Tab from load through skip link → main → footer; open/close search (Escape, focus return).
+7. **Respect reduced motion** — enable OS “reduce motion” and confirm carousels/marquees do not autoplay.
 
 ## Conditionals extras
 

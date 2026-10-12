@@ -168,13 +168,15 @@ Keep both systems. Prefer Core for ordinary style changes; use Aegis for visibil
 
 ## Accessibility
 
-Enhanced blocks maintain or improve accessibility:
+Enhanced blocks maintain or improve the theme’s accessibility-ready foundation:
 
-- Focus indicators remain visible on all interactive blocks.
+- Focus indicators remain visible on interactive blocks (`:focus` / `:focus-visible`, including breadcrumbs and post meta links).
 - ARIA attributes are preserved and enhanced where appropriate.
-- Color contrast meets WCAG 2.1 AA requirements.
-- Keyboard navigation works correctly across all enhancements.
+- Default color tokens target WCAG 2.2 AA contrast; custom colors still need verification.
+- Keyboard navigation works across enhancements.
 - Screen reader announcements are not altered.
+
+See [[accessibility]] for landmarks, skip links, and content-author responsibilities.
 
 ## Next Steps
 

@@ -66,8 +66,8 @@ These features are **not** in theme PHP — see plugin docs:
 
 | Feature | Documentation |
 |---------|---------------|
-| Analytics | [Plugin Analytics](../../plugins/aegis/docs/features/analytics.md) |
-| Conditionals admin/evaluator | [Conditional Logic](../../plugins/aegis/docs/features/conditional-logic.md) |
+| Analytics | [Plugin Analytics](../../plugins/aegis/docs/features/analytics.md) · [Wiki](https://github.com/aegiswp/plugin/wiki) |
+| Conditionals admin/evaluator | [Conditional Logic](../../plugins/aegis/docs/features/conditional-logic.md) · [Wiki](https://github.com/aegiswp/plugin/wiki) |
 | Admin dashboard | [Plugin Architecture](../../plugins/aegis/docs/development/architecture.md) |
 | Multi-step checkout | [WooCommerce Checkout](../../plugins/aegis/docs/features/woocommerce-checkout.md) |
 | Integrations dashboard | [Integrations Dashboard](../../plugins/aegis/docs/features/integrations-dashboard.md) |

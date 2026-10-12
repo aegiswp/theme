@@ -1,6 +1,6 @@
 # Block Patterns
 
-Aegis ships with **~200 theme block patterns** across **30 categories**, plus **45+ companion plugin patterns** (including ~27 WooCommerce patterns when WooCommerce is active) and **Pro premium patterns**. Block patterns are pre-designed layouts that you can insert into any page or template and customize to fit your content.
+Aegis ships with **236 theme block patterns** across **29 category folders**. Companion **plugin** patterns (Modal starters when Modal is enabled; WooCommerce patterns when WooCommerce is active) and **Pro** premium patterns are documented separately — [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki) · [Pro Patterns](../../plugins/aegis-pro/docs/patterns/pro-patterns.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki).
 
 ## Understanding Block Patterns
 
@@ -29,11 +29,10 @@ A block pattern is a pre-arranged group of blocks that forms a complete section 
 
 ## Pattern Categories
 
-Aegis organizes its patterns into 30 categories:
+Theme patterns live under **29** `patterns/` category folders:
 
 | Category | Description | Typical Use |
 |----------|-------------|-------------|
-| 404 | Page not found layouts | Error pages |
 | About | About sections and pages | Company info, bios |
 | Author | Author profile and bio layouts | Blog author pages |
 | Blog | Blog listing and post layouts | Blog pages, post grids |
@@ -42,29 +41,31 @@ Aegis organizes its patterns into 30 categories:
 | CTA | Call-to-action sections | Conversion sections |
 | Event | Event listings and details | Event pages, calendars |
 | FAQ | Frequently asked questions | Support pages |
-| Feature | Feature showcases and grids | Product features, services |
+| Featured | Feature showcases and grids | Product features, services |
 | Footer | Footer layouts | Site footers |
 | Header | Header layouts | Site headers |
 | Hero | Hero banners and landing sections | Page headers, landing pages |
 | Hidden | Utility patterns not shown in inserter | Internal theme use |
 | Library | General-purpose reusable sections | Various page sections |
 | Logos | Logo grids and client showcases | Trust signals, partnerships |
-| Modal | Modal and popup layouts | Overlays, announcements |
 | Newsletter | Email signup sections | Lead generation |
 | Notice | Alert and notification banners | Announcements, warnings |
-| Page | Full page layouts | Complete page designs |
+| Pages | Full page layouts | Complete page designs |
 | Portfolio | Portfolio and project showcases | Creative portfolios |
 | Pricing | Pricing tables and comparisons | SaaS, service pricing |
 | Product | Product detail sections | Product showcases |
+| Sidebar | Sidebar / complementary layouts | Blog sidebars, template parts |
 | Slider | Carousel and slider layouts | Image galleries, testimonials |
 | Stats | Statistics and number highlights | Achievement sections |
 | Team | Team member grids and profiles | About pages |
-| Template | Template-level layouts | Template building |
+| Template | Template-level layouts (including 404) | Template building |
 | Testimonial | Reviews and testimonial sections | Social proof |
 | Timeline | Chronological content layouts | Company history, roadmaps |
 | Utility | Helper patterns and spacers | Layout utilities |
 
 Related Posts layouts (`blog-related-posts-grid`, `list`, `cards`, `minimal`) are in the **Blog** category. They unregister when **Aegis → Blocks → Related Posts** is implied off. See [[../blocks/related-posts]].
+
+**Modal** patterns (`aegis/modal-*`) are registered by the [Aegis companion plugin](../../plugins/aegis/docs/features/plugin-patterns.md) ([Wiki](https://github.com/aegiswp/plugin/wiki)) when the Modal block is enabled — they are not theme patterns.
 
 ## Customizing Patterns After Insertion
 
@@ -126,7 +127,7 @@ Developers can register patterns by creating PHP files in the `patterns/` direct
 /**
  * Title: My Custom Pattern
  * Slug: aegis/my-custom-pattern
- * Categories: feature
+ * Categories: featured
  * Description: A custom feature section.
  */
 ?>
@@ -143,14 +144,14 @@ When building specific types of pages, look at these categories:
 
 | Page Type | Recommended Categories |
 |-----------|----------------------|
-| Homepage | Hero, Feature, Testimonial, CTA, Logos, Stats |
+| Homepage | Hero, Featured, Testimonial, CTA, Logos, Stats |
 | About Page | About, Team, Timeline, Stats |
-| Services | Feature, Pricing, FAQ, CTA |
+| Services | Featured, Pricing, FAQ, CTA |
 | Contact | Contact, Newsletter |
 | Blog | Blog, Author |
 | Portfolio | Portfolio, Slider |
 | Shop | Commerce, Product, Pricing |
-| Landing Page | Hero, Feature, Testimonial, CTA, Pricing |
+| Landing Page | Hero, Featured, Testimonial, CTA, Pricing |
 
 ## Next Steps
 

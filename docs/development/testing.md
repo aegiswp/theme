@@ -8,7 +8,7 @@ Aegis uses a multi-layered testing approach covering unit tests, performance aud
 |------|------|---------|
 | PHPUnit | Unit/Integration | PHP logic testing |
 | WPAudit | Performance | WordPress-specific performance audit |
-| pa11y-ci | Accessibility | Automated WCAG compliance checking |
+| pa11y-ci | Accessibility | Automated WCAG2AA checking (threshold 0; see `.pa11yci.json`) |
 
 ## PHPUnit
 
@@ -49,43 +49,52 @@ WPAudit is the PHPUnit package in `tools/wpaudit/`. It analyzes theme files for 
 
 ## pa11y-ci (Accessibility)
 
-pa11y-ci runs automated accessibility tests against rendered pages, checking for WCAG 2.1 Level AA violations.
+pa11y-ci runs automated accessibility tests against rendered pages (home, post, search, page, 404), checking for WCAG2AA violations with a zero-issue threshold.
 
 ### Running pa11y
 
 ```bash
-npm run test:a11y
+npm run test:a11y          # Uses .pa11yci.json (defaults to http://localhost:8080/)
+npm run test:a11y:env      # Single URL against wp-env (http://localhost:8888/)
 ```
 
 ### Prerequisites
 
-The local development environment must be running:
+A WordPress site must be reachable at the configured host:
 
 ```bash
-npm run env:start
+# CI-style host (8080) — match .pa11yci.json
 npm run test:a11y
+
+# Local wp-env
+npm run env:start
+npm run test:a11y:env
 ```
 
 ### Configuration
 
-pa11y-ci is configured via `.pa11yci` or `pa11y-ci.json`:
+Defaults live in `.pa11yci.json`. GitHub Actions (`.github/workflows/accessibility.yml`) seeds a post and page, writes **`.pa11yci.ci.json`** with resolved `?p=` / `?page_id=` URLs (because `php -S` does not rewrite pretty permalinks), then runs `pa11y-ci --threshold 0`.
 
 ```json
 {
     "defaults": {
+        "timeout": 60000,
+        "wait": 1000,
         "standard": "WCAG2AA",
-        "timeout": 30000,
-        "wait": 1000
+        "runners": ["axe", "htmlcs"],
+        "ignore": ["warning"]
     },
     "urls": [
-        "http://localhost:8888/",
-        "http://localhost:8888/sample-page/",
-        "http://localhost:8888/blog/",
-        "http://localhost:8888/category/uncategorized/",
-        "http://localhost:8888/?s=test"
+        "http://localhost:8080/",
+        "http://localhost:8080/?p=1",
+        "http://localhost:8080/?s=test",
+        "http://localhost:8080/?page_id=2",
+        "http://localhost:8080/?p=999999"
     ]
 }
 ```
+
+`.pa11yci.ci.json` is gitignored. For wp-env, use `npm run test:a11y:env` or retarget the `urls` host to `8888`.
 
 ### What pa11y Checks
 

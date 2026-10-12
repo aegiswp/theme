@@ -76,8 +76,8 @@ Aegis does not require any plugins to function as a theme. All core functionalit
 
 | Plugin | Purpose |
 |--------|---------|
-| **Aegis Plugin** (free) | Map and Modal blocks, admin dashboard, integrations, snippets, conditionals, analytics — [Plugin docs](../../plugins/aegis/docs/home.md) |
-| **Aegis Pro** | Hook patterns, video stack, query conditions, Pro blocks — requires Aegis theme — [Pro docs](../../plugins/aegis-pro/docs/home.md) |
+| **Aegis Plugin** (free) | Map and Modal blocks, admin dashboard, integrations, snippets, conditionals, analytics — [docs](../../plugins/aegis/docs/home.md) · [Wiki](https://github.com/aegiswp/plugin/wiki) |
+| **Aegis Pro** | Hook patterns, video stack, query conditions, Pro blocks — requires Aegis theme — [docs](../../plugins/aegis-pro/docs/home.md) · [Wiki](https://github.com/aegiswp/pro/wiki) |
 
 ### Plugin Requirements (Separate Products)
 

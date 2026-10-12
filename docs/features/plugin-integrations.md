@@ -25,15 +25,15 @@ Integration styles use design tokens and adapt to style variations and dark mode
 | Code Block Pro | Radius/typography overlay (`plugins/code-block-pro.css`) when `kevinbatdorf/code-block-pro` is present. Detection is `CBPRouter` or the registered block — not `CODE_BLOCK_PRO_VERSION`. |
 | BunnyCDN | Stream player embed styling (`plugins/bunnycdn.css`) when **Aegis → Connectors → BunnyCDN** is on (SaaS connector, not a WordPress plugin). Snippet locations `aegis_before_video_block` / `aegis_after_video_block`. Pro Stream API and editor panels live in Aegis Pro. |
 
-## Integrations Dashboard
+## Integrations Dashboard (free plugin)
 
-Credentials live at **Aegis → Connectors** (BunnyCDN, Maps, analytics). Pattern control and extra toggles (WooCommerce, EDD, AffiliateWP, ACF, Meta Box, Rank Math, Yoast, LearnDash pattern keep, Co-Authors Plus, and so on) are on **Aegis → Integrations**. Extras stay off unless that plugin is active and the parent integration is on. **Code Block Pro** and **Syntax Highlighting Code Block** have no extras — those toggles only gate overlay CSS. **Meta Box Field** sits under the Meta Box parent (same pattern as ACF). Framework CSS above still loads when the matching integration (or Connectors) toggle is enabled.
+Toggle state and credentials are owned by the free plugin (**Aegis → Integrations** / **Connectors**). This theme page only documents framework CSS that ships with the theme.
 
-See [Integrations Dashboard](../../plugins/aegis/docs/features/integrations-dashboard.md).
+See [Integrations Dashboard](../../plugins/aegis/docs/features/integrations-dashboard.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki).
 
 ## SEO Plugins
 
-Aegis delegates FAQ, Event, Local Business, and Video schema, plus Pro video sitemaps, to Rank Math, Yoast, AIOSEO, or SEOPress. Visual breadcrumbs are powered by the WordPress Core Breadcrumbs block (`core/breadcrumbs`) styled to theme design system tokens. Rank Math’s `.rank-math-breadcrumb`, SEOPress’s `.seopress-breadcrumbs`, and Yoast’s `#breadcrumbs` / `.yoast-breadcrumbs` trails are styled from the same `breadcrumbs.css` file when that markup is on the page; separators use Rank Math `.separator` and SEOPress `.breadcrumb-sep` (Yoast keeps nested-span text separators and `.breadcrumb_last` without a forced flex wrapper) so plugin-configured characters are preserved. The active SEO plugin outputs `BreadcrumbList` JSON-LD schema without interference. See [SEO Schema Delegation](../../plugins/aegis/docs/features/seo-schema-delegation.md).
+Visual breadcrumbs use `core/breadcrumbs` styled to theme tokens; Rank Math / SEOPress / Yoast trails share the same breadcrumbs stylesheet when present. Schema delegation and Pro video sitemaps are documented in the free plugin / Pro: [SEO Schema Delegation](../../plugins/aegis/docs/features/seo-schema-delegation.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki).
 
 ## How Integration Styles Load
 
@@ -57,5 +57,6 @@ Plugins not listed above may still work with default styling. Apply custom CSS v
 ## Next Steps
 
 - [[woocommerce-integration]] — WooCommerce templates
-- [Integrations Dashboard](../../plugins/aegis/docs/features/integrations-dashboard.md)
+- [Integrations Dashboard](../../plugins/aegis/docs/features/integrations-dashboard.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki)
+- [Pro docs](../../plugins/aegis-pro/docs/home.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki)
 - [[performance]] — Conditional loading

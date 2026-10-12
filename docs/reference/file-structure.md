@@ -80,8 +80,8 @@ Pro premium patterns: `wp-content/plugins/aegis-pro/patterns/`.
 
 | Path | Docs |
 |------|------|
-| `wp-content/plugins/aegis/` | [Plugin docs](../../plugins/aegis/docs/home.md) |
-| `wp-content/plugins/aegis-pro/` | [Pro docs](../../plugins/aegis-pro/docs/home.md) |
+| `wp-content/plugins/aegis/` | [Plugin docs](../../plugins/aegis/docs/home.md) · [Wiki](https://github.com/aegiswp/plugin/wiki) |
+| `wp-content/plugins/aegis-pro/` | [Pro docs](../../plugins/aegis-pro/docs/home.md) · [Wiki](https://github.com/aegiswp/pro/wiki) |
 
 ## Generated / Excluded from Dev
 
