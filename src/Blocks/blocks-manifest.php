@@ -361,6 +361,7 @@ return array (
     array (
       'html' => false,
       'className' => true,
+      'renaming' => true,
       'color' => 
       array (
         'background' => true,
@@ -407,6 +408,7 @@ return array (
       ),
       'className' => true,
       'anchor' => true,
+      'renaming' => true,
       'spacing' => 
       array (
         'blockGap' => true,
@@ -500,6 +502,11 @@ return array (
       array (
         'type' => 'boolean',
         'default' => true,
+      ),
+      'lightboxEnabled' => 
+      array (
+        'type' => 'boolean',
+        'default' => false,
       ),
     ),
     'editorScript' => 'file:index.js',
