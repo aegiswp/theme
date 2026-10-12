@@ -1,0 +1,93 @@
+/**
+ * Slide Block - Frontend Styles
+ *
+ * @package Aegis
+ * @since   1.0.0
+ */
+
+.wp-block-aegis-slide {
+	display: flex;
+	align-items: stretch;
+	justify-content: center;
+	overflow: hidden;
+	width: 100%;
+
+	img {
+		max-width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	> * {
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	// Keep resized / circular images shrink-wrapped (do not stretch to slide width).
+	// margin:auto only for aligncenter — flex avatar rows must not get auto side margins.
+	.wp-block-image.aligncenter,
+	.wp-block-image.aligncenter.is-resized {
+		width: fit-content;
+		max-width: 100%;
+		height: auto;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.wp-block-image.is-resized:not(.aligncenter) {
+		width: fit-content;
+		max-width: 100%;
+		height: auto;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	// Fully rounded avatars: after upload the figure often only keeps border-radius.
+	// Force shrink-wrap + square crop so aspect-ratio cannot create a tall empty box.
+	.wp-block-image[style*="border-radius:100%"],
+	.wp-block-image[style*="border-radius: 100%"],
+	.wp-block-image[style*="border-radius:50%"],
+	.wp-block-image[style*="border-radius: 50%"] {
+		width: fit-content;
+		max-width: 100%;
+		height: auto;
+		overflow: hidden;
+		border-radius: 100%;
+	}
+
+	.wp-block-image.aligncenter[style*="border-radius"] {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.wp-block-image.has-custom-border,
+	.wp-block-image.is-placeholder {
+		overflow: hidden;
+	}
+
+	// Circular avatars only — do not force 1:1 on book covers (2/3) etc.
+	.wp-block-image img[style*="border-radius:100%"],
+	.wp-block-image img[style*="border-radius: 100%"],
+	.wp-block-image[style*="border-radius:100%"] img,
+	.wp-block-image[style*="border-radius: 100%"] img,
+	.wp-block-image[style*="border-radius:50%"] img,
+	.wp-block-image[style*="border-radius: 50%"] img {
+		aspect-ratio: 1;
+		object-fit: cover;
+		height: auto;
+		border-radius: inherit;
+	}
+
+	.wp-block-image img[style*="aspect-ratio"] {
+		object-fit: cover;
+		height: auto;
+		max-width: 100%;
+	}
+
+	.wp-block-image.is-placeholder {
+		aspect-ratio: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
