@@ -34,8 +34,10 @@ vendor/aegis/wpaudit/
 Thumbs.db
 Desktop.ini
 
-# Dot-prefixed folders/files in patterns (e.g. .template/)
+# Local-only pattern drafts (leading-dot names). Never commit, ship, or document.
+# Nested paths need **/ — plain patterns/.* only matches the top of patterns/.
 patterns/.*
+patterns/**/.*
 
 # Ephemeral / scratch (e.g. *.pretty.tmp from local formatting)
 *.tmp
@@ -74,6 +76,9 @@ phpunit-report.xml
 # E2E / browser testing (if added under the theme)
 playwright-report/
 test-results/
+
+# CI-generated pa11y config (accessibility.yml writes resolved post/page IDs)
+.pa11yci.ci.json
 
 # Build artifacts — src/Blocks/ (webpack output)
 src/Blocks/*/index.js

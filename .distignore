@@ -87,6 +87,7 @@ vendor/aegis/**/.phpunit.cache/
 .stylelintrc.json
 .typos.toml
 .pa11yci.json
+.pa11yci.ci.json
 .env
 .env.*
 auth.json
@@ -165,6 +166,10 @@ docs/
 # Dev-only pattern docs (optional; safe to include on disk, omit from dist)
 
 patterns/README.txt
+
+# Local-only leading-dot pattern drafts (never ship)
+
+patterns/**/.*
 
 # Empty / legacy
 

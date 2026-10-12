@@ -1,7 +1,7 @@
 === Aegis ===
 Contributors: atmostfearentertainment
 Requires at least: 7.0
-Tested up to: 7.0
+Tested up to: 7.1.3
 Requires PHP: 8.1
 Stable tag: 1.0.0
 License: GPL-2.0-or-later
@@ -9,7 +9,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Aegis is a WordPress block theme and design-system framework built on systematic design tokens: structured colour scales, fluid typography, and constraint-based spacing for visual consistency across patterns and templates. It ships self-hosted Lexend and JetBrains Mono fonts, compiled custom blocks, 150+ patterns for blog, commerce, events, portfolio, and contact, plus WooCommerce templates, dark/light mode, RTL support, and accessibility-ready foundations.
+Aegis is a WordPress block theme and design-system framework built on systematic design tokens: structured colour scales, fluid typography, and constraint-based spacing for visual consistency across patterns and templates. It ships self-hosted Lexend and JetBrains Mono fonts, compiled custom blocks, 236 patterns for blog, commerce, events, portfolio, and contact, plus WooCommerce templates, dark/light mode, RTL support, and an accessibility-ready foundation aimed at WCAG 2.2 Level AA (full conformance still depends on site content).
 
 == Installation ==
 
@@ -36,16 +36,27 @@ The WordPress.org build does not include license activation or purchase prompts.
 
 No. WooCommerce templates and patterns are included but only apply when WooCommerce is active.
 
+= Is Aegis WCAG certified? =
+
+No. Aegis provides accessibility-ready infrastructure (skip links, landmarks, focus styles, keyboard support, reduced motion, labeled demo forms) targeting WCAG 2.2 Level AA. Editors remain responsible for alt text, heading order, link purpose, and contrast of custom colors or media. Verify with keyboard, screen reader, and tools such as pa11y/axe on your live pages.
+
+= Does the Blank template include a skip link? =
+
+Yes. Templates with a header get an injected skip link. The Blank template has no header, so it includes the Skip to Content pattern and a `<main id="main">` landmark around post content. Authors should supply exactly one `<h1>` in the page content on Blank and Page No Title templates.
+
 == Screenshots ==
 
 1. Native Block Framework showcase with light/dark mode, Site Editor styles panel, and block patterns.
 
 == Changelog ==
 
+= Unreleased =
+* Accessibility pass toward WCAG 2.2 AA for shipped demos: Blank template skip link + main landmark; hero slider demotes slide titles to h2 and disables autoplay by default; labeled newsletter/contact demo forms; unique form field IDs; stronger focus-visible styles; search dialog accessible name; reduced-motion for document fade-in and slider autoplay; neutral-400 token darkened for body-text contrast; demo CTA links use home_url instead of href="#"; pa11y CI URL matrix with zero-issue threshold; docs clarify foundation vs full conformance.
+
 = 1.0.0 - 2026-05-29 =
 * Initial public release.
 * Token-based design system with structured colour, type, and spacing scales.
-* 150+ block patterns across blog, commerce, events, portfolio, contact, and more.
+* 236 block patterns across blog, commerce, events, portfolio, contact, and more.
 * Full WooCommerce integration: cart, checkout, multi-step checkout, my account, wishlist, order confirmation.
 * Dark/light mode toggle via CSS class and cookie.
 * 60+ style variations.

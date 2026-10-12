@@ -80,6 +80,7 @@ src/Blocks/*/style.scss export-ignore
 .stylelintrc.json export-ignore
 eslint.config.cjs export-ignore
 .pa11yci.json export-ignore
+.pa11yci.ci.json export-ignore
 tsconfig.json export-ignore
 webpack.config.js export-ignore
 phpcs.xml export-ignore
@@ -138,6 +139,7 @@ STUDIO.md export-ignore
 node_modules/ export-ignore
 tests/ export-ignore
 patterns/README.txt export-ignore
+patterns/**/.* export-ignore
 .phpunit.result.cache export-ignore
 .phpunit.cache/ export-ignore
 coverage/ export-ignore

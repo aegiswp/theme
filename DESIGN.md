@@ -6,7 +6,7 @@ Aegis implements a token-based design system modelled on the Tailwind CSS v3 sca
 
 ## Colour Palette
 
-The palette is organised into semantic groups. Each group follows the Tailwind numeric step scale: **50 → 100 → 200 → 300 → 400 → 500 → 600 → 700 → 800 → 900 → 950**. Lower numbers are lighter; higher numbers are darker.
+The palette is organised into semantic groups. **Primary** and **Neutral** use a full Tailwind-style step scale (Primary includes `25`; Neutral includes `0`). **Success**, **Info**, **Warning**, and **Error** each ship only **`100` / `500` / `600`**. Lower numbers are lighter; higher numbers are darker.
 
 ### Primary — Tailwind Zinc
 
@@ -14,18 +14,18 @@ Used for branded UI elements, interactive controls, and the default text/surface
 
 | Slug | Hex | Tailwind ref |
 |------|-----|-------------|
-| `primary-25` | `#fcfcfd` | — (extension) |
-| `primary-50` | `#fafafa` | Zinc 50 |
-| `primary-100` | `#f4f4f5` | Zinc 100 |
-| `primary-200` | `#e4e4e7` | Zinc 200 |
-| `primary-300` | `#d4d4d8` | Zinc 300 |
-| `primary-400` | `#a1a1aa` | Zinc 400 |
-| `primary-500` | `#71717a` | Zinc 500 |
-| `primary-600` | `#52525b` | Zinc 600 |
-| `primary-700` | `#3f3f46` | Zinc 700 |
-| `primary-800` | `#27272a` | Zinc 800 |
-| `primary-900` | `#18181b` | Zinc 900 |
-| `primary-950` | `#09090b` | Zinc 950 |
+| `primary-25` | `#f8efe9` | `#fcfcfd` |
+| `primary-50` | `#fafafa` | `#fafafa` |
+| `primary-100` | `#f4f4f5` | `#f4f4f5` |
+| `primary-200` | `#e4e4e7` | `#e4e4e7` |
+| `primary-300` | `#d4d4d8` | `#d4d4d8` |
+| `primary-400` | `#a1a1aa` | `#a1a1aa` |
+| `primary-500` | `#71717a` | `#71717a` |
+| `primary-600` | `#52525b` | `#52525b` |
+| `primary-700` | `#3f3f46` | `#3f3f46` |
+| `primary-800` | `#27272a` | `#27272a` |
+| `primary-900` | `#18181b` | `#18181b` |
+| `primary-950` | `#09090b` | `#09090b` |
 
 ### Neutral — Tailwind Neutral
 
@@ -33,18 +33,18 @@ Pure grays with no hue tint. Used for body text, borders, backgrounds, and surfa
 
 | Slug | Hex | Tailwind ref |
 |------|-----|-------------|
-| `neutral-0` | `#ffffff` | — (white extension) |
-| `neutral-50` | `#fafafa` | Neutral 50 |
-| `neutral-100` | `#f5f5f5` | Neutral 100 |
-| `neutral-200` | `#e5e5e5` | Neutral 200 |
-| `neutral-300` | `#d4d4d4` | Neutral 300 |
-| `neutral-400` | `#a3a3a3` | Neutral 400 |
-| `neutral-500` | `#737373` | Neutral 500 |
-| `neutral-600` | `#525252` | Neutral 600 |
-| `neutral-700` | `#404040` | Neutral 700 |
-| `neutral-800` | `#262626` | Neutral 800 |
-| `neutral-900` | `#171717` | Neutral 900 |
-| `neutral-950` | `#0a0a0a` | Neutral 950 |
+| `neutral-0` | `#ffffff` | `#ffffff` |
+| `neutral-50` | `#fafafa` | `#fafafa` |
+| `neutral-100` | `#f5f5f5` | `#f5f5f5` |
+| `neutral-200` | `#e5e5e5` | `#e5e5e5` |
+| `neutral-300` | `#d4d4d4` | `#d4d4d4` |
+| `neutral-400` | `#666666` | `#a3a3a3` |
+| `neutral-500` | `#737373` | `#737373` |
+| `neutral-600` | `#525252` | `#525252` |
+| `neutral-700` | `#404040` | `#404040` |
+| `neutral-800` | `#262626` | `#262626` |
+| `neutral-900` | `#171717` | `#171717` |
+| `neutral-950` | `#0a0a0a` | `#0a0a0a` |
 
 ### Success — Tailwind Green
 
@@ -52,17 +52,19 @@ Positive feedback states: confirmations, availability, valid inputs.
 
 | Slug | Hex | Tailwind ref |
 |------|-----|-------------|
-| `success-50` | `#f0fdf4` | Green 50 |
-| `success-100` | `#dcfce7` | Green 100 |
-| `success-200` | `#bbf7d0` | Green 200 |
-| `success-300` | `#86efac` | Green 300 |
-| `success-400` | `#4ade80` | Green 400 |
-| `success-500` | `#22c55e` | Green 500 |
-| `success-600` | `#16a34a` | Green 600 |
-| `success-700` | `#15803d` | Green 700 |
-| `success-800` | `#166534` | Green 800 |
-| `success-900` | `#14532d` | Green 900 |
-| `success-950` | `#052e16` | Green 950 |
+| `success-100` | `#d1fae5` | `#d1fae5` |
+| `success-500` | `#10b981` | `#10b981` |
+| `success-600` | `#059669` | `#059669` |
+
+### Info — Blue
+
+Informational accents and status.
+
+| Slug | Hex | Tailwind ref |
+|------|-----|-------------|
+| `info-100` | `#f3f9ff` | Light |
+| `info-500` | `#1e7ff0` | Base |
+| `info-600` | `#1166c2` | Dark (deepest Info step) |
 
 ### Warning — Tailwind Orange
 
@@ -70,17 +72,9 @@ Caution states: non-blocking alerts, pending actions, low-stock notices.
 
 | Slug | Hex | Tailwind ref |
 |------|-----|-------------|
-| `warning-50` | `#fff7ed` | Orange 50 |
-| `warning-100` | `#ffedd5` | Orange 100 |
-| `warning-200` | `#fed7aa` | Orange 200 |
-| `warning-300` | `#fdba74` | Orange 300 |
-| `warning-400` | `#fb923c` | Orange 400 |
-| `warning-500` | `#f97316` | Orange 500 |
-| `warning-600` | `#ea580c` | Orange 600 |
-| `warning-700` | `#c2410c` | Orange 700 |
-| `warning-800` | `#9a3412` | Orange 800 |
-| `warning-900` | `#7c2d12` | Orange 900 |
-| `warning-950` | `#431407` | Orange 950 |
+| `warning-100` | `#feeac7` | `#ffedd5` |
+| `warning-500` | `#f59e0b` | `#f59e0b` |
+| `warning-600` | `#d97706` | `#d97706` |
 
 ### Error — Tailwind Red
 
@@ -88,17 +82,9 @@ Destructive and error states: validation failures, deletions, critical alerts.
 
 | Slug | Hex | Tailwind ref |
 |------|-----|-------------|
-| `error-50` | `#fef2f2` | Red 50 |
-| `error-100` | `#fee2e2` | Red 100 |
-| `error-200` | `#fecaca` | Red 200 |
-| `error-300` | `#fca5a5` | Red 300 |
-| `error-400` | `#f87171` | Red 400 |
-| `error-500` | `#ef4444` | Red 500 |
-| `error-600` | `#dc2626` | Red 600 |
-| `error-700` | `#b91c1c` | Red 700 |
-| `error-800` | `#991b1b` | Red 800 |
-| `error-900` | `#7f1d1d` | Red 900 |
-| `error-950` | `#450a0a` | Red 950 |
+| `error-100` | `#ffe4e6` | `#ffe4e6` |
+| `error-500` | `#f43f5e` | `#f43f5e` |
+| `error-600` | `#e11d48` | `#e11d48` |
 
 ### Utility Colours
 
@@ -106,10 +92,10 @@ Special-purpose tokens with no numeric step.
 
 | Slug | Value | Use |
 |------|-------|-----|
-| `transparent` | `transparent` | Backgrounds, borders |
-| `current` | `currentcolor` | Icon fills inheriting text colour |
-| `inherit` | `inherit` | Explicit cascade inheritance |
-| `shadow` | `rgba(107,114,128,0.07)` | Box-shadow colour token |
+| `transparent` | `transparent` | Transparent backgrounds / overlays |
+| `current` | `currentcolor` | Inherit parent text colour |
+| `inherit` | `inherit` | Inherit parent colour |
+| `shadow` | `rgba(107,114,128,0.07)` | Shared shadow tint |
 
 ---
 

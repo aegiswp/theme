@@ -1,6 +1,6 @@
 # WordPress.org theme submission — Aegis 1.0.0
 
-Target release: **29 May 2026** · **Tested up to: 7.0** · **Requires at least: 7.0**
+Target release: **29 May 2026** · **Tested up to: 7.1.3** · **Requires at least: 7.0**
 
 ## Pre-upload checklist
 
@@ -20,12 +20,15 @@ Target release: **29 May 2026** · **Tested up to: 7.0** · **Requires at least:
 
 ## Accessibility-ready tag
 
-Tag is **retained**. Before submit, manually verify:
+Tag is **retained**. The theme ships an accessibility-ready foundation aimed at
+WCAG 2.2 AA (not a certification claim). Before submit, manually verify:
 
-- Keyboard navigation through header, nav overlay, and modals
-- Visible focus styles and skip link
-- Colour contrast on default + one dark style variation
+- Keyboard navigation through header, nav overlay, search dialog, and modals
+- Visible focus styles (links, buttons, search) and skip link (including Blank template)
+- Colour contrast on default + one dark style variation (`neutral-400` is `#666666`)
+- Demo forms expose accessible names; stock hero slider has a single page-level h1 strategy (slide titles are h2)
 - Document any gaps in the Theme Check “accessibility” tab
+- Run `npm run test:a11y` / CI accessibility workflow (pa11y-ci, threshold 0) when a site URL is available
 
 ## Theme Check / review notes for reviewers
 

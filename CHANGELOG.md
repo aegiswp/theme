@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Patterns
+
+- Removed theme `patterns/modal/` drafts. Modal starters register only from the companion plugin (`aegis/modal-*` when the Modal block is enabled).
+
+### CI / developer tooling
+
+- Accessibility workflow seeds post/page content, builds a query-string URL matrix for `php -S` (no pretty-permalink rewrites), and runs pa11y-ci at threshold 0.
+- `.pa11yci.json`, WORKFLOWS.md, PR/issue templates, CONTRIBUTING, and AGENTS.md aligned with WCAG 2.2 foundation language and plugin-owned modal patterns.
+
+### Documentation
+
+- Pattern docs use **29 category folders** (Sidebar included; 404 lives under Template). Modal starters documented as plugin-only. Accessibility and testing docs match CI pa11y flow and foundation (not certified) contrast language.
+
+### Accessibility
+
+- Blank template includes Skip to Content + `<main id="main">`; Page No Title documents the author `<h1>` requirement; 404 uses a real document `<h1>`; sidebar template part uses `tagName":"aside"`.
+- Hero slider slide titles demoted to `<h2>`; stock slider patterns disable autoplay; frontend disables autoplay when `prefers-reduced-motion: reduce`; slide live region string is translatable via `data-i18n-slide`.
+- Demo forms (funnel, store footer, contact patterns) have labels and unique field IDs; header search block label set to “Search”. Plugin modal form patterns carry the same label/`id` treatment.
+- `neutral-400` darkened to `#666666` for AA contrast on the default body background; focus-visible rings for buttons, search, breadcrumbs, and post meta; skip-link visible-focus styles; search dialog `aria-label`; document `html` fade-in respects reduced motion.
+- Pattern demo CTAs replace `href="#"` with `home_url( '/' )`.
+- Docs and READMEs describe an accessibility-ready foundation targeting WCAG 2.2 AA (not certified conformance). pa11y CI expands URL coverage with `--threshold 0`. WPAudit skip-link detection includes `SkipLink.php` and `skip-to-content.php`.
+
 ### Breaking Changes
 
 - Removed **`aegis/video`** custom block. Use **`core/video`** with Aegis framework, companion plugin, and Pro enhancements. Migrate existing content with `tools/migrate-aegis-video.php` (see `docs/getting-started/updating.md`).
@@ -52,6 +74,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Translations
 
 - Regenerated theme `languages/aegis.pot`, plugin `languages/aegis.pot`, and Pro `languages/aegis-pro.pot` for Countdown, Toggle content-switcher, and Slider inspector strings.
+- Regenerated theme `languages/aegis.pot` for accessibility strings (404 heading, slider live region `Slide %1$d of %2$d`, updated home/features marketing copy).
 
 ### Map
 

@@ -68,6 +68,7 @@
     "test:php": "composer test:php",
     "test:a11y": "pa11y-ci --config .pa11yci.json",
     "test:a11y:env": "pa11y-ci --config .pa11yci.json http://localhost:8888/",
+    "test:a11y:ci": "pa11y-ci --config .pa11yci.ci.json --threshold 0",
     "clean": "node tools/clean-build.js",
     "audit-patterns": "wp eval-file tools/audit-patterns.php",
     "audit-patterns:studio": "studio wp eval-file tools/audit-patterns.php",

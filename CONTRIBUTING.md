@@ -146,10 +146,12 @@ When creating custom blocks:
 
 - Test in multiple browsers (Chrome, Firefox, Safari, Edge)
 - Test with WordPress latest version and Gutenberg plugin
-- Test accessibility with screen readers and keyboard navigation
+- Test accessibility with keyboard navigation (and screen readers when UI changes). The theme ships an accessibility-ready foundation aimed at WCAG 2.2 AA — full conformance still depends on content.
+- Automated a11y: `npm run test:a11y` (uses `.pa11yci.json` / CI host `8080`) or `npm run test:a11y:env` against wp-env (`8888`). CI enforces pa11y-ci with **threshold 0**.
 - Test responsive design on mobile devices
 - Test with various plugins (WooCommerce, ACF, etc.)
 - Validate HTML and CSS
+- Modal starter patterns live in the **companion plugin** (`patterns/modal/`) — do not add them under the theme `patterns/` tree
 
 ### Commit Messages
 

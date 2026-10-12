@@ -12,7 +12,7 @@ This file is read by AI coding agents (Claude Code, Cursor, Copilot, etc.) worki
 - **Author:** Atmostfear Entertainment
 - **Text domain:** `aegis`
 - **Minimum PHP:** 8.1 — use typed properties, named arguments, and `declare(strict_types=1)` in all PHP files
-- **Minimum WordPress:** 7.0 (tested up to 7.0)
+- **Minimum WordPress:** 7.0 (tested up to 7.1.3)
 
 ---
 
@@ -48,7 +48,7 @@ The design system is defined entirely in `theme.json`. Read `DESIGN.md` before t
 
 ### Colours
 - All palette slugs are lowercase kebab-case: `primary-500`, `neutral-200`, `error-600`.
-- Groups: **Primary** (Zinc), **Neutral** (pure gray), **Success** (Green), **Warning** (Orange), **Error** (Red), plus utility slugs `transparent`, `current`, `inherit`, `shadow`.
+- Groups: **Primary** (Zinc), **Neutral** (pure gray), **Success** (Green), **Info** (Blue), **Warning** (Orange), **Error** (Red), plus utility slugs `transparent`, `current`, `inherit`, `shadow`.
 - **Never hardcode hex values** in patterns, CSS, or PHP. Use `var:preset|color|{slug}` in block markup, `var(--wp--preset--color--{slug})` in CSS.
 - When adding a new colour, add it to the correct semantic group in `theme.json`, add a row to `DESIGN.md`, and justify the need — do not create one-off palette entries.
 
@@ -72,7 +72,7 @@ The design system is defined entirely in `theme.json`. Read `DESIGN.md` before t
 
 ### File naming
 - Files in a public category (e.g. `patterns/hero/`) use lowercase kebab-case: `split.php`, `cover.php`.
-- Files prefixed with `.` (e.g. `.video.php`) are hidden from the block inserter — use this for work-in-progress or internal-only patterns.
+- Leading-dot drafts (e.g. `.video.php`) are **localhost-only**: gitignored, never committed, never documented, never shipped. They are not registered by PHP `glob()` and must not appear on GitHub or in downloads.
 
 ### PHP header
 Every pattern file must start with a PHP doc-comment header:
@@ -91,7 +91,7 @@ Every pattern file must start with a PHP doc-comment header:
 ```
 
 - **Header `Slug`** is the local name only (e.g. `split`, `about`, `page-no-title`), not `aegis/hero-split`.
-- **Registered slug** (what you use in markup) is `{category}-{local-slug}` — e.g. `hero-split`, `page-about`, `template-single` (see `vendor/aegis/utilities/src/Pattern.php`).
+- **Registered slug** (what you use in markup) is `{category}-{local-slug}` — e.g. `hero-split`, `pages-about`, `template-single` (see `vendor/aegis/utilities/src/Pattern.php`).
 - In `parts/*.html`, `templates/*.html`, and nested `<!-- wp:pattern {"slug":"…"} /-->`, always reference the **registered** slug.
 - Category directories named with a leading `.` (e.g. `.template/`) are **not** scanned; use `patterns/template/` only.
 
@@ -99,8 +99,8 @@ Every pattern file must start with a PHP doc-comment header:
 
 | Owner | Patterns |
 |-------|----------|
-| **Theme** | Sections (hero, cta, blog, …), generic commerce marketing (core blocks only), FSE template HTML files |
-| **Aegis Plugin** | Slider/modal/contact demos (slider gated on extras); **WooCommerce block patterns** (`patterns/woocommerce/`, gated on WC); **TI Wishlist pattern** (`patterns/wishlist/`, gated on WC + TI Wishlist) |
+| **Theme** | Sections (hero, cta, blog, …), generic commerce marketing (core blocks only), FSE template HTML files. **Never** ship `patterns/modal/` — Modal starters belong in the plugin. |
+| **Aegis Plugin** | Modal starters (`patterns/modal/`, gated on Modal block); slider/contact demos (gated on extras); **WooCommerce block patterns** (`patterns/woocommerce/`, gated on WC); **TI Wishlist pattern** (`patterns/wishlist/`, gated on WC + TI Wishlist) |
 | **Aegis Pro** | `wp-content/plugins/aegis-pro/patterns/aegis/`, `patterns/utility/` — do not duplicate theme slugs |
 
 The theme keeps a Woo-free `header/default` for `parts/header.html`. When WooCommerce is active, the plugin overlays that slug with the mini-cart header. `header/store-minimal` stays in the theme for checkout/funnel pages.

@@ -18,10 +18,10 @@ This document provides comprehensive instructions for setting up, developing, bu
 
 Before starting development, ensure you have the following installed:
 
-- **WordPress**: 7.0+ (tested up to 7.0)
+- **WordPress**: 7.0+ (tested up to 7.1.3)
 - **PHP**: 8.1+ with Composer
 - **Node.js**: 20+ (see `.nvmrc` for exact version)
-- **npm**: 9+
+- **npm**: 10+
 - **Git**: For version control
 - **Docker**: For wp-env (recommended for local development)
 
