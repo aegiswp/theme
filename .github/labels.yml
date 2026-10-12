@@ -28,7 +28,7 @@
   color: "fbca04"
 
 - name: "[Type] Accessibility"
-  description: "Accessibility (a11y) issue or improvement"
+  description: "Accessibility (a11y) — WCAG 2.2 AA foundation / barriers"
   color: "cccccc"
 
 - name: "[Type] Compatibility"

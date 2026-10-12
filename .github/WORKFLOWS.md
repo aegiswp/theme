@@ -48,21 +48,21 @@ This document explains each GitHub Actions workflow used by the Aegis WordPress 
 **Duration:** ~5-7 minutes
 
 #### What it checks:
-- ✓ Page accessibility using pa11y-ci
-- ✓ WCAG 2.1 AA compliance
-- ✓ Keyboard navigation
-- ✓ Screen reader compatibility
-- ✓ Color contrast
-- ✓ Focus indicators
+- ✓ Page accessibility using pa11y-ci (axe + htmlcs runners)
+- ✓ WCAG2AA standard (aligned with the theme’s WCAG 2.2 AA foundation target)
+- ✓ Color contrast, form labels, landmarks, headings, images, links
+- ✓ Multiple representative URLs (home, post, search, sample page, 404)
 
 #### If it fails:
-1. Check pa11y-ci threshold (currently 10 violations max)
-2. Run locally: `npx pa11y-ci --config .pa11yci.json http://localhost:8080/`
-3. Fix reported issues (missing alt text, ARIA labels, etc.)
+1. Threshold is **0** — any error/serious finding fails the job (`ignore: ["warning"]` in `.pa11yci.json`)
+2. Run locally against CI host: `npx pa11y-ci --config .pa11yci.json`
+3. Against wp-env (`8888`): `npm run test:a11y:env` (single URL) or temporarily point `.pa11yci.json` urls at `http://localhost:8888/`
+4. Fix reported issues (missing alt text, ARIA labels, contrast, landmarks, etc.)
 
 #### Environment:
-- Starts local WordPress with Aegis theme
-- Tests homepage at http://localhost:8080
+- Fresh WordPress + Aegis theme on `http://localhost:8080` via `php -S` (no pretty-permalink rewrites)
+- Seeds a post and page when missing, then writes `.pa11yci.ci.json` with resolved `?p=` / `?page_id=` URLs (gitignored)
+- Base defaults live in `.pa11yci.json`; CI always runs against the generated matrix (home, post, search, page, missing post → 404)
 
 ---
 
@@ -328,6 +328,11 @@ Issues/PRs with labels: `pinned`, `roadmap`, or `epic` are exempt
 ✗ Lighthouse score below threshold
    →  Performance < 80: Optimize JS/CSS/images
    →  Accessibility < 90: Fix ARIA/focus/color contrast
+
+✗ pa11y-ci / accessibility.yml failed
+   →  Threshold is 0 — fix every axe/htmlcs error (warnings ignored)
+   →  Confirm URLs in .pa11yci.json load (query-string URLs for php -S CI server)
+   →  Local: npx pa11y-ci --config .pa11yci.json  (or npm run test:a11y:env for wp-env)
 ```
 
 ---
@@ -401,7 +406,8 @@ Issues/PRs with labels: `pinned`, `roadmap`, or `epic` are exempt
 
 ---
 
-**Last Updated:** August 2026  
+**Last Updated:** October 2026  
 **Aegis Theme Version:** 1.x  
 **WordPress Minimum:** 7.0  
-**PHP Minimum:** 8.1
+**PHP Minimum:** 8.1  
+**Accessibility target:** WCAG 2.2 AA foundation (pa11y-ci WCAG2AA, threshold 0)

@@ -8,7 +8,7 @@ body:
     attributes:
       value: |
         ### Help us make Aegis inclusive
-        Your feedback helps us keep Aegis usable for everyone. The theme targets [WCAG 2.1 Level AA](https://www.w3.org/TR/WCAG21/).
+        Your feedback helps us keep Aegis usable for everyone. The theme ships an **accessibility-ready foundation** aimed at [WCAG 2.2 Level AA](https://www.w3.org/TR/WCAG22/). Full conformance still depends on site content and plugins.
 
         **For general bugs** that are not accessibility-related, use the [Bug Report](https://github.com/aegiswp/theme/issues/new?template=bug_report.yml) template instead.
 
@@ -137,8 +137,8 @@ body:
     id: wcag
     attributes:
       label: WCAG Success Criterion (if known)
-      description: Optional. Aegis targets WCAG 2.1 Level AA.
-      placeholder: "e.g., 2.4.7 Focus Visible"
+      description: Optional. Aegis targets WCAG 2.2 Level AA as an accessibility-ready foundation.
+      placeholder: "e.g., 2.4.7 Focus Visible, 2.4.11 Focus Not Obscured"
     validations:
       required: false
 

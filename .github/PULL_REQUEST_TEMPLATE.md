@@ -83,11 +83,12 @@ Include any setup required, and the steps to reproduce the behavior.
 
 ## Accessibility Impact
 
-<!-- Please describe any accessibility implications -->
+<!-- Theme targets an accessibility-ready foundation (WCAG 2.2 AA), not certified site-wide conformance. -->
 
 - [ ] No accessibility impact
 - [ ] Improved accessibility
 - [ ] Accessibility concerns (please explain)
+- [ ] Ran / confirmed `npm run test:a11y` or accessibility.yml (pa11y-ci, threshold 0) when UI changed
 
 ## Contributor Checklist
 
@@ -127,7 +128,7 @@ Include any setup required, and the steps to reproduce the behavior.
 
 The following checks will run automatically on this PR:
 - ✓ **CI (ci.yml)**: Linting, tests, and dependency audits
-- ✓ **Accessibility (accessibility.yml)**: a11y scanning on test site
+- ✓ **Accessibility (accessibility.yml)**: pa11y-ci WCAG2AA on URLs in `.pa11yci.json` (threshold 0)
 - ✓ **Theme.json Validation**: Runs only when `theme.json` changes
 - ✓ **WordPress Compatibility Matrix**: Tests against WP 7.0/latest + PHP 8.1/8.2/8.3 (6 jobs)
 - ✓ **Lighthouse CI**: Performance and accessibility metrics
