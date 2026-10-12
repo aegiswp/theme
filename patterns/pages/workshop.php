@@ -2,7 +2,7 @@
 /**
  * Title: Workshop Event
  * Slug: event-workshop
- * Categories: page, events
+ * Categories: pages, events
  * Keywords: workshop, hands-on, training, class, learning, event
  * Description: A full page layout for a hands-on workshop or training event.
  * Viewport Width: 1280
@@ -10,11 +10,11 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["page","events"],"patternName":"event-workshop"},"align":"full","layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"categories":["pages","events"],"patternName":"event-workshop"},"align":"full","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull">
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xl"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull has-neutral-50-background-color has-background" style="padding-top:var(--wp--preset--spacing--xxl);padding-bottom:var(--wp--preset--spacing--xl)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull has-neutral-50-background-color has-background" style="padding-top:var(--wp--preset--spacing--xxl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:group {"layout":{"type":"constrained","contentSize":"720px"}} -->
 		<div class="wp-block-group">
 			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","justifyContent":"center"}} -->
@@ -110,15 +110,15 @@
 		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|lg"}}}} -->
 		<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--lg)">
 			<!-- wp:button {"fontSize":"16"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Register — $180', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Register — $180', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:gallery {"columns":2,"linkTo":"none","align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|xs","top":"var:preset|spacing|xs"}}}} -->
 		<figure class="wp-block-gallery alignwide has-nested-images columns-2 is-cropped">
 			<!-- wp:image {"aspectRatio":"16/9","scale":"cover"} -->
@@ -133,8 +133,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|xl"}}}} -->
 		<div class="wp-block-columns alignwide">
 			<!-- wp:column {"width":"50%"} -->
@@ -261,14 +261,14 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull has-neutral-50-background-color has-background" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull has-neutral-50-background-color has-background" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|xl"}}}} -->
 		<div class="wp-block-columns alignwide">
 			<!-- wp:column {"verticalAlignment":"center","width":"40%"} -->
 			<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:40%">
-				<!-- wp:image {"width":"200px","height":"200px","scale":"cover","style":{"border":{"radius":"100%"}}} -->
-				<figure class="wp-block-image is-resized has-custom-border"><img style="height:auto;border-radius:100%;object-fit:cover;width:200px;height:200px" alt="" /></figure>
+				<!-- wp:image {"width":"200px","height":"200px","aspectRatio":"1","scale":"cover","style":{"border":{"radius":"100%"},"width":{"all":"200px"}}} -->
+				<figure class="wp-block-image is-resized has-custom-border" style="border-radius:100%"><img style="border-radius:100%;aspect-ratio:1;object-fit:cover;width:200px;height:200px" alt="" /></figure>
 				<!-- /wp:image -->
 			</div>
 			<!-- /wp:column -->
@@ -289,7 +289,7 @@
 					<p class="has-neutral-600-color has-text-color has-16-font-size"><?php echo esc_html__( 'Alejandra has been working with clay for over 20 years. Trained at the Escuela de Artes y Oficios in Bogotá and the Penland School of Craft in North Carolina, her work has been exhibited in galleries across Latin America, Europe, and Japan. She founded Taller Tierra in 2015 as a space for community-centered ceramic education.', 'aegis' ); ?></p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:social-links {"iconColor":"neutral-500","size":"has-small-icon-size","className":"is-style-logos-only","iconColorValue":"#525252"} -->
+					<!-- wp:social-links {"iconColor":"neutral-600","size":"has-small-icon-size","className":"is-style-logos-only"} -->
 					<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
 						<!-- wp:social-link {"url":"#","service":"instagram"} /-->
 
@@ -305,8 +305,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:heading {"textAlign":"center","fontSize":"32"} -->
 		<h2 class="wp-block-heading has-text-align-center has-32-font-size"><?php echo esc_html__( 'What\'s Included', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
@@ -353,26 +353,26 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"backgroundColor":"neutral-950","layout":{"type":"constrained","contentSize":"600px"}} -->
-	<div class="wp-block-group alignfull has-neutral-950-background-color has-background" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
-		<!-- wp:heading {"textAlign":"center","textColor":"white","fontSize":"32"} -->
-		<h2 class="wp-block-heading has-text-align-center has-white-color has-text-color has-32-font-size"><?php echo esc_html__( 'Only 12 Spots Available', 'aegis' ); ?></h2>
+	<!-- wp:group {"className":"is-style-dark","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"neutral-0","layout":{"type":"constrained","contentSize":"600px"}} -->
+	<div class="wp-block-group alignfull has-neutral-0-background-color has-background is-style-dark" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
+		<!-- wp:heading {"textAlign":"center","textColor":"neutral-950","fontSize":"32"} -->
+		<h2 class="wp-block-heading has-text-align-center has-neutral-950-color has-text-color has-32-font-size"><?php echo esc_html__( 'Only 12 Spots Available', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:paragraph {"align":"center","textColor":"neutral-400"} -->
-		<p class="aligncenter has-text-align-center has-neutral-400-color has-text-color aligncenter"><?php echo esc_html__( 'Small group size ensures personalized instruction and plenty of one-on-one time with Alejandra. Past workshops have sold out within 48 hours.', 'aegis' ); ?></p>
+		<!-- wp:paragraph {"align":"center","textColor":"neutral-500"} -->
+		<p class="aligncenter has-text-align-center has-neutral-500-color has-text-color aligncenter"><?php echo esc_html__( 'Small group size ensures personalized instruction and plenty of one-on-one time with Alejandra. Past workshops have sold out within 48 hours.', 'aegis' ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 		<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 			<!-- wp:button {"width":75,"fontSize":"18"} -->
-<div class="wp-block-button has-custom-width wp-block-button__width-75"><a class="wp-block-button__link has-18-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Secure Your Spot — $180', 'aegis' ); ?></a></div>
+<div class="wp-block-button has-custom-width wp-block-button__width-75"><a class="wp-block-button__link has-18-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Secure Your Spot — $180', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
 
-		<!-- wp:paragraph {"align":"center","textColor":"neutral-600","fontSize":"13","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"}}}} -->
-		<p class="aligncenter has-text-align-center has-neutral-600-color has-text-color has-13-font-size aligncenter" style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Full refund if cancelled 7+ days before the workshop', 'aegis' ); ?></p>
+		<!-- wp:paragraph {"align":"center","textColor":"neutral-300","fontSize":"13","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"}}}} -->
+		<p class="aligncenter has-text-align-center has-neutral-300-color has-text-color has-13-font-size aligncenter" style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Full refund if cancelled 7+ days before the workshop', 'aegis' ); ?></p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->

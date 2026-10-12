@@ -2,7 +2,7 @@
 /**
  * Title: Conference Event
  * Slug: event-conference
- * Categories: page, events
+ * Categories: pages, events
  * Keywords: conference, summit, tech, speakers, event
  * Description: A professional full page layout for a tech conference or summit.
  * Viewport Width: 1280
@@ -10,9 +10,9 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["page"],"patternName":"page-event-conference","name":"Conference Event"},"align":"full","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull"><!-- wp:group {"align":"full","className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xxl"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull is-style-surface" style="padding-top:var(--wp--preset--spacing--xxl);padding-bottom:var(--wp--preset--spacing--xxl)"><!-- wp:group {"layout":{"type":"constrained","contentSize":"720px"}} -->
+<!-- wp:group {"metadata":{"categories":["pages"],"patternName":"page-event-conference","name":"Conference Event"},"align":"full","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull"><!-- wp:group {"align":"full","className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xxl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull is-style-surface" style="padding-top:var(--wp--preset--spacing--xxl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xxl);padding-left:var(--wp--preset--spacing--lg)"><!-- wp:group {"layout":{"type":"constrained","contentSize":"720px"}} -->
 		<div class="wp-block-group"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","justifyContent":"center"}} -->
 			<div class="wp-block-group"><!-- wp:paragraph {"className":"is-style-sub-heading","fontSize":"14"} -->
 				<p class="is-style-sub-heading has-14-font-size"><?php echo esc_html__( 'October 8 — 10, 2026', 'aegis' ); ?></p>
@@ -97,11 +97,11 @@
 
 			<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 			<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)"><!-- wp:button {"fontSize":"16"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Register Now', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Register Now', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 
 				<!-- wp:button {"className":"is-style-ghost","fontSize":"16"} -->
-<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'View Schedule', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'View Schedule', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->
@@ -110,8 +110,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)"><!-- wp:heading {"textAlign":"center","fontSize":"36"} -->
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)"><!-- wp:heading {"textAlign":"center","fontSize":"36"} -->
 		<h2 class="wp-block-heading has-text-align-center has-36-font-size"><?php echo esc_html__( 'Keynote Speakers', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
 
@@ -177,8 +177,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull has-neutral-50-background-color has-background" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)"><!-- wp:heading {"textAlign":"center","fontSize":"32"} -->
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull has-neutral-50-background-color has-background" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)"><!-- wp:heading {"textAlign":"center","fontSize":"32"} -->
 		<h2 class="wp-block-heading has-text-align-center has-32-font-size"><?php echo esc_html__( 'Conference Tracks', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
 
@@ -274,8 +274,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)"><!-- wp:heading {"textAlign":"center","fontSize":"32"} -->
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)"><!-- wp:heading {"textAlign":"center","fontSize":"32"} -->
 		<h2 class="wp-block-heading has-text-align-center has-32-font-size"><?php echo esc_html__( 'Venue & Travel', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
 
@@ -313,7 +313,7 @@
 
 					<!-- wp:buttons -->
 					<div class="wp-block-buttons"><!-- wp:button {"className":"is-style-ghost","fontSize":"14"} -->
-<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'View Hotels', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'View Hotels', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 					</div>
 					<!-- /wp:buttons -->
@@ -326,8 +326,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained","contentSize":"600px"}} -->
-	<div class="wp-block-group alignfull is-style-surface" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)"><!-- wp:heading {"textAlign":"center","fontSize":"36"} -->
+	<!-- wp:group {"align":"full","className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"600px"}} -->
+	<div class="wp-block-group alignfull is-style-surface" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)"><!-- wp:heading {"textAlign":"center","fontSize":"36"} -->
 		<h2 class="wp-block-heading has-text-align-center has-36-font-size"><?php echo esc_html__( 'Early Bird Pricing Ends Soon', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
 
@@ -337,7 +337,7 @@
 
 		<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 		<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)"><!-- wp:button {"width":75,"fontSize":"18"} -->
-<div class="wp-block-button has-custom-width wp-block-button__width-75"><a class="wp-block-button__link has-18-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Register Now — $349', 'aegis' ); ?></a></div>
+<div class="wp-block-button has-custom-width wp-block-button__width-75"><a class="wp-block-button__link has-18-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Register Now — $349', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->

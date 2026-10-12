@@ -25,7 +25,7 @@
 
 		<!-- wp:post-author-biography {"textAlign":"center","textColor":"neutral-400","fontSize":"18"} /-->
 
-		<!-- wp:social-links {"iconColor":"neutral-500","size":"has-normal-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"center"},"iconColorValue":"#525252"} -->
+		<!-- wp:social-links {"iconColor":"neutral-600","size":"has-normal-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"center"}} -->
 		<ul class="wp-block-social-links has-normal-icon-size has-icon-color is-style-logos-only"><!-- wp:social-link {"url":"#","service":"deviantart"} /-->
 
 			<!-- wp:social-link {"url":"#","service":"dribbble"} /-->

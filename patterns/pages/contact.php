@@ -2,7 +2,7 @@
 /**
  * Title: Contact Page
  * Slug: contact
- * Categories: page
+ * Categories: pages
  * Keywords: contact, page, form, map, address
  * Description: A complete contact page with form, map, and contact details.
  * Viewport Width: 1280
@@ -10,10 +10,10 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["page"],"patternName":"contact","name":"Contact Page"},"align":"wide","layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"categories":["pages"],"patternName":"contact","name":"Contact Page"},"align":"wide","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignwide">
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xxl);padding-bottom:var(--wp--preset--spacing--lg)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xxl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:group {"layout":{"type":"constrained","contentSize":"720px"}} -->
 		<div class="wp-block-group"><!-- wp:paragraph {"align":"center","className":"is-style-sub-heading"} -->
 			<p class="aligncenter has-text-align-center is-style-sub-heading aligncenter"><?php echo esc_html__( 'Get in Touch', 'aegis' ); ?></p>
@@ -32,8 +32,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|xl"}}}} -->
 		<div class="wp-block-columns alignwide"><!-- wp:column {"width":"60%"} -->
 			<div class="wp-block-column" style="flex-basis:60%">
@@ -47,28 +47,28 @@
 					<form action="#" method="POST" style="display:flex;flex-direction:column;gap:1.5rem">
 						<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
 							<div>
-								<label for="name"
+								<label for="contact-page-name"
 									style="display:block;margin-bottom:0.5rem;font-weight:500"><?php echo esc_html__( 'Name', 'aegis' ); ?></label>
-								<input type="text" id="name" name="name" required
+								<input type="text" id="contact-page-name" name="name" required
 									style="width:100%;padding:0.75rem;border:1px solid #e5e7eb;border-radius:6px">
 							</div>
 							<div>
-								<label for="email"
+								<label for="contact-page-email"
 									style="display:block;margin-bottom:0.5rem;font-weight:500"><?php echo esc_html__( 'Email', 'aegis' ); ?></label>
-								<input type="email" id="email" name="email" required
+								<input type="email" id="contact-page-email" name="email" required
 									style="width:100%;padding:0.75rem;border:1px solid #e5e7eb;border-radius:6px">
 							</div>
 						</div>
 						<div>
-							<label for="subject"
+							<label for="contact-page-subject"
 								style="display:block;margin-bottom:0.5rem;font-weight:500"><?php echo esc_html__( 'Subject', 'aegis' ); ?></label>
-							<input type="text" id="subject" name="subject" required
+							<input type="text" id="contact-page-subject" name="subject" required
 								style="width:100%;padding:0.75rem;border:1px solid #e5e7eb;border-radius:6px">
 						</div>
 						<div>
-							<label for="message"
+							<label for="contact-page-message"
 								style="display:block;margin-bottom:0.5rem;font-weight:500"><?php echo esc_html__( 'Message', 'aegis' ); ?></label>
-							<textarea id="message" name="message" rows="6" required
+							<textarea id="contact-page-message" name="message" rows="6" required
 								style="width:100%;padding:0.75rem;border:1px solid #e5e7eb;border-radius:6px;resize:vertical"></textarea>
 						</div>
 						<div class="wp-block-buttons">
@@ -129,7 +129,7 @@
 						<h4 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'Follow Us', 'aegis' ); ?></h4>
 						<!-- /wp:heading -->
 
-						<!-- wp:social-links {"iconColor":"neutral-600","size":"has-normal-icon-size","className":"is-style-logos-only","iconColorValue":"#525252"} -->
+						<!-- wp:social-links {"iconColor":"neutral-600","size":"has-normal-icon-size","className":"is-style-logos-only"} -->
 						<ul class="wp-block-social-links has-normal-icon-size has-icon-color is-style-logos-only">
 							<!-- wp:social-link {"url":"#","service":"facebook"} /-->
 
@@ -151,8 +151,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull has-neutral-50-background-color has-background" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull has-neutral-50-background-color has-background" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:group {"layout":{"type":"constrained","contentSize":"720px"}} -->
 		<div class="wp-block-group"><!-- wp:heading {"textAlign":"center","fontSize":"32"} -->
 			<h2 class="wp-block-heading has-text-align-center has-32-font-size"><?php echo esc_html__( 'Frequently Asked Questions', 'aegis' ); ?></h2>

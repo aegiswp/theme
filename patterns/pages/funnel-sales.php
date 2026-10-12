@@ -2,7 +2,7 @@
 /**
  * Title: Funnel Sales Page
  * Slug: funnel-sales
- * Categories: page
+ * Categories: pages
  * Keywords: funnel, sales, long-form, conversion, woocommerce
  * Description: A long-form sales page with problem/solution framing, feature highlights, testimonials, FAQ, guarantee, and CTA — uses minimal header/footer.
  * Viewport Width: 1280
@@ -11,13 +11,13 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["page"],"patternName":"funnel-sales","name":"Funnel Sales Page"},"align":"full","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"categories":["pages"],"patternName":"funnel-sales","name":"Funnel Sales Page"},"align":"full","layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull">
 
 	<!-- wp:pattern {"slug":"header-store-minimal"} /-->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xl"}}},"backgroundColor":"primary-900","textColor":"white","layout":{"type":"constrained","contentSize":"720px"}} -->
-	<div class="wp-block-group alignfull has-white-color has-primary-900-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--xxl);padding-bottom:var(--wp--preset--spacing--xl)">
+	<!-- wp:group {"className":"is-style-dark","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"primary-100","textColor":"neutral-950","layout":{"type":"constrained","contentSize":"720px"}} -->
+	<div class="wp-block-group alignfull has-neutral-950-color has-primary-100-background-color has-text-color has-background is-style-dark" style="padding-top:var(--wp--preset--spacing--xxl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase","letterSpacing":"2px"}},"fontSize":"14"} -->
 		<p class="aligncenter has-text-align-center has-14-font-size aligncenter" style="letter-spacing:2px;text-transform:uppercase"><?php echo esc_html__( 'Special Offer — Limited Availability', 'aegis' ); ?></p>
 		<!-- /wp:paragraph -->
@@ -26,43 +26,63 @@
 		<h1 class="wp-block-heading has-text-align-center has-42-font-size" style="line-height:1.2"><?php echo esc_html__( 'Finally, a Solution That Actually Works', 'aegis' ); ?></h1>
 		<!-- /wp:heading -->
 
-		<!-- wp:paragraph {"align":"center","style":{"elements":{"link":{"color":{"text":"var:preset|color|neutral-200"}}}},"textColor":"neutral-200","fontSize":"18"} -->
-		<p class="aligncenter has-text-align-center has-neutral-200-color has-text-color has-link-color has-18-font-size aligncenter"><?php echo esc_html__( 'Stop wasting time and money on products that don\'t deliver. Our proven system has helped over 10,000 customers achieve real results.', 'aegis' ); ?></p>
+		<!-- wp:paragraph {"align":"center","style":{"elements":{"link":{"color":{"text":"var:preset|color|neutral-700"}}}},"textColor":"neutral-700","fontSize":"18"} -->
+		<p class="aligncenter has-text-align-center has-neutral-700-color has-text-color has-link-color has-18-font-size aligncenter"><?php echo esc_html__( 'Stop wasting time and money on products that don\'t deliver. Our proven system has helped over 10,000 customers achieve real results.', 'aegis' ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 		<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--sm)">
-			<!-- wp:button {"backgroundColor":"white","textColor":"primary-900","style":{"typography":{"fontSize":"18px"}},"className":"is-style-fill"} -->
-<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-primary-900-color has-white-background-color has-text-color has-background has-custom-font-size wp-element-button" href="#" style="font-size:18px"><?php echo esc_html__( 'Yes, I Want This! →', 'aegis' ); ?></a></div>
+			<!-- wp:button {"backgroundColor":"neutral-950","textColor":"primary-100","style":{"typography":{"fontSize":"18px"}},"className":"is-style-fill"} -->
+<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-primary-100-color has-neutral-950-background-color has-text-color has-background has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>" style="font-size:18px"><?php echo esc_html__( 'Yes, I Want This! →', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"720px"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"720px"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:heading {"textAlign":"center","fontSize":"32"} -->
 		<h2 class="wp-block-heading has-text-align-center has-32-font-size"><?php echo esc_html__( 'Does This Sound Familiar?', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs","margin":{"top":"var:preset|spacing|md"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
 		<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--md)">
-			<!-- wp:paragraph {"textColor":"neutral-700","fontSize":"16"} -->
-			<p class="has-neutral-700-color has-text-color has-16-font-size"><?php echo esc_html__( '❌ You\'ve tried multiple solutions but nothing seems to stick', 'aegis' ); ?></p>
-			<!-- /wp:paragraph -->
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
+			<div class="wp-block-group">
+				<!-- wp:icon {"icon":"core/close","textColor":"error-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"m13 11.8 6.1-6.3-1-1-6.1 6.2-6.1-6.2-1 1 6.1 6.3-6.5 6.7 1 1 6.5-6.6 6.5 6.6 1-1z\"></path></svg>","style":{"dimensions":{"width":"20px"}}} /-->
+				<!-- wp:paragraph {"textColor":"neutral-700","fontSize":"16"} -->
+				<p class="has-neutral-700-color has-text-color has-16-font-size"><?php echo esc_html__( 'You\'ve tried multiple solutions but nothing seems to stick', 'aegis' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
 
-			<!-- wp:paragraph {"textColor":"neutral-700","fontSize":"16"} -->
-			<p class="has-neutral-700-color has-text-color has-16-font-size"><?php echo esc_html__( '❌ You\'re overwhelmed by too many options and conflicting advice', 'aegis' ); ?></p>
-			<!-- /wp:paragraph -->
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
+			<div class="wp-block-group">
+				<!-- wp:icon {"icon":"core/close","textColor":"error-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"m13 11.8 6.1-6.3-1-1-6.1 6.2-6.1-6.2-1 1 6.1 6.3-6.5 6.7 1 1 6.5-6.6 6.5 6.6 1-1z\"></path></svg>","style":{"dimensions":{"width":"20px"}}} /-->
+				<!-- wp:paragraph {"textColor":"neutral-700","fontSize":"16"} -->
+				<p class="has-neutral-700-color has-text-color has-16-font-size"><?php echo esc_html__( 'You\'re overwhelmed by too many options and conflicting advice', 'aegis' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
 
-			<!-- wp:paragraph {"textColor":"neutral-700","fontSize":"16"} -->
-			<p class="has-neutral-700-color has-text-color has-16-font-size"><?php echo esc_html__( '❌ You\'re spending more time researching than actually making progress', 'aegis' ); ?></p>
-			<!-- /wp:paragraph -->
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
+			<div class="wp-block-group">
+				<!-- wp:icon {"icon":"core/close","textColor":"error-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"m13 11.8 6.1-6.3-1-1-6.1 6.2-6.1-6.2-1 1 6.1 6.3-6.5 6.7 1 1 6.5-6.6 6.5 6.6 1-1z\"></path></svg>","style":{"dimensions":{"width":"20px"}}} /-->
+				<!-- wp:paragraph {"textColor":"neutral-700","fontSize":"16"} -->
+				<p class="has-neutral-700-color has-text-color has-16-font-size"><?php echo esc_html__( 'You\'re spending more time researching than actually making progress', 'aegis' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
 
-			<!-- wp:paragraph {"textColor":"neutral-700","fontSize":"16"} -->
-			<p class="has-neutral-700-color has-text-color has-16-font-size"><?php echo esc_html__( '❌ You feel like you\'re falling behind while others are getting ahead', 'aegis' ); ?></p>
-			<!-- /wp:paragraph -->
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
+			<div class="wp-block-group">
+				<!-- wp:icon {"icon":"core/close","textColor":"error-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"m13 11.8 6.1-6.3-1-1-6.1 6.2-6.1-6.2-1 1 6.1 6.3-6.5 6.7 1 1 6.5-6.6 6.5 6.6 1-1z\"></path></svg>","style":{"dimensions":{"width":"20px"}}} /-->
+				<!-- wp:paragraph {"textColor":"neutral-700","fontSize":"16"} -->
+				<p class="has-neutral-700-color has-text-color has-16-font-size"><?php echo esc_html__( 'You feel like you\'re falling behind while others are getting ahead', 'aegis' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
 		</div>
 		<!-- /wp:group -->
 
@@ -72,8 +92,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained","contentSize":"720px"}} -->
-	<div class="wp-block-group alignfull has-neutral-50-background-color has-background" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained","contentSize":"720px"}} -->
+	<div class="wp-block-group alignfull has-neutral-50-background-color has-background" style="padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:heading {"textAlign":"center","fontSize":"32"} -->
 		<h2 class="wp-block-heading has-text-align-center has-32-font-size"><?php echo esc_html__( 'Introducing the Complete Solution', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
@@ -84,32 +104,57 @@
 
 		<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 		<div class="wp-block-group">
-			<!-- wp:paragraph {"fontSize":"16"} -->
-			<p class="has-16-font-size"><?php echo esc_html__( '✅ Complete step-by-step system — no guesswork required', 'aegis' ); ?></p>
-			<!-- /wp:paragraph -->
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
+			<div class="wp-block-group">
+				<!-- wp:icon {"icon":"core/check","textColor":"success-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"m16.7 7.1-6.3 8.5-3.3-2.5-.9 1.2 4.5 3.4L17.9 8z\"></path></svg>","style":{"dimensions":{"width":"20px"}}} /-->
+				<!-- wp:paragraph {"fontSize":"16"} -->
+				<p class="has-16-font-size"><?php echo esc_html__( 'Complete step-by-step system — no guesswork required', 'aegis' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
 
-			<!-- wp:paragraph {"fontSize":"16"} -->
-			<p class="has-16-font-size"><?php echo esc_html__( '✅ Proven results — backed by 10,000+ success stories', 'aegis' ); ?></p>
-			<!-- /wp:paragraph -->
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
+			<div class="wp-block-group">
+				<!-- wp:icon {"icon":"core/check","textColor":"success-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"m16.7 7.1-6.3 8.5-3.3-2.5-.9 1.2 4.5 3.4L17.9 8z\"></path></svg>","style":{"dimensions":{"width":"20px"}}} /-->
+				<!-- wp:paragraph {"fontSize":"16"} -->
+				<p class="has-16-font-size"><?php echo esc_html__( 'Proven results — backed by 10,000+ success stories', 'aegis' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
 
-			<!-- wp:paragraph {"fontSize":"16"} -->
-			<p class="has-16-font-size"><?php echo esc_html__( '✅ Expert support — get help whenever you need it', 'aegis' ); ?></p>
-			<!-- /wp:paragraph -->
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
+			<div class="wp-block-group">
+				<!-- wp:icon {"icon":"core/check","textColor":"success-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"m16.7 7.1-6.3 8.5-3.3-2.5-.9 1.2 4.5 3.4L17.9 8z\"></path></svg>","style":{"dimensions":{"width":"20px"}}} /-->
+				<!-- wp:paragraph {"fontSize":"16"} -->
+				<p class="has-16-font-size"><?php echo esc_html__( 'Expert support — get help whenever you need it', 'aegis' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
 
-			<!-- wp:paragraph {"fontSize":"16"} -->
-			<p class="has-16-font-size"><?php echo esc_html__( '✅ Lifetime updates — always stay current', 'aegis' ); ?></p>
-			<!-- /wp:paragraph -->
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
+			<div class="wp-block-group">
+				<!-- wp:icon {"icon":"core/check","textColor":"success-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"m16.7 7.1-6.3 8.5-3.3-2.5-.9 1.2 4.5 3.4L17.9 8z\"></path></svg>","style":{"dimensions":{"width":"20px"}}} /-->
+				<!-- wp:paragraph {"fontSize":"16"} -->
+				<p class="has-16-font-size"><?php echo esc_html__( 'Lifetime updates — always stay current', 'aegis' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
 
-			<!-- wp:paragraph {"fontSize":"16"} -->
-			<p class="has-16-font-size"><?php echo esc_html__( '✅ Bonus resources — templates, checklists, and more', 'aegis' ); ?></p>
-			<!-- /wp:paragraph -->
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
+			<div class="wp-block-group">
+				<!-- wp:icon {"icon":"core/check","textColor":"success-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"m16.7 7.1-6.3 8.5-3.3-2.5-.9 1.2 4.5 3.4L17.9 8z\"></path></svg>","style":{"dimensions":{"width":"20px"}}} /-->
+				<!-- wp:paragraph {"fontSize":"16"} -->
+				<p class="has-16-font-size"><?php echo esc_html__( 'Bonus resources — templates, checklists, and more', 'aegis' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
 		</div>
 		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"800px"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"800px"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:heading {"textAlign":"center","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|md"}}},"fontSize":"32"} -->
 		<h2 class="wp-block-heading has-text-align-center has-32-font-size" style="margin-bottom:var(--wp--preset--spacing--md)"><?php echo esc_html__( 'Real Results from Real People', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
@@ -120,9 +165,15 @@
 			<div class="wp-block-column">
 				<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
 				<div class="wp-block-group is-style-surface" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
-					<!-- wp:paragraph {"fontSize":"14"} -->
-					<p class="has-14-font-size">⭐⭐⭐⭐⭐</p>
-					<!-- /wp:paragraph -->
+					<!-- wp:group {"style":{"spacing":{"blockGap":"2px"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+					<div class="wp-block-group">
+						<!-- wp:icon {"icon":"core/star-filled","textColor":"warning-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"M11.776 4.454a.25.25 0 0 1 .448 0l2.069 4.192a.25.25 0 0 0 .188.137l4.626.672a.25.25 0 0 1 .139.426l-3.348 3.263a.25.25 0 0 0-.072.222l.79 4.607a.25.25 0 0 1-.362.263l-4.138-2.175a.25.25 0 0 0-.232 0l-4.138 2.175a.25.25 0 0 1-.363-.263l.79-4.607a.25.25 0 0 0-.071-.222L4.754 9.881a.25.25 0 0 1 .139-.426l4.626-.672a.25.25 0 0 0 .188-.137l2.069-4.192z\"></path></svg>","style":{"dimensions":{"width":"16px"}}} /-->
+						<!-- wp:icon {"icon":"core/star-filled","textColor":"warning-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"M11.776 4.454a.25.25 0 0 1 .448 0l2.069 4.192a.25.25 0 0 0 .188.137l4.626.672a.25.25 0 0 1 .139.426l-3.348 3.263a.25.25 0 0 0-.072.222l.79 4.607a.25.25 0 0 1-.362.263l-4.138-2.175a.25.25 0 0 0-.232 0l-4.138 2.175a.25.25 0 0 1-.363-.263l.79-4.607a.25.25 0 0 0-.071-.222L4.754 9.881a.25.25 0 0 1 .139-.426l4.626-.672a.25.25 0 0 0 .188-.137l2.069-4.192z\"></path></svg>","style":{"dimensions":{"width":"16px"}}} /-->
+						<!-- wp:icon {"icon":"core/star-filled","textColor":"warning-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"M11.776 4.454a.25.25 0 0 1 .448 0l2.069 4.192a.25.25 0 0 0 .188.137l4.626.672a.25.25 0 0 1 .139.426l-3.348 3.263a.25.25 0 0 0-.072.222l.79 4.607a.25.25 0 0 1-.362.263l-4.138-2.175a.25.25 0 0 0-.232 0l-4.138 2.175a.25.25 0 0 1-.363-.263l.79-4.607a.25.25 0 0 0-.071-.222L4.754 9.881a.25.25 0 0 1 .139-.426l4.626-.672a.25.25 0 0 0 .188-.137l2.069-4.192z\"></path></svg>","style":{"dimensions":{"width":"16px"}}} /-->
+						<!-- wp:icon {"icon":"core/star-filled","textColor":"warning-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"M11.776 4.454a.25.25 0 0 1 .448 0l2.069 4.192a.25.25 0 0 0 .188.137l4.626.672a.25.25 0 0 1 .139.426l-3.348 3.263a.25.25 0 0 0-.072.222l.79 4.607a.25.25 0 0 1-.362.263l-4.138-2.175a.25.25 0 0 0-.232 0l-4.138 2.175a.25.25 0 0 1-.363-.263l.79-4.607a.25.25 0 0 0-.071-.222L4.754 9.881a.25.25 0 0 1 .139-.426l4.626-.672a.25.25 0 0 0 .188-.137l2.069-4.192z\"></path></svg>","style":{"dimensions":{"width":"16px"}}} /-->
+						<!-- wp:icon {"icon":"core/star-filled","textColor":"warning-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"M11.776 4.454a.25.25 0 0 1 .448 0l2.069 4.192a.25.25 0 0 0 .188.137l4.626.672a.25.25 0 0 1 .139.426l-3.348 3.263a.25.25 0 0 0-.072.222l.79 4.607a.25.25 0 0 1-.362.263l-4.138-2.175a.25.25 0 0 0-.232 0l-4.138 2.175a.25.25 0 0 1-.363-.263l.79-4.607a.25.25 0 0 0-.071-.222L4.754 9.881a.25.25 0 0 1 .139-.426l4.626-.672a.25.25 0 0 0 .188-.137l2.069-4.192z\"></path></svg>","style":{"dimensions":{"width":"16px"}}} /-->
+					</div>
+					<!-- /wp:group -->
 
 					<!-- wp:paragraph {"style":{"typography":{"fontStyle":"italic"}},"fontSize":"14"} -->
 					<p class="has-14-font-size" style="font-style:italic"><?php echo esc_html__( '"I was skeptical at first, but the results speak for themselves. Within 30 days I saw a complete transformation."', 'aegis' ); ?></p>
@@ -140,9 +191,15 @@
 			<div class="wp-block-column">
 				<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
 				<div class="wp-block-group is-style-surface" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
-					<!-- wp:paragraph {"fontSize":"14"} -->
-					<p class="has-14-font-size">⭐⭐⭐⭐⭐</p>
-					<!-- /wp:paragraph -->
+					<!-- wp:group {"style":{"spacing":{"blockGap":"2px"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+					<div class="wp-block-group">
+						<!-- wp:icon {"icon":"core/star-filled","textColor":"warning-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"M11.776 4.454a.25.25 0 0 1 .448 0l2.069 4.192a.25.25 0 0 0 .188.137l4.626.672a.25.25 0 0 1 .139.426l-3.348 3.263a.25.25 0 0 0-.072.222l.79 4.607a.25.25 0 0 1-.362.263l-4.138-2.175a.25.25 0 0 0-.232 0l-4.138 2.175a.25.25 0 0 1-.363-.263l.79-4.607a.25.25 0 0 0-.071-.222L4.754 9.881a.25.25 0 0 1 .139-.426l4.626-.672a.25.25 0 0 0 .188-.137l2.069-4.192z\"></path></svg>","style":{"dimensions":{"width":"16px"}}} /-->
+						<!-- wp:icon {"icon":"core/star-filled","textColor":"warning-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"M11.776 4.454a.25.25 0 0 1 .448 0l2.069 4.192a.25.25 0 0 0 .188.137l4.626.672a.25.25 0 0 1 .139.426l-3.348 3.263a.25.25 0 0 0-.072.222l.79 4.607a.25.25 0 0 1-.362.263l-4.138-2.175a.25.25 0 0 0-.232 0l-4.138 2.175a.25.25 0 0 1-.363-.263l.79-4.607a.25.25 0 0 0-.071-.222L4.754 9.881a.25.25 0 0 1 .139-.426l4.626-.672a.25.25 0 0 0 .188-.137l2.069-4.192z\"></path></svg>","style":{"dimensions":{"width":"16px"}}} /-->
+						<!-- wp:icon {"icon":"core/star-filled","textColor":"warning-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"M11.776 4.454a.25.25 0 0 1 .448 0l2.069 4.192a.25.25 0 0 0 .188.137l4.626.672a.25.25 0 0 1 .139.426l-3.348 3.263a.25.25 0 0 0-.072.222l.79 4.607a.25.25 0 0 1-.362.263l-4.138-2.175a.25.25 0 0 0-.232 0l-4.138 2.175a.25.25 0 0 1-.363-.263l.79-4.607a.25.25 0 0 0-.071-.222L4.754 9.881a.25.25 0 0 1 .139-.426l4.626-.672a.25.25 0 0 0 .188-.137l2.069-4.192z\"></path></svg>","style":{"dimensions":{"width":"16px"}}} /-->
+						<!-- wp:icon {"icon":"core/star-filled","textColor":"warning-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"M11.776 4.454a.25.25 0 0 1 .448 0l2.069 4.192a.25.25 0 0 0 .188.137l4.626.672a.25.25 0 0 1 .139.426l-3.348 3.263a.25.25 0 0 0-.072.222l.79 4.607a.25.25 0 0 1-.362.263l-4.138-2.175a.25.25 0 0 0-.232 0l-4.138 2.175a.25.25 0 0 1-.363-.263l.79-4.607a.25.25 0 0 0-.071-.222L4.754 9.881a.25.25 0 0 1 .139-.426l4.626-.672a.25.25 0 0 0 .188-.137l2.069-4.192z\"></path></svg>","style":{"dimensions":{"width":"16px"}}} /-->
+						<!-- wp:icon {"icon":"core/star-filled","textColor":"warning-500","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"M11.776 4.454a.25.25 0 0 1 .448 0l2.069 4.192a.25.25 0 0 0 .188.137l4.626.672a.25.25 0 0 1 .139.426l-3.348 3.263a.25.25 0 0 0-.072.222l.79 4.607a.25.25 0 0 1-.362.263l-4.138-2.175a.25.25 0 0 0-.232 0l-4.138 2.175a.25.25 0 0 1-.363-.263l.79-4.607a.25.25 0 0 0-.071-.222L4.754 9.881a.25.25 0 0 1 .139-.426l4.626-.672a.25.25 0 0 0 .188-.137l2.069-4.192z\"></path></svg>","style":{"dimensions":{"width":"16px"}}} /-->
+					</div>
+					<!-- /wp:group -->
 
 					<!-- wp:paragraph {"style":{"typography":{"fontStyle":"italic"}},"fontSize":"14"} -->
 					<p class="has-14-font-size" style="font-style:italic"><?php echo esc_html__( '"Best investment I\'ve made this year. The support team is incredible and the product delivers exactly what it promises."', 'aegis' ); ?></p>
@@ -162,8 +219,8 @@
 
 	<!-- wp:pattern {"slug":"commerce-guarantee"} /-->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"720px"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"720px"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:heading {"textAlign":"center","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|md"}}},"fontSize":"32"} -->
 		<h2 class="wp-block-heading has-text-align-center has-32-font-size" style="margin-bottom:var(--wp--preset--spacing--md)"><?php echo esc_html__( 'Frequently Asked Questions', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
@@ -201,20 +258,20 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"backgroundColor":"primary-900","textColor":"white","layout":{"type":"constrained","contentSize":"640px"}} -->
-	<div class="wp-block-group alignfull has-white-color has-primary-900-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
+	<!-- wp:group {"className":"is-style-dark","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"primary-100","textColor":"neutral-950","layout":{"type":"constrained","contentSize":"640px"}} -->
+	<div class="wp-block-group alignfull has-neutral-950-color has-primary-100-background-color has-text-color has-background is-style-dark" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:heading {"textAlign":"center","fontSize":"36"} -->
 		<h2 class="wp-block-heading has-text-align-center has-36-font-size"><?php echo esc_html__( 'Don\'t Wait — Transform Your Results Today', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:paragraph {"align":"center","style":{"elements":{"link":{"color":{"text":"var:preset|color|neutral-200"}}}},"textColor":"neutral-200","fontSize":"16"} -->
-		<p class="aligncenter has-text-align-center has-neutral-200-color has-text-color has-link-color has-16-font-size aligncenter"><?php echo esc_html__( 'Join 10,000+ satisfied customers. This special pricing won\'t last forever.', 'aegis' ); ?></p>
+		<!-- wp:paragraph {"align":"center","style":{"elements":{"link":{"color":{"text":"var:preset|color|neutral-700"}}}},"textColor":"neutral-700","fontSize":"16"} -->
+		<p class="aligncenter has-text-align-center has-neutral-700-color has-text-color has-link-color has-16-font-size aligncenter"><?php echo esc_html__( 'Join 10,000+ satisfied customers. This special pricing won\'t last forever.', 'aegis' ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
 		<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--sm)">
-			<!-- wp:heading {"level":3,"style":{"typography":{"textDecoration":"line-through"}},"textColor":"neutral-400","fontSize":"20"} -->
-			<h3 class="wp-block-heading has-neutral-400-color has-text-color has-20-font-size" style="text-decoration:line-through"><?php echo esc_html__( '$299', 'aegis' ); ?></h3>
+			<!-- wp:heading {"level":3,"style":{"typography":{"textDecoration":"line-through"}},"textColor":"neutral-500","fontSize":"20"} -->
+			<h3 class="wp-block-heading has-neutral-500-color has-text-color has-20-font-size" style="text-decoration:line-through"><?php echo esc_html__( '$299', 'aegis' ); ?></h3>
 			<!-- /wp:heading -->
 
 			<!-- wp:heading {"level":3,"fontSize":"36"} -->
@@ -225,14 +282,14 @@
 
 		<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 		<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--sm)">
-			<!-- wp:button {"backgroundColor":"white","textColor":"primary-900","style":{"typography":{"fontSize":"18px"}},"className":"is-style-fill"} -->
-<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-primary-900-color has-white-background-color has-text-color has-background has-custom-font-size wp-element-button" href="#" style="font-size:18px"><?php echo esc_html__( 'Get Instant Access Now →', 'aegis' ); ?></a></div>
+			<!-- wp:button {"backgroundColor":"neutral-950","textColor":"primary-100","style":{"typography":{"fontSize":"18px"}},"className":"is-style-fill"} -->
+<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-primary-100-color has-neutral-950-background-color has-text-color has-background has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>" style="font-size:18px"><?php echo esc_html__( 'Get Instant Access Now →', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
 
-		<!-- wp:paragraph {"align":"center","textColor":"neutral-400","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"}}},"fontSize":"12"} -->
-		<p class="aligncenter has-text-align-center has-neutral-400-color has-text-color has-12-font-size aligncenter" style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( '30-day money-back guarantee · Secure checkout · Instant delivery', 'aegis' ); ?></p>
+		<!-- wp:paragraph {"align":"center","textColor":"neutral-500","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"}}},"fontSize":"12"} -->
+		<p class="aligncenter has-text-align-center has-neutral-500-color has-text-color has-12-font-size aligncenter" style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( '30-day money-back guarantee · Secure checkout · Instant delivery', 'aegis' ); ?></p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->

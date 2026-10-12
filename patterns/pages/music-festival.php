@@ -2,7 +2,7 @@
 /**
  * Title: Music Festival
  * Slug: event-music-festival
- * Categories: page, events
+ * Categories: pages, events
  * Keywords: music, festival, concert, live, band, event
  * Description: A vibrant full page layout for a music festival or concert event.
  * Viewport Width: 1280
@@ -10,35 +10,35 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["page","events"],"patternName":"event-music-festival"},"align":"full","layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"categories":["pages","events"],"patternName":"event-music-festival"},"align":"full","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull">
 
-	<!-- wp:cover {"dimRatio":70,"overlayColor":"neutral-950","isUserOverlayColor":true,"minHeight":90,"minHeightUnit":"vh","isDark":false,"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xxl"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-cover alignfull is-light" style="padding-top:var(--wp--preset--spacing--xxl);padding-bottom:var(--wp--preset--spacing--xxl);min-height:90vh">
-		<span aria-hidden="true" class="wp-block-cover__background has-neutral-950-background-color has-background-dim-70 has-background-dim"></span>
+	<!-- wp:cover {"className":"is-style-dark","dimRatio":70,"overlayColor":"neutral-0","isUserOverlayColor":true,"minHeight":90,"minHeightUnit":"vh","isDark":true,"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xxl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-cover alignfull is-style-dark" style="padding-top:var(--wp--preset--spacing--xxl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xxl);padding-left:var(--wp--preset--spacing--lg);min-height:90vh">
+		<span aria-hidden="true" class="wp-block-cover__background has-neutral-0-background-color has-background-dim-70 has-background-dim"></span>
 		<div class="wp-block-cover__inner-container">
 			<!-- wp:group {"layout":{"type":"constrained","contentSize":"800px"}} -->
 			<div class="wp-block-group">
-				<!-- wp:paragraph {"align":"center","className":"is-style-sub-heading","textColor":"primary-400","fontSize":"16"} -->
-				<p class="aligncenter has-text-align-center is-style-sub-heading has-primary-400-color has-text-color has-16-font-size aligncenter"><?php echo esc_html__( 'June 20 — 22, 2026', 'aegis' ); ?></p>
+				<!-- wp:paragraph {"align":"center","className":"is-style-sub-heading","textColor":"primary-600","fontSize":"16"} -->
+				<p class="aligncenter has-text-align-center is-style-sub-heading has-primary-600-color has-text-color has-16-font-size aligncenter"><?php echo esc_html__( 'June 20 — 22, 2026', 'aegis' ); ?></p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:heading {"textAlign":"center","level":1,"textColor":"white","fontSize":"72"} -->
-				<h1 class="wp-block-heading has-text-align-center has-white-color has-text-color has-72-font-size"><?php echo esc_html__( 'Resonance', 'aegis' ); ?></h1>
+				<!-- wp:heading {"textAlign":"center","level":1,"textColor":"neutral-950","fontSize":"72"} -->
+				<h1 class="wp-block-heading has-text-align-center has-neutral-950-color has-text-color has-72-font-size"><?php echo esc_html__( 'Resonance', 'aegis' ); ?></h1>
 				<!-- /wp:heading -->
 
-				<!-- wp:paragraph {"align":"center","textColor":"neutral-300","fontSize":"20"} -->
-				<p class="aligncenter has-text-align-center has-neutral-300-color has-text-color has-20-font-size aligncenter"><?php echo esc_html__( 'Three days of boundary-pushing sound across five stages in the heart of the Andes. Electronic, ambient, jazz fusion, and experimental — all converging under the open sky.', 'aegis' ); ?></p>
+				<!-- wp:paragraph {"align":"center","textColor":"neutral-600","fontSize":"20"} -->
+				<p class="aligncenter has-text-align-center has-neutral-600-color has-text-color has-20-font-size aligncenter"><?php echo esc_html__( 'Three days of boundary-pushing sound across five stages in the heart of the Andes. Electronic, ambient, jazz fusion, and experimental — all converging under the open sky.', 'aegis' ); ?></p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 				<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 					<!-- wp:button {"fontSize":"18"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-18-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Get Passes', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-18-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Get Passes', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 
 					<!-- wp:button {"className":"is-style-ghost","fontSize":"18"} -->
-<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link has-18-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'View Lineup', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link has-18-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'View Lineup', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
@@ -48,8 +48,8 @@
 	</div>
 	<!-- /wp:cover -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:heading {"textAlign":"center","fontSize":"36"} -->
 		<h2 class="wp-block-heading has-text-align-center has-36-font-size"><?php echo esc_html__( 'Lineup', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
@@ -60,8 +60,8 @@
 
 		<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"constrained"}} -->
 		<div class="wp-block-group alignwide">
-			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md"}},"border":{"bottom":{"color":"var:preset|color|neutral-100","width":"1px"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
-			<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--neutral-100);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md)">
+			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}},"border":{"bottom":{"color":"var:preset|color|neutral-100","width":"1px"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+			<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--neutral-100);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--lg)">
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 				<div class="wp-block-group">
 					<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"primary-500","fontSize":"14"} -->
@@ -88,8 +88,8 @@
 			</div>
 			<!-- /wp:group -->
 
-			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md"}},"border":{"bottom":{"color":"var:preset|color|neutral-100","width":"1px"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
-			<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--neutral-100);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md)">
+			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}},"border":{"bottom":{"color":"var:preset|color|neutral-100","width":"1px"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+			<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--neutral-100);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--lg)">
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 				<div class="wp-block-group">
 					<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"primary-500","fontSize":"14"} -->
@@ -116,8 +116,8 @@
 			</div>
 			<!-- /wp:group -->
 
-			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md"}},"border":{"bottom":{"color":"var:preset|color|neutral-100","width":"1px"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
-			<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--neutral-100);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md)">
+			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}},"border":{"bottom":{"color":"var:preset|color|neutral-100","width":"1px"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+			<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--neutral-100);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--lg)">
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 				<div class="wp-block-group">
 					<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"neutral-400","fontSize":"14"} -->
@@ -144,8 +144,8 @@
 			</div>
 			<!-- /wp:group -->
 
-			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md"}},"border":{"bottom":{"color":"var:preset|color|neutral-100","width":"1px"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
-			<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--neutral-100);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md)">
+			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}},"border":{"bottom":{"color":"var:preset|color|neutral-100","width":"1px"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+			<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--neutral-100);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--lg)">
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 				<div class="wp-block-group">
 					<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"neutral-400","fontSize":"14"} -->
@@ -172,8 +172,8 @@
 			</div>
 			<!-- /wp:group -->
 
-			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
-			<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md)">
+			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+			<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--lg)">
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 				<div class="wp-block-group">
 					<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"neutral-400","fontSize":"14"} -->
@@ -204,8 +204,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull has-neutral-50-background-color has-background" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull has-neutral-50-background-color has-background" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:heading {"textAlign":"center","fontSize":"32"} -->
 		<h2 class="wp-block-heading has-text-align-center has-32-font-size"><?php echo esc_html__( 'Festival Passes', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
@@ -241,7 +241,7 @@
 				<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 				<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 					<!-- wp:button {"className":"is-style-outline","width":100} -->
-<div class="wp-block-button is-style-outline has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Select', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-outline has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Select', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
@@ -289,7 +289,7 @@
 				<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 				<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 					<!-- wp:button {"width":100} -->
-<div class="wp-block-button has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Select', 'aegis' ); ?></a></div>
+<div class="wp-block-button has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Select', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
@@ -329,7 +329,7 @@
 				<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 				<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 					<!-- wp:button {"className":"is-style-outline","width":100} -->
-<div class="wp-block-button is-style-outline has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Select', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-outline has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Select', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
@@ -340,8 +340,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:heading {"textAlign":"center","fontSize":"32"} -->
 		<h2 class="wp-block-heading has-text-align-center has-32-font-size"><?php echo esc_html__( 'Essential Info', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->

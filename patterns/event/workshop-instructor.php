@@ -9,8 +9,8 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["event"],"patternName":"workshop-instructor","name":"Workshop Instructor"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)"><!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|xl"}}}} -->
+<!-- wp:group {"metadata":{"categories":["event"],"patternName":"workshop-instructor","name":"Workshop Instructor"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)"><!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|xl"}}}} -->
 	<div class="wp-block-columns alignwide"><!-- wp:column {"verticalAlignment":"center","width":"40%"} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:40%"><!-- wp:image {"aspectRatio":"4/5","scale":"cover","style":{"border":{"radius":"8px"}},"usePlaceholder":"default"} -->
 			<figure class="wp-block-image has-custom-border" style="border-radius:8px"><img alt="Hana Mori" style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" /></figure>

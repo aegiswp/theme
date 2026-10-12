@@ -21,14 +21,14 @@
 
 		<!-- wp:html -->
 		<form action="#" method="POST">
-			<label for="name"><?php echo esc_html__( 'Name', 'aegis' ); ?></label>
-			<input type="text" id="name" name="name" required>
-			<label for="email"><?php echo esc_html__( 'Email', 'aegis' ); ?></label>
-			<input type="email" id="email" name="email" required>
-			<label for="message"><?php echo esc_html__( 'Message', 'aegis' ); ?></label>
-			<textarea id="message" name="message" rows="6" required></textarea>
+			<label for="contact-form-boxed-name"><?php echo esc_html__( 'Name', 'aegis' ); ?></label>
+			<input type="text" id="contact-form-boxed-name" name="name" required>
+			<label for="contact-form-boxed-email"><?php echo esc_html__( 'Email', 'aegis' ); ?></label>
+			<input type="email" id="contact-form-boxed-email" name="email" required>
+			<label for="contact-form-boxed-message"><?php echo esc_html__( 'Message', 'aegis' ); ?></label>
+			<textarea id="contact-form-boxed-message" name="message" rows="6" required></textarea>
 			<div class="wp-block-buttons is-layout-flex">
-				<div class="wp-block-button has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Send', 'aegis' ); ?></a></div>
+				<div class="wp-block-button has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Send', 'aegis' ); ?></a></div>
 			</div>
 		</form>
 		<!-- /wp:html -->

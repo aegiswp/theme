@@ -20,7 +20,7 @@
 		<!-- /wp:column -->
 		<!-- wp:column {"width":"30%"} -->
 		<div class="wp-block-column" style="flex-basis:30%">
-			<!-- wp:template-part {"slug":"sidebar","area":"uncategorized"} /-->
+			<!-- wp:template-part {"slug":"sidebar","tagName":"aside","area":"uncategorized"} /-->
 		</div>
 		<!-- /wp:column -->
 	</div>

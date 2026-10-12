@@ -2,7 +2,7 @@
 /**
  * Title: Exhibition Event
  * Slug: event-exhibition
- * Categories: page, events
+ * Categories: pages, events
  * Keywords: exhibition, gallery, art, museum, visual, event
  * Description: A minimal and elegant full page layout for an art exhibition or gallery event.
  * Viewport Width: 1280
@@ -10,9 +10,9 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["page"],"patternName":"page-event-exhibition","name":"Exhibition Event"},"align":"full","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull"><!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained","contentSize":"900px"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xxl);padding-bottom:var(--wp--preset--spacing--xl)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
+<!-- wp:group {"metadata":{"categories":["pages"],"patternName":"page-event-exhibition","name":"Exhibition Event"},"align":"full","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull"><!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"900px"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xxl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 		<div class="wp-block-group"><!-- wp:paragraph {"align":"center","className":"is-style-sub-heading","fontSize":"14"} -->
 			<p class="aligncenter has-text-align-center is-style-sub-heading has-14-font-size aligncenter"><?php echo esc_html__( 'April 3 — June 15, 2026', 'aegis' ); ?></p>
 			<!-- /wp:paragraph -->
@@ -74,8 +74,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull is-style-surface" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)"><!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|xl"}}}} -->
+	<!-- wp:group {"align":"full","className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull is-style-surface" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)"><!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|xl"}}}} -->
 		<div class="wp-block-columns alignwide"><!-- wp:column {"width":"40%"} -->
 			<div class="wp-block-column" style="flex-basis:40%"><!-- wp:heading {"fontSize":"32"} -->
 				<h2 class="wp-block-heading has-32-font-size"><?php echo esc_html__( 'About the Exhibition', 'aegis' ); ?></h2>
@@ -98,8 +98,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)"><!-- wp:heading {"textAlign":"center","fontSize":"32"} -->
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)"><!-- wp:heading {"textAlign":"center","fontSize":"32"} -->
 		<h2 class="wp-block-heading has-text-align-center has-32-font-size"><?php echo esc_html__( 'Featured Artists', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
 
@@ -180,8 +180,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull is-style-surface" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)"><!-- wp:heading {"textAlign":"center","fontSize":"32"} -->
+	<!-- wp:group {"align":"full","className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull is-style-surface" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)"><!-- wp:heading {"textAlign":"center","fontSize":"32"} -->
 		<h2 class="wp-block-heading has-text-align-center has-32-font-size"><?php echo esc_html__( 'Guided Tours & Events', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
 

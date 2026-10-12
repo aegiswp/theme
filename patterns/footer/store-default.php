@@ -18,18 +18,13 @@
 		<div class="wp-block-column" style="flex-basis:33.33%">
 			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 			<div class="wp-block-group">
-				<!-- wp:group {"style":{"spacing":{"blockGap":"4px"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-				<div class="wp-block-group">
-					<!-- wp:site-logo {"width":30} /-->
-					<!-- wp:site-title {"level":0,"style":{"typography":{"fontSize":"18px","fontWeight":"700"}}} /-->
-				</div>
-				<!-- /wp:group -->
+				<!-- wp:icon {"icon":"social/aegis","url":"<?php echo esc_url( home_url( '/' ) ); ?>","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-labelledby=\"icon-footer-store-aegis\" data-icon=\"social-aegis\" style=\"min-width:35px;height:35px\" fill=\"currentColor\"><title id=\"icon-footer-store-aegis\">Aegis Icon</title><path d=\"M10.06 7.75 L12.02 3.87 L13.95 7.72 L16.65 9.29 L12.03 0 L7.34 9.3 L10.06 7.75 Z M18.37 12.72 L18.2 12.36 L15.5 10.79 L17.02 13.68 L20.05 18.61 L12.02 15.17 L3.98 18.62 L6.96 13.68 L8.39 10.81 L5.67 12.39 L5.5 12.71 L0 22.87 L12.01 16.87 L24 22.94 L18.37 12.72 Z\" stroke=\"none\" fill-rule=\"evenodd\"></path></svg>","style":{"dimensions":{"width":"35px"}}} /-->
 
 				<!-- wp:paragraph {"textColor":"neutral-600","fontSize":"14"} -->
 				<p class="has-neutral-600-color has-text-color has-14-font-size"><?php echo esc_html__( 'Quality products with fast shipping and exceptional customer service. Your satisfaction is our priority.', 'aegis' ); ?></p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:social-links {"iconColor":"neutral-400","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"left":"16px"}}},"layout":{"type":"flex"},"iconColorValue":"#525252"} -->
+				<!-- wp:social-links {"iconColor":"neutral-600","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"left":"16px"}}},"layout":{"type":"flex"}} -->
 				<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
 					<!-- wp:social-link {"url":"#","service":"facebook"} /-->
 					<!-- wp:social-link {"url":"#","service":"instagram"} /-->
@@ -51,16 +46,16 @@
 			<!-- wp:list {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"className":"is-style-none","fontSize":"14"} -->
 			<ul class="is-style-none has-14-font-size wp-block-list">
 				<!-- wp:list-item -->
-				<li><a href="#"><?php echo esc_html__( 'All Products', 'aegis' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'All Products', 'aegis' ); ?></a></li>
 				<!-- /wp:list-item -->
 				<!-- wp:list-item -->
-				<li><a href="#"><?php echo esc_html__( 'On Sale', 'aegis' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'On Sale', 'aegis' ); ?></a></li>
 				<!-- /wp:list-item -->
 				<!-- wp:list-item -->
-				<li><a href="#"><?php echo esc_html__( 'Featured', 'aegis' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Featured', 'aegis' ); ?></a></li>
 				<!-- /wp:list-item -->
 				<!-- wp:list-item -->
-				<li><a href="#"><?php echo esc_html__( 'New Arrivals', 'aegis' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'New Arrivals', 'aegis' ); ?></a></li>
 				<!-- /wp:list-item -->
 			</ul>
 			<!-- /wp:list -->
@@ -103,9 +98,10 @@
 			<!-- /wp:paragraph -->
 
 			<!-- wp:html -->
-			<form style="display:flex;gap:8px;margin-top:8px">
-				<input type="email" placeholder="<?php echo esc_attr__( 'Your email', 'aegis' ); ?>" style="flex:1;padding:10px 14px;border:1px solid var(--wp--preset--color--neutral-300);border-radius:6px;font-size:14px;background:var(--wp--preset--color--neutral-0);color:inherit" required />
-				<button type="submit" style="padding:10px 20px;background:var(--wp--preset--color--primary-500);color:var(--wp--preset--color--neutral-0);border:none;border-radius:6px;font-size:14px;cursor:pointer;white-space:nowrap"><?php echo esc_html__( 'Subscribe', 'aegis' ); ?></button>
+			<form class="aegis-store-newsletter" style="display:flex;align-items:center;gap:8px;margin-top:8px">
+				<label for="store-footer-email" class="screen-reader-text"><?php echo esc_html__( 'Your email', 'aegis' ); ?></label>
+				<input type="email" id="store-footer-email" name="email" placeholder="<?php echo esc_attr__( 'Your email', 'aegis' ); ?>" style="flex:1 1 auto;min-width:0;box-sizing:border-box;height:42px;margin:0;padding:0 14px;border:1px solid var(--wp--preset--color--neutral-300);border-radius:6px;font-size:14px;line-height:42px;background:var(--wp--preset--color--neutral-0);color:inherit;align-self:center" required />
+				<button type="submit" style="box-sizing:border-box;flex:0 0 auto;height:42px;margin:0;padding:0 20px;background:var(--wp--preset--color--primary-500);color:var(--wp--preset--color--neutral-0);border:1px solid transparent;border-radius:6px;font-size:14px;line-height:42px;font-weight:600;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;align-self:center"><?php echo esc_html__( 'Subscribe', 'aegis' ); ?></button>
 			</form>
 			<!-- /wp:html -->
 		</div>
@@ -133,19 +129,13 @@
 		</div>
 		<!-- /wp:group -->
 
-		<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
-		<div class="wp-block-group">
-			<!-- wp:html -->
-			<svg xmlns="http://www.w3.org/2000/svg" width="38" height="24" viewBox="0 0 48 32" fill="none" role="img" aria-label="Visa"><rect width="48" height="32" rx="4" fill="#1A1F71"/><path d="M19.5 21h-2.7l1.7-10.5h2.7L19.5 21zm-4.8 0h-2.8l-2.5-8.1-.3 1.6-.9 5.3s-.1 1.2-1.3 1.2H3l-.1-.3s1.4-.3 3-1.3l2.5 9.6h2.8l4.3-10.5h-1.8zm20.7-10.5l-2 7.2-.2-1.1-1.2-5.1s-.1-1-1.4-1h-4.3l-.1.3s1.5.3 3 1.5l2.5 8.7h2.8l4.3-10.5h-3.4zm-7.1 10.5h2.6l-2.2-10.5h-2.2c-1 0-1.2.8-1.2.8l-3.8 9.7h2.8l.5-1.5h3.2l.3 1.5z" fill="#fff"/></svg>
-			<!-- /wp:html -->
+		<!-- wp:group {"className":"aegis-payment-icons","style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
+		<div class="wp-block-group aegis-payment-icons">
+			<!-- wp:icon {"icon":"payment/visa","ariaLabel":"Visa","style":{"dimensions":{"width":"38px"}}} /-->
 
-			<!-- wp:html -->
-			<svg xmlns="http://www.w3.org/2000/svg" width="38" height="24" viewBox="0 0 48 32" fill="none" role="img" aria-label="Mastercard"><rect width="48" height="32" rx="4" fill="#252525"/><circle cx="19" cy="16" r="8" fill="#EB001B"/><circle cx="29" cy="16" r="8" fill="#F79E1B"/><path d="M24 9.8a8 8 0 0 1 0 12.4 8 8 0 0 1 0-12.4z" fill="#FF5F00"/></svg>
-			<!-- /wp:html -->
+			<!-- wp:icon {"icon":"payment/mastercard","ariaLabel":"Mastercard","style":{"dimensions":{"width":"38px"}}} /-->
 
-			<!-- wp:html -->
-			<svg xmlns="http://www.w3.org/2000/svg" width="38" height="24" viewBox="0 0 48 32" fill="none" role="img" aria-label="PayPal"><rect width="48" height="32" rx="4" fill="#fff" stroke="#e5e5e5"/><path d="M18.5 8h4.2c2.3 0 3.5 1.2 3.3 3.2-.3 2.8-2.2 4.3-4.5 4.3h-1.1c-.3 0-.6.3-.7.6l-.6 3.5c0 .2-.2.4-.5.4h-2.2c-.3 0-.4-.2-.4-.5l1.5-11c.1-.3.3-.5.6-.5h.4z" fill="#003087"/><path d="M32.5 8h4.2c2.3 0 3.5 1.2 3.3 3.2-.3 2.8-2.2 4.3-4.5 4.3h-1.1c-.3 0-.6.3-.7.6l-.6 3.5c0 .2-.2.4-.5.4h-2.2c-.3 0-.4-.2-.4-.5l1.5-11c.1-.3.3-.5.6-.5h.4z" fill="#0070E0"/></svg>
-			<!-- /wp:html -->
+			<!-- wp:icon {"icon":"payment/paypal","ariaLabel":"PayPal","style":{"dimensions":{"width":"38px"}}} /-->
 		</div>
 		<!-- /wp:group -->
 	</div>

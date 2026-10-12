@@ -2,7 +2,7 @@
 /**
  * Title: Talk & Lecture Event
  * Slug: event-talk
- * Categories: page, events
+ * Categories: pages, events
  * Keywords: talk, lecture, keynote, speaker, presentation, event
  * Description: A focused full page layout for a single talk, lecture, or keynote presentation.
  * Viewport Width: 1280
@@ -10,11 +10,11 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["page","events"],"patternName":"event-talk"},"align":"full","layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"categories":["pages","events"],"patternName":"event-talk"},"align":"full","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull">
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xl"}},"border":{"bottom":{"color":"var:preset|color|neutral-100","width":"1px"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull" style="border-bottom-color:var(--wp--preset--color--neutral-100);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--xxl);padding-bottom:var(--wp--preset--spacing--xl)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}},"border":{"bottom":{"color":"var:preset|color|neutral-100","width":"1px"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull" style="border-bottom-color:var(--wp--preset--color--neutral-100);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--xxl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|xl"}}}} -->
 		<div class="wp-block-columns alignwide">
 			<!-- wp:column {"verticalAlignment":"center","width":"55%"} -->
@@ -92,11 +92,11 @@
 					<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 					<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 						<!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Reserve Your Seat', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Reserve Your Seat', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 
 						<!-- wp:button {"className":"is-style-outline"} -->
-<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Add to Calendar', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Add to Calendar', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 					</div>
 					<!-- /wp:buttons -->
@@ -117,8 +117,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|xl"}}}} -->
 		<div class="wp-block-columns alignwide">
 			<!-- wp:column {"width":"35%"} -->
@@ -133,8 +133,8 @@
 			<div class="wp-block-column" style="flex-basis:65%">
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|md"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
 				<div class="wp-block-group">
-					<!-- wp:image {"width":"120px","height":"120px","scale":"cover","style":{"border":{"radius":"100%"}}} -->
-					<figure class="wp-block-image is-resized has-custom-border"><img style="height:auto;border-radius:100%;object-fit:cover;width:120px;height:120px" alt="" /></figure>
+					<!-- wp:image {"width":"200px","height":"200px","aspectRatio":"1","scale":"cover","style":{"border":{"radius":"100%"},"width":{"all":"200px"}}} -->
+					<figure class="wp-block-image is-resized has-custom-border" style="border-radius:100%"><img style="border-radius:100%;aspect-ratio:1;object-fit:cover;width:200px;height:200px" alt="" /></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical"}} -->
@@ -151,7 +151,7 @@
 						<p class="has-neutral-600-color has-text-color has-15-font-size"><?php echo esc_html__( 'Dr. Vásquez leads the Attention & Design Lab at Universidad de los Andes. Her research bridges neuroscience and human-computer interaction, with publications in Nature, Science, and the ACM Digital Library. She has consulted for Google, Apple, and the World Health Organization on attention-aware design systems.', 'aegis' ); ?></p>
 						<!-- /wp:paragraph -->
 
-						<!-- wp:social-links {"iconColor":"neutral-500","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"margin":{"top":"var:preset|spacing|xxs"}}},"iconColorValue":"#525252"} -->
+						<!-- wp:social-links {"iconColor":"neutral-600","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"margin":{"top":"var:preset|spacing|xxs"}}}} -->
 						<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--xxs);">
 							<!-- wp:social-link {"url":"#","service":"linkedin"} /-->
 
@@ -171,8 +171,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull has-neutral-50-background-color has-background" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull has-neutral-50-background-color has-background" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|xl"}}}} -->
 		<div class="wp-block-columns alignwide">
 			<!-- wp:column {"width":"35%"} -->
@@ -243,8 +243,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:heading {"textAlign":"center","fontSize":"28"} -->
 		<h2 class="wp-block-heading has-text-align-center has-28-font-size"><?php echo esc_html__( 'Part of the Minds & Machines Lecture Series', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->

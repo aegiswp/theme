@@ -2,7 +2,7 @@
 /**
  * Title: Funnel Thank You Page
  * Slug: funnel-thank-you
- * Categories: page
+ * Categories: pages
  * Keywords: funnel, thank you, confirmation, upsell, woocommerce
  * Description: A post-purchase thank you page with order confirmation message, next steps, upsell product grid, and social sharing — uses minimal header/footer.
  * Viewport Width: 1280
@@ -11,16 +11,16 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["page"],"patternName":"funnel-thank-you","name":"Funnel Thank You Page"},"align":"full","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"categories":["pages"],"patternName":"funnel-thank-you","name":"Funnel Thank You Page"},"align":"full","layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull">
 
 	<!-- wp:pattern {"slug":"header-store-minimal"} /-->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"640px"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xxl);padding-bottom:var(--wp--preset--spacing--lg)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"640px"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xxl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 		<div class="wp-block-group">
-			<!-- wp:image {"className":"is-style-icon","iconSet":"wordpress","iconName":"yes","iconSize":"64px"} --><figure class="wp-block-image is-style-icon"><img alt="" /></figure><!-- /wp:image -->
+			<!-- wp:icon {"icon":"wordpress/yes","style":{"dimensions":{"width":"64px"}}} /-->
 <!-- wp:heading {"textAlign":"center","level":1,"fontSize":"36"} -->
 			<h1 class="wp-block-heading has-text-align-center has-36-font-size"><?php echo esc_html__( 'Thank You for Your Purchase!', 'aegis' ); ?></h1>
 			<!-- /wp:heading -->
@@ -56,11 +56,11 @@
 			<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 			<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--sm)">
 				<!-- wp:button {"fontSize":"16"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'View My Orders', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'View My Orders', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 
 				<!-- wp:button {"className":"is-style-outline","fontSize":"16"} -->
-<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Continue Shopping', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Continue Shopping', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->
@@ -69,8 +69,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull has-neutral-50-background-color has-background" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull has-neutral-50-background-color has-background" style="padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:heading {"textAlign":"center","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|xs"}}},"fontSize":"28"} -->
 		<h2 class="wp-block-heading has-text-align-center has-28-font-size" style="margin-bottom:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'You Might Also Like', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
@@ -82,8 +82,8 @@
 		<!-- wp:woocommerce/product-collection {"queryId":13,"query":{"perPage":4,"pages":0,"offset":0,"postType":"product","order":"desc","orderBy":"popularity","search":"","exclude":[],"inherit":false,"taxQuery":[],"isProductCollectionBlock":true,"featured":false,"woocommerceOnSale":false,"woocommerceStockStatus":["instock","onbackorder"],"woocommerceAttributes":[],"woocommerceHandPickedProducts":[],"filterable":false},"tagName":"div","displayLayout":{"type":"flex","columns":4,"shrinkColumns":true},"dimensions":{"widthType":"fill"},"queryContextIncludes":["collection"],"align":"wide"} -->
 		<div class="wp-block-woocommerce-product-collection alignwide">
 			<!-- wp:woocommerce/product-template -->
-			<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"var:preset|spacing|sm","left":"0"}}},"backgroundColor":"white","layout":{"type":"flex","orientation":"vertical"}} -->
-			<div class="wp-block-group has-white-background-color has-background" style="padding-top:0;padding-right:0;padding-bottom:var(--wp--preset--spacing--sm);padding-left:0">
+			<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"var:preset|spacing|sm","left":"0"}}},"backgroundColor":"neutral-0","layout":{"type":"flex","orientation":"vertical"}} -->
+			<div class="wp-block-group has-neutral-0-background-color has-background" style="padding-top:0;padding-right:0;padding-bottom:var(--wp--preset--spacing--sm);padding-left:0">
 				<!-- wp:woocommerce/product-image {"imageSizing":"thumbnail","isDescendentOfQueryLoop":true} /-->
 
 				<!-- wp:post-title {"textAlign":"center","level":3,"isLink":true,"style":{"spacing":{"margin":{"bottom":"0","top":"0"}},"typography":{"lineHeight":"1.4","fontSize":"16px"}},"__woocommerceNamespace":"woocommerce/product-collection/product-title"} /-->
@@ -103,13 +103,13 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md"}}},"layout":{"type":"constrained","contentSize":"480px"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"480px"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:heading {"textAlign":"center","level":4,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|xs"}}},"fontSize":"18"} -->
 		<h4 class="wp-block-heading has-text-align-center has-18-font-size" style="margin-bottom:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Share Your Purchase', 'aegis' ); ?></h4>
 		<!-- /wp:heading -->
 
-		<!-- wp:social-links {"iconColor":"neutral-500","size":"has-normal-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"left":"20px"}}},"layout":{"type":"flex","justifyContent":"center"},"iconColorValue":"#525252"} -->
+		<!-- wp:social-links {"iconColor":"neutral-600","size":"has-normal-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"left":"20px"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 		<ul class="wp-block-social-links has-normal-icon-size has-icon-color is-style-logos-only">
 			<!-- wp:social-link {"url":"#","service":"facebook"} /-->
 			<!-- wp:social-link {"url":"#","service":"x"} /-->

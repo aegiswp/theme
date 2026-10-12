@@ -28,7 +28,7 @@
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph {"style":{"typography":{"textDecoration":"none"},"spacing":{"margin":{"top":"var:preset|spacing|md"}}},"fontSize":"14"} -->
-			<p class="has-14-font-size" style="margin-top:var(--wp--preset--spacing--md);text-decoration:none"><?php echo esc_html__( 'Still have questions?', 'aegis' ); ?> <a href="#"><?php echo esc_html__( 'Get in touch →', 'aegis' ); ?></a></p>
+			<p class="has-14-font-size" style="margin-top:var(--wp--preset--spacing--md);text-decoration:none"><?php echo esc_html__( 'Still have questions?', 'aegis' ); ?> <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Get in touch →', 'aegis' ); ?></a></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:column -->

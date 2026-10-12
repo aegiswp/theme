@@ -2,7 +2,7 @@
 /**
  * Title: Cinema Event
  * Slug: event-cinema
- * Categories: page, events
+ * Categories: pages, events
  * Keywords: cinema, film, movie, screening, premiere, event
  * Description: A full page layout for a cinema screening or film premiere event.
  * Viewport Width: 1280
@@ -10,12 +10,12 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["page","events"],"patternName":"event-cinema"},"align":"full","layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"categories":["pages","events"],"patternName":"event-cinema"},"align":"full","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull">
 
-	<!-- wp:cover {"dimRatio":90,"overlayColor":"neutral-950","isUserOverlayColor":true,"minHeight":100,"minHeightUnit":"vh","isDark":false,"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xxl"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-cover alignfull is-light" style="padding-top:var(--wp--preset--spacing--xxl);padding-bottom:var(--wp--preset--spacing--xxl);min-height:100vh">
-		<span aria-hidden="true" class="wp-block-cover__background has-neutral-950-background-color has-background-dim-90 has-background-dim"></span>
+	<!-- wp:cover {"className":"is-style-dark","dimRatio":90,"overlayColor":"neutral-0","isUserOverlayColor":true,"minHeight":100,"minHeightUnit":"vh","isDark":true,"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xxl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-cover alignfull is-style-dark" style="padding-top:var(--wp--preset--spacing--xxl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xxl);padding-left:var(--wp--preset--spacing--lg);min-height:100vh">
+		<span aria-hidden="true" class="wp-block-cover__background has-neutral-0-background-color has-background-dim-90 has-background-dim"></span>
 		<div class="wp-block-cover__inner-container">
 			<!-- wp:group {"layout":{"type":"constrained","contentSize":"900px"}} -->
 			<div class="wp-block-group">
@@ -35,66 +35,66 @@
 						<div class="wp-block-group">
 							<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 							<div class="wp-block-group">
-								<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"primary-400","fontSize":"14"} -->
-								<p class="is-style-sub-heading has-primary-400-color has-text-color has-14-font-size"><?php echo esc_html__( 'World Premiere', 'aegis' ); ?></p>
+								<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"primary-600","fontSize":"14"} -->
+								<p class="is-style-sub-heading has-primary-600-color has-text-color has-14-font-size"><?php echo esc_html__( 'World Premiere', 'aegis' ); ?></p>
 								<!-- /wp:paragraph -->
 
-								<!-- wp:paragraph {"textColor":"neutral-600","fontSize":"14"} -->
-								<p class="has-neutral-600-color has-text-color has-14-font-size"><?php echo esc_html__( '/ Drama / 2h 18min / R', 'aegis' ); ?></p>
+								<!-- wp:paragraph {"textColor":"neutral-300","fontSize":"14"} -->
+								<p class="has-neutral-300-color has-text-color has-14-font-size"><?php echo esc_html__( '/ Drama / 2h 18min / R', 'aegis' ); ?></p>
 								<!-- /wp:paragraph -->
 							</div>
 							<!-- /wp:group -->
 
-							<!-- wp:heading {"level":1,"textColor":"white","fontSize":"52"} -->
-							<h1 class="wp-block-heading has-white-color has-text-color has-52-font-size"><?php echo esc_html__( 'The Last Meridian', 'aegis' ); ?></h1>
+							<!-- wp:heading {"level":1,"textColor":"neutral-950","fontSize":"52"} -->
+							<h1 class="wp-block-heading has-neutral-950-color has-text-color has-52-font-size"><?php echo esc_html__( 'The Last Meridian', 'aegis' ); ?></h1>
 							<!-- /wp:heading -->
 
-							<!-- wp:paragraph {"textColor":"neutral-400","fontSize":"18"} -->
-							<p class="has-neutral-400-color has-text-color has-18-font-size"><?php echo esc_html__( 'A haunting exploration of memory and loss set against the vast landscapes of Patagonia. When a retired cartographer receives a letter from a woman he mapped the world for, he embarks on one final journey.', 'aegis' ); ?></p>
+							<!-- wp:paragraph {"textColor":"neutral-500","fontSize":"18"} -->
+							<p class="has-neutral-500-color has-text-color has-18-font-size"><?php echo esc_html__( 'A haunting exploration of memory and loss set against the vast landscapes of Patagonia. When a retired cartographer receives a letter from a woman he mapped the world for, he embarks on one final journey.', 'aegis' ); ?></p>
 							<!-- /wp:paragraph -->
 
-							<!-- wp:paragraph {"className":"is-style-heading","textColor":"neutral-300","fontSize":"14"} -->
-							<p class="is-style-heading has-neutral-300-color has-text-color has-14-font-size"><?php echo esc_html__( 'Directed by Maren Solberg', 'aegis' ); ?></p>
+							<!-- wp:paragraph {"className":"is-style-heading","textColor":"neutral-600","fontSize":"14"} -->
+							<p class="is-style-heading has-neutral-600-color has-text-color has-14-font-size"><?php echo esc_html__( 'Directed by Maren Solberg', 'aegis' ); ?></p>
 							<!-- /wp:paragraph -->
 
-							<!-- wp:separator {"opacity":"css","className":"is-style-wide","style":{"color":{"background":"var:preset|color|neutral-200"}}} -->
-							<hr class="wp-block-separator has-text-color has-css-opacity has-background is-style-wide" style="background-color:var(--wp--preset--color--neutral-200);color:var:preset|color|neutral-200" />
+							<!-- wp:separator {"opacity":"css","className":"is-style-wide","style":{"color":{"background":"var:preset|color|neutral-700"}}} -->
+							<hr class="wp-block-separator has-text-color has-css-opacity has-background is-style-wide" style="background-color:var(--wp--preset--color--neutral-700);color:var:preset|color|neutral-700" />
 							<!-- /wp:separator -->
 
 							<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|md"}}}} -->
 							<div class="wp-block-columns">
 								<!-- wp:column -->
 								<div class="wp-block-column">
-									<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"neutral-500","fontSize":"12"} -->
-									<p class="is-style-sub-heading has-neutral-500-color has-text-color has-12-font-size"><?php echo esc_html__( 'Date', 'aegis' ); ?></p>
+									<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"neutral-400","fontSize":"12"} -->
+									<p class="is-style-sub-heading has-neutral-400-color has-text-color has-12-font-size"><?php echo esc_html__( 'Date', 'aegis' ); ?></p>
 									<!-- /wp:paragraph -->
 
-									<!-- wp:paragraph {"textColor":"white","fontSize":"16"} -->
-									<p class="has-white-color has-text-color has-16-font-size"><?php echo esc_html__( 'March 14, 2026', 'aegis' ); ?></p>
-									<!-- /wp:paragraph -->
-								</div>
-								<!-- /wp:column -->
-
-								<!-- wp:column -->
-								<div class="wp-block-column">
-									<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"neutral-500","fontSize":"12"} -->
-									<p class="is-style-sub-heading has-neutral-500-color has-text-color has-12-font-size"><?php echo esc_html__( 'Showtime', 'aegis' ); ?></p>
-									<!-- /wp:paragraph -->
-
-									<!-- wp:paragraph {"textColor":"white","fontSize":"16"} -->
-									<p class="has-white-color has-text-color has-16-font-size"><?php echo esc_html__( '7:30 PM & 10:00 PM', 'aegis' ); ?></p>
+									<!-- wp:paragraph {"textColor":"neutral-950","fontSize":"16"} -->
+									<p class="has-neutral-950-color has-text-color has-16-font-size"><?php echo esc_html__( 'March 14, 2026', 'aegis' ); ?></p>
 									<!-- /wp:paragraph -->
 								</div>
 								<!-- /wp:column -->
 
 								<!-- wp:column -->
 								<div class="wp-block-column">
-									<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"neutral-500","fontSize":"12"} -->
-									<p class="is-style-sub-heading has-neutral-500-color has-text-color has-12-font-size"><?php echo esc_html__( 'Venue', 'aegis' ); ?></p>
+									<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"neutral-400","fontSize":"12"} -->
+									<p class="is-style-sub-heading has-neutral-400-color has-text-color has-12-font-size"><?php echo esc_html__( 'Showtime', 'aegis' ); ?></p>
 									<!-- /wp:paragraph -->
 
-									<!-- wp:paragraph {"textColor":"white","fontSize":"16"} -->
-									<p class="has-white-color has-text-color has-16-font-size"><?php echo esc_html__( 'Grand Lumiere Theater', 'aegis' ); ?></p>
+									<!-- wp:paragraph {"textColor":"neutral-950","fontSize":"16"} -->
+									<p class="has-neutral-950-color has-text-color has-16-font-size"><?php echo esc_html__( '7:30 PM & 10:00 PM', 'aegis' ); ?></p>
+									<!-- /wp:paragraph -->
+								</div>
+								<!-- /wp:column -->
+
+								<!-- wp:column -->
+								<div class="wp-block-column">
+									<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"neutral-400","fontSize":"12"} -->
+									<p class="is-style-sub-heading has-neutral-400-color has-text-color has-12-font-size"><?php echo esc_html__( 'Venue', 'aegis' ); ?></p>
+									<!-- /wp:paragraph -->
+
+									<!-- wp:paragraph {"textColor":"neutral-950","fontSize":"16"} -->
+									<p class="has-neutral-950-color has-text-color has-16-font-size"><?php echo esc_html__( 'Grand Lumiere Theater', 'aegis' ); ?></p>
 									<!-- /wp:paragraph -->
 								</div>
 								<!-- /wp:column -->
@@ -104,11 +104,11 @@
 							<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}}} -->
 							<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--sm)">
 								<!-- wp:button {"fontSize":"16"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Reserve Tickets', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Reserve Tickets', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 
 								<!-- wp:button {"className":"is-style-outline","fontSize":"16"} -->
-<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Watch Trailer', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Watch Trailer', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 							</div>
 							<!-- /wp:buttons -->
@@ -124,10 +124,10 @@
 	</div>
 	<!-- /wp:cover -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"backgroundColor":"neutral-950","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull has-neutral-950-background-color has-background" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
-		<!-- wp:heading {"textAlign":"center","textColor":"white","fontSize":"32"} -->
-		<h2 class="wp-block-heading has-text-align-center has-white-color has-text-color has-32-font-size"><?php echo esc_html__( 'Cast & Crew', 'aegis' ); ?></h2>
+	<!-- wp:group {"className":"is-style-dark","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"neutral-0","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull has-neutral-0-background-color has-background is-style-dark" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
+		<!-- wp:heading {"textAlign":"center","textColor":"neutral-950","fontSize":"32"} -->
+		<h2 class="wp-block-heading has-text-align-center has-neutral-950-color has-text-color has-32-font-size"><?php echo esc_html__( 'Cast & Crew', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:columns {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|lg"},"blockGap":{"left":"var:preset|spacing|md"}}}} -->
@@ -136,16 +136,16 @@
 			<div class="wp-block-column">
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 				<div class="wp-block-group">
-					<!-- wp:image {"width":"140px","height":"140px","scale":"cover","style":{"border":{"radius":"100%"}}} -->
-					<figure class="wp-block-image is-resized has-custom-border"><img style="height:auto;border-radius:100%;object-fit:cover;width:140px;height:140px" alt="" /></figure>
+					<!-- wp:image {"width":"140px","height":"140px","aspectRatio":"1","scale":"cover","style":{"border":{"radius":"100%"},"width":{"all":"140px"}}} -->
+					<figure class="wp-block-image is-resized has-custom-border" style="border-radius:100%"><img style="border-radius:100%;aspect-ratio:1;object-fit:cover;width:140px;height:140px" alt="" /></figure>
 					<!-- /wp:image -->
 
-					<!-- wp:paragraph {"align":"center","className":"is-style-heading","textColor":"white","fontSize":"16"} -->
-					<p class="aligncenter has-text-align-center is-style-heading has-white-color has-text-color has-16-font-size aligncenter"><?php echo esc_html__( 'Elias Varga', 'aegis' ); ?></p>
+					<!-- wp:paragraph {"align":"center","className":"is-style-heading","textColor":"neutral-950","fontSize":"16"} -->
+					<p class="aligncenter has-text-align-center is-style-heading has-neutral-950-color has-text-color has-16-font-size aligncenter"><?php echo esc_html__( 'Elias Varga', 'aegis' ); ?></p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:paragraph {"align":"center","textColor":"neutral-500","fontSize":"14"} -->
-					<p class="aligncenter has-text-align-center has-neutral-500-color has-text-color has-14-font-size aligncenter"><?php echo esc_html__( 'The Cartographer', 'aegis' ); ?></p>
+					<!-- wp:paragraph {"align":"center","textColor":"neutral-400","fontSize":"14"} -->
+					<p class="aligncenter has-text-align-center has-neutral-400-color has-text-color has-14-font-size aligncenter"><?php echo esc_html__( 'The Cartographer', 'aegis' ); ?></p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
@@ -156,16 +156,16 @@
 			<div class="wp-block-column">
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 				<div class="wp-block-group">
-					<!-- wp:image {"width":"140px","height":"140px","scale":"cover","style":{"border":{"radius":"100%"}}} -->
-					<figure class="wp-block-image is-resized has-custom-border"><img style="height:auto;border-radius:100%;object-fit:cover;width:140px;height:140px" alt="" /></figure>
+					<!-- wp:image {"width":"140px","height":"140px","aspectRatio":"1","scale":"cover","style":{"border":{"radius":"100%"},"width":{"all":"140px"}}} -->
+					<figure class="wp-block-image is-resized has-custom-border" style="border-radius:100%"><img style="border-radius:100%;aspect-ratio:1;object-fit:cover;width:140px;height:140px" alt="" /></figure>
 					<!-- /wp:image -->
 
-					<!-- wp:paragraph {"align":"center","className":"is-style-heading","textColor":"white","fontSize":"16"} -->
-					<p class="aligncenter has-text-align-center is-style-heading has-white-color has-text-color has-16-font-size aligncenter"><?php echo esc_html__( 'Lena Ostrova', 'aegis' ); ?></p>
+					<!-- wp:paragraph {"align":"center","className":"is-style-heading","textColor":"neutral-950","fontSize":"16"} -->
+					<p class="aligncenter has-text-align-center is-style-heading has-neutral-950-color has-text-color has-16-font-size aligncenter"><?php echo esc_html__( 'Lena Ostrova', 'aegis' ); ?></p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:paragraph {"align":"center","textColor":"neutral-500","fontSize":"14"} -->
-					<p class="aligncenter has-text-align-center has-neutral-500-color has-text-color has-14-font-size aligncenter"><?php echo esc_html__( 'Isabelle', 'aegis' ); ?></p>
+					<!-- wp:paragraph {"align":"center","textColor":"neutral-400","fontSize":"14"} -->
+					<p class="aligncenter has-text-align-center has-neutral-400-color has-text-color has-14-font-size aligncenter"><?php echo esc_html__( 'Isabelle', 'aegis' ); ?></p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
@@ -176,16 +176,16 @@
 			<div class="wp-block-column">
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 				<div class="wp-block-group">
-					<!-- wp:image {"width":"140px","height":"140px","scale":"cover","style":{"border":{"radius":"100%"}}} -->
-					<figure class="wp-block-image is-resized has-custom-border"><img style="height:auto;border-radius:100%;object-fit:cover;width:140px;height:140px" alt="" /></figure>
+					<!-- wp:image {"width":"140px","height":"140px","aspectRatio":"1","scale":"cover","style":{"border":{"radius":"100%"},"width":{"all":"140px"}}} -->
+					<figure class="wp-block-image is-resized has-custom-border" style="border-radius:100%"><img style="border-radius:100%;aspect-ratio:1;object-fit:cover;width:140px;height:140px" alt="" /></figure>
 					<!-- /wp:image -->
 
-					<!-- wp:paragraph {"align":"center","className":"is-style-heading","textColor":"white","fontSize":"16"} -->
-					<p class="aligncenter has-text-align-center is-style-heading has-white-color has-text-color has-16-font-size aligncenter"><?php echo esc_html__( 'Tomás Herrera', 'aegis' ); ?></p>
+					<!-- wp:paragraph {"align":"center","className":"is-style-heading","textColor":"neutral-950","fontSize":"16"} -->
+					<p class="aligncenter has-text-align-center is-style-heading has-neutral-950-color has-text-color has-16-font-size aligncenter"><?php echo esc_html__( 'Tomás Herrera', 'aegis' ); ?></p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:paragraph {"align":"center","textColor":"neutral-500","fontSize":"14"} -->
-					<p class="aligncenter has-text-align-center has-neutral-500-color has-text-color has-14-font-size aligncenter"><?php echo esc_html__( 'The Guide', 'aegis' ); ?></p>
+					<!-- wp:paragraph {"align":"center","textColor":"neutral-400","fontSize":"14"} -->
+					<p class="aligncenter has-text-align-center has-neutral-400-color has-text-color has-14-font-size aligncenter"><?php echo esc_html__( 'The Guide', 'aegis' ); ?></p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
@@ -196,16 +196,16 @@
 			<div class="wp-block-column">
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 				<div class="wp-block-group">
-					<!-- wp:image {"width":"140px","height":"140px","scale":"cover","style":{"border":{"radius":"100%"}}} -->
-					<figure class="wp-block-image is-resized has-custom-border"><img style="height:auto;border-radius:100%;object-fit:cover;width:140px;height:140px" alt="" /></figure>
+					<!-- wp:image {"width":"140px","height":"140px","aspectRatio":"1","scale":"cover","style":{"border":{"radius":"100%"},"width":{"all":"140px"}}} -->
+					<figure class="wp-block-image is-resized has-custom-border" style="border-radius:100%"><img style="border-radius:100%;aspect-ratio:1;object-fit:cover;width:140px;height:140px" alt="" /></figure>
 					<!-- /wp:image -->
 
-					<!-- wp:paragraph {"align":"center","className":"is-style-heading","textColor":"white","fontSize":"16"} -->
-					<p class="aligncenter has-text-align-center is-style-heading has-white-color has-text-color has-16-font-size aligncenter"><?php echo esc_html__( 'Maren Solberg', 'aegis' ); ?></p>
+					<!-- wp:paragraph {"align":"center","className":"is-style-heading","textColor":"neutral-950","fontSize":"16"} -->
+					<p class="aligncenter has-text-align-center is-style-heading has-neutral-950-color has-text-color has-16-font-size aligncenter"><?php echo esc_html__( 'Maren Solberg', 'aegis' ); ?></p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:paragraph {"align":"center","textColor":"neutral-500","fontSize":"14"} -->
-					<p class="aligncenter has-text-align-center has-neutral-500-color has-text-color has-14-font-size aligncenter"><?php echo esc_html__( 'Director', 'aegis' ); ?></p>
+					<!-- wp:paragraph {"align":"center","textColor":"neutral-400","fontSize":"14"} -->
+					<p class="aligncenter has-text-align-center has-neutral-400-color has-text-color has-14-font-size aligncenter"><?php echo esc_html__( 'Director', 'aegis' ); ?></p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
@@ -216,8 +216,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:group {"layout":{"type":"constrained","contentSize":"720px"}} -->
 		<div class="wp-block-group">
 			<!-- wp:heading {"textAlign":"center","fontSize":"32"} -->
@@ -284,20 +284,20 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"backgroundColor":"neutral-950","layout":{"type":"constrained","contentSize":"600px"}} -->
-	<div class="wp-block-group alignfull has-neutral-950-background-color has-background" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
-		<!-- wp:heading {"textAlign":"center","textColor":"white","fontSize":"36"} -->
-		<h2 class="wp-block-heading has-text-align-center has-white-color has-text-color has-36-font-size"><?php echo esc_html__( 'Don\'t Miss the Premiere', 'aegis' ); ?></h2>
+	<!-- wp:group {"className":"is-style-dark","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"neutral-0","layout":{"type":"constrained","contentSize":"600px"}} -->
+	<div class="wp-block-group alignfull has-neutral-0-background-color has-background is-style-dark" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
+		<!-- wp:heading {"textAlign":"center","textColor":"neutral-950","fontSize":"36"} -->
+		<h2 class="wp-block-heading has-text-align-center has-neutral-950-color has-text-color has-36-font-size"><?php echo esc_html__( 'Don\'t Miss the Premiere', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:paragraph {"align":"center","textColor":"neutral-400","fontSize":"16"} -->
-		<p class="aligncenter has-text-align-center has-neutral-400-color has-text-color has-16-font-size aligncenter"><?php echo esc_html__( 'Limited seating available. Includes a post-screening Q&A with director Maren Solberg and lead actor Elias Varga.', 'aegis' ); ?></p>
+		<!-- wp:paragraph {"align":"center","textColor":"neutral-500","fontSize":"16"} -->
+		<p class="aligncenter has-text-align-center has-neutral-500-color has-text-color has-16-font-size aligncenter"><?php echo esc_html__( 'Limited seating available. Includes a post-screening Q&A with director Maren Solberg and lead actor Elias Varga.', 'aegis' ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 		<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 			<!-- wp:button {"width":75,"fontSize":"18"} -->
-<div class="wp-block-button has-custom-width wp-block-button__width-75"><a class="wp-block-button__link has-18-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Get Your Tickets Now', 'aegis' ); ?></a></div>
+<div class="wp-block-button has-custom-width wp-block-button__width-75"><a class="wp-block-button__link has-18-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Get Your Tickets Now', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->

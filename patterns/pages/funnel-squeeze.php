@@ -2,7 +2,7 @@
 /**
  * Title: Funnel Squeeze Page
  * Slug: funnel-squeeze
- * Categories: page
+ * Categories: pages
  * Keywords: funnel, squeeze, lead, email, opt-in, woocommerce
  * Description: A high-conversion squeeze page with headline, benefit bullets, and email capture form — uses minimal header/footer.
  * Viewport Width: 1280
@@ -11,13 +11,13 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["page"],"patternName":"funnel-squeeze","name":"Funnel Squeeze Page"},"align":"full","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"categories":["pages"],"patternName":"funnel-squeeze","name":"Funnel Squeeze Page"},"align":"full","layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull">
 
 	<!-- wp:pattern {"slug":"header-store-minimal"} /-->
 
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xxl"}}},"layout":{"type":"constrained","contentSize":"600px"}} -->
-	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xxl);padding-bottom:var(--wp--preset--spacing--xxl)">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xxl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"600px"}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xxl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xxl);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 		<div class="wp-block-group">
 			<!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase","letterSpacing":"2px"}},"textColor":"primary-500","fontSize":"14"} -->
@@ -58,14 +58,16 @@
 
 			<!-- wp:html -->
 			<form style="display:flex;flex-direction:column;gap:12px;width:100%;max-width:480px;margin:0 auto">
-				<input type="text" placeholder="<?php echo esc_attr__( 'Your first name', 'aegis' ); ?>" style="padding:14px 18px;border:1px solid var(--wp--preset--color--neutral-300);border-radius:8px;font-size:16px" required />
-				<input type="email" placeholder="<?php echo esc_attr__( 'Your best email', 'aegis' ); ?>" style="padding:14px 18px;border:1px solid var(--wp--preset--color--neutral-300);border-radius:8px;font-size:16px" required />
+				<label for="funnel-squeeze-name" class="screen-reader-text"><?php echo esc_html__( 'Your first name', 'aegis' ); ?></label>
+				<input type="text" id="funnel-squeeze-name" name="first_name" placeholder="<?php echo esc_attr__( 'Your first name', 'aegis' ); ?>" style="padding:14px 18px;border:1px solid var(--wp--preset--color--neutral-300);border-radius:8px;font-size:16px" required />
+				<label for="funnel-squeeze-email" class="screen-reader-text"><?php echo esc_html__( 'Your best email', 'aegis' ); ?></label>
+				<input type="email" id="funnel-squeeze-email" name="email" placeholder="<?php echo esc_attr__( 'Your best email', 'aegis' ); ?>" style="padding:14px 18px;border:1px solid var(--wp--preset--color--neutral-300);border-radius:8px;font-size:16px" required />
 				<button type="submit" style="padding:16px 24px;background:var(--wp--preset--color--primary-500);color:var(--wp--preset--color--neutral-0);border:none;border-radius:8px;font-size:18px;font-weight:600;cursor:pointer"><?php echo esc_html__( 'Send Me the Free Guide →', 'aegis' ); ?></button>
 			</form>
 			<!-- /wp:html -->
 
-			<!-- wp:paragraph {"align":"center","textColor":"neutral-400","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"}}},"fontSize":"12"} -->
-			<p class="aligncenter has-text-align-center has-neutral-400-color has-text-color has-12-font-size aligncenter" style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'We respect your privacy. Unsubscribe at any time.', 'aegis' ); ?></p>
+			<!-- wp:paragraph {"align":"center","textColor":"neutral-600","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"}}},"fontSize":"12"} -->
+			<p class="aligncenter has-text-align-center has-neutral-600-color has-text-color has-12-font-size aligncenter" style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'We respect your privacy. Unsubscribe at any time.', 'aegis' ); ?></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->

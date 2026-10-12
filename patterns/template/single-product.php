@@ -27,8 +27,6 @@
 		<div class="wp-block-column" style="flex-basis:50%">
 			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 			<div class="wp-block-group">
-				<!-- wp:woocommerce/product-sale-badge {"align":""} /-->
-
 				<!-- wp:post-title {"level":1,"style":{"typography":{"lineHeight":"1.3"}},"fontSize":"32","__woocommerceNamespace":"woocommerce/product-collection/product-title"} /-->
 
 				<!-- wp:woocommerce/product-rating {"isDescendentOfSingleProductTemplate":true} /-->

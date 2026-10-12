@@ -47,7 +47,7 @@
 			<p class="has-neutral-600-color has-text-color has-14-font-size" style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Former VP of Product at a Fortune 500 company. Passionate about building products that make complex things simple.', 'aegis' ); ?></p>
 			<!-- /wp:paragraph -->
 
-			<!-- wp:social-links {"iconColor":"neutral-400","size":"has-small-icon-size","className":"has-icon-color is-style-logos-only","style":{"spacing":{"blockGap":{"left":"16px"},"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex"},"iconColorValue":"#525252"} -->
+			<!-- wp:social-links {"iconColor":"neutral-600","size":"has-small-icon-size","className":"has-icon-color is-style-logos-only","style":{"spacing":{"blockGap":{"left":"16px"},"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex"}} -->
 			<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--sm);">
 				<!-- wp:social-link {"url":"#","service":"linkedin"} /-->
 				<!-- wp:social-link {"url":"#","service":"x"} /-->
@@ -78,7 +78,7 @@
 			<p class="has-neutral-600-color has-text-color has-14-font-size" style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Architected systems serving millions of users. Believes that the best infrastructure is the kind you never have to think about.', 'aegis' ); ?></p>
 			<!-- /wp:paragraph -->
 
-			<!-- wp:social-links {"iconColor":"neutral-400","size":"has-small-icon-size","className":"has-icon-color is-style-logos-only","style":{"spacing":{"blockGap":{"left":"16px"},"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex"},"iconColorValue":"#525252"} -->
+			<!-- wp:social-links {"iconColor":"neutral-600","size":"has-small-icon-size","className":"has-icon-color is-style-logos-only","style":{"spacing":{"blockGap":{"left":"16px"},"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex"}} -->
 			<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--sm);">
 				<!-- wp:social-link {"url":"#","service":"linkedin"} /-->
 				<!-- wp:social-link {"url":"#","service":"github"} /-->
@@ -109,7 +109,7 @@
 			<p class="has-neutral-600-color has-text-color has-14-font-size" style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Award-winning designer who led brand identity for multiple startups. Turns abstract ideas into interfaces people love using.', 'aegis' ); ?></p>
 			<!-- /wp:paragraph -->
 
-			<!-- wp:social-links {"iconColor":"neutral-400","size":"has-small-icon-size","className":"has-icon-color is-style-logos-only","style":{"spacing":{"blockGap":{"left":"16px"},"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex"},"iconColorValue":"#525252"} -->
+			<!-- wp:social-links {"iconColor":"neutral-600","size":"has-small-icon-size","className":"has-icon-color is-style-logos-only","style":{"spacing":{"blockGap":{"left":"16px"},"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex"}} -->
 			<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only" style="margin-top:var(--wp--preset--spacing--sm);">
 				<!-- wp:social-link {"url":"#","service":"linkedin"} /-->
 				<!-- wp:social-link {"url":"#","service":"dribbble"} /-->

@@ -53,6 +53,17 @@ Conventions in Aegis
   attributes so assets survive theme path changes.
 • Utility patterns that should not appear in the inserter: set `Inserter: no`
   and consider a `hidden-` file name prefix (see the main theme README / handbook).
+• Leading-dot filenames (e.g. `.draft.php`) are localhost-only drafts: gitignored,
+  never committed, never documented, never included in theme zips or downloads.
+• Accessibility: one page-level `<h1>` (use `<h2>+` for section/slider titles);
+  associate form controls with labels (`for`/`id` or `aria-label`); use unique
+  field IDs per pattern; do not use placeholder-only inputs; prefer
+  `home_url()` / real paths over `href="#"`; use `neutral-600+` (or the
+  AA-safe `neutral-400` token) for readable muted text on light surfaces;
+  keep slider autoplay off in stock patterns unless a pause control is clear.
+• Template patterns that omit an automatic title (Blank, Page No Title) should
+  document that authors must supply exactly one `<h1>` in content. Blank must
+  include skip-to-content + `<main id="main">` because it has no header.
 
 Export / translation
 ----------------------

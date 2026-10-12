@@ -2,14 +2,14 @@
 /**
  * Title: Feature Alternating
  * Slug: alternating
- * Categories: feature
+ * Categories: featured
  * Keywords: feature, alternating, zigzag, content, image
  * Description: Alternating feature sections with images and text.
  * Viewport Width: 1280
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["feature"],"patternName":"alternating","name":"Feature Alternating"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"categories":["featured"],"patternName":"alternating","name":"Feature Alternating"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
 	<!-- wp:columns {"verticalAlignment":"center","align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|xl"},"margin":{"bottom":"var:preset|spacing|xl"}}}} -->
 	<div class="wp-block-columns alignwide are-vertically-aligned-center" style="margin-bottom:var(--wp--preset--spacing--xl)"><!-- wp:column {"verticalAlignment":"center"} -->

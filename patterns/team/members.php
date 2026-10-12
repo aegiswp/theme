@@ -49,7 +49,7 @@
 				<p class="has-14-font-size" style="margin-bottom:var(--wp--preset--spacing--xxs)"><?php echo esc_html__( 'Guiding the strategic vision. She ensures every project remains true to the core philosophy of reduction, clarity, and purpose.', 'aegis' ); ?></p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:social-links {"iconColor":"neutral-500","iconColorValue":"#6b7280","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
+				<!-- wp:social-links {"iconColor":"neutral-500","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
 				<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
 					<!-- wp:social-link {"url":"#","service":"facebook"} /-->
 
@@ -83,7 +83,7 @@
 				<p class="has-14-font-size" style="margin-bottom:var(--wp--preset--spacing--xxs)"><?php echo esc_html__( 'The guardian of the codebase. He enforces strict performance budgets to guarantee sub-millisecond load times across all deployments.', 'aegis' ); ?></p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:social-links {"iconColor":"neutral-500","iconColorValue":"#6b7280","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
+				<!-- wp:social-links {"iconColor":"neutral-500","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
 				<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
 					<!-- wp:social-link {"url":"#","service":"facebook"} /-->
 
@@ -117,7 +117,7 @@
 				<p class="has-14-font-size" style="margin-bottom:var(--wp--preset--spacing--xxs)"><?php echo esc_html__( 'Crafting the visual vernacular. He builds the scalable token libraries that allow interfaces to adapt seamlessly to any device.', 'aegis' ); ?></p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:social-links {"iconColor":"neutral-500","iconColorValue":"#6b7280","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
+				<!-- wp:social-links {"iconColor":"neutral-500","size":"has-small-icon-size","className":"is-style-logos-only","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
 				<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
 					<!-- wp:social-link {"url":"#","service":"facebook"} /-->
 

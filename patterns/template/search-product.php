@@ -21,7 +21,7 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+	<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
 	<div class="wp-block-group alignwide" style="margin-bottom:var(--wp--preset--spacing--sm)">
 		<!-- wp:woocommerce/product-results-count /-->
 		<!-- wp:woocommerce/catalog-sorting /-->
@@ -154,7 +154,7 @@
 					<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 					<div class="wp-block-buttons">
 						<!-- wp:button {"className":"is-style-outline","fontSize":"14"} -->
-<div class="wp-block-button has-custom-font-size has-14-font-size is-style-outline"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'Browse All Products', 'aegis' ); ?></a></div>
+<div class="wp-block-button has-custom-font-size has-14-font-size is-style-outline"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Browse All Products', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 					</div>
 					<!-- /wp:buttons -->

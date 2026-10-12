@@ -6,6 +6,7 @@
  * Keywords: 404, error, not found, page
  * Description: A 404 error page layout.
  * Viewport Width: 1280
+ * Inserter: false
  * Block Types: core/post-content
  */
 ?>

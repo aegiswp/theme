@@ -56,7 +56,7 @@
 				<!-- wp:buttons -->
 				<div class="wp-block-buttons">
 					<!-- wp:button {"className":"is-style-outline","fontSize":"14"} -->
-<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button" href="#"><?php echo esc_html__( 'View Hotels', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'View Hotels', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->

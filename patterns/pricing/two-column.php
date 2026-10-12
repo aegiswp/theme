@@ -74,7 +74,7 @@
 			<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 			<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 				<!-- wp:button {"width":100,"className":"is-style-ghost"} -->
-<div class="wp-block-button is-style-ghost has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Get Started', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-ghost has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Get Started', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->
@@ -89,8 +89,8 @@
 				<h3 class="wp-block-heading has-24-font-size"><?php echo esc_html__( 'Professional', 'aegis' ); ?></h3>
 				<!-- /wp:heading -->
 
-				<!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"4px","bottom":"4px","left":"12px","right":"12px"}},"border":{"radius":"20px"}},"backgroundColor":"primary-500","textColor":"white","fontSize":"12"} -->
-				<p class="has-white-color has-primary-500-background-color has-text-color has-background has-12-font-size" style="border-radius:20px;padding-top:4px;padding-right:12px;padding-bottom:4px;padding-left:12px"><?php echo esc_html__( 'Popular', 'aegis' ); ?></p>
+				<!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"4px","bottom":"4px","left":"12px","right":"12px"}},"border":{"radius":"20px"}},"backgroundColor":"primary-500","textColor":"neutral-0","fontSize":"12"} -->
+				<p class="has-neutral-0-color has-primary-500-background-color has-text-color has-background has-12-font-size" style="border-radius:20px;padding-top:4px;padding-right:12px;padding-bottom:4px;padding-left:12px"><?php echo esc_html__( 'Popular', 'aegis' ); ?></p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:group -->
@@ -137,7 +137,7 @@
 			<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
 			<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 				<!-- wp:button {"width":100} -->
-<div class="wp-block-button has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Get Started', 'aegis' ); ?></a></div>
+<div class="wp-block-button has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Get Started', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->

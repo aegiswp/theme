@@ -23,7 +23,7 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+	<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
 	<div class="wp-block-group alignwide" style="margin-bottom:var(--wp--preset--spacing--sm)">
 		<!-- wp:woocommerce/product-results-count /-->
 		<!-- wp:woocommerce/catalog-sorting /-->
@@ -150,7 +150,7 @@
 					<!-- /wp:paragraph -->
 
 					<!-- wp:paragraph -->
-					<p><?php echo esc_html__( 'You can try', 'aegis' ); ?> <a href="#" class="wc-link-clear-any-filters"><?php echo esc_html__( 'clearing any filters', 'aegis' ); ?></a> <?php echo esc_html__( 'or head to our', 'aegis' ); ?> <a href="#" class="wc-link-stores-home"><?php echo esc_html__( 'store\'s home', 'aegis' ); ?></a></p>
+					<p><?php echo esc_html__( 'You can try', 'aegis' ); ?> <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="wc-link-clear-any-filters"><?php echo esc_html__( 'clearing any filters', 'aegis' ); ?></a> <?php echo esc_html__( 'or head to our', 'aegis' ); ?> <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="wc-link-stores-home"><?php echo esc_html__( 'store\'s home', 'aegis' ); ?></a></p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
