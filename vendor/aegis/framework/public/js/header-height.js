@@ -1,1 +1,0 @@
-(()=>{const e=document.getElementsByClassName("site-header")[0];if(!e)return;const t=e.clientHeight,s=document.getElementsByClassName("has-header-height");if(s)for(let e=0;e<s.length;e++)s[e].style.height=t+"px"})();
