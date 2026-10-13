@@ -50,20 +50,8 @@ Yes. Templates with a header get an injected skip link. The Blank template has n
 
 == Changelog ==
 
-= Unreleased =
-* Accessibility pass toward WCAG 2.2 AA for shipped demos: Blank template skip link + main landmark; hero slider demotes slide titles to h2 and disables autoplay by default; labeled newsletter/contact demo forms; unique form field IDs; stronger focus-visible styles; search dialog accessible name; reduced-motion for document fade-in and slider autoplay; neutral-400 token darkened for body-text contrast; demo CTA links use home_url instead of href="#"; pa11y CI URL matrix with zero-issue threshold; docs clarify foundation vs full conformance.
-
-= 1.0.0 - 2026-05-29 =
-* Initial public release.
-* Token-based design system with structured colour, type, and spacing scales.
-* 236 block patterns across blog, commerce, events, portfolio, contact, and more.
-* Full WooCommerce integration: cart, checkout, multi-step checkout, my account, wishlist, order confirmation.
-* Dark/light mode toggle via CSS class and cookie.
-* 60+ style variations.
-* RTL support.
-* Accessibility-ready foundations with skip-to-content, ARIA landmarks, and focus management.
-* Embedded Lexend, Lexend Deca, and JetBrains Mono self-hosted fonts (SIL OFL 1.1).
-* Schema.org Article structured data in embed template.
+= 1.0.0 - 2026-10-13 =
+* Initial release.
 
 == Copyright ==
 
