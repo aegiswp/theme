@@ -1,0 +1,104 @@
+/* Newsletter signup — not the header search overlay (see core-blocks/search.css). */
+.is-style-newsletter.wp-block-search {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: stretch;
+	gap: 0 !important;
+	width: 100%;
+	max-width: 100%;
+}
+
+.is-style-newsletter .wp-block-search__icon {
+	display: none;
+}
+
+.is-style-newsletter .wp-block-search__inside-wrapper {
+	position: static;
+	display: flex;
+	flex: 1 1 auto;
+	align-items: stretch;
+	min-width: 0;
+	width: auto !important;
+	gap: 0 !important;
+	margin: 0;
+	padding: 0 !important;
+	border: 0 !important;
+	background: transparent !important;
+	box-shadow: none !important;
+	overflow: visible;
+}
+
+.is-style-newsletter .wp-block-search__input {
+	flex: 1 1 auto;
+	width: 100% !important;
+	min-width: 0;
+	height: auto !important;
+	margin: 0 !important;
+	box-sizing: border-box;
+	border: var(--wp--custom--input--border, var(--wp--custom--border, 1px solid currentColor)) !important;
+	border-radius: var(--wp--custom--border--radius, 0);
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-right-width: 0 !important;
+	padding: var(--wp--custom--button--padding-top, 10px) var(--wp--preset--spacing--sm, 1rem) var(--wp--custom--button--padding-bottom, 10px) var(--wp--preset--spacing--sm, 1rem) !important;
+	line-height: var(--wp--preset--font-size--20, 1.25);
+	background-color: var(--wp--custom--body--background, #fff);
+}
+
+.is-style-newsletter .wp-block-search__button {
+	position: static !important;
+	inset: auto !important;
+	flex: 0 0 auto;
+	align-self: stretch;
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+	margin: 0 !important;
+	height: auto !important;
+	white-space: nowrap;
+	border: var(--wp--custom--input--border, var(--wp--custom--border, 1px solid currentColor)) !important;
+	border-left-width: 0 !important;
+	border-radius: var(--wp--custom--border--radius, 0);
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	background: var(--wp--custom--button--background) !important;
+	color: var(--wp--custom--button--color, inherit) !important;
+	padding: var(--wp--custom--button--padding-top, 10px) var(--wp--custom--button--padding-right, 16px) var(--wp--custom--button--padding-bottom, 10px) var(--wp--custom--button--padding-left, 16px) !important;
+	font-size: var(--wp--custom--button--font-size);
+	font-weight: var(--wp--custom--button--font-weight);
+}
+
+.is-style-newsletter.wp-block-search__button-inside .wp-block-search__inside-wrapper {
+	flex: 1 1 auto;
+	flex-wrap: nowrap;
+	border: var(--wp--custom--input--border, var(--wp--custom--border, 1px solid currentColor));
+	border-radius: var(--wp--custom--border--radius, 0);
+	overflow: hidden;
+}
+
+.is-style-newsletter.wp-block-search__button-inside .wp-block-search__input {
+	padding-right: var(--wp--preset--spacing--sm, 1rem) !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+}
+
+.is-style-newsletter.wp-block-search__button-inside .wp-block-search__button {
+	border: 0 !important;
+	border-radius: 0 !important;
+	border-left: var(--wp--custom--input--border, var(--wp--custom--border, 1px solid currentColor)) !important;
+}
+
+.is-style-newsletter .aegis-newsletter__success {
+	display: none;
+	margin: 0;
+}
+
+.is-style-newsletter.aegis-newsletter--success .aegis-newsletter__success {
+	display: block;
+}
+
+.is-style-newsletter.aegis-newsletter--success .wp-block-search__inside-wrapper,
+.is-style-newsletter.aegis-newsletter--success .wp-block-search__label,
+.is-style-newsletter.aegis-newsletter--success .wp-block-search__button {
+	display: none;
+}

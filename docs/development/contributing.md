@@ -211,12 +211,13 @@ All PRs go through code review:
 
 ### Documentation
 
-Documentation PRs use the `docs/*` branch prefix and typically update:
+Documentation PRs use the `docs/*` branch prefix. Source pages live under `docs/` (not a separate `.wiki/` checkout). See [[documentation|Contributing Documentation]] for folder layout, sidebar wiring, link conventions, and scope rules (theme vs plugin vs Pro).
 
-- Wiki pages (in the `.wiki/` directory).
-- Code comments (PHPDoc, JSDoc).
-- README files.
-- Inline documentation.
+Typical updates:
+
+- Wiki pages in `docs/` (plus `_sidebar.md` / `home.md` when adding pages).
+- Root contributor files (`README.md`, `DESIGN.md`, `INSTRUCTIONS.md`, `readme.txt`).
+- Code comments (PHPDoc, JSDoc) when APIs change.
 
 ### Translations
 
@@ -249,6 +250,7 @@ When reporting bugs:
 
 ## Next Steps
 
+- [[documentation]] — Write and maintain docs under `docs/`.
 - [[development-setup]] — Set up your local environment.
 - [[code-quality]] — Understand coding standards.
 - [[testing]] — Run the test suite.

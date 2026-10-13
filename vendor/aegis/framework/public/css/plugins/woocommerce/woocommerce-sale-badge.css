@@ -1,0 +1,72 @@
+/* Rectangular sale chip — replaces WooCommerce’s circular “Sale!” flash. */
+
+.woocommerce span.onsale,
+.wc-block-components-product-sale-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	min-height: 0;
+	min-width: 0;
+	width: fit-content;
+	height: auto;
+	margin: 0;
+	padding: 0.35em 0.65em;
+	border: 0;
+	border-radius: var(--wp--custom--border--radius, 4px);
+	background-color: var(--wp--custom--body--color, var(--wp--preset--color--neutral-700, #404040));
+	color: var(--wp--custom--body--background, var(--wp--preset--color--neutral-0, #fff));
+	font-size: 0.75em;
+	font-weight: var(--wp--custom--font-weight--semibold, 600);
+	letter-spacing: 0.02em;
+	line-height: 1.2;
+	text-align: center;
+	text-transform: uppercase;
+	box-shadow: none;
+	z-index: 9;
+}
+
+.woocommerce span.onsale {
+	position: absolute;
+	top: 0.75em;
+	left: 0.75em;
+	right: auto;
+}
+
+.woocommerce ul.products li.product .onsale,
+.woocommerce-page ul.products li.product .onsale {
+	top: 0.75em;
+	right: 0.75em;
+	left: auto;
+	margin: 0;
+}
+
+.wc-block-components-product-sale-badge {
+	position: static;
+}
+
+.wc-block-components-product-sale-badge span,
+.wc-block-components-product-sale-badge__text {
+	background: transparent;
+	color: inherit;
+	border: 0;
+}
+
+.wc-block-components-product-image .wc-block-components-product-sale-badge--align-left {
+	top: 0.75em;
+	left: 0.75em;
+	right: auto;
+}
+
+.wc-block-components-product-image .wc-block-components-product-sale-badge--align-right {
+	top: 0.75em;
+	right: 0.75em;
+	left: auto;
+}
+
+.wc-block-components-product-image .wc-block-components-product-sale-badge--align-center {
+	top: 0.75em;
+	left: 50%;
+	right: auto;
+	transform: translateX(-50%);
+}

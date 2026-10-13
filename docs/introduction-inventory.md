@@ -66,7 +66,7 @@ The wide size in `theme.json` is 1152px. Older README copy that says 1620px is o
 | Error | 3: 100, 500, 600 |
 | Utility | Transparent, Current, Inherit, Shadow |
 
-Default page background is `#fcf9f5`. Default text is Neutral 700. Body type is Lexend at 16px, normal weight, line-height 1.6. Block gap is the S spacing preset. Root horizontal padding is the L spacing preset.
+Default page background is Neutral 0 (`#ffffff`). Default text is Neutral 700. Body type is Lexend at 16px, normal weight, line-height 1.6. Block gap is the S spacing preset. Root horizontal padding is the L spacing preset.
 
 **10 duotones:** Primary Dark/Light, Primary Dark/Mid, Neutral Dark/Light, Neutral Dark/Warm, Success Dark/Light, Success Dark/Bright, Warning Dark/Light, Warning Dark/Bright, Error Dark/Light, Error Dark/Bright.
 

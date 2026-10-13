@@ -1,0 +1,7 @@
+.wp-block-code.is-style-dark,
+.wp-block-column.is-style-dark,
+.wp-block-columns.is-style-dark,
+.wp-block-group.is-style-dark {
+	background-color: var(--wp--preset--color--neutral-0);
+	color: var(--wp--preset--color--neutral-950);
+}

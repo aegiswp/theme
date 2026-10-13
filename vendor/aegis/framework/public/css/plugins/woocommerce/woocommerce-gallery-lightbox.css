@@ -1,0 +1,268 @@
+/* Match Core / Aegis image lightbox on WooCommerce product galleries.
+ * Product pages often omit core/image block CSS, so overlay rules are inlined here. */
+
+.woocommerce-product-gallery__image .aegis-lightbox-media,
+.woocommerce-product-gallery__image .aegis-wc-lightbox {
+	position: relative;
+	display: block;
+	width: 100%;
+	max-width: 100%;
+}
+
+.woocommerce-product-gallery__image .aegis-wc-lightbox a {
+	display: block;
+	line-height: 0;
+	cursor: zoom-in;
+}
+
+/* Core `.wp-lightbox-container button` look */
+.woocommerce-product-gallery__image .lightbox-trigger,
+.woocommerce-product-gallery__image .aegis-wc-lightbox-trigger {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	padding: 0;
+	border: none;
+	border-radius: 4px;
+	opacity: 0;
+	cursor: zoom-in;
+	color: #fff;
+	background-color: rgba(90, 90, 90, 0.25);
+	backdrop-filter: blur(16px) saturate(180%);
+	text-align: center;
+	transition: opacity 0.2s ease;
+}
+
+.woocommerce-product-gallery__image .aegis-wc-lightbox:hover .aegis-wc-lightbox-trigger,
+.woocommerce-product-gallery__image .aegis-wc-lightbox:focus-within .aegis-wc-lightbox-trigger,
+.woocommerce-product-gallery__image .lightbox-trigger:hover,
+.woocommerce-product-gallery__image .lightbox-trigger:focus,
+.woocommerce-product-gallery__image .lightbox-trigger:focus-visible,
+.woocommerce-product-gallery__image .aegis-wc-lightbox-trigger:hover,
+.woocommerce-product-gallery__image .aegis-wc-lightbox-trigger:focus,
+.woocommerce-product-gallery__image .aegis-wc-lightbox-trigger:focus-visible {
+	opacity: 1;
+	outline: none;
+	background-color: rgba(90, 90, 90, 0.25);
+	border: none;
+	cursor: pointer;
+}
+
+.woocommerce-product-gallery__image .lightbox-trigger:focus-visible,
+.woocommerce-product-gallery__image .aegis-wc-lightbox-trigger:focus-visible {
+	outline: 3px auto rgba(90, 90, 90, 0.25);
+	outline: 3px auto -webkit-focus-ring-color;
+	outline-offset: 3px;
+}
+
+.woocommerce-product-gallery__image .lightbox-trigger svg,
+.woocommerce-product-gallery__image .aegis-wc-lightbox-trigger svg {
+	display: block;
+	width: 12px;
+	height: 12px;
+}
+
+/* Flexslider thumbs stay compact; hide expand control on strip clones. */
+.woocommerce-product-gallery .flex-control-nav .lightbox-trigger,
+.woocommerce-product-gallery .flex-control-thumbs .lightbox-trigger,
+.woocommerce-product-gallery .flex-control-nav .aegis-wc-lightbox-trigger,
+.woocommerce-product-gallery .flex-control-thumbs .aegis-wc-lightbox-trigger {
+	display: none;
+}
+
+/* —— Overlay (Core `.wp-lightbox-overlay` essentials) —— */
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100000;
+	overflow: hidden;
+	width: 100%;
+	height: 100vh;
+	box-sizing: border-box;
+	visibility: hidden;
+	cursor: zoom-out;
+}
+
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay.active {
+	visibility: visible;
+}
+
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay button {
+	border: none;
+	background: none;
+}
+
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay .scrim {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 2000000;
+	background-color: var(--wp--custom--body--background, var(--wp--preset--color--neutral-0, #fff));
+	opacity: 0.9;
+}
+
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay .wp-lightbox-close-button {
+	font-family: inherit;
+	position: absolute;
+	top: calc(env(safe-area-inset-top) + 16px);
+	right: calc(env(safe-area-inset-right) + 16px);
+	padding: 0 4px;
+	cursor: pointer;
+	z-index: 5000000;
+	min-width: 40px;
+	min-height: 40px;
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
+	fill: var(--wp--custom--body--color, var(--wp--preset--color--neutral-700, currentColor));
+	color: var(--wp--custom--body--color, var(--wp--preset--color--neutral-700, currentColor));
+}
+
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay .wp-lightbox-close-button:hover,
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay .wp-lightbox-close-button:focus {
+	background: none;
+	border: none;
+}
+
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay .wp-lightbox-close-icon svg {
+	display: block;
+	fill: currentColor;
+}
+
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay .wp-lightbox-navigation-button-prev,
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay .wp-lightbox-navigation-button-next {
+	position: absolute;
+	padding: 0 8px;
+	z-index: 2000002;
+	font-family: inherit;
+	min-width: 40px;
+	min-height: 40px;
+	gap: 4px;
+	display: flex;
+	cursor: pointer;
+	align-items: center;
+	justify-content: center;
+	bottom: 16px;
+	line-height: 1;
+	fill: var(--wp--custom--body--color, var(--wp--preset--color--neutral-700, currentColor));
+	color: var(--wp--custom--body--color, var(--wp--preset--color--neutral-700, currentColor));
+}
+
+@media (min-width: 960px) {
+	.wp-lightbox-overlay.aegis-wc-lightbox-overlay .wp-lightbox-navigation-button-prev,
+	.wp-lightbox-overlay.aegis-wc-lightbox-overlay .wp-lightbox-navigation-button-next {
+		bottom: 50%;
+		transform: translateY(-50%);
+	}
+}
+
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay .wp-lightbox-navigation-button-prev:hover,
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay .wp-lightbox-navigation-button-prev:focus,
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay .wp-lightbox-navigation-button-next:hover,
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay .wp-lightbox-navigation-button-next:focus {
+	background: none;
+	border: none;
+	padding: 0 8px;
+}
+
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay .wp-lightbox-navigation-button-prev {
+	left: calc(env(safe-area-inset-left) + 16px);
+}
+
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay .wp-lightbox-navigation-button-next {
+	right: calc(env(safe-area-inset-right) + 16px);
+}
+
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay .wp-lightbox-navigation-icon svg {
+	vertical-align: middle;
+	fill: currentColor;
+}
+
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay .lightbox-image-container {
+	position: absolute;
+	overflow: hidden;
+	top: 50%;
+	left: 50%;
+	transform-origin: top left;
+	transform: translate(-50%, -50%);
+	width: var(--wp--lightbox-container-width, min(92vw, 1200px));
+	height: var(--wp--lightbox-container-height, min(88vh, 900px));
+	z-index: 2000001;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay .wp-block-image {
+	position: relative;
+	transform-origin: 0 0;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	z-index: 3000000;
+	margin: 0;
+}
+
+.wp-lightbox-overlay.aegis-wc-lightbox-overlay .wp-block-image img {
+	min-width: 0;
+	min-height: 0;
+	width: auto;
+	height: auto;
+	max-width: min(92vw, 1200px);
+	max-height: min(88vh, 900px);
+	object-fit: contain;
+}
+
+@media not (prefers-reduced-motion) {
+	.wp-lightbox-overlay.aegis-wc-lightbox-overlay.active {
+		animation: both aegis-wc-lightbox-on 0.25s;
+	}
+
+	.wp-lightbox-overlay.aegis-wc-lightbox-overlay.active img {
+		animation: both aegis-wc-lightbox-on 0.35s;
+	}
+
+	.wp-lightbox-overlay.aegis-wc-lightbox-overlay.show-closing-animation:not(.active) {
+		animation: both aegis-wc-lightbox-off 0.35s;
+	}
+
+	.wp-lightbox-overlay.aegis-wc-lightbox-overlay.show-closing-animation:not(.active) img {
+		animation: both aegis-wc-lightbox-off 0.25s;
+	}
+}
+
+@keyframes aegis-wc-lightbox-on {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes aegis-wc-lightbox-off {
+	0% {
+		opacity: 1;
+		visibility: visible;
+	}
+	99% {
+		opacity: 0;
+		visibility: visible;
+	}
+	100% {
+		opacity: 0;
+		visibility: hidden;
+	}
+}

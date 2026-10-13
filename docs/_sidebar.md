@@ -66,6 +66,7 @@ Plugin-owned docs (not duplicated here):
 - [[code-quality|Code Quality]]
 - [[testing|Testing]]
 - [[contributing|Contributing]]
+- [[documentation|Contributing Documentation]]
 - [[deployment|Deployment]]
 - [[architecture|Architecture]]
 

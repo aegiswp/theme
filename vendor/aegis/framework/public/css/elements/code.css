@@ -1,0 +1,38 @@
+code {
+	font-family: var(
+		--wp--preset--font-family--jetbrains,
+		var(--wp--preset--font-family--monospace, monospace)
+	);
+}
+
+code p {
+	white-space: normal;
+}
+
+/* Inline code (not fenced / Code block markup). Match surrounding text size. */
+:where(:not(pre) > code) {
+	font-size: 1em;
+	position: relative;
+	padding: 0.1em 0.2em;
+	border-radius: 0.3em;
+	color: var(--wp--preset--color--neutral-900, currentColor);
+	background-color: var(--wp--preset--color--neutral-100, #f5f5f5);
+	box-shadow: none;
+}
+
+/* Linked inline code: keep a light surface so hover contrast stays readable. */
+:where(a > code),
+:where(code > a) {
+	color: inherit;
+	background-color: var(--wp--preset--color--neutral-100, #f5f5f5);
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
+:where(a:hover > code),
+:where(a:focus-visible > code),
+:where(code > a:hover),
+:where(code > a:focus-visible) {
+	color: var(--wp--preset--color--neutral-950, #0a0a0a);
+	background-color: var(--wp--preset--color--neutral-200, #e5e5e5);
+}

@@ -1,0 +1,88 @@
+.wp-block-icon {
+	line-height: 0;
+	color: var(--wp--custom--icon--color, currentColor);
+}
+
+.wp-block-icon svg {
+	display: block;
+	box-sizing: border-box;
+	width: var(--wp--custom--icon--size, 1.5em);
+	height: auto;
+	aspect-ratio: 1;
+	fill: currentColor;
+	color: inherit;
+	overflow: visible;
+}
+
+.wp-block-icon svg[fill="none"] {
+	fill: none;
+	stroke: currentColor;
+}
+
+.wp-block-icon svg [fill="none"] {
+	fill: none;
+}
+
+/* Only paint strokes that are intentionally set — ignore stroke="none". */
+.wp-block-icon svg [stroke]:not([stroke="none"]):not([fill]),
+.wp-block-icon svg [fill="none"][stroke]:not([stroke="none"]) {
+	stroke: currentColor;
+}
+
+.wp-block-icon.has-gradient::after {
+	content: "";
+	display: inline-block;
+	position: relative;
+	background: var(--wp--custom--icon--color, currentColor);
+	height: var(--wp--custom--icon--size, 1.5em);
+	width: var(--wp--custom--icon--size, 1.5em);
+	vertical-align: text-bottom;
+	-webkit-mask-image: var(--wp--custom--icon--url);
+	-webkit-mask-position: center;
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-size: cover !important;
+	mask-image: var(--wp--custom--icon--url);
+	mask-position: center;
+	mask-repeat: no-repeat;
+	mask-size: cover;
+}
+
+.wp-block-icon.has-gradient svg {
+	display: none;
+}
+
+.wp-block-icon.has-animation {
+	will-change: transform, opacity;
+}
+
+a>.wp-block-icon {
+	display: inline-block;
+}
+
+.wp-block-template-part > svg[data-icon] {
+	display: block;
+	fill: currentColor;
+	color: inherit;
+	height: auto;
+	aspect-ratio: 1;
+}
+
+/* Payment icons: keep 3:2 Visa cards; never stroke the SVG frame */
+.aegis-payment-icons .wp-block-icon {
+	--aegis-payment-icon-width: var(--wp--custom--icon--size, 48px);
+	line-height: 0;
+	flex: 0 0 var(--aegis-payment-icon-width);
+	width: var(--aegis-payment-icon-width);
+	max-width: var(--aegis-payment-icon-width);
+}
+
+.aegis-payment-icons .wp-block-icon svg,
+.aegis-payment-icons svg[data-icon^="payment"],
+.aegis-payment-icons svg[data-icon^="payment-brand"] {
+	width: var(--aegis-payment-icon-width, 48px) !important;
+	min-width: var(--aegis-payment-icon-width, 48px) !important;
+	max-width: var(--aegis-payment-icon-width, 48px) !important;
+	height: auto !important;
+	aspect-ratio: 3 / 2 !important;
+	stroke: none !important;
+}

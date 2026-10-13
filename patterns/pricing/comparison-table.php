@@ -14,11 +14,11 @@
 	<!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"600px"}} -->
 	<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--lg)">
 		<!-- wp:paragraph {"align":"center","className":"is-style-sub-heading"} -->
-		<p class="aligncenter has-text-align-center is-style-sub-heading aligncenter"><?php echo esc_html__( 'Compare Plans', 'aegis' ); ?></p>
+		<p class="aligncenter has-text-align-center is-style-sub-heading aligncenter"><?php echo esc_html__( 'Compare Retainers', 'aegis' ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:heading {"textAlign":"center","fontSize":"40"} -->
-		<h2 class="wp-block-heading has-text-align-center has-40-font-size"><?php echo esc_html__( 'Find the Right Fit', 'aegis' ); ?></h2>
+		<h2 class="wp-block-heading has-text-align-center has-40-font-size"><?php echo esc_html__( 'Find the Right Creative Fit', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
 	</div>
 	<!-- /wp:group -->
@@ -32,61 +32,61 @@
 					<tr>
 						<th><?php echo esc_html__( 'Feature', 'aegis' ); ?></th>
 						<th class="has-text-align-center" data-align="center"><?php echo esc_html__( 'Starter', 'aegis' ); ?></th>
-						<th class="has-text-align-center" data-align="center"><?php echo esc_html__( 'Professional', 'aegis' ); ?></th>
-						<th class="has-text-align-center" data-align="center"><?php echo esc_html__( 'Enterprise', 'aegis' ); ?></th>
+						<th class="has-text-align-center" data-align="center"><?php echo esc_html__( 'Studio', 'aegis' ); ?></th>
+						<th class="has-text-align-center" data-align="center"><?php echo esc_html__( 'Agency', 'aegis' ); ?></th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td><?php echo esc_html__( 'Projects', 'aegis' ); ?></td>
-						<td class="has-text-align-center" data-align="center"><?php echo esc_html__( '3', 'aegis' ); ?></td>
-						<td class="has-text-align-center" data-align="center"><?php echo esc_html__( '25', 'aegis' ); ?></td>
-						<td class="has-text-align-center" data-align="center"><?php echo esc_html__( 'Unlimited', 'aegis' ); ?></td>
-					</tr>
-					<tr>
-						<td><?php echo esc_html__( 'Team members', 'aegis' ); ?></td>
+						<td><?php echo esc_html__( 'Brands included', 'aegis' ); ?></td>
 						<td class="has-text-align-center" data-align="center"><?php echo esc_html__( '1', 'aegis' ); ?></td>
-						<td class="has-text-align-center" data-align="center"><?php echo esc_html__( '10', 'aegis' ); ?></td>
+						<td class="has-text-align-center" data-align="center"><?php echo esc_html__( '5', 'aegis' ); ?></td>
 						<td class="has-text-align-center" data-align="center"><?php echo esc_html__( 'Unlimited', 'aegis' ); ?></td>
 					</tr>
 					<tr>
-						<td><?php echo esc_html__( 'Storage', 'aegis' ); ?></td>
-						<td class="has-text-align-center" data-align="center"><?php echo esc_html__( '5 GB', 'aegis' ); ?></td>
-						<td class="has-text-align-center" data-align="center"><?php echo esc_html__( '100 GB', 'aegis' ); ?></td>
-						<td class="has-text-align-center" data-align="center"><?php echo esc_html__( '1 TB', 'aegis' ); ?></td>
+						<td><?php echo esc_html__( 'Design hours / month', 'aegis' ); ?></td>
+						<td class="has-text-align-center" data-align="center"><?php echo esc_html__( '8', 'aegis' ); ?></td>
+						<td class="has-text-align-center" data-align="center"><?php echo esc_html__( '20', 'aegis' ); ?></td>
+						<td class="has-text-align-center" data-align="center"><?php echo esc_html__( '40', 'aegis' ); ?></td>
 					</tr>
 					<tr>
-						<td><?php echo esc_html__( 'Custom domains', 'aegis' ); ?></td>
-						<td class="has-text-align-center" data-align="center">&#x2014;</td>
-						<td class="has-text-align-center" data-align="center">&#x2714;</td>
-						<td class="has-text-align-center" data-align="center">&#x2714;</td>
+						<td><?php echo esc_html__( 'Revision rounds', 'aegis' ); ?></td>
+						<td class="has-text-align-center" data-align="center"><?php echo esc_html__( '2', 'aegis' ); ?></td>
+						<td class="has-text-align-center" data-align="center"><?php echo esc_html__( 'Priority', 'aegis' ); ?></td>
+						<td class="has-text-align-center" data-align="center"><?php echo esc_html__( 'Unlimited', 'aegis' ); ?></td>
 					</tr>
 					<tr>
-						<td><?php echo esc_html__( 'API access', 'aegis' ); ?></td>
-						<td class="has-text-align-center" data-align="center">&#x2014;</td>
+						<td><?php echo esc_html__( 'Brand guidelines kit', 'aegis' ); ?></td>
 						<td class="has-text-align-center" data-align="center">&#x2714;</td>
-						<td class="has-text-align-center" data-align="center">&#x2714;</td>
-					</tr>
-					<tr>
-						<td><?php echo esc_html__( 'Advanced analytics', 'aegis' ); ?></td>
-						<td class="has-text-align-center" data-align="center">&#x2014;</td>
 						<td class="has-text-align-center" data-align="center">&#x2714;</td>
 						<td class="has-text-align-center" data-align="center">&#x2714;</td>
 					</tr>
 					<tr>
-						<td><?php echo esc_html__( 'Priority support', 'aegis' ); ?></td>
+						<td><?php echo esc_html__( 'Source files', 'aegis' ); ?></td>
+						<td class="has-text-align-center" data-align="center">&#x2014;</td>
+						<td class="has-text-align-center" data-align="center">&#x2714;</td>
+						<td class="has-text-align-center" data-align="center">&#x2714;</td>
+					</tr>
+					<tr>
+						<td><?php echo esc_html__( 'Monthly strategy call', 'aegis' ); ?></td>
+						<td class="has-text-align-center" data-align="center">&#x2014;</td>
+						<td class="has-text-align-center" data-align="center">&#x2714;</td>
+						<td class="has-text-align-center" data-align="center">&#x2714;</td>
+					</tr>
+					<tr>
+						<td><?php echo esc_html__( 'Dedicated creative lead', 'aegis' ); ?></td>
 						<td class="has-text-align-center" data-align="center">&#x2014;</td>
 						<td class="has-text-align-center" data-align="center">&#x2014;</td>
 						<td class="has-text-align-center" data-align="center">&#x2714;</td>
 					</tr>
 					<tr>
-						<td><?php echo esc_html__( 'SSO / SAML', 'aegis' ); ?></td>
+						<td><?php echo esc_html__( 'Rush turnaround', 'aegis' ); ?></td>
 						<td class="has-text-align-center" data-align="center">&#x2014;</td>
 						<td class="has-text-align-center" data-align="center">&#x2014;</td>
 						<td class="has-text-align-center" data-align="center">&#x2714;</td>
 					</tr>
 					<tr>
-						<td><?php echo esc_html__( 'White-label', 'aegis' ); ?></td>
+						<td><?php echo esc_html__( 'Shared Slack channel', 'aegis' ); ?></td>
 						<td class="has-text-align-center" data-align="center">&#x2014;</td>
 						<td class="has-text-align-center" data-align="center">&#x2014;</td>
 						<td class="has-text-align-center" data-align="center">&#x2714;</td>
@@ -95,9 +95,9 @@
 				<tfoot>
 					<tr>
 						<td></td>
-						<td class="has-text-align-center" data-align="center"><strong><?php echo esc_html__( '$0/mo', 'aegis' ); ?></strong></td>
 						<td class="has-text-align-center" data-align="center"><strong><?php echo esc_html__( '$49/mo', 'aegis' ); ?></strong></td>
-						<td class="has-text-align-center" data-align="center"><strong><?php echo esc_html__( '$199/mo', 'aegis' ); ?></strong></td>
+						<td class="has-text-align-center" data-align="center"><strong><?php echo esc_html__( '$129/mo', 'aegis' ); ?></strong></td>
+						<td class="has-text-align-center" data-align="center"><strong><?php echo esc_html__( '$249/mo', 'aegis' ); ?></strong></td>
 					</tr>
 				</tfoot>
 			</table>

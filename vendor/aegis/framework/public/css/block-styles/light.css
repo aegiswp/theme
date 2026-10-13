@@ -1,0 +1,7 @@
+.wp-block-code.is-style-light,
+.wp-block-column.is-style-light,
+.wp-block-columns.is-style-light,
+.wp-block-group.is-style-light {
+	background-color: var(--wp--preset--color--neutral-0);
+	color: var(--wp--preset--color--neutral-950);
+}

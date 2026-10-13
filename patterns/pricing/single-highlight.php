@@ -14,15 +14,15 @@
 	<!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"600px"}} -->
 	<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--lg)">
 		<!-- wp:paragraph {"align":"center","className":"is-style-sub-heading"} -->
-		<p class="aligncenter has-text-align-center is-style-sub-heading aligncenter"><?php echo esc_html__( 'Pricing', 'aegis' ); ?></p>
+		<p class="aligncenter has-text-align-center is-style-sub-heading aligncenter"><?php echo esc_html__( 'Retainers', 'aegis' ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:heading {"textAlign":"center","fontSize":"40"} -->
-		<h2 class="wp-block-heading has-text-align-center has-40-font-size"><?php echo esc_html__( 'One Plan, Everything Included', 'aegis' ); ?></h2>
+		<h2 class="wp-block-heading has-text-align-center has-40-font-size"><?php echo esc_html__( 'One Retainer, Full Creative Support', 'aegis' ); ?></h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"align":"center","textColor":"neutral-600"} -->
-		<p class="aligncenter has-text-align-center has-neutral-600-color has-text-color aligncenter"><?php echo esc_html__( 'No tiers, no upsells. Get the full platform at one transparent price.', 'aegis' ); ?></p>
+		<p class="aligncenter has-text-align-center has-neutral-600-color has-text-color aligncenter"><?php echo esc_html__( 'No upsells. Get our Studio retainer—hours, revisions, and source files—at one transparent price.', 'aegis' ); ?></p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->
@@ -34,7 +34,7 @@
 			<!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"bottom","justifyContent":"center"}} -->
 			<div class="wp-block-group">
 				<!-- wp:paragraph {"className":"wp-block-heading is-style-heading","style":{"typography":{"lineHeight":"1"}},"fontSize":"72"} -->
-				<p class="wp-block-heading is-style-heading has-72-font-size" style="line-height:1"><sup>$</sup>99</p>
+				<p class="wp-block-heading is-style-heading has-72-font-size" style="line-height:1"><sup>$</sup>129</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:paragraph -->
@@ -44,7 +44,7 @@
 			<!-- /wp:group -->
 
 			<!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"}}},"textColor":"neutral-500","fontSize":"14"} -->
-			<p class="aligncenter has-text-align-center has-neutral-500-color has-text-color has-14-font-size aligncenter" style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Billed annually. Cancel anytime.', 'aegis' ); ?></p>
+			<p class="aligncenter has-text-align-center has-neutral-500-color has-text-color has-14-font-size aligncenter" style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Billed monthly. Pause or cancel anytime.', 'aegis' ); ?></p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:separator {"style":{"border":{"width":"1px"}},"textColor":"neutral-200"} -->
@@ -58,19 +58,19 @@
 					<!-- wp:list {"className":"is-style-checklist","style":{"spacing":{"blockGap":"var:preset|spacing|xs"}}} -->
 					<ul class="wp-block-list is-style-checklist">
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Unlimited projects', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( 'Up to 5 brands', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Priority support', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( '20 design hours / month', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Custom domains', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( 'Priority revisions', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Advanced analytics', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( 'Source files included', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 					</ul>
 					<!-- /wp:list -->
@@ -82,19 +82,19 @@
 					<!-- wp:list {"className":"is-style-checklist","style":{"spacing":{"blockGap":"var:preset|spacing|xs"}}} -->
 					<ul class="wp-block-list is-style-checklist">
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Team collaboration', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( 'Brand guidelines kit', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'API access', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( 'Shared feedback board', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'White-label option', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( 'Monthly strategy call', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'SSO integration', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( 'Email & chat support', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 					</ul>
 					<!-- /wp:list -->
@@ -106,7 +106,7 @@
 			<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 			<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 				<!-- wp:button {"backgroundColor":"neutral-800","width":100,"className":"is-style-fill","fontSize":"16"} -->
-<div class="wp-block-button is-style-fill has-custom-width wp-block-button__width-100"><a class="wp-block-button__link has-neutral-800-background-color has-background has-16-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Get Started Today', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-fill has-custom-width wp-block-button__width-100"><a class="wp-block-button__link has-neutral-800-background-color has-background has-16-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Start Studio Retainer', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->

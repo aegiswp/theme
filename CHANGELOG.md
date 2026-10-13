@@ -7,8 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Design
+
+- Default light page background uses `neutral-0` (`#ffffff`) instead of the cream `#fcf9f5` hex. Primary remains Tailwind Zinc; Neutral remains Tailwind Neutral (`neutral-400` stays `#666666` for AA muted text).
+- Style variations (`styles/*.json`): Neutral family corrected from Tailwind Gray to theme Neutral (incl. AA `neutral-400`); missing Info `100`/`500`/`600` tokens added; `warning-100` aligned to theme `#feeac7`; Grayscale primary aligned to Tailwind Gray.
+- Pill badges (home RELEASE, pricing Popular/Most Popular): `line-height: 1` and balanced vertical padding. Sub-heading style defaults to `line-height: 1.25` (and `1` when it has a background) so uppercase pills no longer inherit body `1.6`.
+
 ### Patterns
 
+- Pricing demo copy reframed as Creative Studio retainers (Starter / Studio / Agency) across `patterns/pricing/*` and the home pricing section — no longer theme-product licensing language.
 - Removed theme `patterns/modal/` drafts. Modal starters register only from the companion plugin (`aegis/modal-*` when the Modal block is enabled).
 
 ### CI / developer tooling

@@ -9,18 +9,17 @@
 
 <!-- wp:group {"metadata":{"name":"Page Home"},"align":"full","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull">
- <!-- wp:group {"lock":{"move":false,"remove":false},"metadata":{"categories":["hero"],"patternName":"home","name":"Hero"},"align":"full","className":"is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"},"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"layout":{"type":"constrained"},"onclick":""} -->
+ <!-- wp:group {"lock":{"move":false,"remove":false},"metadata":{"categories":["hero"],"patternName":"home","name":"Hero"},"align":"full","className":"is-style-default","style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"},"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"layout":{"type":"constrained"},"onclick":""} -->
  <div class="wp-block-group alignfull is-style-default"
- style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
- <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"640px"}} -->
+ style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
+ <!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"var:preset|spacing|md","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"640px"}} -->
  <div class="wp-block-group"
- style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--lg)">
+ style="padding-top:0;padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--lg)">
  <!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
  <div class="wp-block-group">
- <!-- wp:paragraph {"align":"center","className":"is-style-sub-heading","style":{"border":{"width":"1px"},"spacing":{"padding":{"right":"var:preset|spacing|xs","left":"var:preset|spacing|xs"},"margin":{"bottom":"var:preset|spacing|xs"}}},"backgroundColor":"neutral-950","textColor":"primary-25","borderColor":"neutral-950"} -->
- <p class="has-text-align-center is-style-sub-heading has-border-color has-neutral-950-border-color has-primary-25-color has-neutral-950-background-color has-text-color has-background"
- style="border-width:1px;margin-bottom:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)">
- <?php echo esc_html__( 'RELEASE V1.0.0', 'aegis' ); ?></p>
+ <!-- wp:paragraph {"align":"center","className":"is-style-sub-heading","style":{"border":{"width":"1px","radius":"99px"},"spacing":{"padding":{"top":"6px","bottom":"6px","right":"var:preset|spacing|xs","left":"var:preset|spacing|xs"},"margin":{"top":"0","bottom":"var:preset|spacing|xs"}},"typography":{"lineHeight":"1"}},"backgroundColor":"neutral-950","textColor":"primary-25","borderColor":"neutral-950","fontSize":"12"} -->
+ <p class="has-text-align-center is-style-sub-heading has-border-color has-neutral-950-border-color has-primary-25-color has-neutral-950-background-color has-text-color has-background has-12-font-size"
+ style="border-width:1px;border-radius:99px;margin-top:0;margin-bottom:var(--wp--preset--spacing--xs);padding-top:6px;padding-right:var(--wp--preset--spacing--xs);padding-bottom:6px;padding-left:var(--wp--preset--spacing--xs);line-height:1"><?php echo esc_html__( 'RELEASE V1.0.0', 'aegis' ); ?></p>
  <!-- /wp:paragraph -->
 
  <!-- wp:icon {"icon":"social/aegis","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-1.5 -1.5 27 27\" fill=\"currentColor\" role=\"img\" aria-labelledby=\"icon-hero-aegis\" data-icon=\"social-aegis\" style=\"min-width:120px;height:120px\"><title id=\"icon-hero-aegis\">Aegis Icon</title><path d=\"M10.06 7.75 L12.02 3.87 L13.95 7.72 L16.65 9.29 L12.03 0 L7.34 9.3 L10.06 7.75 Z M18.37 12.72 L18.2 12.36 L15.5 10.79 L17.02 13.68 L20.05 18.61 L12.02 15.17 L3.98 18.62 L6.96 13.68 L8.39 10.81 L5.67 12.39 L5.5 12.71 L0 22.87 L12.01 16.87 L24 22.94 L18.37 12.72 Z\" fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\"></path></svg>","style":{"dimensions":{"width":"120px"}}} /-->
@@ -45,7 +44,7 @@
 
  <!-- wp:button {"backgroundColor":"neutral-800","onclick":"","size":"large","iconSet":"wordpress","iconName":"pages","iconSize":"15px","iconPosition":"end","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-labelledby=\"icon-696222c2e1e7c\" data-icon=\"wordpress-pages\" width=\"24\" height=\"24\" fill=\"currentColor\"><title id=\"icon-696222c2e1e7c\">Pages Icon</title><path d=\"M7 13.8h6v-1.5H7v1.5zM18 16V4c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2zM5.5 16V4c0-.3.2-.5.5-.5h10c.3 0 .5.2.5.5v12c0 .3-.2.5-.5.5H6c-.3 0-.5-.2-.5-.5zM7 10.5h8V9H7v1.5zm0-3.3h8V5.8H7v1.4zM20.2 6v13c0 .7-.6 1.2-1.2 1.2H8v1.5h11c1.5 0 2.7-1.2 2.7-2.8V6h-1.5z\"></path></svg>"} -->
  <div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button"
- href="https://developer.wordpress.org/themes/block-themes/" target="_blank"
+ href="https://github.com/aegiswp/theme/wiki" target="_blank"
  rel="noreferrer noopener nofollow"><?php echo esc_html__( 'Read Docs', 'aegis' ); ?></a></div>
  <!-- /wp:button -->
  </div>
@@ -384,7 +383,7 @@
  style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
  <!-- wp:columns {"verticalAlignment":"center","align":"wide","className":"is-reverse-on-mobile is-reverse-mobile","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|lg","left":"var:preset|spacing|lg"},"padding":{"bottom":"var:preset|spacing|md","top":"var:preset|spacing|md"}},"u002du002dflex-direction":"column-reverse","u002du002dflex-direction-desktop":"row"}} -->
  <div class="wp-block-columns alignwide are-vertically-aligned-center is-reverse-on-mobile is-reverse-mobile"
- style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--lg)">
+ style="padding-top:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md)">
  <!-- wp:column {"verticalAlignment":"center","style":{"order":{"all":"","mobile":"2"}}} -->
  <div class="wp-block-column is-vertically-aligned-center">
  <!-- wp:group {"metadata":{"name":"Heading"},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left"}} -->
@@ -497,7 +496,7 @@
  style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
  <!-- wp:columns {"verticalAlignment":"center","align":"wide","className":"is-reverse-on-mobile is-reverse-mobile","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|lg","left":"var:preset|spacing|lg"},"padding":{"bottom":"var:preset|spacing|md","top":"var:preset|spacing|md"}},"u002du002dflex-direction":"column-reverse","u002du002dflex-direction-desktop":"row"}} -->
  <div class="wp-block-columns alignwide are-vertically-aligned-center is-reverse-on-mobile is-reverse-mobile"
- style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--lg)">
+ style="padding-top:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md)">
  <!-- wp:column {"verticalAlignment":"center","style":{"order":{"all":"","mobile":"1"}}} -->
  <div class="wp-block-column is-vertically-aligned-center">
  <!-- wp:image {"aspectRatio":"16/9","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
@@ -852,7 +851,7 @@
  style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
  <!-- wp:columns {"verticalAlignment":"center","align":"wide","className":"is-reverse-on-mobile is-reverse-mobile","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|lg","left":"var:preset|spacing|lg"},"padding":{"bottom":"var:preset|spacing|md","top":"var:preset|spacing|md"}},"u002du002dflex-direction":"column-reverse","u002du002dflex-direction-desktop":"row"}} -->
  <div class="wp-block-columns alignwide are-vertically-aligned-center is-reverse-on-mobile is-reverse-mobile"
- style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--lg)">
+ style="padding-top:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md)">
  <!-- wp:column {"verticalAlignment":"center","style":{"order":{"all":"","mobile":"2"}}} -->
  <div class="wp-block-column is-vertically-aligned-center">
  <!-- wp:group {"metadata":{"name":"Heading"},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left"}} -->
@@ -872,7 +871,7 @@
  </div>
  <!-- /wp:column -->
 
- <!-- wp:column {"verticalAlignment":"center","width":"px"} -->
+ <!-- wp:column {"verticalAlignment":"center"} -->
  <div class="wp-block-column is-vertically-aligned-center">
  <!-- wp:group {"className":"is-style-surface","layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"}} -->
  <div class="wp-block-group is-style-surface">
@@ -920,7 +919,7 @@
  </div>
  <!-- /wp:column -->
 
- <!-- wp:column {"verticalAlignment":"center","width":"px"} -->
+ <!-- wp:column {"verticalAlignment":"center"} -->
  <div class="wp-block-column is-vertically-aligned-center">
  <!-- wp:group {"className":"is-style-surface","layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"}} -->
  <div class="wp-block-group is-style-surface">
@@ -961,22 +960,22 @@
  <div class="wp-block-group"
  style="margin-bottom:var(--wp--preset--spacing--lg)">
  <!-- wp:paragraph {"align":"center","className":"is-style-sub-heading"} -->
- <p class="has-text-align-center is-style-sub-heading"><?php echo esc_html__( 'Upgrade', 'aegis' ); ?></p>
+ <p class="has-text-align-center is-style-sub-heading"><?php echo esc_html__( 'Retainers', 'aegis' ); ?></p>
  <!-- /wp:paragraph -->
 
  <!-- wp:heading {"textAlign":"center","style":{"display":{"all":"","mobile":""}},"fontSize":"48"} -->
- <h2 class="wp-block-heading has-text-align-center has-48-font-size"><?php echo esc_html__( 'Early Access', 'aegis' ); ?></h2>
+ <h2 class="wp-block-heading has-text-align-center has-48-font-size"><?php echo esc_html__( 'Design Support That Scales', 'aegis' ); ?></h2>
  <!-- /wp:heading -->
 
  <!-- wp:paragraph {"align":"center","fontSize":"18"} -->
- <p class="has-text-align-center has-18-font-size"><?php echo esc_html__( 'Activate the professional core to remove usage limits, enable white-labeling, and access advanced architectural modules.', 'aegis' ); ?></p>
+ <p class="has-text-align-center has-18-font-size"><?php echo esc_html__( 'Monthly creative retainers for freelancers, studios, and agencies. Clear hours, predictable pricing, cancel anytime.', 'aegis' ); ?></p>
  <!-- /wp:paragraph -->
  </div>
  <!-- /wp:group -->
  </div>
  <!-- /wp:group -->
 
- <!-- wp:group {"metadata":{"name":"Early Access Plans"},"align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+ <!-- wp:group {"metadata":{"name":"Retainer Plans"},"align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
  <div class="wp-block-group alignfull" style="margin-top:0;margin-bottom:0">
  <!-- wp:columns {"verticalAlignment":"center","align":"full","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|md","left":"var:preset|spacing|sm"}}},"onclick":""} -->
  <div class="wp-block-columns alignfull are-vertically-aligned-center">
@@ -984,7 +983,7 @@
  <div class="wp-block-column is-vertically-aligned-center is-style-surface"
  style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm)">
  <!-- wp:heading {"level":3,"fontSize":"48"} -->
- <h3 class="wp-block-heading has-48-font-size"><?php echo esc_html__( 'Solo', 'aegis' ); ?></h3>
+ <h3 class="wp-block-heading has-48-font-size"><?php echo esc_html__( 'Starter', 'aegis' ); ?></h3>
  <!-- /wp:heading -->
 
  <!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"bottom"},"onclick":""} -->
@@ -995,7 +994,7 @@
  <!-- /wp:paragraph -->
 
  <!-- wp:paragraph -->
- <p><s>$99</s> / <?php echo esc_html__( 'yearly', 'aegis' ); ?></p>
+ <p><s>$99</s> / <?php echo esc_html__( 'monthly', 'aegis' ); ?></p>
  <!-- /wp:paragraph -->
  </div>
  <!-- /wp:group -->
@@ -1007,12 +1006,12 @@
  <div class="wp-block-group"
  style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0">
  <!-- wp:paragraph {"className":"is-style-heading"} -->
- <p class="is-style-heading"><?php echo esc_html__( 'Single production instance.', 'aegis' ); ?></p>
+ <p class="is-style-heading"><?php echo esc_html__( 'For freelancers and solo makers.', 'aegis' ); ?></p>
  <!-- /wp:paragraph -->
 
  <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}},"typography":{"lineHeight":"1.3"}}} -->
  <p style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0;line-height:1.3">
- <?php echo esc_html__( 'Deploy the complete professional suite on a single active domain, unlocking all local font and e-commerce capabilities.', 'aegis' ); ?></p>
+ <?php echo esc_html__( 'Steady design support for one brand—guidelines, light campaigns, and polished assets without a full-time hire.', 'aegis' ); ?></p>
  <!-- /wp:paragraph -->
  </div>
  <!-- /wp:group -->
@@ -1022,35 +1021,31 @@
  <!-- wp:list {"className":"is-style-checklist","style":{"spacing":{"blockGap":"var:preset|spacing|xs","margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left"}} -->
  <ul style="margin-top:var(--wp--preset--spacing--sm)" class="wp-block-list is-style-checklist">
  <!-- wp:list-item -->
- <li><?php echo esc_html__( '1 Active Domain', 'aegis' ); ?></li>
+ <li><?php echo esc_html__( '1 brand included', 'aegis' ); ?></li>
  <!-- /wp:list-item -->
 
  <!-- wp:list-item -->
- <li><?php echo esc_html__( 'Full Pro Suite', 'aegis' ); ?></li>
+ <li><?php echo esc_html__( '8 design hours / month', 'aegis' ); ?></li>
  <!-- /wp:list-item -->
 
  <!-- wp:list-item -->
- <li><?php echo esc_html__( 'Pro Patterns', 'aegis' ); ?></li>
+ <li><?php echo esc_html__( 'Brand guidelines kit', 'aegis' ); ?></li>
  <!-- /wp:list-item -->
 
  <!-- wp:list-item -->
- <li><?php echo esc_html__( 'Local Google Fonts', 'aegis' ); ?></li>
+ <li><?php echo esc_html__( '2 revision rounds', 'aegis' ); ?></li>
  <!-- /wp:list-item -->
 
  <!-- wp:list-item -->
- <li><?php echo esc_html__( 'Automatic Dark Mode', 'aegis' ); ?></li>
+ <li><?php echo esc_html__( 'Social & web assets', 'aegis' ); ?></li>
  <!-- /wp:list-item -->
 
  <!-- wp:list-item -->
- <li><?php echo esc_html__( 'eCommerce integrations', 'aegis' ); ?></li>
+ <li><?php echo esc_html__( 'Shared asset library', 'aegis' ); ?></li>
  <!-- /wp:list-item -->
 
  <!-- wp:list-item -->
- <li><?php echo esc_html__( 'Regular Product Updates', 'aegis' ); ?></li>
- <!-- /wp:list-item -->
-
- <!-- wp:list-item -->
- <li><?php echo esc_html__( 'Standard Email Support', 'aegis' ); ?></li>
+ <li><?php echo esc_html__( 'Email support', 'aegis' ); ?></li>
  <!-- /wp:list-item -->
  </ul>
  <!-- /wp:list -->
@@ -1060,9 +1055,8 @@
  <!-- wp:button {"width":100,"className":"is-style-ghost","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs"}}},"fontSize":"16","onclick":"","iconSet":"wordpress","iconName":"arrow-right","iconSize":"15px","iconPosition":"end","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-labelledby=\"icon-690b811a92ba1\" data-icon=\"wordpress-arrow-right\" width=\"24\" height=\"24\" fill=\"currentColor\"><title id=\"icon-690b811a92ba1\">Arrow Right Icon</title><path d=\"m14.5 6.5-1 1 3.7 3.7H4v1.6h13.2l-3.7 3.7 1 1 5.6-5.5z\"></path></svg>"} -->
  <div class="wp-block-button is-style-ghost has-custom-width wp-block-button__width-100" style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)">
  <a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button"
- href="https://www.atmostfear-entertainment.com/checkout/?add-to-cart=238625"
- style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)"
- target="_blank" rel="noreferrer noopener nofollow"><?php echo esc_html__( 'Activate Solo', 'aegis' ); ?></a></div>
+ href="#"
+ style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Choose Starter', 'aegis' ); ?></a></div>
  <!-- /wp:button -->
  </div>
  <!-- /wp:buttons -->
@@ -1077,10 +1071,9 @@
  <h3 class="wp-block-heading has-48-font-size"><?php echo esc_html__( 'Studio', 'aegis' ); ?></h3>
  <!-- /wp:heading -->
 
- <!-- wp:paragraph {"className":"is-style-notice","style":{"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontStyle":"normal","fontWeight":"500"},"border":{"width":"0px","style":"none","radius":"99px"}},"backgroundColor":"neutral-800","textColor":"primary-25","fontSize":"12"} -->
+ <!-- wp:paragraph {"className":"is-style-notice","style":{"spacing":{"padding":{"top":"6px","right":"var:preset|spacing|xxs","bottom":"6px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontStyle":"normal","fontWeight":"500"},"border":{"width":"0px","style":"none","radius":"99px"}},"backgroundColor":"neutral-800","textColor":"primary-25","fontSize":"12"} -->
  <p class="is-style-notice has-primary-25-color has-neutral-800-background-color has-text-color has-background has-12-font-size"
- style="border-style:none;border-width:0px;border-radius:99px;padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-style:normal;font-weight:500;line-height:1">
- <?php echo esc_html__( 'Most Popular', 'aegis' ); ?></p>
+ style="border-style:none;border-width:0px;border-radius:99px;padding-top:6px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:6px;padding-left:var(--wp--preset--spacing--xxs);font-style:normal;font-weight:500;line-height:1"><?php echo esc_html__( 'Most Popular', 'aegis' ); ?></p>
  <!-- /wp:paragraph -->
  </div>
  <!-- /wp:group -->
@@ -1093,7 +1086,7 @@
  <!-- /wp:paragraph -->
 
  <!-- wp:paragraph -->
- <p><s>$199</s> / <?php echo esc_html__( 'yearly', 'aegis' ); ?></p>
+ <p><s>$199</s> / <?php echo esc_html__( 'monthly', 'aegis' ); ?></p>
  <!-- /wp:paragraph -->
  </div>
  <!-- /wp:group -->
@@ -1105,13 +1098,13 @@
  <div class="wp-block-group"
  style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0">
  <!-- wp:paragraph {"className":"is-style-heading"} -->
- <p class="is-style-heading"><?php echo esc_html__( 'Multi-site management.', 'aegis' ); ?></p>
+ <p class="is-style-heading"><?php echo esc_html__( 'For growing creative teams.', 'aegis' ); ?></p>
  <!-- /wp:paragraph -->
 
  <!-- wp:paragraph {"className":"is-style-default","style":{"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}},"typography":{"lineHeight":"1.3"}}} -->
  <p class="is-style-default"
  style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0;line-height:1.3">
- <?php echo esc_html__( 'Scale operations to ten domains. gain access to Figma source files, and utilize advanced block visibility controls.', 'aegis' ); ?></p>
+ <?php echo esc_html__( 'More brands, faster turnarounds, and source files included—ideal when design volume is steady every month.', 'aegis' ); ?></p>
  <!-- /wp:paragraph -->
  </div>
  <!-- /wp:group -->
@@ -1121,27 +1114,27 @@
  <!-- wp:list {"className":"is-style-checklist","style":{"spacing":{"blockGap":"var:preset|spacing|xs","margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left"}} -->
  <ul style="margin-top:var(--wp--preset--spacing--sm)" class="wp-block-list is-style-checklist">
  <!-- wp:list-item -->
- <li><?php echo esc_html__( 'Everything in Solo', 'aegis' ); ?></li>
+ <li><?php echo esc_html__( 'Everything in Starter', 'aegis' ); ?></li>
  <!-- /wp:list-item -->
 
  <!-- wp:list-item -->
- <li><?php echo esc_html__( '10 Active Domains', 'aegis' ); ?></li>
+ <li><?php echo esc_html__( 'Up to 5 brands', 'aegis' ); ?></li>
  <!-- /wp:list-item -->
 
  <!-- wp:list-item -->
- <li><?php echo esc_html__( 'Figma Design Files', 'aegis' ); ?></li>
+ <li><?php echo esc_html__( '20 design hours / month', 'aegis' ); ?></li>
  <!-- /wp:list-item -->
 
  <!-- wp:list-item -->
- <li><?php echo esc_html__( 'Block Visibility Controls', 'aegis' ); ?></li>
+ <li><?php echo esc_html__( 'Priority revisions', 'aegis' ); ?></li>
  <!-- /wp:list-item -->
 
  <!-- wp:list-item -->
- <li><?php echo esc_html__( 'Premium SVG Icon Sets', 'aegis' ); ?></li>
+ <li><?php echo esc_html__( 'Source files included', 'aegis' ); ?></li>
  <!-- /wp:list-item -->
 
  <!-- wp:list-item -->
- <li><?php echo esc_html__( 'Priority Support', 'aegis' ); ?></li>
+ <li><?php echo esc_html__( 'Monthly strategy call', 'aegis' ); ?></li>
  <!-- /wp:list-item -->
  </ul>
  <!-- /wp:list -->
@@ -1151,9 +1144,8 @@
  <!-- wp:button {"width":100,"backgroundColor":"neutral-800","className":"is-style-fill","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs"}}},"fontSize":"16","onclick":"","iconSet":"wordpress","iconName":"arrow-right","iconSize":"15px","iconPosition":"end","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-labelledby=\"icon-690b811a92ba1\" data-icon=\"wordpress-arrow-right\" width=\"24\" height=\"24\" fill=\"currentColor\"><title id=\"icon-690b811a92ba1\">Arrow Right Icon</title><path d=\"m14.5 6.5-1 1 3.7 3.7H4v1.6h13.2l-3.7 3.7 1 1 5.6-5.5z\"></path></svg>"} -->
  <div class="wp-block-button is-style-fill has-custom-width wp-block-button__width-100" style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)">
  <a class="wp-block-button__link has-neutral-800-background-color has-background has-16-font-size has-custom-font-size wp-element-button"
- href="https://www.atmostfear-entertainment.com/checkout/?add-to-cart=238626"
- style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)"
- target="_blank" rel="noreferrer noopener nofollow"><?php echo esc_html__( 'Activate Studio', 'aegis' ); ?></a></div>
+ href="#"
+ style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Choose Studio', 'aegis' ); ?></a></div>
  <!-- /wp:button -->
  </div>
  <!-- /wp:buttons -->
@@ -1175,7 +1167,7 @@
  <!-- /wp:paragraph -->
 
  <!-- wp:paragraph -->
- <p><s>$499</s> / <?php echo esc_html__( 'yearly', 'aegis' ); ?></p>
+ <p><s>$499</s> / <?php echo esc_html__( 'monthly', 'aegis' ); ?></p>
  <!-- /wp:paragraph -->
  </div>
  <!-- /wp:group -->
@@ -1187,12 +1179,12 @@
  <div class="wp-block-group"
  style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0">
  <!-- wp:paragraph {"className":"is-style-heading"} -->
- <p class="is-style-heading"><?php echo esc_html__( 'Unrestricted deployment.', 'aegis' ); ?></p>
+ <p class="is-style-heading"><?php echo esc_html__( 'For multi-client agencies.', 'aegis' ); ?></p>
  <!-- /wp:paragraph -->
 
  <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}},"typography":{"lineHeight":"1.3"}}} -->
  <p style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0;line-height:1.3">
- <?php echo esc_html__( 'Remove all limits. Deploy on unlimited domains and white-label the interface to completely hide the framework\'s branding', 'aegis' ); ?></p>
+ <?php echo esc_html__( 'Unlimited brands, a dedicated creative lead, and white-glove delivery when client work never slows down.', 'aegis' ); ?></p>
  <!-- /wp:paragraph -->
  </div>
  <!-- /wp:group -->
@@ -1202,23 +1194,27 @@
  <!-- wp:list {"className":"is-style-checklist","style":{"spacing":{"blockGap":"var:preset|spacing|xs","margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left"}} -->
  <ul style="margin-top:var(--wp--preset--spacing--sm)" class="wp-block-list is-style-checklist">
  <!-- wp:list-item -->
- <li><?php echo esc_html__( 'Unlimited Domains', 'aegis' ); ?></li>
- <!-- /wp:list-item -->
-
- <!-- wp:list-item -->
  <li><?php echo esc_html__( 'Everything in Studio', 'aegis' ); ?></li>
  <!-- /wp:list-item -->
 
  <!-- wp:list-item -->
- <li><?php echo esc_html__( 'White Labeling', 'aegis' ); ?></li>
+ <li><?php echo esc_html__( 'Unlimited brands', 'aegis' ); ?></li>
  <!-- /wp:list-item -->
 
  <!-- wp:list-item -->
- <li><?php echo esc_html__( 'WooCommerce Kit', 'aegis' ); ?></li>
+ <li><?php echo esc_html__( '40 design hours / month', 'aegis' ); ?></li>
  <!-- /wp:list-item -->
 
  <!-- wp:list-item -->
- <li><?php echo esc_html__( 'Direct Slack Channel', 'aegis' ); ?></li>
+ <li><?php echo esc_html__( 'Dedicated creative lead', 'aegis' ); ?></li>
+ <!-- /wp:list-item -->
+
+ <!-- wp:list-item -->
+ <li><?php echo esc_html__( 'Rush turnaround options', 'aegis' ); ?></li>
+ <!-- /wp:list-item -->
+
+ <!-- wp:list-item -->
+ <li><?php echo esc_html__( 'Shared Slack channel', 'aegis' ); ?></li>
  <!-- /wp:list-item -->
  </ul>
  <!-- /wp:list -->
@@ -1228,9 +1224,8 @@
  <!-- wp:button {"width":100,"className":"is-style-ghost","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs"}}},"fontSize":"16","onclick":"","iconSet":"wordpress","iconName":"arrow-right","iconSize":"15px","iconPosition":"end","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-labelledby=\"icon-690b811a92ba1\" data-icon=\"wordpress-arrow-right\" width=\"24\" height=\"24\" fill=\"currentColor\"><title id=\"icon-690b811a92ba1\">Arrow Right Icon</title><path d=\"m14.5 6.5-1 1 3.7 3.7H4v1.6h13.2l-3.7 3.7 1 1 5.6-5.5z\"></path></svg>"} -->
  <div class="wp-block-button is-style-ghost has-custom-width wp-block-button__width-100" style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)">
  <a class="wp-block-button__link has-16-font-size has-custom-font-size wp-element-button"
- href="https://www.atmostfear-entertainment.com/checkout/?add-to-cart=238627"
- style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)"
- target="_blank" rel="noreferrer noopener nofollow"><?php echo esc_html__( 'Activate Agency', 'aegis' ); ?></a></div>
+ href="#"
+ style="padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Choose Agency', 'aegis' ); ?></a></div>
  <!-- /wp:button -->
  </div>
  <!-- /wp:buttons -->
@@ -1243,7 +1238,7 @@
  <div class="wp-block-group">
  <!-- wp:paragraph {"align":"center","metadata":{"name":"CTA"},"className":"","style":{"typography":{"textDecoration":"none"},"spacing":{"margin":{"top":"var:preset|spacing|lg"}},"display":{"all":"none"}},"fontSize":"14"} -->
  <p class="has-text-align-center has-14-font-size"
- style="margin-top:var(--wp--preset--spacing--lg);text-decoration:none"><?php echo esc_html__( 'Looking for a custom solution? Enter the Creative Studio →', 'aegis' ); ?></p>
+ style="margin-top:var(--wp--preset--spacing--lg);text-decoration:none"><?php echo esc_html__( 'Need a custom scope? Talk to our studio →', 'aegis' ); ?></p>
  <!-- /wp:paragraph -->
  </div>
  <!-- /wp:group -->
@@ -1281,13 +1276,13 @@
  <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
  <div class="wp-block-group alignwide"
  style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--lg)">
- <!-- wp:query {"queryId":0,"query":{"perPage":10,"pages":"","offset":"","postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":{"category":[2930],"post_tag":[]}},"align":"wide","layout":{"inherit":false},"style":{"spacing":{"blockGap":"1.5em"}}} -->
+ <!-- wp:query {"queryId":0,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"align":"wide","layout":{"type":"default"}} -->
  <div class="wp-block-query alignwide"><!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
- <!-- wp:group {"className":"is-style-default","layout":{"type":"constrained"}} -->
+ <!-- wp:group {"className":"is-style-default","layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
  <div class="wp-block-group is-style-default">
- <!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","dimRatio":30,"style":{"aspectRatio":{"all":""},"objectFit":{"all":""},"objectPosition":{"all":"top"},"height":{"all":"100%"},"width":{"all":""}}} /-->
+ <!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","style":{"layout":{"selfStretch":"fit","flexSize":null}}} /-->
 
- <!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|xs","left":"var:preset|spacing|xs","bottom":"var:preset|spacing|sm"}}},"layout":{"type":"constrained"}} -->
+ <!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|xs","left":"var:preset|spacing|xs","bottom":"var:preset|spacing|sm"},"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
  <div class="wp-block-group"
  style="padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--xs)">
  <!-- wp:group {"metadata":{"name":"Desktop"},"style":{"spacing":{"blockGap":{"top":"4px","left":"4px"},"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0","left":"0","right":"0"}},"display":{"mobile":"none"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"left","orientation":"horizontal"}} -->
@@ -1373,18 +1368,20 @@
  </div>
  <!-- /wp:group -->
 
- <!-- wp:group {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|xs"},"padding":{"top":"var:preset|spacing|xs"}}},"fontSize":"14","layout":{"type":"flex","flexWrap":"nowrap"}} -->
+ <!-- wp:group {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|xs"},"padding":{"top":"var:preset|spacing|xs"}}},"fontSize":"14","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
  <div class="wp-block-group has-14-font-size" style="padding-top:var(--wp--preset--spacing--xs)">
- <!-- wp:icon {"icon":"wordpress/comment-author-avatar","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-labelledby=\"icon-696105ad935ef\" data-icon=\"wordpress-comment-author-avatar\" width=\"24\" height=\"24\" fill=\"currentColor\"><title id=\"icon-696105ad935ef\">Comment Author Avatar Icon</title><path fill-rule=\"evenodd\" d=\"M7.25 16.437a6.5 6.5 0 1 1 9.5 0V16A2.75 2.75 0 0 0 14 13.25h-4A2.75 2.75 0 0 0 7.25 16v.437Zm1.5 1.193a6.47 6.47 0 0 0 3.25.87 6.47 6.47 0 0 0 3.25-.87V16c0-.69-.56-1.25-1.25-1.25h-4c-.69 0-1.25.56-1.25 1.25v1.63ZM4 12a8 8 0 1 1 16 0 8 8 0 0 1-16 0Zm10-2a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z\" clip-rule=\"evenodd\"></path></svg>","style":{"dimensions":{"width":"70px"}}} /-->
+ <!-- wp:image {"width":"70px","height":"70px","aspectRatio":"1","scale":"cover","sizeSlug":"thumbnail","linkDestination":"none","style":{"border":{"radius":"100%"}}} -->
+ <figure class="wp-block-image size-thumbnail is-resized has-custom-border" style="border-radius:100%"><img alt="" style="border-radius:100%;aspect-ratio:1;object-fit:cover;width:70px;height:70px"/></figure>
+ <!-- /wp:image -->
 
- <!-- wp:group {"style":{"layout":{"selfStretch":"fit","flexSize":null}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"wrap"}} -->
+ <!-- wp:group {"style":{"layout":{"selfStretch":"fit","flexSize":null},"spacing":{"blockGap":"4px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center","flexWrap":"nowrap"}} -->
  <div class="wp-block-group">
- <!-- wp:paragraph {"className":"is-style-sub-heading","style":{"typography":{"lineHeight":"0.9"}}} -->
- <p class="is-style-sub-heading" style="line-height:0.9"><?php echo esc_html__( 'Sarah L.', 'aegis' ); ?></p>
+ <!-- wp:paragraph {"className":"is-style-sub-heading","style":{"typography":{"lineHeight":"1.2"}}} -->
+ <p class="is-style-sub-heading" style="line-height:1.2"><?php echo esc_html__( 'Sarah L.', 'aegis' ); ?></p>
  <!-- /wp:paragraph -->
 
- <!-- wp:paragraph {"className":"is-style-default","style":{"typography":{"lineHeight":"0.9"}}} -->
- <p class="is-style-default" style="line-height:0.9"><?php echo esc_html__( 'Studio Lead', 'aegis' ); ?></p>
+ <!-- wp:paragraph {"className":"is-style-default","style":{"typography":{"lineHeight":"1.2"}}} -->
+ <p class="is-style-default" style="line-height:1.2"><?php echo esc_html__( 'Studio Lead', 'aegis' ); ?></p>
  <!-- /wp:paragraph -->
  </div>
  <!-- /wp:group -->
@@ -1413,18 +1410,20 @@
  </div>
  <!-- /wp:group -->
 
- <!-- wp:group {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|xs"},"padding":{"top":"var:preset|spacing|xs"}}},"fontSize":"14","layout":{"type":"flex","flexWrap":"nowrap"}} -->
+ <!-- wp:group {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|xs"},"padding":{"top":"var:preset|spacing|xs"}}},"fontSize":"14","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
  <div class="wp-block-group has-14-font-size" style="padding-top:var(--wp--preset--spacing--xs)">
- <!-- wp:icon {"icon":"wordpress/comment-author-avatar","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-labelledby=\"icon-696105ad935ef\" data-icon=\"wordpress-comment-author-avatar\" width=\"24\" height=\"24\" fill=\"currentColor\"><title id=\"icon-696105ad935ef\">Comment Author Avatar Icon</title><path fill-rule=\"evenodd\" d=\"M7.25 16.437a6.5 6.5 0 1 1 9.5 0V16A2.75 2.75 0 0 0 14 13.25h-4A2.75 2.75 0 0 0 7.25 16v.437Zm1.5 1.193a6.47 6.47 0 0 0 3.25.87 6.47 6.47 0 0 0 3.25-.87V16c0-.69-.56-1.25-1.25-1.25h-4c-.69 0-1.25.56-1.25 1.25v1.63ZM4 12a8 8 0 1 1 16 0 8 8 0 0 1-16 0Zm10-2a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z\" clip-rule=\"evenodd\"></path></svg>","style":{"dimensions":{"width":"70px"}}} /-->
+ <!-- wp:image {"width":"70px","height":"70px","aspectRatio":"1","scale":"cover","sizeSlug":"thumbnail","linkDestination":"none","style":{"border":{"radius":"100%"}}} -->
+ <figure class="wp-block-image size-thumbnail is-resized has-custom-border" style="border-radius:100%"><img alt="" style="border-radius:100%;aspect-ratio:1;object-fit:cover;width:70px;height:70px"/></figure>
+ <!-- /wp:image -->
 
- <!-- wp:group {"style":{"spacing":{"blockGap":{"top":"4px","left":"4px"}}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"wrap"}} -->
+ <!-- wp:group {"style":{"layout":{"selfStretch":"fit","flexSize":null},"spacing":{"blockGap":"4px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center","flexWrap":"nowrap"}} -->
  <div class="wp-block-group">
- <!-- wp:paragraph {"className":"is-style-sub-heading","style":{"typography":{"lineHeight":"0.9"}}} -->
- <p class="is-style-sub-heading" style="line-height:0.9"><?php echo esc_html__( 'Alex V.', 'aegis' ); ?></p>
+ <!-- wp:paragraph {"className":"is-style-sub-heading","style":{"typography":{"lineHeight":"1.2"}}} -->
+ <p class="is-style-sub-heading" style="line-height:1.2"><?php echo esc_html__( 'Alex V.', 'aegis' ); ?></p>
  <!-- /wp:paragraph -->
 
- <!-- wp:paragraph {"className":"is-style-default","style":{"typography":{"lineHeight":"0.9"}}} -->
- <p class="is-style-default" style="line-height:0.9"><?php echo esc_html__( 'Senior Developer', 'aegis' ); ?></p>
+ <!-- wp:paragraph {"className":"is-style-default","style":{"typography":{"lineHeight":"1.2"}}} -->
+ <p class="is-style-default" style="line-height:1.2"><?php echo esc_html__( 'Senior Developer', 'aegis' ); ?></p>
  <!-- /wp:paragraph -->
  </div>
  <!-- /wp:group -->

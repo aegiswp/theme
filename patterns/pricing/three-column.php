@@ -20,15 +20,15 @@
 			<div class="wp-block-group"
 				style="margin-bottom:var(--wp--preset--spacing--lg)">
 				<!-- wp:paragraph {"align":"center","className":"is-style-sub-heading"} -->
-				<p class="aligncenter has-text-align-center is-style-sub-heading aligncenter"><?php echo esc_html__( 'Upgrade', 'aegis' ); ?></p>
+				<p class="aligncenter has-text-align-center is-style-sub-heading aligncenter"><?php echo esc_html__( 'Retainers', 'aegis' ); ?></p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:heading {"textAlign":"center","style":{"display":{"all":"","mobile":""}},"fontSize":"48"} -->
-				<h2 class="wp-block-heading has-text-align-center has-48-font-size"><?php echo esc_html__( 'Simple Pricing', 'aegis' ); ?></h2>
+				<h2 class="wp-block-heading has-text-align-center has-48-font-size"><?php echo esc_html__( 'Design Support That Scales', 'aegis' ); ?></h2>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"align":"center","fontSize":"18"} -->
-				<p class="aligncenter has-text-align-center has-18-font-size aligncenter"><?php echo esc_html__( 'Activate the professional core to remove usage limits, enable white-labeling, and access advanced architectural modules.', 'aegis' ); ?></p>
+				<p class="aligncenter has-text-align-center has-18-font-size aligncenter"><?php echo esc_html__( 'Monthly creative retainers for freelancers, studios, and agencies. Clear hours, predictable pricing, cancel anytime.', 'aegis' ); ?></p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:group -->
@@ -43,7 +43,7 @@
 				<div class="wp-block-column is-vertically-aligned-center is-style-surface"
 					style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm)">
 					<!-- wp:heading {"level":3,"fontSize":"48"} -->
-					<h3 class="wp-block-heading has-48-font-size"><?php echo esc_html__( 'Basic', 'aegis' ); ?></h3>
+					<h3 class="wp-block-heading has-48-font-size"><?php echo esc_html__( 'Starter', 'aegis' ); ?></h3>
 					<!-- /wp:heading -->
 
 					<!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"bottom"},"onclick":""} -->
@@ -54,7 +54,7 @@
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph -->
-						<p><?php echo esc_html__( '/ yearly', 'aegis' ); ?></p>
+						<p><?php echo esc_html__( '/ month', 'aegis' ); ?></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->
@@ -72,23 +72,23 @@
 					<!-- wp:list {"className":"is-style-checklist","style":{"spacing":{"blockGap":"var:preset|spacing|xs","margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left"}} -->
 					<ul style="margin-top:var(--wp--preset--spacing--sm)" class="wp-block-list is-style-checklist">
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( '1 brand included', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( '8 design hours / month', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( 'Brand guidelines kit', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( '2 revision rounds', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( 'Email support', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 					</ul>
 					<!-- /wp:list -->
@@ -108,13 +108,12 @@
 					style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm)">
 					<!-- wp:group {"fontSize":"48","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"},"onclick":""} -->
 					<div class="wp-block-group has-48-font-size"><!-- wp:heading {"level":3,"fontSize":"48"} -->
-						<h3 class="wp-block-heading has-48-font-size"><?php echo esc_html__( 'Pro', 'aegis' ); ?></h3>
+						<h3 class="wp-block-heading has-48-font-size"><?php echo esc_html__( 'Studio', 'aegis' ); ?></h3>
 						<!-- /wp:heading -->
 
-						<!-- wp:paragraph {"className":"is-style-notice","style":{"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontStyle":"normal","fontWeight":"500"},"border":{"width":"0px","style":"none","radius":"99px"}},"backgroundColor":"neutral-800","textColor":"primary-25","fontSize":"12"} -->
+						<!-- wp:paragraph {"className":"is-style-notice","style":{"spacing":{"padding":{"top":"6px","right":"var:preset|spacing|xxs","bottom":"6px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontStyle":"normal","fontWeight":"500"},"border":{"width":"0px","style":"none","radius":"99px"}},"backgroundColor":"neutral-800","textColor":"primary-25","fontSize":"12"} -->
 						<p class="is-style-notice has-primary-25-color has-neutral-800-background-color has-text-color has-background has-12-font-size"
-							style="border-style:none;border-width:0px;border-radius:99px;padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-style:normal;font-weight:500;line-height:1">
-							<?php echo esc_html__( 'Most Popular', 'aegis' ); ?></p>
+							style="border-style:none;border-width:0px;border-radius:99px;padding-top:6px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:6px;padding-left:var(--wp--preset--spacing--xxs);font-style:normal;font-weight:500;line-height:1"><?php echo esc_html__( 'Most Popular', 'aegis' ); ?></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->
@@ -127,7 +126,7 @@
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph -->
-						<p><?php echo esc_html__( '/ yearly', 'aegis' ); ?></p>
+						<p><?php echo esc_html__( '/ month', 'aegis' ); ?></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->
@@ -145,23 +144,23 @@
 					<!-- wp:list {"className":"is-style-checklist","style":{"spacing":{"blockGap":"var:preset|spacing|xs","margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left"}} -->
 					<ul style="margin-top:var(--wp--preset--spacing--sm)" class="wp-block-list is-style-checklist">
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( 'Everything in Starter', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( 'Up to 5 brands', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( '20 design hours / month', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( 'Priority revisions', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( 'Source files included', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 					</ul>
 					<!-- /wp:list -->
@@ -180,7 +179,7 @@
 				<div class="wp-block-column is-vertically-aligned-center is-style-surface"
 					style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm)">
 					<!-- wp:heading {"level":3,"fontSize":"48"} -->
-					<h3 class="wp-block-heading has-48-font-size"><?php echo esc_html__( 'Team', 'aegis' ); ?></h3>
+					<h3 class="wp-block-heading has-48-font-size"><?php echo esc_html__( 'Agency', 'aegis' ); ?></h3>
 					<!-- /wp:heading -->
 
 					<!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"bottom"},"onclick":""} -->
@@ -191,7 +190,7 @@
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph -->
-						<p><?php echo esc_html__( '/ yearly', 'aegis' ); ?></p>
+						<p><?php echo esc_html__( '/ month', 'aegis' ); ?></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->
@@ -209,23 +208,23 @@
 					<!-- wp:list {"className":"is-style-checklist","style":{"spacing":{"blockGap":"var:preset|spacing|xs","margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left"}} -->
 					<ul style="margin-top:var(--wp--preset--spacing--sm)" class="wp-block-list is-style-checklist">
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( 'Everything in Studio', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( 'Unlimited brands', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( '40 design hours / month', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( 'Dedicated creative lead', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 
 						<!-- wp:list-item -->
-						<li><?php echo esc_html__( 'Feature or benefit', 'aegis' ); ?></li>
+						<li><?php echo esc_html__( 'Shared Slack channel', 'aegis' ); ?></li>
 						<!-- /wp:list-item -->
 					</ul>
 					<!-- /wp:list -->
@@ -246,7 +245,7 @@
 			<div class="wp-block-group">
 				<!-- wp:paragraph {"align":"center","metadata":{"name":"CTA"},"className":"","style":{"typography":{"textDecoration":"none"},"spacing":{"margin":{"top":"var:preset|spacing|lg"}},"display":{"all":"none"}},"fontSize":"14"} -->
 				<p class="aligncenter has-text-align-center has-14-font-size aligncenter"
-					style="margin-top:var(--wp--preset--spacing--lg);text-decoration:none"><?php echo esc_html__( 'Looking for a custom solution? Enter the Creative Studio', 'aegis' ); ?> →</p>
+					style="margin-top:var(--wp--preset--spacing--lg);text-decoration:none"><?php echo esc_html__( 'Need a custom scope? Talk to our studio', 'aegis' ); ?> →</p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:group -->
@@ -257,7 +256,7 @@
 		<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--sm)">
 			<!-- wp:icon {"icon":"core/check","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-labelledby=\"icon-6a2cc03bd8cc0\" data-icon=\"wordpress-check\" style=\"min-width:1.2em;height:1.2em\" fill=\"currentColor\"><title id=\"icon-6a2cc03bd8cc0\">Check Icon</title><path d=\"m16.7 7.1-6.3 8.5-3.3-2.5-.9 1.2 4.5 3.4L17.9 8z\"></path></svg>","style":{"dimensions":{"width":"1.2em"}}} /-->
 <!-- wp:paragraph {"align":"center","fontSize":"14"} -->
-			<p class="aligncenter has-text-align-center has-14-font-size aligncenter"><?php echo esc_html__( '100% no-risk money back guarantee', 'aegis' ); ?></p>
+			<p class="aligncenter has-text-align-center has-14-font-size aligncenter"><?php echo esc_html__( 'Pause or cancel anytime — no long-term lock-in', 'aegis' ); ?></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->

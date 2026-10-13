@@ -54,7 +54,7 @@ Companion products extend the theme (documented separately):
 
 ### Development
 
-- [[development-setup]], [[building-assets]], [[tools]], [[architecture]], [[deployment]], [[contributing]]
+- [[development-setup]], [[building-assets]], [[tools]], [[architecture]], [[deployment]], [[contributing]], [[documentation]]
 
 ### Reference
 

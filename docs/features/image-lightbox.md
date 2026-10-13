@@ -4,7 +4,7 @@ Aegis enhances the WordPress **Image** block lightbox (`core/image` with **Expan
 
 `theme.json` enables lightbox support (`settings.lightbox.enabled`). Editors still turn **Expand on click** on per image (or via Global Styles for the Image block).
 
-The overlay scrim and close/prev/next controls follow the active color scheme (light or dark) using `--wp--custom--body--background` and `--wp--custom--body--color`. Changing the site background or text color in the Site Editor updates those tokens. Core bakes a light-mode hex into the overlay HTML; Aegis overrides it so dark mode is not stuck on the cream surface.
+The overlay scrim and close/prev/next controls follow the active color scheme (light or dark) using `--wp--custom--body--background` and `--wp--custom--body--color`. Changing the site background or text color in the Site Editor updates those tokens. Core bakes a light-mode hex into the overlay HTML; Aegis overrides it so dark mode is not stuck on the light surface.
 
 Image captions stay on the figure in the content. They are not shown in the lightbox overlay.
 

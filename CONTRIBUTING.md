@@ -233,10 +233,10 @@ style: format CSS files according to standards
 - Performance optimizations
 
 ### Documentation
-- README improvements
-- Code comments
-- User guides
-- Developer documentation
+- Wiki pages under `docs/` (see `docs/development/documentation.md`)
+- README / DESIGN / INSTRUCTIONS / `readme.txt` updates
+- Code comments (PHPDoc, JSDoc)
+- User guides and developer documentation
 
 ### Bug Reports
 - Detailed issue reports
