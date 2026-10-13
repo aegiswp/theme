@@ -329,7 +329,11 @@ Issues/PRs with labels: `pinned`, `roadmap`, or `epic` are exempt
    →  Performance < 80: Optimize JS/CSS/images
    →  Accessibility < 90: Fix ARIA/focus/color contrast
 
-✗ pa11y-ci / accessibility.yml failed
+✗ accessibility.yml / CI fails at Install Node dependencies (`npm ci`)
+   →  `package.json` `overrides` must match `package-lock.json` `packages[""].overrides`
+   →  Fix: `npm install` (regenerates the lock), commit `package-lock.json`, re-run
+
+✗ pa11y-ci / accessibility.yml failed (scan step)
    →  Threshold is 0 — fix every axe/htmlcs error (warnings ignored)
    →  Confirm URLs in .pa11yci.json load (query-string URLs for php -S CI server)
    →  Local: npx pa11y-ci --config .pa11yci.json  (or npm run test:a11y:env for wp-env)
