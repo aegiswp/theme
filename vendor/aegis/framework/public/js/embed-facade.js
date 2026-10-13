@@ -1,6 +1,24 @@
 ( function () {
 	'use strict';
 
+	function getSafeEmbedSrc( rawSrc ) {
+		if ( ! rawSrc ) {
+			return null;
+		}
+
+		try {
+			const parsedUrl = new URL( rawSrc, window.location.href );
+
+			if ( parsedUrl.protocol !== 'https:' && parsedUrl.protocol !== 'http:' ) {
+				return null;
+			}
+
+			return parsedUrl.href;
+		} catch ( e ) {
+			return null;
+		}
+	}
+
 	function activateEmbed( button ) {
 		const wrapper = button.closest( '.aegis-embed__wrapper' );
 
@@ -8,7 +26,7 @@
 			return;
 		}
 
-		const src = button.getAttribute( 'data-embed-src' );
+		const src = getSafeEmbedSrc( button.getAttribute( 'data-embed-src' ) );
 
 		if ( ! src ) {
 			return;
