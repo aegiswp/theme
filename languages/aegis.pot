@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-12T00:23:36+00:00\n"
+"POT-Creation-Date: 2026-10-13T11:10:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: aegis\n"
@@ -593,7 +593,7 @@ msgstr ""
 #: patterns/blog/featured-blog-feed.php:69
 #: patterns/blog/latest-posts.php:14
 #: patterns/blog/single-column.php:14
-#: patterns/pages/home.php:1270
+#: patterns/pages/home.php:1265
 #: patterns/slider/latest-posts.php:19
 msgid "Latest Posts"
 msgstr ""
@@ -847,7 +847,6 @@ msgid "Feature"
 msgstr ""
 
 #: patterns/commerce/product-comparison.php:28
-#: patterns/pricing/three-column.php:46
 msgid "Basic"
 msgstr ""
 
@@ -892,7 +891,6 @@ msgid "Free Shipping"
 msgstr ""
 
 #: patterns/commerce/product-comparison.php:53
-#: patterns/pages/home.php:1144
 msgid "Priority Support"
 msgstr ""
 
@@ -1078,7 +1076,6 @@ msgid "34–36"
 msgstr ""
 
 #: patterns/commerce/size-guide.php:39
-#: patterns/pricing/comparison-table.php:43
 msgid "25"
 msgstr ""
 
@@ -1792,7 +1789,6 @@ msgstr ""
 
 #: patterns/event/conference-hero.php:59
 #: patterns/event/talk-speaker.php:43
-#: patterns/pricing/comparison-table.php:42
 msgid "3"
 msgstr ""
 
@@ -2381,7 +2377,7 @@ msgid "24/7 medical tents, free water stations, and a dedicated safety team. Loc
 msgstr ""
 
 #: patterns/event/music-festival-info.php:93
-#: patterns/pages/home.php:860
+#: patterns/pages/home.php:859
 msgid "Accessibility"
 msgstr ""
 
@@ -3025,14 +3021,14 @@ msgstr ""
 #: patterns/faq/accordion-sidebar.php:40
 #: patterns/faq/accordion.php:29
 #: patterns/faq/default.php:28
-#: patterns/pages/home.php:1476
+#: patterns/pages/home.php:1475
 msgid "What version of PHP do I need?"
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:42
 #: patterns/faq/accordion.php:31
 #: patterns/faq/default.php:30
-#: patterns/pages/home.php:1478
+#: patterns/pages/home.php:1477
 msgid "The framework requires PHP 7.4 as a baseline. For optimal velocity and ecosystem stability, we recommend deploying on PHP 8.3. While the core architecture natively supports up to 8.5, version 8.3 currently offers the safest compatibility balance for third-party extensions."
 msgstr ""
 
@@ -3049,106 +3045,106 @@ msgstr ""
 #: patterns/faq/accordion-sidebar.php:58
 #: patterns/faq/accordion.php:48
 #: patterns/faq/default.php:46
-#: patterns/pages/home.php:1496
+#: patterns/pages/home.php:1495
 msgid "Where is the classic Customizer?"
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:60
 #: patterns/faq/accordion.php:50
 #: patterns/faq/default.php:48
-#: patterns/pages/home.php:1498
+#: patterns/pages/home.php:1497
 msgid "The Customizer has been retired in favor of the Site Editor (Appearance → Editor). This gives you total control over headers, footers, and page templates visually, without relying on legacy options."
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:67
 #: patterns/faq/accordion.php:57
 #: patterns/faq/default.php:55
-#: patterns/pages/home.php:1506
+#: patterns/pages/home.php:1505
 msgid "How to change the site logo?"
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:69
 #: patterns/faq/accordion.php:59
 #: patterns/faq/default.php:57
-#: patterns/pages/home.php:1508
+#: patterns/pages/home.php:1507
 msgid "Access the Header template part within the Site Editor. Select the existing placeholder and replace it with a Site Logo, Image, or Inline SVG block. We recommend utilizing raw SVG for infinite scalability and dynamic color adaptation across dark mode."
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:76
 #: patterns/faq/accordion.php:66
 #: patterns/faq/default.php:64
-#: patterns/pages/home.php:1516
+#: patterns/pages/home.php:1515
 msgid "How do I edit the navigation menu?"
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:78
 #: patterns/faq/accordion.php:68
 #: patterns/faq/default.php:66
-#: patterns/pages/home.php:1518
+#: patterns/pages/home.php:1517
 msgid "Menus are now managed via the Navigation Block. Click on the header area inside the Site Editor to add, remove, or reorder links directly on the canvas without leaving the design view."
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:85
 #: patterns/faq/accordion.php:97
 #: patterns/faq/default.php:73
-#: patterns/pages/home.php:1550
+#: patterns/pages/home.php:1549
 msgid "How can I add animations to blocks?"
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:87
 #: patterns/faq/accordion.php:99
 #: patterns/faq/default.php:75
-#: patterns/pages/home.php:1552
+#: patterns/pages/home.php:1551
 msgid "Motion parameters are integrated directly into the block's settings panel. Within the Animation control group, you can define kinetic properties including the triggering Event (such as \"Enter\"), the Effect style, Easing curve, and precise timing curves for Duration and Delay without writing any code."
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:94
 #: patterns/faq/accordion.php:106
 #: patterns/faq/default.php:82
-#: patterns/pages/home.php:1560
+#: patterns/pages/home.php:1559
 msgid "How do I create an FAQ accordion?"
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:96
 #: patterns/faq/accordion.php:108
 #: patterns/faq/default.php:84
-#: patterns/pages/home.php:1562
+#: patterns/pages/home.php:1561
 msgid "Deploy a pre-configured accordion instantly from the Patterns library, or construct one manually using the native List Block variation. By relying on standard core architecture rather than proprietary blocks, your content retains absolute portability across any future environment."
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:103
 #: patterns/faq/default.php:95
-#: patterns/pages/home.php:1574
+#: patterns/pages/home.php:1573
 msgid "How can I display blog posts on the home page?"
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:105
 #: patterns/faq/default.php:97
-#: patterns/pages/home.php:1576
+#: patterns/pages/home.php:1575
 msgid "Inject dynamic content instantly by dragging a layout from the Blog Patterns library onto your canvas. Control the data stream using the Query Loop block, allowing you to filter categories and define display parameters with granular precision."
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:112
 #: patterns/faq/default.php:104
-#: patterns/pages/home.php:1584
+#: patterns/pages/home.php:1583
 msgid "What is the difference between Templates and Pages?"
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:114
 #: patterns/faq/default.php:106
-#: patterns/pages/home.php:1586
+#: patterns/pages/home.php:1585
 msgid "Pages hold your specific content (like \"About Us\"). Templates define the structure wrapping that content (like headers, sidebars, and footers). Editing a Template affects all Pages that use it."
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:121
 #: patterns/faq/default.php:167
-#: patterns/pages/home.php:1654
+#: patterns/pages/home.php:1653
 msgid "Does this theme require any plugins?"
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:123
 #: patterns/faq/default.php:169
-#: patterns/pages/home.php:1656
+#: patterns/pages/home.php:1655
 msgid "No. We operate on a strict zero-dependency architecture. Every layout, pattern, and utility is native to the framework, ensuring you never rely on external software to achieve core functionality."
 msgstr ""
 
@@ -3170,27 +3166,27 @@ msgid "Frequently Asked Questions"
 msgstr ""
 
 #: patterns/faq/accordion.php:39
-#: patterns/pages/home.php:1486
+#: patterns/pages/home.php:1485
 msgid "How do I replace this default Home screen?"
 msgstr ""
 
 #: patterns/faq/accordion.php:41
-#: patterns/pages/home.php:1488
+#: patterns/pages/home.php:1487
 msgid "This layout is the default Home template. To replace it with your own content, simply create a new Page, publish it, and assign it as your \"Homepage\" under Settings → Reading."
 msgstr ""
 
 #: patterns/faq/accordion.php:75
-#: patterns/pages/home.php:1526
+#: patterns/pages/home.php:1525
 msgid "How do I change fonts and colors globally?"
 msgstr ""
 
 #: patterns/faq/accordion.php:77
-#: patterns/pages/home.php:1528
+#: patterns/pages/home.php:1527
 msgid "Open the Styles panel (the half-shaded circle icon) in the top-right of the Editor. Changes made here propagate instantly across the entire site architecture, updating all blocks simultaneously."
 msgstr ""
 
 #: patterns/faq/accordion.php:84
-#: patterns/pages/home.php:1536
+#: patterns/pages/home.php:1535
 msgid "How do I add custom SVG images?"
 msgstr ""
 
@@ -3213,62 +3209,62 @@ msgid "A frequently asked questions section."
 msgstr ""
 
 #: patterns/faq/default.php:113
-#: patterns/pages/home.php:1594
+#: patterns/pages/home.php:1593
 msgid "How do I edit the Header or Footer?"
 msgstr ""
 
 #: patterns/faq/default.php:115
-#: patterns/pages/home.php:1596
+#: patterns/pages/home.php:1595
 msgid "These are Template Parts. You can edit them contextually while viewing any template in the Editor, or manage them specifically under Appearance → Editor → Patterns."
 msgstr ""
 
 #: patterns/faq/default.php:122
-#: patterns/pages/home.php:1604
+#: patterns/pages/home.php:1603
 msgid "Where do I find the pre-made layouts?"
 msgstr ""
 
 #: patterns/faq/default.php:124
-#: patterns/pages/home.php:1606
+#: patterns/pages/home.php:1605
 msgid "Open the Block Inserter (+) and switch to the Patterns tab. Here you can browse categorized sections (Headers, Grids, Call to Actions) and drag them directly onto your canvas."
 msgstr ""
 
 #: patterns/faq/default.php:131
-#: patterns/pages/home.php:1614
+#: patterns/pages/home.php:1613
 msgid "Where do I add custom CSS?"
 msgstr ""
 
 #: patterns/faq/default.php:133
-#: patterns/pages/home.php:1616
+#: patterns/pages/home.php:1615
 msgid "Open the Styles panel, click the three dots menu, and select Additional CSS. This allows you to inject code that applies strictly to the framework's root without external plugins."
 msgstr ""
 
 #: patterns/faq/default.php:140
-#: patterns/pages/home.php:1624
+#: patterns/pages/home.php:1623
 msgid "How do I set a different template for a specific page?"
 msgstr ""
 
 #: patterns/faq/default.php:142
-#: patterns/pages/home.php:1626
+#: patterns/pages/home.php:1625
 msgid "Inside the page editor, look for the Template setting in the right sidebar (Page tab). Click the template name to swap it (e.g., from \"Default\" to \"Blank Canvas\") or create a new custom one."
 msgstr ""
 
 #: patterns/faq/default.php:149
-#: patterns/pages/home.php:1634
+#: patterns/pages/home.php:1633
 msgid "How do I revert changes if I break a template?"
 msgstr ""
 
 #: patterns/faq/default.php:151
-#: patterns/pages/home.php:1636
+#: patterns/pages/home.php:1635
 msgid "If a template is modified, a blue dot appears next to it in the Site Editor. Click the three dots next to the template name and select Clear Customizations to reset it to the theme's native default."
 msgstr ""
 
 #: patterns/faq/default.php:158
-#: patterns/pages/home.php:1644
+#: patterns/pages/home.php:1643
 msgid "How can I save user dark mode preferences?"
 msgstr ""
 
 #: patterns/faq/default.php:160
-#: patterns/pages/home.php:1646
+#: patterns/pages/home.php:1645
 msgid "The system defaults to the visitor's OS setting (prefers-color-scheme) automatically. However, if the manual toggle is engaged, a local cookie is initialized to persist the user's specific override across sessions."
 msgstr ""
 
@@ -3415,12 +3411,12 @@ msgid "Features"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:27
-#: patterns/pages/home.php:623
+#: patterns/pages/home.php:622
 msgid "Editor Evolved"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:31
-#: patterns/pages/home.php:627
+#: patterns/pages/home.php:626
 #: patterns/portfolio/image-gallery-grid.php:31
 msgid "Enhance the native experience with lightweight blocks engineered to integrate seamlessly without bloating the core."
 msgstr ""
@@ -3442,33 +3438,33 @@ msgstr ""
 #: patterns/footer/wide.php:72
 #: patterns/footer/wide.php:88
 #: patterns/footer/wide.php:98
-#: patterns/pages/home.php:643
+#: patterns/pages/home.php:642
 #: src/Blocks/slider/index.js:1
 msgid "Navigation"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:52
-#: patterns/pages/home.php:649
+#: patterns/pages/home.php:648
 msgid "Visual Nav"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:56
-#: patterns/pages/home.php:653
+#: patterns/pages/home.php:652
 msgid "Construct rich dropdowns with images and widgets directly in the canvas, requiring zero code."
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:67
-#: patterns/pages/home.php:665
+#: patterns/pages/home.php:664
 msgid "Typography"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:73
-#: patterns/pages/home.php:671
+#: patterns/pages/home.php:670
 msgid "Fluid Text"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:77
-#: patterns/pages/home.php:675
+#: patterns/pages/home.php:674
 msgid "Break linear constraints by wrapping typography along organic paths for high-impact editorial design."
 msgstr ""
 
@@ -3477,104 +3473,104 @@ msgid "Kinetics"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:94
-#: patterns/pages/home.php:693
+#: patterns/pages/home.php:692
 msgid "Motion Loop"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:98
-#: patterns/pages/home.php:697
+#: patterns/pages/home.php:696
 msgid "Inject kinetic energy with smooth scrolling marquees of text or images that drive user engagement."
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:113
-#: patterns/pages/home.php:562
-#: patterns/pages/home.php:713
-#: patterns/pages/home.php:932
+#: patterns/pages/home.php:561
+#: patterns/pages/home.php:712
+#: patterns/pages/home.php:931
 msgid "Structure"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:119
-#: patterns/pages/home.php:719
+#: patterns/pages/home.php:718
 msgid "Smart Grid"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:123
-#: patterns/pages/home.php:723
+#: patterns/pages/home.php:722
 msgid "Manage alignment automatically, transcending basic columns with an intrinsic responsive system."
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:134
-#: patterns/pages/home.php:735
+#: patterns/pages/home.php:734
 msgid "Growth"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:140
-#: patterns/pages/home.php:741
+#: patterns/pages/home.php:740
 msgid "Live Data"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:144
-#: patterns/pages/home.php:745
+#: patterns/pages/home.php:744
 msgid "Visualize growth by animating critical metrics as they scroll into view for dynamic polish."
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:155
-#: patterns/pages/home.php:757
+#: patterns/pages/home.php:756
 msgid "Curation"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:161
-#: patterns/pages/home.php:763
+#: patterns/pages/home.php:762
 msgid "Query Logic"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:165
-#: patterns/pages/home.php:767
+#: patterns/pages/home.php:766
 msgid "Filter content with precision, controlling display parameters to arrange portfolios effortlessly."
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:180
-#: patterns/pages/home.php:783
+#: patterns/pages/home.php:782
 msgid "Local"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:186
-#: patterns/pages/home.php:789
+#: patterns/pages/home.php:788
 msgid "Safe Maps"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:190
-#: patterns/pages/home.php:793
+#: patterns/pages/home.php:792
 msgid "Guide visitors without tracking using lightweight, GDPR-compliant maps embedded locally."
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:201
-#: patterns/pages/home.php:805
+#: patterns/pages/home.php:804
 msgid "Hierarchy"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:207
-#: patterns/pages/home.php:811
+#: patterns/pages/home.php:810
 msgid "Site Path"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:211
-#: patterns/pages/home.php:815
+#: patterns/pages/home.php:814
 msgid "Boost SEO and usability by generating clear structural links to define hierarchy instantly."
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:222
-#: patterns/pages/home.php:827
+#: patterns/pages/home.php:826
 msgid "Clarity"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:228
-#: patterns/pages/home.php:833
+#: patterns/pages/home.php:832
 msgid "SVG Icons"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:232
-#: patterns/pages/home.php:837
+#: patterns/pages/home.php:836
 msgid "Keep interfaces razor-sharp with scalable vectors that break up dense text on any resolution."
 msgstr ""
 
@@ -3589,18 +3585,18 @@ msgid "A feature section with image and content."
 msgstr ""
 
 #: patterns/featured/image.php:28
-#: patterns/pages/home.php:363
-#: patterns/pages/home.php:514
+#: patterns/pages/home.php:362
+#: patterns/pages/home.php:513
 msgid "Patterns"
 msgstr ""
 
 #: patterns/featured/image.php:34
-#: patterns/pages/home.php:369
+#: patterns/pages/home.php:368
 msgid "Modular Architecture"
 msgstr ""
 
 #: patterns/featured/image.php:38
-#: patterns/pages/home.php:373
+#: patterns/pages/home.php:372
 msgid "Build with velocity using pre-engineered layout blocks. These responsive patterns adapt intelligently to your global rules, allowing you to assemble complex interfaces rapidly without starting from zero."
 msgstr ""
 
@@ -3717,7 +3713,7 @@ msgid "Customer Service"
 msgstr ""
 
 #: patterns/footer/store-default.php:80
-#: patterns/pages/home.php:1453
+#: patterns/pages/home.php:1452
 msgid "FAQ"
 msgstr ""
 
@@ -3896,7 +3892,7 @@ msgstr ""
 
 #: patterns/hero/cover.php:23
 #: patterns/hero/image-below.php:16
-#: patterns/pages/home.php:30
+#: patterns/pages/home.php:29
 msgid "Native Block Framework"
 msgstr ""
 
@@ -5163,489 +5159,539 @@ msgctxt "Pattern title"
 msgid "Page Home"
 msgstr ""
 
-#: patterns/pages/home.php:23
+#: patterns/pages/home.php:22
 msgid "RELEASE V1.0.0"
 msgstr ""
 
-#: patterns/pages/home.php:35
+#: patterns/pages/home.php:34
 msgid "Wireframe, build, and ship high-performance sites without the bloat—a zero-dependency architecture for total creative freedom."
 msgstr ""
 
-#: patterns/pages/home.php:43
+#: patterns/pages/home.php:42
 msgid "Open Editor"
 msgstr ""
 
-#: patterns/pages/home.php:49
+#: patterns/pages/home.php:48
 msgid "Read Docs"
 msgstr ""
 
-#: patterns/pages/home.php:80
+#: patterns/pages/home.php:79
 #: patterns/timeline/horizontal.php:91
 msgid "Launch"
 msgstr ""
 
-#: patterns/pages/home.php:84
+#: patterns/pages/home.php:83
 msgid "Ready to Build"
 msgstr ""
 
-#: patterns/pages/home.php:88
+#: patterns/pages/home.php:87
 msgid "Transition instantly from installation to design with no complex setup required, confirming the framework is ready for your vision."
 msgstr ""
 
-#: patterns/pages/home.php:105
+#: patterns/pages/home.php:104
 msgid "Pure Velocity"
 msgstr ""
 
-#: patterns/pages/home.php:111
+#: patterns/pages/home.php:110
 msgid "Resources load strictly on demand without heavy dependencies for a truly instant experience."
 msgstr ""
 
-#: patterns/pages/home.php:124
+#: patterns/pages/home.php:123
 msgid "Fluid Mechanics"
 msgstr ""
 
-#: patterns/pages/home.php:130
+#: patterns/pages/home.php:129
 msgid "Layouts and typography adapt intelligently to any viewport using intrinsic responsiveness."
 msgstr ""
 
-#: patterns/pages/home.php:143
+#: patterns/pages/home.php:142
 msgid "Accessibility First"
 msgstr ""
 
-#: patterns/pages/home.php:149
+#: patterns/pages/home.php:148
 msgid "A semantic foundation aimed at WCAG 2.2 AA — landmarks, focus styles, and keyboard support out of the box."
 msgstr ""
 
-#: patterns/pages/home.php:210
+#: patterns/pages/home.php:209
 msgid "THE SYSTEM"
 msgstr ""
 
-#: patterns/pages/home.php:216
+#: patterns/pages/home.php:215
 msgid "Architectural Core"
 msgstr ""
 
-#: patterns/pages/home.php:220
+#: patterns/pages/home.php:219
 msgid "Define global rules that govern the entire experience, ensuring consistency without limiting technical access."
 msgstr ""
 
-#: patterns/pages/home.php:238
+#: patterns/pages/home.php:237
 msgid "Dark Mode"
 msgstr ""
 
-#: patterns/pages/home.php:244
+#: patterns/pages/home.php:243
 msgid "Smart Toggle"
 msgstr ""
 
-#: patterns/pages/home.php:248
+#: patterns/pages/home.php:247
 msgid "Semantic palettes adapt automatically, maintaining perfect contrast in any lighting without manual overrides."
 msgstr ""
 
-#: patterns/pages/home.php:260
+#: patterns/pages/home.php:259
 msgid "Design System"
 msgstr ""
 
-#: patterns/pages/home.php:266
+#: patterns/pages/home.php:265
 msgid "Global Tokens"
 msgstr ""
 
-#: patterns/pages/home.php:270
+#: patterns/pages/home.php:269
 msgid "Scale using rigid token architecture, ensuring every unit remains mathematically synchronized as the site grows."
 msgstr ""
 
-#: patterns/pages/home.php:286
+#: patterns/pages/home.php:285
 msgid "Dev Flexibility"
 msgstr ""
 
-#: patterns/pages/home.php:292
+#: patterns/pages/home.php:291
 msgid "Native API"
 msgstr ""
 
-#: patterns/pages/home.php:296
+#: patterns/pages/home.php:295
 msgid "Extend freely using native APIs, allowing you to modify the codebase without ever fighting the framework’s logic."
 msgstr ""
 
-#: patterns/pages/home.php:317
+#: patterns/pages/home.php:316
 msgid "Styles"
 msgstr ""
 
-#: patterns/pages/home.php:323
+#: patterns/pages/home.php:322
 msgid "Unified Aesthetics"
 msgstr ""
 
-#: patterns/pages/home.php:327
+#: patterns/pages/home.php:326
 #: patterns/portfolio/image-gallery.php:30
 msgid "Manage your visual language from a single source of truth. By defining typography, colors, and spacing globally, you ensure instant consistency across the entire framework without repetitive manual adjustments."
 msgstr ""
 
-#: patterns/pages/home.php:392
+#: patterns/pages/home.php:391
 msgid "Templates"
 msgstr ""
 
-#: patterns/pages/home.php:396
+#: patterns/pages/home.php:395
 msgid "Structural Control"
 msgstr ""
 
-#: patterns/pages/home.php:429
+#: patterns/pages/home.php:428
 msgid "Integrity"
 msgstr ""
 
-#: patterns/pages/home.php:435
+#: patterns/pages/home.php:434
 msgid "Core Shield"
 msgstr ""
 
-#: patterns/pages/home.php:440
+#: patterns/pages/home.php:439
 msgid "Eliminate the risk of third-party code by relying strictly on WordPress core, effectively removing common attack vectors."
 msgstr ""
 
-#: patterns/pages/home.php:452
+#: patterns/pages/home.php:451
 msgid "Continuity"
 msgstr ""
 
-#: patterns/pages/home.php:458
+#: patterns/pages/home.php:457
 msgid "Future Proof"
 msgstr ""
 
-#: patterns/pages/home.php:463
+#: patterns/pages/home.php:462
 msgid "Build once to persist forever, as your design aligns with the core engine to evolve automatically with every update."
 msgstr ""
 
-#: patterns/pages/home.php:475
+#: patterns/pages/home.php:474
 msgid "Inclusion"
 msgstr ""
 
-#: patterns/pages/home.php:481
+#: patterns/pages/home.php:480
 msgid "Open Access"
 msgstr ""
 
-#: patterns/pages/home.php:486
+#: patterns/pages/home.php:485
 msgid "Semantic code ensures your content is clear to search engines and screen readers, ensuring no visitor is ever left behind."
 msgstr ""
 
-#: patterns/pages/home.php:518
+#: patterns/pages/home.php:517
 msgid "Rapid Scale"
 msgstr ""
 
-#: patterns/pages/home.php:524
+#: patterns/pages/home.php:523
 msgid "Construct complex pages instantly using intelligent sections that adapt to your brand's design language automatically."
 msgstr ""
 
-#: patterns/pages/home.php:540
+#: patterns/pages/home.php:539
 msgid "Library"
 msgstr ""
 
-#: patterns/pages/home.php:546
+#: patterns/pages/home.php:545
 msgid "Smart Patterns"
 msgstr ""
 
-#: patterns/pages/home.php:550
+#: patterns/pages/home.php:549
 msgid "Insert conversion-ready headers and grids that inherit your global styles immediately for instant composition."
 msgstr ""
 
-#: patterns/pages/home.php:568
+#: patterns/pages/home.php:567
 msgid "Page Models"
 msgstr ""
 
-#: patterns/pages/home.php:573
+#: patterns/pages/home.php:572
 msgid "Select from fully architected wireframes ready for your content, enabling you to launch complete sites faster."
 msgstr ""
 
-#: patterns/pages/home.php:585
-#: patterns/pages/home.php:884
+#: patterns/pages/home.php:584
+#: patterns/pages/home.php:883
 msgid "Control"
 msgstr ""
 
-#: patterns/pages/home.php:591
+#: patterns/pages/home.php:590
 msgid "Deep Logic"
 msgstr ""
 
-#: patterns/pages/home.php:596
+#: patterns/pages/home.php:595
 msgid "Unlock advanced controls—visibility logic and responsive toggles—inside the native block inspector."
 msgstr ""
 
-#: patterns/pages/home.php:619
+#: patterns/pages/home.php:618
 msgid "toolkit"
 msgstr ""
 
-#: patterns/pages/home.php:687
+#: patterns/pages/home.php:686
 msgid "kinetics"
 msgstr ""
 
-#: patterns/pages/home.php:864
+#: patterns/pages/home.php:863
 msgid "Universal Design"
 msgstr ""
 
-#: patterns/pages/home.php:870
+#: patterns/pages/home.php:869
 msgid "True design excludes no one, reaching every visitor with a semantic core aimed at WCAG 2.2 AA — with content choices that keep it that way."
 msgstr ""
 
-#: patterns/pages/home.php:890
+#: patterns/pages/home.php:889
 msgid "Keyboard First"
 msgstr ""
 
-#: patterns/pages/home.php:894
+#: patterns/pages/home.php:893
 msgid "Navigate without a mouse by using logical tab sequencing and clear focus states to ensure seamless movement."
 msgstr ""
 
-#: patterns/pages/home.php:906
+#: patterns/pages/home.php:905
 msgid "Legibility"
 msgstr ""
 
-#: patterns/pages/home.php:912
+#: patterns/pages/home.php:911
 msgid "Visual Clarity"
 msgstr ""
 
-#: patterns/pages/home.php:916
+#: patterns/pages/home.php:915
 msgid "Ensure perfect reading by calculating contrast ratios in real-time against any background color to guarantee optimal legibility."
 msgstr ""
 
-#: patterns/pages/home.php:938
+#: patterns/pages/home.php:937
 msgid "Semantic Audio"
 msgstr ""
 
-#: patterns/pages/home.php:942
+#: patterns/pages/home.php:941
 msgid "Translate visual layouts into audio experiences by using semantic HTML markers to guide screen readers."
 msgstr ""
 
-#: patterns/pages/home.php:964
+#: patterns/pages/home.php:963
+#: patterns/pricing/single-highlight.php:17
 #: patterns/pricing/three-column.php:23
-msgid "Upgrade"
+#: patterns/pricing/two-column.php:17
+msgid "Retainers"
 msgstr ""
 
-#: patterns/pages/home.php:968
-msgid "Early Access"
+#: patterns/pages/home.php:967
+#: patterns/pricing/three-column.php:27
+msgid "Design Support That Scales"
 msgstr ""
 
-#: patterns/pages/home.php:972
+#: patterns/pages/home.php:971
 #: patterns/pricing/three-column.php:31
-msgid "Activate the professional core to remove usage limits, enable white-labeling, and access advanced architectural modules."
+msgid "Monthly creative retainers for freelancers, studios, and agencies. Clear hours, predictable pricing, cancel anytime."
 msgstr ""
 
-#: patterns/pages/home.php:987
-msgid "Solo"
+#: patterns/pages/home.php:986
+#: patterns/pricing/comparison-table.php:34
+#: patterns/pricing/three-column.php:46
+#: patterns/pricing/two-column.php:35
+msgid "Starter"
 msgstr ""
 
-#: patterns/pages/home.php:998
-#: patterns/pages/home.php:1096
-#: patterns/pages/home.php:1178
-msgid "yearly"
+#: patterns/pages/home.php:997
+#: patterns/pages/home.php:1089
+#: patterns/pages/home.php:1170
+msgid "monthly"
 msgstr ""
 
-#: patterns/pages/home.php:1010
-msgid "Single production instance."
+#: patterns/pages/home.php:1009
+msgid "For freelancers and solo makers."
 msgstr ""
 
-#: patterns/pages/home.php:1015
-msgid "Deploy the complete professional suite on a single active domain, unlocking all local font and e-commerce capabilities."
+#: patterns/pages/home.php:1014
+msgid "Steady design support for one brand—guidelines, light campaigns, and polished assets without a full-time hire."
 msgstr ""
 
-#: patterns/pages/home.php:1025
-msgid "1 Active Domain"
+#: patterns/pages/home.php:1024
+#: patterns/pricing/three-column.php:75
+#: patterns/pricing/two-column.php:57
+msgid "1 brand included"
 msgstr ""
 
-#: patterns/pages/home.php:1029
-msgid "Full Pro Suite"
+#: patterns/pages/home.php:1028
+#: patterns/pricing/three-column.php:79
+#: patterns/pricing/two-column.php:60
+msgid "8 design hours / month"
 msgstr ""
 
-#: patterns/pages/home.php:1033
-msgid "Pro Patterns"
+#: patterns/pages/home.php:1032
+#: patterns/pricing/comparison-table.php:59
+#: patterns/pricing/single-highlight.php:85
+#: patterns/pricing/three-column.php:83
+#: patterns/pricing/two-column.php:63
+msgid "Brand guidelines kit"
 msgstr ""
 
-#: patterns/pages/home.php:1037
-msgid "Local Google Fonts"
+#: patterns/pages/home.php:1036
+#: patterns/pricing/three-column.php:87
+#: patterns/pricing/two-column.php:66
+msgid "2 revision rounds"
 msgstr ""
 
-#: patterns/pages/home.php:1041
-msgid "Automatic Dark Mode"
+#: patterns/pages/home.php:1040
+msgid "Social & web assets"
 msgstr ""
 
-#: patterns/pages/home.php:1045
-msgid "eCommerce integrations"
+#: patterns/pages/home.php:1044
+msgid "Shared asset library"
 msgstr ""
 
-#: patterns/pages/home.php:1049
-msgid "Regular Product Updates"
+#: patterns/pages/home.php:1048
+#: patterns/pricing/three-column.php:91
+#: patterns/pricing/two-column.php:69
+msgid "Email support"
 msgstr ""
 
-#: patterns/pages/home.php:1053
-msgid "Standard Email Support"
+#: patterns/pages/home.php:1059
+msgid "Choose Starter"
 msgstr ""
 
-#: patterns/pages/home.php:1065
-msgid "Activate Solo"
-msgstr ""
-
-#: patterns/pages/home.php:1077
+#: patterns/pages/home.php:1071
+#: patterns/pricing/comparison-table.php:35
+#: patterns/pricing/three-column.php:111
+#: patterns/pricing/two-column.php:89
 msgid "Studio"
 msgstr ""
 
-#: patterns/pages/home.php:1083
+#: patterns/pages/home.php:1076
 #: patterns/pages/music-festival.php:260
-#: patterns/pricing/three-column.php:117
+#: patterns/pricing/three-column.php:116
 msgid "Most Popular"
 msgstr ""
 
-#: patterns/pages/home.php:1108
-msgid "Multi-site management."
+#: patterns/pages/home.php:1101
+msgid "For growing creative teams."
 msgstr ""
 
-#: patterns/pages/home.php:1114
-msgid "Scale operations to ten domains. gain access to Figma source files, and utilize advanced block visibility controls."
+#: patterns/pages/home.php:1107
+msgid "More brands, faster turnarounds, and source files included—ideal when design volume is steady every month."
 msgstr ""
 
-#: patterns/pages/home.php:1124
-msgid "Everything in Solo"
+#: patterns/pages/home.php:1117
+#: patterns/pricing/three-column.php:147
+msgid "Everything in Starter"
 msgstr ""
 
-#: patterns/pages/home.php:1128
-msgid "10 Active Domains"
+#: patterns/pages/home.php:1121
+#: patterns/pricing/single-highlight.php:61
+#: patterns/pricing/three-column.php:151
+#: patterns/pricing/two-column.php:117
+msgid "Up to 5 brands"
 msgstr ""
 
-#: patterns/pages/home.php:1132
-msgid "Figma Design Files"
+#: patterns/pages/home.php:1125
+#: patterns/pricing/single-highlight.php:65
+#: patterns/pricing/three-column.php:155
+#: patterns/pricing/two-column.php:120
+msgid "20 design hours / month"
 msgstr ""
 
-#: patterns/pages/home.php:1136
-msgid "Block Visibility Controls"
+#: patterns/pages/home.php:1129
+#: patterns/pricing/single-highlight.php:69
+#: patterns/pricing/three-column.php:159
+#: patterns/pricing/two-column.php:123
+msgid "Priority revisions"
 msgstr ""
 
-#: patterns/pages/home.php:1140
-msgid "Premium SVG Icon Sets"
+#: patterns/pages/home.php:1133
+#: patterns/pricing/single-highlight.php:73
+#: patterns/pricing/three-column.php:163
+#: patterns/pricing/two-column.php:126
+msgid "Source files included"
 msgstr ""
 
-#: patterns/pages/home.php:1156
-msgid "Activate Studio"
+#: patterns/pages/home.php:1137
+#: patterns/pricing/comparison-table.php:71
+#: patterns/pricing/single-highlight.php:93
+#: patterns/pricing/two-column.php:132
+msgid "Monthly strategy call"
 msgstr ""
 
-#: patterns/pages/home.php:1167
+#: patterns/pages/home.php:1148
+msgid "Choose Studio"
+msgstr ""
+
+#: patterns/pages/home.php:1159
+#: patterns/pricing/comparison-table.php:36
+#: patterns/pricing/three-column.php:182
 msgid "Agency"
 msgstr ""
 
-#: patterns/pages/home.php:1190
-msgid "Unrestricted deployment."
+#: patterns/pages/home.php:1182
+msgid "For multi-client agencies."
 msgstr ""
 
-#: patterns/pages/home.php:1195
-msgid "Remove all limits. Deploy on unlimited domains and white-label the interface to completely hide the framework's branding"
+#: patterns/pages/home.php:1187
+msgid "Unlimited brands, a dedicated creative lead, and white-glove delivery when client work never slows down."
 msgstr ""
 
-#: patterns/pages/home.php:1205
-msgid "Unlimited Domains"
-msgstr ""
-
-#: patterns/pages/home.php:1209
+#: patterns/pages/home.php:1197
+#: patterns/pricing/three-column.php:211
 msgid "Everything in Studio"
 msgstr ""
 
+#: patterns/pages/home.php:1201
+#: patterns/pricing/three-column.php:215
+msgid "Unlimited brands"
+msgstr ""
+
+#: patterns/pages/home.php:1205
+#: patterns/pricing/three-column.php:219
+msgid "40 design hours / month"
+msgstr ""
+
+#: patterns/pages/home.php:1209
+#: patterns/pricing/comparison-table.php:77
+#: patterns/pricing/three-column.php:223
+msgid "Dedicated creative lead"
+msgstr ""
+
 #: patterns/pages/home.php:1213
-msgid "White Labeling"
+msgid "Rush turnaround options"
 msgstr ""
 
 #: patterns/pages/home.php:1217
-msgid "WooCommerce Kit"
+#: patterns/pricing/comparison-table.php:89
+#: patterns/pricing/three-column.php:227
+msgid "Shared Slack channel"
 msgstr ""
 
-#: patterns/pages/home.php:1221
-msgid "Direct Slack Channel"
+#: patterns/pages/home.php:1228
+msgid "Choose Agency"
 msgstr ""
 
-#: patterns/pages/home.php:1233
-msgid "Activate Agency"
+#: patterns/pages/home.php:1241
+msgid "Need a custom scope? Talk to our studio →"
 msgstr ""
 
-#: patterns/pages/home.php:1246
-msgid "Looking for a custom solution? Enter the Creative Studio →"
-msgstr ""
-
-#: patterns/pages/home.php:1266
+#: patterns/pages/home.php:1261
 msgid "Updates"
 msgstr ""
 
-#: patterns/pages/home.php:1274
+#: patterns/pages/home.php:1269
 msgid "Automate your publication stream. This grid dynamically queries your database to display the most recent entries instantly."
 msgstr ""
 
-#: patterns/pages/home.php:1341
+#: patterns/pages/home.php:1336
 #: patterns/testimonial/three-column.php:24
 msgid "SOCIAL PROOF"
 msgstr ""
 
-#: patterns/pages/home.php:1345
+#: patterns/pages/home.php:1340
 #: patterns/testimonial/three-column.php:28
 msgid "Trusted Voices"
 msgstr ""
 
-#: patterns/pages/home.php:1351
+#: patterns/pages/home.php:1346
 #: patterns/testimonial/three-column.php:34
 msgid "Highlight success stories with verified reviews. This responsive grid adapts perfectly to showcase impactful user feedback."
 msgstr ""
 
-#: patterns/pages/home.php:1358
+#: patterns/pages/home.php:1353
 msgid "‘‘A true zero-dependency framework. It gave us the freedom to build custom layouts without fighting against bloated legacy code.’’"
 msgstr ""
 
-#: patterns/pages/home.php:1383
+#: patterns/pages/home.php:1380
 #: patterns/testimonial/single.php:28
-#: patterns/testimonial/three-column.php:60
+#: patterns/testimonial/three-column.php:63
 msgid "Sarah L."
 msgstr ""
 
-#: patterns/pages/home.php:1387
-#: patterns/testimonial/three-column.php:64
+#: patterns/pages/home.php:1384
+#: patterns/testimonial/three-column.php:67
 msgid "Studio Lead"
 msgstr ""
 
-#: patterns/pages/home.php:1398
+#: patterns/pages/home.php:1395
 msgid "‘‘The architectural precision is unmatched. We migrated our entire stack and saw immediate performance gains across the board.’’"
 msgstr ""
 
-#: patterns/pages/home.php:1423
-#: patterns/testimonial/three-column.php:94
+#: patterns/pages/home.php:1422
+#: patterns/testimonial/three-column.php:100
 msgid "Alex V."
 msgstr ""
 
-#: patterns/pages/home.php:1427
+#: patterns/pages/home.php:1426
 #: patterns/team/grid-simple.php:73
-#: patterns/testimonial/three-column.php:98
+#: patterns/testimonial/three-column.php:104
 msgid "Senior Developer"
 msgstr ""
 
-#: patterns/pages/home.php:1457
+#: patterns/pages/home.php:1456
 msgid "Quick Start"
 msgstr ""
 
-#: patterns/pages/home.php:1461
+#: patterns/pages/home.php:1460
 msgid "Essential guides to navigating the block architecture and taking full control of your site's foundation."
 msgstr ""
 
-#: patterns/pages/home.php:1538
+#: patterns/pages/home.php:1537
 msgid "Insert the Icon block and pick from the WordPress Icon library, including Aegis collections. Paste custom SVG in the Icon block, or use the SVG Image variation for inline SVG files."
 msgstr ""
 
-#: patterns/pages/home.php:1542
+#: patterns/pages/home.php:1541
 msgid "To upload standard .svg files to the Media Library, you must install a sanitizer plugin (like Safe SVG) to bypass WordPress security restrictions."
 msgstr ""
 
-#: patterns/pages/home.php:1669
+#: patterns/pages/home.php:1668
 msgid "Question not answered above?"
 msgstr ""
 
-#: patterns/pages/home.php:1672
+#: patterns/pages/home.php:1671
 msgid "Contact us →"
 msgstr ""
 
-#: patterns/pages/home.php:1685
+#: patterns/pages/home.php:1684
 msgid "Next Phase"
 msgstr ""
 
-#: patterns/pages/home.php:1690
+#: patterns/pages/home.php:1689
 msgid "Execute Your Vision"
 msgstr ""
 
-#: patterns/pages/home.php:1694
+#: patterns/pages/home.php:1693
 msgid "The foundation is set. Transition immediately from installation to production and start architecting your digital presence today."
 msgstr ""
 
-#: patterns/pages/home.php:1703
+#: patterns/pages/home.php:1702
 msgid "Open Site Editor"
 msgstr ""
 
@@ -7004,105 +7050,76 @@ msgid "A feature comparison table across multiple pricing plans."
 msgstr ""
 
 #: patterns/pricing/comparison-table.php:17
-msgid "Compare Plans"
+msgid "Compare Retainers"
 msgstr ""
 
 #: patterns/pricing/comparison-table.php:21
-msgid "Find the Right Fit"
-msgstr ""
-
-#: patterns/pricing/comparison-table.php:34
-#: patterns/pricing/two-column.php:35
-msgid "Starter"
-msgstr ""
-
-#: patterns/pricing/comparison-table.php:35
-#: patterns/pricing/two-column.php:89
-msgid "Professional"
-msgstr ""
-
-#: patterns/pricing/comparison-table.php:36
-msgid "Enterprise"
+msgid "Find the Right Creative Fit"
 msgstr ""
 
 #: patterns/pricing/comparison-table.php:41
-msgid "Projects"
+msgid "Brands included"
+msgstr ""
+
+#: patterns/pricing/comparison-table.php:42
+msgid "1"
+msgstr ""
+
+#: patterns/pricing/comparison-table.php:43
+msgid "5"
 msgstr ""
 
 #: patterns/pricing/comparison-table.php:44
-#: patterns/pricing/comparison-table.php:50
+#: patterns/pricing/comparison-table.php:56
 msgid "Unlimited"
 msgstr ""
 
 #: patterns/pricing/comparison-table.php:47
-msgid "Team members"
+msgid "Design hours / month"
 msgstr ""
 
 #: patterns/pricing/comparison-table.php:48
-msgid "1"
+msgid "8"
 msgstr ""
 
 #: patterns/pricing/comparison-table.php:49
-msgid "10"
+msgid "20"
+msgstr ""
+
+#: patterns/pricing/comparison-table.php:50
+msgid "40"
 msgstr ""
 
 #: patterns/pricing/comparison-table.php:53
-msgid "Storage"
+msgid "Revision rounds"
 msgstr ""
 
 #: patterns/pricing/comparison-table.php:54
-msgid "5 GB"
+msgid "2"
 msgstr ""
 
 #: patterns/pricing/comparison-table.php:55
-msgid "100 GB"
-msgstr ""
-
-#: patterns/pricing/comparison-table.php:56
-msgid "1 TB"
-msgstr ""
-
-#: patterns/pricing/comparison-table.php:59
-#: patterns/pricing/single-highlight.php:69
-msgid "Custom domains"
+msgid "Priority"
 msgstr ""
 
 #: patterns/pricing/comparison-table.php:65
-#: patterns/pricing/single-highlight.php:89
-#: patterns/pricing/two-column.php:129
-msgid "API access"
-msgstr ""
-
-#: patterns/pricing/comparison-table.php:71
-#: patterns/pricing/single-highlight.php:73
-#: patterns/pricing/two-column.php:120
-msgid "Advanced analytics"
-msgstr ""
-
-#: patterns/pricing/comparison-table.php:77
-#: patterns/pricing/single-highlight.php:65
-#: patterns/pricing/two-column.php:123
-msgid "Priority support"
+msgid "Source files"
 msgstr ""
 
 #: patterns/pricing/comparison-table.php:83
-msgid "SSO / SAML"
-msgstr ""
-
-#: patterns/pricing/comparison-table.php:89
-msgid "White-label"
+msgid "Rush turnaround"
 msgstr ""
 
 #: patterns/pricing/comparison-table.php:98
-msgid "$0/mo"
-msgstr ""
-
-#: patterns/pricing/comparison-table.php:99
 msgid "$49/mo"
 msgstr ""
 
+#: patterns/pricing/comparison-table.php:99
+msgid "$129/mo"
+msgstr ""
+
 #: patterns/pricing/comparison-table.php:100
-msgid "$199/mo"
+msgid "$249/mo"
 msgstr ""
 
 #: patterns/pricing/single-highlight.php
@@ -7115,46 +7132,36 @@ msgctxt "Pattern description"
 msgid "A single highlighted pricing card with feature list and CTA."
 msgstr ""
 
-#: patterns/pricing/single-highlight.php:17
-#: patterns/pricing/two-column.php:17
-msgid "Pricing"
-msgstr ""
-
 #: patterns/pricing/single-highlight.php:21
-msgid "One Plan, Everything Included"
+msgid "One Retainer, Full Creative Support"
 msgstr ""
 
 #: patterns/pricing/single-highlight.php:25
-msgid "No tiers, no upsells. Get the full platform at one transparent price."
+msgid "No upsells. Get our Studio retainer—hours, revisions, and source files—at one transparent price."
 msgstr ""
 
 #: patterns/pricing/single-highlight.php:41
+#: patterns/pricing/three-column.php:57
+#: patterns/pricing/three-column.php:129
+#: patterns/pricing/three-column.php:193
 msgid "/ month"
 msgstr ""
 
 #: patterns/pricing/single-highlight.php:47
-msgid "Billed annually. Cancel anytime."
+msgid "Billed monthly. Pause or cancel anytime."
 msgstr ""
 
-#: patterns/pricing/single-highlight.php:61
-#: patterns/pricing/two-column.php:117
-msgid "Unlimited projects"
-msgstr ""
-
-#: patterns/pricing/single-highlight.php:85
-msgid "Team collaboration"
-msgstr ""
-
-#: patterns/pricing/single-highlight.php:93
-msgid "White-label option"
+#: patterns/pricing/single-highlight.php:89
+#: patterns/pricing/two-column.php:129
+msgid "Shared feedback board"
 msgstr ""
 
 #: patterns/pricing/single-highlight.php:97
-msgid "SSO integration"
+msgid "Email & chat support"
 msgstr ""
 
 #: patterns/pricing/single-highlight.php:109
-msgid "Get Started Today"
+msgid "Start Studio Retainer"
 msgstr ""
 
 #: patterns/pricing/three-column.php
@@ -7167,54 +7174,18 @@ msgctxt "Pattern description"
 msgid "A three-column pricing table."
 msgstr ""
 
-#: patterns/pricing/three-column.php:27
-msgid "Simple Pricing"
-msgstr ""
-
-#: patterns/pricing/three-column.php:57
-#: patterns/pricing/three-column.php:130
-#: patterns/pricing/three-column.php:194
-msgid "/ yearly"
-msgstr ""
-
-#: patterns/pricing/three-column.php:75
-#: patterns/pricing/three-column.php:79
-#: patterns/pricing/three-column.php:83
-#: patterns/pricing/three-column.php:87
-#: patterns/pricing/three-column.php:91
-#: patterns/pricing/three-column.php:148
-#: patterns/pricing/three-column.php:152
-#: patterns/pricing/three-column.php:156
-#: patterns/pricing/three-column.php:160
-#: patterns/pricing/three-column.php:164
-#: patterns/pricing/three-column.php:212
-#: patterns/pricing/three-column.php:216
-#: patterns/pricing/three-column.php:220
-#: patterns/pricing/three-column.php:224
-#: patterns/pricing/three-column.php:228
-msgid "Feature or benefit"
-msgstr ""
-
 #: patterns/pricing/three-column.php:99
-#: patterns/pricing/three-column.php:172
-#: patterns/pricing/three-column.php:236
+#: patterns/pricing/three-column.php:171
+#: patterns/pricing/three-column.php:235
 msgid "Choose Plan"
 msgstr ""
 
-#: patterns/pricing/three-column.php:111
-msgid "Pro"
+#: patterns/pricing/three-column.php:248
+msgid "Need a custom scope? Talk to our studio"
 msgstr ""
 
-#: patterns/pricing/three-column.php:183
-msgid "Team"
-msgstr ""
-
-#: patterns/pricing/three-column.php:249
-msgid "Looking for a custom solution? Enter the Creative Studio"
-msgstr ""
-
-#: patterns/pricing/three-column.php:260
-msgid "100% no-risk money back guarantee"
+#: patterns/pricing/three-column.php:259
+msgid "Pause or cancel anytime — no long-term lock-in"
 msgstr ""
 
 #: patterns/pricing/two-column.php
@@ -7228,19 +7199,19 @@ msgid "A two-column pricing comparison layout."
 msgstr ""
 
 #: patterns/pricing/two-column.php:21
-msgid "Simple, Transparent Pricing"
+msgid "Simple Retainer Pricing"
 msgstr ""
 
 #: patterns/pricing/two-column.php:25
-msgid "Choose the plan that fits your needs. No hidden fees, cancel anytime."
+msgid "Pick the creative support level that fits your workflow. No hidden fees, cancel anytime."
 msgstr ""
 
 #: patterns/pricing/two-column.php:39
-msgid "Perfect for individuals and small projects getting started."
+msgid "Perfect for freelancers and solo makers with one brand."
 msgstr ""
 
 #: patterns/pricing/two-column.php:45
-msgid "$29"
+msgid "$49"
 msgstr ""
 
 #: patterns/pricing/two-column.php:49
@@ -7248,44 +7219,16 @@ msgstr ""
 msgid "/month"
 msgstr ""
 
-#: patterns/pricing/two-column.php:57
-msgid "Up to 5 projects"
-msgstr ""
-
-#: patterns/pricing/two-column.php:60
-msgid "Basic analytics"
-msgstr ""
-
-#: patterns/pricing/two-column.php:63
-msgid "Email support"
-msgstr ""
-
-#: patterns/pricing/two-column.php:66
-msgid "1GB storage"
-msgstr ""
-
-#: patterns/pricing/two-column.php:69
-msgid "Community access"
-msgstr ""
-
 #: patterns/pricing/two-column.php:93
 msgid "Popular"
 msgstr ""
 
 #: patterns/pricing/two-column.php:99
-msgid "For growing teams that need more power and flexibility."
+msgid "For growing teams that need more brands and faster turnarounds."
 msgstr ""
 
 #: patterns/pricing/two-column.php:105
-msgid "$79"
-msgstr ""
-
-#: patterns/pricing/two-column.php:126
-msgid "50GB storage"
-msgstr ""
-
-#: patterns/pricing/two-column.php:132
-msgid "Custom integrations"
+msgid "$129"
 msgstr ""
 
 #: patterns/product/category-grid.php
@@ -8671,7 +8614,7 @@ msgstr ""
 msgid "''A true zero-dependency framework. It gave us the freedom to build custom layouts without fighting against bloated legacy code.''"
 msgstr ""
 
-#: patterns/testimonial/three-column.php:75
+#: patterns/testimonial/three-column.php:78
 msgid "''The architectural precision is unmatched. We migrated our entire stack and saw immediate performance gains across the board.''"
 msgstr ""
 
