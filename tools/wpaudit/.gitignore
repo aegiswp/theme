@@ -1,5 +1,7 @@
 /vendor/
 /coverage/
+/.github/
 .phpunit.result.cache
 .phpunit.cache/
 *.cache
+/audit-report.html

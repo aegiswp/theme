@@ -1,0 +1,23 @@
+{
+	"name": "aegis/framework",
+	"description": "WordPress block theme framework (vendored — path stub for Composer).",
+	"type": "library",
+	"license": "GPL-2.0-or-later",
+	"version": "dev-main",
+	"require": {
+		"php": ">=7.4",
+		"aegis/container": "dev-main",
+		"aegis/dom": "dev-main",
+		"aegis/hooks": "dev-main",
+		"aegis/icons": "dev-main",
+		"aegis/utilities": "dev-main"
+	},
+	"autoload": {
+		"psr-4": {
+			"Aegis\\Framework\\": "src/"
+		},
+		"classmap": [
+			"src/Aegis.php"
+		]
+	}
+}

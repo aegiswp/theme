@@ -10,40 +10,17 @@ declare(strict_types=1);
 
 use Aegis\Utilities\Str;
 
-$pattern_roots = array_values(
-	array_unique(
-		array(
-			get_template_directory() . '/patterns',
-			get_stylesheet_directory() . '/patterns',
-		)
-	)
-);
+$all_categories = glob( get_stylesheet_directory() . '/patterns/*', GLOB_ONLYDIR );
+$categories     = array();
+$excluded       = array( 'page', 'template' );
 
-$category_paths = array();
-foreach ( $pattern_roots as $root ) {
-	if ( ! is_dir( $root ) ) {
-		continue;
-	}
-	foreach ( glob( $root . '/*', GLOB_ONLYDIR ) ?: array() as $dir ) {
-		$category_paths[ basename( $dir ) ] = $dir;
-	}
-}
+foreach ( $all_categories as $category ) {
+	$slug = basename( $category );
 
-$categories = array();
-$excluded     = array( 'page', 'template' );
-
-foreach ( $category_paths as $slug => $dir ) {
 	if ( ! in_array( $slug, $excluded, true ) ) {
-		$categories[] = $dir;
+		$categories[] = $category;
 	}
 }
-
-usort(
-	$categories,
-	static function ( string $a, string $b ): int {
-		return strcmp( basename( $a ), basename( $b ) );
-	}
-);
 
 ?>
 
@@ -59,20 +36,21 @@ usort(
 	<div class="wp-block-group alignwide"
 		style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);text-decoration:none">
 
-		<?php foreach ($categories as $category):
+		<?php
+		foreach ( $categories as $category ) :
 
-			$title = Str::title_case(basename($category));
+			$title = Str::title_case( basename( $category ) );
 
-			if (in_array(basename($category), ['cta', 'faq'], true)) {
-				$title = strtoupper($title);
+			if ( in_array( basename( $category ), array( 'cta', 'faq' ), true ) ) {
+				$title = strtoupper( $title );
 			}
 
 			?>
 
 			<!-- wp:paragraph -->
 			<p>
-				<a href="#<?php echo esc_html(basename($category)); ?>">
-					<?php echo esc_html($title); ?>
+				<a href="#<?php echo esc_html( basename( $category ) ); ?>">
+					<?php echo esc_html( $title ); ?>
 				</a>
 			</p>
 			<!-- /wp:paragraph -->
@@ -81,7 +59,7 @@ usort(
 
 		<!-- wp:paragraph {"style":{"spacing":{"margin":{"right":"0"}},"display":{"mobile":"none"}},"className":"margin-left-auto"} -->
 		<p class="margin-left-auto" style="margin-right:0">
-			<a href="#"><?php echo esc_html__( 'Top', 'aegis' ); ?></a>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Top', 'aegis' ); ?></a>
 		</p>
 		<!-- /wp:paragraph -->
 	</div>
@@ -89,7 +67,7 @@ usort(
 </div>
 <!-- /wp:group -->
 
-<?php foreach ($categories as $category): ?>
+<?php foreach ( $categories as $category ) : ?>
 
 	<!-- wp:group {"align":"full","style":{"spacing":{"blockGap":"var:preset|spacing|md","padding":{"top":"0","bottom":"var:preset|spacing|xxl"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"neutral-100","layout":{"type":"constrained"}} -->
 	<div class="wp-block-group alignfull has-neutral-100-background-color has-background"
@@ -98,37 +76,28 @@ usort(
 		<h2 class="wp-block-heading alignwide has-text-align-wide has-20-font-size"
 			style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;padding-top:var(--wp--preset--spacing--xl)">
 			<?php
-			$title = Str::title_case(basename($category));
+			$title = Str::title_case( basename( $category ) );
 
-			if (in_array(basename($category), ['cta', 'faq'], true)) {
-				$title = strtoupper($title);
+			if ( in_array( basename( $category ), array( 'cta', 'faq' ), true ) ) {
+				$title = strtoupper( $title );
 			}
 
 			?>
-			<?php echo esc_html($title); ?>
+			<?php echo esc_html( $title ); ?>
 		</h2>
 		<!-- /wp:heading -->
 
 		<?php
-		$category_slug = basename( $category );
-		$pattern_files = array();
-		foreach ( $pattern_roots as $root ) {
-			$dir = $root . '/' . $category_slug;
-			if ( ! is_dir( $dir ) ) {
-				continue;
-			}
-			foreach ( glob( $dir . '/*.php' ) ?: array() as $pattern_path ) {
-				$pattern_files[ basename( $pattern_path, '.php' ) ] = $pattern_path;
-			}
-		}
+		$patterns = glob( $category . '/*.php' );
 
-		foreach ( $pattern_files as $pattern ): ?>
+		foreach ( $patterns as $pattern ) :
+			?>
 
 			<?php
-			$excluded_patterns = ['color-palette', 'gradients', 'patterns'];
-			$slug = basename($pattern, '.php');
+			$excluded_patterns = array( 'color-palette', 'gradients', 'patterns' );
+			$slug              = basename( $pattern, '.php' );
 
-			if (in_array($slug, $excluded_patterns, true)) {
+			if ( in_array( $slug, $excluded_patterns, true ) ) {
 				continue;
 			}
 			?>
@@ -145,7 +114,7 @@ usort(
 
 				$output = ob_get_clean();
 
-				echo $output;
+				echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Buffered output of the theme's own pattern files.
 
 				?>
 

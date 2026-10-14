@@ -17,13 +17,13 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
+// Enforces strict type checking for all code in this file, ensuring type safety for child theme component.
 declare( strict_types=1 );
 
-// Declares the namespace for design system components within the Aegis Framework.
+// Declares the namespace for the child theme component.
 namespace Aegis\Framework\DesignSystem;
 
-// Imports styleable interface, styles service, string utilities, and WordPress helpers.
+// Imports classes, interfaces, and functions used by the child theme component.
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
 use Aegis\Utilities\Str;
@@ -33,10 +33,7 @@ use function get_stylesheet_directory;
 use function str_replace;
 use function trim;
 
-// Implements the ChildTheme class to support loading and managing child theme styles.
-
-class ChildTheme implements Styleable
-{
+class ChildTheme implements Styleable {
 
 	/**
 	 * Adds child theme style.css to inline styles.
@@ -47,22 +44,22 @@ class ChildTheme implements Styleable
 	 *
 	 * @return void
 	 */
-	public function styles(Styles $styles): void
-	{
-		$child = get_stylesheet_directory() . '/style.css';
-		$file_exists = file_exists($child);
+	public function styles( Styles $styles ): void {
+		$child       = get_stylesheet_directory() . '/style.css';
+		$file_exists = file_exists( $child );
 
-		if (!$file_exists) {
+		if ( ! $file_exists ) {
 			return;
 		}
 
-		$content = trim(file_get_contents($child));
-		$css = str_replace(
-			Str::between('/**', '*/', $content),
+		// Strip the theme header comment from style.css content.
+		$content = trim( file_get_contents( $child ) );
+		$css     = str_replace(
+			Str::between( '/**', '*/', $content ),
 			'',
 			$content
 		);
 
-		$styles->add_string($css);
+		$styles->add_string( $css );
 	}
 }

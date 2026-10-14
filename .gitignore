@@ -4,14 +4,24 @@ node_modules/
 # framework packages tracked: they are path-repository sources required for
 # `composer install` to resolve aegis/framework and aegis/icons on a fresh
 # clone (see "repositories" in composer.json).
+# Per-package composer.json and LICENSE stay in Git; README is optional dev docs.
+# .distignore strips nested composer.json/README/etc. from the release zip.
 vendor/*
 !vendor/aegis/
 !vendor/aegis/**
+
+# Re-ignore generated/dev paths inside tracked first-party packages.
+vendor/aegis/**/tests/
+vendor/aegis/**/node_modules/
+vendor/aegis/**/vendor/
+vendor/aegis/**/.phpunit.cache/
+vendor/aegis/wpaudit/
 
 # IDE
 .vscode/
 .idea/
 .claude/
+.cursor/
 .fleet/
 *.sublime-project
 *.sublime-workspace
@@ -24,8 +34,10 @@ vendor/*
 Thumbs.db
 Desktop.ini
 
-# Dot-prefixed folders/files in patterns (e.g. .template/)
+# Local-only pattern drafts (leading-dot names). Never commit, ship, or document.
+# Nested paths need **/ — plain patterns/.* only matches the top of patterns/.
 patterns/.*
+patterns/**/.*
 
 # Ephemeral / scratch (e.g. *.pretty.tmp from local formatting)
 *.tmp
@@ -33,32 +45,31 @@ patterns/.*
 *.bak
 *.backup
 
-# Dev tooling (standalone packages, not part of theme runtime)
-# Track tools/wpaudit so CI can run its PHPUnit suite (aegis/wpaudit path repo).
-# Keep tools/generate-blocks-manifest.php tracked: `npm run build` depends on it.
-tools/*
-!tools/wpaudit/
-!tools/wpaudit/**
-!tools/generate-blocks-manifest.php
-!tools/clean-build.js
+# Dev tooling — maintained scripts under tools/ ARE tracked (see tools/README.md).
+# Do not upload: local probes, Composer install output, caches.
+# WPAudit lives only in tools/wpaudit/; ignore a leftover vendor copy.
+tools/scratch/
+tools/wpaudit/vendor/
+tools/wpaudit/.phpunit.cache/
+tools/wpaudit/coverage/
+tools/wpaudit/.github/
+tools/wpaudit/audit-report.html
+.wpauditrc.json
 
-# One-off dev/migration scripts (not part of theme runtime)
+# One-off dev/migration scripts (not part of theme runtime).
+# Unanchored `bin/` also matches vendor/bin/ (Composer binaries) — intentional.
 bin/
 scripts/
 
-# Audit tool legacy paths (moved to tools/wpaudit)
+# Empty / legacy (not part of theme runtime)
 config/
-src/Analyzers/
-src/Models/
-src/Enums/
-src/Interfaces/
-src/ConfigurationManager.php
-src/DesignSystem/
 
 # Test coverage
 .phpunit.result.cache
 .phpunit.cache/
+.phpcs.cache
 coverage/
+coverage.xml
 *.coverage
 phpunit-report.xml
 
@@ -66,12 +77,16 @@ phpunit-report.xml
 playwright-report/
 test-results/
 
+# CI-generated pa11y config (accessibility.yml writes resolved post/page IDs)
+.pa11yci.ci.json
+
 # Build artifacts — src/Blocks/ (webpack output)
 src/Blocks/*/index.js
 src/Blocks/*/view.js
 src/Blocks/*/style.js
 src/Blocks/*/index.css
 src/Blocks/*/style.css
+src/Blocks/*/style-index.css
 src/Blocks/*/style-style.css
 src/Blocks/*/*.asset.php
 src/Blocks/*/*.js.map
@@ -81,12 +96,10 @@ src/Blocks/*/*-rtl.css
 # Build artifacts — src/Blocks/editor/ (webpack output)
 src/Blocks/editor/
 
-# Build artifacts — src/Admin/build/ (webpack output)
-src/Admin/build/
-
 # Build artifacts — general
 /build/
 /dist/
+/aegis/
 
 # Logs
 *.log
@@ -115,8 +128,4 @@ auth.json
 .stylelintcache
 .pnpm-store/
 /.kiro
-AGENTS.md
-DESIGN.md
-/tests
-docs/_footer.md
-docs/_sidebar.md
+SUBMISSION-NOTES.md

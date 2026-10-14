@@ -17,26 +17,21 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
+// Enforces strict type checking for all code in this file, ensuring type safety for block supports component.
 declare( strict_types=1 );
 
-// Declares the namespace for design system components within the Aegis Framework.
+// Declares the namespace for the block supports component.
 namespace Aegis\Framework\DesignSystem;
 
-// Imports scriptable interface, scripts service, and WordPress admin detection helper.
+// Imports classes, interfaces, and functions used by the block supports component.
 use Aegis\Framework\InlineAssets\Scriptable;
 use Aegis\Framework\InlineAssets\Scripts;
 use function is_admin;
-
-// Implements the BlockSupports class to support block supports configuration and management for the editor.
 
 class BlockSupports implements Scriptable
 {
 
 	private array $config = [
-		'aegis/accordion' => [
-			'aegisBoxShadow' => true,
-		],
 		'arraypress/edd-image-slider' => [
 			'aegisPosition' => true,
 		],
@@ -115,7 +110,6 @@ class BlockSupports implements Scriptable
 				// 2. Add PHP rendering logic in CoreBlocks\Button.php to apply these CSS variables
 				//    (currently Button.php removes --wp--custom--icon--* variables at lines 282-287)
 				// 3. Add CSS rules that actually use these custom properties in the stylesheet
-				// Note: --wp--custom--icon--color is used in BlockVariations\Icon.php but not for buttons
 				//'iconColor'       => [
 				//	'property' => '--wp--custom--icon--color',
 				//	'selector' => '.%1$s > div',
@@ -301,14 +295,29 @@ class BlockSupports implements Scriptable
 				'padding' => true,
 			],
 			'typography' => [
-				'fontSize' => true, // Used by icons.
+				'fontSize' => true,
 			],
 			'aegisAnimation' => true,
 			'aegisBackground' => true,
 			'aegisBoxShadow' => true,
 			'aegisFilter' => true,
-			'aegisIcon' => true,
 			'aegisNegativeMargin' => true,
+			'aegisPosition' => true,
+			'aegisTransform' => true,
+			'aegisOnclick' => true,
+		],
+		'core/icon' => [
+			'color' => [
+				'gradients' => true,
+				'background' => true,
+				'text' => true,
+			],
+			'spacing' => [
+				'margin' => true,
+				'padding' => true,
+			],
+			'aegisAnimation' => true,
+			'aegisBoxShadow' => true,
 			'aegisPosition' => true,
 			'aegisTransform' => true,
 			'aegisOnclick' => true,
@@ -420,12 +429,12 @@ class BlockSupports implements Scriptable
 			],
 		],
 		'core/paragraph' => [
+			// Text alignment uses the `align` attribute + has-text-align-* classes.
+			// Do not enable block align left/center/right or Core will also emit
+			// alignleft/aligncenter/alignright and invalidate existing patterns.
 			'align' => [
 				'full',
 				'wide',
-				'left',
-				'center',
-				'right',
 				'none',
 			],
 			'alignWide' => true,

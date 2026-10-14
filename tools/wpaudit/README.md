@@ -1,23 +1,32 @@
 # WPAudit
 
-A standalone PHP package for auditing WordPress themes against best practices in performance, SEO, accessibility, security, and scalability.
+PHPUnit suite for auditing WordPress themes. Lives only in `tools/wpaudit`. CI runs it with `composer test:wpaudit`, which installs this package’s own `vendor/` here — not under the theme `vendor/` tree.
 
 ## Requirements
 
-- PHP >= 7.4
+- PHP >= 8.1
 - Composer
 
 ## Installation
 
+From the theme root:
+
 ```bash
-composer install
+composer test:wpaudit
 ```
 
-## Usage
+Or install this package only:
 
-### Configuration
+```bash
+composer install --working-dir=tools/wpaudit
+composer test --working-dir=tools/wpaudit
+```
 
-Create a `.wpauditrc.json` in your project root. See `config/.wpauditrc.example.json` for a full example, or use the JSON schema at `config/.wpauditrc.schema.json` for IDE autocompletion.
+`vendor/` under this directory is gitignored and installed in CI.
+
+## Configuration
+
+Optional. Place a `.wpauditrc.json` in the theme root to override defaults (that file is gitignored). If it is missing, `ConfigurationManager` uses built-in defaults. See `config/.wpauditrc.example.json` and `config/.wpauditrc.schema.json`.
 
 ```json
 {
@@ -37,7 +46,7 @@ Create a `.wpauditrc.json` in your project root. See `config/.wpauditrc.example.
 }
 ```
 
-### Programmatic API
+## Programmatic API
 
 ```php
 use WPAudit\ConfigurationManager;
@@ -48,16 +57,13 @@ use WPAudit\Analyzers\PerformanceAnalyzer;
 use WPAudit\Analyzers\SEOAnalyzer;
 use WPAudit\Analyzers\AccessibilityAnalyzer;
 
-// Load configuration.
 $config_manager = new ConfigurationManager();
 $config = $config_manager->load( '/path/to/theme' );
 
-// Build context.
 $theme    = ThemeMetadata::from_directory( '/path/to/theme' );
 $registry = new FileRegistry();
 $context  = new AuditContext( $config, $theme, $registry );
 
-// Run analyzers.
 $analyzers = [
     new PerformanceAnalyzer(),
     new SEOAnalyzer(),
@@ -111,6 +117,15 @@ foreach ( $registry->get_all() as $file ) {
 | `a11y-007` | Missing skip links | Medium |
 | `a11y-008` | Media without captions/transcripts | High |
 
+#### Skip-link detection (`a11y-007`)
+
+The analyzer scans classic header entry points (`header.php`, `header.html`,
+`index.php`, `front-page.php`) and block-theme injection sources
+(`SkipLink.php`, `skip-to-content.php`). A match for `skip-link`,
+`skip-to-content`, `skip-navigation`, or `skip-to-main` counts as present.
+Header *patterns* are not required to embed the skip link in markup — the
+framework injects it at render time before the header template part.
+
 ## Configuration Options
 
 | Key | Type | Default | Description |
@@ -136,32 +151,26 @@ foreach ( $registry->get_all() as $file ) {
 
 ```bash
 composer test
+composer test:coverage
 ```
 
-## Development
-
-```bash
-composer test           # Run unit tests
-composer test:coverage  # Run tests with HTML coverage report
-composer lint           # Check code style (requires phpcs)
-composer analyze        # Static analysis (requires phpstan)
-```
+PHPCS config lives in `phpcs.xml` (PSR-12). Run it from this directory if `phpcs` is on your PATH.
 
 ## Architecture
 
 ```
 src/
-├── Analyzers/          # IAnalyzer implementations
+├── Analyzers/
 │   ├── AccessibilityAnalyzer.php
 │   ├── PerformanceAnalyzer.php
 │   └── SEOAnalyzer.php
-├── Enums/              # Value enumerations
+├── Enums/
 │   ├── FileType.php
 │   ├── FixConfidence.php
 │   └── Severity.php
-├── Interfaces/         # Contracts
+├── Interfaces/
 │   └── IAnalyzer.php
-├── Models/             # Data models
+├── Models/
 │   ├── AuditContext.php
 │   ├── AuditMetadata.php
 │   ├── AuditResult.php
@@ -172,9 +181,9 @@ src/
 │   ├── Location.php
 │   ├── ThemeFile.php
 │   └── ThemeMetadata.php
-├── Traits/             # Shared behavior
+├── Traits/
 │   └── GeneratesFindingId.php
-├── Utils/              # Utility classes
+├── Utils/
 │   └── ArrayUtils.php
 └── ConfigurationManager.php
 ```

@@ -1,40 +1,22 @@
 <?php
-/**
- * Aegis Color Utilities
- *
- * Provides utility functions for working with color values and color-related logic in the Aegis Framework.
- *
- * Responsibilities:
- * - Offers helper methods for retrieving and managing color constants
- * - Ensures consistency and reusability of color logic across the framework
- *
- * @package    Aegis\Utilities
- * @since      1.0.0
- * @author     Atmostfear Entertainment
- * @link       https://github.com/aegiswp/theme
- *
- * For developer documentation and onboarding. No logic changes in this
- * documentation update.
- */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
+// Enforces strict type checking for all code in this file, ensuring type safety for color utility helpers.
 declare( strict_types=1 );
 
-// Declares the namespace for utility classes within the Aegis Framework.
+// Declares the namespace for the color utility helpers.
 namespace Aegis\Utilities;
 
-// Imports standard classes and WordPress helper functions for color operations.
-use stdClass;
-use function _wp_to_kebab_case;
-use function array_replace;
+// Imports classes, interfaces, and functions used by the color utility helpers.
 use function explode;
-use function file_exists;
-use function get_stylesheet_directory;
-use function get_template_directory;
-use function wp_get_global_settings;
-use function wp_json_file_decode;
 
-// Implements the Aegis color utility class for reusable color operations.
+/**
+ * Color utility class for handling color-related operations.
+ *
+ * This class provides methods for working with color palettes, shade scales,
+ * and system colors.
+ *
+ * @since 1.0.0
+ */
 class Color {
 
 	const SYSTEM_COLORS = [
@@ -48,29 +30,36 @@ class Color {
 	];
 
 	/**
-	 * Gets system colors.
+	 * Returns an array of standard CSS system color keywords.
+	 *
+	 * These are colors that have a special meaning in CSS and are not part of
+	 * a theme's color palette.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @return array
+	 * @return string[] A list of system color keywords.
 	 */
 	public static function get_system_colors(): array {
 		return self::SYSTEM_COLORS;
 	}
 
 	/**
-	 * Reverses color shade.
+	 * Reverses a color shade based on a predefined scale.
+	 *
+	 * For example, given a slug like 'primary-100', this might return 'primary-900'.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $slug Color slug.
+	 * @param string $slug The color slug to reverse (e.g., 'primary-100').
 	 *
-	 * @return string
+	 * @return string The reversed color slug, or an empty string if not found.
 	 */
 	public static function reverse_color_shade( string $slug ): string {
+		// Split the slug into color name and shade number.
 		$explode = explode( '-', $slug );
 		$color   = $explode[0] ?? '';
 		$shade   = $explode[1] ?? '';
+		// Look up the reversed shade from the scale map.
 		$scale   = self::get_shade_scales( $color );
 		$reverse = $scale[ (int) $shade ] ?? '';
 
@@ -78,13 +67,16 @@ class Color {
 	}
 
 	/**
-	 * Gets color shades.
+	 * Returns the mapping of color shade scales.
+	 *
+	 * This defines how color shades are inverted (e.g., a light shade maps to a
+	 * dark one). If a specific color is provided, only its scale is returned.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param ?string $color Color slug.
+	 * @param string|null $color Optional. The specific color to get the scale for.
 	 *
-	 * @return array
+	 * @return array The shade scale map for a specific color or the entire map.
 	 */
 	public static function get_shade_scales( ?string $color = null ): array {
 		$map = [
@@ -136,74 +128,22 @@ class Color {
 			],
 		];
 
+		// Return the scale for a specific color or the full map.
 		return $color ? ( $map[ $color ] ?? [] ) : $map;
 	}
 
 	/**
-	 * Returns key value pairs of deprecated colors with replacements.
+	 * Extracts a flat key-value array of colors from a WordPress palette array.
+	 *
+	 * Converts `[ [ 'slug' => 'primary', 'color' => '#000' ] ]` to
+	 * `[ 'primary' => '#000' ]`.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @return array
-	 */
-	public static function get_deprecated_colors(): array {
-		$child_theme_file  = get_stylesheet_directory() . '/theme.json';
-		$parent_theme_file = get_template_directory() . '/theme.json';
-		$child_theme_json  = file_exists( $child_theme_file ) ? wp_json_file_decode( $child_theme_file ) : new stdClass();
-		$parent_theme_json = file_exists( $parent_theme_file ) ? wp_json_file_decode( $parent_theme_file ) : new stdClass();
-		$parent_colors     = self::get_color_values( $parent_theme_json->settings->color->palette ?? [] );
-		$child_colors      = self::get_color_values( $child_theme_json->settings->color->palette ?? [] );
-		$settings          = wp_get_global_settings();
-		$replacements      = self::get_replacement_colors( $settings );
-		$user_colors       = self::get_color_values( $settings['color']['palette']['theme'] ?? [] );
-		$default_colors    = array_replace( $parent_colors, $child_colors, $user_colors );
-
-		$has_deprecated = $settings['custom']['deprecatedColors'] ?? false;
-		$new_colors     = [];
-		$old_colors     = [];
-
-		foreach ( $replacements as $old => $new ) {
-			$old = _wp_to_kebab_case( $old );
-
-			if ( isset( $user_colors[ $old ] ) ) {
-				$has_deprecated = true;
-			}
-
-			if ( ! isset( $user_colors[ $new ] ) ) {
-				$value = $user_colors[ $old ] ?? $default_colors[ $new ] ?? '';
-
-				if ( $value ) {
-					$new_colors[ $new ] = $value;
-				}
-
-				if ( isset( $user_colors[ $old ] ) ) {
-					continue;
-				}
-			}
-
-			$old = _wp_to_kebab_case( $old );
-
-			if ( ! Str::contains_any( $new, 'var', '#', 'rgb', 'hsl' ) ) {
-				$new = "var(--wp--preset--color--$new)";
-			}
-
-			if ( $new ) {
-				$old_colors[ $old ] = $new;
-			}
-		}
-
-		return $has_deprecated ? array_replace( $new_colors, $old_colors ) : [];
-	}
-
-	/**
-	 * Gets color values from a color palette.
+	 * @param array  $colors The color palette array from theme.json.
+	 * @param string $type   The property to extract ('color' or 'gradient').
 	 *
-	 * @since 1.0.0
-	 *
-	 * @param array  $colors Color palette.
-	 * @param string $type   Color or gradient. Default is color.
-	 *
-	 * @return array
+	 * @return array A flat associative array of [slug] => [value].
 	 */
 	public static function get_color_values( array $colors, string $type = 'color' ): array {
 		$color_values = [];
@@ -211,6 +151,7 @@ class Color {
 		foreach ( $colors as $color ) {
 			$color = (array) $color;
 
+			// Skip entries missing a slug or value.
 			if ( ! isset( $color['slug'], $color[ $type ] ) ) {
 				continue;
 			}
@@ -220,4 +161,5 @@ class Color {
 
 		return $color_values;
 	}
+
 }

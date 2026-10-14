@@ -18,50 +18,53 @@
  * For developer documentation and onboarding. No logic changes in this doc update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for icon functions.
+// Enforces strict type checking for all code in this file, ensuring type safety for icon utilities.
 declare( strict_types=1 );
 
-// Declares the namespace for icon classes within the Aegis Framework.
+// Declares the namespace for the icon utilities.
 namespace Aegis\Icons;
 
-// Imports Aegis framework utilities for DOM, CSS, and string manipulation.
+// Imports classes, interfaces, and functions used by the icon utilities.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Utilities\Str;
 
-// Imports core PHP classes for DOM manipulation.
 use DOMDocument;
 use DOMElement;
 
-// Imports the third-party SVG sanitizer library.
 use enshrined\svgSanitize\Sanitizer;
 
-// Imports WordPress classes for creating REST API endpoints.
 use WP_REST_Request;
 use WP_REST_Server;
 
-// Imports WordPress and PHP functions for file operations, security, and REST API.
 use function add_action;
 use function add_filter;
 use function apply_filters;
 use function basename;
 use function class_exists;
 use function current_user_can;
+use function defined;
+use function explode;
 use function esc_html__;
 use function file_exists;
 use function file_get_contents;
+use function function_exists;
 use function get_stylesheet_directory;
 use function get_template_directory;
 use function glob;
 use function implode;
+use function in_array;
+use function is_array;
 use function is_dir;
+use function is_numeric;
 use function is_null;
+use function is_readable;
+use function is_string;
 use function str_replace;
 use function strtolower;
 use function trim;
 use function uniqid;
 
-// Imports PHP constants for file globbing.
 use const GLOB_ONLYDIR;
 
 /**
@@ -173,18 +176,25 @@ class Icon {
 		$file = $dir . '/' . $name . '.svg';
 
 		if ( ! file_exists( $file ) ) {
+			if ( $set === 'wordpress' && function_exists( 'wp_get_icon' ) ) {
+				$core = wp_get_icon(
+					'core/' . $name,
+					[
+						'size' => is_numeric( $size ) ? (int) $size : 24,
+					]
+				);
+
+				if ( is_string( $core ) && $core !== '' ) {
+					$cache[ $cache_key ] = $core;
+
+					return $core;
+				}
+			}
+
 			return '';
 		}
 
 		$html = file_get_contents( $file );
-
-		if ( $set === 'WordPress' ) {
-			$html = str_replace(
-				[ 'fill="none"' ],
-				[ 'fill="currentColor"' ],
-				$html
-			);
-		}
 
 		$dom = DOM::create( trim( $html ) );
 		$svg = DOM::get_element( 'svg', $dom );
@@ -214,24 +224,81 @@ class Icon {
 				$styles = CSS::string_to_array( $svg->getAttribute( 'style' ) );
 
 				$styles['min-width'] = $size;
-				$styles['height']    = $size;
+
+				// Payment card marks use a 3:2 frame; a square height crushes them in the editor.
+				if ( str_starts_with( $set, 'payment' ) ) {
+					$styles['width']        = $size;
+					$styles['height']       = 'auto';
+					$styles['aspect-ratio'] = '3 / 2';
+				} else {
+					$styles['height'] = $size;
+				}
 
 				$svg->setAttribute( 'style', CSS::array_to_string( $styles ) );
 			} else {
 				$svg->setAttribute( 'width', (string) $size );
-				$svg->setAttribute( 'height', (string) $size );
+
+				if ( str_starts_with( $set, 'payment' ) ) {
+					$svg->setAttribute( 'height', (string) ( (float) $size * 2 / 3 ) );
+				} else {
+					$svg->setAttribute( 'height', (string) $size );
+				}
 			}
 		}
 
-		$fill = $svg->getAttribute( 'fill' );
-
-		if ( ! $fill ) {
-			$svg->setAttribute( 'fill', 'currentColor' );
-		}
+		static::apply_theme_color( $svg );
 
 		$cache[ $cache_key ] = static::sanitize_svg( $dom->saveHTML() );
 
 		return $cache[ $cache_key ];
+	}
+
+	/**
+	 * Makes hardcoded black fills/strokes follow the current text color.
+	 */
+	private static function apply_theme_color( DOMElement $svg ): void {
+		$fill = strtolower( trim( $svg->getAttribute( 'fill' ) ) );
+
+		if ( $fill === '' || static::is_literal_ink( $fill ) ) {
+			$svg->setAttribute( 'fill', 'currentColor' );
+		}
+
+		$stroke = strtolower( trim( $svg->getAttribute( 'stroke' ) ) );
+
+		if ( static::is_literal_ink( $stroke ) ) {
+			$svg->setAttribute( 'stroke', 'currentColor' );
+		}
+
+		foreach ( $svg->getElementsByTagName( '*' ) as $el ) {
+			if ( ! $el instanceof DOMElement ) {
+				continue;
+			}
+
+			$child_fill = strtolower( trim( $el->getAttribute( 'fill' ) ) );
+
+			if ( static::is_literal_ink( $child_fill ) ) {
+				$el->setAttribute( 'fill', 'currentColor' );
+			}
+
+			$child_stroke = strtolower( trim( $el->getAttribute( 'stroke' ) ) );
+
+			if ( static::is_literal_ink( $child_stroke ) ) {
+				$el->setAttribute( 'stroke', 'currentColor' );
+			}
+		}
+	}
+
+	/**
+	 * Whether a paint value is a hardcoded dark ink color.
+	 */
+	private static function is_literal_ink( string $value ): bool {
+		$value = strtolower( str_replace( ' ', '', $value ) );
+
+		return in_array(
+			$value,
+			[ '#000', '#000000', 'black', '#111', '#111111', '#1e1e1e', '#0a0a0a', 'rgb(0,0,0)' ],
+			true
+		);
 	}
 
 	/**
@@ -257,14 +324,16 @@ class Icon {
 			'permission_callback' => static fn() => current_user_can( 'edit_posts' ),
 			'callback'            => static fn( WP_REST_Request $request ): array => static::get_icon_data( $request ),
 			'methods'             => WP_REST_Server::READABLE,
-			'args'                => [
-				'sets' => [
-					'required' => false,
-					'type'     => 'string',
-				],
-				'set'  => [
-					'required' => false,
-					'type'     => 'string',
+			[
+				'args' => [
+					'sets' => [
+						'required' => false,
+						'type'     => 'string',
+					],
+					'set'  => [
+						'required' => false,
+						'type'     => 'string',
+					],
 				],
 			],
 		];
@@ -362,6 +431,12 @@ HTML;
 			}
 		}
 
+		foreach ( array_keys( static::get_core_library_slugs() ) as $core_slug ) {
+			if ( ! isset( $icon_data['wordpress'][ $core_slug ] ) ) {
+				$icon_data['wordpress'][ $core_slug ] = static::get_svg( 'wordpress', $core_slug, 24, null );
+			}
+		}
+
 		if ( $request && $request->get_param( 'set' ) ) {
 			$set = $request->get_param( 'set' );
 
@@ -376,6 +451,139 @@ HTML;
 	}
 
 	/**
+	 * Builds a registry-style icon identifier for the Aegis namespace.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $set  Icon set slug.
+	 * @param string $name Icon file slug.
+	 *
+	 * @return string e.g. social/facebook or core/plus
+	 */
+	public static function to_registry_id( string $set, string $name ): string {
+		$set  = strtolower( $set );
+		$name = strtolower( $name );
+
+		if ( $set === 'wordpress' && isset( static::get_core_library_slugs()[ $name ] ) ) {
+			return 'core/' . $name;
+		}
+
+		return $set . '/' . $name;
+	}
+
+	/**
+	 * Parses a registry icon identifier.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $id Icon id (`core/{name}`, `{set}/{name}`, or legacy `aegis/{set}/{name}`).
+	 *
+	 * @return array{namespace: string, set: string, name: string}|null
+	 */
+	public static function from_registry_id( string $id ): ?array {
+		$id = strtolower( trim( $id ) );
+
+		if ( $id === '' ) {
+			return null;
+		}
+
+		$parts = explode( '/', $id );
+
+		if ( ( $parts[1] ?? '' ) === '' ) {
+			return null;
+		}
+
+		if ( $parts[0] === 'core' && isset( $parts[1] ) && ! isset( $parts[2] ) ) {
+			return [
+				'namespace' => 'core',
+				'set'       => 'wordpress',
+				'name'      => $parts[1],
+			];
+		}
+
+		if ( $parts[0] === 'aegis' && isset( $parts[1], $parts[2] ) && ! isset( $parts[3] ) ) {
+			return [
+				'namespace' => 'aegis',
+				'set'       => $parts[1],
+				'name'      => $parts[2],
+			];
+		}
+
+		if ( isset( $parts[0], $parts[1] ) && ! isset( $parts[2] ) ) {
+			return [
+				'namespace' => 'aegis',
+				'set'       => $parts[0],
+				'name'      => $parts[1],
+			];
+		}
+
+		return null;
+	}
+
+	/**
+	 * Core Icon library slugs shipped by WordPress.
+	 *
+	 * @return array<string, true>
+	 */
+	public static function get_core_library_slugs(): array {
+		static $slugs = null;
+
+		if ( $slugs !== null ) {
+			return $slugs;
+		}
+
+		$slugs = [];
+
+		if ( ! defined( 'ABSPATH' ) || ! defined( 'WPINC' ) ) {
+			return $slugs;
+		}
+
+		$manifest = ABSPATH . WPINC . '/assets/icon-library-manifest.php';
+
+		if ( ! is_readable( $manifest ) ) {
+			return $slugs;
+		}
+
+		$collection = include $manifest;
+
+		if ( is_array( $collection ) ) {
+			foreach ( array_keys( $collection ) as $slug ) {
+				$slugs[ (string) $slug ] = true;
+			}
+		}
+
+		return $slugs;
+	}
+
+	/**
+	 * Returns flat picker items for REST/editor merge.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return list<array{name: string, label: string, source: string, set: string}>
+	 */
+	public static function get_picker_items(): array {
+		$items = [];
+
+		foreach ( static::get_icon_data( null ) as $set => $icons ) {
+			if ( ! is_array( $icons ) ) {
+				continue;
+			}
+
+			foreach ( array_keys( $icons ) as $name ) {
+				$items[] = [
+					'name'   => static::to_registry_id( (string) $set, (string) $name ),
+					'label'  => Str::title_case( (string) $name ),
+					'source' => 'aegis',
+					'set'    => (string) $set,
+				];
+			}
+		}
+
+		return $items;
+	}
+
+	/**
 	 * Sanitizes SVG string.
 	 *
 	 * @since 1.0.0
@@ -385,6 +593,7 @@ HTML;
 	 * @return string
 	 */
 	public static function sanitize_svg( string $svg ): string {
+		$svg = self::decode_svg_string( $svg );
 
 		// Sanitize SVG.
 		if ( class_exists( 'enshrined\svgSanitize\Sanitizer' ) ) {
@@ -416,5 +625,34 @@ HTML;
 		$svg = str_replace( 'viewbox=', 'viewBox=', $svg );
 
 		return trim( $svg );
+	}
+
+	/**
+	 * Normalize SVG markup that was JSON-hex-escaped without backslashes.
+	 *
+	 * Some editors persist `svgString` as `u003csvg…u0022…` instead of `<svg…"…`.
+	 * Decode those sequences (and standard `\uXXXX` escapes) before sanitizing.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $svg Raw SVG attribute value.
+	 */
+	private static function decode_svg_string( string $svg ): string {
+		$svg = trim( $svg );
+
+		if ( $svg === '' || str_contains( $svg, '<svg' ) || str_contains( $svg, '<SVG' ) ) {
+			return $svg;
+		}
+
+		// Bare JSON hex escapes (backslash stripped): u003c → <, u0022 → ".
+		if ( preg_match( '/u00[0-9a-fA-F]{2}/', $svg ) ) {
+			$svg = (string) preg_replace_callback(
+				'/u00([0-9a-fA-F]{2})/',
+				static fn( array $matches ): string => chr( (int) hexdec( $matches[1] ) ),
+				$svg
+			);
+		}
+
+		return $svg;
 	}
 }

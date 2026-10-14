@@ -1,0 +1,65 @@
+/**
+ * Normalize POT file references after `wp i18n make-pot`.
+ *
+ * @package
+ */
+
+const fs = require( 'fs' );
+const path = require( 'path' );
+
+const potFile = path.join( path.resolve( __dirname, '..' ), 'languages', 'aegis.pot' );
+
+if ( ! fs.existsSync( potFile ) ) {
+	process.exit( 0 );
+}
+
+let content = fs.readFileSync( potFile, 'utf8' );
+content = content.replaceAll(
+	'#: build/I18nScan/Library.php',
+	'#: vendor/aegis/framework/src/Icons/Library.php'
+);
+content = content.replaceAll(
+	'#: build/I18nScan/icon-block-editor.js',
+	'#: vendor/aegis/framework/public/js/icon-block-editor.js'
+);
+content = content.replaceAll(
+	'#: build/I18nScan/marquee-editor.js',
+	'#: vendor/aegis/framework/public/js/marquee-editor.js'
+);
+content = content.replaceAll(
+	'#: build/I18nScan/newsletter-editor.js',
+	'#: vendor/aegis/framework/public/js/newsletter-editor.js'
+);
+content = content.replaceAll(
+	'#: build/I18nScan/svg-editor.js',
+	'#: vendor/aegis/framework/public/js/svg-editor.js'
+);
+content = content.replaceAll(
+	'#: build/I18nScan/Svg.php',
+	'#: vendor/aegis/framework/src/BlockVariations/Svg.php'
+);
+content = content.replaceAll(
+	'#: build/I18nScan/Newsletter.php',
+	'#: vendor/aegis/framework/src/BlockVariations/Newsletter.php'
+);
+content = content.replaceAll(
+	'#: build/I18nScan/AccordionList.php',
+	'#: vendor/aegis/framework/src/BlockVariations/AccordionList.php'
+);
+content = content.replaceAll(
+	'#: build/I18nScan/visibility-toggles.js',
+	'#: vendor/aegis/framework/public/js/visibility-toggles.js'
+);
+content = content.replaceAll(
+	'#: build/I18nScan/query-enhancements-editor.js',
+	'#: vendor/aegis/framework/public/js/query-enhancements-editor.js'
+);
+content = content.replaceAll(
+	'#: build/I18nScan/QueryEnhancements.php',
+	'#: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php'
+);
+content = content.replaceAll(
+	'#: build/I18nScan/QueryNoResults.php',
+	'#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php'
+);
+fs.writeFileSync( potFile, content );

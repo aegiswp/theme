@@ -35,8 +35,8 @@
 
         <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
         <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--md)">
-            <!-- wp:image {"width":"64px","height":"64px","scale":"cover","style":{"border":{"radius":"100%"}}} -->
-            <figure class="wp-block-image is-resized"><img style="border-radius:100%;object-fit:cover;width:64px;height:64px" alt="" /></figure>
+            <!-- wp:image {"width":"64px","aspectRatio":"1","scale":"cover","style":{"border":{"radius":"100%"}}} -->
+            <figure class="wp-block-image is-resized has-custom-border" style="border-radius:100%"><img style="border-radius:100%;aspect-ratio:1;object-fit:cover;width:64px" alt="" /></figure>
             <!-- /wp:image -->
 
             <!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","orientation":"vertical"}} -->
@@ -100,11 +100,11 @@
         <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
         <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
             <!-- wp:button {"fontSize":"16"} -->
-            <div class="wp-block-button has-custom-font-size has-16-font-size"><a class="wp-block-button__link wp-element-button"><?php echo esc_html__( 'Reserve Your Seat', 'aegis' ); ?></a></div>
+            <div class="wp-block-button has-custom-font-size has-16-font-size"><a class="wp-block-button__link wp-element-button has-16-font-size has-custom-font-size"><?php echo esc_html__( 'Reserve Your Seat', 'aegis' ); ?></a></div>
             <!-- /wp:button -->
 
             <!-- wp:button {"className":"is-style-ghost","fontSize":"16"} -->
-            <div class="wp-block-button is-style-ghost has-custom-font-size has-16-font-size"><a class="wp-block-button__link wp-element-button"><?php echo esc_html__( 'Watch Previous Talks', 'aegis' ); ?></a></div>
+            <div class="wp-block-button is-style-ghost has-custom-font-size has-16-font-size"><a class="wp-block-button__link wp-element-button has-16-font-size has-custom-font-size"><?php echo esc_html__( 'Watch Previous Talks', 'aegis' ); ?></a></div>
             <!-- /wp:button -->
         </div>
         <!-- /wp:buttons -->

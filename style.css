@@ -3,30 +3,191 @@
  Theme URI: https://www.atmostfear-entertainment.com/aegis/
  Author: Atmostfear Entertainment
  Author URI: https://www.atmostfear-entertainment.com/
- Description: Aegis is a WordPress block theme and design-system framework built on a systematic token architecture: a structured color scale, fluid type scale, and constraint-based spacing that enforce visual consistency across every pattern and template. It loads no CSS, JavaScript, or fonts by default. Over 150 patterns span blog, commerce, events, portfolio, contact, and more — with full WooCommerce integration, dark/light mode, RTL support, and accessibility-ready foundations.
- Requires at least: 6.6
- Tested up to: 6.9.4
+ Description: A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes.
+Requires at least: 7.0
+ Tested up to: 7.1.3
  Requires PHP: 8.1
  Version: 1.0.0
  License: GPL-2.0-or-later
  License URI: https://www.gnu.org/licenses/gpl-2.0.html
  Text Domain: aegis
  Domain Path: /languages
- Tags: accessibility-ready, block-patterns, block-styles, blog, custom-colors, custom-logo, e-commerce, editor-style, featured-images, full-site-editing, full-width-template, grid-layout, one-column, portfolio, rtl-language-support, style-variations, template-editing, threaded-comments, three-columns, translation-ready, two-columns, wide-blocks
+ Tags: accessibility-ready, block-patterns, block-styles, blog, custom-colors, custom-logo, custom-menu, e-commerce, editor-style, featured-images, footer-widgets, full-site-editing, full-width-template, grid-layout, one-column, portfolio, rtl-language-support, sticky-post, style-variations, template-editing, threaded-comments, three-columns, translation-ready, two-columns, wide-blocks
 
  Aegis, (c) 2022-2026 Atmostfear Entertainment S.A.S.
- Aegis is distributed under the terms of the GNU GPL.
+ Aegis is distributed under the terms of the GNU General Public License v2 or later.
 */
 
 /**
- * Optional global CSS (most design lives in `theme.json`)
+ * Block Theme Styling
  *
- * The WordPress header comment above is required. Use this file only for
- * small global rules that are awkward in `theme.json` or for editor-only
- * notes; prefer the Site Editor, style variations, and block styles.
+ * In a block theme, this file is primarily used for the theme's header
+ * information. Most styling is handled by `theme.json` and through the
+ * block editor's Styles interface.
  *
- * @package Aegis
- * @since 1.0.0
+ * Custom CSS can still be added here if needed, but the recommended
+ * approach is to use `theme.json` for global styles and block-specific
+ * styles for components.
+ *
  * @link https://developer.wordpress.org/themes/advanced-topics/theme-json/
- * @link https://github.com/aegiswp/theme
  */
+
+/* Heading hover effect (linked headings only) */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	transition: color 0.2s ease;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+	color: var(--wp--preset--color--primary-500);
+}
+
+/* Hide captions on gravatar images */
+.gravatar figcaption {
+	display: none;
+}
+
+/*
+ * Alignwide/alignfull breakout inside post-content.
+ * Vendor rules use 100dvw + calc(50% - 50dvw) and margin-left:50% + translateX(-50%),
+ * which shove content off-canvas when the page body (patterns) is rendered inside a
+ * constrained post-content after changing templates. Core constrained layout already
+ * sizes wide/full children — keep them within the content column instead.
+ */
+.wp-block-post-content:not(.is-root-container) > .alignwide {
+	width: 100% !important;
+	max-width: var(--wp--style--global--wide-size) !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	transform: none !important;
+}
+
+.wp-block-post-content:not(.is-root-container) > .alignfull {
+	width: 100% !important;
+	max-width: none !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+main.site-main > .alignfull {
+	width: 100% !important;
+	max-width: none !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+/* Payment method icons — Visa-style 3:2 cards in frontend + Site Editor */
+.aegis-payment-icons.wp-block-group,
+.editor-styles-wrapper .aegis-payment-icons.wp-block-group {
+	align-items: center;
+}
+
+.aegis-payment-icons .wp-block-icon,
+.aegis-payment-icons > .wp-block-icon,
+.editor-styles-wrapper .aegis-payment-icons .wp-block-icon {
+	--aegis-payment-icon-width: var(--wp--custom--icon--size, 48px);
+	line-height: 0;
+	flex: 0 0 var(--aegis-payment-icon-width);
+	width: var(--aegis-payment-icon-width);
+	max-width: var(--aegis-payment-icon-width);
+}
+
+.aegis-payment-icons .wp-block-icon svg,
+.aegis-payment-icons svg[data-icon^="payment"],
+.aegis-payment-icons svg[data-icon^="payment-brand"],
+.editor-styles-wrapper .aegis-payment-icons .wp-block-icon svg,
+.editor-styles-wrapper .aegis-payment-icons svg[data-icon^="payment"],
+.editor-styles-wrapper .aegis-payment-icons svg[data-icon^="payment-brand"] {
+	display: block;
+	box-sizing: border-box;
+	width: var(--aegis-payment-icon-width, 48px) !important;
+	min-width: var(--aegis-payment-icon-width, 48px) !important;
+	max-width: var(--aegis-payment-icon-width, 48px) !important;
+	height: auto !important;
+	aspect-ratio: 3 / 2 !important;
+	overflow: visible;
+	color: inherit;
+	/* Defeat icon.css svg[fill=none]{stroke:currentColor} card outline */
+	stroke: none !important;
+}
+
+/* Store footer newsletter — defeat form.css input margin-bottom in flex row */
+.aegis-store-newsletter {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.aegis-store-newsletter > input,
+.aegis-store-newsletter > button {
+	margin: 0 !important;
+	align-self: center;
+	box-sizing: border-box;
+	height: 42px;
+	line-height: 42px;
+}
+
+.aegis-store-newsletter > button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 auto;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+/* -------------------------------------------------------------------------
+ * Accessibility — WCAG 2.2 focus, skip link, reduced motion
+ * ------------------------------------------------------------------------- */
+
+/* Skip link: visible when focused (WordPress-style clip reset) */
+.skip-link.screen-reader-text:focus,
+a.skip-to-content.screen-reader-text:focus {
+	clip: auto !important;
+	clip-path: none !important;
+	height: auto !important;
+	width: auto !important;
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100000;
+	padding: 0.75rem 1.25rem;
+	margin: 0;
+	background: var(--wp--preset--color--neutral-950, #171717);
+	color: var(--wp--preset--color--neutral-0, #fff);
+	font-size: 0.875rem;
+	font-weight: 600;
+	line-height: 1.5;
+	text-decoration: none;
+	opacity: 1;
+	outline: 2px solid var(--wp--preset--color--primary-500, #2563eb);
+	outline-offset: 2px;
+}
+
+/* Buttons: high-contrast focus-visible ring */
+.wp-element-button:focus-visible,
+.is-style-button:focus-visible,
+.button:not(.components-button):focus-visible,
+[type="submit"]:focus-visible {
+	outline: 2px solid var(--wp--preset--color--primary-500, #2563eb);
+	outline-offset: 2px;
+}
+
+/* Search inputs: restore focus ring after outline:none in framework CSS */
+.wp-block-search__input:focus-visible,
+.search-modal .wp-block-search__input:focus-visible {
+	outline: 2px solid var(--wp--preset--color--primary-500, #2563eb) !important;
+	outline-offset: 2px;
+}
+
+body.is-style-dark .wp-block-search__input:focus-visible,
+body.is-style-dark .search-modal .wp-block-search__input:focus-visible {
+	outline-color: var(--wp--preset--color--primary-400, #60a5fa) !important;
+}
+
+/* Document fade-in: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	html {
+		animation: none !important;
+	}
+}

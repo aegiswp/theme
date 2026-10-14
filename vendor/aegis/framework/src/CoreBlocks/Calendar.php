@@ -17,13 +17,13 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for calendar block.
+declare( strict_types=1 );
 
-// Declares the namespace for core blocks within the Aegis Framework.
+// Declares the namespace for the calendar block.
 namespace Aegis\Framework\CoreBlocks;
 
-// Imports utility classes and interfaces for DOM manipulation, renderable blocks, and string utilities.
+// Imports classes, interfaces, and functions used by the calendar block.
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
 use Aegis\Utilities\Str;
@@ -31,7 +31,6 @@ use WP_Block;
 use function explode;
 use function implode;
 
-// Implements the Calendar class to support calendar block rendering.
 
 /**
  * Handles the rendering of the core/calendar block.
@@ -44,8 +43,7 @@ use function implode;
  * @package Aegis\Framework\CoreBlocks
  * @since   1.0.0
  */
-class Calendar implements Renderable
-{
+class Calendar implements Renderable {
 
 	/**
 	 * Renders the calendar block with corrected color and background classes.
@@ -64,36 +62,35 @@ class Calendar implements Renderable
 	 *
 	 * @return string The modified block content with corrected class placements.
 	 */
-	public function render(string $block_content, array $block, WP_Block $instance): string
-	{
+	public function render( string $block_content, array $block, WP_Block $instance ): string {
 		// Create a DOM object from the block content.
-		$dom = DOM::create($block_content);
-		$div = DOM::get_element('div', $dom);
-		$table = DOM::get_element('table', $div);
+		$dom   = DOM::create( $block_content );
+		$div   = DOM::get_element( 'div', $dom );
+		$table = DOM::get_element( 'table', $div );
 
 		// If there is no table element, there is nothing to fix.
-		if (!$table) {
+		if ( ! $table ) {
 			return $block_content;
 		}
 
 		// Get the class lists from both the wrapper and the table.
-		$div_classes = explode(' ', $div->getAttribute('class'));
-		$table_classes = explode(' ', $table->getAttribute('class'));
+		$div_classes   = explode( ' ', $div->getAttribute( 'class' ) );
+		$table_classes = explode( ' ', $table->getAttribute( 'class' ) );
 
 		// Iterate through the table's classes.
-		foreach ($table_classes as $index => $table_class) {
+		foreach ( $table_classes as $index => $table_class ) {
 			// If a class is related to color or background...
-			if (Str::contains_any($table_class, 'background', 'color')) {
+			if ( Str::contains_any( $table_class, 'background', 'color' ) ) {
 				// ...move it from the table to the wrapper div...
 				$div_classes[] = $table_class;
 				// ...and remove it from the table's class list.
-				unset($table_classes[$index]);
+				unset( $table_classes[ $index ] );
 			}
 		}
 
 		// Apply the updated class lists back to the elements.
-		$div->setAttribute('class', implode(' ', $div_classes));
-		$table->setAttribute('class', implode(' ', $table_classes));
+		$div->setAttribute( 'class', implode( ' ', $div_classes ) );
+		$table->setAttribute( 'class', implode( ' ', $table_classes ) );
 
 		// Return the modified HTML.
 		return $dom->saveHTML();

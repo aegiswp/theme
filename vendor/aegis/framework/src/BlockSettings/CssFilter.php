@@ -17,13 +17,13 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for block settings.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for css filter block setting.
+declare( strict_types=1 );
 
-// Declares the namespace for block settings within the Aegis Framework.
+// Declares the namespace for the css filter block setting.
 namespace Aegis\Framework\BlockSettings;
 
-// Imports utility classes and interfaces for DOM manipulation and renderable blocks.
+// Imports classes, interfaces, and functions used by the css filter block setting.
 use Aegis\Framework\InlineAssets\Scriptable;
 use Aegis\Framework\InlineAssets\Scripts;
 use function is_admin;
@@ -39,8 +39,7 @@ use function is_admin;
  * @package Aegis\Framework\BlockSettings
  * @since   1.0.0
  */
-class CssFilter implements Scriptable
-{
+class CssFilter implements Scriptable {
 
 	/**
 	 * An associative array defining the available CSS filter options.
@@ -53,51 +52,51 @@ class CssFilter implements Scriptable
 	 * @since 1.0.0
 	 */
 	public array $settings = [
-		'blur' => [
+		'blur'       => [
 			'unit' => 'px',
-			'min' => 0,
-			'max' => 500,
+			'min'  => 0,
+			'max'  => 500,
 		],
 		'brightness' => [
 			'unit' => '%',
-			'min' => 0,
-			'max' => 360,
+			'min'  => 0,
+			'max'  => 360,
 		],
-		'contrast' => [
+		'contrast'   => [
 			'unit' => '%',
-			'min' => 0,
-			'max' => 200,
+			'min'  => 0,
+			'max'  => 200,
 		],
-		'grayscale' => [
+		'grayscale'  => [
 			'unit' => '%',
-			'min' => 0,
-			'max' => 100,
+			'min'  => 0,
+			'max'  => 100,
 		],
-		'hueRotate' => [
+		'hueRotate'  => [
 			'unit' => 'deg',
-			'min' => -360,
-			'max' => 360,
+			'min'  => -360,
+			'max'  => 360,
 		],
-		'invert' => [
+		'invert'     => [
 			'unit' => '%',
-			'min' => 0,
-			'max' => 100,
+			'min'  => 0,
+			'max'  => 100,
 		],
-		'opacity' => [
+		'opacity'    => [
 			'unit' => '%',
-			'min' => 0,
-			'max' => 100,
+			'min'  => 0,
+			'max'  => 100,
 		],
-		'saturate' => [
+		'saturate'   => [
 			'unit' => '',
-			'min' => 0,
-			'max' => 100,
+			'min'  => 0,
+			'max'  => 100,
 			'step' => 0.1,
 		],
-		'sepia' => [
+		'sepia'      => [
 			'unit' => '%',
-			'min' => 0,
-			'max' => 100,
+			'min'  => 0,
+			'max'  => 100,
 		],
 	];
 
@@ -112,8 +111,7 @@ class CssFilter implements Scriptable
 	 *
 	 * @param Scripts $scripts The Scripts service instance.
 	 */
-	public function scripts(Scripts $scripts): void
-	{
+	public function scripts( Scripts $scripts ): void {
 		$scripts->add_data(
 			'filterOptions',
 			$this->settings,

@@ -30,11 +30,11 @@
             <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
             <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
                 <!-- wp:button {"fontSize":"16"} -->
-                <div class="wp-block-button has-custom-font-size has-16-font-size"><a class="wp-block-button__link wp-element-button"><?php echo esc_html__( 'Plan Your Visit', 'aegis' ); ?></a></div>
+                <div class="wp-block-button has-custom-font-size has-16-font-size"><a class="wp-block-button__link wp-element-button has-16-font-size has-custom-font-size"><?php echo esc_html__( 'Plan Your Visit', 'aegis' ); ?></a></div>
                 <!-- /wp:button -->
 
                 <!-- wp:button {"className":"is-style-outline","fontSize":"16"} -->
-                <div class="wp-block-button is-style-outline has-custom-font-size has-16-font-size"><a class="wp-block-button__link wp-element-button"><?php echo esc_html__( 'Virtual Preview', 'aegis' ); ?></a></div>
+                <div class="wp-block-button is-style-outline has-custom-font-size has-16-font-size"><a class="wp-block-button__link wp-element-button has-16-font-size has-custom-font-size"><?php echo esc_html__( 'Virtual Preview', 'aegis' ); ?></a></div>
                 <!-- /wp:button -->
             </div>
             <!-- /wp:buttons -->

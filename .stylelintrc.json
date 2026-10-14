@@ -14,12 +14,6 @@
         "ignoreAtRules": ["apply", "container", "custom-media", "custom-properties"]
       }
     ],
-    "function-no-unknown": [
-      true,
-      {
-        "ignoreFunctions": ["var", "calc", "min", "max", "clamp", "env"]
-      }
-    ],
     "property-no-unknown": [
       true,
       {
@@ -27,12 +21,6 @@
           "--wp-*",
           "--*"
         ]
-      }
-    ],
-    "unit-no-unknown": [
-      true,
-      {
-        "ignoreUnits": ["rem", "em", "px", "%", "vw", "vh", "vmin", "vmax", "ch", "ex"]
       }
     ],
     "declaration-property-value-no-unknown": null

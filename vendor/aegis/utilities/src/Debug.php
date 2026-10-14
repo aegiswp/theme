@@ -1,106 +1,80 @@
 <?php
-/**
- * Aegis Debug Utilities
- *
- * Provides utility functions for debugging and logging in the Aegis Framework.
- *
- * Responsibilities:
- * - Offers helper methods for checking debug mode and logging data
- * - Ensures consistency and reusability of debug logic across the framework
- *
- * @package    Aegis\Utilities
- * @since      1.0.0
- * @author     Atmostfear Entertainment
- * @link       https://github.com/aegiswp/theme
- *
- * For developer documentation and onboarding. No logic changes in this
- * documentation update.
- */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
+// Enforces strict type checking for all code in this file, ensuring type safety for debug logging helpers.
 declare( strict_types=1 );
 
-// Declares the namespace for utility classes within the Aegis Framework.
+// Declares the namespace for the debug logging helpers.
 namespace Aegis\Utilities;
 
-// Imports WordPress core functions and constants for debug operations.
+// Imports classes, interfaces, and functions used by the debug logging helpers.
 use function add_action;
 use function debug_backtrace;
 use function defined;
-use function error_log;
-use function is_string;
-use function wp_json_encode;
+use function json_encode;
 use const SCRIPT_DEBUG;
 use const WP_DEBUG;
-use const WP_DEBUG_LOG;
 
-// Implements the Aegis debug utility class for reusable debug operations.
-
+/**
+ * Debug utility class for logging data to the browser console.
+ *
+ * This class provides methods to help with debugging during development. It only
+ * outputs logs when a WordPress debug constant is enabled.
+ *
+ * @since 1.0.0
+ */
 class Debug {
 
 	/**
-	 * Check if debug mode is enabled.
+	 * Checks if WordPress debugging is enabled.
 	 *
-	 * @return bool
+	 * Returns true if either `WP_DEBUG` or `SCRIPT_DEBUG` is defined and true.
+	 *
+	 * @return bool True if debugging is enabled, false otherwise.
 	 */
 	public static function is_enabled(): bool {
+		// Check if WP_DEBUG is enabled.
 		$wp_debug     = defined( 'WP_DEBUG' ) && WP_DEBUG;
+		// Check if SCRIPT_DEBUG is enabled.
 		$script_debug = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
 
+		// Return true if either debug constant is enabled.
 		return $wp_debug || $script_debug;
 	}
 
 	/**
-	 * Log data to the console.
+	 * Queues data to be logged to the browser's JavaScript console.
 	 *
-	 * @param mixed $data  Data to log.
-	 * @param bool  $trace Whether to log the stacktrace.
+	 * The log will be output in the footer of the front end or admin area.
+	 *
+	 * @param mixed $data  The data to be logged (e.g., array, object, string).
+	 * @param bool  $trace If true, a stack trace will also be logged.
 	 *
 	 * @return void
 	 */
 	public static function console_log( $data, bool $trace = false ): void {
-		static::server_log( $data );
+		// Queue logging for the front-end footer.
 		add_action( 'wp_footer', static fn() => static::render_log( $data, $trace ) );
+		// Queue logging for the admin footer.
 		add_action( 'admin_footer', static fn() => static::render_log( $data, $trace ) );
 	}
 
 	/**
-	 * Log data to the PHP error log when WP_DEBUG_LOG is enabled.
+	 * Generates a simplified stack trace.
 	 *
-	 * Ensures errors during REST, AJAX, and cron requests are captured
-	 * server-side, not only in the browser console.
-	 *
-	 * @since 1.1.0
-	 *
-	 * @param mixed $data Data to log.
-	 *
-	 * @return void
-	 */
-	public static function server_log( $data ): void {
-		if ( ! defined( 'WP_DEBUG_LOG' ) || ! WP_DEBUG_LOG ) {
-			return;
-		}
-
-		$message = is_string( $data ) ? $data : wp_json_encode( $data );
-		error_log( '[Aegis] ' . $message );
-	}
-
-	/**
-	 * Get a formatted stacktrace for debugging output.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return array<int, string>
+	 * @return array A list of strings, each representing a file and line number
+	 *               in the call stack.
 	 */
 	public static function stacktrace(): array {
-		$backtrace  = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS, 10 );
+		$backtrace  = debug_backtrace();
 		$stacktrace = [];
 
 		foreach ( $backtrace as $index => $trace ) {
+			// Skip entries without file or line information.
 			if ( ! isset( $trace['file'] ) || ! isset( $trace['line'] ) ) {
 				continue;
 			}
 
+			// Skip the current method call.
 			if ( 0 === $index ) {
 				continue;
 			}
@@ -112,10 +86,12 @@ class Debug {
 	}
 
 	/**
-	 * Render the log.
+	 * Renders the script tag that logs data to the console.
 	 *
-	 * @param mixed $data  Data to log.
-	 * @param bool  $trace Whether to log the stacktrace.
+	 * @internal This is a private helper method and should not be called directly.
+	 *
+	 * @param mixed $data  The data to log.
+	 * @param bool  $trace If true, a stack trace will also be logged.
 	 *
 	 * @return void
 	 */
@@ -123,14 +99,16 @@ class Debug {
 		$stacktrace = self::stacktrace();
 
 		echo '<script>';
-		echo 'console.log(' . wp_json_encode( $data ) . ');';
+		echo 'console.log(' . json_encode( $data ) . ');';
 
+		// Log each stack trace entry when tracing is enabled.
 		if ( $trace && $stacktrace ) {
-			foreach ( $stacktrace as $entry ) {
-				echo 'console.log(' . wp_json_encode( $entry ) . ');';
+			foreach ( $stacktrace as $trace ) {
+				echo 'console.log(' . json_encode( $trace ) . ');';
 			}
 		}
 
 		echo '</script>';
 	}
+
 }

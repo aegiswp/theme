@@ -357,6 +357,24 @@ class AccessibilityAnalyzerTest extends TestCase {
 	}
 
 	/**
+	 * Test SkipLink.php injection source is recognized for block themes.
+	 */
+	public function test_skiplink_php_injection_is_valid(): void {
+		$content = 'class SkipLink { public function add_skip_link() { return \'<a class="skip-link screen-reader-text" href="#main">Skip</a>\'; } }';
+		$file    = new ThemeFile( 'SkipLink.php', '/path/vendor/aegis/framework/src/DesignSystem/SkipLink.php', $content, FileType::PHP );
+
+		$findings = $this->analyzer->analyze( $file, $this->context );
+
+		$skip_findings = array_filter(
+			$findings,
+			function ( $f ) {
+				return 'a11y-007' === $f->rule;
+			}
+		);
+		$this->assertCount( 0, $skip_findings );
+	}
+
+	/**
 	 * Test detection of video without captions.
 	 */
 	public function test_detects_video_without_captions(): void {

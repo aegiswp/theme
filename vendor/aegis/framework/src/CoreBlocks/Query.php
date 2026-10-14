@@ -8,32 +8,30 @@
  * - Handles the logic for displaying and styling query block content
  * - Integrates with utility classes for DOM and CSS
  *
+ * Image lazy-load for Query Loop lives in Aegis Pro QueryPerformance when
+ * Aegis → Performance → Query Loop Performance is enabled. WordPress still
+ * applies native lazy-loading without that toggle.
+ *
  * @package    Aegis\Framework\CoreBlocks
  * @since      1.0.0
  * @author     Atmostfear Entertainment
  * @link       https://github.com/aegiswp/theme
- *
- * For developer documentation and onboarding. No logic changes in this
- * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
+// Enforces strict type checking for all code in this file, ensuring type safety for query block.
 declare( strict_types=1 );
 
-// Declares the namespace for core blocks within the Aegis Framework.
+// Declares the namespace for the query block.
 namespace Aegis\Framework\CoreBlocks;
 
-// Imports utility classes and interfaces for DOM manipulation, CSS helpers, and renderable blocks.
+// Imports classes, interfaces, and functions used by the query block.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
 use function str_contains;
 
-// Implements the Query class to support query block rendering.
-
-class Query implements Renderable
-{
+class Query implements Renderable {
 
 	/**
 	 * Modifies front end HTML output of block.
@@ -50,36 +48,41 @@ class Query implements Renderable
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
 		$block_gap = $block['attrs']['style']['spacing']['blockGap'] ?? null;
-		$columns   = $block['attrs']['displayLayout']['columns'] ?? null;
 
-		// Q3: Parse DOM once for both block gap and columns modifications.
-		$needs_gap     = (bool) $block_gap;
-		$needs_columns = $columns && str_contains( $block_content, 'nowrap' );
+		// Apply custom block gap as a CSS custom property.
+		if ( $block_gap ) {
+			$dom = DOM::create( $block_content );
+			$div = DOM::get_element( 'div', $dom );
 
-		if ( ! $needs_gap && ! $needs_columns ) {
-			return $block_content;
-		}
+			if ( ! $div ) {
+				return $block_content;
+			}
 
-		$dom = DOM::create( $block_content );
-		$div = DOM::get_element( 'div', $dom );
+			$styles = CSS::string_to_array( $div->getAttribute( 'style' ) );
 
-		if ( ! $div ) {
-			return $block_content;
-		}
-
-		$styles = CSS::string_to_array( $div->getAttribute( 'style' ) );
-
-		if ( $needs_gap ) {
 			$styles['--wp--style--block-gap'] = CSS::format_custom_property( $block_gap );
+
+			$div->setAttribute( 'style', CSS::array_to_string( $styles ) );
+
+			$block_content = $dom->saveHTML();
 		}
 
-		if ( $needs_columns ) {
-			// Q1: Validate columns as a positive integer.
-			$styles['--columns'] = (string) (int) $columns;
+		$columns = $block['attrs']['displayLayout']['columns'] ?? null;
+
+		// Set column count for nowrap flex layouts.
+		if ( $columns && str_contains( $block_content, 'nowrap' ) ) {
+			$dom = DOM::create( $block_content );
+			$div = DOM::get_element( 'div', $dom );
+
+			if ( $div ) {
+				$styles              = CSS::string_to_array( $div->getAttribute( 'style' ) );
+				$styles['--columns'] = $columns;
+				$div->setAttribute( 'style', CSS::array_to_string( $styles ) );
+
+				$block_content = $dom->saveHTML();
+			}
 		}
 
-		$div->setAttribute( 'style', CSS::array_to_string( $styles ) );
-
-		return $dom->saveHTML();
+		return $block_content;
 	}
 }

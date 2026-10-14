@@ -17,25 +17,25 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for blocks variations.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for accordionlist block variation.
+declare( strict_types=1 );
 
-// Declares the namespace for block variations within the Aegis Framework.
+// Declares the namespace for the accordionlist block variation.
 namespace Aegis\Framework\BlockVariations;
 
-// Imports utility classes and interfaces for DOM manipulation, CSS helpers, and renderable blocks.
-use Aegis\Framework\ServiceProvider;
+// Imports classes, interfaces, and functions used by the accordionlist block variation.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
-use Aegis\Utilities\Str;
+use Aegis\Framework\ServiceProvider;
 use DOMElement;
 use WP_Block;
+use function __;
+use function register_block_style;
+use function wp_json_encode;
+use function wp_strip_all_tags;
+use function wp_unique_id;
 
-use function esc_attr;
-use function wp_kses_post;
-
-// Implements the AccordionList class to support accordion-style list blocks.
 
 /**
  * Handles the "Accordion" style variation for the core/list block.
@@ -48,8 +48,26 @@ use function wp_kses_post;
  * @package Aegis\Framework\BlockVariations
  * @since   1.0.0
  */
-class AccordionList implements Renderable
-{
+class AccordionList implements Renderable {
+
+	/**
+	 * Register the Accordion style on core/list for the editor and PHP registry.
+	 *
+	 * @hook init
+	 */
+	public function register_style(): void {
+		if ( ! ServiceProvider::is_block_enabled( 'accordion' ) ) {
+			return;
+		}
+
+		register_block_style(
+			'core/list',
+			array(
+				'name'  => 'accordion',
+				'label' => __( 'Accordion', 'aegis' ),
+			)
+		);
+	}
 
 	/**
 	 * Renders a list block as a semantic accordion.
@@ -72,189 +90,160 @@ class AccordionList implements Renderable
 	 *
 	 * @return string The modified block content, now structured as an accordion.
 	 */
-	public function render(string $block_content, array $block, WP_Block $instance): string
-	{
-		// Check if block is enabled in admin settings.
+	public function render( string $block_content, array $block, WP_Block $instance ): string {
+		if ( ! str_contains( $block_content, 'is-style-accordion' ) ) {
+			return $block_content;
+		}
+
 		if ( ! ServiceProvider::is_block_enabled( 'accordion' ) ) {
 			return $block_content;
 		}
 
-		if (!str_contains($block_content, 'is-style-accordion')) {
-			return $block_content;
+		$open_first  = ServiceProvider::is_block_enabled( 'accordion_open_first' );
+		$open_all    = ServiceProvider::is_block_enabled( 'accordion_open_all' );
+		$show_icon   = ServiceProvider::is_block_enabled( 'accordion_icon' );
+		$show_border = ServiceProvider::is_block_enabled( 'accordion_border' );
+		$faq_schema  = ServiceProvider::is_block_enabled( 'accordion_faq_schema' );
+		$single_open = ServiceProvider::is_block_enabled( 'accordion_single_open' );
+
+		if (
+			$faq_schema
+			&& class_exists( '\Aegis\Plugin\Settings\Repository' )
+			&& \Aegis\Plugin\Settings\Repository::is_schema_delegated_to_seo( 'faq' )
+		) {
+			$faq_schema = false;
 		}
 
-		$dom = DOM::create($block_content);
-		$ul = DOM::get_element('ul', $dom);
-		$ol = DOM::get_element('ol', $dom);
+		$dom = DOM::create( $block_content );
+		$ul  = DOM::get_element( 'ul', $dom );
+		$ol  = DOM::get_element( 'ol', $dom );
 		$list = $ul ?? $ol;
 
-		if (!$list) {
+		if ( ! $list ) {
 			return $block_content;
 		}
 
-		// --- Start Reconstruction ---
-		// Create a new parent div to hold the <details> elements.
+		$group_name             = wp_unique_id( 'aegis-accordion-' );
+		$item_index             = 0;
+		$faq_entities           = array();
 		$accordion_wrapper_html = '<div>';
 
-		// Iterate over each original list item (convert to static array to avoid live NodeList issues).
-		$list_items = [];
-		foreach ($list->getElementsByTagName('li') as $li) {
-			$list_items[] = $li;
-		}
-		foreach ($list_items as $li) {
-			if (!$li instanceof DOMElement) {
+		foreach ( $list->getElementsByTagName( 'li' ) as $li ) {
+			if ( ! $li instanceof DOMElement ) {
 				continue;
 			}
 
-			$inner_html = $dom->saveHTML($li);
+			$inner_html = $dom->saveHTML( $li );
 
-			// The <br> tag is used as a delimiter between the title and content.
-			if (!str_contains($inner_html, '<br>')) {
+			if ( ! str_contains( $inner_html, '<br>' ) ) {
 				continue;
 			}
 
-			// Create the new <details> and <summary> elements.
-			$details = DOM::create_element('details', $dom);
-			// Transfer safe attributes (class, style, id, data-*) from the <li> to the <details>.
-			foreach ($li->attributes as $attribute) {
-				$attr_name = $attribute->name;
-				if ($attr_name === 'class' || $attr_name === 'style' || $attr_name === 'id' || str_starts_with($attr_name, 'data-')) {
-					$details->setAttribute($attr_name, esc_attr($attribute->value));
+			$details = DOM::create_element( 'details', $dom );
+			foreach ( $li->attributes as $attribute ) {
+				$details->setAttribute( esc_attr( $attribute->name ), esc_attr( $attribute->value ) );
+			}
+
+			if ( $open_all || ( $open_first && 0 === $item_index ) ) {
+				$details->setAttribute( 'open', 'open' );
+			}
+
+			if ( $single_open ) {
+				$details->setAttribute( 'name', $group_name );
+			}
+
+			$summary = DOM::create_element( 'summary', $dom );
+			$section = DOM::create_element( 'section', $dom );
+			$explode = explode( '<br>', $inner_html );
+
+			$title_dom = DOM::create( $explode[0] );
+			$list_item = DOM::get_element( 'li', $title_dom );
+			if ( $list_item ) {
+				foreach ( $list_item->childNodes as $child_node ) {
+					$summary->appendChild( $dom->importNode( $child_node, true ) );
 				}
 			}
 
-			$summary = DOM::create_element('summary', $dom);
-			$section = DOM::create_element('section', $dom);
-			$explode = explode('<br>', $inner_html);
+			$section->textContent = strip_tags( $explode[2] ?? $explode[1], '' );
 
-			// --- Populate Title and Content ---
-			// The content before the first <br> becomes the summary (title).
-			$title_dom = DOM::create($explode[0]);
-			$list_item = DOM::get_element('li', $title_dom);
-			if ($list_item) {
-				foreach ($list_item->childNodes as $child_node) {
-					$summary->appendChild($dom->importNode($child_node, true));
-				}
+			$details->appendChild( $summary );
+
+			$has_border = $show_border;
+			if ( $has_border ) {
+				$details->appendChild( DOM::create_element( 'hr', $dom ) );
 			}
 
-			// The content after the <br> becomes the section (collapsible content).
-			// Preserve semantic HTML (links, emphasis, etc.) via wp_kses_post.
-			$content_html = wp_kses_post($explode[2] ?? $explode[1]);
-			$content_fragment = DOM::create('<div>' . $content_html . '</div>');
-			$content_div = DOM::get_element('div', $content_fragment);
-			if ($content_div) {
-				foreach ($content_div->childNodes as $child_node) {
-					$section->appendChild($dom->importNode($child_node, true));
-				}
-			}
+			$details->appendChild( $section );
 
-			// --- Assemble the Accordion Item ---
-			$details->appendChild($summary);
-
-			// If the original list item had a border, add a visual <hr> separator.
-			$li_style = $li->getAttribute('style');
-			$has_border = Str::contains_any($li_style, 'border-width', 'border-style', 'border-color') && !str_contains($li_style, 'border-width:0');
-			if ($has_border) {
-				$details->appendChild(DOM::create_element('hr', $dom));
-			}
-
-			$details->appendChild($section);
-
-			// --- Handle Padding ---
-			// Padding styles are moved from the parent <details> to the inner <summary> and <section>
-			// for more accurate visual styling.
-			$styles = CSS::string_to_array($details->getAttribute('style'));
+			$styles  = CSS::string_to_array( $details->getAttribute( 'style' ) );
 			$padding = [];
-			foreach ($styles as $key => $value) {
-				if (str_contains($key, 'padding')) {
-					unset($styles[$key]);
-					$padding[$key] = $value;
+			foreach ( $styles as $key => $value ) {
+				if ( str_contains( $key, 'padding' ) ) {
+					unset( $styles[ $key ] );
+					$padding[ $key ] = $value;
 				}
 			}
-			if ($padding) {
-				$summary->setAttribute('style', CSS::array_to_string($padding));
-				if (!$has_border) {
-					unset($padding['padding-top']);
+			if ( $padding ) {
+				$summary->setAttribute( 'style', CSS::array_to_string( $padding ) );
+				if ( ! $has_border ) {
+					unset( $padding['padding-top'] );
 				}
-				$section->setAttribute('style', CSS::array_to_string($padding));
+				$section->setAttribute( 'style', CSS::array_to_string( $padding ) );
 			}
 
-			// Re-apply the non-padding styles to the <details> element.
-			$details->setAttribute('style', CSS::array_to_string($styles));
-			if (!$styles) {
-				$details->removeAttribute('style');
+			$details->setAttribute( 'style', CSS::array_to_string( $styles ) );
+			if ( ! $styles ) {
+				$details->removeAttribute( 'style' );
 			}
 
-			// Add the expand/collapse icon (decorative, hidden from screen readers).
-			$icon = DOM::create_element('span', $dom);
-			$icon->setAttribute('class', 'accordion-toggle');
-			$icon->setAttribute('aria-hidden', 'true');
-			$summary->appendChild($icon);
+			if ( $show_icon ) {
+				$icon = DOM::create_element( 'span', $dom );
+				$icon->setAttribute( 'class', 'accordion-toggle' );
+				$summary->appendChild( $icon );
+			}
 
-			// Append the fully constructed <details> element to our wrapper.
-			$accordion_wrapper_html .= $dom->saveHTML($details);
+			if ( $faq_schema ) {
+				$question = wp_strip_all_tags( (string) $summary->textContent );
+				$answer   = wp_strip_all_tags( (string) $section->textContent );
+				if ( '' !== $question && '' !== $answer ) {
+					$faq_entities[] = array(
+						'@type'          => 'Question',
+						'name'           => $question,
+						'acceptedAnswer' => array(
+							'@type' => 'Answer',
+							'text'  => $answer,
+						),
+					);
+				}
+			}
+
+			$accordion_wrapper_html .= $dom->saveHTML( $details );
+			++$item_index;
 		}
 
 		$accordion_wrapper_html .= '</div>';
 
-		// --- Final DOM Replacement ---
-		// Replace the original <ul>/<ol> with the new <div> containing the accordion.
-		$div_dom = DOM::create($accordion_wrapper_html);
-		$imported = $dom->importNode($div_dom->documentElement, true);
+		$div_dom  = DOM::create( $accordion_wrapper_html );
+		$imported = $dom->importNode( $div_dom->documentElement, true );
 
-		// Transfer safe attributes from the original list to the new wrapper.
-		foreach ($list->attributes as $attribute) {
-			if (method_exists($imported, 'setAttribute')) {
-				$attr_name = $attribute->localName;
-				if ($attr_name === 'class' || $attr_name === 'style' || $attr_name === 'id' || str_starts_with($attr_name, 'data-')) {
-					$imported->setAttribute($attr_name, esc_attr($attribute->nodeValue));
-				}
+		foreach ( $list->attributes as $attribute ) {
+			if ( method_exists( $imported, 'setAttribute' ) ) {
+				$imported->setAttribute( $attribute->localName, $attribute->nodeValue );
 			}
 		}
 
-		$dom->removeChild($list);
-		$dom->appendChild($imported);
+		$dom->removeChild( $list );
+		$dom->appendChild( $imported );
 
 		$html = $dom->saveHTML();
 
-		// Output FAQPage JSON-LD if FAQ Schema is enabled in admin settings
-		// and Rank Math is not handling it.
-		if (
-			ServiceProvider::is_block_enabled( 'accordion_faq_schema' ) &&
-			! ServiceProvider::is_schema_handled_by_rank_math( 'rank_math_faq_schema' )
-		) {
-			$faq_entities = [];
-			$final_dom = DOM::create($html);
-			foreach ($final_dom->getElementsByTagName('details') as $details_el) {
-				if (!$details_el instanceof DOMElement) {
-					continue;
-				}
-				$summary_el = DOM::get_element('summary', $details_el);
-				$section_el = DOM::get_element('section', $details_el);
-				if (!$summary_el || !$section_el) {
-					continue;
-				}
-				$question = wp_strip_all_tags($final_dom->saveHTML($summary_el));
-				$answer   = wp_strip_all_tags($final_dom->saveHTML($section_el));
-				if (!empty($question) && !empty($answer)) {
-					$faq_entities[] = [
-						'@type'          => 'Question',
-						'name'           => $question,
-						'acceptedAnswer' => [
-							'@type' => 'Answer',
-							'text'  => $answer,
-						],
-					];
-				}
-			}
-			if (!empty($faq_entities)) {
-				$schema = [
-					'@context'   => 'https://schema.org',
-					'@type'      => 'FAQPage',
-					'mainEntity' => $faq_entities,
-				];
-				$html .= '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES) . '</script>';
-			}
+		if ( $faq_entities ) {
+			$schema = array(
+				'@context'   => 'https://schema.org',
+				'@type'      => 'FAQPage',
+				'mainEntity' => $faq_entities,
+			);
+			$html  .= '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES ) . '</script>';
 		}
 
 		return $html;

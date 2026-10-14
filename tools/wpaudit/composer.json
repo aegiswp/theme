@@ -21,9 +21,7 @@
     },
     "scripts": {
         "test": "phpunit",
-        "test:coverage": "phpunit --coverage-html=coverage",
-        "lint": "phpcs",
-        "analyze": "phpstan analyse"
+        "test:coverage": "phpunit --coverage-html=coverage"
     },
     "config": {
         "optimize-autoloader": true,

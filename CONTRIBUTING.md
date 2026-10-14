@@ -12,7 +12,7 @@ cd theme
 
 2. Install Node.js dependencies:
 ```bash
-npm install
+npm ci
 ```
 
 3. Install PHP dependencies:
@@ -36,22 +36,40 @@ npm run build
 npm run dev
 ```
 
+## Development Tooling
+
+### Scratch and one-off scripts
+
+- Put disposable probes and migration checks in `tools/scratch/` only (gitignored).
+- Never commit `bin/` at the theme root or one-off scripts in `scripts/`.
+- Promote a script to `tools/` only when it is documented and wired to npm or the Makefile.
+
+### PHP lint and tests
+
+- PHPCS for **all three products** (theme, plugin, pro) runs from the **theme** directory: `composer run standards:check`.
+- The plugin has no root `composer.json` by design.
+- PHPUnit coverage is provided by **wpaudit only**: `composer test:wpaudit` (not a separate `tests/Unit` tree in this repo).
+
+### Vendor sync
+
+When updating `vendor/aegis/*` path repositories in the theme, sync matching packages in Pro `vendor/aegis/` (and `blockify/`, `fieldify/` as applicable) from the same revision before release. Record versions in `CHANGELOG.md`.
+
 ## Development Workflow
 
 ### Branch Strategy
 
 - `main` - Production-ready code
-- `develop` - Development branch for integration  
+- `dev` - Development branch for integration
 - `feature/*` - Feature branches
 - `bugfix/*` - Bug fix branches
 - `hotfix/*` - Critical fixes for production
 
 ### Making Changes
 
-1. Create a new branch from `develop`:
+1. Create a new branch from `dev`:
 ```bash
-git checkout develop
-git pull origin develop
+git checkout dev
+git pull origin dev
 git checkout -b feature/your-feature-name
 ```
 
@@ -59,9 +77,9 @@ git checkout -b feature/your-feature-name
 
 3. Run tests and code quality checks:
 ```bash
-npm run lint:css
+npm run lint
 composer run lint
-composer run standards:check
+composer run test:wpaudit
 ```
 
 4. Build assets if you modified any block source files:
@@ -81,7 +99,7 @@ git commit -m "feat: add new custom block for countdown timer"
 ### PHP
 
 - Follow [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/)
-- Use PHP 7.4+ features where appropriate
+- Use PHP 8.1+ features where appropriate
 - All code must pass PHPCS checks: `composer run lint`
 - Document all public methods with PHPDoc blocks
 - Use strict types: `declare( strict_types=1 );`
@@ -128,10 +146,12 @@ When creating custom blocks:
 
 - Test in multiple browsers (Chrome, Firefox, Safari, Edge)
 - Test with WordPress latest version and Gutenberg plugin
-- Test accessibility with screen readers and keyboard navigation
+- Test accessibility with keyboard navigation (and screen readers when UI changes). The theme ships an accessibility-ready foundation aimed at WCAG 2.2 AA — full conformance still depends on content.
+- Automated a11y: `npm run test:a11y` (uses `.pa11yci.json` / CI host `8080`) or `npm run test:a11y:env` against wp-env (`8888`). CI enforces pa11y-ci with **threshold 0**.
 - Test responsive design on mobile devices
 - Test with various plugins (WooCommerce, ACF, etc.)
 - Validate HTML and CSS
+- Modal starter patterns live in the **companion plugin** (`patterns/modal/`) — do not add them under the theme `patterns/` tree
 
 ### Commit Messages
 
@@ -213,10 +233,10 @@ style: format CSS files according to standards
 - Performance optimizations
 
 ### Documentation
-- README improvements
-- Code comments
-- User guides
-- Developer documentation
+- Wiki pages under `docs/` (see `docs/development/documentation.md`)
+- README / DESIGN / INSTRUCTIONS / `readme.txt` updates
+- Code comments (PHPDoc, JSDoc)
+- User guides and developer documentation
 
 ### Bug Reports
 - Detailed issue reports
@@ -231,14 +251,18 @@ style: format CSS files according to standards
 
 #### Contributing Translations
 
-1. **Generate Translation Files**:
+1. **Generate Translation Files** (theme catalog only):
 ```bash
 npm run translate
 ```
 
+Plugin strings belong in `wp-content/plugins/aegis/languages/aegis.pot` (`npm run translate` or `npm run translate:studio` in the plugin directory). Pro uses `aegis-pro.pot`.
+
 2. **Translation Process**:
-   - Use the generated `languages/aegis.pot` file as your template
-   - Copy `aegis.pot` to create your language file (e.g., `aegis-fr_FR.po`)
+   - Theme: `wp-content/themes/aegis/languages/aegis.pot`
+   - Plugin: `wp-content/plugins/aegis/languages/aegis.pot`
+   - Pro: `wp-content/plugins/aegis-pro/languages/aegis-pro.pot`
+   - Copy the matching `.pot` to create your language file (e.g., `aegis-fr_FR.po` or `aegis-pro-fr_FR.po`)
    - Translate using tools like Poedit or translation software
    - Validate your translation file format
 
@@ -334,7 +358,8 @@ The released package includes:
 The package excludes:
 
 - ✗ Development dependencies
-- ✗ Tests and testing utilities
+- ✗ Tests and testing utilities (`tools/wpaudit/`, `tests/`)
+- ✗ Contributor tools (`tools/`)
 - ✗ Source maps and dev tools
 - ✗ Git history and configuration
 - ✗ Node modules

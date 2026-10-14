@@ -20,7 +20,7 @@
                 <!-- wp:column {"verticalAlignment":"center","width":"45%"} -->
                 <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:45%">
                     <!-- wp:image {"aspectRatio":"2/3","scale":"cover","className":"is-style-default","style":{"border":{"radius":"8px"}}} -->
-                    <figure class="wp-block-image is-style-default"><img style="border-radius:8px;aspect-ratio:2/3;object-fit:cover" alt="<?php echo esc_attr__( 'Film poster', 'aegis' ); ?>" /></figure>
+                    <figure class="wp-block-image is-style-default has-custom-border"><img style="border-radius:8px;aspect-ratio:2/3;object-fit:cover" alt="<?php echo esc_attr__( 'Film poster', 'aegis' ); ?>" /></figure>
                     <!-- /wp:image -->
                 </div>
                 <!-- /wp:column -->
@@ -100,11 +100,11 @@
                         <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}}} -->
                         <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--sm)">
                             <!-- wp:button {"fontSize":"16"} -->
-                            <div class="wp-block-button has-custom-font-size has-16-font-size"><a class="wp-block-button__link wp-element-button"><?php echo esc_html__( 'Reserve Tickets', 'aegis' ); ?></a></div>
+                            <div class="wp-block-button has-custom-font-size has-16-font-size"><a class="wp-block-button__link wp-element-button has-16-font-size has-custom-font-size"><?php echo esc_html__( 'Reserve Tickets', 'aegis' ); ?></a></div>
                             <!-- /wp:button -->
 
                             <!-- wp:button {"className":"is-style-outline","fontSize":"16"} -->
-                            <div class="wp-block-button is-style-outline has-custom-font-size has-16-font-size"><a class="wp-block-button__link wp-element-button"><?php echo esc_html__( 'Watch Trailer', 'aegis' ); ?></a></div>
+                            <div class="wp-block-button is-style-outline has-custom-font-size has-16-font-size"><a class="wp-block-button__link wp-element-button has-16-font-size has-custom-font-size"><?php echo esc_html__( 'Watch Trailer', 'aegis' ); ?></a></div>
                             <!-- /wp:button -->
                         </div>
                         <!-- /wp:buttons -->

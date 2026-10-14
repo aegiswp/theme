@@ -24,6 +24,8 @@ namespace Aegis\Framework\DesignSystem;
 // Imports WordPress functions for escaping and translation.
 use Aegis\Framework\InlineAssets\Scriptable;
 use Aegis\Framework\InlineAssets\Scripts;
+use Aegis\Framework\InlineAssets\Styleable;
+use Aegis\Framework\InlineAssets\Styles;
 use function esc_attr;
 use function esc_html__;
 use function is_admin;
@@ -40,7 +42,7 @@ use function is_admin;
  * @package Aegis\Framework\DesignSystem
  * @since   1.0.0
  */
-class SkipLink implements Scriptable {
+class SkipLink implements Scriptable, Styleable {
 
 	/**
 	 * The target ID for the skip link.
@@ -63,17 +65,27 @@ class SkipLink implements Scriptable {
 	}
 
 	/**
+	 * Register search modal overlay styles.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param Styles $styles The Styles service instance.
+	 */
+	public function styles( Styles $styles ): void {
+		$styles->add_file( 'core-blocks/search-modal.css', [ 'search-modal' ] );
+	}
+
+	/**
 	 * Inject skip link before the header template part.
 	 *
-	 * This method is hooked into the `render_block_core/template-part` filter.
-	 * It prepends a skip link to the header template part output.
+	 * Runs after TemplatePart so the skip link is not parsed as the header root.
 	 *
 	 * @since 1.0.0
 	 *
 	 * @param string $block_content Block HTML.
 	 * @param array  $block         Block data.
 	 *
-	 * @hook  render_block_core/template-part 4
+	 * @hook  render_block_core/template-part 11
 	 *
 	 * @return string
 	 */

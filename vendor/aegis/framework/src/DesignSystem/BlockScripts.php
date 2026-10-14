@@ -17,27 +17,19 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
+// Enforces strict type checking for all code in this file, ensuring type safety for block scripts component.
 declare( strict_types=1 );
 
-// Declares the namespace for design system components within the Aegis Framework.
+// Declares the namespace for the block scripts component.
 namespace Aegis\Framework\DesignSystem;
 
-// Imports scripts service, debugging utilities, and WordPress integration helpers.
+// Imports classes, interfaces, and functions used by the block scripts component.
 use Aegis\Framework\InlineAssets\Scripts;
 use Aegis\Utilities\Debug;
-use function in_array;
-use function is_admin;
 use function str_contains;
-use function str_replace;
-use function wp_enqueue_script;
-use function wp_script_add_data;
 use function wp_register_script;
 
-// Implements the BlockScripts class to support block-level script registration and management.
-
-class BlockScripts
-{
+class BlockScripts {
 
 	/**
 	 * The scripts instance
@@ -55,8 +47,7 @@ class BlockScripts
 	 *
 	 * @return void
 	 */
-	public function __construct(Scripts $scripts)
-	{
+	public function __construct( Scripts $scripts ) {
 		$this->scripts = $scripts;
 	}
 
@@ -69,61 +60,48 @@ class BlockScripts
 	 *
 	 * @return void
 	 */
-	public function register(): void
-	{
+	public function register(): void {
 		global $template_html;
 
+		// Map script handles to template HTML markers.
 		$scripts = [
-			'packery' => 'packery',
-			'splide' => 'splide',
+			'packery'           => 'packery',
+			'splide'            => [ 'splide', 'wp-block-aegis-slider', 'wp:aegis/slider' ],
 			'splide-autoscroll' => 'data-type="marquee"',
 		];
 
-		foreach ($scripts as $handle => $strings) {
-			if (!str_contains($template_html ?? '', $strings)) {
+		foreach ( $scripts as $handle => $strings ) {
+			$needles = is_array( $strings ) ? $strings : [ $strings ];
+			$found   = false;
+
+			foreach ( $needles as $needle ) {
+				if ( str_contains( $template_html ?? '', $needle ) ) {
+					$found = true;
+					break;
+				}
+			}
+
+			if ( ! $found ) {
 				continue;
 			}
 
 			$asset_file = $this->scripts->dir . $handle . '.asset.php';
 
-			if (!file_exists($asset_file)) {
+			if ( ! file_exists( $asset_file ) ) {
 				continue;
 			}
 
 			$asset = require $asset_file;
 
-			// Register only — actual loading is handled by the IntersectionObserver
-			// lazy loader in Scripts::lazy_loader() for better performance.
 			wp_register_script(
 				$handle,
 				$this->scripts->url . $handle . '.js',
 				$asset['dependencies'] ?? [],
-				$asset['version'] ?? (Debug::is_enabled() ? (string) filemtime($this->scripts->dir . $handle . '.js') : '1.0.0'),
+				$asset['version'] ?? ( Debug::is_enabled() ? time() : '1.0.0' ),
 				true
 			);
+
+			wp_enqueue_script( $handle );
 		}
-	}
-
-	public function add_defer_attribute(string $tag, string $handle, string $src): string
-	{
-		if (is_admin()) {
-			return $tag;
-		}
-
-		$defer_handles = [
-			'packery',
-			'splide',
-			'splide-autoscroll',
-		];
-
-		if (!in_array($handle, $defer_handles, true)) {
-			return $tag;
-		}
-
-		if (str_contains($tag, ' defer')) {
-			return $tag;
-		}
-
-		return str_replace('<script ', '<script defer ', $tag);
 	}
 }

@@ -1,0 +1,186 @@
+# Enhanced Core Blocks
+
+The Aegis **framework** (`vendor/aegis/framework`) enhances 37 WordPress core blocks with additional styling, configuration options, and design system integration. Enhancements apply automatically when the theme is active.
+
+## How Enhancements Work
+
+The framework applies enhancements through:
+
+- **theme.json styling** — Default colors, typography, spacing, and border settings for each block.
+- **Block styles** — Additional style variations registered for specific blocks.
+- **Block supports** — Enabling additional WordPress block features (like border, shadow, and spacing) where core has not enabled them by default.
+- **Custom CSS** — Targeted styles for improved design and responsiveness.
+
+No core block functionality is removed or broken. All enhancements are additive.
+
+## Enhanced Blocks
+
+The following 37 core blocks receive enhancements in Aegis:
+
+### Text Blocks
+
+| Block | Enhancements |
+|-------|-------------|
+| Paragraph | Fluid font sizes, lead text style, drop cap styling |
+| Heading | Fluid responsive sizing, extended weight options, gradient text support |
+| List | Custom bullet/number styling, spacing controls, icon list style |
+| Quote | Multiple visual styles (bordered, large, minimal), citation styling |
+| Pullquote | Accent border styling, typography presets |
+| Preformatted | Code font, background styling, border radius |
+| Code | Syntax-aware styling, dark background, scrollable overflow |
+| Verse | Monospace styling, subtle background |
+
+### Media Blocks
+
+| Block | Enhancements |
+|-------|-------------|
+| Image | Shadow options, border radius, hover effects, aspect ratio presets. Lightbox overlay follows light/dark (or the Site Editor background). Expand-on-click trigger sits on the image, not the full-width figure. Image captions stay on the figure, not the overlay. The former Image Icon variation was removed — use `core/icon`. Extra lightbox features are gated at **Aegis → Blocks → Image Lightbox** — see [[../features/image-lightbox]]. The same Aspect Ratio / Height / Object Fit / Object Position inspector also applies to Pro `aegis/image-compare` (`render_block_aegis/image-compare`; height uses CSS custom properties on the wrapper) |
+| Icon | WordPress Icon library (`core/{name}`) plus Aegis collections (`social/{name}`, Pro sets). Custom SVG, gradients, gallery, and `currentColor` for dark mode — see [[svg-icons]] |
+| Gallery | Gap controls, rounded styles, hover overlay effects |
+| Cover | Gradient overlay presets, minimum height options, parallax improvements |
+| Media & Text | Responsive stacking improvements, gap controls |
+| Video | Aspect ratio options, rounded corners, shadow — see [[core-video]] for plugin and Pro enhancements |
+
+### Layout Blocks
+
+| Block | Enhancements |
+|-------|-------------|
+| Group | Shadow presets, border styles, background patterns, multiple layout types |
+| Columns | Responsive breakpoint improvements, vertical alignment, gap presets |
+| Column | Individual padding, background, and border support |
+| Row | Extended alignment and wrapping controls |
+| Stack | Gap presets, responsive spacing |
+| Separator | Color options, width variations (short, medium, wide), thickness control |
+| Spacer | Preset height options matching the spacing scale |
+
+### Navigation Blocks
+
+| Block | Enhancements |
+|-------|-------------|
+| Navigation | Mobile menu styling, hamburger variants, submenu animations |
+| Navigation Link | Active state styling, icon support |
+| Site Logo | Size presets, border radius, dark mode inversion |
+| Site Title | Typography presets, link styling |
+
+### Widget Blocks
+
+| Block | Enhancements |
+|-------|-------------|
+| Search | Expanded styling options, button variants, icon toggle |
+| Social Icons | Color schemes, hover effects, size presets |
+| Post Title | Fluid typography, gradient text support |
+| Post Excerpt | Line clamp options, read-more styling |
+| Post Featured Image | Aspect ratio, shadow, border radius, hover effects |
+| Post Date | Icon prefix, relative date formatting |
+| Post Terms | Chip/badge styling, separator options |
+| Post Author | Avatar styling, layout options |
+| Post Navigation Link | Arrow styling, card layout option |
+
+### Dynamic Blocks
+
+| Block | Enhancements |
+|-------|-------------|
+| Query Loop | Responsive columns, gaps, featured-first, equal-height, no-results — gated at **Aegis → Blocks → Query Loop**. See [Plugin Query Loop](../../plugins/aegis/docs/blocks/query-loop.md). |
+| Pagination | Styled number navigation, accessible landmarks |
+| Comments | Thread styling, alternating backgrounds, avatar sizes |
+| Table | Responsive horizontal scroll, striped rows, border options |
+
+## Block Styles
+
+Many enhanced blocks register additional style variations. Block styles appear in the **Styles** panel when you select a block:
+
+### Example: Quote Block Styles
+
+| Style | Description |
+|-------|-------------|
+| Default | Standard blockquote with left border accent |
+| Large | Oversized quote marks with larger text |
+| Minimal | No border, subtle indentation only |
+| Bordered | Full border wrap with padding |
+
+### Example: Separator Block Styles
+
+| Style | Description |
+|-------|-------------|
+| Default | Full width thin line |
+| Wide | Wider than content, thinner line |
+| Dots | Three centered dots |
+| Short | Centered short accent line |
+
+## Global Block Styling
+
+Aegis applies consistent styling across all enhanced blocks through `theme.json`:
+
+- All blocks use the design system spacing tokens for margin and padding.
+- Colors, typography, and shadows inherit from Global Styles.
+- Blocks automatically adapt to style variations and dark mode.
+
+### Per-Block Global Styles
+
+You can override the default styling of any block type:
+
+1. Open the Site Editor (**Appearance → Editor**).
+2. Click the **Styles** icon.
+3. Navigate to **Blocks**.
+4. Search for or select a specific block type.
+5. Adjust colors, typography, dimensions, and border settings.
+6. Save — all instances of that block type will update.
+
+## Block Supports
+
+Aegis enables additional block supports that WordPress core does not enable by default for some blocks:
+
+| Support | Description | Blocks Affected |
+|---------|-------------|----------------|
+| Border | Border width, color, radius | Group, Column, Image |
+| Shadow | Box shadow presets | Group, Column, Button, Image |
+| Spacing | Margin and padding controls | Most layout blocks |
+| Typography | Extended font size and family | All text blocks |
+| Color | Background, text, link colors | Most blocks |
+
+## Responsive Behavior
+
+All enhanced blocks include responsive improvements:
+
+- **Columns** collapse to a single column on narrow viewports.
+- **Navigation** switches to a mobile hamburger menu below a configurable breakpoint.
+- **Media & Text** stacks vertically on mobile.
+- **Table** becomes horizontally scrollable on small screens.
+- **Gallery** adjusts column count based on available width.
+
+### Core Responsive States and Aegis Breakpoints
+
+WordPress Core responsive style states (viewport-specific spacing, color, typography, and related supports in the Site Editor) apply to blocks that use standard block supports. Aegis continues to provide complementary controls Core does not fully replace:
+
+| Concern | Handled by |
+|---------|------------|
+| Per-viewport styles on standard supports | Core responsive style states |
+| Show/hide by viewport (`aegis-hide-mobile`, and related) | Aegis visibility |
+| Display, order, and width per device | Aegis Display panel |
+| Landscape / tablet editor breakpoints | Aegis responsive breakpoint UI |
+| Query column counts per breakpoint | Aegis Query layout |
+
+Keep both systems. Prefer Core for ordinary style changes; use Aegis for visibility, layout, and query column behavior. If editor preview controls look duplicated after a WordPress update, see [[common-issues]].
+
+### Breadcrumbs
+
+`core/breadcrumbs` receives theme.json styles and the `breadcrumbs.css` stylesheet (also applied when `.rank-math-breadcrumb`, `.seopress-breadcrumbs`, `#breadcrumbs`, or `.yoast-breadcrumbs` markup is present; separators styled via Rank Math `.separator` and SEOPress `.breadcrumb-sep`; Yoast current crumb via `.breadcrumb_last` without a forced flex wrapper). WooCommerce Store Breadcrumbs (`woocommerce/breadcrumbs`) use `woocommerce-breadcrumbs.css` and wrap the delimiter in `.aegis-breadcrumb-separator`, same as classic Woo breadcrumbs. See [[woocommerce-integration#breadcrumbs]] and [SEO Schema Delegation](../../plugins/aegis/docs/features/seo-schema-delegation.md).
+
+## Accessibility
+
+Enhanced blocks maintain or improve the theme’s accessibility-ready foundation:
+
+- Focus indicators remain visible on interactive blocks (`:focus` / `:focus-visible`, including breadcrumbs and post meta links).
+- ARIA attributes are preserved and enhanced where appropriate.
+- Default color tokens target WCAG 2.2 AA contrast; custom colors still need verification.
+- Keyboard navigation works across enhancements.
+- Screen reader announcements are not altered.
+
+See [[accessibility]] for landmarks, skip links, and content-author responsibilities.
+
+## Next Steps
+
+- [[custom-blocks]] — Learn about blocks built specifically for Aegis.
+- [[block-variations]] — Explore custom variations of core blocks.
+- [[global-styles]] — Configure default block styling site-wide.
+- [[css-variables-reference]] — Reference design tokens used in block styles.

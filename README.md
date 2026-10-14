@@ -63,7 +63,7 @@ Aegis is a cutting-edge Full Site Editing (FSE) theme that combines performance 
 
 Upholding the highest coding standards, Aegis is engineered for scalability—from personal blogs to professional portfolios and expansive business sites. The theme seamlessly supports multisite configurations, WooCommerce, SEO optimization, and learning management systems.
 
-Every detail emphasizes performance, accessibility, and user experience. Aegis is particularly optimized for users with color vision deficiency, making it a truly inclusive design solution built to remain relevant for years to come.
+Every detail emphasizes performance, accessibility, and user experience. Aegis ships an **accessibility-ready foundation** aimed at [WCAG 2.2](https://www.w3.org/TR/WCAG22/) Level AA (landmarks, skip links, focus styles, keyboard support for interactive blocks, reduced motion). Full conformance still depends on editor content and runtime testing. The palette is also tuned for users with color vision deficiency.
 
 ## Working with Block Themes
 
@@ -260,7 +260,7 @@ The Aegis theme features a comprehensive color system with Primary, Neutral, and
 | `--wp--preset--color--primary-200` | `#e4e4e7` | Primary 200 | `primary-200` | ![jpg](https://placehold.co/20x20/e4e4e7/e4e4e7/jpg) |
 | `--wp--preset--color--primary-100` | `#f4f4f5` | Primary 100 | `primary-100` | ![jpg](https://placehold.co/20x20/f4f4f5/f4f4f5/jpg) |
 | `--wp--preset--color--primary-50` | `#fafafa` | Primary 50 | `primary-50` | ![jpg](https://placehold.co/20x20/fafafa/fafafa/jpg) |
-| `--wp--preset--color--primary-25` | `#fcfcfd` | Primary 25 | `primary-25` | ![jpg](https://placehold.co/20x20/fcfcfd/fcfcfd/jpg) |
+| `--wp--preset--color--primary-25` | `#f8efe9` | Primary 25 | `primary-25` | ![jpg](https://placehold.co/20x20/f8efe9/f8efe9/jpg) |
 
 **Neutral Colors**
 
@@ -272,7 +272,7 @@ The Aegis theme features a comprehensive color system with Primary, Neutral, and
 | `--wp--preset--color--neutral-700` | `#404040` | Neutral 700 | `neutral-700` | ![jpg](https://placehold.co/20x20/404040/404040/jpg) |
 | `--wp--preset--color--neutral-600` | `#525252` | Neutral 600 | `neutral-600` | ![jpg](https://placehold.co/20x20/525252/525252/jpg) |
 | `--wp--preset--color--neutral-500` | `#737373` | Neutral 500 | `neutral-500` | ![jpg](https://placehold.co/20x20/737373/737373/jpg) |
-| `--wp--preset--color--neutral-400` | `#a3a3a3` | Neutral 400 | `neutral-400` | ![jpg](https://placehold.co/20x20/a3a3a3/a3a3a3/jpg) |
+| `--wp--preset--color--neutral-400` | `#666666` | Neutral 400 | `neutral-400` | ![jpg](https://placehold.co/20x20/666666/666666/jpg) |
 | `--wp--preset--color--neutral-300` | `#d4d4d4` | Neutral 300 | `neutral-300` | ![jpg](https://placehold.co/20x20/d4d4d4/d4d4d4/jpg) |
 | `--wp--preset--color--neutral-200` | `#e5e5e5` | Neutral 200 | `neutral-200` | ![jpg](https://placehold.co/20x20/e5e5e5/e5e5e5/jpg) |
 | `--wp--preset--color--neutral-100` | `#f5f5f5` | Neutral 100 | `neutral-100` | ![jpg](https://placehold.co/20x20/f5f5f5/f5f5f5/jpg) |
@@ -283,39 +283,18 @@ The Aegis theme features a comprehensive color system with Primary, Neutral, and
 
 | CSS Variable | Color | Name | Slug | Visual |
 |--------------|-------|------|------|--------|
-| `--wp--preset--color--success-950` | `#052e16` | Success 950 | `success-950` | ![jpg](https://placehold.co/20x20/052e16/052e16/jpg) |
-| `--wp--preset--color--success-900` | `#14532d` | Success 900 | `success-900` | ![jpg](https://placehold.co/20x20/14532d/14532d/jpg) |
-| `--wp--preset--color--success-800` | `#166534` | Success 800 | `success-800` | ![jpg](https://placehold.co/20x20/166534/166534/jpg) |
-| `--wp--preset--color--success-700` | `#15803d` | Success 700 | `success-700` | ![jpg](https://placehold.co/20x20/15803d/15803d/jpg) |
-| `--wp--preset--color--success-600` | `#16a34a` | Success 600 | `success-600` | ![jpg](https://placehold.co/20x20/16a34a/16a34a/jpg) |
-| `--wp--preset--color--success-500` | `#22c55e` | Success 500 | `success-500` | ![jpg](https://placehold.co/20x20/22c55e/22c55e/jpg) |
-| `--wp--preset--color--success-400` | `#4ade80` | Success 400 | `success-400` | ![jpg](https://placehold.co/20x20/4ade80/4ade80/jpg) |
-| `--wp--preset--color--success-300` | `#86efac` | Success 300 | `success-300` | ![jpg](https://placehold.co/20x20/86efac/86efac/jpg) |
-| `--wp--preset--color--success-200` | `#bbf7d0` | Success 200 | `success-200` | ![jpg](https://placehold.co/20x20/bbf7d0/bbf7d0/jpg) |
-| `--wp--preset--color--success-100` | `#dcfce7` | Success 100 | `success-100` | ![jpg](https://placehold.co/20x20/dcfce7/dcfce7/jpg) |
-| `--wp--preset--color--success-50` | `#f0fdf4` | Success 50 | `success-50` | ![jpg](https://placehold.co/20x20/f0fdf4/f0fdf4/jpg) |
-| `--wp--preset--color--warning-950` | `#431407` | Warning 950 | `warning-950` | ![jpg](https://placehold.co/20x20/431407/431407/jpg) |
-| `--wp--preset--color--warning-900` | `#7c2d12` | Warning 900 | `warning-900` | ![jpg](https://placehold.co/20x20/7c2d12/7c2d12/jpg) |
-| `--wp--preset--color--warning-800` | `#9a3412` | Warning 800 | `warning-800` | ![jpg](https://placehold.co/20x20/9a3412/9a3412/jpg) |
-| `--wp--preset--color--warning-700` | `#c2410c` | Warning 700 | `warning-700` | ![jpg](https://placehold.co/20x20/c2410c/c2410c/jpg) |
-| `--wp--preset--color--warning-600` | `#ea580c` | Warning 600 | `warning-600` | ![jpg](https://placehold.co/20x20/ea580c/ea580c/jpg) |
-| `--wp--preset--color--warning-500` | `#f97316` | Warning 500 | `warning-500` | ![jpg](https://placehold.co/20x20/f97316/f97316/jpg) |
-| `--wp--preset--color--warning-400` | `#fb923c` | Warning 400 | `warning-400` | ![jpg](https://placehold.co/20x20/fb923c/fb923c/jpg) |
-| `--wp--preset--color--warning-300` | `#fdba74` | Warning 300 | `warning-300` | ![jpg](https://placehold.co/20x20/fdba74/fdba74/jpg) |
-| `--wp--preset--color--warning-200` | `#fed7aa` | Warning 200 | `warning-200` | ![jpg](https://placehold.co/20x20/fed7aa/fed7aa/jpg) |
-| `--wp--preset--color--warning-100` | `#ffedd5` | Warning 100 | `warning-100` | ![jpg](https://placehold.co/20x20/ffedd5/ffedd5/jpg) |
-| `--wp--preset--color--warning-50` | `#fff7ed` | Warning 50 | `warning-50` | ![jpg](https://placehold.co/20x20/fff7ed/fff7ed/jpg) |
-| `--wp--preset--color--error-950` | `#450a0a` | Error 950 | `error-950` | ![jpg](https://placehold.co/20x20/450a0a/450a0a/jpg) |
-| `--wp--preset--color--error-900` | `#7f1d1d` | Error 900 | `error-900` | ![jpg](https://placehold.co/20x20/7f1d1d/7f1d1d/jpg) |
-| `--wp--preset--color--error-800` | `#991b1b` | Error 800 | `error-800` | ![jpg](https://placehold.co/20x20/991b1b/991b1b/jpg) |
-| `--wp--preset--color--error-700` | `#b91c1c` | Error 700 | `error-700` | ![jpg](https://placehold.co/20x20/b91c1c/b91c1c/jpg) |
-| `--wp--preset--color--error-600` | `#dc2626` | Error 600 | `error-600` | ![jpg](https://placehold.co/20x20/dc2626/dc2626/jpg) |
-| `--wp--preset--color--error-500` | `#ef4444` | Error 500 | `error-500` | ![jpg](https://placehold.co/20x20/ef4444/ef4444/jpg) |
-| `--wp--preset--color--error-400` | `#f87171` | Error 400 | `error-400` | ![jpg](https://placehold.co/20x20/f87171/f87171/jpg) |
-| `--wp--preset--color--error-300` | `#fca5a5` | Error 300 | `error-300` | ![jpg](https://placehold.co/20x20/fca5a5/fca5a5/jpg) |
-| `--wp--preset--color--error-200` | `#fecaca` | Error 200 | `error-200` | ![jpg](https://placehold.co/20x20/fecaca/fecaca/jpg) |
-| `--wp--preset--color--error-100` | `#fee2e2` | Error 100 | `error-100` | ![jpg](https://placehold.co/20x20/fee2e2/fee2e2/jpg) |
-| `--wp--preset--color--error-50` | `#fef2f2` | Error 50 | `error-50` | ![jpg](https://placehold.co/20x20/fef2f2/fef2f2/jpg) |
+| `--wp--preset--color--success-600` | `#059669` | Success 600 | `success-600` | ![jpg](https://placehold.co/20x20/059669/059669/jpg) |
+| `--wp--preset--color--success-500` | `#10b981` | Success 500 | `success-500` | ![jpg](https://placehold.co/20x20/10b981/10b981/jpg) |
+| `--wp--preset--color--success-100` | `#d1fae5` | Success 100 | `success-100` | ![jpg](https://placehold.co/20x20/d1fae5/d1fae5/jpg) |
+| `--wp--preset--color--info-600` | `#1166c2` | Info 600 | `info-600` | ![jpg](https://placehold.co/20x20/1166c2/1166c2/jpg) |
+| `--wp--preset--color--info-500` | `#1e7ff0` | Info 500 | `info-500` | ![jpg](https://placehold.co/20x20/1e7ff0/1e7ff0/jpg) |
+| `--wp--preset--color--info-100` | `#f3f9ff` | Info 100 | `info-100` | ![jpg](https://placehold.co/20x20/f3f9ff/f3f9ff/jpg) |
+| `--wp--preset--color--warning-600` | `#d97706` | Warning 600 | `warning-600` | ![jpg](https://placehold.co/20x20/d97706/d97706/jpg) |
+| `--wp--preset--color--warning-500` | `#f59e0b` | Warning 500 | `warning-500` | ![jpg](https://placehold.co/20x20/f59e0b/f59e0b/jpg) |
+| `--wp--preset--color--warning-100` | `#feeac7` | Warning 100 | `warning-100` | ![jpg](https://placehold.co/20x20/feeac7/feeac7/jpg) |
+| `--wp--preset--color--error-600` | `#e11d48` | Error 600 | `error-600` | ![jpg](https://placehold.co/20x20/e11d48/e11d48/jpg) |
+| `--wp--preset--color--error-500` | `#f43f5e` | Error 500 | `error-500` | ![jpg](https://placehold.co/20x20/f43f5e/f43f5e/jpg) |
+| `--wp--preset--color--error-100` | `#ffe4e6` | Error 100 | `error-100` | ![jpg](https://placehold.co/20x20/ffe4e6/ffe4e6/jpg) |
 
 **Utility Colors**
 
@@ -339,7 +318,7 @@ Aegis is a comprehensive Full Site Editing (FSE) theme that extends the capabili
 
 ### Content & Design Tools
 
-**SVG Icon System**: Create inline SVG icons directly within the image block or as inline text. Aegis includes WordPress, Dashicons, and Social Icons by default, with full support for custom SVGs. Simply search for "Icon" in the block inserter to get started.
+**SVG Icon System**: Use the WordPress **Icon** block (`core/icon`). Aegis registers custom collections with the Core Icon library (WordPress 7.1+) and does not duplicate Core glyphs. There is no Image Icon variation. Migrate leftover Image icons with `wp aegis migrate-icons` (Studio: `studio wp aegis migrate-icons`).
 
 **Variable Font Library**: Access a curated collection of popular variable Google Fonts, with fonts conditionally loaded based on selections made in Site Editor > Styles. This ensures optimal typography without unnecessary asset bloat.
 
@@ -347,7 +326,7 @@ Aegis is a comprehensive Full Site Editing (FSE) theme that extends the capabili
 
 **Advanced Text Formats**: Extended text formatting options including clear formatting, underline, gradient text, dynamic font sizes, and more. These formatting tools provide fine-grained control over typography and text presentation.
 
-**Pattern Library**: Comprehensive collection of 145+ block patterns organized across 15 categories including author pages, blog layouts, commerce templates, contact forms, CTAs, FAQs, features, footers, headers, heroes, modals, page layouts, portfolios, pricing, testimonials, and utility patterns. All patterns are designed for performance and accessibility.
+**Pattern Library**: Comprehensive collection of 236 block patterns organized across 29 category folders including author pages, blog layouts, commerce templates, contact forms, CTAs, FAQs, features, footers, headers, heroes, page layouts, portfolios, pricing, testimonials, and utility patterns (Modal starters live in the companion plugin). All patterns are designed for performance and accessibility.
 
 ### Enhanced Core Blocks
 
@@ -364,7 +343,8 @@ Aegis extends the following WordPress core blocks with additional functionality,
 | Details | `core/details` | Styled accordion/disclosure elements |
 | Group | `core/group` | Enhanced group block with additional layout options |
 | Heading | `core/heading` | Extended heading styles with gradient and decoration support |
-| Image | `core/image` | SVG icon support and advanced image controls |
+| Icon | `core/icon` | Core Icon library collections, `currentColor` dark/light fills, gradients, custom SVG, and optional links |
+| Image | `core/image` | Advanced image controls plus optional lightbox extras (grouped nav, zoom, thumbnails, swipe) |
 | List | `core/list` | Enhanced list styling with custom markers |
 | Navigation | `core/navigation` | Mega menu support and advanced navigation styles |
 | Navigation Submenu | `core/navigation-submenu` | Multi-column dropdown menu support |
@@ -394,19 +374,18 @@ Aegis extends the following WordPress core blocks with additional functionality,
 
 ### Custom Blocks
 
-Aegis includes the following custom blocks built specifically for the theme:
+| Block | Block Name | Registered by |
+|-------|------------|---------------|
+| Countdown | `aegis/countdown` | Theme |
+| Slider | `aegis/slider` | Theme |
+| Slide | `aegis/slide` | Theme |
+| Toggle | `aegis/toggle` | Theme |
+| Toggle Content | `aegis/toggle-content` | Theme |
+| Related Posts | `aegis/related-posts` | Theme |
+| Map | `aegis/map` | [Aegis Plugin](../plugins/aegis/docs/blocks/custom-blocks.md) |
+| Modal | `aegis/modal` | [Aegis Plugin](../plugins/aegis/docs/blocks/modals.md) |
 
-| Block | Block Name | Description |
-|-------|------------|-------------|
-| Countdown | `aegis/countdown` | Animated countdown timer with customizable target dates and styling |
-| Map | `aegis/map` | Interactive Google Maps with custom markers, styles, and geolocation |
-| Modal | `aegis/modal` | An accessible modal dialog with popup, off-canvas, bottom sheet, and fullscreen modes |
-| Related Posts | `aegis/related-posts` | Automatically displays related posts based on taxonomy or custom criteria |
-| Slider | `aegis/slider` | A responsive slider/carousel with multiple slide types, transitions, and navigation options |
-| Slide | `aegis/slide` | An individual slide within a slider block with support for content, image, and video slide types |
-| Toggle | `aegis/toggle` | Collapsible content toggle with smooth animations |
-| Toggle Content | `aegis/toggle-content` | Nested toggle content for complex accordion structures |
-| Video | `aegis/video` | Advanced video player with custom controls and features |
+Documentation: [Theme docs](docs/blocks/custom-blocks.md) · [Plugin docs](../plugins/aegis/docs/home.md) · [Pro docs](../plugins/aegis-pro/docs/home.md)
 
 ### Block Variations
 
@@ -418,29 +397,28 @@ Aegis includes the following custom block variations that extend WordPress core 
 | Counter | `core/paragraph` | Animated number counter with customizable start/end values and duration |
 | Curved Text | `core/paragraph` | Text displayed along a curved SVG path for creative typography |
 | Grid | `core/group` | Advanced CSS grid layout with responsive column controls |
-| Icon | `core/image` | Inline SVG icons with WordPress, Dashicons, and Social Icons support |
-| Marquee | `core/group` | Continuously scrolling horizontal content ticker animation |
+| Marquee | `core/group` | Continuously scrolling horizontal ticker (CSS loop duration; Group variation, not Slider marquee type) |
 | Newsletter | `core/group` | Pre-styled newsletter signup form layout |
-| Related Posts | `core/query` | Automatically queries and displays related posts based on taxonomy |
 | SVG | `core/image` | Inline SVG rendering with sanitization and styling support |
 
 ### Plugin Integrations
 
-Aegis provides seamless integration with popular WordPress plugins, automatically applying theme styling and enhancing compatibility:
+Framework styling applies when integrations are enabled in the **Aegis plugin** dashboard. Full toggle list and SEO delegation: [Integrations Dashboard](../plugins/aegis/docs/features/integrations-dashboard.md). Theme framework CSS covers WooCommerce, Fluent Forms, Fluent Booking, Gravity Forms, Ninja Forms, LearnDash, LifterLMS, Sensei, EDD, AffiliateWP, bbPress, Meta Box, Syntax Highlighting Code Block, and Code Block Pro when toggled on.
 
-| Plugin | Category | Description |
-|--------|----------|-------------|
-| Advanced Custom Fields | Custom Fields | ACF JSON save/load paths, theme color palette integration, Block Bindings source for Query Loop |
-| BunnyCDN | Media/CDN | Theme border radius for iframe embeds, dark/light mode styling for player containers |
-| Code Block Pro | Development | Conditional style registration with theme compatibility |
-| Fluent Booking | Scheduling | Dark/light mode support for booking calendars, theme-styled patterns |
-| Fluent Forms | Forms | Theme-styled form elements and layouts |
-| LearnDash | LMS | Focus Mode integration, theme colors and typography, custom block patterns |
-| LifterLMS | LMS | Theme colors and typography, custom block patterns replacing defaults |
-| Rank Math | SEO | Fallback meta description support, hook integration |
-| Sensei LMS | LMS | Theme support declaration, colors and typography, custom block patterns |
-| Syntax Highlighting Code Block | Development | Theme color integration for code highlighting |
-| WooCommerce | E-commerce | Plugin detection and conditional hook registration |
+| Plugin | Category | Notes |
+|--------|----------|-------|
+| WooCommerce | E-commerce | Framework shop/cart/checkout CSS (`plugins/woocommerce/woocommerce.css`) and breadcrumbs. Detected via `WooCommerce` / `WC()` / `WC_VERSION`. Pro cart, customer, and product extras |
+| Fluent Forms / Fluent Booking / Gravity Forms / Ninja Forms | Forms | Framework styling when integration enabled; Fluent Forms & Fluent Booking pattern control in Pro |
+| LearnDash / LifterLMS / Sensei | LMS | Framework course/lesson/quiz styling (`plugins/learndash.css`), Focus Mode chrome; pattern control and video progression in Pro |
+| Easy Digital Downloads | E-commerce | Framework download/checkout CSS (`plugins/edd/edd.css`). Detected via `Easy_Digital_Downloads` / `EDD()` / `EDD_VERSION`. Pro cart, customer, and download extras |
+| AffiliateWP | E-commerce | Framework Affiliate Area and login/register form CSS (`plugins/affiliate-wp.css`). Detected via `Affiliate_WP` / `affiliate_wp()` / `AFFILIATEWP_VERSION`. Skips `affwp-forms` on the frontend. Pro referral, account, and earnings extras |
+| Rank Math / Yoast / AIOSEO / SEOPress | SEO | Schema delegation via plugin; Rank Math `.rank-math-breadcrumb`, SEOPress `.seopress-breadcrumbs`, and Yoast `#breadcrumbs` / `.yoast-breadcrumbs` share theme breadcrumb CSS (separators via `.separator` / `.breadcrumb-sep`; Yoast `.breadcrumb_last`, no forced flex) |
+| ACF | Developer | Field visibility, Query Loop pickers, featured-image sources (plugin). No theme CSS |
+| Meta Box | Developer | Same field extras as ACF, plus framework form CSS (`plugins/meta-box.css`), `aegis/metabox` bindings, and theme palettes on Meta Box colour pickers |
+| Code Block Pro | Developer | Framework radius/typography overlay (`plugins/code-block-pro.css`). Detected via `CBPRouter` / `kevinbatdorf/code-block-pro`, not `CODE_BLOCK_PRO_VERSION`. No extras |
+| Syntax Highlighting Code Block | Developer | Framework overlay (`plugins/syntax-highlighting-code-block.css`) for Weston Ruter’s `core/code` highlighter. Detected via `PLUGIN_VERSION` / `boot()`. Overlay injects on `hljs` / `shcb-` markup. No extras |
+| FluentCRM / WP Fusion | CRM | Plugin Integrations; FluentCRM Pro video events; WP Fusion tag/list/CRM logged-in conditions. No theme CSS |
+| BunnyCDN | Performance | Credentials + extras at plugin Connectors → BunnyCDN; Stream video API in Pro; theme CSS when connector on |
 
 ### Layout & Navigation
 
@@ -456,34 +434,29 @@ Aegis provides seamless integration with popular WordPress plugins, automaticall
 
 ### User Experience
 
-**Intelligent Dark Mode**: Automatic dark mode support that adapts to user preferences and system settings. Dark mode can be customized or deactivated through the Blockify settings in the page editor, providing flexibility for different use cases.
+**Intelligent Dark Mode**: Dark mode uses the `is-style-dark` class and theme tokens. See [theme dark mode docs](docs/features/dark-mode.md).
 
-**Accessibility First**: Designed with accessibility at its core, Aegis prioritizes WCAG compliance, semantic HTML, proper heading hierarchies, and keyboard navigation. The theme is optimized for users with color vision deficiency.
+**Accessibility-ready foundation**: Semantic landmarks (`header` / `main` / `aside` / `footer`), skip-to-content (auto-injected before the header; explicit pattern on the Blank template), visible `:focus` / `:focus-visible` styles, labeled demo forms, reduced-motion hooks (including document fade-in and slider autoplay), and keyboard support for Slider, Toggle, Accordion List, and the search dialog. Stock patterns avoid placeholder-only inputs and multiple page-level `<h1>`s in carousels. Targets **WCAG 2.2 AA** as infrastructure; site-wide conformance remains content- and plugin-dependent. See [docs/features/accessibility.md](docs/features/accessibility.md). CI runs pa11y-ci (WCAG2AA, threshold 0) via [`.github/workflows/accessibility.yml`](.github/workflows/accessibility.yml).
 
 **Performance Optimized**: Every aspect of Aegis is engineered for speed. From conditional asset loading to optimized CSS delivery and minimal JavaScript footprint, the theme ensures fast page loads and excellent Core Web Vitals scores.
 
 ### Developer Tools & Framework
 
-**Custom Block Collection**: Aegis includes 9 custom blocks built for modern web development: Countdown, Map, Modal, Related Posts, Slider, Slide, Toggle, Toggle Content, and Video. Each block is engineered for performance and extensibility.
+**Custom Block Collection**: The theme registers six custom blocks — Countdown, Slider, Slide, Toggle, Toggle Content, and Related Posts. Video uses enhanced **`core/video`**. Map and Modal require the [Aegis companion plugin](../plugins/aegis/docs/blocks/custom-blocks.md), which requires the Aegis theme.
 
-**Analytics System**: Privacy-first analytics framework with Tracker and ScriptProxy components. Provides comprehensive site analytics while respecting user privacy and GDPR compliance. 
+**Analytics**: Configured in the companion plugin at **Aegis → Connectors** (one tab per provider). See [plugin analytics docs](../plugins/aegis/docs/features/analytics.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki).
 
-**Supported Analytics Services**:
-- **Free Tier**: Google Analytics 4 (GA4), Google Tag Manager (GTM), Microsoft Clarity, Plausible Analytics, Fathom Analytics, basic GDPR compliance
-- **Pro Tier**: Matomo Analytics, Meta Pixel, Google Consent Mode v2, Data Layer integration, Debug Mode
-- **Script Proxy**: Secure proxy for external scripts with additional privacy controls
+**Hook Patterns**: Framework fires injection hooks on template parts and content. Hook pattern CPT management requires [Aegis Pro](../plugins/aegis-pro/docs/features/hook-patterns-pro.md).
 
-**Hook Patterns System**: Dynamic content injection framework with Manager and Renderer components. Enables sophisticated content manipulation and conditional display logic.
-
-**Conditional Logic Settings**: Advanced conditional settings system for blocks and patterns. Provides granular control over content display based on user roles, device types, and custom conditions.
+**Conditional Logic**: Block visibility and admin settings are in the [Aegis plugin](../plugins/aegis/docs/features/conditional-logic.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki).
 
 **Framework Architecture**: Built on the Aegis Framework (`vendor/aegis/framework`) with ServiceProvider pattern. Provides a robust foundation for theme development and extensibility.
 
-**Core Block Extensions**: Enhanced core WordPress blocks including advanced Breadcrumbs with taxonomy support. Extends block functionality while maintaining compatibility.
+**Core Block Extensions**: Uses WordPress `core/breadcrumbs` with theme styles, styles Rank Math `.rank-math-breadcrumb`, SEOPress `.seopress-breadcrumbs`, and Yoast `#breadcrumbs` / `.yoast-breadcrumbs` from the same stylesheet when present (separators via Rank Math `.separator` and SEOPress `.breadcrumb-sep`; Yoast current crumb `.breadcrumb_last` without forced flex), and styles WooCommerce Store Breadcrumbs (`woocommerce/breadcrumbs`) to match — including wrapping classic and Store Breadcrumb delimiters in `.aegis-breadcrumb-separator`. No custom or docs-specific breadcrumbs block.
 
 **Video Editor Extensions**: Advanced video editing capabilities in the block editor. Provides comprehensive video controls and customization options.
 
-**WooCommerce Integration**: Full WooCommerce support with store templates, mini-cart variants, and multi-step checkout enhancements. Optimized for e-commerce performance.
+**WooCommerce Integration**: Full WooCommerce support with store templates, mini-cart variants, and multi-step checkout (companion plugin assets on the multi-step template when the integration is on). Optimized for e-commerce performance.
 
 ## Pattern Creation Guidelines
 
@@ -615,15 +588,15 @@ If you find setting up WordPress locally overwhelming, consider using [wp-env](h
 #### Requirements
 
 - [Aegis](https://github.com/aegiswp/theme/releases/)
-- [WordPress 6.6+](https://wordpress.org/download/) (Tested up to 6.9.4)
-- PHP **8.1+** (Node **20+** and npm **9+** for building blocks and running wp-env; see `package.json` `engines` and `.nvmrc`)
+- [WordPress 7.0+](https://wordpress.org/download/) (Tested up to 7.1.3)
+- PHP **8.1+** (Node **20+** and npm **10+** for building blocks and running wp-env; see `package.json` `engines` and `.nvmrc`)
 - License: [GPLv2](https://www.gnu.org/licenses/gpl-2.0.html) or later.
 
 #### Release version
 
 The theme release number is the single value defined in three places: `style.css` (`Version`), `package.json` (`version`), and `composer.json` (`version`). When you cut a release, update all three to match (for example `1.0.0`).
 
-PHP dependencies are pinned by **`composer.lock`**. After cloning, run **`composer update`** once in the theme directory (with Git network access) to generate or refresh the lockfile, then commit **`composer.lock`**. If Composer reports an SSL or certificate error when using GitHub, fix your system or PHP CA bundle (see the [Composer doc on local issuers](https://getcomposer.org/local-issuer)). Use **`composer install`** in CI, and run **`composer update`** only when you intend to change dependency revisions and then re-test.
+PHP dependencies are pinned by **`composer.lock`**. After cloning, run **`composer install`** in the theme directory. Run **`composer update`** only when you intend to change dependency revisions, then re-test and commit an updated lockfile. If Composer reports an SSL or certificate error when using GitHub, fix your system or PHP CA bundle (see the [Composer doc on local issuers](https://getcomposer.org/local-issuer)).
 
 #### Server deployment
 
@@ -647,6 +620,7 @@ Install dev tooling from the theme directory: `npm install` and `composer instal
 
 **JavaScript / CSS (block source)**
 
+- `npm run lint` — run all JS, CSS, and package.json linters
 - `npm run lint:js` — ESLint (via `wp-scripts`)
 - `npm run lint:css` — stylelint (via `wp-scripts`); can fix where configured
 
@@ -656,9 +630,8 @@ Install dev tooling from the theme directory: `npm install` and `composer instal
 - `composer run standards:fix` — PHPCBF auto-fix
 - `composer run analyze` — alias for `standards:check`
 - `composer run lint` — alias for `standards:check`
-- `composer run test` or `composer run test:php` — theme PHPUnit (`phpunit.xml`, `tests/Unit`)
-- `npm run test:php` — same PHPUnit run via npm (requires `composer install` so `vendor/bin/phpunit` exists)
-- `composer run test:wpaudit` — in-house `aegis/wpaudit` suite in `tools/wpaudit` (same as CI; `tools/wpaudit` is committed so the path `require-dev` works)
+- `composer run test`, `composer run test:php`, or `npm run test:php` — WPAudit PHPUnit suite in `tools/wpaudit` (same as CI)
+- `composer run test:wpaudit` — explicit alias for the WPAudit suite
 
 
 ### Local development (wp-env)
@@ -702,7 +675,7 @@ To generate a new password (recommended):
 
 ## Contributing
 
-Contributing to the Aegis theme or any other open-source project can be a rewarding experience, both for personal growth and for the community at large. Here are some advices for contributors to ensure a smooth and effective contribution process:
+Contributing to the Aegis theme or any other open-source project can be a rewarding experience, both for personal growth and for the community at large. Here is some advice for contributors to ensure a smooth and effective contribution process:
 
 ### Communication and Collaboration
 
@@ -759,18 +732,17 @@ Aegis aims to minimize asset loading through a highly performant approach. The t
 
 Avoid building custom PHP or JavaScript workarounds for functionality already provided by Aegis or the Block Editor. Aegis is minimalistic, lightweight, and performant—designed with accessibility in mind, particularly for users with color vision deficiency. Keep the code simple.
 
-Aegis has no unnecessary build process, maintaining simplicity and performance.
+Theme-owned blocks require `npm run build` in the theme; Map, Modal, and admin assets are built in the companion plugin. See [BUILD.md](BUILD.md).
 
 If you have [contributed](CONTRIBUTORS.md) to Aegis, you will receive proper credit. We update [CONTRIBUTORS.md](CONTRIBUTORS.md) periodically. If we have missed anyone, please open a [pull request](https://github.com/aegiswp/theme/pulls) or [issue](https://github.com/aegiswp/theme/issues).
 
 ## Technical Architecture
 
-- **Zero-Base Loading Strategy** — Assets loaded conditionally based on page content
-- **Conditional Asset Loading** — Smart asset enqueuing via AssetManager
-- **Hook Patterns System** — Dynamic content injection with Manager/Renderer pattern
-- **PSR-4 Autoloading** — Modern PHP class loading with Composer
-- **ServiceProvider Pattern** — Framework service registration and management
-- **Interactivity API Usage** — WordPress Interactivity API integration
+- **Four-layer architecture** — Theme, framework (`vendor/aegis/framework`), free plugin, Pro plugin
+- **Hook injection** — Framework fires template-part and content hooks; Pro manages hook pattern CPT
+- **PSR-4 Autoloading** — Theme PHP under `src/` with Composer
+- **ServiceProvider Pattern** — Framework service registration via `Aegis::register()`
+- **Interactivity API Usage** — WordPress Interactivity API in blocks
 - **TypeScript Support** — Type-safe block development with TSX
 
 ## Integration Capabilities

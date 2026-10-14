@@ -18,13 +18,13 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
+// Enforces strict type checking for all code in this file, ensuring type safety for dark mode component.
 declare( strict_types=1 );
 
-// Declares the namespace for design system components within the Aegis Framework.
+// Declares the namespace for the dark mode component.
 namespace Aegis\Framework\DesignSystem;
 
-// Imports CSS utilities, styleable interface, styles service, and various helpers for color, JSON, and string manipulation.
+// Imports classes, interfaces, and functions used by the dark mode component.
 use Aegis\Dom\CSS;
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
@@ -47,12 +47,10 @@ use function round;
 use function sprintf;
 use function str_contains;
 use function substr;
-use Aegis\Framework\ServiceProvider;
+use function wp_get_global_settings;
 use const FILTER_SANITIZE_FULL_SPECIAL_CHARS;
 use const INPUT_COOKIE;
 use const INPUT_GET;
-
-// Implements the DarkMode class to support dark mode logic and CSS for the design system.
 
 class DarkMode implements Styleable
 {
@@ -65,7 +63,7 @@ class DarkMode implements Styleable
 	 * @var array
 	 */
 	private array $map = [
-		'primary' => [
+		'primary'     => [
 			950 => 50,
 			900 => 100,
 			800 => 200,
@@ -76,24 +74,10 @@ class DarkMode implements Styleable
 			300 => 700,
 			200 => 800,
 			100 => 900,
-			50 => 950,
-			25 => 1000,
+			50  => 950,
+			25  => 1000,
 		],
-		'secondary' => [
-			950 => 50,
-			900 => 100,
-			800 => 200,
-			700 => 300,
-			600 => 400,
-			500 => 500,
-			400 => 600,
-			300 => 700,
-			200 => 800,
-			100 => 900,
-			50 => 950,
-			25 => 1000,
-		],
-		'neutral' => [
+		'neutral'     => [
 			950 => 0,
 			900 => 50,
 			800 => 100,
@@ -104,20 +88,25 @@ class DarkMode implements Styleable
 			300 => 600,
 			200 => 700,
 			100 => 800,
-			50 => 900,
-			0 => 950,
+			50  => 900,
+			0   => 950,
 		],
-		'success' => [
+		'success'     => [
 			600 => 100,
 			500 => 500,
 			100 => 600,
 		],
-		'warning' => [
+		'warning'     => [
 			600 => 100,
 			500 => 500,
 			100 => 600,
 		],
-		'error' => [
+		'error'       => [
+			600 => 100,
+			500 => 500,
+			100 => 600,
+		],
+		'info'        => [
 			600 => 100,
 			500 => 500,
 			100 => 600,
@@ -162,10 +151,10 @@ class DarkMode implements Styleable
 			return $classes;
 		}
 
-		$cookie = filter_input(INPUT_COOKIE, 'aegisDarkMode', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-		$url_param = filter_input(INPUT_GET, 'dark_mode', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-		$global_settings = ServiceProvider::get_global_settings();
-		$dark_settings = $global_settings['custom']['darkMode'] ?? null;
+		$cookie          = filter_input(INPUT_COOKIE, 'aegisDarkMode', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+		$url_param       = filter_input(INPUT_GET, 'dark_mode', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+		$global_settings = wp_get_global_settings();
+		$dark_settings   = $global_settings['custom']['darkMode'] ?? null;
 
 		if ($dark_settings === false) {
 			return $classes;
@@ -210,36 +199,36 @@ class DarkMode implements Styleable
 	 */
 	public function styles(Styles $styles): void
 	{
-		if (is_admin()) {
+		if (! $this->is_enabled()) {
 			return;
 		}
 
-		$settings = ServiceProvider::get_global_settings();
+		$settings       = wp_get_global_settings();
 		$light_settings = $settings['custom']['lightMode'] ?? null;
-		$dark_settings = $settings['custom']['darkMode'] ?? null;
+		$dark_settings  = $settings['custom']['darkMode'] ?? null;
 
 		if ($dark_settings === false) {
 			return;
 		}
 
-		$palette = $settings['color']['palette']['theme'] ?? [];
-		$custom = array_replace(
+		$palette           = $settings['color']['palette']['theme'] ?? [];
+		$custom            = array_replace(
 			JSON::compute_theme_vars($settings['custom'] ?? []),
 			$this->custom_properties->get_custom_properties(),
 		);
-		$colors = Color::get_color_values($palette);
-		$gradients = Color::get_color_values($settings['color']['gradients']['theme'] ?? [], 'gradient');
-		$system = Color::get_system_colors();
+		$colors            = Color::get_color_values($palette);
+		$gradients         = Color::get_color_values($settings['color']['gradients']['theme'] ?? [], 'gradient');
+		$system            = Color::get_system_colors();
 		$opposite_settings = $light_settings ?? $dark_settings ?? null;
-		$default_mode = $this->get_default_mode($settings);
-		$opposite_mode = $default_mode === 'light' ? 'dark' : 'light';
-		$default_styles = [];
-		$opposite_styles = [];
+		$default_mode      = $this->get_default_mode($settings);
+		$opposite_mode     = $default_mode === 'light' ? 'dark' : 'light';
+		$default_styles    = [];
+		$opposite_styles   = [];
 
 		foreach ($colors as $slug => $value) {
 			$explode = explode('-', $slug);
-			$name = $explode[0] ?? '';
-			$shade = $explode[1] ?? '';
+			$name    = $explode[0] ?? '';
+			$shade   = $explode[1] ?? '';
 
 			if (is_null($shade) || in_array($slug, $system, true)) {
 				continue;
@@ -266,7 +255,7 @@ class DarkMode implements Styleable
 		foreach ($gradients as $slug => $value) {
 			$default_styles["--wp--preset--gradient--{$slug}"] = $value;
 
-			$camel_case = Str::to_camel_case($slug);
+			$camel_case     = Str::to_camel_case($slug);
 			$opposite_value = $opposite_settings['gradients'][$slug] ?? $value;
 			$opposite_value = $opposite_settings['gradients'][$camel_case] ?? $opposite_value;
 
@@ -279,14 +268,47 @@ class DarkMode implements Styleable
 			}
 
 			if (is_string($value) && Str::contains_any($value, '--wp--preset--color--', '--wp--preset--gradient--')) {
-				$default_styles[$name] = $value;
+				$default_styles[$name]  = $value;
 				$opposite_styles[$name] = $value;
 			}
 		}
 
-		$css = "html .is-style-{$default_mode}{" . CSS::array_to_string($default_styles) . '}';
-		$css .= "html .is-style-{$opposite_mode}{" . CSS::array_to_string($opposite_styles) . '}';
-		$css .= "@media (prefers-color-scheme:$opposite_mode){body{" . CSS::array_to_string($opposite_styles) . "}}";
+		// Hardcoded body background hex does not follow palette remaps.
+		// Set it on both modes so explicit light can restore the light surface.
+		$body_bg = $custom['--wp--custom--body--background'] ?? null;
+		if (is_string($body_bg) && $body_bg !== '' && ! str_contains($body_bg, 'var(')) {
+			$default_styles['--wp--custom--body--background'] = $body_bg;
+			$opposite_styles['--wp--custom--body--background'] = $default_mode === 'light'
+				? ($colors['neutral-950'] ?? '#0a0a0a')
+				: ($colors['neutral-0'] ?? '#ffffff');
+		}
+
+		// Section remaps use palette/custom vars only — not body surface paint.
+		$dark_section_styles  = $default_mode === 'dark' ? $default_styles : $opposite_styles;
+		$light_section_styles = $default_mode === 'light' ? $default_styles : $opposite_styles;
+		$section_css          = '.is-style-dark{' . CSS::array_to_string($dark_section_styles) . '}';
+		$section_css         .= '.is-style-light{' . CSS::array_to_string($light_section_styles) . '}';
+
+		// The editor has no body mode class; it only needs per-section remaps.
+		if (is_admin()) {
+			$styles->add_string($section_css);
+
+			return;
+		}
+
+		// Force the surface paint on the mode class so WP global background-color cannot stick.
+		$default_surface_bg  = $default_styles['--wp--custom--body--background'] ?? $body_bg ?? 'var(--wp--preset--color--neutral-0)';
+		$opposite_surface_bg = $opposite_styles['--wp--custom--body--background'] ?? 'var(--wp--preset--color--neutral-950)';
+		$default_styles['background-color']  = $default_surface_bg;
+		$opposite_styles['background-color'] = $opposite_surface_bg;
+		$default_styles['color-scheme']      = $default_mode;
+		$opposite_styles['color-scheme']     = $opposite_mode;
+
+		$css = "html body.is-style-{$default_mode}{" . CSS::array_to_string($default_styles) . '}';
+		$css .= "html body.is-style-{$opposite_mode}{" . CSS::array_to_string($opposite_styles) . '}';
+		$css .= $section_css;
+		// Only auto-follow OS preference when the visitor has not chosen a mode.
+		$css .= "@media (prefers-color-scheme:$opposite_mode){html body:not(.is-style-light):not(.is-style-dark){" . CSS::array_to_string($opposite_styles) . "}}";
 
 		$styles->add_string($css);
 	}
@@ -333,7 +355,7 @@ class DarkMode implements Styleable
 	 */
 	private function darken(string $hex, int $percentage): string
 	{
-		$hex = ltrim($hex, '#');
+		$hex        = ltrim($hex, '#');
 		$percentage = $percentage / 100;
 
 		// Convert the hex color to RGB.

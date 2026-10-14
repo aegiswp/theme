@@ -17,13 +17,13 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for interface contracts.
+// Enforces strict type checking for all code in this file, ensuring type safety for renderable interface.
 declare( strict_types=1 );
 
-// Declares the namespace for interfaces within the Aegis Framework.
+// Declares the namespace for the renderable interface.
 namespace Aegis\Framework\Interfaces;
 
-// Imports the WP_Block class for block instance typing.
+// Imports classes, interfaces, and functions used by the renderable interface.
 use WP_Block;
 
 // Declares the Renderable interface for standardizing renderable objects in the framework.

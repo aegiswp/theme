@@ -1,0 +1,349 @@
+<?php
+/**
+ * Title: Shop Page
+ * Slug: shop
+ * Categories: pages
+ * Keywords: shop, page, store, products, ecommerce
+ * Description: A complete shop landing page for e-commerce sites.
+ * Viewport Width: 1280
+ * Block Types: core/post-content
+ */
+?>
+
+<!-- wp:group {"metadata":{"categories":["pages"],"patternName":"shop","name":"Shop Page"},"align":"full","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull">
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull"
+		style="padding-top:var(--wp--preset--spacing--xxl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
+		<!-- wp:group {"layout":{"type":"constrained","contentSize":"720px"}} -->
+		<div class="wp-block-group"><!-- wp:paragraph {"align":"center","className":"is-style-sub-heading"} -->
+			<p class="aligncenter has-text-align-center is-style-sub-heading aligncenter"><?php echo esc_html__( 'Our Store', 'aegis' ); ?></p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:heading {"textAlign":"center","level":1,"fontSize":"52"} -->
+			<h1 class="wp-block-heading has-text-align-center has-52-font-size"><?php echo esc_html__( 'Premium Digital Products', 'aegis' ); ?></h1>
+			<!-- /wp:heading -->
+
+			<!-- wp:paragraph {"align":"center","textColor":"neutral-600","fontSize":"18"} -->
+			<p
+				class="aligncenter has-text-align-center has-neutral-600-color has-text-color has-18-font-size aligncenter">
+				<?php echo esc_html__( 'Discover our curated collection of templates, themes, and digital resources designed to elevate your projects.', 'aegis' ); ?></p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull"
+		style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
+		<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|sm"}}}} -->
+		<div class="wp-block-columns alignwide">
+			<!-- wp:column {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
+			<div class="wp-block-column is-style-surface"
+				style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
+				<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","verticalAlignment":"center","justifyContent":"center"}} -->
+				<div class="wp-block-group">
+					<!-- wp:icon {"icon":"wordpress/color","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-labelledby=\"icon-6a2cc03bce8b0\" data-icon=\"wordpress-color\" style=\"min-width:36px;height:36px\" fill=\"currentColor\"><title id=\"icon-6a2cc03bce8b0\">Color Icon</title><path d=\"M17.2 10.9c-.5-1-1.2-2.1-2.1-3.2-.6-.9-1.3-1.7-2.1-2.6L12 4l-1 1.1c-.6.9-1.3 1.7-2 2.6-.8 1.2-1.5 2.3-2 3.2-.6 1.2-1 2.2-1 3 0 3.4 2.7 6.1 6.1 6.1s6.1-2.7 6.1-6.1c0-.8-.3-1.8-1-3zm-5.1 7.6c-2.5 0-4.6-2.1-4.6-4.6 0-.3.1-1 .8-2.3.5-.9 1.1-1.9 2-3.1.7-.9 1.3-1.7 1.8-2.3.7.8 1.3 1.6 1.8 2.3.8 1.1 1.5 2.2 2 3.1.7 1.3.8 2 .8 2.3 0 2.5-2.1 4.6-4.6 4.6z\"></path></svg>","style":{"dimensions":{"width":"36px"}}} /-->
+</div>
+				<!-- /wp:group -->
+
+				<!-- wp:heading {"textAlign":"center","level":3,"fontSize":"18"} -->
+				<h3 class="wp-block-heading has-text-align-center has-18-font-size"><?php echo esc_html__( 'Design Templates', 'aegis' ); ?></h3>
+				<!-- /wp:heading -->
+
+				<!-- wp:paragraph {"align":"center","textColor":"neutral-600","fontSize":"14"} -->
+				<p
+					class="aligncenter has-text-align-center has-neutral-600-color has-text-color has-14-font-size aligncenter">
+					<?php echo esc_html__( 'Professional designs ready to customize', 'aegis' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
+			<div class="wp-block-column is-style-surface"
+				style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
+				<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","verticalAlignment":"center","justifyContent":"center"}} -->
+				<div class="wp-block-group">
+					<!-- wp:icon {"icon":"core/block-default","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-labelledby=\"icon-6a2cc03bd0020\" data-icon=\"wordpress-block-default\" style=\"min-width:36px;height:36px\" fill=\"currentColor\"><title id=\"icon-6a2cc03bd0020\">Block Default Icon</title><path d=\"M19 8h-1V6h-5v2h-2V6H6v2H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2zm.5 10c0 .3-.2.5-.5.5H5c-.3 0-.5-.2-.5-.5v-8c0-.3.2-.5.5-.5h14c.3 0 .5.2.5.5v8z\"></path></svg>","style":{"dimensions":{"width":"36px"}}} /-->
+</div>
+				<!-- /wp:group -->
+
+				<!-- wp:heading {"textAlign":"center","level":3,"fontSize":"18"} -->
+				<h3 class="wp-block-heading has-text-align-center has-18-font-size"><?php echo esc_html__( 'WordPress Themes', 'aegis' ); ?></h3>
+				<!-- /wp:heading -->
+
+				<!-- wp:paragraph {"align":"center","textColor":"neutral-600","fontSize":"14"} -->
+				<p
+					class="aligncenter has-text-align-center has-neutral-600-color has-text-color has-14-font-size aligncenter">
+					<?php echo esc_html__( 'Fast, responsive, and SEO-optimized', 'aegis' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
+			<div class="wp-block-column is-style-surface"
+				style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
+				<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","verticalAlignment":"center","justifyContent":"center"}} -->
+				<div class="wp-block-group">
+					<!-- wp:icon {"icon":"wordpress/box","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-labelledby=\"icon-6a2cc03bd13a8\" data-icon=\"wordpress-box\" style=\"min-width:36px;height:36px\" fill=\"currentColor\"><title id=\"icon-6a2cc03bd13a8\">Box Icon</title><path fill-rule=\"evenodd\" d=\"M5 5.5h14a.5.5 0 0 1 .5.5v1.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V6a.5.5 0 0 1 .5-.5zM4 9.232A2 2 0 0 1 3 7.5V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1.5a2 2 0 0 1-1 1.732V18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9.232zm1.5.268V18a.5.5 0 0 0 .5.5h12a.5.5 0 0 0 .5-.5V9.5h-13z\" clip-rule=\"evenodd\"></path></svg>","style":{"dimensions":{"width":"36px"}}} /-->
+</div>
+				<!-- /wp:group -->
+
+				<!-- wp:heading {"textAlign":"center","level":3,"fontSize":"18"} -->
+				<h3 class="wp-block-heading has-text-align-center has-18-font-size"><?php echo esc_html__( 'UI Kits', 'aegis' ); ?></h3>
+				<!-- /wp:heading -->
+
+				<!-- wp:paragraph {"align":"center","textColor":"neutral-600","fontSize":"14"} -->
+				<p
+					class="aligncenter has-text-align-center has-neutral-600-color has-text-color has-14-font-size aligncenter">
+					<?php echo esc_html__( 'Complete component libraries', 'aegis' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
+			<div class="wp-block-column is-style-surface"
+				style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
+				<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","verticalAlignment":"center","justifyContent":"center"}} -->
+				<div class="wp-block-group">
+					<!-- wp:icon {"icon":"wordpress/pages","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-labelledby=\"icon-6a2cc03bd2720\" data-icon=\"wordpress-pages\" style=\"min-width:36px;height:36px\" fill=\"currentColor\"><title id=\"icon-6a2cc03bd2720\">Pages Icon</title><path d=\"M7 13.8h6v-1.5H7v1.5zM18 16V4c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2zM5.5 16V4c0-.3.2-.5.5-.5h10c.3 0 .5.2.5.5v12c0 .3-.2.5-.5.5H6c-.3 0-.5-.2-.5-.5zM7 10.5h8V9H7v1.5zm0-3.3h8V5.8H7v1.4zM20.2 6v13c0 .7-.6 1.2-1.2 1.2H8v1.5h11c1.5 0 2.7-1.2 2.7-2.8V6h-1.5z\"></path></svg>","style":{"dimensions":{"width":"36px"}}} /-->
+				</div>
+				<!-- /wp:group -->
+
+				<!-- wp:heading {"textAlign":"center","level":3,"fontSize":"18"} -->
+				<h3 class="wp-block-heading has-text-align-center has-18-font-size"><?php echo esc_html__( 'E-Books', 'aegis' ); ?></h3>
+				<!-- /wp:heading -->
+
+				<!-- wp:paragraph {"align":"center","textColor":"neutral-600","fontSize":"14"} -->
+				<p
+					class="aligncenter has-text-align-center has-neutral-600-color has-text-color has-14-font-size aligncenter">
+					<?php echo esc_html__( 'In-depth guides and tutorials', 'aegis' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:column -->
+		</div>
+		<!-- /wp:columns -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull has-neutral-50-background-color has-background"
+		style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
+		<!-- wp:heading {"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|md"}}},"fontSize":"32"} -->
+		<h2 class="wp-block-heading alignwide has-32-font-size" style="margin-bottom:var(--wp--preset--spacing--md)">
+			<?php echo esc_html__( 'Featured Products', 'aegis' ); ?></h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|md"}}}} -->
+		<div class="wp-block-columns alignwide"><!-- wp:column -->
+			<div class="wp-block-column">
+				<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"var:preset|spacing|md","left":"0"}}},"backgroundColor":"neutral-0","layout":{"type":"flex","orientation":"vertical"}} -->
+				<div class="wp-block-group is-style-surface has-neutral-0-background-color has-background"
+					style="padding-top:0;padding-right:0;padding-bottom:var(--wp--preset--spacing--md);padding-left:0">
+					<!-- wp:image {"aspectRatio":"4/3","scale":"cover"} -->
+					<figure class="wp-block-image"><img alt="" style="aspect-ratio:4/3;object-fit:cover" /></figure>
+					<!-- /wp:image -->
+					
+
+					<!-- wp:group {"style":{"spacing":{"padding":{"left":"var:preset|spacing|md","right":"var:preset|spacing|md"},"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+					<div class="wp-block-group"
+						style="padding-right:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
+						<!-- wp:paragraph {"textColor":"primary-500","fontSize":"12"} -->
+						<p class="has-primary-500-color has-text-color has-12-font-size"><?php echo esc_html__( 'WordPress THEME', 'aegis' ); ?></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:heading {"level":3,"fontSize":"20"} -->
+						<h3 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'Starter Theme Pro', 'aegis' ); ?></h3>
+						<!-- /wp:heading -->
+
+						<!-- wp:paragraph {"textColor":"neutral-600","fontSize":"14"} -->
+						<p class="has-neutral-600-color has-text-color has-14-font-size"><?php echo esc_html__( 'A minimal, performance-focused theme for modern websites.', 'aegis' ); ?></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+						<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--sm)">
+							<!-- wp:paragraph {"className":"is-style-heading","fontSize":"24"} -->
+							<p class="is-style-heading has-24-font-size">$79</p>
+							<!-- /wp:paragraph -->
+
+							<!-- wp:buttons -->
+							<div class="wp-block-buttons"><!-- wp:button {"fontSize":"14"} -->
+<div class="wp-block-button"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Add to Cart', 'aegis' ); ?></a></div>
+<!-- /wp:button -->
+							</div>
+							<!-- /wp:buttons -->
+						</div>
+						<!-- /wp:group -->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:group -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column -->
+			<div class="wp-block-column">
+				<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"var:preset|spacing|md","left":"0"}}},"backgroundColor":"neutral-0","layout":{"type":"flex","orientation":"vertical"}} -->
+				<div class="wp-block-group is-style-surface has-neutral-0-background-color has-background"
+					style="padding-top:0;padding-right:0;padding-bottom:var(--wp--preset--spacing--md);padding-left:0">
+					<!-- wp:image {"aspectRatio":"4/3","scale":"cover"} -->
+					<figure class="wp-block-image"><img alt="" style="aspect-ratio:4/3;object-fit:cover" /></figure>
+					<!-- /wp:image -->
+
+					<!-- wp:group {"style":{"spacing":{"padding":{"left":"var:preset|spacing|md","right":"var:preset|spacing|md"},"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+					<div class="wp-block-group"
+						style="padding-right:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
+						<!-- wp:paragraph {"textColor":"primary-500","fontSize":"12"} -->
+						<p class="has-primary-500-color has-text-color has-12-font-size"><?php echo esc_html__( 'UI KIT', 'aegis' ); ?></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:heading {"level":3,"fontSize":"20"} -->
+						<h3 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'Design System Bundle', 'aegis' ); ?></h3>
+						<!-- /wp:heading -->
+
+						<!-- wp:paragraph {"textColor":"neutral-600","fontSize":"14"} -->
+						<p class="has-neutral-600-color has-text-color has-14-font-size"><?php echo esc_html__( '500+ components for Figma with auto-layout support.', 'aegis' ); ?></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+						<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--sm)">
+							<!-- wp:paragraph {"className":"is-style-heading","fontSize":"24"} -->
+							<p class="is-style-heading has-24-font-size">$149</p>
+							<!-- /wp:paragraph -->
+
+							<!-- wp:buttons -->
+							<div class="wp-block-buttons"><!-- wp:button {"fontSize":"14"} -->
+<div class="wp-block-button"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Add to Cart', 'aegis' ); ?></a></div>
+<!-- /wp:button -->
+							</div>
+							<!-- /wp:buttons -->
+						</div>
+						<!-- /wp:group -->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:group -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column -->
+			<div class="wp-block-column">
+				<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"var:preset|spacing|md","left":"0"}}},"backgroundColor":"neutral-0","layout":{"type":"flex","orientation":"vertical"}} -->
+				<div class="wp-block-group is-style-surface has-neutral-0-background-color has-background"
+					style="padding-top:0;padding-right:0;padding-bottom:var(--wp--preset--spacing--md);padding-left:0">
+					<!-- wp:image {"aspectRatio":"4/3","scale":"cover"} -->
+					<figure class="wp-block-image"><img alt="" style="aspect-ratio:4/3;object-fit:cover" /></figure>
+					<!-- /wp:image -->
+
+					<!-- wp:group {"style":{"spacing":{"padding":{"left":"var:preset|spacing|md","right":"var:preset|spacing|md"},"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+					<div class="wp-block-group"
+						style="padding-right:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
+						<!-- wp:paragraph {"textColor":"primary-500","fontSize":"12"} -->
+						<p class="has-primary-500-color has-text-color has-12-font-size"><?php echo esc_html__( 'E-BOOK', 'aegis' ); ?></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:heading {"level":3,"fontSize":"20"} -->
+						<h3 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'Web Design Mastery', 'aegis' ); ?></h3>
+						<!-- /wp:heading -->
+
+						<!-- wp:paragraph {"textColor":"neutral-600","fontSize":"14"} -->
+						<p class="has-neutral-600-color has-text-color has-14-font-size"><?php echo esc_html__( 'Complete guide to modern web design principles.', 'aegis' ); ?></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+						<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--sm)">
+							<!-- wp:paragraph {"className":"is-style-heading","fontSize":"24"} -->
+							<p class="is-style-heading has-24-font-size">$29</p>
+							<!-- /wp:paragraph -->
+
+							<!-- wp:buttons -->
+							<div class="wp-block-buttons"><!-- wp:button {"fontSize":"14"} -->
+<div class="wp-block-button"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Add to Cart', 'aegis' ); ?></a></div>
+<!-- /wp:button -->
+							</div>
+							<!-- /wp:buttons -->
+						</div>
+						<!-- /wp:group -->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:group -->
+			</div>
+			<!-- /wp:column -->
+		</div>
+		<!-- /wp:columns -->
+
+		<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|lg"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
+		<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--lg)">
+			<!-- wp:button {"className":"is-style-ghost"} -->
+<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'View All Products', 'aegis' ); ?></a></div>
+<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull"
+		style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
+		<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|xl"}}}} -->
+		<div class="wp-block-columns alignwide"><!-- wp:column {"style":{"spacing":{"blockGap":"0"}}} -->
+			<div class="wp-block-column">
+				<!-- wp:paragraph {"align":"center","className":"is-style-counter is-style-heading","style":{"counter":{"start":"0","end":10000,"duration":"2","delay":"0","suffix":"+"}},"fontSize":"40"} -->
+				<p
+					class="aligncenter has-text-align-center is-style-counter is-style-heading has-40-font-size aligncenter">
+					10000+</p>
+				<!-- /wp:paragraph -->
+
+				<!-- wp:paragraph {"align":"center","textColor":"neutral-600"} -->
+				<p class="aligncenter has-text-align-center has-neutral-600-color has-text-color aligncenter"><?php echo esc_html__( 'Happy Customers', 'aegis' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"style":{"spacing":{"blockGap":"0"}}} -->
+			<div class="wp-block-column">
+				<!-- wp:paragraph {"align":"center","className":"is-style-counter is-style-heading","style":{"counter":{"start":"0","end":150,"duration":"2","delay":"0","suffix":"+"}},"fontSize":"40"} -->
+				<p
+					class="aligncenter has-text-align-center is-style-counter is-style-heading has-40-font-size aligncenter">
+					150+</p>
+				<!-- /wp:paragraph -->
+
+				<!-- wp:paragraph {"align":"center","textColor":"neutral-600"} -->
+				<p class="aligncenter has-text-align-center has-neutral-600-color has-text-color aligncenter"><?php echo esc_html__( 'Digital Products', 'aegis' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"style":{"spacing":{"blockGap":"0"}}} -->
+			<div class="wp-block-column">
+				<!-- wp:paragraph {"align":"center","className":"is-style-counter is-style-heading","style":{"counter":{"start":"0","end":4.9,"duration":"2","delay":"0","suffix":"★"}},"fontSize":"40"} -->
+				<p
+					class="aligncenter has-text-align-center is-style-counter is-style-heading has-40-font-size aligncenter">
+					4.9★</p>
+				<!-- /wp:paragraph -->
+
+				<!-- wp:paragraph {"align":"center","textColor":"neutral-600"} -->
+				<p class="aligncenter has-text-align-center has-neutral-600-color has-text-color aligncenter"><?php echo esc_html__( 'Average Rating', 'aegis' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"style":{"spacing":{"blockGap":"0"}}} -->
+			<div class="wp-block-column">
+				<!-- wp:paragraph {"align":"center","className":"is-style-heading","fontSize":"40"} -->
+				<p class="aligncenter has-text-align-center is-style-heading has-40-font-size aligncenter">24/7</p>
+				<!-- /wp:paragraph -->
+
+				<!-- wp:paragraph {"align":"center","textColor":"neutral-600"} -->
+				<p class="aligncenter has-text-align-center has-neutral-600-color has-text-color aligncenter"><?php echo esc_html__( 'Customer Support', 'aegis' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:column -->
+		</div>
+		<!-- /wp:columns -->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->

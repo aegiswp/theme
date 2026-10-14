@@ -80,11 +80,13 @@ class AuditResult {
 	 * @return Finding[] Filtered findings.
 	 */
 	public function get_findings_by_category( string $category ): array {
-		return array_filter(
-			$this->findings,
-			function ( Finding $finding ) use ( $category ) {
-				return $finding->category === $category;
-			}
+		return array_values(
+			array_filter(
+				$this->findings,
+				function ( Finding $finding ) use ( $category ) {
+					return $finding->category === $category;
+				}
+			)
 		);
 	}
 
@@ -95,11 +97,13 @@ class AuditResult {
 	 * @return Finding[] Filtered findings.
 	 */
 	public function get_findings_by_severity( string $severity ): array {
-		return array_filter(
-			$this->findings,
-			function ( Finding $finding ) use ( $severity ) {
-				return $finding->severity === $severity;
-			}
+		return array_values(
+			array_filter(
+				$this->findings,
+				function ( Finding $finding ) use ( $severity ) {
+					return $finding->severity === $severity;
+				}
+			)
 		);
 	}
 
@@ -109,11 +113,13 @@ class AuditResult {
 	 * @return Finding[] Fixable findings.
 	 */
 	public function get_fixable_findings(): array {
-		return array_filter(
-			$this->findings,
-			function ( Finding $finding ) {
-				return $finding->has_fix();
-			}
+		return array_values(
+			array_filter(
+				$this->findings,
+				function ( Finding $finding ) {
+					return $finding->has_fix();
+				}
+			)
 		);
 	}
 

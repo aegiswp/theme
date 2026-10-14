@@ -17,13 +17,13 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for block settings.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for inline color block setting.
+declare( strict_types=1 );
 
-// Declares the namespace for block settings within the Aegis Framework.
+// Declares the namespace for the inline color block setting.
 namespace Aegis\Framework\BlockSettings;
 
-// Imports utility classes and interfaces for DOM manipulation and renderable blocks.
+// Imports classes, interfaces, and functions used by the inline color block setting.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
@@ -32,9 +32,7 @@ use WP_Block;
 use function explode;
 use function in_array;
 use function str_contains;
-use Aegis\Framework\ServiceProvider;
 
-// Implements the InlineColor class to support inline color styling for blocks.
 /**
  * Handles inline color settings for text within blocks.
  *
@@ -45,8 +43,7 @@ use Aegis\Framework\ServiceProvider;
  * @package Aegis\Framework\BlockSettings
  * @since   1.0.0
  */
-class InlineColor implements Renderable
-{
+class InlineColor implements Renderable {
 
 	/**
 	 * Renders blocks with inline colors, converting hex codes to CSS variables.
@@ -67,51 +64,50 @@ class InlineColor implements Renderable
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render(string $block_content, array $block, WP_Block $instance): string
-	{
+	public function render( string $block_content, array $block, WP_Block $instance ): string {
 		// As a performance optimization, only parse the DOM if the class is present.
-		if (!str_contains($block_content, 'has-inline-color')) {
+		if ( ! str_contains( $block_content, 'has-inline-color' ) ) {
 			return $block_content;
 		}
 
-		$dom = DOM::create($block_content);
-		$first = DOM::get_element('*', $dom);
+		$dom   = DOM::create( $block_content );
+		$first = DOM::get_element( '*', $dom );
 
-		if (!$first) {
+		if ( ! $first ) {
 			return $block_content;
 		}
 
-		$global_settings = ServiceProvider::get_global_settings();
-		$color_palette = $global_settings['color']['palette']['theme'] ?? [];
+		$global_settings = wp_get_global_settings();
+		$color_palette   = $global_settings['color']['palette']['theme'] ?? [];
 
 		// Iterate through the direct children of the block's wrapper.
-		foreach ($first->childNodes as $child) {
-			if (!$child instanceof DOMElement) {
+		foreach ( $first->childNodes as $child ) {
+			if ( ! $child instanceof DOMElement ) {
 				continue;
 			}
 
-			$classes = explode(' ', $child->getAttribute('class'));
+			$classes = explode( ' ', $child->getAttribute( 'class' ) );
 
 			// Only act on elements that have the `has-inline-color` class.
-			if (!in_array('has-inline-color', $classes, true)) {
+			if ( ! in_array( 'has-inline-color', $classes, true ) ) {
 				continue;
 			}
 
-			$styles = CSS::string_to_array($child->getAttribute('style'));
+			$styles = CSS::string_to_array( $child->getAttribute( 'style' ) );
 
 			// Check if the element's hard-coded color matches a theme palette color.
-			foreach ($color_palette as $color) {
-				$hex_value = $styles['color'] ?? '';
+			foreach ( $color_palette as $color ) {
+				$hex_value   = $styles['color'] ?? '';
 				$color_value = $color['color'] ?? '';
 
-				if (!$hex_value || !$color_value) {
+				if ( ! $hex_value || ! $color_value ) {
 					continue;
 				}
 
-				if ($hex_value === $color_value) {
+				if ( $hex_value === $color_value ) {
 					// If a match is found, replace the hex code with the CSS variable.
 					$styles['color'] = "var(--wp--preset--color--{$color['slug']})";
-					$child->setAttribute('style', CSS::array_to_string($styles));
+					$child->setAttribute( 'style', CSS::array_to_string( $styles ) );
 					break; // Move to the next child element.
 				}
 			}

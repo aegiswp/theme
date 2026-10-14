@@ -1,0 +1,45 @@
+.aegis-query-no-results {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 2.5rem 1.5rem;
+	text-align: center;
+	color: var(--wp--preset--color--foreground, currentColor);
+}
+
+.aegis-query-no-results__icon {
+	display: flex;
+	color: var(--wp--preset--color--contrast-3, currentColor);
+	opacity: 0.7;
+}
+
+.aegis-query-no-results__message {
+	margin: 0;
+	max-width: 36rem;
+}
+
+.aegis-query-no-results .wp-block-search {
+	width: min(100%, 24rem);
+}
+
+.aegis-query-no-results--minimal {
+	padding: 1.5rem 0;
+	gap: 0.5rem;
+}
+
+.aegis-query-no-results--minimal .aegis-query-no-results__icon {
+	display: none;
+}
+
+.aegis-query-no-results--card {
+	background: var(--wp--preset--color--base, #fff);
+	border: 1px solid var(--wp--preset--color--contrast-3, rgba(0, 0, 0, 0.12));
+	border-radius: 8px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.aegis-query-no-results--centered {
+	min-height: 16rem;
+	justify-content: center;
+}

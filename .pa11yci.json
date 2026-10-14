@@ -18,6 +18,10 @@
     }
   },
   "urls": [
-    "http://localhost:8080/"
+    "http://localhost:8080/",
+    "http://localhost:8080/?p=1",
+    "http://localhost:8080/?s=test",
+    "http://localhost:8080/?page_id=2",
+    "http://localhost:8080/?p=999999"
   ]
 }

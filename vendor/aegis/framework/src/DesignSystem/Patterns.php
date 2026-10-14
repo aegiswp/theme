@@ -17,24 +17,25 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
+// Enforces strict type checking for all code in this file, ensuring type safety for patterns component.
 declare( strict_types=1 );
 
-// Declares the namespace for design system components within the Aegis Framework.
+// Declares the namespace for the patterns component.
 namespace Aegis\Framework\DesignSystem;
 
-// Imports the Renderable interface, Debug and Pattern utilities, WordPress block components, and various helper functions.
+// Imports classes, interfaces, and functions used by the patterns component.
 use Aegis\Framework\Interfaces\Renderable;
 use Aegis\Utilities\Debug;
 use Aegis\Utilities\Pattern;
 use WP_Block;
-use WP_Block_Patterns_Registry;
 use function apply_filters;
 use function array_unique;
 use function basename;
+use function class_exists;
+use function defined;
 use function do_blocks;
+use function function_exists;
 use function get_stylesheet_directory;
-use function get_template_directory;
 use function glob;
 use function in_array;
 use function is_dir;
@@ -67,22 +68,16 @@ class Patterns implements Renderable {
 	}
 
 	/**
-	 * Prevents WordPress built-in pattern loader from registering theme patterns.
+	 * Prevent WordPress core from scanning the theme patterns/ directory.
 	 *
-	 * Since WordPress 6.8, the built-in loader recursively scans the /patterns
-	 * directory and registers patterns using bare slugs from file headers. This
-	 * conflicts with the framework's own registration which uses category-prefixed
-	 * slugs. Returning an empty array disables the built-in loader entirely.
+	 * This class registers patterns with computed slugs ({category}-{slug}).
+	 * Core would register duplicates using the raw Slug header.
 	 *
-	 * @since 1.0.0
+	 * @hook theme_block_pattern_files
 	 *
-	 * @hook  theme_block_pattern_files
-	 *
-	 * @param array $files Array of pattern files found by WordPress.
-	 *
-	 * @return array Empty array to prevent built-in registration.
+	 * @return array
 	 */
-	public function disable_builtin_pattern_loader( array $files ): array {
+	public function disable_core_pattern_files(): array {
 		return [];
 	}
 
@@ -103,6 +98,11 @@ class Patterns implements Renderable {
 			$files    = glob( $dir . '/*.php' );
 			$category = basename( $dir );
 
+			// PHP casts numeric directory names (e.g. patterns/404/) to int array keys.
+			if ( ctype_digit( $category ) ) {
+				$category = 'error-' . $category;
+			}
+
 			foreach ( $files as $file ) {
 				$pattern = basename( $file, '.php' );
 
@@ -121,8 +121,9 @@ class Patterns implements Renderable {
 		$registered_categories = [];
 
 		foreach ( $categories as $category => $patterns ) {
+			$category = (string) $category;
 
-			if ( ! in_array( $category, $registered_categories, true ) ) {
+			if ( ! array_key_exists( $category, $registered_categories ) ) {
 
 				if ( in_array( $category, [ 'cta', 'faq' ], true ) ) {
 					$label = strtoupper( $category );
@@ -144,6 +145,11 @@ class Patterns implements Renderable {
 				$basename = basename( $file, '.php' );
 
 				if ( in_array( $basename, $registered_categories[ $category ], true ) ) {
+					continue;
+				}
+
+				// Plugin commerce patterns own these slugs when WooCommerce is active.
+				if ( $this->skip_theme_commerce_overlay( $category, $basename ) ) {
 					continue;
 				}
 
@@ -186,6 +192,27 @@ HTML;
 	}
 
 	/**
+	 * Skip theme patterns that the companion plugin overlays when WooCommerce is on.
+	 *
+	 * `header-default` stays in the theme (no Woo blocks) so the site header
+	 * still resolves when WooCommerce is inactive or the companion plugin is
+	 * not loaded. Only skip when the plugin is present and will register the
+	 * mini-cart overlay for the same slug.
+	 */
+	private function skip_theme_commerce_overlay( string $category, string $basename ): bool {
+		if ( 'header' !== $category || 'default' !== $basename ) {
+			return false;
+		}
+
+		// Without the companion plugin there is no overlay — keep the theme pattern.
+		if ( ! class_exists( \Aegis\Plugin\Integrations\WooCommerce::class ) ) {
+			return false;
+		}
+
+		return \Aegis\Plugin\Integrations\WooCommerce::is_plugin_active();
+	}
+
+	/**
 	 * Returns array of pattern directories.
 	 *
 	 * @since 1.0.0
@@ -214,10 +241,15 @@ HTML;
 				continue;
 			}
 
-			$category_dirs = [
-				...$category_dirs,
-				...glob( $dir . '*', GLOB_ONLYDIR ),
-			];
+			foreach ( glob( $dir . '*', GLOB_ONLYDIR ) ?: [] as $category_dir ) {
+				$basename = basename( $category_dir );
+
+				if ( str_starts_with( $basename, '.' ) ) {
+					continue;
+				}
+
+				$category_dirs[] = $category_dir;
+			}
 		}
 
 		return array_unique( $category_dirs );

@@ -17,20 +17,19 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for navigation submenu block.
+declare( strict_types=1 );
 
-// Declares the namespace for core blocks within the Aegis Framework.
+// Declares the namespace for the navigation submenu block.
 namespace Aegis\Framework\CoreBlocks;
 
-// Imports utility classes and interfaces for DOM manipulation, CSS helpers, and renderable blocks.
+// Imports classes, interfaces, and functions used by the navigation submenu block.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
 use function implode;
 
-// Implements the NavigationSubmenu class to support navigation submenu block rendering.
 
 /**
  * Handles the rendering of the core/navigation-submenu block.
@@ -45,8 +44,7 @@ use function implode;
  * @package Aegis\Framework\CoreBlocks
  * @since   1.0.0
  */
-class NavigationSubmenu implements Renderable
-{
+class NavigationSubmenu implements Renderable {
 
 	/**
 	 * Renders the navigation submenu block with custom style properties.
@@ -68,76 +66,75 @@ class NavigationSubmenu implements Renderable
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render(string $block_content, array $block, WP_Block $instance): string
-	{
-		$dom = DOM::create($block_content);
-		$attrs = $block['attrs'] ?? [];
-		$style = $attrs['style'] ?? [];
+	public function render( string $block_content, array $block, WP_Block $instance ): string {
+		$dom     = DOM::create( $block_content );
+		$attrs   = $block['attrs'] ?? [];
+		$style   = $attrs['style'] ?? [];
 		$spacing = $style['spacing'] ?? [];
 		$padding = $spacing['padding'] ?? [];
-		$margin = $spacing['margin'] ?? [];
-		$color = $style['color'] ?? [];
-		$styles = [];
+		$margin  = $spacing['margin'] ?? [];
+		$color   = $style['color'] ?? [];
+		$styles  = [];
 
 		// --- Color Properties ---
 		// Set background color from either a custom value or a theme preset.
-		if (isset($color['background'])) {
+		if ( isset( $color['background'] ) ) {
 			$styles['--wp--custom--submenu--background'] = $color['background'];
 		}
-		if (isset($attrs['backgroundColor'])) {
+		if ( isset( $attrs['backgroundColor'] ) ) {
 			$styles['--wp--custom--submenu--background'] = 'var(--wp--preset--color--' . $attrs['backgroundColor'] . ')';
 		}
 
 		// Set text color from either a custom value or a theme preset.
-		if (isset($color['text'])) {
+		if ( isset( $color['text'] ) ) {
 			$styles['--wp--custom--submenu--color'] = $color['text'];
 		}
-		if (isset($attrs['textColor'])) {
+		if ( isset( $attrs['textColor'] ) ) {
 			$styles['--wp--custom--submenu--color'] = 'var(--wp--preset--color--' . $attrs['textColor'] . ')';
 		}
 
 		// --- Spacing Properties ---
 		// Consolidate padding values into a single variable.
-		$padding_shorthand = implode(' ', [
+		$padding_shorthand = implode( ' ', [
 			$padding['top'] ?? 0,
 			$padding['right'] ?? 0,
 			$padding['bottom'] ?? 0,
 			$padding['left'] ?? 0,
-		]);
-		if ('0 0 0 0' !== $padding_shorthand) {
-			$styles['--wp--custom--submenu--padding'] = CSS::format_custom_property($padding_shorthand);
+		] );
+		if ( '0 0 0 0' !== $padding_shorthand ) {
+			$styles['--wp--custom--submenu--padding'] = CSS::format_custom_property( $padding_shorthand );
 		}
 
 		// Consolidate margin values into a single variable.
-		$margin_shorthand = implode(' ', [
+		$margin_shorthand = implode( ' ', [
 			$margin['top'] ?? 0,
 			$margin['right'] ?? 0,
 			$margin['bottom'] ?? 0,
 			$margin['left'] ?? 0,
-		]);
-		if ('0 0 0 0' !== $margin_shorthand) {
-			$styles['--wp--custom--submenu--margin'] = CSS::format_custom_property($margin_shorthand);
+		] );
+		if ( '0 0 0 0' !== $margin_shorthand ) {
+			$styles['--wp--custom--submenu--margin'] = CSS::format_custom_property( $margin_shorthand );
 		}
 
 		// Set block gap.
 		$block_gap = $spacing['blockGap'] ?? null;
-		if ($block_gap) {
-			$styles['--wp--custom--submenu--gap'] = CSS::format_custom_property($block_gap);
+		if ( $block_gap ) {
+			$styles['--wp--custom--submenu--gap'] = CSS::format_custom_property( $block_gap );
 		}
 
 		// --- Apply Styles to DOM ---
-		$submenu = DOM::get_element('ul', $dom);
-		if (!$submenu) {
+		$submenu = DOM::get_element( 'ul', $dom );
+		if ( ! $submenu ) {
 			return $block_content;
 		}
 
 		// Append new styles to any existing inline styles.
-		$submenu_style = $submenu->getAttribute('style');
-		$css = $submenu_style ? $submenu_style . ';' : '';
-		foreach ($styles as $property => $value) {
+		$submenu_style = $submenu->getAttribute( 'style' );
+		$css           = $submenu_style ? $submenu_style . ';' : '';
+		foreach ( $styles as $property => $value ) {
 			$css .= $value ? "$property:$value;" : '';
 		}
-		$submenu->setAttribute('style', $css);
+		$submenu->setAttribute( 'style', $css );
 
 		return $dom->saveHTML();
 	}

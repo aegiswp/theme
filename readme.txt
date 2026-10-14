@@ -1,7 +1,7 @@
 === Aegis ===
 Contributors: atmostfearentertainment
-Requires at least: 6.6
-Tested up to: 6.9.4
+Requires at least: 7.0
+Tested up to: 7.1.3
 Requires PHP: 8.1
 Stable tag: 1.0.0
 License: GPL-2.0-or-later
@@ -9,21 +9,49 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Aegis is a WordPress block theme and design-system framework built on a systematic token architecture: a structured color scale, fluid type scale, and constraint-based spacing that enforce visual consistency across every pattern and template. It loads no CSS, JavaScript, or fonts by default. Over 150 patterns span blog, commerce, events, portfolio, contact, and more — with full WooCommerce integration, dark/light mode, RTL support, and accessibility-ready foundations.
+Aegis is a WordPress block theme and design-system framework built on systematic design tokens: structured colour scales, fluid typography, and constraint-based spacing for visual consistency across patterns and templates. It ships self-hosted Lexend and JetBrains Mono fonts, compiled custom blocks, 236 patterns for blog, commerce, events, portfolio, and contact, plus WooCommerce templates, dark/light mode, RTL support, and an accessibility-ready foundation aimed at WCAG 2.2 Level AA (full conformance still depends on site content).
+
+== Installation ==
+
+1. Upload the theme folder to `/wp-content/themes/` or install the zip via **Appearance → Themes → Add New → Upload Theme**.
+2. Activate **Aegis** under **Appearance → Themes**.
+3. Open **Appearance → Editor** to customize templates, template parts, and global styles.
+4. Optional: install WooCommerce for shop templates and patterns; other integrations are enabled from **Aegis → Integrations** in the admin.
+
+== Frequently Asked Questions ==
+
+= Does Aegis require a page builder? =
+
+No. Aegis is a full-site editing block theme. Layout and styling use the Site Editor, block patterns, and `theme.json` tokens.
+
+= Are fonts loaded from Google Fonts? =
+
+No. Lexend, Lexend Deca, and JetBrains Mono are bundled under `assets/fonts/` under the SIL Open Font License 1.1.
+
+= Does the theme phone home or require a license? =
+
+The WordPress.org build does not include license activation or purchase prompts. Optional commercial extensions are separate plugins.
+
+= Is WooCommerce required? =
+
+No. WooCommerce templates and patterns are included but only apply when WooCommerce is active.
+
+= Is Aegis WCAG certified? =
+
+No. Aegis provides accessibility-ready infrastructure (skip links, landmarks, focus styles, keyboard support, reduced motion, labeled demo forms) targeting WCAG 2.2 Level AA. Editors remain responsible for alt text, heading order, link purpose, and contrast of custom colors or media. Verify with keyboard, screen reader, and tools such as pa11y/axe on your live pages.
+
+= Does the Blank template include a skip link? =
+
+Yes. Templates with a header get an injected skip link. The Blank template has no header, so it includes the Skip to Content pattern and a `<main id="main">` landmark around post content. Authors should supply exactly one `<h1>` in the page content on Blank and Page No Title templates.
+
+== Screenshots ==
+
+1. Native Block Framework showcase with light/dark mode, Site Editor styles panel, and block patterns.
 
 == Changelog ==
 
-= 1.0.0 =
-* Initial public release.
-* Token-based design system with structured colour, type, and spacing scales.
-* 150+ block patterns across blog, commerce, events, portfolio, contact, and more.
-* Full WooCommerce integration: cart, checkout, multi-step checkout, my account, wishlist, order confirmation.
-* Dark/light mode toggle via CSS class and cookie.
-* 60+ style variations.
-* RTL support.
-* Accessibility-ready foundations with skip-to-content, ARIA landmarks, and focus management.
-* Embedded Lexend, Lexend Deca, and JetBrains Mono self-hosted fonts (SIL OFL 1.1).
-* Schema.org Article structured data in embed template.
+= 1.0.0 - 2026-10-13 =
+* Initial release.
 
 == Copyright ==
 
@@ -45,6 +73,29 @@ This theme bundles the following third-party resources:
 Composer
 License: MIT
 License URL: https://github.com/composer/composer/blob/main/LICENSE
+
+enshrined/svg-sanitize
+Copyright (c) enshrined
+License: GPL-3.0-or-later
+License URL: https://www.gnu.org/licenses/gpl-3.0.html
+Source: https://github.com/darylldoyle/svg-sanitizer
+
+psr/container
+Copyright PHP Framework Interoperability Group
+License: MIT
+License URL: https://github.com/php-fig/container/blob/master/LICENSE
+
+Aegis Framework (vendor/aegis/framework)
+Copyright 2022-2026 Atmostfear Entertainment S.A.S.
+License: GPL-2.0-or-later
+
+Aegis Utilities (vendor/aegis/utilities)
+Copyright 2022-2026 Atmostfear Entertainment S.A.S.
+License: GPL-2.0-or-later
+
+Aegis Icons (vendor/aegis/icons)
+Copyright 2022-2026 Atmostfear Entertainment S.A.S.
+License: GPL-2.0-or-later
 
 WordPress & Social Icons
 License: GPL-2.0-or-later

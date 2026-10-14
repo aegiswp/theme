@@ -17,13 +17,20 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "src"
+    "baseUrl": "."
   },
   "include": [
-    "src"
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.js"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "vendor",
+    "build",
+    "dist",
+    "src/Blocks/**/*.js"
   ]
 }

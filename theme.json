@@ -1,6 +1,7 @@
 {
-  "$schema": "https://schemas.wp.org/wp/6.8/theme.json",
+  "$schema": "https://schemas.wp.org/wp/7.1/theme.json",
   "version": 3,
+  "title": "Light",
   "settings": {
     "appearanceTools": true,
     "useRootPaddingAwareAlignments": true,
@@ -10,11 +11,14 @@
       "style": true,
       "width": true
     },
-    "behaviors": {
-      "lightbox": true
+    "lightbox": {
+      "enabled": true
     },
     "position": {
       "sticky": true
+    },
+    "dimensions": {
+      "minWidth": true
     },
     "color": {
       "customDuotone": true,
@@ -82,7 +86,7 @@
         {
           "name": "Primary 25",
           "slug": "primary-25",
-          "color": "#fcfcfd"
+          "color": "#f8efe9"
         },
         {
           "name": "Neutral 950",
@@ -117,7 +121,7 @@
         {
           "name": "Neutral 400",
           "slug": "neutral-400",
-          "color": "#a3a3a3"
+          "color": "#666666"
         },
         {
           "name": "Neutral 300",
@@ -145,174 +149,64 @@
           "color": "#ffffff"
         },
         {
-          "name": "Success 950",
-          "slug": "success-950",
-          "color": "#052e16"
-        },
-        {
-          "name": "Success 900",
-          "slug": "success-900",
-          "color": "#14532d"
-        },
-        {
-          "name": "Success 800",
-          "slug": "success-800",
-          "color": "#166534"
-        },
-        {
-          "name": "Success 700",
-          "slug": "success-700",
-          "color": "#15803d"
-        },
-        {
           "name": "Success 600",
           "slug": "success-600",
-          "color": "#16a34a"
+          "color": "#059669"
         },
         {
           "name": "Success 500",
           "slug": "success-500",
-          "color": "#22c55e"
-        },
-        {
-          "name": "Success 400",
-          "slug": "success-400",
-          "color": "#4ade80"
-        },
-        {
-          "name": "Success 300",
-          "slug": "success-300",
-          "color": "#86efac"
-        },
-        {
-          "name": "Success 200",
-          "slug": "success-200",
-          "color": "#bbf7d0"
+          "color": "#10b981"
         },
         {
           "name": "Success 100",
           "slug": "success-100",
-          "color": "#dcfce7"
+          "color": "#d1fae5"
         },
         {
-          "name": "Success 50",
-          "slug": "success-50",
-          "color": "#f0fdf4"
+          "name": "Info 600",
+          "slug": "info-600",
+          "color": "#1166c2"
         },
         {
-          "name": "Warning 950",
-          "slug": "warning-950",
-          "color": "#431407"
+          "name": "Info 500",
+          "slug": "info-500",
+          "color": "#1e7ff0"
         },
         {
-          "name": "Warning 900",
-          "slug": "warning-900",
-          "color": "#7c2d12"
-        },
-        {
-          "name": "Warning 800",
-          "slug": "warning-800",
-          "color": "#9a3412"
-        },
-        {
-          "name": "Warning 700",
-          "slug": "warning-700",
-          "color": "#c2410c"
+          "name": "Info 100",
+          "slug": "info-100",
+          "color": "#f3f9ff"
         },
         {
           "name": "Warning 600",
           "slug": "warning-600",
-          "color": "#ea580c"
+          "color": "#d97706"
         },
         {
           "name": "Warning 500",
           "slug": "warning-500",
-          "color": "#f97316"
-        },
-        {
-          "name": "Warning 400",
-          "slug": "warning-400",
-          "color": "#fb923c"
-        },
-        {
-          "name": "Warning 300",
-          "slug": "warning-300",
-          "color": "#fdba74"
-        },
-        {
-          "name": "Warning 200",
-          "slug": "warning-200",
-          "color": "#fed7aa"
+          "color": "#f59e0b"
         },
         {
           "name": "Warning 100",
           "slug": "warning-100",
-          "color": "#ffedd5"
-        },
-        {
-          "name": "Warning 50",
-          "slug": "warning-50",
-          "color": "#fff7ed"
-        },
-        {
-          "name": "Error 950",
-          "slug": "error-950",
-          "color": "#450a0a"
-        },
-        {
-          "name": "Error 900",
-          "slug": "error-900",
-          "color": "#7f1d1d"
-        },
-        {
-          "name": "Error 800",
-          "slug": "error-800",
-          "color": "#991b1b"
-        },
-        {
-          "name": "Error 700",
-          "slug": "error-700",
-          "color": "#b91c1c"
+          "color": "#feeac7"
         },
         {
           "name": "Error 600",
           "slug": "error-600",
-          "color": "#dc2626"
+          "color": "#e11d48"
         },
         {
           "name": "Error 500",
           "slug": "error-500",
-          "color": "#ef4444"
-        },
-        {
-          "name": "Error 400",
-          "slug": "error-400",
-          "color": "#f87171"
-        },
-        {
-          "name": "Error 300",
-          "slug": "error-300",
-          "color": "#fca5a5"
-        },
-        {
-          "name": "Error 200",
-          "slug": "error-200",
-          "color": "#fecaca"
+          "color": "#f43f5e"
         },
         {
           "name": "Error 100",
           "slug": "error-100",
-          "color": "#fee2e2"
-        },
-        {
-          "name": "Error 50",
-          "slug": "error-50",
-          "color": "#fef2f2"
-        },
-        {
-          "name": "Transparent",
-          "slug": "transparent",
-          "color": "transparent"
+          "color": "#ffe4e6"
         },
         {
           "name": "Current",
@@ -325,6 +219,11 @@
           "color": "inherit"
         },
         {
+          "name": "Transparent",
+          "slug": "transparent",
+          "color": "transparent"
+        },
+        {
           "name": "Shadow",
           "slug": "shadow",
           "color": "rgba(107,114,128,0.07)"
@@ -334,52 +233,82 @@
         {
           "name": "Primary Dark/Light",
           "slug": "primary-dark-light",
-          "colors": ["#09090b", "#fafafa"]
+          "colors": [
+            "#09090b",
+            "#fafafa"
+          ]
         },
         {
           "name": "Primary Dark/Mid",
           "slug": "primary-dark-mid",
-          "colors": ["#09090b", "#71717b"]
+          "colors": [
+            "#09090b",
+            "#71717b"
+          ]
         },
         {
           "name": "Neutral Dark/Light",
           "slug": "neutral-dark-light",
-          "colors": ["#0a0a0a", "#ffffff"]
+          "colors": [
+            "#0a0a0a",
+            "#ffffff"
+          ]
         },
         {
           "name": "Neutral Dark/Warm",
           "slug": "neutral-dark-warm",
-          "colors": ["#0a0a0a", "#fed7aa"]
+          "colors": [
+            "#0a0a0a",
+            "#fed7aa"
+          ]
         },
         {
           "name": "Success Dark/Light",
           "slug": "success-dark-light",
-          "colors": ["#052e16", "#f0fdf4"]
+          "colors": [
+            "#052e16",
+            "#f0fdf4"
+          ]
         },
         {
           "name": "Success Dark/Bright",
           "slug": "success-dark-bright",
-          "colors": ["#052e16", "#22c55e"]
+          "colors": [
+            "#052e16",
+            "#22c55e"
+          ]
         },
         {
           "name": "Warning Dark/Light",
           "slug": "warning-dark-light",
-          "colors": ["#431407", "#fff7ed"]
+          "colors": [
+            "#431407",
+            "#fff7ed"
+          ]
         },
         {
           "name": "Warning Dark/Bright",
           "slug": "warning-dark-bright",
-          "colors": ["#431407", "#f97316"]
+          "colors": [
+            "#431407",
+            "#f97316"
+          ]
         },
         {
           "name": "Error Dark/Light",
           "slug": "error-dark-light",
-          "colors": ["#450a0a", "#fef2f2"]
+          "colors": [
+            "#450a0a",
+            "#fef2f2"
+          ]
         },
         {
           "name": "Error Dark/Bright",
           "slug": "error-dark-bright",
-          "colors": ["#450a0a", "#ef4444"]
+          "colors": [
+            "#450a0a",
+            "#ef4444"
+          ]
         }
       ],
       "gradients": [
@@ -632,7 +561,7 @@
       "surface": {
         "backdropFilter": "blur(8px)",
         "borderRadius": "var(--wp--custom--border--radius)",
-        "boxShadow": "var(--wp--preset--shadow--sm)",
+        "boxShadow": "none",
         "border": {
           "top": "0",
           "right": "0",
@@ -650,7 +579,8 @@
         }
       },
       "subHeading": {
-        "color": "var(--wp--preset--color--primary-500)"
+        "color": "var(--wp--preset--color--primary-500)",
+        "lineHeight": "1.25"
       },
       "buttonOutline": {
         "color": "var(--wp--preset--color--primary-500)",
@@ -678,12 +608,15 @@
       "callout": {
         "borderWidth": "4px",
         "padding": "1em 1em 1em 1.5em",
-        "backgroundOpacity": "0.06"
+        "backgroundOpacity": "0.06",
+        "borderColor": "var(--wp--preset--color--warning-500)",
+        "background": "var(--wp--preset--color--warning-100)",
+        "color": "var(--wp--preset--color--neutral-900)"
       },
       "card": {
         "padding": "var(--wp--preset--spacing--sm)",
         "borderRadius": "var(--wp--custom--border--radius)",
-        "boxShadow": "var(--wp--preset--shadow--md)"
+        "boxShadow": "none"
       },
       "highlight": {
         "background": "var(--wp--preset--color--primary-100)",
@@ -696,7 +629,7 @@
         "animationDuration": "0s"
       },
       "submenu": {
-        "boxShadow": "var(--wp--preset--shadow--xl)"
+        "boxShadow": "none"
       },
       "header": {
         "zIndex": "2"
@@ -712,8 +645,8 @@
       }
     },
     "layout": {
-      "contentSize": "min(calc(100dvw - var(--wp--preset--spacing--lg,2rem) * 2), 720px)",
-      "wideSize": "min(calc(100dvw - var(--wp--preset--spacing--lg,2rem) * 2), 1620px)"
+      "contentSize": "min(calc(100% - var(--wp--preset--spacing--lg,3rem) * 2), 720px)",
+      "wideSize": "min(calc(100% - var(--wp--preset--spacing--lg,3rem) * 2), 1200px)"
     },
     "typography": {
       "customFontSize": true,
@@ -1080,8 +1013,13 @@
     "elements": {
       "button": {
         "color": {
-          "text": "var(--wp--preset--color--primary-25)",
-          "background": "var(--wp--preset--color--primary-500)"
+          "text": "var(--wp--preset--color--neutral-0)",
+          "background": "var(--wp--preset--color--primary-900)"
+        },
+        ":hover": {
+          "color": {
+            "background": "var(--wp--preset--color--primary-800)"
+          }
         },
         "border": {
           "radius": "var(--wp--custom--border--radius)"
@@ -1250,6 +1188,46 @@
           "blockGap": "var(--wp--preset--spacing--xs)"
         }
       },
+      "core/breadcrumbs": {
+        "color": {
+          "text": "var(--wp--preset--color--neutral-600)"
+        },
+        "elements": {
+          "link": {
+            "color": {
+              "text": "var(--wp--preset--color--primary-600)"
+            },
+            "typography": {
+              "textDecoration": "none"
+            },
+            ":hover": {
+              "color": {
+                "text": "var(--wp--preset--color--primary-500)"
+              }
+            },
+            ":focus": {
+              "color": {
+                "text": "var(--wp--preset--color--primary-500)"
+              },
+              "outline": {
+                "width": "2px",
+                "style": "solid",
+                "color": "var(--wp--preset--color--primary-500)",
+                "offset": "2px"
+              }
+            }
+          }
+        },
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--14)",
+          "fontWeight": "var(--wp--custom--font-weight--medium)"
+        },
+        "spacing": {
+          "margin": {
+            "bottom": "var(--wp--preset--spacing--sm)"
+          }
+        }
+      },
       "core/button": {
         "spacing": {
           "blockGap": "var(--wp--preset--spacing--xxs)"
@@ -1348,13 +1326,6 @@
           "radius": "50%"
         }
       },
-      "core/post-comment": {
-        "spacing": {
-          "padding": {
-            "top": "var(--wp--preset--spacing--sm)"
-          }
-        }
-      },
       "core/post-content": {
         "spacing": {
           "margin": {
@@ -1383,6 +1354,12 @@
             ":focus": {
               "color": {
                 "text": "var(--wp--preset--color--primary-500)"
+              },
+              "outline": {
+                "width": "2px",
+                "style": "solid",
+                "color": "var(--wp--preset--color--primary-500)",
+                "offset": "2px"
               }
             }
           }
@@ -1431,6 +1408,12 @@
             ":focus": {
               "color": {
                 "text": "var(--wp--preset--color--primary-500)"
+              },
+              "outline": {
+                "width": "2px",
+                "style": "solid",
+                "color": "var(--wp--preset--color--primary-500)",
+                "offset": "2px"
               }
             }
           }
@@ -1501,7 +1484,8 @@
             "left": "0"
           },
           "blockGap": "var(--wp--preset--spacing--xxs)"
-        }
+        },
+        "css": ".is-style-newsletter.wp-block-search{gap:0}"
       },
       "core/separator": {
         "border": {
@@ -1578,6 +1562,20 @@
       ]
     },
     {
+      "title": "Coming Soon",
+      "name": "coming-soon",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "title": "Maintenance",
+      "name": "maintenance",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
       "title": "Full Width",
       "name": "full-width",
       "postTypes": [
@@ -1628,6 +1626,13 @@
       ]
     },
     {
+      "title": "Page: Coming Soon",
+      "name": "page-coming-soon",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
       "title": "Page: Checkout Multi-Step",
       "name": "page-checkout-multi-step",
       "postTypes": [
@@ -1653,6 +1658,147 @@
       "name": "page-wishlist",
       "postTypes": [
         "page"
+      ]
+    },
+    {
+      "title": "Page (No Title)",
+      "name": "page-no-title",
+      "postTypes": [
+        "page",
+        "post"
+      ]
+    },
+    {
+      "title": "Page: Boxed",
+      "name": "page-boxed",
+      "postTypes": [
+        "page",
+        "post"
+      ]
+    },
+    {
+      "title": "Page: Hero Minimal",
+      "name": "page-hero-minimal",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "title": "Page: Contact",
+      "name": "page-contact",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "title": "Page: Landing",
+      "name": "page-landing",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "title": "Page: With Sidebar",
+      "name": "page-with-sidebar",
+      "postTypes": [
+        "page",
+        "post"
+      ]
+    },
+    {
+      "title": "Single: Full Width",
+      "name": "single-full-width",
+      "postTypes": [
+        "post"
+      ]
+    },
+    {
+      "title": "Single: No Featured Image",
+      "name": "single-no-featured-image",
+      "postTypes": [
+        "post"
+      ]
+    },
+    {
+      "title": "Single Product: Landing",
+      "name": "single-product-landing",
+      "postTypes": [
+        "product"
+      ]
+    },
+    {
+      "title": "Author: Guest",
+      "name": "author-guest"
+    },
+    {
+      "title": "Category Archives",
+      "name": "taxonomy-category"
+    },
+    {
+      "title": "Category: Books",
+      "name": "taxonomy-category-books"
+    },
+    {
+      "title": "Category: Events",
+      "name": "taxonomy-category-events"
+    },
+    {
+      "title": "Category: Podcasts",
+      "name": "taxonomy-category-podcasts"
+    },
+    {
+      "title": "Category: Portfolio",
+      "name": "taxonomy-category-portfolio"
+    },
+    {
+      "title": "Category: Recipes",
+      "name": "taxonomy-category-recipes"
+    },
+    {
+      "title": "Category: Video",
+      "name": "taxonomy-category-video"
+    },
+    {
+      "title": "Tag Archives",
+      "name": "taxonomy-post_tag"
+    },
+    {
+      "title": "Tag: Featured",
+      "name": "taxonomy-post_tag-featured"
+    },
+    {
+      "title": "Product Attribute",
+      "name": "taxonomy-product_attribute",
+      "postTypes": [
+        "product"
+      ]
+    },
+    {
+      "title": "Product Category: Clothing",
+      "name": "taxonomy-product_cat-clothing",
+      "postTypes": [
+        "product"
+      ]
+    },
+    {
+      "title": "Product Category: Digital",
+      "name": "taxonomy-product_cat-digital",
+      "postTypes": [
+        "product"
+      ]
+    },
+    {
+      "title": "Product Category: Outlet",
+      "name": "taxonomy-product_cat-outlet",
+      "postTypes": [
+        "product"
+      ]
+    },
+    {
+      "title": "Search: Product",
+      "name": "search-product",
+      "postTypes": [
+        "product"
       ]
     }
   ],

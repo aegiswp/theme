@@ -17,22 +17,19 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
+// Enforces strict type checking for all code in this file, ensuring type safety for spacer block.
 declare( strict_types=1 );
 
-// Declares the namespace for core blocks within the Aegis Framework.
+// Declares the namespace for the spacer block.
 namespace Aegis\Framework\CoreBlocks;
 
-// Imports utility classes and interfaces for DOM manipulation, CSS helpers, renderable blocks, and WordPress helpers.
+// Imports classes, interfaces, and functions used by the spacer block.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
 
-// Implements the Spacer class to support spacer block rendering.
-
-class Spacer implements Renderable
-{
+class Spacer implements Renderable {
 
 	/**
 	 * Modifies front end HTML output of block.
@@ -47,28 +44,30 @@ class Spacer implements Renderable
 	 *
 	 * @return string
 	 */
-	public function render(string $block_content, array $block, WP_Block $instance): string
-	{
-		$dom = DOM::create($block_content);
-		$div = DOM::get_element('div', $dom);
+	public function render( string $block_content, array $block, WP_Block $instance ): string {
+		// Parse block HTML and locate the spacer div.
+		$dom = DOM::create( $block_content );
+		$div = DOM::get_element( 'div', $dom );
 
-		if (!$div) {
+		if ( ! $div ) {
 			return $block_content;
 		}
 
-		$div_styles = CSS::string_to_array($div->getAttribute('style'));
+		// Merge margin from block attributes into inline styles.
+		$div_styles = CSS::string_to_array( $div->getAttribute( 'style' ) );
 
-		$margin = $block['attrs']['style']['spacing']['margin'] ?? '';
-		$div_styles = CSS::add_shorthand_property($div_styles, 'margin', $margin);
+		$margin     = $block['attrs']['style']['spacing']['margin'] ?? '';
+		$div_styles = CSS::add_shorthand_property( $div_styles, 'margin', $margin );
 
-		$width = $block['attrs']['width'] ?? '';
+		// Remove fixed width when responsive width is also set.
+		$width            = $block['attrs']['width'] ?? '';
 		$responsive_width = $block['attrs']['style']['width']['all'] ?? '';
 
-		if ($width && $responsive_width) {
-			unset($div_styles['width']);
+		if ( $width && $responsive_width ) {
+			unset ( $div_styles['width'] );
 		}
 
-		$div->setAttribute('style', CSS::array_to_string($div_styles));
+		$div->setAttribute( 'style', CSS::array_to_string( $div_styles ) );
 
 		return $dom->saveHTML();
 	}

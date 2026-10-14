@@ -17,26 +17,20 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for inline asset management.
+// Enforces strict type checking for all code in this file, ensuring type safety for styles component.
 declare( strict_types=1 );
 
-// Declares the namespace for inline assets components within the Aegis Framework.
+// Declares the namespace for the styles component.
 namespace Aegis\Framework\InlineAssets;
 
-// Imports utility classes and WordPress functions for style management.
+// Imports classes, interfaces, and functions used by the styles component.
 use Aegis\Utilities\Path;
 use function apply_filters;
-use function esc_url;
-use function get_template_directory_uri;
-use function in_array;
 use function is_admin;
-use function str_contains;
 use function wp_add_inline_style;
 use function wp_dequeue_style;
 use function wp_enqueue_style;
 use function wp_register_style;
-
-// Implements the Styles class to support inline style management for the design system.
 
 class Styles implements Inlinable {
 
@@ -58,6 +52,7 @@ class Styles implements Inlinable {
 
 		global $template_html;
 
+		// Build inline CSS from template markers or load all styles.
 		$load_all = apply_filters( 'aegis_load_all_styles', ! $template_html );
 		$css      = $this->get_inline_assets( $template_html, $load_all );
 
@@ -78,92 +73,12 @@ class Styles implements Inlinable {
 		$blocks      = glob( $this->dir . 'core-blocks/*.css' );
 		$vendor_path = Path::get_segment( $this->dir, -5 );
 
+		// Register each core block stylesheet for the editor.
 		foreach ( $blocks as $block ) {
 			add_editor_style( $vendor_path . '/core-blocks/' . basename( $block ) );
 		}
 
-		// Add video editor styles for the editor iframe.
-		add_editor_style( 'src/Blocks/editor/video-editor.css' );
-
 		add_editor_style( static::DYNAMIC_URL );
-	}
-
-	/**
-	 * @hook wp_head
-	 */
-	public function preload_assets(): void
-	{
-		if (is_admin()) {
-			return;
-		}
-
-		$base = get_template_directory_uri();
-		$template_html = $GLOBALS['template_html'] ?? '';
-		$fonts = [];
-
-		if (apply_filters('aegis_preload_font_lexend', false, $template_html)) {
-			$fonts[] = $base . '/assets/fonts/lexend.woff2';
-		}
-
-		if (
-			str_contains($template_html, '<code') ||
-			str_contains($template_html, 'wp-block-code') ||
-			str_contains($template_html, 'wp-block-preformatted')
-		) {
-			$fonts[] = $base . '/assets/fonts/jetbrains.woff2';
-		}
-
-		foreach ($fonts as $url) {
-			echo '<link rel="preload" href="' . esc_url($url) . '" as="font" type="font/woff2" crossorigin="anonymous">';
-		}
-	}
-
-	/**
-	 * @hook wp_resource_hints
-	 */
-	public function resource_hints(array $urls, string $relation_type): array
-	{
-		if (is_admin()) {
-			return $urls;
-		}
-
-		if (!in_array($relation_type, ['dns-prefetch', 'preconnect'], true)) {
-			return $urls;
-		}
-
-		$template_html = $GLOBALS['template_html'] ?? '';
-		$hosts = [];
-
-		if (
-			str_contains($template_html, 'youtube.com') ||
-			str_contains($template_html, 'youtu.be') ||
-			str_contains($template_html, 'ytimg.com')
-		) {
-			$hosts = array_merge($hosts, [
-				'https://www.youtube.com',
-				'https://i.ytimg.com',
-			]);
-		}
-
-		if (
-			str_contains($template_html, 'vimeo.com') ||
-			str_contains($template_html, 'player.vimeo.com')
-		) {
-			$hosts = array_merge($hosts, [
-				'https://player.vimeo.com',
-				'https://vimeo.com',
-			]);
-		}
-
-		$hosts = apply_filters('aegis_resource_hints_hosts', $hosts, $relation_type, $template_html);
-
-		foreach ($hosts as $host) {
-			if (!in_array($host, $urls, true)) {
-				$urls[] = $host;
-			}
-		}
-
-		return $urls;
 	}
 
 	/**
@@ -183,6 +98,7 @@ class Styles implements Inlinable {
 		if ( $url === static::DYNAMIC_URL ) {
 			$css = $this->get_inline_assets( '', true );
 
+			// Return a synthetic HTTP response with generated CSS.
 			$response = [
 				'body'     => $css,
 				'headers'  => [],

@@ -1,67 +1,49 @@
 <?php
-/**
- * Aegis JSON Utilities
- *
- * Provides utility functions for working with JSON data and CSS custom properties in the Aegis Framework.
- *
- * Responsibilities:
- * - Offers helper methods for extracting and formatting custom properties from settings arrays
- * - Ensures consistency and reusability of JSON logic across the framework
- *
- * @package    Aegis\Utilities
- * @since      1.0.0
- * @author     Atmostfear Entertainment
- * @link       https://github.com/aegiswp/theme
- *
- * For developer documentation and onboarding. No logic changes in this
- * documentation update.
- */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for utility functions.
+// Enforces strict type checking for all code in this file, ensuring type safety for json utility helpers.
 declare( strict_types=1 );
 
-// Declares the namespace for utility classes within the Aegis Framework.
+// Declares the namespace for the json utility helpers.
 namespace Aegis\Utilities;
 
-// Imports WordPress and PHP helper functions for JSON and string operations.
+// Imports classes, interfaces, and functions used by the json utility helpers.
 use function _wp_to_kebab_case;
 use function is_array;
 use function str_replace;
 use function strtolower;
 
-// Implements the Aegis JSON utility class for reusable JSON operations.
-
+/**
+ * JSON utility class for handling theme.json style data.
+ *
+ * This class provides methods to process and flatten nested setting arrays,
+ * similar to how WordPress core handles `theme.json` data for generating
+ * CSS custom properties.
+ *
+ * @since 1.0.0
+ */
 class JSON {
 
 	/**
-	 * Given an array of settings, extracts the CSS Custom Properties
-	 * for the custom values and adds them to the $declarations
-	 * array following the format:
+	 * Converts a nested array of custom values into a flat array of CSS Custom
+	 * Properties.
 	 *
-	 *     array(
-	 *       'property_name' => 'property_value,
-	 *     )
+	 * This method takes a settings array, flattens it, and prepends the
+	 * `--wp--custom--` prefix to each key.
 	 *
-	 * This is slightly different from the implementation in
-	 * wp-includes/class-wp-theme-json.php which is:
-	 *
-	 *     array(
-	 *       'name'  => 'property_name',
-	 *       'value' => 'property_value,
-	 *     )
-	 *
-	 * @see   WP_Theme_JSON::compute_theme_vars()
+	 * @see WP_Theme_JSON::compute_theme_vars()
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $custom_values Settings to process.
+	 * @param array $custom_values The nested array of settings to process.
 	 *
-	 * @return array The modified $declarations.
+	 * @return array A flat associative array of CSS Custom Properties.
 	 */
 	public static function compute_theme_vars( array $custom_values ): array {
 		$declarations = [];
+		// Flatten the nested custom values tree.
 		$css_vars     = self::flatten_tree( $custom_values );
 
+		// Prefix each key with the WordPress custom property namespace.
 		foreach ( $css_vars as $key => $value ) {
 			$declarations[ '--wp--custom--' . $key ] = $value;
 		}
@@ -70,50 +52,32 @@ class JSON {
 	}
 
 	/**
-	 * Given a tree, it creates a flattened one
-	 * by merging the keys and binding the leaf values
-	 * to the new keys.
+	 * Flattens a nested array by merging keys.
 	 *
-	 * It also transforms camelCase names into kebab-case
-	 * and substitutes '/' by '-'.
+	 * This method recursively processes a nested array, combining parent and child
+	 * keys to create a flat, single-level array. It also converts keys to
+	 * kebab-case.
 	 *
-	 * This is thought to be useful to generate
-	 * CSS Custom Properties from a tree,
-	 * although there is nothing in the implementation
-	 * of this function that requires that format.
+	 * Example:
+	 * `[ 'nestedProperty' => [ 'subProperty' => 'value' ] ]`
+	 * becomes
+	 * `[ 'nested-property--sub-property' => 'value' ]`
 	 *
-	 * For example, assuming the given prefix is '--wp'
-	 * and the token is '--', for this input tree:
-	 *
-	 *     {
-	 *       'some/property': 'value',
-	 *       'nestedProperty': {
-	 *         'sub-property': 'value'
-	 *       }
-	 *     }
-	 *
-	 * it will return this output:
-	 *
-	 *     {
-	 *       '--wp--some-property': 'value',
-	 *       '--wp--nested-property--sub-property': 'value'
-	 *     }
-	 *
-	 * @see   WP_Theme_JSON::flatten_tree()
+	 * @see WP_Theme_JSON::flatten_tree()
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array  $tree   Input tree to process.
-	 * @param string $prefix Optional. Prefix to prepend to each variable. Default
-	 *                       empty string.
-	 * @param string $token  Optional. Token to use between levels. Default '--'.
+	 * @param array  $tree   The nested array to flatten.
+	 * @param string $prefix Optional. A prefix to prepend to each generated key.
+	 * @param string $token  Optional. The separator to use between key levels.
 	 *
-	 * @return array The flattened tree.
+	 * @return array The flattened array.
 	 */
 	public static function flatten_tree( array $tree, string $prefix = '', string $token = '--' ): array {
 		$result = [];
 
 		foreach ( $tree as $property => $value ) {
+			// Build the kebab-case key for the current property.
 			$new_key = $prefix . str_replace(
 					'/',
 					'-',
@@ -121,6 +85,7 @@ class JSON {
 				);
 
 			if ( is_array( $value ) ) {
+				// Recursively flatten nested arrays.
 				$new_prefix        = $new_key . $token;
 				$flattened_subtree = self::flatten_tree( $value, $new_prefix, $token );
 
@@ -129,6 +94,7 @@ class JSON {
 				}
 
 			} else {
+				// Store leaf values at the flattened key.
 				$result[ $new_key ] = $value;
 			}
 		}

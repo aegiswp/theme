@@ -17,19 +17,17 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
+// Enforces strict type checking for all code in this file, ensuring type safety for base css component.
 declare( strict_types=1 );
 
-// Declares the namespace for design system components within the Aegis Framework.
+// Declares the namespace for the base css component.
 namespace Aegis\Framework\DesignSystem;
 
-// Imports interfaces and helpers for styling, stylesheet management, and debugging.
+// Imports classes, interfaces, and functions used by the base css component.
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
 use Aegis\Utilities\Debug;
 use function function_exists;
-
-// Implements the BaseCss class to support base CSS registration and management.
 
 class BaseCss implements Styleable
 {
@@ -114,12 +112,14 @@ class BaseCss implements Styleable
 			'check-outline' => ['is-style-check-outline', 'is-style-checklist-circle'],
 			'checklist' => ['is-style-checklist'],
 			'curved-text' => ['is-style-curved-text'],
+			'dark' => ['is-style-dark'],
 			'divider-angle' => ['is-style-angle'],
 			'divider-curve' => ['is-style-curve'],
 			'divider-fade' => ['is-style-fade'],
 			'divider-round' => ['is-style-round'],
 			'divider-wave' => ['is-style-wave'],
 			'heading' => ['is-style-heading', 'is-style-summary-heading', 'is-style-list-heading'],
+			'light' => ['is-style-light'],
 			'list-dash' => ['is-style-dash'],
 			'list-heading' => ['is-style-heading'],
 			'list-none' => ['is-style-none'],
@@ -128,18 +128,23 @@ class BaseCss implements Styleable
 			'search-toggle' => ['is-style-toggle'],
 			'square-list' => ['is-style-square'],
 			'sub-heading' => ['is-style-sub-heading'],
-			'dark' => ['is-style-dark'],
-			'light' => ['is-style-light'],
+			'bordered' => ['is-style-bordered'],
+			'callout' => ['is-style-callout'],
+			'card' => ['is-style-card'],
 			'highlight-block' => ['is-style-highlight'],
 			'pill' => ['is-style-pill', 'is-style-pills'],
 			'surface' => ['is-style-surface'],
 		];
 
+		$styles['core-blocks'] = [
+			'icon' => ['wp-block-icon'],
+			'breadcrumbs' => ['wp-block-breadcrumbs', 'rank-math-breadcrumb', 'seopress-breadcrumbs', 'yoast-breadcrumbs', 'id="breadcrumbs"'],
+		];
+
 		$styles['block-variations'] = [
 			'accordion' => ['is-style-accordion'],
 			'counter' => ['is-style-counter'],
-			'icon' => ['is-style-icon'],
-			'marquee' => ['is-marquee'],
+			'marquee' => [ 'is-marquee', 'orientation":"marquee', '--marquee-speed' ],
 			'newsletter' => ['is-style-newsletter'],
 			'svg' => ['is-style-svg'],
 		];

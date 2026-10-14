@@ -1,1 +1,5 @@
 .wp-block-heading{word-break:break-word}.wp-block-heading[class*="-font-size"]{line-height:var(--wp--custom--heading--line-height, 1.5)}.wp-block-heading[class*="-gradient-background"]:not(.has-text-color),.wp-block-heading[style*="-gradient("]:not(.has-text-color){-webkit-background-clip:text !important;-webkit-text-fill-color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone;color:inherit;padding:0}
+/* Headings inherit section/body text color so light/dark remaps and parent textColor apply. */
+.has-text-color :is(h1,h2,h3,h4,h5,h6,.wp-block-heading):not([class*="-color"]),
+.is-style-dark :is(h1,h2,h3,h4,h5,h6,.wp-block-heading):not([class*="-color"]),
+.is-style-light :is(h1,h2,h3,h4,h5,h6,.wp-block-heading):not([class*="-color"]){color:inherit}

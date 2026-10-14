@@ -17,23 +17,20 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
+// Enforces strict type checking for all code in this file, ensuring type safety for layout component.
 declare( strict_types=1 );
 
-// Declares the namespace for design system components within the Aegis Framework.
+// Declares the namespace for the layout component.
 namespace Aegis\Framework\DesignSystem;
 
-// Imports scriptable interface, scripts service, and WordPress helpers for array and string manipulation.
+// Imports classes, interfaces, and functions used by the layout component.
 use Aegis\Framework\InlineAssets\Scriptable;
 use Aegis\Framework\InlineAssets\Scripts;
 use function array_merge;
 use function is_admin;
 use function str_replace;
 
-// Implements the Layout class to support layout adjustments for the design system.
-
-class Layout implements Scriptable
-{
+class Layout implements Scriptable {
 
 	/**
 	 * Changes layout size unit from vw to % in editor.
@@ -46,24 +43,25 @@ class Layout implements Scriptable
 	 *
 	 * @return mixed
 	 */
-	public function fix_editor_layout_sizes($theme_json)
-	{
-		if (is_admin()) {
+	public function fix_editor_layout_sizes( $theme_json ) {
+		if ( is_admin() ) {
 			return $theme_json;
 		}
 
-		$default = $theme_json->get_data();
-		$new = [];
+		// Read current layout sizes from theme JSON.
+		$default      = $theme_json->get_data();
+		$new          = [];
 		$content_size = $default['settings']['layout']['contentSize'] ?? 'min(calc(100dvw - var(--wp--preset--spacing--xl,2rem)), 720px)';
-		$wide_size = $default['settings']['layout']['wideSize'] ?? 'min(calc(100dvw - var(--wp--preset--spacing--xl,2rem)), 1200px)';
+		$wide_size    = $default['settings']['layout']['wideSize'] ?? 'min(calc(100dvw - var(--wp--preset--spacing--xl,2rem)), 1200px)';
 
-		$new['settings']['layout']['contentSize'] = str_replace('100%', '100dvw', $content_size);
-		$new['settings']['layout']['wideSize'] = str_replace('100%', '100dvw', $wide_size);
+		// Swap percentage units for dynamic viewport width in the editor.
+		$new['settings']['layout']['contentSize'] = str_replace( '100%', '100dvw', $content_size );
+		$new['settings']['layout']['wideSize']    = str_replace( '100%', '100dvw', $wide_size );
 
-		$theme_json->update_with(array_merge(
+		$theme_json->update_with( array_merge(
 			$default,
 			$new
-		));
+		) );
 
 		return $theme_json;
 	}
@@ -73,11 +71,10 @@ class Layout implements Scriptable
 	 *
 	 * @since 1.0.0
 	 */
-	public function scripts(Scripts $scripts): void
-	{
+	public function scripts( Scripts $scripts ): void {
 		$scripts->add_file(
 			'header-height.js',
-			['has-header-height']
+			[ 'has-header-height' ]
 		);
 	}
 }

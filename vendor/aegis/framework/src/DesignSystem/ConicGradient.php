@@ -17,24 +17,21 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
+// Enforces strict type checking for all code in this file, ensuring type safety for conic gradient component.
 declare( strict_types=1 );
 
-// Declares the namespace for design system components within the Aegis Framework.
+// Declares the namespace for the conic gradient component.
 namespace Aegis\Framework\DesignSystem;
 
-// Imports styleable interface, styles service, CSS utilities, and WordPress helpers.
+// Imports classes, interfaces, and functions used by the conic gradient component.
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
 use Aegis\Dom\CSS;
 use function str_contains;
 use function str_replace;
-use Aegis\Framework\ServiceProvider;
+use function wp_get_global_settings;
 
-// Implements the ConicGradient class to support conversion of gradients for the design system.
-
-class ConicGradient implements Styleable
-{
+class ConicGradient implements Styleable {
 
 	/**
 	 * Converts custom linear or radial gradient into conic gradient.
@@ -45,32 +42,32 @@ class ConicGradient implements Styleable
 	 *
 	 * @return void
 	 */
-	public function styles(Styles $styles): void
-	{
-		$settings = ServiceProvider::get_global_settings();
+	public function styles( Styles $styles ): void {
+		$settings  = wp_get_global_settings();
 		$gradients = $settings['color']['gradients']['custom'] ?? [];
-		$style = [];
+		$style     = [];
 
-		foreach ($gradients as $gradient) {
+		foreach ( $gradients as $gradient ) {
 			$slug = $gradient['slug'] ?? '';
 
-			if (!str_contains($slug, 'custom-conic-')) {
+			if ( ! str_contains( $slug, 'custom-conic-' ) ) {
 				continue;
 			}
 
+			// Convert linear gradient syntax to conic gradient.
 			$value = str_replace(
 				'linear-gradient(',
 				'conic-gradient(from ',
 				$gradient['gradient']
 			);
 
-			$style['--wp--preset--gradient--' . $slug] = $value;
+			$style[ '--wp--preset--gradient--' . $slug ] = $value;
 		}
 
-		if ($style) {
-			$css = 'body{' . CSS::array_to_string($style) . '}';
+		if ( $style ) {
+			$css = 'body{' . CSS::array_to_string( $style ) . '}';
 
-			$styles->add_string($css, ['custom-conic-']);
+			$styles->add_string( $css, [ 'custom-conic-' ] );
 		}
 	}
 }

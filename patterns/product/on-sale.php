@@ -28,8 +28,8 @@
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"is-style-ghost","fontSize":"14"} -->
-			<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button" href="/shop?on_sale=true"><?php echo esc_html__( 'View All Sales →', 'aegis' ); ?></a></div>
-			<!-- /wp:button -->
+<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link has-14-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'View All Sales →', 'aegis' ); ?></a></div>
+<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
 	</div>
@@ -38,8 +38,8 @@
 	<!-- wp:woocommerce/product-collection {"queryId":11,"query":{"perPage":4,"pages":0,"offset":0,"postType":"product","order":"desc","orderBy":"date","search":"","exclude":[],"inherit":false,"taxQuery":{},"isProductCollectionBlock":true,"featured":false,"woocommerceOnSale":true,"woocommerceStockStatus":["instock","onbackorder"],"woocommerceAttributes":[],"woocommerceHandPickedProducts":[],"filterable":false},"tagName":"div","displayLayout":{"type":"flex","columns":4,"shrinkColumns":true},"dimensions":{"widthType":"fill"},"queryContextIncludes":["collection"],"align":"wide"} -->
 	<div class="wp-block-woocommerce-product-collection alignwide">
 		<!-- wp:woocommerce/product-template -->
-		<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"var:preset|spacing|sm","left":"0"}}},"backgroundColor":"white","layout":{"type":"flex","orientation":"vertical"}} -->
-		<div class="wp-block-group is-style-surface has-white-background-color has-background" style="padding-top:0;padding-right:0;padding-bottom:var(--wp--preset--spacing--sm);padding-left:0">
+		<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"var:preset|spacing|sm","left":"0"}}},"backgroundColor":"neutral-0","layout":{"type":"flex","orientation":"vertical"}} -->
+		<div class="wp-block-group is-style-surface has-neutral-0-background-color has-background" style="padding-top:0;padding-right:0;padding-bottom:var(--wp--preset--spacing--sm);padding-left:0">
 			<!-- wp:woocommerce/product-image {"showSaleBadge":false,"imageSizing":"thumbnail","isDescendentOfQueryLoop":true} -->
 			<!-- wp:woocommerce/product-sale-badge {"align":"left"} /-->
 			<!-- /wp:woocommerce/product-image -->
@@ -54,7 +54,7 @@
 
 			<!-- wp:group {"style":{"spacing":{"padding":{"left":"var:preset|spacing|sm","right":"var:preset|spacing|sm"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
 			<div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm)">
-				<!-- wp:woocommerce/product-button {"textAlign":"center","isDescendentOfQueryLoop":true,"fontSize":"small"} /-->
+				<!-- wp:woocommerce/product-button {"textAlign":"center","isDescendentOfQueryLoop":true,"fontSize":"14"} /-->
 			</div>
 			<!-- /wp:group -->
 		</div>
@@ -62,8 +62,8 @@
 		<!-- /wp:woocommerce/product-template -->
 
 		<!-- wp:woocommerce/product-collection-no-results -->
-		<!-- wp:paragraph {"align":"center","fontSize":"medium"} -->
-		<p class="aligncenter has-text-align-center has-medium-font-size aligncenter"><?php echo esc_html__( 'No products are currently on sale. Check back soon for deals!', 'aegis' ); ?></p>
+		<!-- wp:paragraph {"align":"center","fontSize":"18"} -->
+		<p class="aligncenter has-text-align-center has-18-font-size aligncenter"><?php echo esc_html__( 'No products are currently on sale. Check back soon for deals!', 'aegis' ); ?></p>
 		<!-- /wp:paragraph -->
 		<!-- /wp:woocommerce/product-collection-no-results -->
 	</div>

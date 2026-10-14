@@ -7,12 +7,11 @@ extend-exclude = [
     "node_modules/",
     "tools/",
     "build/",
+    "dist/",
+    "aegis/",
     "docs/",
     "patterns/",
     "assets/",
-    "src/*/css/",
-    "src/*/js/",
-    "src/Admin/build/",
     "src/Blocks/editor/",
     "*.min.js",
     "*.min.css",
@@ -22,6 +21,7 @@ extend-exclude = [
     "*.lock",
     "languages/*.po",
     "languages/*.mo",
+    "languages/*.pot",
 ]
 
 [default]
@@ -31,6 +31,8 @@ extend-ignore-identifiers-re = [
     "wptrt",
     "phpcs",
     "WPCS",
+    "wpaudit",
+    "WPAudit",
 ]
 extend-ignore-re = [
     # Generated icon IDs in pattern markup (e.g. icon-690b811a92ba1)

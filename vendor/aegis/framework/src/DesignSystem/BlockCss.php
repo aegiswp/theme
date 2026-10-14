@@ -17,14 +17,13 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for design system components.
+// Enforces strict type checking for all code in this file, ensuring type safety for block css component.
 declare( strict_types=1 );
 
-// Declares the namespace for design system components within the Aegis Framework.
+// Declares the namespace for the block css component.
 namespace Aegis\Framework\DesignSystem;
 
-// Imports styles service and utility functions for file handling, string manipulation, and WordPress integration.
-use Aegis\Utilities\Debug;
+// Imports classes, interfaces, and functions used by the block css component.
 use Aegis\Framework\InlineAssets\Styles;
 use function array_flip;
 use function file_get_contents;
@@ -37,8 +36,6 @@ use function str_starts_with;
 use function trim;
 use function wp_add_inline_style;
 use function wp_enqueue_block_style;
-
-// Implements the BlockCss class to support block-level CSS registration and management.
 
 class BlockCss {
 
@@ -92,8 +89,6 @@ class BlockCss {
 			return;
 		}
 
-		static $file_cache = [];
-
 		$dir     = $this->css_dir . 'core-blocks/';
 		$handles = array_flip( $wp_styles->queue );
 
@@ -109,20 +104,14 @@ class BlockCss {
 			$slug = str_replace( 'wp-block-', '', $handle );
 			$file = $dir . $slug . '.css';
 
-			if ( ! isset( $file_cache[ $file ] ) ) {
-				if ( ! file_exists( $file ) ) {
-					$file_cache[ $file ] = false;
-					continue;
-				}
-
-				$file_cache[ $file ] = trim( file_get_contents( $file ) );
-			}
-
-			$css = $file_cache[ $file ];
-
-			if ( $css === false ) {
+			if ( ! file_exists( $file ) ) {
 				continue;
 			}
+
+			$css = trim( file_get_contents( $file ) );
+
+			// Remove zero width spaces and other invisible characters.
+			$css = preg_replace( '/^[\pZ\pC]+|[\pZ\pC]+$/u', '', $css );
 
 			wp_add_inline_style( $handle, $css );
 		}
@@ -154,7 +143,7 @@ class BlockCss {
 					'handle'  => 'aegis-core-' . $slug,
 					'src'     => $this->css_url . 'core-blocks/' . $basename,
 					'deps'    => [],
-					'version' => Debug::is_enabled() ? filemtime( $file ) : '1.0.0',
+					'version' => '1.0.0',
 					'media'   => 'all',
 					'path'    => $file,
 				]

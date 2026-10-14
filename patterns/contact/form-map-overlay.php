@@ -25,14 +25,14 @@
             <!-- wp:html -->
             <form action="#" method="POST">
                 <!-- NOTE: This is a placeholder form layout. A form plugin (e.g., WPForms, Contact Form 7, Gravity Forms) is required for actual form handling, validation, and security (nonce/CSRF). -->
-                <label for="name"><?php echo esc_html__( 'Name', 'aegis' ); ?></label>
-                <input type="text" id="name" name="name" required>
-                <label for="email"><?php echo esc_html__( 'Email', 'aegis' ); ?></label>
-                <input type="email" id="email" name="email" required>
-                <label for="message"><?php echo esc_html__( 'Message', 'aegis' ); ?></label>
-                <textarea id="message" name="message" rows="6" required></textarea>
+                <label for="contact-form-map-overlay-name"><?php echo esc_html__( 'Name', 'aegis' ); ?></label>
+                <input type="text" id="contact-form-map-overlay-name" name="name" required>
+                <label for="contact-form-map-overlay-email"><?php echo esc_html__( 'Email', 'aegis' ); ?></label>
+                <input type="email" id="contact-form-map-overlay-email" name="email" required>
+                <label for="contact-form-map-overlay-message"><?php echo esc_html__( 'Message', 'aegis' ); ?></label>
+                <textarea id="contact-form-map-overlay-message" name="message" rows="6" required></textarea>
                 <div class="wp-block-buttons is-layout-flex">
-                    <div class="wp-block-button has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="#"><?php echo esc_html__( 'Send', 'aegis' ); ?></a></div>
+                    <div class="wp-block-button has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Send', 'aegis' ); ?></a></div>
                 </div>
             </form>
             <!-- /wp:html -->

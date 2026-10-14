@@ -1,0 +1,629 @@
+/**
+ * Slider Block - Frontend Styles
+ *
+ * @package Aegis
+ * @since   1.0.0
+ */
+
+.wp-block-aegis-slider {
+	position: relative;
+	width: 100%;
+
+	// Single-page (hero): arrows sit over the media.
+	.splide__arrow--prev {
+		left: 1em;
+	}
+
+	.splide__arrow--next {
+		right: 1em;
+	}
+
+	// Multi-page (cards): reserve gutters so chevrons sit outside the slides.
+	&[data-per-page]:not([data-per-page='1']),
+	&.is-arrows-outside {
+		padding-inline: 2.75rem;
+		box-sizing: border-box;
+
+		.splide__arrow--prev {
+			left: 0;
+		}
+
+		.splide__arrow--next {
+			right: 0;
+		}
+	}
+
+	.splide__pagination {
+		bottom: 0.75em;
+		gap: 0.65rem;
+
+		li {
+			margin: 0;
+			line-height: 0;
+		}
+	}
+
+	// Minimal full-slider controls (white chevrons / dots over media).
+	// Do not change `transform` on hover — Splide centers arrows with translateY(-50%).
+	.splide__arrow {
+		width: 2.25em;
+		height: 2.25em;
+		background: transparent;
+		opacity: 0.7;
+		transition: opacity 0.2s ease;
+
+		svg {
+			fill: var(--wp--preset--color--neutral-950, #fff);
+			width: 1.35em;
+			height: 1.35em;
+			filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55));
+			transition: fill 0.2s ease, opacity 0.2s ease;
+		}
+
+		&:hover:not(:disabled) {
+			background: transparent;
+			opacity: 1;
+
+			svg {
+				fill: var(--wp--preset--color--neutral-950, #fff);
+				opacity: 1;
+			}
+		}
+
+		&:disabled {
+			opacity: 0.35;
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--wp--preset--color--neutral-950, #fff);
+			outline-offset: 2px;
+			opacity: 1;
+		}
+	}
+
+	.splide__pagination__page {
+		width: 8px;
+		height: 8px;
+		margin: 0;
+		opacity: 0.45;
+		background: var(--wp--preset--color--neutral-950, #fff);
+		box-shadow: none;
+		transition: opacity 0.2s ease, transform 0.2s ease;
+
+		&.is-active {
+			opacity: 1;
+			background: var(--wp--preset--color--neutral-950, #fff);
+			box-shadow: none;
+			transform: scale(1.15);
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--wp--preset--color--neutral-950, #fff);
+			outline-offset: 4px;
+		}
+	}
+
+	// Keep pagination clear of slide content (testimonials, feature cards, etc.).
+	// Root element is both `.wp-block-aegis-slider` and `.splide`.
+	&:has(> .splide__pagination) > .splide__track {
+		padding-bottom: 2.25rem;
+	}
+
+	// Full-bleed cover heroes keep dots overlaid on the media.
+	&.alignfull:has(.wp-block-cover) > .splide__track,
+	&:has(.wp-block-cover[style*="min-height:600px"]) > .splide__track {
+		padding-bottom: 0;
+	}
+
+	// Slide items — top-align so unequal media does not float mid-card.
+	.splide__slide {
+		display: flex;
+		align-items: stretch;
+		justify-content: center;
+		height: auto;
+
+		> .wp-block-aegis-slide {
+			width: 100%;
+			height: auto;
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+			display: block;
+		}
+
+		.wp-block-image.aligncenter,
+		.wp-block-image.aligncenter.is-resized {
+			width: fit-content;
+			max-width: 100%;
+			height: auto;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.wp-block-image.is-resized:not(.aligncenter) {
+			width: fit-content;
+			max-width: 100%;
+			height: auto;
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		.wp-block-image[style*="border-radius:100%"],
+		.wp-block-image[style*="border-radius: 100%"],
+		.wp-block-image[style*="border-radius:50%"],
+		.wp-block-image[style*="border-radius: 50%"] {
+			width: fit-content;
+			max-width: 100%;
+			height: auto;
+			overflow: hidden;
+			border-radius: 100%;
+		}
+
+		.wp-block-image.aligncenter[style*="border-radius"] {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.wp-block-image.has-custom-border,
+		.wp-block-image.is-placeholder {
+			overflow: hidden;
+		}
+
+		// Circular avatars only — keep authored aspect-ratio for book covers etc.
+		.wp-block-image img[style*="border-radius:100%"],
+		.wp-block-image img[style*="border-radius: 100%"],
+		.wp-block-image[style*="border-radius:100%"] img,
+		.wp-block-image[style*="border-radius: 100%"] img,
+		.wp-block-image[style*="border-radius:50%"] img,
+		.wp-block-image[style*="border-radius: 50%"] img {
+			aspect-ratio: 1;
+			object-fit: cover;
+			height: auto;
+			border-radius: inherit;
+		}
+
+		.wp-block-image img[style*="aspect-ratio"] {
+			object-fit: cover;
+			height: auto;
+			max-width: 100%;
+		}
+
+		.wp-block-image.is-placeholder {
+			aspect-ratio: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+}
+
+// Editor styles.
+.aegis-slider-editor {
+	--aegis-slider-per-page: 1;
+	border: 1px dashed currentcolor;
+	border-radius: 4px;
+	padding: 16px;
+
+	&__label {
+		font-size: 12px;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		margin-bottom: 12px;
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+
+	&__badge {
+		font-size: 11px;
+		background: rgba(0, 0, 0, 0.08);
+		padding: 2px 8px;
+		border-radius: 3px;
+	}
+
+	&__preview {
+		width: 100%;
+	}
+
+	&__viewport {
+		display: flex;
+		align-items: stretch;
+		gap: 8px;
+		width: 100%;
+		min-width: 0;
+	}
+
+	// Multi-page editor: extra space so chevrons sit outside the cards.
+	&:not(.is-single-page) &__viewport {
+		gap: 12px;
+		padding-inline: 4px;
+	}
+
+	&:not(.is-single-page) &__arrow {
+		flex: 0 0 2.5em;
+	}
+
+	&__list,
+	&__list > .block-editor-block-list__layout {
+		display: flex !important;
+		flex-direction: row !important;
+		flex-wrap: nowrap !important;
+		align-items: stretch;
+		gap: 12px;
+		flex: 1 1 auto;
+		min-width: 0;
+		width: 100%;
+		max-width: 100%;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scroll-behavior: smooth;
+		box-sizing: border-box;
+	}
+
+	.block-editor-block-list__block.wp-block-aegis-slide,
+	.wp-block-aegis-slide {
+		--aegis-slide-basis: calc(
+			(100% - (var(--aegis-slider-per-page) - 1) * 12px) / var(--aegis-slider-per-page)
+		);
+		flex: 0 0 var(--aegis-slide-basis);
+		width: var(--aegis-slide-basis);
+		max-width: var(--aegis-slide-basis);
+		min-width: var(--aegis-slide-basis);
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		align-self: stretch;
+		scroll-snap-align: start;
+		scroll-snap-stop: always;
+		box-sizing: border-box;
+		justify-content: center;
+	}
+
+	// Single-slide sliders: one full centered slide (matches frontend).
+	&.is-single-page {
+		.block-editor-block-list__block.wp-block-aegis-slide,
+		.wp-block-aegis-slide {
+			--aegis-slide-basis: 100%;
+		}
+	}
+
+	// Editor: keep resized / circular avatars shrink-wrapped and circular.
+	// Only center with margin:auto when explicitly aligncenter — otherwise flex
+	// author rows (avatar + name) get a huge gap from auto margins.
+	.wp-block-image.aligncenter,
+	.wp-block-image.aligncenter.is-resized {
+		width: fit-content;
+		max-width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.wp-block-image.is-resized:not(.aligncenter) {
+		width: fit-content;
+		max-width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.wp-block-image[style*="border-radius:100%"],
+	.wp-block-image[style*="border-radius: 100%"],
+	.wp-block-image[style*="border-radius:50%"],
+	.wp-block-image[style*="border-radius: 50%"],
+	.wp-block-image.is-placeholder[style*="border-radius"] {
+		overflow: hidden;
+		border-radius: 100%;
+		width: fit-content;
+		max-width: 100%;
+		height: auto;
+		aspect-ratio: 1;
+	}
+
+	.wp-block-image[style*="border-radius"]:not(.aligncenter) {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.wp-block-image[style*="border-radius:100%"] img,
+	.wp-block-image[style*="border-radius: 100%"] img,
+	.wp-block-image[style*="border-radius:50%"] img,
+	.wp-block-image[style*="border-radius: 50%"] img,
+	.wp-block-image[style*="border-radius:100%"] .components-resizable-box__container,
+	.wp-block-image[style*="border-radius: 100%"] .components-resizable-box__container,
+	.wp-block-image[style*="border-radius:50%"] .components-resizable-box__container,
+	.wp-block-image[style*="border-radius: 50%"] .components-resizable-box__container,
+	.wp-block-image[style*="border-radius:100%"] .components-resizable-box__container img,
+	.wp-block-image[style*="border-radius: 100%"] .components-resizable-box__container img,
+	.wp-block-image[style*="border-radius:50%"] .components-resizable-box__container img,
+	.wp-block-image[style*="border-radius: 50%"] .components-resizable-box__container img {
+		aspect-ratio: 1;
+		object-fit: cover;
+		border-radius: 100%;
+		height: auto;
+		max-width: 100%;
+	}
+
+	.wp-block-image.is-placeholder {
+		aspect-ratio: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__arrow {
+		flex: 0 0 2.25em;
+		align-self: center;
+		width: 2.25em;
+		height: 2.25em;
+		border-radius: 0;
+		background: transparent;
+		opacity: 0.75;
+		pointer-events: none;
+		position: relative;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 0.55em;
+			height: 0.55em;
+			border-right: 2px solid currentcolor;
+			border-bottom: 2px solid currentcolor;
+			opacity: 0.9;
+		}
+
+		&.is-prev::before {
+			transform: translate(-35%, -50%) rotate(135deg);
+		}
+
+		&.is-next::before {
+			transform: translate(-65%, -50%) rotate(-45deg);
+		}
+	}
+
+	&__dots {
+		display: flex;
+		justify-content: center;
+		gap: 8px;
+		margin-top: 28px;
+		pointer-events: none;
+
+		span {
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: currentcolor;
+			opacity: 0.35;
+
+			&.is-active {
+				opacity: 1;
+				transform: scale(1.15);
+			}
+		}
+	}
+}
+
+// Rounded portfolio / cover slides clip media to the radius.
+.wp-block-aegis-slide .wp-block-cover[style*="border-radius"],
+.aegis-slider-editor .wp-block-cover[style*="border-radius"] {
+	overflow: hidden;
+}
+
+// Empty covers (no media yet) need a visible surface so cards don't vanish into the page.
+.wp-block-aegis-slider .wp-block-cover:not(:has(img)):not(:has(video)):not(:has(.wp-block-cover__image-background)),
+.wp-block-aegis-slide .wp-block-cover:not(:has(img)):not(:has(video)):not(:has(.wp-block-cover__image-background)),
+.aegis-slider-editor .wp-block-cover:not(:has(img)):not(:has(video)):not(:has(.wp-block-cover__image-background)) {
+	background-color: var(--wp--preset--color--neutral-100, #18181b);
+}
+
+// Empty / src-less image placeholders (book covers, avatars) keep aspect box on frontend.
+.wp-block-aegis-slider .wp-block-image:has(img:not([src])),
+.wp-block-aegis-slider .wp-block-image:has(img[src=""]),
+.wp-block-aegis-slide .wp-block-image:has(img:not([src])),
+.wp-block-aegis-slide .wp-block-image:has(img[src=""]),
+.aegis-slider-editor .wp-block-image:has(img:not([src])),
+.aegis-slider-editor .wp-block-image:has(img[src=""]) {
+	width: 100%;
+	background-color: var(--wp--preset--color--neutral-100, #18181b);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	img {
+		width: 100%;
+		min-height: 8rem;
+		object-fit: cover;
+		background-color: var(--wp--preset--color--neutral-100, #18181b);
+	}
+}
+
+.wp-block-aegis-slider .wp-block-image:has(img[style*="aspect-ratio:2/3"]):has(img:not([src])),
+.wp-block-aegis-slider .wp-block-image:has(img[style*="aspect-ratio: 2/3"]):has(img:not([src])),
+.wp-block-aegis-slide .wp-block-image:has(img[style*="aspect-ratio:2/3"]):has(img:not([src])),
+.wp-block-aegis-slide .wp-block-image:has(img[style*="aspect-ratio: 2/3"]):has(img:not([src])) {
+	aspect-ratio: 2 / 3;
+
+	img {
+		aspect-ratio: 2 / 3;
+		min-height: 0;
+		height: auto;
+	}
+}
+
+// Screen reader live region for slide announcements.
+.splide__sr {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+// Slider lightbox overlay (opened from view.ts when lightbox is enabled).
+.wp-lightbox-overlay.aegis-slider-lightbox {
+	position: fixed;
+	inset: 0;
+	z-index: 100000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	padding: 4rem 3.5rem;
+	visibility: hidden;
+	cursor: zoom-out;
+	background-color: color-mix(
+		in srgb,
+		var(--wp--custom--body--background, var(--wp--preset--color--neutral-0, #fff)) 92%,
+		transparent
+	);
+	color: var(--wp--custom--body--color, var(--wp--preset--color--neutral-700, currentColor));
+
+	&.active {
+		visibility: visible;
+	}
+
+	button {
+		border: none;
+		background: none;
+		padding: 0;
+		color: inherit;
+		cursor: pointer;
+	}
+
+	.wp-block-image {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0;
+		max-width: min(92vw, 1200px);
+		max-height: min(88vh, 900px);
+	}
+
+	.wp-block-image img {
+		display: block;
+		width: auto;
+		height: auto;
+		max-width: min(92vw, 1200px);
+		max-height: min(88vh, 900px);
+		object-fit: contain;
+	}
+
+	.close-button {
+		position: absolute;
+		top: calc(env(safe-area-inset-top, 0px) + 16px);
+		right: calc(env(safe-area-inset-right, 0px) + 16px);
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		line-height: 1;
+
+		svg {
+			display: block;
+			width: 24px;
+			height: 24px;
+			stroke: currentColor;
+		}
+	}
+
+	.aegis-lightbox-nav {
+		position: absolute;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+		line-height: 1;
+
+		svg {
+			display: block;
+			width: 24px;
+			height: 24px;
+			stroke: currentColor;
+		}
+
+		@media (min-width: 960px) {
+			bottom: 50%;
+			transform: translateY(-50%);
+		}
+	}
+
+	.aegis-lightbox-prev {
+		left: calc(env(safe-area-inset-left, 0px) + 16px);
+	}
+
+	.aegis-lightbox-next {
+		right: calc(env(safe-area-inset-right, 0px) + 16px);
+	}
+
+	.aegis-lightbox-counter {
+		position: absolute;
+		left: calc(env(safe-area-inset-left, 0px) + 16px);
+		bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+		z-index: 2;
+		font-size: 0.875rem;
+		line-height: 1;
+		pointer-events: none;
+	}
+
+	.aegis-lightbox-caption {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 2;
+		margin: 0;
+		padding: 0.75rem 1.25rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
+		color: #fff;
+		background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+		font-size: 0.95rem;
+		line-height: 1.4;
+		text-align: center;
+		pointer-events: none;
+	}
+}
+
+// Reduced motion.
+@media (prefers-reduced-motion: reduce) {
+
+	.wp-block-aegis-slider {
+
+		.splide__arrow,
+		.splide__pagination__page {
+			transition: none;
+		}
+
+		.splide__track {
+			transition-duration: 0s !important;
+		}
+	}
+}
+
+// High contrast.
+@media (forced-colors: active) {
+
+	.wp-block-aegis-slider {
+
+		.splide__arrow {
+			border: 1px solid ButtonText;
+		}
+
+		.splide__pagination__page {
+			border: 1px solid ButtonText;
+
+			&.is-active {
+				background: Highlight;
+			}
+		}
+	}
+}

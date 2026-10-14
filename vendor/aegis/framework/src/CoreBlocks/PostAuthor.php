@@ -17,20 +17,19 @@
  * documentation update.
  */
 
-// Enforces strict type checking for all code in this file, ensuring type safety for core blocks.
-declare(strict_types=1);
+// Enforces strict type checking for all code in this file, ensuring type safety for post author block.
+declare( strict_types=1 );
 
-// Declares the namespace for core blocks within the Aegis Framework.
+// Declares the namespace for the post author block.
 namespace Aegis\Framework\CoreBlocks;
 
-// Imports utility classes and interfaces for DOM manipulation, CSS helpers, and renderable blocks.
+// Imports classes, interfaces, and functions used by the post author block.
 use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
 use function str_replace;
 
-// Implements the PostAuthor class to support post author block rendering.
 
 /**
  * Handles the rendering of the core/post-author block.
@@ -42,8 +41,7 @@ use function str_replace;
  * @package Aegis\Framework\CoreBlocks
  * @since   1.0.0
  */
-class PostAuthor implements Renderable
-{
+class PostAuthor implements Renderable {
 
 	/**
 	 * Renders the post-author block with custom enhancements.
@@ -62,42 +60,41 @@ class PostAuthor implements Renderable
 	 *
 	 * @return string The modified block content.
 	 */
-	public function render(string $block_content, array $block, WP_Block $instance): string
-	{
-		$dom = DOM::create($block_content);
-		$div = DOM::get_element('div', $dom);
+	public function render( string $block_content, array $block, WP_Block $instance ): string {
+		$dom    = DOM::create( $block_content );
+		$div    = DOM::get_element( 'div', $dom );
 		$styles = [];
 
-		if (!$div) {
+		if ( ! $div ) {
 			return $block_content;
 		}
 
-		$style = $div->getAttribute('style');
+		$style = $div->getAttribute( 'style' );
 
 		// Apply custom border styles from block attributes.
-		if ($block['attrs']['style']['border'] ?? null) {
-			$styles['border-width'] = $block['attrs']['style']['border']['width'] ?? null;
-			$styles['border-style'] = $block['attrs']['style']['border']['style'] ?? null;
-			$styles['border-color'] = $block['attrs']['style']['border']['color'] ?? null;
+		if ( $block['attrs']['style']['border'] ?? null ) {
+			$styles['border-width']  = $block['attrs']['style']['border']['width'] ?? null;
+			$styles['border-style']  = $block['attrs']['style']['border']['style'] ?? null;
+			$styles['border-color']  = $block['attrs']['style']['border']['color'] ?? null;
 			$styles['border-radius'] = $block['attrs']['style']['border']['radius'] ?? null;
 		}
 
 		// Apply block gap as a CSS custom property.
 		$gap = $block['attrs']['style']['spacing']['blockGap'] ?? null;
-		if ($gap) {
-			$styles['--wp--style--block-gap'] = CSS::format_custom_property($gap);
+		if ( $gap ) {
+			$styles['--wp--style--block-gap'] = CSS::format_custom_property( $gap );
 		}
 
 		// Append new styles to any existing inline styles.
 		$div->setAttribute(
 			'style',
-			($style ? $style . ';' : '') . CSS::array_to_string($styles)
+			( $style ? $style . ';' : '' ) . CSS::array_to_string( $styles )
 		);
 
 		// Replace the default <p> tag with a <span> for more flexible styling within layouts like flex.
 		return str_replace(
-			['<p ', '</p>'],
-			['<span ', '</span>'],
+			[ '<p ', '</p>' ],
+			[ '<span ', '</span>' ],
 			$dom->saveHTML()
 		);
 	}

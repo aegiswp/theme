@@ -18,10 +18,10 @@ This document provides comprehensive instructions for setting up, developing, bu
 
 Before starting development, ensure you have the following installed:
 
-- **WordPress**: 6.6+ (tested up to 6.9)
+- **WordPress**: 7.0+ (tested up to 7.1.3)
 - **PHP**: 8.1+ with Composer
 - **Node.js**: 20+ (see `.nvmrc` for exact version)
-- **npm**: 9+
+- **npm**: 10+
 - **Git**: For version control
 - **Docker**: For wp-env (recommended for local development)
 
@@ -43,7 +43,7 @@ cd theme
 
 #### Node.js Dependencies
 ```bash
-npm install
+npm ci
 ```
 
 #### PHP Dependencies
@@ -114,10 +114,20 @@ If you prefer other local development tools:
 
 ## Building Assets
 
+Theme-owned blocks (countdown, slider, slide, toggle, toggle-content, related-posts). Video uses **`core/video`** (framework + plugin editor):
+
 ### Production Build
 ```bash
 npm run build
 ```
+
+Map, Modal, admin, and editor assets are built in the companion plugin:
+
+```bash
+cd wp-content/plugins/aegis && npm run build
+```
+
+See [BUILD.md](BUILD.md) and [plugin BUILD.md](../plugins/aegis/BUILD.md).
 
 ### Development Build
 ```bash
@@ -180,21 +190,18 @@ composer run standards:check -- path/to/file.php
 
 ## Testing
 
-### PHP Unit Tests
+### PHP tests (WPAudit)
 ```bash
 composer run test
 # or
 composer run test:php
 # or
 npm run test:php
-```
-
-### WPAudit Tests
-```bash
+# or
 composer run test:wpaudit
 ```
 
-This runs the Aegis internal audit suite.
+This runs the Aegis WPAudit PHPUnit suite in `tools/wpaudit` (same as CI).
 
 ## Contributing
 
@@ -248,8 +255,9 @@ This runs the Aegis internal audit suite.
 
 5. Generate translations:
    ```bash
-   npm run translate
+   npm run translate              # Theme: languages/aegis.pot
    ```
+   In `wp-content/plugins/aegis`, run `npm run translate` (or `translate:studio`) for the plugin POT. Pro has `languages/aegis-pro.pot`.
 
 6. Test thoroughly
 
@@ -270,7 +278,7 @@ Build a release package with `vendor/` included, then deploy the zip file.
 ### Production Considerations
 
 - Ensure PHP 8.1+ on server
-- WordPress 6.6+ recommended
+- WordPress 7.0+ recommended
 - For full functionality, may need Gutenberg plugin
 - Test with target WordPress version
 
@@ -286,7 +294,7 @@ Set custom port in `.wp-env.json` or use `WP_ENV_PORT` environment variable.
 
 #### Build Failures
 - Clear node_modules: `rm -rf node_modules && npm install`
-- Clear build cache: `npm run clean`
+- Clear build cache: `npm run clean` (or `make clean` for a full reset including `node_modules`)
 
 #### Theme Activation Issues
 - Ensure all dependencies are installed
