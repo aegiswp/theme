@@ -23,23 +23,23 @@ interface CountdownLabels {
 	seconds: string;
 }
 
-interface CountdownAttributes {
+export type CountdownAttributes = {
 	datetime: string;
 	showDays: boolean;
 	showHours: boolean;
 	showMinutes: boolean;
 	showSeconds: boolean;
 	labels: CountdownLabels;
-	separator: string;
-	layout: string;
+	separator: 'colon' | 'dot' | 'dash' | 'none';
+	layout: 'inline' | 'stacked';
 	expiryMessage: string;
-	timezone: string;
+	timezone: 'utc' | 'local';
 	schemaEnabled: boolean;
 	schemaEventName: string;
 	schemaEventDescription: string;
 	schemaEventLocation: string;
 	schemaEventUrl: string;
-}
+};
 
 interface EditProps {
 	attributes: CountdownAttributes;
@@ -179,7 +179,8 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 			return;
 		}
 
-		const tick = () => setTime( getTimeRemaining( datetime, previewTimezone ) );
+		const tick = () =>
+			setTime( getTimeRemaining( datetime, previewTimezone ) );
 		tick();
 		const id = setInterval( tick, 1000 );
 		return () => clearInterval( id );
@@ -344,122 +345,126 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 				) }
 
 				{ extras.labels && (
-				<PanelBody
-					title={ __( 'Labels', 'aegis' ) }
-					initialOpen={ false }
-				>
-					<TextControl
-						label={ __( 'Days Label', 'aegis' ) }
-						value={ labels.days }
-						onChange={ ( value ) =>
-							setAttributes( {
-								labels: { ...labels, days: value },
-							} )
-						}
-					/>
-					<TextControl
-						label={ __( 'Hours Label', 'aegis' ) }
-						value={ labels.hours }
-						onChange={ ( value ) =>
-							setAttributes( {
-								labels: { ...labels, hours: value },
-							} )
-						}
-					/>
-					<TextControl
-						label={ __( 'Minutes Label', 'aegis' ) }
-						value={ labels.minutes }
-						onChange={ ( value ) =>
-							setAttributes( {
-								labels: { ...labels, minutes: value },
-							} )
-						}
-					/>
-					<TextControl
-						label={ __( 'Seconds Label', 'aegis' ) }
-						value={ labels.seconds }
-						onChange={ ( value ) =>
-							setAttributes( {
-								labels: { ...labels, seconds: value },
-							} )
-						}
-					/>
-				</PanelBody>
+					<PanelBody
+						title={ __( 'Labels', 'aegis' ) }
+						initialOpen={ false }
+					>
+						<TextControl
+							label={ __( 'Days Label', 'aegis' ) }
+							value={ labels.days }
+							onChange={ ( value ) =>
+								setAttributes( {
+									labels: { ...labels, days: value },
+								} )
+							}
+						/>
+						<TextControl
+							label={ __( 'Hours Label', 'aegis' ) }
+							value={ labels.hours }
+							onChange={ ( value ) =>
+								setAttributes( {
+									labels: { ...labels, hours: value },
+								} )
+							}
+						/>
+						<TextControl
+							label={ __( 'Minutes Label', 'aegis' ) }
+							value={ labels.minutes }
+							onChange={ ( value ) =>
+								setAttributes( {
+									labels: { ...labels, minutes: value },
+								} )
+							}
+						/>
+						<TextControl
+							label={ __( 'Seconds Label', 'aegis' ) }
+							value={ labels.seconds }
+							onChange={ ( value ) =>
+								setAttributes( {
+									labels: { ...labels, seconds: value },
+								} )
+							}
+						/>
+					</PanelBody>
 				) }
 
 				{ extras.expiryMessage && (
-				<PanelBody
-					title={ __( 'Expiry', 'aegis' ) }
-					initialOpen={ false }
-				>
-					<TextControl
-						label={ __( 'Expiry Message', 'aegis' ) }
-						value={ expiryMessage }
-						onChange={ ( value ) =>
-							setAttributes( { expiryMessage: value } )
-						}
-						help={ __(
-							'Text displayed when the countdown reaches zero. Leave empty to keep showing 00:00:00.',
-							'aegis'
-						) }
-					/>
-				</PanelBody>
+					<PanelBody
+						title={ __( 'Expiry', 'aegis' ) }
+						initialOpen={ false }
+					>
+						<TextControl
+							label={ __( 'Expiry Message', 'aegis' ) }
+							value={ expiryMessage }
+							onChange={ ( value ) =>
+								setAttributes( { expiryMessage: value } )
+							}
+							help={ __(
+								'Text displayed when the countdown reaches zero. Leave empty to keep showing 00:00:00.',
+								'aegis'
+							) }
+						/>
+					</PanelBody>
 				) }
 
 				{ extras.schema && (
-				<PanelBody
-					title={ __( 'Schema.org Event', 'aegis' ) }
-					initialOpen={ false }
-				>
-					<ToggleControl
-						label={ __( 'Enable Event Schema', 'aegis' ) }
-						checked={ schemaEnabled }
-						onChange={ ( value ) =>
-							setAttributes( { schemaEnabled: value } )
-						}
-						help={ __(
-							'Add Schema.org Event structured data for search engines.',
-							'aegis'
+					<PanelBody
+						title={ __( 'Schema.org Event', 'aegis' ) }
+						initialOpen={ false }
+					>
+						<ToggleControl
+							label={ __( 'Enable Event Schema', 'aegis' ) }
+							checked={ schemaEnabled }
+							onChange={ ( value ) =>
+								setAttributes( { schemaEnabled: value } )
+							}
+							help={ __(
+								'Add Schema.org Event structured data for search engines.',
+								'aegis'
+							) }
+						/>
+						{ schemaEnabled && (
+							<>
+								<TextControl
+									label={ __( 'Event Name', 'aegis' ) }
+									value={ schemaEventName }
+									onChange={ ( value ) =>
+										setAttributes( {
+											schemaEventName: value,
+										} )
+									}
+								/>
+								<TextControl
+									label={ __( 'Description', 'aegis' ) }
+									value={ schemaEventDescription }
+									onChange={ ( value ) =>
+										setAttributes( {
+											schemaEventDescription: value,
+										} )
+									}
+								/>
+								<TextControl
+									label={ __( 'Location', 'aegis' ) }
+									value={ schemaEventLocation }
+									onChange={ ( value ) =>
+										setAttributes( {
+											schemaEventLocation: value,
+										} )
+									}
+								/>
+								<TextControl
+									label={ __( 'Event URL', 'aegis' ) }
+									value={ schemaEventUrl }
+									onChange={ ( value ) =>
+										setAttributes( {
+											schemaEventUrl: value,
+										} )
+									}
+									type="url"
+								/>
+							</>
 						) }
-					/>
-					{ schemaEnabled && (
-						<>
-							<TextControl
-								label={ __( 'Event Name', 'aegis' ) }
-								value={ schemaEventName }
-								onChange={ ( value ) =>
-									setAttributes( { schemaEventName: value } )
-								}
-							/>
-							<TextControl
-								label={ __( 'Description', 'aegis' ) }
-								value={ schemaEventDescription }
-								onChange={ ( value ) =>
-									setAttributes( {
-										schemaEventDescription: value,
-									} )
-								}
-							/>
-							<TextControl
-								label={ __( 'Location', 'aegis' ) }
-								value={ schemaEventLocation }
-								onChange={ ( value ) =>
-									setAttributes( {
-										schemaEventLocation: value,
-									} )
-								}
-							/>
-							<TextControl
-								label={ __( 'Event URL', 'aegis' ) }
-								value={ schemaEventUrl }
-								onChange={ ( value ) =>
-									setAttributes( { schemaEventUrl: value } )
-								}
-								type="url"
-							/>
-						</>
-					) }
-				</PanelBody>
+					</PanelBody>
 				) }
 			</InspectorControls>
 

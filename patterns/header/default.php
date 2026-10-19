@@ -40,7 +40,7 @@
 					style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm);backdrop-filter:blur(16px)">
 					<!-- wp:group {"style":{"width":"","spacing":{"padding":{"top":"0"},"margin":{"top":"0"}},"display":"","order":"","maxWidth":"","zIndex":{"all":"1"},"position":{"all":"relative"}},"layout":{"type":"default"}} -->
 					<div class="wp-block-group" style="margin-top:0;padding-top:0">
-						<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search this site","width":100,"widthUnit":"%","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"style":{"maxWidth":{"all":"90vw"},"width":{"all":"600px"}},"textColor":"currentColor"} /-->
+						<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search this site","width":100,"widthUnit":"%","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"style":{"maxWidth":{"all":"90vw"},"width":{"all":"600px"}},"textColor":"current"} /-->
 					</div>
 					<!-- /wp:group -->
 				</div>
@@ -52,17 +52,15 @@
 				</div>
 				<!-- /wp:buttons -->
 
-				<!-- wp:woocommerce/customer-account {"displayStyle":"icon_only","iconStyle":"line","iconClass":"wc-block-customer-account__account-icon","style":{"typography":{"fontSize":"var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dfont-size\u002d\u002d14)"}}} /-->
-
 				<!-- wp:woocommerce/mini-cart {"style":{"typography":{"fontSize":"var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dfont-size\u002d\u002d14)"}}} /-->
+
+				<!-- wp:woocommerce/customer-account {"displayStyle":"icon_only","iconStyle":"line","iconClass":"wc-block-customer-account__account-icon","style":{"typography":{"fontSize":"var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dfont-size\u002d\u002d14)"}}} /-->
 
 				<!-- wp:buttons {"style":{"spacing":{"blockGap":"12px"},"display":{"all":""}},"layout":{"type":"flex","justifyContent":"right","flexWrap":"nowrap","orientation":"horizontal"}} -->
 				<div class="wp-block-buttons">
-					<!-- wp:button {"className":"is-hide-mobile nowrap is-style-ghost","style":{"display":{"mobile":"none","all":"none"},"typography":{"lineHeight":"2"}},"onclick":"","layout":{"orientation":"horizontal"},"size":"small","iconSize":"20","iconPosition":"end"} /-->
-
-					<!-- wp:button {"className":"is-hide-mobile nowrap is-style-ghost","style":{"display":{"mobile":"none","all":""},"typography":{"lineHeight":"2"}},"onclick":"","layout":{"orientation":"horizontal"},"size":"small","iconSet":"WordPress","iconName":"comment-author-avatar","iconSize":"20px","iconPosition":"end","iconSvgString":"\u003csvg xmlns=\u0022http://www.w3.org/2000/svg\u0022 viewBox=\u00220 0 24 24\u0022 role=\u0022img\u0022 aria-labelledby=\u0022icon-696a106f33482\u0022 data-icon=\u0022wordpress-comment-author-avatar\u0022 width=\u002224\u0022 height=\u002224\u0022 fill=\u0022currentColor\u0022\u003e\u003ctitle id=\u0022icon-696a106f33482\u0022\u003eComment Author Avatar Icon\u003c/title\u003e\u003cpath fill-rule=\u0022evenodd\u0022 d=\u0022M7.25 16.437a6.5 6.5 0 1 1 9.5 0V16A2.75 2.75 0 0 0 14 13.25h-4A2.75 2.75 0 0 0 7.25 16v.437Zm1.5 1.193a6.47 6.47 0 0 0 3.25.87 6.47 6.47 0 0 0 3.25-.87V16c0-.69-.56-1.25-1.25-1.25h-4c-.69 0-1.25.56-1.25 1.25v1.63ZM4 12a8 8 0 1 1 16 0 8 8 0 0 1-16 0Zm10-2a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z\u0022 clip-rule=\u0022evenodd\u0022\u003e\u003c/path\u003e\u003c/svg\u003e"} /-->
-
-					<!-- wp:button {"className":"is-hide-mobile nowrap is-style-fill","style":{"display":{"mobile":"none"},"typography":{"lineHeight":"2"}},"onclick":"","size":"small","iconSet":"WordPress","iconName":"people","iconSize":"20px","iconPosition":"end","iconSvgString":"\u003csvg xmlns=\u0022http://www.w3.org/2000/svg\u0022 viewBox=\u00220 0 24 24\u0022 role=\u0022img\u0022 aria-labelledby=\u0022icon-696a106f6515d\u0022 data-icon=\u0022wordpress-people\u0022 width=\u002224\u0022 height=\u002224\u0022 fill=\u0022currentColor\u0022\u003e\u003ctitle id=\u0022icon-696a106f6515d\u0022\u003ePeople Icon\u003c/title\u003e\u003cpath fill-rule=\u0022evenodd\u0022 d=\u0022M15.5 9.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm-2.25 6v-2a2.75 2.75 0 0 0-2.75-2.75h-4A2.75 2.75 0 0 0 3.75 15v2h1.5v-2c0-.69.56-1.25 1.25-1.25h4c.69 0 1.25.56 1.25 1.25v2h1.5zm7-2v2h-1.5v-2c0-.69-.56-1.25-1.25-1.25H15v-1.5h2.5A2.75 2.75 0 0 1 20.25 15zM9.5 8.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm1.5 0a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z\u0022\u003e\u003c/path\u003e\u003c/svg\u003e"} /-->
+					<!-- wp:button {"className":"is-hide-mobile nowrap is-style-fill","style":{"display":{"mobile":"none"},"typography":{"lineHeight":"2"}},"onclick":"","size":"small","iconSet":"WordPress","iconName":"mail","iconSize":"20px","iconPosition":"end","iconSvgString":"\u003csvg xmlns=\u0022http://www.w3.org/2000/svg\u0022 viewBox=\u00220 0 24 24\u0022 role=\u0022img\u0022 aria-labelledby=\u0022icon-header-contact\u0022 data-icon=\u0022wordpress-mail\u0022 width=\u002224\u0022 height=\u002224\u0022 fill=\u0022currentColor\u0022\u003e\u003ctitle id=\u0022icon-header-contact\u0022\u003eMail Icon\u003c/title\u003e\u003cpath d=\u0022M19 5H5c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zM4.5 7c0-.3.2-.5.5-.5h14c.3 0 .5.2.5.5v1.3l-7.6 4.4-7.4-4.3V7zm15 8.6V17c0 .3-.2.5-.5.5H5c-.3 0-.5-.2-.5-.5v-6.9l5.9 3.4 1.5.9 1.5-.9 6.1-3.5v5.6z\u0022\u003e\u003c/path\u003e\u003c/svg\u003e"} -->
+					<div class="wp-block-button is-hide-mobile nowrap is-style-fill"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" style="line-height:2"><?php echo esc_html__( 'Contact', 'aegis' ); ?></a></div>
+					<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
 

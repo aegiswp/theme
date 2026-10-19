@@ -18,7 +18,6 @@ updates:
       wordpress-dependencies:
         patterns:
           - "@wordpress/*"
-        dependency-type: "production"
       development-dependencies:
         dependency-type: "development"
 

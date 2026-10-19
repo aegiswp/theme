@@ -9,8 +9,11 @@ import { registerBlockType } from '@wordpress/blocks';
 import { SVG, Path, Circle } from '@wordpress/primitives';
 
 import Edit from './edit';
+import type { CountdownAttributes } from './edit';
 import save from './save';
+import type { BlockConfiguration } from '@wordpress/blocks';
 import metadata from './block.json';
+import './style.scss';
 
 const icon = (
 	<SVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -40,8 +43,11 @@ const icon = (
 	</SVG>
 );
 
-registerBlockType( metadata.name, {
-	icon,
-	edit: Edit,
-	save,
-} );
+registerBlockType< CountdownAttributes >(
+	metadata as unknown as BlockConfiguration< CountdownAttributes >,
+	{
+		icon,
+		edit: Edit,
+		save,
+	}
+);

@@ -24,7 +24,39 @@ The default Aegis header includes:
 - **Site Title** — The site name, linked to the homepage.
 - **Navigation** — The primary navigation menu.
 - **Search** — An optional search toggle.
+- **Contact** — A button with a mail icon that links to your site's `/contact/` page. It is hidden on phones. Create a page with the slug `contact`, or edit the button's link.
 - **Dark Mode Toggle** — An optional button to switch between light and dark modes.
+
+### Sticky Header
+
+The header stays fixed at the top of the screen while visitors scroll. On desktop it sits just below the WordPress admin bar when you are logged in; on phones (600px and narrower) it sticks to the very top, because the admin bar scrolls away there. The header has an opaque background so content doesn't show through it.
+
+The behavior comes from `settings.custom.header` in `theme.json`:
+
+| Key | Default | CSS variable |
+|-----|---------|--------------|
+| `position` | `sticky` | `--wp--custom--header--position` |
+| `top` | `var(--wp-admin--admin-bar--height, 0px)` | `--wp--custom--header--top` |
+| `zIndex` | `100` | `--wp--custom--header--z-index` |
+| `background` | `var(--wp--preset--color--neutral-0)` | `--wp--custom--header--background` |
+| `scrollPadding` | `5rem` | `--wp--custom--header--scroll-padding` |
+
+`scrollPadding` keeps in-page links and keyboard focus from landing under the header; raise it if your header is taller than 80px.
+
+To turn the sticky header off, set `position` to `relative` and `scrollPadding` to `0` in a child theme's `theme.json` or a style variation:
+
+```json
+{
+  "version": 3,
+  "settings": {
+    "custom": {
+      "header": { "position": "relative", "scrollPadding": "0" }
+    }
+  }
+}
+```
+
+A header given its own position in the block settings (a `has-position-*` class) keeps that setting instead.
 
 ### Editing the Header
 
@@ -41,6 +73,7 @@ The default Aegis header includes:
 | Change the logo | Click the Site Logo block and replace the image. |
 | Edit navigation items | Click the Navigation block and use the toolbar to add or remove items. |
 | Hide the search icon | Select the Search block and remove it. |
+| Change the Contact link | Select the Contact button and edit its link. |
 | Add a CTA button | Insert a Buttons block after the Navigation block. |
 | Change header width | Select the outer Group block and adjust alignment (wide or full). |
 
@@ -69,6 +102,14 @@ The default Aegis footer includes:
 | Add social links | Insert a Social Icons block and configure your profiles. |
 | Change column count | Adjust the Columns block layout (2, 3, or 4 columns). |
 | Add a newsletter form | Insert a newsletter pattern from the Newsletter category. |
+
+### Empty Footer Navigation
+
+A Navigation block with no menu assigned normally falls back to a list of **every** published page. On sites with many pages (or with bbPress forums), that fallback made the footer grow out of control.
+
+Since 1.0.1, the theme (`src/NavigationFallback.php`) replaces that page-list fallback with a short sample menu: **Home**, **Blog** (`/blog/`), **About** (`/about/`), and **Contact** (`/contact/`). This applies to any Navigation block whose fallback would be only a Page List, in the header as well as the footer.
+
+To show your own links, select the Navigation block and choose or create a menu. Once a menu is assigned, the sample links no longer appear.
 
 ## Sidebar
 

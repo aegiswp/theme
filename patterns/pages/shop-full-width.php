@@ -44,31 +44,25 @@
 
 			<!-- wp:woocommerce/filter-wrapper {"filterType":"stock-filter","heading":"<?php echo esc_attr__( 'Availability', 'aegis' ); ?>"} -->
 			<div class="wp-block-woocommerce-filter-wrapper">
-				<!-- wp:woocommerce/stock-filter {"heading":"<?php echo esc_attr__( 'Availability', 'aegis' ); ?>","lock":{"remove":true}} -->
-				<div class="wp-block-woocommerce-stock-filter is-loading" data-show-counts="true" data-heading="<?php echo esc_attr__( 'Availability', 'aegis' ); ?>" data-heading-level="3">
-					<span aria-hidden="true" class="wc-block-product-categories__placeholder"></span>
-				</div>
-				<!-- /wp:woocommerce/stock-filter -->
+				<!-- wp:woocommerce/stock-filter {"heading":"<?php echo esc_attr__( 'Availability', 'aegis' ); ?>","lock":{"remove":true},"showCounts":true,"headingLevel":3} -->
+<div class="wp-block-woocommerce-stock-filter is-loading"></div>
+<!-- /wp:woocommerce/stock-filter -->
 			</div>
 			<!-- /wp:woocommerce/filter-wrapper -->
 
 			<!-- wp:woocommerce/filter-wrapper {"filterType":"rating-filter","heading":"<?php echo esc_attr__( 'Rating', 'aegis' ); ?>"} -->
 			<div class="wp-block-woocommerce-filter-wrapper">
-				<!-- wp:woocommerce/rating-filter {"heading":"<?php echo esc_attr__( 'Rating', 'aegis' ); ?>","lock":{"remove":true}} -->
-				<div class="wp-block-woocommerce-rating-filter is-loading" data-show-counts="true" data-heading="<?php echo esc_attr__( 'Rating', 'aegis' ); ?>" data-heading-level="3">
-					<span aria-hidden="true" class="wc-block-product-categories__placeholder"></span>
-				</div>
-				<!-- /wp:woocommerce/rating-filter -->
+				<!-- wp:woocommerce/rating-filter {"heading":"<?php echo esc_attr__( 'Rating', 'aegis' ); ?>","lock":{"remove":true},"showCounts":true,"headingLevel":3} -->
+<div class="wp-block-woocommerce-rating-filter is-loading"></div>
+<!-- /wp:woocommerce/rating-filter -->
 			</div>
 			<!-- /wp:woocommerce/filter-wrapper -->
 
 			<!-- wp:woocommerce/filter-wrapper {"filterType":"active-filters","heading":"<?php echo esc_attr__( 'Active Filters', 'aegis' ); ?>"} -->
 			<div class="wp-block-woocommerce-filter-wrapper">
-				<!-- wp:woocommerce/active-filters {"heading":"","lock":{"remove":true}} -->
-				<div class="wp-block-woocommerce-active-filters is-loading" data-display-style="chips" data-heading="" data-heading-level="3">
-					<span aria-hidden="true" class="wc-block-active-filters__placeholder"></span>
-				</div>
-				<!-- /wp:woocommerce/active-filters -->
+				<!-- wp:woocommerce/active-filters {"heading":"","lock":{"remove":true},"headingLevel":3,"displayStyle":"chips"} -->
+<div class="wp-block-woocommerce-active-filters is-loading"><span aria-hidden="true" class="wc-block-active-filters__placeholder"></span></div>
+<!-- /wp:woocommerce/active-filters -->
 			</div>
 			<!-- /wp:woocommerce/filter-wrapper -->
 		</div>

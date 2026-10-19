@@ -29,9 +29,9 @@ The script converts `aegis/video` block markup to `core/video` in post content. 
 
 ### Related Posts
 
-The **`core/query` Related Posts** block variation was removed. Replace those blocks with the **`aegis/related-posts`** theme block, or use **`aegisProRelatedPosts`** on Query Loop with [Aegis Pro](../../plugins/aegis-pro/docs/features/query-loop-pro.md) for advanced related-post queries.
+The **`core/query` Related Posts** block variation was removed. Replace those blocks with the **`aegis/related-posts`** theme block, or use **`aegisProRelatedPosts`** on Query Loop with [Aegis Pro (coming soon)](../../../../plugins/aegis-pro/docs/features/query-loop-pro.md) for advanced related-post queries.
 
-There is no parent Related Posts admin toggle. Enable at least one extra at **Aegis → Blocks → Related Posts** to register the theme block and its `blog-related-posts-*` patterns. See [[../blocks/related-posts]].
+Without the companion plugin, the theme block and its `blog-related-posts-*` patterns are always registered. With the companion plugin active, there is no parent Related Posts toggle: enable at least one extra at **Aegis → Blocks → Related Posts** to register the block and its patterns. See [Related Posts Block](../blocks/related-posts.md).
 
 ### Image Icon → `core/icon`
 
@@ -47,13 +47,37 @@ studio wp aegis migrate-icons
 studio wp aegis migrate-icons --dry-run
 ```
 
-The command updates all public post types and `widget_block` widgets. Review headers and patterns in the Site Editor afterward. See [[../features/svg-icons]].
+The command updates all public post types and `widget_block` widgets. Review headers and patterns in the Site Editor afterward. See [SVG Icons](../features/svg-icons.md).
 
 ## Update Methods
 
-### Method 1: Manual Update via Upload
+### Method 1: Automatic Updates From GitHub (Recommended)
 
-1. Download the latest release `.zip` from the [GitHub Releases page](https://github.com/aegiswp/theme/releases/).
+Since 1.0.1, Aegis updates itself from GitHub through the normal WordPress update screens. No plugin or account is needed.
+
+- `style.css` declares `Update URI: https://github.com/aegiswp/theme`, so WordPress does not look for Aegis on WordPress.org.
+- The theme's updater (`src/Admin/GitHubUpdater.php`) reads the latest published release of `aegiswp/theme`. Drafts and pre-releases are skipped.
+- When that release is newer than the installed version, WordPress shows the usual **Update now** link under **Appearance → Themes** and in **Dashboard → Updates**. The release notes open from the update link.
+- The update installs the release asset `aegis.zip`, which contains a single `aegis/` folder, so the theme folder keeps its name.
+- The auto-update toggle on the theme details screen works as for any other theme.
+- Release data is cached for 6 hours (30 minutes after an error) and cleared after any update.
+
+To update:
+
+1. Go to **Dashboard → Updates** (or **Appearance → Themes**).
+2. Click **Update now** for Aegis.
+
+Developers can point the updater at a fork or mirror with the `aegis_theme_update_repository` filter. See [Hooks and Filters](../reference/hooks-and-filters.md#theme-filters).
+
+```php
+add_filter( 'aegis_theme_update_repository', fn() => 'my-org/aegis-fork' );
+```
+
+The repository must publish releases with an `aegis.zip` asset.
+
+### Method 2: Manual Update via Upload
+
+1. Download `aegis.zip` from the latest release on the [GitHub Releases page](https://github.com/aegiswp/theme/releases/).
 2. Navigate to **Appearance → Themes**.
 3. Click **Add New Theme** and then **Upload Theme**.
 4. Select the downloaded `.zip` file.
@@ -61,9 +85,9 @@ The command updates all public post types and `widget_block` widgets. Review hea
 6. When prompted, choose **Replace current with uploaded** to overwrite the existing installation.
 7. Click **Activate** if the theme was deactivated during the process.
 
-### Method 2: Manual Update via FTP
+### Method 3: Manual Update via FTP
 
-1. Download and extract the latest release.
+1. Download and extract `aegis.zip` from the latest release.
 2. Connect to your server via FTP.
 3. Navigate to `wp-content/themes/`.
 4. Rename the existing `aegis` folder to `aegis-backup` (as a safety measure).
@@ -71,7 +95,7 @@ The command updates all public post types and `widget_block` widgets. Review hea
 6. Verify the site works correctly.
 7. Delete the `aegis-backup` folder once confirmed.
 
-### Method 3: Using Git (Development)
+### Method 4: Using Git (Development)
 
 If you installed Aegis via Git:
 
@@ -85,7 +109,7 @@ npm install
 npm run build
 ```
 
-### Method 4: Using Composer
+### Method 5: Using Composer
 
 If you manage Aegis through Composer:
 
@@ -99,8 +123,8 @@ When updating the theme, you should also check for updates to companion plugins:
 
 | Plugin | Update Location |
 |--------|----------------|
-| Aegis Plugin (free) | **Plugins → Installed Plugins** |
-| Aegis Pro | **Plugins → Installed Plugins** or license portal |
+| Aegis Plugin (free) | **Plugins → Installed Plugins**. Install it from the theme's admin notice, which downloads the latest GitHub release |
+| Aegis Pro | Coming soon |
 
 Always update the theme and plugins together to ensure compatibility.
 
@@ -143,7 +167,8 @@ If an update fails:
 1. Check file permissions on the `wp-content/themes/` directory.
 2. Ensure sufficient disk space is available.
 3. Check the PHP error log for specific error messages.
-4. Try the manual FTP method as a fallback.
+4. Try the manual upload or FTP method as a fallback.
+5. If **Update now** never appears, the site may not reach `api.github.com`. Check outgoing HTTP requests in **Tools → Site Health**.
 
 ### Site Broken After Update
 
@@ -159,7 +184,7 @@ If your site does not work correctly after updating:
 To revert to a previous version:
 
 1. Download the previous release from [GitHub Releases](https://github.com/aegiswp/theme/releases/).
-2. Follow the manual update process (Method 1 or Method 2) using the older version file.
+2. Follow the manual update process (Method 2 or Method 3) using the older version file.
 
 ## Staying Informed
 

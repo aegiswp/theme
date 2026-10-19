@@ -129,3 +129,6 @@ auth.json
 .pnpm-store/
 /.kiro
 SUBMISSION-NOTES.md
+
+# Stray temp/scratch files
+_tmp_*

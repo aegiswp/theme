@@ -30,4 +30,3 @@ require_once __DIR__ . '/src/helpers.php';
 Aegis::register( __FILE__ );
 
 \Aegis\Utilities\I18n::register( \Aegis\Utilities\Data::from( __FILE__ ) );
-

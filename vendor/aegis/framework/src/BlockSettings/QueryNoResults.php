@@ -409,9 +409,10 @@ class QueryNoResults implements Renderable, Scriptable, Styleable {
 	 * @return void
 	 */
 	public function scripts( Scripts $scripts ): void {
+		// Closure: translate on output, not at theme load (before init).
 		$scripts->add_data(
 			'queryNoResults',
-			[
+			static fn(): array => [
 				'templates' => [
 					[ 'value' => 'default', 'label' => esc_html__( 'Default', 'aegis' ) ],
 					[ 'value' => 'minimal', 'label' => esc_html__( 'Minimal', 'aegis' ) ],

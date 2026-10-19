@@ -12,8 +12,7 @@
 
 	const INIT_FLAG = 'data-aegis-toggle-init';
 	const BUTTONS = ':scope > .aegis-toggle__control > .aegis-toggle__button';
-	const PANELS =
-		':scope > .aegis-toggle__panels > .aegis-toggle-content';
+	const PANELS = ':scope > .aegis-toggle__panels > .aegis-toggle-content';
 	const CONTROL = ':scope > .aegis-toggle__control';
 	const INDICATOR =
 		':scope > .aegis-toggle__control > .aegis-toggle__indicator';
@@ -56,10 +55,7 @@
 			const isActive =
 				button.getAttribute( 'data-toggle-target' ) === target;
 			button.classList.toggle( 'is-active', isActive );
-			button.setAttribute(
-				'aria-selected',
-				isActive ? 'true' : 'false'
-			);
+			button.setAttribute( 'aria-selected', isActive ? 'true' : 'false' );
 		} );
 
 		if ( ! defersPanelSwap( wrapper ) ) {
@@ -113,11 +109,12 @@
 		}
 
 		const buttons = controlButtons( wrapper );
-		const panels = panelEls( wrapper );
 
 		if ( buttons.length < 2 ) {
 			return;
 		}
+
+		const panels = panelEls( wrapper );
 
 		wrapper.setAttribute( INIT_FLAG, '' );
 
@@ -149,10 +146,7 @@
 			} );
 
 			button.addEventListener( 'keydown', ( event: KeyboardEvent ) => {
-				if (
-					event.key !== 'ArrowLeft' &&
-					event.key !== 'ArrowRight'
-				) {
+				if ( event.key !== 'ArrowLeft' && event.key !== 'ArrowRight' ) {
 					return;
 				}
 
@@ -168,7 +162,8 @@
 
 		const track = wrapper.querySelector< HTMLElement >( TRACK );
 		track?.addEventListener( 'click', () => {
-			const current = wrapper.getAttribute( 'data-active' ) === 'b' ? 'b' : 'a';
+			const current =
+				wrapper.getAttribute( 'data-active' ) === 'b' ? 'b' : 'a';
 			setActive( wrapper, current === 'a' ? 'b' : 'a' );
 		} );
 

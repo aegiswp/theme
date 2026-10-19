@@ -43,6 +43,25 @@ class ConicGradient implements Styleable {
 	 * @return void
 	 */
 	public function styles( Styles $styles ): void {
+		// Callback: read global settings when styles print, not at theme load (before init).
+		$styles->add_callback( [ $this, 'get_styles' ] );
+	}
+
+	/**
+	 * Builds the conic gradient custom properties.
+	 *
+	 * @since 1.0.1
+	 *
+	 * @param string $template_html Global template HTML.
+	 * @param bool   $load_all      Whether to load all styles.
+	 *
+	 * @return string CSS, or an empty string when no conic gradient is used.
+	 */
+	public function get_styles( string $template_html, bool $load_all ): string {
+		if ( ! $load_all && ! str_contains( $template_html, 'custom-conic-' ) ) {
+			return '';
+		}
+
 		$settings  = wp_get_global_settings();
 		$gradients = $settings['color']['gradients']['custom'] ?? [];
 		$style     = [];
@@ -64,10 +83,6 @@ class ConicGradient implements Styleable {
 			$style[ '--wp--preset--gradient--' . $slug ] = $value;
 		}
 
-		if ( $style ) {
-			$css = 'body{' . CSS::array_to_string( $style ) . '}';
-
-			$styles->add_string( $css, [ 'custom-conic-' ] );
-		}
+		return $style ? 'body{' . CSS::array_to_string( $style ) . '}' : '';
 	}
 }

@@ -8,8 +8,8 @@ Ensure the following tools are installed on your machine:
 
 | Tool | Minimum Version | Purpose |
 |------|-----------------|---------|
-| Node.js | 20 or later | JavaScript build tools |
-| npm | 9 or later | Package management |
+| Node.js | 20.18 or later (`.nvmrc` pins 22) | JavaScript build tools |
+| npm | 10 or later | Package management |
 | PHP | 8.1 or later | Theme runtime and testing |
 | Composer | 2 or later | PHP dependency management |
 | Git | Any recent version | Version control |

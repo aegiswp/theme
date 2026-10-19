@@ -9,7 +9,9 @@ import { registerBlockType } from '@wordpress/blocks';
 import { SVG, Path } from '@wordpress/primitives';
 
 import Edit from './edit';
+import type { SliderAttributes } from './edit';
 import save from './save';
+import type { BlockConfiguration } from '@wordpress/blocks';
 import metadata from './block.json';
 import './style.scss';
 
@@ -20,8 +22,11 @@ const icon = (
 	</SVG>
 );
 
-registerBlockType( metadata.name, {
-	icon,
-	edit: Edit,
-	save,
-} );
+registerBlockType< SliderAttributes >(
+	metadata as BlockConfiguration< SliderAttributes >,
+	{
+		icon,
+		edit: Edit,
+		save,
+	}
+);

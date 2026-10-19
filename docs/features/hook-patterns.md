@@ -26,17 +26,17 @@ Examples: `aegis_before_header`, `aegis_after_footer`.
 
 ## Integration-Bridged Hooks
 
-When the **Aegis plugin** integration is enabled, additional hooks are bridged from third-party plugins (WooCommerce checkout/cart, Gravity Forms, Ninja Forms, Fluent Forms, LearnDash, EDD, bbPress forum/topic pairs, Co-Authors Plus, map block, etc.). These appear in the plugin injection catalog but are not fired by the theme alone. Fluent Forms locations: `aegis_before_fluentform` / `aegis_after_fluentform`. Gravity Forms locations: `aegis_before_gform` / `aegis_after_gform` (bridged on `gform_get_form_filter`). Ninja Forms locations: `aegis_before_nf_form` / `aegis_after_nf_form` (bridged on `ninja_forms_before_form_display` and `ninja_forms_after_form_display`). LearnDash locations: `aegis_before/after_learndash_course`, `aegis_before/after_learndash_lesson`, `aegis_before/after_learndash_topic`, `aegis_before/after_learndash_quiz`, and `aegis_learndash_focus_header/footer`. bbPress locations: `aegis_before_bbpress_forum` / `aegis_after_bbpress_forum` (forums loop) and `aegis_before_bbpress_topic` / `aegis_after_bbpress_topic` (single topic). Co-Authors Plus locations: `aegis_before_post_author` / `aegis_after_post_author` (`core/post-author` and `co-authors/block`).
+When the **Aegis plugin** integration is enabled, additional hooks are bridged from third-party plugins (WooCommerce checkout/cart, Gravity Forms, Ninja Forms, Fluent Forms, LearnDash, EDD, bbPress forum/topic pairs, Co-Authors Plus, map block, etc.). These appear in the plugin injection catalog but are not fired by the theme alone. Fluent Forms locations: `aegis_before_fluentform` / `aegis_after_fluentform`. Gravity Forms locations: `aegis_before_gform` / `aegis_after_gform` (bridged on `gform_get_form_filter`). Ninja Forms locations: `aegis_before_nf_form` / `aegis_after_nf_form` (bridged on `ninja_forms_before_form_display` and `ninja_forms_after_form_display`). LearnDash locations: `aegis_before/after_learndash_course`, `aegis_before/after_learndash_lesson`, `aegis_before/after_learndash_topic`, and `aegis_before/after_learndash_quiz`. The two Focus Mode hooks, `aegis_learndash_focus_header` and `aegis_learndash_focus_footer` (argument: `int $course_id`), are different: the theme framework fires them itself (`Integrations/LearnDash.php`), with or without the plugin. bbPress locations: `aegis_before_bbpress_forum` / `aegis_after_bbpress_forum` (forums loop) and `aegis_before_bbpress_topic` / `aegis_after_bbpress_topic` (single topic). Co-Authors Plus locations: `aegis_before_post_author` / `aegis_after_post_author` (`core/post-author` and `co-authors/block`).
 
-See the [Aegis Plugin Hook Patterns documentation](../../plugins/aegis/docs/features/hook-patterns.md).
+See the [Aegis Plugin Hook Patterns documentation](../../../../plugins/aegis/docs/features/hook-patterns.md).
 
 ## Snippets and Code Injection
 
-Attach CSS, JS, HTML, or PHP snippets to any catalogued hook location via **Aegis → Code Snippets**. See [Code Snippets](../../plugins/aegis/docs/features/code-snippets.md) and [Injection Preview](../../plugins/aegis/docs/features/injection-preview.md).
+Attach CSS, JS, HTML, or PHP snippets to any catalogued hook location via **Aegis → Code Snippets**. See [Code Snippets](../../../../plugins/aegis/docs/features/code-snippets.md) and [Injection Preview](../../../../plugins/aegis/docs/features/injection-preview.md).
 
 ## Hook Pattern CPT (Pro)
 
-Managed hook pattern posts that inject block markup at runtime require **Aegis Pro**. See [Hook Patterns Pro](../../plugins/aegis-pro/docs/features/hook-patterns-pro.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki).
+Managed hook pattern posts that inject block markup at runtime require **Aegis Pro**. See [Hook Patterns Pro](../../../../plugins/aegis-pro/docs/features/hook-patterns-pro.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki).
 
 ## Basic Usage
 
@@ -52,6 +52,6 @@ Use WordPress conditional tags to limit context (`is_front_page()`, `is_single()
 
 - [[hooks-and-filters]] — Verified hooks and filters reference
 - [[dynamic-template-parts]] — Contextually swap template part slugs at render time
-- [Plugin Hook Patterns](../../plugins/aegis/docs/features/hook-patterns.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki)
-- [Pro Hook Patterns](../../plugins/aegis-pro/docs/features/hook-patterns-pro.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki)
-- [Code Snippets](../../plugins/aegis/docs/features/code-snippets.md)
+- [Plugin Hook Patterns](../../../../plugins/aegis/docs/features/hook-patterns.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki)
+- [Pro Hook Patterns](../../../../plugins/aegis-pro/docs/features/hook-patterns-pro.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki)
+- [Code Snippets](../../../../plugins/aegis/docs/features/code-snippets.md)

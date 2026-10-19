@@ -5,7 +5,7 @@
  * @since   1.1.0
  */
 
-import { registerBlockType } from '@wordpress/blocks';
+import { registerBlockType, store as blocksStore } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
 import {
 	useBlockProps,
@@ -14,14 +14,9 @@ import {
 } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
 
+import type { BlockConfiguration } from '@wordpress/blocks';
 import metadata from './block.json';
 import './style.scss';
-
-declare global {
-	interface Window {
-		aegisToggleFeatures?: { nested?: boolean };
-	}
-}
 
 interface EditProps {
 	attributes: { slot?: string };
@@ -55,7 +50,7 @@ function Edit( { attributes, context }: EditProps ) {
 				return undefined;
 			}
 
-			return select( 'core/blocks' )
+			return select( blocksStore )
 				.getBlockTypes()
 				.map( ( block: { name: string } ) => block.name )
 				.filter( ( name: string ) => name !== 'aegis/toggle' );
@@ -86,7 +81,7 @@ function save() {
 	return <InnerBlocks.Content />;
 }
 
-registerBlockType( metadata.name, {
+registerBlockType( metadata as BlockConfiguration, {
 	edit: Edit,
 	save,
 } );

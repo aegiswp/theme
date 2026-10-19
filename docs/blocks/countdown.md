@@ -54,7 +54,7 @@ The datetime picker stays available when the block is registered. Inspector extr
 
 **Aegis → Blocks → Countdown** Pro extras (when Aegis Pro is active): evergreen timer, animation styles, auto-restart, expiry actions, and urgency styling. Each extra is gated like Map/Slider. The inspector reads `window.aegisCountdownEditor.features`.
 
-See [Plugin Block Variations](../../plugins/aegis/docs/blocks/block-variations.md) and [Pro Block Extensions](../../plugins/aegis-pro/docs/features/block-extensions.md).
+See [Plugin Block Variations](../../../../plugins/aegis/docs/blocks/block-variations.md) and [Pro Block Extensions](../../../../plugins/aegis-pro/docs/features/block-extensions.md).
 
 ## Developer notes
 
@@ -68,4 +68,4 @@ See [Plugin Block Variations](../../plugins/aegis/docs/blocks/block-variations.m
 
 - [[custom-blocks]] — All theme blocks
 - [[block-variations]] — Framework variations
-- [Plugin Blocks toggles](../../plugins/aegis/docs/blocks/block-variations.md)
+- [Plugin Blocks toggles](../../../../plugins/aegis/docs/blocks/block-variations.md)

@@ -39,7 +39,7 @@
 
 			<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 			<div class="wp-block-group">
-				<!-- wp:social-links {"iconColor":"neutral-600","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"top":"20px","left":"20px"}}},"layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
+				<!-- wp:social-links {"iconColor":"neutral-600","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|sm","left":"var:preset|spacing|sm"}}},"layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
 				<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
 					<!-- wp:social-link {"url":"#","service":"facebook"} /-->
 

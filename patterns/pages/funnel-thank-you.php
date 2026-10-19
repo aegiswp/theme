@@ -109,7 +109,7 @@
 		<h4 class="wp-block-heading has-text-align-center has-18-font-size" style="margin-bottom:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Share Your Purchase', 'aegis' ); ?></h4>
 		<!-- /wp:heading -->
 
-		<!-- wp:social-links {"iconColor":"neutral-600","size":"has-normal-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"left":"20px"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
+		<!-- wp:social-links {"iconColor":"neutral-600","size":"has-normal-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|sm"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 		<ul class="wp-block-social-links has-normal-icon-size has-icon-color is-style-logos-only">
 			<!-- wp:social-link {"url":"#","service":"facebook"} /-->
 			<!-- wp:social-link {"url":"#","service":"x"} /-->

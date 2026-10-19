@@ -24,6 +24,8 @@ declare( strict_types=1 );
 namespace Aegis\Framework\CoreBlocks;
 
 // Imports classes, interfaces, and functions used by the navigation block.
+use Aegis\Framework\InlineAssets\Scriptable;
+use Aegis\Framework\InlineAssets\Scripts;
 use Aegis\Framework\InlineAssets\Styleable;
 use Aegis\Framework\InlineAssets\Styles;
 use Aegis\Dom\CSS;
@@ -32,6 +34,7 @@ use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
 use function array_keys;
 use function array_search;
+use function esc_html__;
 use function in_array;
 use function is_array;
 use function is_string;
@@ -54,7 +57,7 @@ use function wp_list_pluck;
  * @package Aegis\Framework\CoreBlocks
  * @since   1.0.0
  */
-class Navigation implements Renderable, Styleable {
+class Navigation implements Renderable, Scriptable, Styleable {
 
 	/**
 	 * Renders the navigation block with numerous enhancements.
@@ -178,6 +181,29 @@ class Navigation implements Renderable, Styleable {
 		}
 
 		return $dom->saveHTML();
+	}
+
+	/**
+	 * Registers the slide-through submenu script for the overlay menu.
+	 *
+	 * In the overlay (mobile) menu, submenus start closed. Tapping a parent
+	 * item slides in a panel with its sub-items and a Back button.
+	 *
+	 * @since 1.0.1
+	 *
+	 * @param Scripts $scripts The Scripts service instance.
+	 */
+	public function scripts( Scripts $scripts ): void {
+		$scripts->add_file( 'navigation-drilldown.js', [ 'wp-block-navigation__submenu-container' ] );
+		$scripts->add_data(
+			'navDrilldown',
+			static fn(): array => [
+				'back' => esc_html__( 'Back', 'aegis' ),
+				/* translators: %s: Parent menu item label. */
+				'open' => esc_html__( 'Show %s submenu', 'aegis' ),
+			],
+			[ 'wp-block-navigation__submenu-container' ]
+		);
 	}
 
 	/**

@@ -12,7 +12,9 @@
 
 <!-- wp:group {"tagName":"main","anchor":"main","metadata":{"name":"Main"},"className":"site-main","layout":{"type":"constrained"}} -->
 <main id="main" class="wp-block-group site-main">
-	<!-- wp:woocommerce/coming-soon /-->
+	<!-- wp:woocommerce/coming-soon -->
+<div class="wp-block-woocommerce-coming-soon"></div>
+<!-- /wp:woocommerce/coming-soon -->
 </main>
 <!-- /wp:group -->
 

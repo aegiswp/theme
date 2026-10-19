@@ -19,7 +19,7 @@ import {
 } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 
-interface RelatedPostsAttributes {
+export type RelatedPostsAttributes = {
 	postsPerPage: number;
 	columns: number;
 	showFeaturedImage: boolean;
@@ -35,7 +35,7 @@ interface RelatedPostsAttributes {
 	fallbackBehavior: string;
 	excerptLength: number;
 	imageAspectRatio: string;
-}
+};
 
 interface EditProps {
 	attributes: RelatedPostsAttributes;
@@ -251,7 +251,8 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 								<Button
 									key={ variant.value }
 									variant={
-										attributes.styleVariant === variant.value
+										attributes.styleVariant ===
+										variant.value
 											? 'primary'
 											: 'secondary'
 									}

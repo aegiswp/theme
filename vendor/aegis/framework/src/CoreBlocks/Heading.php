@@ -38,6 +38,7 @@ use function in_array;
 use function intval;
 use function sanitize_title_with_dashes;
 use function sprintf;
+use function str_contains;
 
 
 /**
@@ -101,14 +102,17 @@ class Heading implements Renderable {
 		// If the heading does not have an ID, create one from its text content.
 		// This is useful for creating anchor links and for accessibility.
 		if ( ! $heading->getAttribute( 'id' ) ) {
-			$heading->setAttribute(
-				'id',
+			$id = $this->unique_id(
 				Str::remove_non_alphanumeric(
 					sanitize_title_with_dashes(
 						$heading->textContent
 					)
 				)
 			);
+
+			if ( '' !== $id ) {
+				$heading->setAttribute( 'id', $id );
+			}
 		}
 
 		// Clean up empty style attribute if it exists.
@@ -129,5 +133,37 @@ class Heading implements Renderable {
 		}
 
 		return $dom->saveHTML();
+	}
+
+	/**
+	 * Returns an ID that does not clash with a saved anchor on the page.
+	 *
+	 * Adds -2, -3, and so on when a block in the page markup already uses the
+	 * same anchor (for example a section group anchored as #studio). The result
+	 * depends only on the page markup, so content rendered twice (such as by the
+	 * Table of Contents) gets the same IDs both times.
+	 *
+	 * @since 1.0.1
+	 *
+	 * @param string $base ID made from the heading text.
+	 *
+	 * @return string Unique ID, or an empty string when the base is empty.
+	 */
+	private function unique_id( string $base ): string {
+		$template_html = (string) ( $GLOBALS['template_html'] ?? '' );
+
+		if ( '' === $base || '' === $template_html ) {
+			return $base;
+		}
+
+		$id     = $base;
+		$suffix = 2;
+
+		while ( str_contains( $template_html, 'id="' . $id . '"' ) ) {
+			$id = $base . '-' . $suffix;
+			++$suffix;
+		}
+
+		return $id;
 	}
 }

@@ -24,7 +24,7 @@
 				<p class="has-neutral-600-color has-text-color has-14-font-size"><?php echo esc_html__( 'Quality products with fast shipping and exceptional customer service. Your satisfaction is our priority.', 'aegis' ); ?></p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:social-links {"iconColor":"neutral-600","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"left":"16px"}}},"layout":{"type":"flex"}} -->
+				<!-- wp:social-links {"iconColor":"neutral-600","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|xs"}}},"layout":{"type":"flex"}} -->
 				<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only">
 					<!-- wp:social-link {"url":"#","service":"facebook"} /-->
 					<!-- wp:social-link {"url":"#","service":"instagram"} /-->

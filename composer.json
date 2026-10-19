@@ -1,6 +1,5 @@
 {
 	"name": "aegiswp/theme",
-	"version": "1.0.0",
 	"description": "Aegis — Native Block Framework for WordPress",
 	"type": "wordpress-theme",
 	"license": "GPL-2.0-or-later",
@@ -24,7 +23,7 @@
 		"php": ">=8.1",
 		"aegis/framework": "dev-main",
 		"aegis/icons": "dev-main",
-		"enshrined/svg-sanitize": "^0.22 || dev-master",
+		"enshrined/svg-sanitize": "^1.0",
 		"psr/container": "^2.0"
 	},
 	"require-dev": {

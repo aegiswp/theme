@@ -47,8 +47,8 @@
 	</div>
 	<!-- /wp:buttons -->
 
-	<!-- wp:paragraph {"align":"center","textColor":"neutral-300","fontSize":"13","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"}}}} -->
-	<p class="aligncenter has-text-align-center has-neutral-300-color has-text-color has-13-font-size aligncenter" style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Only 4 spots remaining · Full refund up to 7 days before', 'aegis' ); ?></p>
+	<!-- wp:paragraph {"align":"center","textColor":"neutral-600","fontSize":"13","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"}}}} -->
+	<p class="aligncenter has-text-align-center has-neutral-600-color has-text-color has-13-font-size aligncenter" style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Only 4 spots remaining · Full refund up to 7 days before', 'aegis' ); ?></p>
 	<!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

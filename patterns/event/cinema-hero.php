@@ -31,12 +31,12 @@
 					<div class="wp-block-group">
 						<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 						<div class="wp-block-group">
-							<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"primary-600","fontSize":"14"} -->
-							<p class="is-style-sub-heading has-primary-600-color has-text-color has-14-font-size"><?php echo esc_html__( 'World Premiere', 'aegis' ); ?></p>
+							<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"primary-700","fontSize":"14"} -->
+							<p class="is-style-sub-heading has-primary-700-color has-text-color has-14-font-size"><?php echo esc_html__( 'World Premiere', 'aegis' ); ?></p>
 							<!-- /wp:paragraph -->
 
-							<!-- wp:paragraph {"textColor":"neutral-300","fontSize":"14"} -->
-							<p class="has-neutral-300-color has-text-color has-14-font-size"><?php echo esc_html__( '/ Drama / 2h 18min / R', 'aegis' ); ?></p>
+							<!-- wp:paragraph {"textColor":"neutral-600","fontSize":"14"} -->
+							<p class="has-neutral-600-color has-text-color has-14-font-size"><?php echo esc_html__( '/ Drama / 2h 18min / R', 'aegis' ); ?></p>
 							<!-- /wp:paragraph -->
 						</div>
 						<!-- /wp:group -->

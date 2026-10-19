@@ -345,9 +345,9 @@ final class BlockRegistrar {
 	/**
 	 * Inline feature flags as real JSON booleans on a block editor script.
 	 *
-	 * @param string               $block_name Registered block name.
-	 * @param string               $js_var     window.* variable name.
-	 * @param array<string, bool>  $features   Feature map.
+	 * @param string              $block_name Registered block name.
+	 * @param string              $js_var     window.* variable name.
+	 * @param array<string, bool> $features   Feature map.
 	 *
 	 * @return void
 	 */

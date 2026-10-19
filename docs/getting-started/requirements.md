@@ -32,8 +32,8 @@ For local development and building theme assets, you will need:
 
 | Requirement | Minimum Version |
 |-------------|-----------------|
-| Node.js | 20 or later |
-| npm | 9 or later |
+| Node.js | 20.18 or later (`.nvmrc` pins 22) |
+| npm | 10 or later |
 | PHP | 8.1 or later |
 | Composer | 2 or later |
 | Git | Any recent version |
@@ -76,16 +76,16 @@ Aegis does not require any plugins to function as a theme. All core functionalit
 
 | Plugin | Purpose |
 |--------|---------|
-| **Aegis Plugin** (free) | Map and Modal blocks, admin dashboard, integrations, snippets, conditionals, analytics — [docs](../../plugins/aegis/docs/home.md) · [Wiki](https://github.com/aegiswp/plugin/wiki) |
-| **Aegis Pro** | Hook patterns, video stack, query conditions, Pro blocks — requires Aegis theme — [docs](../../plugins/aegis-pro/docs/home.md) · [Wiki](https://github.com/aegiswp/pro/wiki) |
+| **Aegis Plugin** (free) | Map and Modal blocks, admin dashboard, integrations, snippets, conditionals, analytics — [docs](../../../../plugins/aegis/docs/home.md) · [Wiki](https://github.com/aegiswp/plugin/wiki) |
+| **Aegis Pro** | Hook patterns, video stack, query conditions, Pro blocks — requires Aegis theme — [docs](../../../../plugins/aegis-pro/docs/home.md) · [Wiki](https://github.com/aegiswp/pro/wiki) |
 
 ### Plugin Requirements (Separate Products)
 
 | Product | WordPress | PHP |
 |---------|-----------|-----|
 | Aegis theme | 7.0+ | 8.1+ |
-| Aegis plugin | 6.9+ | 7.4+ |
-| Aegis Pro | 6.4+ (requires Aegis theme 1.0.0+) | 7.4+ |
+| Aegis plugin | 7.0+ (requires Aegis theme 1.0.0+) | 8.1+ |
+| Aegis Pro | 7.0+ (requires Aegis theme 1.0.0+ and the Aegis plugin) | 8.1+ |
 
 ### Compatible Plugins
 
@@ -93,7 +93,7 @@ Framework styling integrations (when plugin toggles enabled):
 
 - WooCommerce, Fluent Forms, Gravity Forms, LifterLMS, Sensei LMS, Easy Digital Downloads, AffiliateWP, bbPress, Meta Box, Syntax Highlighting Code Block, Code Block Pro
 
-Additional integrations (ACF, SEO plugins, Google Maps, analytics) are configured in the [Aegis plugin Integrations dashboard](../../plugins/aegis/docs/features/integrations-dashboard.md).
+Additional integrations (ACF, SEO plugins, Google Maps, analytics) are configured in the [Aegis plugin Integrations dashboard](../../../../plugins/aegis/docs/features/integrations-dashboard.md).
 
 ## Checking Your Environment
 

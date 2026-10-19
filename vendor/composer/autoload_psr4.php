@@ -8,6 +8,9 @@ $baseDir = dirname($vendorDir);
 return array(
     'enshrined\\svgSanitize\\' => array($vendorDir . '/enshrined/svg-sanitize/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
+    'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
+    'PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => array($vendorDir . '/dealerdirect/phpcodesniffer-composer-installer/src'),
+    'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'Aegis\\Utilities\\' => array($vendorDir . '/aegis/utilities/src'),
     'Aegis\\Icons\\' => array($vendorDir . '/aegis/icons/src'),
     'Aegis\\Hooks\\' => array($vendorDir . '/aegis/hooks/src'),

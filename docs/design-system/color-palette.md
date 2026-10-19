@@ -47,8 +47,8 @@ The neutral palette provides pure grayscale values:
 | `neutral-400` | Medium gray (#666666) | Muted UI text that still meets ~4.5:1 on the default body background; prefer `neutral-600+` for small body copy |
 | `neutral-500` | Mid gray | Secondary text, icons |
 | `neutral-600` | Dark gray | Body text, fine print, disclaimers |
-| `neutral-700` | Darker gray | Headings |
-| `neutral-800` | Very dark gray | High emphasis text |
+| `neutral-700` | Darker gray | Default body text |
+| `neutral-800` | Very dark gray | Headings (default) |
 | `neutral-900` | Near-black | Primary text |
 | `neutral-950` | Darkest (#0a0a0a) | Page background (dark mode) |
 
@@ -155,7 +155,7 @@ In dark mode, the color scale effectively inverts. Light shades become backgroun
 | Card background | `neutral-50` | `neutral-900` |
 | Border | `neutral-200` | `neutral-700` |
 | Body text | `neutral-700` | `neutral-200` |
-| Heading text | `neutral-900` | `neutral-50` |
+| Heading text | `neutral-800` | `neutral-100` |
 
 See [[dark-mode]] for complete dark mode documentation.
 

@@ -274,6 +274,10 @@ class Icon implements Renderable {
 			]
 		);
 
+		// Drop <title> elements: their fixed IDs repeat when an icon is used twice,
+		// and the accessible name comes from ariaLabel below.
+		$svg = (string) preg_replace( '#<title\b[^>]*>.*?</title>\s*#is', '', $svg );
+
 		// Apply styles and accessibility attributes to the SVG element.
 		$processor = new WP_HTML_Tag_Processor( $svg );
 		if ( $processor->next_tag( 'svg' ) ) {
@@ -289,8 +293,11 @@ class Icon implements Renderable {
 				$processor->add_class( $styles['classnames'] );
 			}
 
+			$processor->remove_attribute( 'aria-labelledby' );
+
 			$aria_label = (string) ( $attrs['ariaLabel'] ?? '' );
 			if ( $aria_label === '' ) {
+				$processor->remove_attribute( 'role' );
 				$processor->set_attribute( 'aria-hidden', 'true' );
 				$processor->set_attribute( 'focusable', 'false' );
 			} else {
@@ -415,11 +422,26 @@ class Icon implements Renderable {
 		$target = ! empty( $attrs['linkTarget'] ) ? sprintf( ' target="%s"', esc_attr( (string) $attrs['linkTarget'] ) ) : '';
 		$rel    = ! empty( $attrs['rel'] ) ? sprintf( ' rel="%s"', esc_attr( (string) $attrs['rel'] ) ) : '';
 
+		// A decorative icon gives the link no name: label it with the site name for
+		// home links, otherwise with the icon's name.
+		$label = '';
+		if ( (string) ( $attrs['ariaLabel'] ?? '' ) === '' ) {
+			if ( untrailingslashit( $url ) === untrailingslashit( esc_url( home_url( '/' ) ) ) ) {
+				$label = (string) get_bloginfo( 'name' );
+			}
+			if ( $label === '' ) {
+				$name  = (string) ( $attrs['icon'] ?? '' );
+				$label = ucwords( str_replace( [ '-', '_' ], ' ', substr( $name, (int) strrpos( '/' . $name, '/' ) ) ) );
+			}
+		}
+		$aria = $label !== '' ? sprintf( ' aria-label="%s"', esc_attr( $label ) ) : '';
+
 		return sprintf(
-			'<a href="%1$s"%2$s%3$s>%4$s</a>',
+			'<a href="%1$s"%2$s%3$s%4$s>%5$s</a>',
 			$url,
 			$target,
 			$rel,
+			$aria,
 			$block_content
 		);
 	}
@@ -509,13 +531,12 @@ class Icon implements Renderable {
 	 * Renders a grid of all icons from a set when the all-icons class is present.
 	 */
 	private function render_all_icons( string $set = 'wordpress' ): string {
-		$icons        = IconUtility::get_icon_data( null )[ $set ] ?? [];
+		$set          = IconUtility::normalize_set_slug( $set );
+		$names        = IconUtility::get_set_icon_names( $set );
 		$inner_blocks = [];
 		$limit        = 300;
 
-		foreach ( $icons as $icon => $svg ) {
-			unset( $svg );
-
+		foreach ( $names as $icon ) {
 			if ( $limit-- <= 0 ) {
 				break;
 			}

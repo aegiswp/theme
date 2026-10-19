@@ -40,6 +40,9 @@ use function get_admin_url;
 use function get_home_url;
 use function is_admin;
 use function filemtime;
+use function wp_add_inline_script;
+use function wp_json_encode;
+use function wp_get_global_settings;
 use function wp_dequeue_style;
 use function wp_enqueue_style;
 use function wp_localize_script;
@@ -187,6 +190,14 @@ class EditorAssets
 
 		// Restore button labels when icons are rendered from attributes only.
 		$this->enqueue_button_block_editor( $handle );
+
+		// Light/dark canvas preview toggle in the editor top bar.
+		$this->enqueue_color_mode_editor();
+
+		// Lazy-load Pro icon packs for the button/tab picker REST store.
+		if ( ServiceProvider::is_block_enabled( 'icon_rest_api' ) ) {
+			$this->enqueue_icons_rest_editor( $handle );
+		}
 	}
 
 	/**
@@ -326,6 +337,50 @@ class EditorAssets
 	}
 
 	/**
+	 * Enqueue the editor top-bar light/dark canvas preview toggle.
+	 *
+	 * @since 1.0.1
+	 *
+	 * @return void
+	 */
+	private function enqueue_color_mode_editor(): void {
+		if ( ! DarkMode::is_available() ) {
+			return;
+		}
+
+		$asset_file = $this->scripts->dir . 'color-mode-editor.asset.php';
+
+		if ( ! file_exists( $asset_file ) ) {
+			return;
+		}
+
+		$asset  = require $asset_file;
+		$handle = $this->scripts->handle . '-color-mode-editor';
+
+		wp_register_script(
+			$handle,
+			$this->scripts->url . 'color-mode-editor.js',
+			$asset['dependencies'] ?? [],
+			$asset['version'] ?? ( Debug::is_enabled() ? (string) filemtime( $this->scripts->dir . 'color-mode-editor.js' ) : '1.0.0' ),
+			true
+		);
+
+		wp_enqueue_script( $handle );
+
+		wp_add_inline_script(
+			$handle,
+			'window.aegis = window.aegis || {}; window.aegis.colorMode = ' . wp_json_encode(
+				[
+					'defaultMode' => DarkMode::get_default_mode( wp_get_global_settings() ),
+				]
+			) . ';',
+			'before'
+		);
+
+		wp_set_script_translations( $handle, 'aegis' );
+	}
+
+	/**
 	 * Enqueue core/icon editor extension.
 	 *
 	 * @since 1.0.0
@@ -404,6 +459,65 @@ class EditorAssets
 				[ $parent_handle ]
 			),
 			$asset['version'] ?? ( Debug::is_enabled() ? (string) filemtime( $this->scripts->dir . 'button-block-editor.js' ) : '1.0.0' ),
+			true
+		);
+
+		wp_enqueue_script( $handle );
+	}
+
+	/**
+	 * Lazy-load large icon packs into the button/tab picker store.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $parent_handle Parent editor script handle.
+	 *
+	 * @return void
+	 */
+	private function enqueue_icons_rest_editor( string $parent_handle ): void {
+		$asset_file = $this->scripts->dir . 'icons-rest-editor.asset.php';
+
+		if ( ! file_exists( $asset_file ) ) {
+			return;
+		}
+
+		$asset  = require $asset_file;
+		$handle = $this->scripts->handle . '-icons-rest-editor';
+
+		// Lightweight boot only: set slugs (empty maps). Full SVGs load via REST ?set=
+		// after the editor mounts — never embed the WordPress SVG catalog in the page
+		// (it is ~150KB+ and stalls Site Editor on Playground/WASM).
+		$catalog = [];
+		if ( class_exists( '\Aegis\Icons\Icon' ) ) {
+			foreach ( array_keys( \Aegis\Icons\Icon::get_icon_sets() ) as $set ) {
+				$set = \Aegis\Icons\Icon::normalize_set_slug( (string) $set );
+				if ( $set === '' ) {
+					continue;
+				}
+				$catalog[ $set ] = [];
+			}
+			if ( ! isset( $catalog['wordpress'] ) ) {
+				$catalog['wordpress'] = [];
+			}
+		}
+
+		wp_localize_script(
+			$parent_handle,
+			'aegisButtonIcons',
+			[
+				'icons'   => $catalog,
+				'restBase' => '/' . ( defined( 'AEGIS_SLUG' ) ? AEGIS_SLUG : 'aegis' ) . '/v1/icons',
+			]
+		);
+
+		wp_register_script(
+			$handle,
+			$this->scripts->url . 'icons-rest-editor.js',
+			array_merge(
+				$asset['dependencies'] ?? [],
+				[ $parent_handle, 'wp-api-fetch', 'wp-data' ]
+			),
+			$asset['version'] ?? ( Debug::is_enabled() ? (string) filemtime( $this->scripts->dir . 'icons-rest-editor.js' ) : '1.0.0' ),
 			true
 		);
 

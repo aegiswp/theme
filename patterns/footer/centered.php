@@ -19,9 +19,14 @@
 </div>
 	<!-- /wp:group -->
 
-	<!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm"}},"typography":{"fontStyle":"normal","fontWeight":"500"}},"layout":{"type":"flex","justifyContent":"center","flexWrap":"wrap"}} /-->
+	<!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm"}},"typography":{"fontStyle":"normal","fontWeight":"500"}},"layout":{"type":"flex","justifyContent":"center","flexWrap":"wrap"}} -->
+		<!-- wp:navigation-link {"label":"<?php echo esc_attr__( 'Home', 'aegis' ); ?>","url":"<?php echo esc_url( home_url( '/' ) ); ?>","kind":"custom","isTopLevelLink":true} /-->
+		<!-- wp:navigation-link {"label":"<?php echo esc_attr__( 'About', 'aegis' ); ?>","url":"<?php echo esc_url( home_url( '/about/' ) ); ?>","kind":"custom","isTopLevelLink":true} /-->
+		<!-- wp:navigation-link {"label":"<?php echo esc_attr__( 'Blog', 'aegis' ); ?>","url":"<?php echo esc_url( home_url( '/blog/' ) ); ?>","kind":"custom","isTopLevelLink":true} /-->
+		<!-- wp:navigation-link {"label":"<?php echo esc_attr__( 'Contact', 'aegis' ); ?>","url":"<?php echo esc_url( home_url( '/contact/' ) ); ?>","kind":"custom","isTopLevelLink":true} /-->
+	<!-- /wp:navigation -->
 
-	<!-- wp:social-links {"iconColor":"neutral-600","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"top":"20px","left":"20px"},"padding":{"top":"var:preset|spacing|xxs","bottom":"var:preset|spacing|md"}}},"layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
+	<!-- wp:social-links {"iconColor":"neutral-600","size":"has-small-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|sm","left":"var:preset|spacing|sm"},"padding":{"top":"var:preset|spacing|xxs","bottom":"var:preset|spacing|md"}}},"layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
 	<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only"
 	 style="padding-top:var(--wp--preset--spacing--xxs);padding-bottom:var(--wp--preset--spacing--md);">
 		<!-- wp:social-link {"url":"#","service":"facebook"} /-->

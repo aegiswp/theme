@@ -1,7 +1,8 @@
 # Installable theme zip (WordPress) — not the full dev repository.
 # Consumed by: .github/workflows/release.yml (rsync --exclude-from=.distignore).
 # Keep: templates, parts, patterns markup, theme.json, style.css, functions.php,
-# compiled block JS/CSS, languages, runtime `vendor/`, and theme `assets/`.
+# compiled block JS/CSS, runtime `vendor/`, and theme `assets/`.
+# Omit: languages/ and the root license file (both LICENSE and LICENCE spellings).
 # After changes here, align export-ignore in .gitattributes for `git archive` parity.
 
 # Git / VCS
@@ -11,15 +12,10 @@
 .gitignore
 .distignore
 
-# GitHub / agent / IDE metadata
+# GitHub / editor metadata — not shipped in the installable zip
 
 .github/
-.claude/
-.cursor/
-.kiro/
 .vscode/
-.idea/
-.fleet/
 
 # Node.js / build tooling
 
@@ -141,10 +137,13 @@ coverage.xml
 .stylelintcache
 build/
 dist/
-aegis/
+# Release staging folder at the repo root only (anchored: an unanchored
+# "aegis/" would also exclude vendor/aegis/, the framework).
+/aegis/
 src/Blocks/*/*.js.map
 src/Blocks/*/*.css.map
 src/Blocks/editor/
+src/types/
 
 # One-off dev/migration scripts (not part of theme runtime)
 
@@ -163,6 +162,13 @@ src/Blocks/*/style.scss
 
 docs/
 
+# Translations and the theme license stay in the repository, not the release zip.
+# Root-anchored so vendor/*/LICENSE files still ship with their packages.
+
+/languages/
+/LICENSE
+/LICENCE
+
 # Dev-only pattern docs (optional; safe to include on disk, omit from dist)
 
 patterns/README.txt
@@ -171,6 +177,13 @@ patterns/README.txt
 
 patterns/**/.*
 
+# Internal marketing patterns (live site only — not in theme zip)
+
+patterns/custom/
+
 # Empty / legacy
 
 config/
+
+# Stray temp/scratch files
+_tmp_*

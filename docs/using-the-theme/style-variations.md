@@ -1,10 +1,10 @@
 # Style Variations
 
-Aegis includes 60 style variations that allow you to transform the visual appearance of your entire site with a single click. Each variation defines a cohesive set of colors, typography pairings, and design tokens.
+Aegis includes 60 style variations that allow you to transform the visual appearance of your entire site with a single click. Each variation replaces the color palette. Four of them also set base colors for the page, text, headings, buttons, and links.
 
 ## Understanding Style Variations
 
-A style variation is a `theme.json` override that redefines the design tokens for your site. When you apply a variation, all templates, template parts, and patterns automatically adapt to the new color palette, fonts, and styling without any manual changes.
+A style variation is a `theme.json` override that redefines the design tokens for your site. When you apply a variation, all templates, template parts, and patterns automatically adapt to the new color palette without any manual changes. Typography, spacing, and layout tokens stay the same in every variation.
 
 Style variations do not alter your content or layout — they only change the visual presentation.
 
@@ -82,18 +82,18 @@ Aegis ships with 60 style variations organized alphabetically:
 | 57 | Violet | Classic purple |
 | 58 | Walnut | Rich dark brown |
 | 59 | Wine | Deep burgundy red |
-| 60 | Zinc | The default Aegis palette |
+| 60 | Zinc | Cool gray on a dark background |
 
 ## What Each Variation Changes
 
-Every style variation can modify the following design tokens:
+Every variation file in `styles/` sets `settings.color.palette`: the primary, neutral, and status shades. Because every block, pattern, and template uses palette tokens, the whole site follows the new palette.
 
-- **Color palette** — Primary, neutral, and accent colors across all shades.
-- **Background colors** — Page and section backgrounds.
-- **Text colors** — Headings, body text, and links.
-- **Button styles** — Primary and secondary button colors.
-- **Border colors** — Separator and card border tones.
-- **Font pairings** — Some variations adjust font families or weights.
+Four variations also set `styles`:
+
+- **Midnight, Obsidian, and Zinc** use a dark default background (`primary-950`), light text (`neutral-300`), light headings (`neutral-100`), and lighter buttons and links.
+- **Flamingo** sets its own text, heading, button, and link-hover colors on the white background.
+
+No variation changes fonts, font sizes, spacing, or layout.
 
 ## Customizing After Applying a Variation
 
@@ -117,11 +117,11 @@ You can preview any variation without committing to it:
 
 ## Reverting to the Default Variation
 
-To return to the default Aegis style (Zinc):
+To return to the default Aegis style (the theme's own `theme.json`, titled **Light**):
 
 1. Open the Styles panel in the Site Editor.
 2. Click **Browse styles**.
-3. Select **Zinc** (or the first variation in the list).
+3. Select the first style in the list (the base `theme.json` styles).
 4. Click **Save**.
 
 Alternatively, to reset all style customizations:

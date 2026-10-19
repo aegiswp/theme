@@ -41,6 +41,10 @@ function aegis_audit_pattern_files(): array {
 				if ( str_starts_with( $basename, '.' ) ) {
 					continue;
 				}
+				// Internal marketing patterns — not part of the public theme inventory.
+				if ( str_contains( $file->getPathname(), DIRECTORY_SEPARATOR . 'patterns' . DIRECTORY_SEPARATOR . 'custom' . DIRECTORY_SEPARATOR ) ) {
+					continue;
+				}
 				$files[] = $file->getPathname();
 			}
 		}

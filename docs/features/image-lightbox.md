@@ -1,6 +1,6 @@
-# Image Lightbox
+# Lightbox
 
-Aegis enhances the WordPress **Image** block lightbox (`core/image` with **Expand on click**). The lightbox itself is Core. Toggles at **Aegis → Blocks → Image Lightbox** add extras on top.
+Aegis enhances the WordPress **Image** block lightbox (`core/image` with **Expand on click**). The lightbox itself is Core. Toggles at **Aegis → Blocks → Lightbox** add extras on top.
 
 `theme.json` enables lightbox support (`settings.lightbox.enabled`). Editors still turn **Expand on click** on per image (or via Global Styles for the Image block).
 
@@ -10,7 +10,7 @@ Image captions stay on the figure in the content. They are not shown in the ligh
 
 ## Feature Toggles
 
-Features are off by default when the companion plugin is active. Enable All on the Image Lightbox section, or turn on individual extras:
+Features are off by default when the companion plugin is active. Enable All on the Lightbox section, or turn on individual extras:
 
 | Toggle | What it adds |
 |--------|----------------|
@@ -35,4 +35,4 @@ WordPress already groups images inside a **Gallery** block (Core sets `galleryId
 
 - [[enhanced-core-blocks]] — Other Image block enhancements.
 - [[svg-icons]] — Icons use `core/icon`, not Image.
-- [Plugin Custom Blocks](../../plugins/aegis/docs/blocks/custom-blocks.md) — Block feature toggles.
+- [Plugin Custom Blocks](../../../../plugins/aegis/docs/blocks/custom-blocks.md) — Block feature toggles.

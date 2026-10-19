@@ -11,7 +11,7 @@ The **Related Posts** block (`aegis/related-posts`) displays posts related to th
 | Render | Dynamic (`render.php` + `RelatedPostsQuery.php`) |
 | Requires plugin | No |
 
-This is the **canonical** related-posts path. The former `core/query` Related Posts variation was removed — see [[../getting-started/updating#related-posts]].
+This is the **canonical** related-posts path. The former `core/query` Related Posts variation was removed — see [Updating](../getting-started/updating.md#related-posts).
 
 ## Key attributes
 
@@ -60,7 +60,7 @@ Inspector extras are passed as `window.aegisRelatedPostsFeatures` on the block e
 
 ## Advanced querying (Pro)
 
-For advanced related-post logic on **`core/query`**, use **Aegis Pro** `aegisProRelatedPosts` — see [Query Loop Pro](../../plugins/aegis-pro/docs/features/query-loop-pro.md). That extends Query Loop; it does not replace `aegis/related-posts`.
+For advanced related-post logic on **`core/query`**, use **Aegis Pro** `aegisProRelatedPosts` — see [Query Loop Pro](../../../../plugins/aegis-pro/docs/features/query-loop-pro.md). That extends Query Loop; it does not replace `aegis/related-posts`.
 
 ## Developer notes
 
@@ -69,7 +69,7 @@ For advanced related-post logic on **`core/query`**, use **Aegis Pro** `aegisPro
 - Inspector extras: `window.aegisRelatedPostsFeatures` inlined on the registered editor script handle
 - Patterns: `patterns/blog/related-posts-*.php` — slugs `blog-related-posts-*` (`{category}-{file-slug}`); unregistered when the block is implied off
 - Build: webpack compiles `index.tsx` / `edit.tsx` in place (`block.json` `editorScript` is `file:index.js`)
-- Filter: `aegis_related_posts_query` — see [[../reference/hooks-and-filters#block-filters-examples]]
+- Filter: `aegis_related_posts_query` — see [Hooks and Filters](../reference/hooks-and-filters.md#block-filters-examples)
 
 ```php
 add_filter( 'aegis_related_posts_query', function ( $args, $post_id, $context ) {
@@ -81,4 +81,4 @@ add_filter( 'aegis_related_posts_query', function ( $args, $post_id, $context ) 
 ## Next Steps
 
 - [[custom-blocks]] — Block index
-- [[../getting-started/updating]] — Migration from old query variation
+- [Updating](../getting-started/updating.md) — Migration from old query variation

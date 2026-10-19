@@ -8,7 +8,7 @@ Aegis does **not** register a custom `aegis/video` block. Video uses WordPress *
 |-------|-------------|
 | **Theme framework** | Styling, MediaElement skins (`video.css`), optional custom player (`video_custom_player`) |
 | **Free plugin** | Type selector in the editor (YouTube / Vimeo / Audio / Bunny). Schema markup extra. Theater mode and keyboard extras require Custom Player |
-| **Aegis Pro** | BunnyCDN, chapters, engagement, marketing, analytics, advanced player extras, privacy, multi-audio, SEO sitemaps — see [Video Stack](../../plugins/aegis-pro/docs/features/video-stack.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki) |
+| **Aegis Pro** | BunnyCDN, chapters, engagement, marketing, analytics, advanced player extras, privacy, multi-audio, SEO sitemaps — see [Video Stack](../../../../plugins/aegis-pro/docs/features/video-stack.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki) |
 
 ## Custom Player extras
 
@@ -19,7 +19,7 @@ Enable **Custom Player** at **Aegis → Blocks → Video**, then:
 | **Theater Mode** | Theater button on the custom player |
 | **Keyboard Shortcuts** | Space, arrows, M, F, T, and related keys when the player is focused |
 
-Those extras do nothing while Custom Player is off. Sticky playback is a **Pro** extra (`video_sticky_player`), not part of the free custom player — see [Pro Video Stack — Sticky player](../../plugins/aegis-pro/docs/features/video-stack.md#sticky-player).
+Those extras do nothing while Custom Player is off. Sticky playback is a **Pro** extra (`video_sticky_player`), not part of the free custom player — see [Pro Video Stack — Sticky player](../../../../plugins/aegis-pro/docs/features/video-stack.md#sticky-player).
 
 ## Usage
 
@@ -38,10 +38,10 @@ npm run migrate:video
 npm run migrate:video:studio
 ```
 
-The editor also registers a deprecated `aegis/video` stub so unsaved legacy blocks can convert. See [[../getting-started/updating#aegisvideo--corevideo]] and [Pro Known Issues](../../plugins/aegis-pro/docs/troubleshooting/known-issues.md#legacy-aegisvideo-block).
+The editor also registers a deprecated `aegis/video` stub so unsaved legacy blocks can convert. See [Updating](../getting-started/updating.md#aegisvideo--corevideo) and [Pro Known Issues](../../../../plugins/aegis-pro/docs/troubleshooting/known-issues.md#legacy-aegisvideo-block).
 
 ## Next Steps
 
 - [[enhanced-core-blocks]] — Framework media block styling
-- [Plugin Block Variations](../../plugins/aegis/docs/blocks/block-variations.md) — Video toggles
-- [Pro Video Stack](../../plugins/aegis-pro/docs/features/video-stack.md)
+- [Plugin Block Variations](../../../../plugins/aegis/docs/blocks/block-variations.md) — Video toggles
+- [Pro Video Stack](../../../../plugins/aegis-pro/docs/features/video-stack.md)

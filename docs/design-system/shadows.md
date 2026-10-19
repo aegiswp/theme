@@ -4,33 +4,35 @@ Aegis provides a set of 8 box shadow presets that create depth and visual hierar
 
 ## Shadow Scale
 
-The shadow scale ranges from no shadow to extra-extra-large, with increasing size and spread:
+The scale runs from None through XX Small to XX Large, with increasing offset and blur:
 
-| Token | Name | Description |
-|-------|------|-------------|
+| Slug | Name | Description |
+|------|------|-------------|
 | `none` | None | No shadow. Used to remove inherited shadows. |
-| `xxs` | 2XS | Barely visible. Subtle lift for small elements. |
-| `xs` | XS | Light shadow. Cards and interactive elements at rest. |
-| `sm` | SM | Small shadow. Buttons, inputs, and small cards. |
-| `md` | MD | Medium shadow. Standard card elevation. |
-| `lg` | LG | Large shadow. Elevated panels and dropdowns. |
-| `xl` | XL | Extra large. Modal dialogs and popovers. |
-| `xxl` | 2XL | Maximum elevation. Floating action elements. |
+| `xxs` | XX Small | Barely visible. Subtle lift for small elements. |
+| `xs` | X Small | Light shadow. Cards and interactive elements at rest. |
+| `sm` | Small | Small shadow. Buttons, inputs, and small cards. |
+| `md` | Medium | Medium shadow. Standard card elevation. |
+| `lg` | Large | Large shadow. Elevated panels and dropdowns. |
+| `xl` | X Large | Extra large. Modal dialogs and popovers. |
+| `xxl` | XX Large | Maximum elevation. Floating action elements. |
+
+`theme.json` sets `defaultPresets` to `false`, so the WordPress default shadows are not offered.
 
 ## Shadow Values
 
-Each preset defines a multi-layer shadow for realistic depth:
+Every layer uses one color token, `--wp--custom--box-shadow--color`. It is set in `settings.custom.boxShadow.color` to `var(--wp--preset--color--shadow)`, the palette's `shadow` entry (`rgba(107,114,128,0.07)`). Change that one token to tint or strengthen every preset at once.
 
-| Token | CSS Value |
-|-------|-----------|
+| Slug | CSS Value |
+|------|-----------|
 | `none` | `none` |
-| `xxs` | `0 1px 2px 0 rgb(0 0 0 / 0.05)` |
-| `xs` | `0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)` |
-| `sm` | `0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)` |
-| `md` | `0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)` |
-| `lg` | `0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)` |
-| `xl` | `0 25px 50px -12px rgb(0 0 0 / 0.25)` |
-| `xxl` | `0 35px 60px -15px rgb(0 0 0 / 0.3)` |
+| `xxs` | `0 1px 2px 0 var(--wp--custom--box-shadow--color)` |
+| `xs` | `0 1px 2px var(--wp--custom--box-shadow--color), 0 2px 4px 0 var(--wp--custom--box-shadow--color)` |
+| `sm` | `0 1px 2px 0 var(--wp--custom--box-shadow--color), 0 4px 12px -4px var(--wp--custom--box-shadow--color)` |
+| `md` | `0 1px 2px 0 var(--wp--custom--box-shadow--color), 0 4px 8px var(--wp--custom--box-shadow--color)` |
+| `lg` | `0 2px 4px 0 var(--wp--custom--box-shadow--color), 0 8px 24px var(--wp--custom--box-shadow--color)` |
+| `xl` | `0 4px 8px -4px var(--wp--custom--box-shadow--color), 0 16px 24px -4px var(--wp--custom--box-shadow--color)` |
+| `xxl` | `0 4px 8px 0 var(--wp--custom--box-shadow--color), 0 24px 48px 0 var(--wp--custom--box-shadow--color)` |
 
 ## Using Shadows in the Editor
 
@@ -80,17 +82,17 @@ var(--wp--preset--shadow--xxl)
 ### Example Usage in Custom CSS
 
 ```css
-.my-custom-card {
+.my-card {
     box-shadow: var(--wp--preset--shadow--sm);
     transition: box-shadow 0.2s ease;
 }
 
-.my-custom-card:hover {
+.my-card:hover {
     box-shadow: var(--wp--preset--shadow--lg);
 }
 ```
 
-## Theme.json Configuration
+## theme.json Configuration
 
 Shadows are defined in `theme.json` under `settings.shadow.presets`:
 
@@ -98,15 +100,16 @@ Shadows are defined in `theme.json` under `settings.shadow.presets`:
 {
   "settings": {
     "shadow": {
+      "defaultPresets": false,
       "presets": [
-        { "slug": "none", "name": "None", "shadow": "none" },
-        { "slug": "xxs", "name": "2XS", "shadow": "0 1px 2px 0 rgb(0 0 0 / 0.05)" },
-        { "slug": "xs", "name": "XS", "shadow": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)" },
-        { "slug": "sm", "name": "SM", "shadow": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)" },
-        { "slug": "md", "name": "MD", "shadow": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)" },
-        { "slug": "lg", "name": "LG", "shadow": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" },
-        { "slug": "xl", "name": "XL", "shadow": "0 25px 50px -12px rgb(0 0 0 / 0.25)" },
-        { "slug": "xxl", "name": "2XL", "shadow": "0 35px 60px -15px rgb(0 0 0 / 0.3)" }
+        { "name": "None", "slug": "none", "shadow": "none" },
+        { "name": "XX Small", "slug": "xxs", "shadow": "0 1px 2px 0 var(--wp--custom--box-shadow--color)" },
+        { "name": "X Small", "slug": "xs", "shadow": "0 1px 2px var(--wp--custom--box-shadow--color), 0 2px 4px 0 var(--wp--custom--box-shadow--color)" },
+        { "name": "Small", "slug": "sm", "shadow": "0 1px 2px 0 var(--wp--custom--box-shadow--color), 0 4px 12px -4px var(--wp--custom--box-shadow--color)" },
+        { "name": "Medium", "slug": "md", "shadow": "0 1px 2px 0 var(--wp--custom--box-shadow--color), 0 4px 8px var(--wp--custom--box-shadow--color)" },
+        { "name": "Large", "slug": "lg", "shadow": "0 2px 4px 0 var(--wp--custom--box-shadow--color), 0 8px 24px var(--wp--custom--box-shadow--color)" },
+        { "name": "X Large", "slug": "xl", "shadow": "0 4px 8px -4px var(--wp--custom--box-shadow--color), 0 16px 24px -4px var(--wp--custom--box-shadow--color)" },
+        { "name": "XX Large", "slug": "xxl", "shadow": "0 4px 8px 0 var(--wp--custom--box-shadow--color), 0 24px 48px 0 var(--wp--custom--box-shadow--color)" }
       ]
     }
   }
@@ -115,12 +118,7 @@ Shadows are defined in `theme.json` under `settings.shadow.presets`:
 
 ## Shadows in Dark Mode
 
-In dark mode, shadows behave differently because they are less visible against dark backgrounds. The shadow system uses semi-transparent black values that adapt naturally:
-
-- On light backgrounds, shadows are clearly visible and create depth.
-- On dark backgrounds, shadows are more subtle and may appear as a slightly darker area.
-
-For enhanced visibility in dark mode, consider using higher shadow levels (one step up from what you would use in light mode).
+The shadow color is a low-opacity gray, so shadows are subtle on light backgrounds and nearly invisible on dark ones. For more visible elevation in dark sections, use a higher preset or override `--wp--custom--box-shadow--color` inside that section.
 
 ## Design Guidelines
 

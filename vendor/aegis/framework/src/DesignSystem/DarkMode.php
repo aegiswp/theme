@@ -69,7 +69,7 @@ class DarkMode implements Styleable
 			800 => 200,
 			700 => 300,
 			600 => 400,
-			500 => 500,
+			500 => 400, // 500 => 500 kept mid-grey text below 4.5:1 on dark surfaces.
 			400 => 600,
 			300 => 700,
 			200 => 800,
@@ -326,15 +326,36 @@ class DarkMode implements Styleable
 	}
 
 	/**
+	 * Whether light/dark modes are in use (same checks as styles()).
+	 *
+	 * Used by the editor color-mode toggle to decide whether to load.
+	 *
+	 * @since 1.0.1
+	 *
+	 * @return bool
+	 */
+	public static function is_available(): bool
+	{
+		if (! apply_filters('aegis_dark_mode', true)) {
+			return false;
+		}
+
+		$settings = wp_get_global_settings();
+
+		return ($settings['custom']['darkMode'] ?? null) !== false;
+	}
+
+	/**
 	 * Gets the default mode.
 	 *
 	 * @since 1.0.0
+	 * @since 1.0.1 Public and static, for the editor color-mode toggle.
 	 *
 	 * @param array $global_settings Global settings.
 	 *
 	 * @return string
 	 */
-	private function get_default_mode(array $global_settings): string
+	public static function get_default_mode(array $global_settings): string
 	{
 		return apply_filters(
 			'aegis_default_mode',

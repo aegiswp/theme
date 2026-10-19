@@ -9,6 +9,7 @@ import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 import { SVG, Path } from '@wordpress/primitives';
 
+import type { BlockConfiguration } from '@wordpress/blocks';
 import metadata from './block.json';
 import './style.scss';
 
@@ -46,7 +47,15 @@ function Edit() {
 								},
 							},
 						},
-						[ [ 'core/paragraph', { align: 'center', placeholder: 'Slide content…' } ] ],
+						[
+							[
+								'core/paragraph',
+								{
+									align: 'center',
+									placeholder: 'Slide content…',
+								},
+							],
+						],
 					],
 				] }
 				templateLock={ false }
@@ -95,7 +104,7 @@ const deprecated = [
 	},
 ];
 
-registerBlockType( metadata.name, {
+registerBlockType( metadata as BlockConfiguration, {
 	icon,
 	edit: Edit,
 	save,

@@ -1,6 +1,6 @@
 # Block Patterns
 
-Aegis ships with **236 theme block patterns** across **29 category folders**. Companion **plugin** patterns (Modal starters when Modal is enabled; WooCommerce patterns when WooCommerce is active) and **Pro** premium patterns are documented separately — [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki) · [Pro Patterns](../../plugins/aegis-pro/docs/patterns/pro-patterns.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki).
+Aegis ships with **234 theme block patterns** in **28 category folders**. Companion **plugin** patterns (Modal starters when Modal is enabled; WooCommerce patterns when WooCommerce is active) and **Pro** premium patterns are documented separately — [Plugin Patterns](../../../../plugins/aegis/docs/features/plugin-patterns.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki) · [Pro Patterns](../../../../plugins/aegis-pro/docs/patterns/pro-patterns.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki).
 
 ## Understanding Block Patterns
 
@@ -29,7 +29,7 @@ A block pattern is a pre-arranged group of blocks that forms a complete section 
 
 ## Pattern Categories
 
-Theme patterns live under **29** `patterns/` category folders:
+Theme patterns live in **28** `patterns/` category folders:
 
 | Category | Description | Typical Use |
 |----------|-------------|-------------|
@@ -45,8 +45,7 @@ Theme patterns live under **29** `patterns/` category folders:
 | Footer | Footer layouts | Site footers |
 | Header | Header layouts | Site headers |
 | Hero | Hero banners and landing sections | Page headers, landing pages |
-| Hidden | Utility patterns not shown in inserter | Internal theme use |
-| Library | General-purpose reusable sections | Various page sections |
+| Hidden | 404 page layouts, not shown in the inserter | 404 template |
 | Logos | Logo grids and client showcases | Trust signals, partnerships |
 | Newsletter | Email signup sections | Lead generation |
 | Notice | Alert and notification banners | Announcements, warnings |
@@ -58,14 +57,14 @@ Theme patterns live under **29** `patterns/` category folders:
 | Slider | Carousel and slider layouts | Image galleries, testimonials |
 | Stats | Statistics and number highlights | Achievement sections |
 | Team | Team member grids and profiles | About pages |
-| Template | Template-level layouts (including 404) | Template building |
+| Template | One layout per template file, not shown in the inserter | Template building |
 | Testimonial | Reviews and testimonial sections | Social proof |
 | Timeline | Chronological content layouts | Company history, roadmaps |
-| Utility | Helper patterns and spacers | Layout utilities |
+| Utility | Color palette, gradients, dark mode toggle, search toggle, skip link | Layout utilities |
 
-Related Posts layouts (`blog-related-posts-grid`, `list`, `cards`, `minimal`) are in the **Blog** category. They unregister when **Aegis → Blocks → Related Posts** is implied off. See [[../blocks/related-posts]].
+Related Posts layouts (`blog-related-posts-grid`, `list`, `cards`, `minimal`) are in the **Blog** category. They unregister when **Aegis → Blocks → Related Posts** is implied off. See [Related Posts Block](../blocks/related-posts.md).
 
-**Modal** patterns (`aegis/modal-*`) are registered by the [Aegis companion plugin](../../plugins/aegis/docs/features/plugin-patterns.md) ([Wiki](https://github.com/aegiswp/plugin/wiki)) when the Modal block is enabled — they are not theme patterns.
+**Modal** patterns (`aegis/modal-*`) are registered by the [Aegis companion plugin](../../../../plugins/aegis/docs/features/plugin-patterns.md) ([Wiki](https://github.com/aegiswp/plugin/wiki)) when the Modal block is enabled — they are not theme patterns.
 
 ## Customizing Patterns After Insertion
 
@@ -90,13 +89,21 @@ All Aegis patterns are built following these principles:
 
 ## Hidden Patterns
 
-The **Hidden** category contains patterns used internally by the theme for template composition. These patterns do not appear in the block inserter but can be accessed programmatically or found in the `patterns/` directory.
+52 theme patterns do not appear in the block inserter: the 3 **Hidden** patterns (404 layouts), the 48 **Template** patterns that the files in `templates/` load, and `utility-patterns`. They set `Inserter: false` in their file header (the `hidden` category is also excluded automatically). Templates and other patterns still reference them by slug, for example `<!-- wp:pattern {"slug":"template-single"} /-->`.
 
 ## WooCommerce Patterns
 
-WooCommerce **block patterns** (product grids, store headers, checkout/cart template patterns, etc.) are registered by the **Aegis companion plugin** when WooCommerce is active. They do not appear in the inserter when WooCommerce is inactive, which avoids missing-block errors in the editor.
+WooCommerce **block patterns** (product grids, store headers, checkout/cart template patterns, etc.) need WooCommerce. When WooCommerce is active, the **Aegis companion plugin** registers its store versions of these patterns.
 
-The theme still includes generic **Commerce** and **Product** marketing patterns that use core blocks only (for example category cards, trust badges). Patterns with `wp:woocommerce/*` blocks live in the plugin — see [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md).
+Without WooCommerce, the theme keeps them out of the editor so it never shows "unsupported block" placeholders:
+
+- Header patterns stay available with the cart and account icons removed.
+- Other patterns built on WooCommerce blocks (shop, product, cart, checkout, and order layouts) are hidden.
+- The same applies to patterns that use a block from the Aegis plugin, such as the map in the contact patterns, when the plugin is not active.
+
+This check runs when the editor loads patterns. On the front end, blocks from inactive plugins render as nothing.
+
+The theme still includes generic **Commerce** and **Product** marketing patterns that use core blocks only (for example category cards, trust badges). Patterns with `wp:woocommerce/*` blocks live in the plugin — see [Plugin Patterns](../../../../plugins/aegis/docs/features/plugin-patterns.md).
 
 | Requirement | Patterns available |
 |-------------|-------------------|
@@ -106,7 +113,7 @@ The theme still includes generic **Commerce** and **Product** marketing patterns
 
 ### Store headers
 
-WC header patterns with mini-cart and customer-account blocks live in the **companion plugin** (`patterns/woocommerce/header/`) and require WooCommerce. The theme keeps a Woo-free **`header/default`** for `parts/header.html` when WooCommerce is inactive, and **`header/store-minimal`** for checkout/funnel pages. When WooCommerce is active, the plugin overlays `header-default` with the mini-cart variant.
+WC header patterns with mini-cart and customer-account blocks live in the **companion plugin** (`patterns/woocommerce/header/`) and require WooCommerce. The theme's **`header/default`** for `parts/header.html` shows no cart or account icons in the editor when WooCommerce is inactive, and **`header/store-minimal`** for checkout/funnel pages. When WooCommerce is active, the plugin overlays `header-default` with the mini-cart variant.
 
 ## Creating Your Own Patterns
 
@@ -125,8 +132,8 @@ Developers can register patterns by creating PHP files in the `patterns/` direct
 ```php
 <?php
 /**
- * Title: My Custom Pattern
- * Slug: aegis/my-custom-pattern
+ * Title: My Feature Section
+ * Slug: my-feature-section
  * Categories: featured
  * Description: A custom feature section.
  */
@@ -137,6 +144,8 @@ Developers can register patterns by creating PHP files in the `patterns/` direct
 </div>
 <!-- /wp:group -->
 ```
+
+Aegis registers the file under its first category plus the `Slug` header, so this example becomes `featured-my-feature-section`. Files whose names start with a dot are skipped. In a child theme, add the file to the child theme's `patterns/{category}/` folder, or register more folders with the `aegis_pattern_dirs` filter.
 
 ## Browsing Patterns by Page Type
 

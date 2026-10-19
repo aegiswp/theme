@@ -107,13 +107,14 @@ PHPCS enforces the WordPress PHP coding standards using the WordPress Coding Sta
 
 ```bash
 # Check all PHP files
-composer run lint:php
+composer standards:check
+# (also available as: composer lint, or npm run lint:php)
 
 # Or directly
 ./vendor/bin/phpcs
 
 # Auto-fix with PHPCBF
-composer run fix:php
+composer standards:fix
 
 # Or directly
 ./vendor/bin/phpcbf

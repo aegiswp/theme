@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Aegis 1.0.0\n"
+"Project-Id-Version: Aegis 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/aegis\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-13T11:10:58+00:00\n"
+"POT-Creation-Date: 2026-10-19T02:05:48+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: aegis\n"
@@ -80,6 +80,16 @@ msgstr ""
 
 #: vendor/aegis/framework/src/Icons/Library.php:145
 msgid "Brand"
+msgstr ""
+
+#: vendor/aegis/framework/src/CoreBlocks/Navigation.php:201
+msgid "Back"
+msgstr ""
+
+#. translators: %s: Parent menu item label.
+#: vendor/aegis/framework/src/CoreBlocks/Navigation.php:203
+#, php-format
+msgid "Show %s submenu"
 msgstr ""
 
 #: vendor/aegis/framework/src/BlockVariations/Newsletter.php:73
@@ -186,7 +196,7 @@ msgid "Unsigned Integer (UNSIGNED)"
 msgstr ""
 
 #: vendor/aegis/framework/src/BlockSettings/QueryEnhancements.php:645
-#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:416
+#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:417
 #: vendor/aegis/framework/public/js/query-enhancements-editor.js:853
 msgid "Default"
 msgstr ""
@@ -236,45 +246,45 @@ msgid "Search..."
 msgstr ""
 
 #: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:395
-#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:422
+#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:423
 #: patterns/sidebar/default.php:86
 #: patterns/sidebar/default.php:89
 #: vendor/aegis/framework/public/js/query-enhancements-editor.js:862
 msgid "Search"
 msgstr ""
 
-#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:417
+#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:418
 #: vendor/aegis/framework/public/js/query-enhancements-editor.js:854
 #: src/Blocks/related-posts/index.js:1
 msgid "Minimal"
 msgstr ""
 
-#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:418
+#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:419
 #: vendor/aegis/framework/public/js/query-enhancements-editor.js:855
 msgid "Card"
 msgstr ""
 
-#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:419
+#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:420
 #: vendor/aegis/framework/public/js/query-enhancements-editor.js:856
 msgid "Centered"
 msgstr ""
 
-#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:423
+#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:424
 #: vendor/aegis/framework/public/js/query-enhancements-editor.js:863
 msgid "Folder"
 msgstr ""
 
-#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:424
+#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:425
 #: vendor/aegis/framework/public/js/query-enhancements-editor.js:864
 msgid "Document"
 msgstr ""
 
-#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:425
+#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:426
 #: vendor/aegis/framework/public/js/query-enhancements-editor.js:865
 msgid "Info"
 msgstr ""
 
-#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:426
+#: vendor/aegis/framework/src/BlockSettings/QueryNoResults.php:427
 #: vendor/aegis/framework/public/js/query-enhancements-editor.js:866
 #: vendor/aegis/framework/public/js/visibility-toggles.js:519
 #: src/Blocks/countdown/index.js:1
@@ -578,7 +588,10 @@ msgid "Blog section with featured article, latest articles list, and newsletter 
 msgstr ""
 
 #: patterns/blog/featured-blog-feed.php:16
+#: patterns/footer/centered.php:25
+#: patterns/footer/default.php:52
 #: patterns/template/home.php:16
+#: src/NavigationFallback.php:66
 msgid "Blog"
 msgstr ""
 
@@ -593,7 +606,7 @@ msgstr ""
 #: patterns/blog/featured-blog-feed.php:69
 #: patterns/blog/latest-posts.php:14
 #: patterns/blog/single-column.php:14
-#: patterns/pages/home.php:1265
+#: patterns/pages/home.php:1281
 #: patterns/slider/latest-posts.php:19
 msgid "Latest Posts"
 msgstr ""
@@ -2215,7 +2228,11 @@ msgid "Denmark 1058"
 msgstr ""
 
 #: patterns/event/exhibition-info.php:67
+#: patterns/footer/centered.php:26
+#: patterns/footer/default.php:102
+#: patterns/header/default.php:62
 #: patterns/pages/landing.php:256
+#: src/NavigationFallback.php:74
 msgid "Contact"
 msgstr ""
 
@@ -2377,7 +2394,7 @@ msgid "24/7 medical tents, free water stations, and a dedicated safety team. Loc
 msgstr ""
 
 #: patterns/event/music-festival-info.php:93
-#: patterns/pages/home.php:859
+#: patterns/pages/home.php:875
 msgid "Accessibility"
 msgstr ""
 
@@ -2609,7 +2626,7 @@ msgid "Athenaeum Hall, Cambridge"
 msgstr ""
 
 #: patterns/event/talk-hero.php:89
-#: vendor/aegis/framework/public/js/marquee-editor.js:235
+#: vendor/aegis/framework/public/js/marquee-editor.js:238
 msgid "Duration"
 msgstr ""
 
@@ -3021,14 +3038,14 @@ msgstr ""
 #: patterns/faq/accordion-sidebar.php:40
 #: patterns/faq/accordion.php:29
 #: patterns/faq/default.php:28
-#: patterns/pages/home.php:1475
+#: patterns/pages/home.php:1491
 msgid "What version of PHP do I need?"
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:42
 #: patterns/faq/accordion.php:31
 #: patterns/faq/default.php:30
-#: patterns/pages/home.php:1477
+#: patterns/pages/home.php:1493
 msgid "The framework requires PHP 7.4 as a baseline. For optimal velocity and ecosystem stability, we recommend deploying on PHP 8.3. While the core architecture natively supports up to 8.5, version 8.3 currently offers the safest compatibility balance for third-party extensions."
 msgstr ""
 
@@ -3045,106 +3062,106 @@ msgstr ""
 #: patterns/faq/accordion-sidebar.php:58
 #: patterns/faq/accordion.php:48
 #: patterns/faq/default.php:46
-#: patterns/pages/home.php:1495
+#: patterns/pages/home.php:1511
 msgid "Where is the classic Customizer?"
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:60
 #: patterns/faq/accordion.php:50
 #: patterns/faq/default.php:48
-#: patterns/pages/home.php:1497
+#: patterns/pages/home.php:1513
 msgid "The Customizer has been retired in favor of the Site Editor (Appearance → Editor). This gives you total control over headers, footers, and page templates visually, without relying on legacy options."
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:67
 #: patterns/faq/accordion.php:57
 #: patterns/faq/default.php:55
-#: patterns/pages/home.php:1505
+#: patterns/pages/home.php:1521
 msgid "How to change the site logo?"
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:69
 #: patterns/faq/accordion.php:59
 #: patterns/faq/default.php:57
-#: patterns/pages/home.php:1507
+#: patterns/pages/home.php:1523
 msgid "Access the Header template part within the Site Editor. Select the existing placeholder and replace it with a Site Logo, Image, or Inline SVG block. We recommend utilizing raw SVG for infinite scalability and dynamic color adaptation across dark mode."
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:76
 #: patterns/faq/accordion.php:66
 #: patterns/faq/default.php:64
-#: patterns/pages/home.php:1515
+#: patterns/pages/home.php:1531
 msgid "How do I edit the navigation menu?"
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:78
 #: patterns/faq/accordion.php:68
 #: patterns/faq/default.php:66
-#: patterns/pages/home.php:1517
+#: patterns/pages/home.php:1533
 msgid "Menus are now managed via the Navigation Block. Click on the header area inside the Site Editor to add, remove, or reorder links directly on the canvas without leaving the design view."
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:85
 #: patterns/faq/accordion.php:97
 #: patterns/faq/default.php:73
-#: patterns/pages/home.php:1549
+#: patterns/pages/home.php:1565
 msgid "How can I add animations to blocks?"
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:87
 #: patterns/faq/accordion.php:99
 #: patterns/faq/default.php:75
-#: patterns/pages/home.php:1551
+#: patterns/pages/home.php:1567
 msgid "Motion parameters are integrated directly into the block's settings panel. Within the Animation control group, you can define kinetic properties including the triggering Event (such as \"Enter\"), the Effect style, Easing curve, and precise timing curves for Duration and Delay without writing any code."
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:94
 #: patterns/faq/accordion.php:106
 #: patterns/faq/default.php:82
-#: patterns/pages/home.php:1559
+#: patterns/pages/home.php:1575
 msgid "How do I create an FAQ accordion?"
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:96
 #: patterns/faq/accordion.php:108
 #: patterns/faq/default.php:84
-#: patterns/pages/home.php:1561
+#: patterns/pages/home.php:1577
 msgid "Deploy a pre-configured accordion instantly from the Patterns library, or construct one manually using the native List Block variation. By relying on standard core architecture rather than proprietary blocks, your content retains absolute portability across any future environment."
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:103
 #: patterns/faq/default.php:95
-#: patterns/pages/home.php:1573
+#: patterns/pages/home.php:1589
 msgid "How can I display blog posts on the home page?"
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:105
 #: patterns/faq/default.php:97
-#: patterns/pages/home.php:1575
+#: patterns/pages/home.php:1591
 msgid "Inject dynamic content instantly by dragging a layout from the Blog Patterns library onto your canvas. Control the data stream using the Query Loop block, allowing you to filter categories and define display parameters with granular precision."
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:112
 #: patterns/faq/default.php:104
-#: patterns/pages/home.php:1583
+#: patterns/pages/home.php:1599
 msgid "What is the difference between Templates and Pages?"
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:114
 #: patterns/faq/default.php:106
-#: patterns/pages/home.php:1585
+#: patterns/pages/home.php:1601
 msgid "Pages hold your specific content (like \"About Us\"). Templates define the structure wrapping that content (like headers, sidebars, and footers). Editing a Template affects all Pages that use it."
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:121
 #: patterns/faq/default.php:167
-#: patterns/pages/home.php:1653
+#: patterns/pages/home.php:1669
 msgid "Does this theme require any plugins?"
 msgstr ""
 
 #: patterns/faq/accordion-sidebar.php:123
 #: patterns/faq/default.php:169
-#: patterns/pages/home.php:1655
+#: patterns/pages/home.php:1671
 msgid "No. We operate on a strict zero-dependency architecture. Every layout, pattern, and utility is native to the framework, ensuring you never rely on external software to achieve core functionality."
 msgstr ""
 
@@ -3166,27 +3183,27 @@ msgid "Frequently Asked Questions"
 msgstr ""
 
 #: patterns/faq/accordion.php:39
-#: patterns/pages/home.php:1485
+#: patterns/pages/home.php:1501
 msgid "How do I replace this default Home screen?"
 msgstr ""
 
 #: patterns/faq/accordion.php:41
-#: patterns/pages/home.php:1487
+#: patterns/pages/home.php:1503
 msgid "This layout is the default Home template. To replace it with your own content, simply create a new Page, publish it, and assign it as your \"Homepage\" under Settings → Reading."
 msgstr ""
 
 #: patterns/faq/accordion.php:75
-#: patterns/pages/home.php:1525
+#: patterns/pages/home.php:1541
 msgid "How do I change fonts and colors globally?"
 msgstr ""
 
 #: patterns/faq/accordion.php:77
-#: patterns/pages/home.php:1527
+#: patterns/pages/home.php:1543
 msgid "Open the Styles panel (the half-shaded circle icon) in the top-right of the Editor. Changes made here propagate instantly across the entire site architecture, updating all blocks simultaneously."
 msgstr ""
 
 #: patterns/faq/accordion.php:84
-#: patterns/pages/home.php:1535
+#: patterns/pages/home.php:1551
 msgid "How do I add custom SVG images?"
 msgstr ""
 
@@ -3209,62 +3226,62 @@ msgid "A frequently asked questions section."
 msgstr ""
 
 #: patterns/faq/default.php:113
-#: patterns/pages/home.php:1593
+#: patterns/pages/home.php:1609
 msgid "How do I edit the Header or Footer?"
 msgstr ""
 
 #: patterns/faq/default.php:115
-#: patterns/pages/home.php:1595
+#: patterns/pages/home.php:1611
 msgid "These are Template Parts. You can edit them contextually while viewing any template in the Editor, or manage them specifically under Appearance → Editor → Patterns."
 msgstr ""
 
 #: patterns/faq/default.php:122
-#: patterns/pages/home.php:1603
+#: patterns/pages/home.php:1619
 msgid "Where do I find the pre-made layouts?"
 msgstr ""
 
 #: patterns/faq/default.php:124
-#: patterns/pages/home.php:1605
+#: patterns/pages/home.php:1621
 msgid "Open the Block Inserter (+) and switch to the Patterns tab. Here you can browse categorized sections (Headers, Grids, Call to Actions) and drag them directly onto your canvas."
 msgstr ""
 
 #: patterns/faq/default.php:131
-#: patterns/pages/home.php:1613
+#: patterns/pages/home.php:1629
 msgid "Where do I add custom CSS?"
 msgstr ""
 
 #: patterns/faq/default.php:133
-#: patterns/pages/home.php:1615
+#: patterns/pages/home.php:1631
 msgid "Open the Styles panel, click the three dots menu, and select Additional CSS. This allows you to inject code that applies strictly to the framework's root without external plugins."
 msgstr ""
 
 #: patterns/faq/default.php:140
-#: patterns/pages/home.php:1623
+#: patterns/pages/home.php:1639
 msgid "How do I set a different template for a specific page?"
 msgstr ""
 
 #: patterns/faq/default.php:142
-#: patterns/pages/home.php:1625
+#: patterns/pages/home.php:1641
 msgid "Inside the page editor, look for the Template setting in the right sidebar (Page tab). Click the template name to swap it (e.g., from \"Default\" to \"Blank Canvas\") or create a new custom one."
 msgstr ""
 
 #: patterns/faq/default.php:149
-#: patterns/pages/home.php:1633
+#: patterns/pages/home.php:1649
 msgid "How do I revert changes if I break a template?"
 msgstr ""
 
 #: patterns/faq/default.php:151
-#: patterns/pages/home.php:1635
+#: patterns/pages/home.php:1651
 msgid "If a template is modified, a blue dot appears next to it in the Site Editor. Click the three dots next to the template name and select Clear Customizations to reset it to the theme's native default."
 msgstr ""
 
 #: patterns/faq/default.php:158
-#: patterns/pages/home.php:1643
+#: patterns/pages/home.php:1659
 msgid "How can I save user dark mode preferences?"
 msgstr ""
 
 #: patterns/faq/default.php:160
-#: patterns/pages/home.php:1645
+#: patterns/pages/home.php:1661
 msgid "The system defaults to the visitor's OS setting (prefers-color-scheme) automatically. However, if the manual toggle is engaged, a local cookie is initialized to persist the user's specific override across sessions."
 msgstr ""
 
@@ -3406,65 +3423,56 @@ msgid "A grid of icon boxes showcasing features or services."
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:23
+#: patterns/footer/default.php:65
 #: patterns/pages/landing.php:88
 msgid "Features"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:27
-#: patterns/pages/home.php:622
+#: patterns/pages/home.php:638
 msgid "Editor Evolved"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:31
-#: patterns/pages/home.php:626
+#: patterns/pages/home.php:642
 #: patterns/portfolio/image-gallery-grid.php:31
 msgid "Enhance the native experience with lightweight blocks engineered to integrate seamlessly without bloating the core."
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:46
-#: patterns/footer/default.php:47
-#: patterns/footer/default.php:57
-#: patterns/footer/default.php:74
-#: patterns/footer/default.php:84
-#: patterns/footer/wide - Copy.php:36
-#: patterns/footer/wide - Copy.php:46
-#: patterns/footer/wide - Copy.php:62
-#: patterns/footer/wide - Copy.php:72
-#: patterns/footer/wide - Copy.php:88
-#: patterns/footer/wide - Copy.php:98
 #: patterns/footer/wide.php:36
 #: patterns/footer/wide.php:46
 #: patterns/footer/wide.php:62
 #: patterns/footer/wide.php:72
 #: patterns/footer/wide.php:88
 #: patterns/footer/wide.php:98
-#: patterns/pages/home.php:642
+#: patterns/pages/home.php:658
 #: src/Blocks/slider/index.js:1
 msgid "Navigation"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:52
-#: patterns/pages/home.php:648
+#: patterns/pages/home.php:664
 msgid "Visual Nav"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:56
-#: patterns/pages/home.php:652
+#: patterns/pages/home.php:668
 msgid "Construct rich dropdowns with images and widgets directly in the canvas, requiring zero code."
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:67
-#: patterns/pages/home.php:664
+#: patterns/pages/home.php:680
 msgid "Typography"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:73
-#: patterns/pages/home.php:670
+#: patterns/pages/home.php:686
 msgid "Fluid Text"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:77
-#: patterns/pages/home.php:674
+#: patterns/pages/home.php:690
 msgid "Break linear constraints by wrapping typography along organic paths for high-impact editorial design."
 msgstr ""
 
@@ -3473,104 +3481,104 @@ msgid "Kinetics"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:94
-#: patterns/pages/home.php:692
+#: patterns/pages/home.php:708
 msgid "Motion Loop"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:98
-#: patterns/pages/home.php:696
+#: patterns/pages/home.php:712
 msgid "Inject kinetic energy with smooth scrolling marquees of text or images that drive user engagement."
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:113
-#: patterns/pages/home.php:561
-#: patterns/pages/home.php:712
-#: patterns/pages/home.php:931
+#: patterns/pages/home.php:577
+#: patterns/pages/home.php:728
+#: patterns/pages/home.php:947
 msgid "Structure"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:119
-#: patterns/pages/home.php:718
+#: patterns/pages/home.php:734
 msgid "Smart Grid"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:123
-#: patterns/pages/home.php:722
+#: patterns/pages/home.php:738
 msgid "Manage alignment automatically, transcending basic columns with an intrinsic responsive system."
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:134
-#: patterns/pages/home.php:734
+#: patterns/pages/home.php:750
 msgid "Growth"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:140
-#: patterns/pages/home.php:740
+#: patterns/pages/home.php:756
 msgid "Live Data"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:144
-#: patterns/pages/home.php:744
+#: patterns/pages/home.php:760
 msgid "Visualize growth by animating critical metrics as they scroll into view for dynamic polish."
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:155
-#: patterns/pages/home.php:756
+#: patterns/pages/home.php:772
 msgid "Curation"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:161
-#: patterns/pages/home.php:762
+#: patterns/pages/home.php:778
 msgid "Query Logic"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:165
-#: patterns/pages/home.php:766
+#: patterns/pages/home.php:782
 msgid "Filter content with precision, controlling display parameters to arrange portfolios effortlessly."
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:180
-#: patterns/pages/home.php:782
+#: patterns/pages/home.php:798
 msgid "Local"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:186
-#: patterns/pages/home.php:788
+#: patterns/pages/home.php:804
 msgid "Safe Maps"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:190
-#: patterns/pages/home.php:792
+#: patterns/pages/home.php:808
 msgid "Guide visitors without tracking using lightweight, GDPR-compliant maps embedded locally."
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:201
-#: patterns/pages/home.php:804
+#: patterns/pages/home.php:820
 msgid "Hierarchy"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:207
-#: patterns/pages/home.php:810
+#: patterns/pages/home.php:826
 msgid "Site Path"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:211
-#: patterns/pages/home.php:814
+#: patterns/pages/home.php:830
 msgid "Boost SEO and usability by generating clear structural links to define hierarchy instantly."
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:222
-#: patterns/pages/home.php:826
+#: patterns/pages/home.php:842
 msgid "Clarity"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:228
-#: patterns/pages/home.php:832
+#: patterns/pages/home.php:848
 msgid "SVG Icons"
 msgstr ""
 
 #: patterns/featured/icon-boxes.php:232
-#: patterns/pages/home.php:836
+#: patterns/pages/home.php:852
 msgid "Keep interfaces razor-sharp with scalable vectors that break up dense text on any resolution."
 msgstr ""
 
@@ -3585,18 +3593,18 @@ msgid "A feature section with image and content."
 msgstr ""
 
 #: patterns/featured/image.php:28
-#: patterns/pages/home.php:362
-#: patterns/pages/home.php:513
+#: patterns/pages/home.php:378
+#: patterns/pages/home.php:529
 msgid "Patterns"
 msgstr ""
 
 #: patterns/featured/image.php:34
-#: patterns/pages/home.php:368
+#: patterns/pages/home.php:384
 msgid "Modular Architecture"
 msgstr ""
 
 #: patterns/featured/image.php:38
-#: patterns/pages/home.php:372
+#: patterns/pages/home.php:388
 msgid "Build with velocity using pre-engineered layout blocks. These responsive patterns adapt intelligently to your global rules, allowing you to assemble complex interfaces rapidly without starting from zero."
 msgstr ""
 
@@ -3636,28 +3644,37 @@ msgctxt "Pattern description"
 msgid "A centered footer with logo and copyright."
 msgstr ""
 
-#: patterns/footer/centered.php:42
+#: patterns/footer/centered.php:23
+#: src/NavigationFallback.php:62
+msgid "Home"
+msgstr ""
+
+#: patterns/footer/centered.php:24
+#: patterns/footer/default.php:51
+#: patterns/team/members.php:19
+#: src/NavigationFallback.php:70
+msgid "About"
+msgstr ""
+
+#: patterns/footer/centered.php:47
 #: patterns/footer/minimal.php:29
 #: patterns/footer/store-default.php:121
 #: patterns/footer/store-minimal.php:20
-#: patterns/footer/wide - Copy.php:131
 #: patterns/footer/wide.php:131
 msgid "© Copyright {year}"
 msgstr ""
 
-#: patterns/footer/centered.php:48
-#: patterns/footer/default.php:109
+#: patterns/footer/centered.php:53
+#: patterns/footer/default.php:125
 #: patterns/footer/minimal.php:35
 #: patterns/footer/store-default.php:127
-#: patterns/footer/wide - Copy.php:137
 #: patterns/footer/wide.php:137
 msgid "· All rights reserved."
 msgstr ""
 
-#: patterns/footer/centered.php:57
-#: patterns/footer/default.php:118
+#: patterns/footer/centered.php:62
+#: patterns/footer/default.php:134
 #: patterns/footer/minimal.php:57
-#: patterns/footer/wide - Copy.php:149
 #: patterns/footer/wide.php:146
 msgid "Back to Top"
 msgstr ""
@@ -3667,7 +3684,56 @@ msgctxt "Pattern title"
 msgid "Footer Default"
 msgstr ""
 
-#: patterns/footer/default.php:103
+#: patterns/footer/default.php:47
+#: patterns/pages/landing.php:292
+msgid "Company"
+msgstr ""
+
+#: patterns/footer/default.php:53
+msgid "Careers"
+msgstr ""
+
+#: patterns/footer/default.php:61
+msgid "Product"
+msgstr ""
+
+#: patterns/footer/default.php:66
+msgid "Pricing"
+msgstr ""
+
+#: patterns/footer/default.php:67
+msgid "Integrations"
+msgstr ""
+
+#: patterns/footer/default.php:82
+msgid "Resources"
+msgstr ""
+
+#: patterns/footer/default.php:86
+msgid "Documentation"
+msgstr ""
+
+#: patterns/footer/default.php:87
+msgid "Support"
+msgstr ""
+
+#: patterns/footer/default.php:88
+msgid "Community"
+msgstr ""
+
+#: patterns/footer/default.php:96
+msgid "Legal"
+msgstr ""
+
+#: patterns/footer/default.php:100
+msgid "Privacy"
+msgstr ""
+
+#: patterns/footer/default.php:101
+msgid "Terms"
+msgstr ""
+
+#: patterns/footer/default.php:119
 msgid "Copyright {year}"
 msgstr ""
 
@@ -3713,7 +3779,7 @@ msgid "Customer Service"
 msgstr ""
 
 #: patterns/footer/store-default.php:80
-#: patterns/pages/home.php:1452
+#: patterns/pages/home.php:1468
 msgid "FAQ"
 msgstr ""
 
@@ -3764,13 +3830,11 @@ msgstr ""
 msgid "Refund Policy"
 msgstr ""
 
-#: patterns/footer/wide - Copy.php
 #: patterns/footer/wide.php
 msgctxt "Pattern title"
 msgid "Wide"
 msgstr ""
 
-#: patterns/footer/wide - Copy.php
 #: patterns/footer/wide.php
 msgctxt "Pattern description"
 msgid "A wide footer with multiple columns."
@@ -3892,7 +3956,7 @@ msgstr ""
 
 #: patterns/hero/cover.php:23
 #: patterns/hero/image-below.php:16
-#: patterns/pages/home.php:29
+#: patterns/pages/home.php:24
 msgid "Native Block Framework"
 msgstr ""
 
@@ -4051,20 +4115,6 @@ msgstr ""
 
 #: patterns/hidden/minimal.php:31
 msgid "Back to Homepage"
-msgstr ""
-
-#: patterns/library/icon-grid.php
-msgctxt "Pattern title"
-msgid "Icon grid (library)"
-msgstr ""
-
-#: patterns/library/icon-grid.php
-msgctxt "Pattern description"
-msgid "Static grid of core icons — use instead of the legacy all-icons image variation."
-msgstr ""
-
-#: patterns/library/icon-grid.php:15
-msgid "Icon library"
 msgstr ""
 
 #: patterns/logos/as-seen-in.php
@@ -5159,300 +5209,308 @@ msgctxt "Pattern title"
 msgid "Page Home"
 msgstr ""
 
-#: patterns/pages/home.php:22
-msgid "RELEASE V1.0.0"
-msgstr ""
-
-#: patterns/pages/home.php:34
+#: patterns/pages/home.php:29
 msgid "Wireframe, build, and ship high-performance sites without the bloat—a zero-dependency architecture for total creative freedom."
 msgstr ""
 
-#: patterns/pages/home.php:42
+#: patterns/pages/home.php:37
 msgid "Open Editor"
 msgstr ""
 
-#: patterns/pages/home.php:48
-msgid "Read Docs"
+#: patterns/pages/home.php:42
+msgid "Get Plugin"
 msgstr ""
 
-#: patterns/pages/home.php:79
+#: patterns/pages/home.php:56
+msgid "Hero image"
+msgstr ""
+
+#: patterns/pages/home.php:63
+msgid "Left image"
+msgstr ""
+
+#: patterns/pages/home.php:70
+msgid "Right image"
+msgstr ""
+
+#: patterns/pages/home.php:95
 #: patterns/timeline/horizontal.php:91
 msgid "Launch"
 msgstr ""
 
-#: patterns/pages/home.php:83
+#: patterns/pages/home.php:99
 msgid "Ready to Build"
 msgstr ""
 
-#: patterns/pages/home.php:87
+#: patterns/pages/home.php:103
 msgid "Transition instantly from installation to design with no complex setup required, confirming the framework is ready for your vision."
 msgstr ""
 
-#: patterns/pages/home.php:104
+#: patterns/pages/home.php:120
 msgid "Pure Velocity"
 msgstr ""
 
-#: patterns/pages/home.php:110
+#: patterns/pages/home.php:126
 msgid "Resources load strictly on demand without heavy dependencies for a truly instant experience."
 msgstr ""
 
-#: patterns/pages/home.php:123
+#: patterns/pages/home.php:139
 msgid "Fluid Mechanics"
 msgstr ""
 
-#: patterns/pages/home.php:129
+#: patterns/pages/home.php:145
 msgid "Layouts and typography adapt intelligently to any viewport using intrinsic responsiveness."
 msgstr ""
 
-#: patterns/pages/home.php:142
+#: patterns/pages/home.php:158
 msgid "Accessibility First"
 msgstr ""
 
-#: patterns/pages/home.php:148
+#: patterns/pages/home.php:164
 msgid "A semantic foundation aimed at WCAG 2.2 AA — landmarks, focus styles, and keyboard support out of the box."
 msgstr ""
 
-#: patterns/pages/home.php:209
+#: patterns/pages/home.php:225
 msgid "THE SYSTEM"
 msgstr ""
 
-#: patterns/pages/home.php:215
+#: patterns/pages/home.php:231
 msgid "Architectural Core"
 msgstr ""
 
-#: patterns/pages/home.php:219
+#: patterns/pages/home.php:235
 msgid "Define global rules that govern the entire experience, ensuring consistency without limiting technical access."
 msgstr ""
 
-#: patterns/pages/home.php:237
+#: patterns/pages/home.php:253
 msgid "Dark Mode"
 msgstr ""
 
-#: patterns/pages/home.php:243
+#: patterns/pages/home.php:259
 msgid "Smart Toggle"
 msgstr ""
 
-#: patterns/pages/home.php:247
+#: patterns/pages/home.php:263
 msgid "Semantic palettes adapt automatically, maintaining perfect contrast in any lighting without manual overrides."
 msgstr ""
 
-#: patterns/pages/home.php:259
+#: patterns/pages/home.php:275
 msgid "Design System"
 msgstr ""
 
-#: patterns/pages/home.php:265
+#: patterns/pages/home.php:281
 msgid "Global Tokens"
 msgstr ""
 
-#: patterns/pages/home.php:269
+#: patterns/pages/home.php:285
 msgid "Scale using rigid token architecture, ensuring every unit remains mathematically synchronized as the site grows."
 msgstr ""
 
-#: patterns/pages/home.php:285
+#: patterns/pages/home.php:301
 msgid "Dev Flexibility"
 msgstr ""
 
-#: patterns/pages/home.php:291
+#: patterns/pages/home.php:307
 msgid "Native API"
 msgstr ""
 
-#: patterns/pages/home.php:295
+#: patterns/pages/home.php:311
 msgid "Extend freely using native APIs, allowing you to modify the codebase without ever fighting the framework’s logic."
 msgstr ""
 
-#: patterns/pages/home.php:316
+#: patterns/pages/home.php:332
 msgid "Styles"
 msgstr ""
 
-#: patterns/pages/home.php:322
+#: patterns/pages/home.php:338
 msgid "Unified Aesthetics"
 msgstr ""
 
-#: patterns/pages/home.php:326
+#: patterns/pages/home.php:342
 #: patterns/portfolio/image-gallery.php:30
 msgid "Manage your visual language from a single source of truth. By defining typography, colors, and spacing globally, you ensure instant consistency across the entire framework without repetitive manual adjustments."
 msgstr ""
 
-#: patterns/pages/home.php:391
+#: patterns/pages/home.php:407
 msgid "Templates"
 msgstr ""
 
-#: patterns/pages/home.php:395
+#: patterns/pages/home.php:411
 msgid "Structural Control"
 msgstr ""
 
-#: patterns/pages/home.php:428
+#: patterns/pages/home.php:444
 msgid "Integrity"
 msgstr ""
 
-#: patterns/pages/home.php:434
+#: patterns/pages/home.php:450
 msgid "Core Shield"
 msgstr ""
 
-#: patterns/pages/home.php:439
+#: patterns/pages/home.php:455
 msgid "Eliminate the risk of third-party code by relying strictly on WordPress core, effectively removing common attack vectors."
 msgstr ""
 
-#: patterns/pages/home.php:451
+#: patterns/pages/home.php:467
 msgid "Continuity"
 msgstr ""
 
-#: patterns/pages/home.php:457
+#: patterns/pages/home.php:473
 msgid "Future Proof"
 msgstr ""
 
-#: patterns/pages/home.php:462
+#: patterns/pages/home.php:478
 msgid "Build once to persist forever, as your design aligns with the core engine to evolve automatically with every update."
 msgstr ""
 
-#: patterns/pages/home.php:474
+#: patterns/pages/home.php:490
 msgid "Inclusion"
 msgstr ""
 
-#: patterns/pages/home.php:480
+#: patterns/pages/home.php:496
 msgid "Open Access"
 msgstr ""
 
-#: patterns/pages/home.php:485
+#: patterns/pages/home.php:501
 msgid "Semantic code ensures your content is clear to search engines and screen readers, ensuring no visitor is ever left behind."
 msgstr ""
 
-#: patterns/pages/home.php:517
+#: patterns/pages/home.php:533
 msgid "Rapid Scale"
 msgstr ""
 
-#: patterns/pages/home.php:523
+#: patterns/pages/home.php:539
 msgid "Construct complex pages instantly using intelligent sections that adapt to your brand's design language automatically."
 msgstr ""
 
-#: patterns/pages/home.php:539
+#: patterns/pages/home.php:555
 msgid "Library"
 msgstr ""
 
-#: patterns/pages/home.php:545
+#: patterns/pages/home.php:561
 msgid "Smart Patterns"
 msgstr ""
 
-#: patterns/pages/home.php:549
+#: patterns/pages/home.php:565
 msgid "Insert conversion-ready headers and grids that inherit your global styles immediately for instant composition."
 msgstr ""
 
-#: patterns/pages/home.php:567
+#: patterns/pages/home.php:583
 msgid "Page Models"
 msgstr ""
 
-#: patterns/pages/home.php:572
+#: patterns/pages/home.php:588
 msgid "Select from fully architected wireframes ready for your content, enabling you to launch complete sites faster."
 msgstr ""
 
-#: patterns/pages/home.php:584
-#: patterns/pages/home.php:883
+#: patterns/pages/home.php:600
+#: patterns/pages/home.php:899
 msgid "Control"
 msgstr ""
 
-#: patterns/pages/home.php:590
+#: patterns/pages/home.php:606
 msgid "Deep Logic"
 msgstr ""
 
-#: patterns/pages/home.php:595
+#: patterns/pages/home.php:611
 msgid "Unlock advanced controls—visibility logic and responsive toggles—inside the native block inspector."
 msgstr ""
 
-#: patterns/pages/home.php:618
+#: patterns/pages/home.php:634
 msgid "toolkit"
 msgstr ""
 
-#: patterns/pages/home.php:686
+#: patterns/pages/home.php:702
 msgid "kinetics"
 msgstr ""
 
-#: patterns/pages/home.php:863
+#: patterns/pages/home.php:879
 msgid "Universal Design"
 msgstr ""
 
-#: patterns/pages/home.php:869
+#: patterns/pages/home.php:885
 msgid "True design excludes no one, reaching every visitor with a semantic core aimed at WCAG 2.2 AA — with content choices that keep it that way."
 msgstr ""
 
-#: patterns/pages/home.php:889
+#: patterns/pages/home.php:905
 msgid "Keyboard First"
 msgstr ""
 
-#: patterns/pages/home.php:893
+#: patterns/pages/home.php:909
 msgid "Navigate without a mouse by using logical tab sequencing and clear focus states to ensure seamless movement."
 msgstr ""
 
-#: patterns/pages/home.php:905
+#: patterns/pages/home.php:921
 msgid "Legibility"
 msgstr ""
 
-#: patterns/pages/home.php:911
+#: patterns/pages/home.php:927
 msgid "Visual Clarity"
 msgstr ""
 
-#: patterns/pages/home.php:915
+#: patterns/pages/home.php:931
 msgid "Ensure perfect reading by calculating contrast ratios in real-time against any background color to guarantee optimal legibility."
 msgstr ""
 
-#: patterns/pages/home.php:937
+#: patterns/pages/home.php:953
 msgid "Semantic Audio"
 msgstr ""
 
-#: patterns/pages/home.php:941
+#: patterns/pages/home.php:957
 msgid "Translate visual layouts into audio experiences by using semantic HTML markers to guide screen readers."
 msgstr ""
 
-#: patterns/pages/home.php:963
+#: patterns/pages/home.php:979
 #: patterns/pricing/single-highlight.php:17
 #: patterns/pricing/three-column.php:23
 #: patterns/pricing/two-column.php:17
 msgid "Retainers"
 msgstr ""
 
-#: patterns/pages/home.php:967
+#: patterns/pages/home.php:983
 #: patterns/pricing/three-column.php:27
 msgid "Design Support That Scales"
 msgstr ""
 
-#: patterns/pages/home.php:971
+#: patterns/pages/home.php:987
 #: patterns/pricing/three-column.php:31
 msgid "Monthly creative retainers for freelancers, studios, and agencies. Clear hours, predictable pricing, cancel anytime."
 msgstr ""
 
-#: patterns/pages/home.php:986
+#: patterns/pages/home.php:1002
 #: patterns/pricing/comparison-table.php:34
 #: patterns/pricing/three-column.php:46
 #: patterns/pricing/two-column.php:35
 msgid "Starter"
 msgstr ""
 
-#: patterns/pages/home.php:997
-#: patterns/pages/home.php:1089
-#: patterns/pages/home.php:1170
+#: patterns/pages/home.php:1013
+#: patterns/pages/home.php:1105
+#: patterns/pages/home.php:1186
 msgid "monthly"
 msgstr ""
 
-#: patterns/pages/home.php:1009
+#: patterns/pages/home.php:1025
 msgid "For freelancers and solo makers."
 msgstr ""
 
-#: patterns/pages/home.php:1014
+#: patterns/pages/home.php:1030
 msgid "Steady design support for one brand—guidelines, light campaigns, and polished assets without a full-time hire."
 msgstr ""
 
-#: patterns/pages/home.php:1024
+#: patterns/pages/home.php:1040
 #: patterns/pricing/three-column.php:75
 #: patterns/pricing/two-column.php:57
 msgid "1 brand included"
 msgstr ""
 
-#: patterns/pages/home.php:1028
+#: patterns/pages/home.php:1044
 #: patterns/pricing/three-column.php:79
 #: patterns/pricing/two-column.php:60
 msgid "8 design hours / month"
 msgstr ""
 
-#: patterns/pages/home.php:1032
+#: patterns/pages/home.php:1048
 #: patterns/pricing/comparison-table.php:59
 #: patterns/pricing/single-highlight.php:85
 #: patterns/pricing/three-column.php:83
@@ -5460,238 +5518,238 @@ msgstr ""
 msgid "Brand guidelines kit"
 msgstr ""
 
-#: patterns/pages/home.php:1036
+#: patterns/pages/home.php:1052
 #: patterns/pricing/three-column.php:87
 #: patterns/pricing/two-column.php:66
 msgid "2 revision rounds"
 msgstr ""
 
-#: patterns/pages/home.php:1040
+#: patterns/pages/home.php:1056
 msgid "Social & web assets"
 msgstr ""
 
-#: patterns/pages/home.php:1044
+#: patterns/pages/home.php:1060
 msgid "Shared asset library"
 msgstr ""
 
-#: patterns/pages/home.php:1048
+#: patterns/pages/home.php:1064
 #: patterns/pricing/three-column.php:91
 #: patterns/pricing/two-column.php:69
 msgid "Email support"
 msgstr ""
 
-#: patterns/pages/home.php:1059
+#: patterns/pages/home.php:1075
 msgid "Choose Starter"
 msgstr ""
 
-#: patterns/pages/home.php:1071
+#: patterns/pages/home.php:1087
 #: patterns/pricing/comparison-table.php:35
 #: patterns/pricing/three-column.php:111
 #: patterns/pricing/two-column.php:89
 msgid "Studio"
 msgstr ""
 
-#: patterns/pages/home.php:1076
+#: patterns/pages/home.php:1092
 #: patterns/pages/music-festival.php:260
 #: patterns/pricing/three-column.php:116
 msgid "Most Popular"
 msgstr ""
 
-#: patterns/pages/home.php:1101
+#: patterns/pages/home.php:1117
 msgid "For growing creative teams."
 msgstr ""
 
-#: patterns/pages/home.php:1107
+#: patterns/pages/home.php:1123
 msgid "More brands, faster turnarounds, and source files included—ideal when design volume is steady every month."
 msgstr ""
 
-#: patterns/pages/home.php:1117
+#: patterns/pages/home.php:1133
 #: patterns/pricing/three-column.php:147
 msgid "Everything in Starter"
 msgstr ""
 
-#: patterns/pages/home.php:1121
+#: patterns/pages/home.php:1137
 #: patterns/pricing/single-highlight.php:61
 #: patterns/pricing/three-column.php:151
 #: patterns/pricing/two-column.php:117
 msgid "Up to 5 brands"
 msgstr ""
 
-#: patterns/pages/home.php:1125
+#: patterns/pages/home.php:1141
 #: patterns/pricing/single-highlight.php:65
 #: patterns/pricing/three-column.php:155
 #: patterns/pricing/two-column.php:120
 msgid "20 design hours / month"
 msgstr ""
 
-#: patterns/pages/home.php:1129
+#: patterns/pages/home.php:1145
 #: patterns/pricing/single-highlight.php:69
 #: patterns/pricing/three-column.php:159
 #: patterns/pricing/two-column.php:123
 msgid "Priority revisions"
 msgstr ""
 
-#: patterns/pages/home.php:1133
+#: patterns/pages/home.php:1149
 #: patterns/pricing/single-highlight.php:73
 #: patterns/pricing/three-column.php:163
 #: patterns/pricing/two-column.php:126
 msgid "Source files included"
 msgstr ""
 
-#: patterns/pages/home.php:1137
+#: patterns/pages/home.php:1153
 #: patterns/pricing/comparison-table.php:71
 #: patterns/pricing/single-highlight.php:93
 #: patterns/pricing/two-column.php:132
 msgid "Monthly strategy call"
 msgstr ""
 
-#: patterns/pages/home.php:1148
+#: patterns/pages/home.php:1164
 msgid "Choose Studio"
 msgstr ""
 
-#: patterns/pages/home.php:1159
+#: patterns/pages/home.php:1175
 #: patterns/pricing/comparison-table.php:36
 #: patterns/pricing/three-column.php:182
 msgid "Agency"
 msgstr ""
 
-#: patterns/pages/home.php:1182
+#: patterns/pages/home.php:1198
 msgid "For multi-client agencies."
 msgstr ""
 
-#: patterns/pages/home.php:1187
+#: patterns/pages/home.php:1203
 msgid "Unlimited brands, a dedicated creative lead, and white-glove delivery when client work never slows down."
 msgstr ""
 
-#: patterns/pages/home.php:1197
+#: patterns/pages/home.php:1213
 #: patterns/pricing/three-column.php:211
 msgid "Everything in Studio"
 msgstr ""
 
-#: patterns/pages/home.php:1201
+#: patterns/pages/home.php:1217
 #: patterns/pricing/three-column.php:215
 msgid "Unlimited brands"
 msgstr ""
 
-#: patterns/pages/home.php:1205
+#: patterns/pages/home.php:1221
 #: patterns/pricing/three-column.php:219
 msgid "40 design hours / month"
 msgstr ""
 
-#: patterns/pages/home.php:1209
+#: patterns/pages/home.php:1225
 #: patterns/pricing/comparison-table.php:77
 #: patterns/pricing/three-column.php:223
 msgid "Dedicated creative lead"
 msgstr ""
 
-#: patterns/pages/home.php:1213
+#: patterns/pages/home.php:1229
 msgid "Rush turnaround options"
 msgstr ""
 
-#: patterns/pages/home.php:1217
+#: patterns/pages/home.php:1233
 #: patterns/pricing/comparison-table.php:89
 #: patterns/pricing/three-column.php:227
 msgid "Shared Slack channel"
 msgstr ""
 
-#: patterns/pages/home.php:1228
+#: patterns/pages/home.php:1244
 msgid "Choose Agency"
 msgstr ""
 
-#: patterns/pages/home.php:1241
+#: patterns/pages/home.php:1257
 msgid "Need a custom scope? Talk to our studio →"
 msgstr ""
 
-#: patterns/pages/home.php:1261
+#: patterns/pages/home.php:1277
 msgid "Updates"
 msgstr ""
 
-#: patterns/pages/home.php:1269
+#: patterns/pages/home.php:1285
 msgid "Automate your publication stream. This grid dynamically queries your database to display the most recent entries instantly."
 msgstr ""
 
-#: patterns/pages/home.php:1336
+#: patterns/pages/home.php:1352
 #: patterns/testimonial/three-column.php:24
 msgid "SOCIAL PROOF"
 msgstr ""
 
-#: patterns/pages/home.php:1340
+#: patterns/pages/home.php:1356
 #: patterns/testimonial/three-column.php:28
 msgid "Trusted Voices"
 msgstr ""
 
-#: patterns/pages/home.php:1346
+#: patterns/pages/home.php:1362
 #: patterns/testimonial/three-column.php:34
 msgid "Highlight success stories with verified reviews. This responsive grid adapts perfectly to showcase impactful user feedback."
 msgstr ""
 
-#: patterns/pages/home.php:1353
+#: patterns/pages/home.php:1369
 msgid "‘‘A true zero-dependency framework. It gave us the freedom to build custom layouts without fighting against bloated legacy code.’’"
 msgstr ""
 
-#: patterns/pages/home.php:1380
+#: patterns/pages/home.php:1396
 #: patterns/testimonial/single.php:28
 #: patterns/testimonial/three-column.php:63
 msgid "Sarah L."
 msgstr ""
 
-#: patterns/pages/home.php:1384
+#: patterns/pages/home.php:1400
 #: patterns/testimonial/three-column.php:67
 msgid "Studio Lead"
 msgstr ""
 
-#: patterns/pages/home.php:1395
+#: patterns/pages/home.php:1411
 msgid "‘‘The architectural precision is unmatched. We migrated our entire stack and saw immediate performance gains across the board.’’"
 msgstr ""
 
-#: patterns/pages/home.php:1422
+#: patterns/pages/home.php:1438
 #: patterns/testimonial/three-column.php:100
 msgid "Alex V."
 msgstr ""
 
-#: patterns/pages/home.php:1426
+#: patterns/pages/home.php:1442
 #: patterns/team/grid-simple.php:73
 #: patterns/testimonial/three-column.php:104
 msgid "Senior Developer"
 msgstr ""
 
-#: patterns/pages/home.php:1456
+#: patterns/pages/home.php:1472
 msgid "Quick Start"
 msgstr ""
 
-#: patterns/pages/home.php:1460
+#: patterns/pages/home.php:1476
 msgid "Essential guides to navigating the block architecture and taking full control of your site's foundation."
 msgstr ""
 
-#: patterns/pages/home.php:1537
+#: patterns/pages/home.php:1553
 msgid "Insert the Icon block and pick from the WordPress Icon library, including Aegis collections. Paste custom SVG in the Icon block, or use the SVG Image variation for inline SVG files."
 msgstr ""
 
-#: patterns/pages/home.php:1541
+#: patterns/pages/home.php:1557
 msgid "To upload standard .svg files to the Media Library, you must install a sanitizer plugin (like Safe SVG) to bypass WordPress security restrictions."
 msgstr ""
 
-#: patterns/pages/home.php:1668
+#: patterns/pages/home.php:1684
 msgid "Question not answered above?"
 msgstr ""
 
-#: patterns/pages/home.php:1671
+#: patterns/pages/home.php:1687
 msgid "Contact us →"
 msgstr ""
 
-#: patterns/pages/home.php:1684
+#: patterns/pages/home.php:1700
 msgid "Next Phase"
 msgstr ""
 
-#: patterns/pages/home.php:1689
+#: patterns/pages/home.php:1705
 msgid "Execute Your Vision"
 msgstr ""
 
-#: patterns/pages/home.php:1693
+#: patterns/pages/home.php:1709
 msgid "The foundation is set. Transition immediately from installation to production and start architecting your digital presence today."
 msgstr ""
 
-#: patterns/pages/home.php:1702
+#: patterns/pages/home.php:1718
 msgid "Open Site Editor"
 msgstr ""
 
@@ -5849,10 +5907,6 @@ msgstr ""
 
 #: patterns/pages/landing.php:276
 msgid "Send a message"
-msgstr ""
-
-#: patterns/pages/landing.php:292
-msgid "Company"
 msgstr ""
 
 #: patterns/pages/landing.php:296
@@ -6429,7 +6483,7 @@ msgid "Our Store"
 msgstr ""
 
 #: patterns/pages/shop-full-width.php:22
-#: patterns/template/search-product.php:157
+#: patterns/template/search-product.php:149
 msgid "Browse All Products"
 msgstr ""
 
@@ -6453,76 +6507,74 @@ msgstr ""
 
 #: patterns/pages/shop-full-width.php:45
 #: patterns/pages/shop-full-width.php:47
-#: patterns/pages/shop-full-width.php:48
-#: patterns/template/archive-product.php:70
-#: patterns/template/archive-product.php:73
-#: patterns/template/search-product.php:69
-#: patterns/template/search-product.php:72
-#: patterns/template/taxonomy-product_cat.php:71
-#: patterns/template/taxonomy-product_cat.php:74
-#: patterns/template/taxonomy-product_tag.php:71
-#: patterns/template/taxonomy-product_tag.php:74
+#: patterns/template/archive-product.php:68
+#: patterns/template/archive-product.php:71
+#: patterns/template/search-product.php:67
+#: patterns/template/search-product.php:70
+#: patterns/template/taxonomy-product_cat.php:69
+#: patterns/template/taxonomy-product_cat.php:72
+#: patterns/template/taxonomy-product_tag.php:69
+#: patterns/template/taxonomy-product_tag.php:72
 msgid "Availability"
 msgstr ""
 
+#: patterns/pages/shop-full-width.php:53
 #: patterns/pages/shop-full-width.php:55
-#: patterns/pages/shop-full-width.php:57
-#: patterns/pages/shop-full-width.php:58
-#: patterns/template/archive-product.php:84
-#: patterns/template/archive-product.php:87
-#: patterns/template/search-product.php:83
-#: patterns/template/search-product.php:86
-#: patterns/template/taxonomy-product_cat.php:85
-#: patterns/template/taxonomy-product_cat.php:88
-#: patterns/template/taxonomy-product_tag.php:85
-#: patterns/template/taxonomy-product_tag.php:88
+#: patterns/template/archive-product.php:80
+#: patterns/template/archive-product.php:83
+#: patterns/template/search-product.php:79
+#: patterns/template/search-product.php:82
+#: patterns/template/taxonomy-product_cat.php:81
+#: patterns/template/taxonomy-product_cat.php:84
+#: patterns/template/taxonomy-product_tag.php:81
+#: patterns/template/taxonomy-product_tag.php:84
 msgid "Rating"
 msgstr ""
 
-#: patterns/pages/shop-full-width.php:65
-#: patterns/template/archive-product.php:98
-#: patterns/template/archive-product.php:101
-#: patterns/template/search-product.php:97
-#: patterns/template/search-product.php:100
-#: patterns/template/taxonomy-product_cat.php:99
-#: patterns/template/taxonomy-product_cat.php:102
-#: patterns/template/taxonomy-product_tag.php:99
-#: patterns/template/taxonomy-product_tag.php:102
+#: patterns/pages/shop-full-width.php:61
+#: patterns/template/archive-product.php:92
+#: patterns/template/archive-product.php:95
+#: patterns/template/search-product.php:91
+#: patterns/template/search-product.php:94
+#: patterns/template/taxonomy-product_cat.php:93
+#: patterns/template/taxonomy-product_cat.php:96
+#: patterns/template/taxonomy-product_tag.php:93
+#: patterns/template/taxonomy-product_tag.php:96
 msgid "Active Filters"
 msgstr ""
 
-#: patterns/pages/shop-full-width.php:116
-#: patterns/template/search-product.php:147
-#: patterns/template/taxonomy-product_cat.php:149
-#: patterns/template/taxonomy-product_tag.php:149
+#: patterns/pages/shop-full-width.php:110
+#: patterns/template/search-product.php:139
+#: patterns/template/taxonomy-product_cat.php:141
+#: patterns/template/taxonomy-product_tag.php:141
 msgid "No products found"
 msgstr ""
 
-#: patterns/pages/shop-full-width.php:120
-#: patterns/template/archive-product.php:152
-#: patterns/template/taxonomy-product_cat.php:153
-#: patterns/template/taxonomy-product_tag.php:153
+#: patterns/pages/shop-full-width.php:114
+#: patterns/template/archive-product.php:144
+#: patterns/template/taxonomy-product_cat.php:145
+#: patterns/template/taxonomy-product_tag.php:145
 msgid "You can try"
 msgstr ""
 
-#: patterns/pages/shop-full-width.php:120
-#: patterns/template/archive-product.php:152
-#: patterns/template/taxonomy-product_cat.php:153
-#: patterns/template/taxonomy-product_tag.php:153
+#: patterns/pages/shop-full-width.php:114
+#: patterns/template/archive-product.php:144
+#: patterns/template/taxonomy-product_cat.php:145
+#: patterns/template/taxonomy-product_tag.php:145
 msgid "clearing any filters"
 msgstr ""
 
-#: patterns/pages/shop-full-width.php:120
-#: patterns/template/archive-product.php:152
-#: patterns/template/taxonomy-product_cat.php:153
-#: patterns/template/taxonomy-product_tag.php:153
+#: patterns/pages/shop-full-width.php:114
+#: patterns/template/archive-product.php:144
+#: patterns/template/taxonomy-product_cat.php:145
+#: patterns/template/taxonomy-product_tag.php:145
 msgid "or head to our"
 msgstr ""
 
-#: patterns/pages/shop-full-width.php:120
-#: patterns/template/archive-product.php:152
-#: patterns/template/taxonomy-product_cat.php:153
-#: patterns/template/taxonomy-product_tag.php:153
+#: patterns/pages/shop-full-width.php:114
+#: patterns/template/archive-product.php:144
+#: patterns/template/taxonomy-product_cat.php:145
+#: patterns/template/taxonomy-product_tag.php:145
 msgid "store's home"
 msgstr ""
 
@@ -7955,10 +8007,6 @@ msgctxt "Pattern description"
 msgid "A team members section."
 msgstr ""
 
-#: patterns/team/members.php:19
-msgid "About"
-msgstr ""
-
 #: patterns/team/members.php:23
 msgid "Architects"
 msgstr ""
@@ -8064,7 +8112,7 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: patterns/template/archive-product.php:148
+#: patterns/template/archive-product.php:140
 msgid "No results found"
 msgstr ""
 
@@ -8202,15 +8250,15 @@ msgstr ""
 msgid "You may also like"
 msgstr ""
 
-#: patterns/template/page-cart.php:77
+#: patterns/template/page-cart.php:83
 msgid "Your cart is currently empty"
 msgstr ""
 
-#: patterns/template/page-cart.php:81
+#: patterns/template/page-cart.php:87
 msgid "Looks like you haven't added anything to your cart yet."
 msgstr ""
 
-#: patterns/template/page-cart.php:87
+#: patterns/template/page-cart.php:93
 msgid "Browse Products"
 msgstr ""
 
@@ -8321,7 +8369,7 @@ msgstr ""
 msgid "Refine Results"
 msgstr ""
 
-#: patterns/template/search-product.php:151
+#: patterns/template/search-product.php:143
 msgid "Sorry, we couldn't find any products matching your search. Try a different keyword or browse our store."
 msgstr ""
 
@@ -8856,28 +8904,60 @@ msgctxt "Pattern title"
 msgid "Utility Search Toggle"
 msgstr ""
 
-#: src/Admin/CompanionNotice.php:231
+#: src/Admin/CompanionNotice.php:149
+msgid "Sorry, you are not allowed to install plugins on this site."
+msgstr ""
+
+#: src/Admin/CompanionNotice.php:158
+#: src/Admin/CompanionNotice.php:428
+msgid "Install Aegis Plugin"
+msgstr ""
+
+#: src/Admin/CompanionNotice.php:190
+msgid "The Aegis plugin could not be installed automatically. Download aegis.zip from the latest release and upload it under Plugins → Add New Plugin → Upload Plugin."
+msgstr ""
+
+#: src/Admin/CompanionNotice.php:194
+#: src/Admin/CompanionNotice.php:335
+msgid "Download from GitHub"
+msgstr ""
+
+#: src/Admin/CompanionNotice.php:320
 msgid "Aegis is almost ready!"
 msgstr ""
 
-#: src/Admin/CompanionNotice.php:233
+#: src/Admin/CompanionNotice.php:322
 msgid "Install the Aegis companion plugin to unlock custom blocks, the settings dashboard, conditionals, hooks, and integrations. The theme works on its own; the plugin adds the full feature set."
 msgstr ""
 
-#: src/Admin/CompanionNotice.php:246
-msgid "Learn more"
-msgstr ""
-
-#: src/Admin/CompanionNotice.php:249
+#: src/Admin/CompanionNotice.php:338
 msgid "Dismiss"
 msgstr ""
 
-#: src/Admin/CompanionNotice.php:337
+#: src/Admin/CompanionNotice.php:425
 msgid "Activate Aegis Plugin"
 msgstr ""
 
-#: src/Admin/CompanionNotice.php:340
-msgid "Install Aegis Plugin"
+#: src/Admin/GitHubUpdater.php:244
+msgid "Sorry, you are not allowed to update themes for this site."
+msgstr ""
+
+#: src/Admin/GitHubUpdater.php:253
+msgid "Aegis release notes"
+msgstr ""
+
+#: src/Admin/GitHubUpdater.php:263
+msgid "Release notes are not available right now."
+msgstr ""
+
+#. translators: %s: Theme version number.
+#: src/Admin/GitHubUpdater.php:269
+#, php-format
+msgid "Version %s"
+msgstr ""
+
+#: src/Admin/GitHubUpdater.php:274
+msgid "View this release on GitHub"
 msgstr ""
 
 #: src/Blocks/countdown/render.php:94
@@ -8926,90 +9006,90 @@ msgstr ""
 msgid "Content switcher"
 msgstr ""
 
-#: vendor/aegis/framework/public/js/icon-block-editor.js:410
+#: vendor/aegis/framework/public/js/icon-block-editor.js:412
 msgid "Icon link"
 msgstr ""
 
-#: vendor/aegis/framework/public/js/icon-block-editor.js:412
+#: vendor/aegis/framework/public/js/icon-block-editor.js:414
 msgid "URL"
 msgstr ""
 
-#: vendor/aegis/framework/public/js/icon-block-editor.js:417
+#: vendor/aegis/framework/public/js/icon-block-editor.js:419
 msgid "Link target"
 msgstr ""
 
-#: vendor/aegis/framework/public/js/icon-block-editor.js:423
+#: vendor/aegis/framework/public/js/icon-block-editor.js:425
 msgid "Rel"
 msgstr ""
 
-#: vendor/aegis/framework/public/js/icon-block-editor.js:432
+#: vendor/aegis/framework/public/js/icon-block-editor.js:434
 msgid "Custom SVG"
 msgstr ""
 
-#: vendor/aegis/framework/public/js/icon-block-editor.js:436
-#: vendor/aegis/framework/public/js/svg-editor.js:155
+#: vendor/aegis/framework/public/js/icon-block-editor.js:438
+#: vendor/aegis/framework/public/js/svg-editor.js:160
 msgid "SVG markup"
 msgstr ""
 
-#: vendor/aegis/framework/public/js/icon-block-editor.js:440
+#: vendor/aegis/framework/public/js/icon-block-editor.js:442
 msgid "Paste SVG markup to override the selected icon."
 msgstr ""
 
-#: vendor/aegis/framework/public/js/icon-block-editor.js:451
+#: vendor/aegis/framework/public/js/icon-block-editor.js:453
 msgid "Icon gallery"
 msgstr ""
 
-#: vendor/aegis/framework/public/js/icon-block-editor.js:455
+#: vendor/aegis/framework/public/js/icon-block-editor.js:457
 msgid "Display all icons from the selected set"
 msgstr ""
 
-#: vendor/aegis/framework/public/js/icon-block-editor.js:480
+#: vendor/aegis/framework/public/js/icon-block-editor.js:482
 msgid "Icon gradient"
 msgstr ""
 
-#: vendor/aegis/framework/public/js/marquee-editor.js:178
+#: vendor/aegis/framework/public/js/marquee-editor.js:181
 msgid "Marquee Settings"
 msgstr ""
 
-#: vendor/aegis/framework/public/js/marquee-editor.js:192
+#: vendor/aegis/framework/public/js/marquee-editor.js:195
 msgid "Loop duration (seconds)"
 msgstr ""
 
-#: vendor/aegis/framework/public/js/marquee-editor.js:201
+#: vendor/aegis/framework/public/js/marquee-editor.js:204
 msgid "Lower is faster. Desktop is used in the editor and on screens 782px and wider."
 msgstr ""
 
-#: vendor/aegis/framework/public/js/marquee-editor.js:205
+#: vendor/aegis/framework/public/js/marquee-editor.js:208
 msgid "Lower is faster. This is the time for one full loop."
 msgstr ""
 
-#: vendor/aegis/framework/public/js/marquee-editor.js:220
+#: vendor/aegis/framework/public/js/marquee-editor.js:223
 #: vendor/aegis/framework/public/js/visibility-toggles.js:131
 msgid "Desktop"
 msgstr ""
 
-#: vendor/aegis/framework/public/js/marquee-editor.js:234
+#: vendor/aegis/framework/public/js/marquee-editor.js:237
 #: vendor/aegis/framework/public/js/visibility-toggles.js:129
 msgid "Mobile"
 msgstr ""
 
-#: vendor/aegis/framework/public/js/marquee-editor.js:254
+#: vendor/aegis/framework/public/js/marquee-editor.js:257
 msgid "Repeat Items"
 msgstr ""
 
-#: vendor/aegis/framework/public/js/marquee-editor.js:255
+#: vendor/aegis/framework/public/js/marquee-editor.js:258
 msgid "How many times should the items be duplicated/cloned."
 msgstr ""
 
-#: vendor/aegis/framework/public/js/marquee-editor.js:274
+#: vendor/aegis/framework/public/js/marquee-editor.js:277
 msgid "Pause on hover"
 msgstr ""
 
-#: vendor/aegis/framework/public/js/marquee-editor.js:288
+#: vendor/aegis/framework/public/js/marquee-editor.js:291
 msgid "Reverse direction"
 msgstr ""
 
-#: vendor/aegis/framework/public/js/marquee-editor.js:299
+#: vendor/aegis/framework/public/js/marquee-editor.js:302
 msgid "Fade Edges"
 msgstr ""
 
@@ -9236,27 +9316,27 @@ msgstr ""
 msgid "Display a search form in the no results message."
 msgstr ""
 
-#: vendor/aegis/framework/public/js/svg-editor.js:145
+#: vendor/aegis/framework/public/js/svg-editor.js:150
 msgid "Only administrators can edit the SVG string."
 msgstr ""
 
-#: vendor/aegis/framework/public/js/svg-editor.js:156
+#: vendor/aegis/framework/public/js/svg-editor.js:161
 msgid "Paste SVG markup for logos and illustrations. Decorative icons use the Icon block."
 msgstr ""
 
-#: vendor/aegis/framework/public/js/svg-editor.js:189
+#: vendor/aegis/framework/public/js/svg-editor.js:194
 msgid "Preview mask"
 msgstr ""
 
-#: vendor/aegis/framework/public/js/svg-editor.js:190
+#: vendor/aegis/framework/public/js/svg-editor.js:195
 msgid "Use the SVG as a CSS mask so it follows the text color."
 msgstr ""
 
-#: vendor/aegis/framework/public/js/svg-editor.js:253
+#: vendor/aegis/framework/public/js/svg-editor.js:258
 msgid "Paste SVG markup in SVG Settings."
 msgstr ""
 
-#: vendor/aegis/framework/public/js/svg-editor.js:336
+#: vendor/aegis/framework/public/js/svg-editor.js:341
 msgid "SVG Settings"
 msgstr ""
 

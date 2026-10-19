@@ -6,7 +6,7 @@ This page answers common questions about the Aegis theme.
 
 ### What is Aegis?
 
-Aegis is a WordPress Full Site Editing (FSE) block theme built for performance and flexibility. It provides a zero-base loading architecture, 60 style variations, **236 theme block patterns** across 29 category folders (plus companion plugin and Pro patterns), and deep integration with the WordPress Site Editor.
+Aegis is a WordPress Full Site Editing (FSE) block theme built for performance and flexibility. It provides a zero-base loading architecture, 60 style variations, **234 theme block patterns** in 28 category folders (plus companion plugin and Pro patterns), and deep integration with the WordPress Site Editor.
 
 ### What does "zero-base loading" mean?
 
@@ -24,7 +24,7 @@ The Aegis theme is released under the GPL-2.0-or-later license. The companion Ae
 | **Aegis Plugin** (free) | Map and Modal blocks, admin dashboard, block toggles, snippets, conditionals, integrations, analytics |
 | **Aegis Pro** (premium) | Hook pattern CPT, video/BunnyCDN stack, query conditions, Pro blocks, block extensions, license — requires Aegis theme |
 
-See [Plugin FAQ](../../plugins/aegis/docs/troubleshooting/faq.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki) · [Pro docs](../../plugins/aegis-pro/docs/home.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki).
+See [Plugin FAQ](../../../../plugins/aegis/docs/troubleshooting/faq.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki) · [Pro docs](../../../../plugins/aegis-pro/docs/home.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki).
 
 ### Does Aegis work without the companion plugins?
 
@@ -32,13 +32,13 @@ Yes. The theme provides templates, patterns, style variations, and theme-registe
 
 ### Why don’t third-party plugins pick up theme styles?
 
-Integration toggles live in the **free plugin** at **Aegis → Integrations**. Framework CSS ships with the theme and loads only when the matching toggle and dependency are active. See [[plugin-integrations]] for the theme CSS inventory, and the [Plugin FAQ](../../plugins/aegis/docs/troubleshooting/faq.md) / [Plugin Wiki](https://github.com/aegiswp/plugin/wiki) for per-plugin configuration.
+Integration toggles live in the **free plugin** at **Aegis → Integrations**. Framework CSS ships with the theme and loads only when the matching toggle and dependency are active. See [[plugin-integrations]] for the theme CSS inventory, and the [Plugin FAQ](../../../../plugins/aegis/docs/troubleshooting/faq.md) / [Plugin Wiki](https://github.com/aegiswp/plugin/wiki) for per-plugin configuration.
 
 ## Requirements
 
 ### What version of WordPress do I need?
 
-Aegis requires WordPress 7.0 or later. Native Icon library registration (`wp_register_icon`) needs WordPress 7.1 or later; on 7.0 Aegis still merges custom sets into the editor over REST. See [[../features/svg-icons]].
+Aegis requires WordPress 7.0 or later. Native Icon library registration (`wp_register_icon`) needs WordPress 7.1 or later; on 7.0 Aegis still merges custom sets into the editor over REST. See [SVG Icons](../features/svg-icons.md).
 
 ### What PHP version do I need?
 
@@ -72,7 +72,7 @@ See [[typography]] for the available font options.
 
 Insert the WordPress **Icon** block (`core/icon`) and choose from the Core library or Aegis collections (`social/…`, Pro sets such as Remix Icon). There is no Image Icon variation. Paste custom SVG on the Icon block, or use the SVG Image variation (`is-style-svg`) for logos and illustrations (**Aegis → Blocks → SVG**).
 
-See [[../features/svg-icons]].
+See [SVG Icons](../features/svg-icons.md).
 
 ### Why does an empty SVG Image block look like a placeholder instead of an upload button?
 
@@ -81,6 +81,14 @@ That is the Aegis empty canvas for `is-style-svg`. Paste markup in **SVG Setting
 ### Why does the editor say a Button block contains unexpected or invalid content?
 
 Button icon CSS variables (`--wp--custom--icon--*`) are editor preview only. They are not written into saved button HTML. Hard-refresh the editor after updating Aegis so `icon-block-editor.js` loads.
+
+### Why did the Pro Tabs block show as invalid?
+
+Before theme 1.0.1, the theme's icon extension wrote button-style icon variables (`--wp--custom--icon--*`) into the saved markup of each Tab (`aegis/tab`). Saved tabs did not contain those variables, so the editor flagged them as invalid. In 1.0.1 the icon extension skips `aegis/tab`, as it already did for Button, and the Tabs pattern parses cleanly. Hard-refresh the editor after updating so the new script loads. Tab icons on the front end come from the Tabs block's own icon settings, so nothing visible changes. Aegis Pro is coming soon.
+
+### Why does my footer menu show Home, Blog, About, and Contact?
+
+The footer's Navigation block has no menu assigned. Instead of listing every published page, Aegis 1.0.1 shows a short sample menu. Select the Navigation block and choose or create a menu to replace it. See [[template-parts]].
 
 ### Can I use custom fonts not included with the theme?
 
@@ -105,11 +113,11 @@ Style variations apply globally to the entire site. However, you can customize i
 
 ### How many templates are included?
 
-Aegis includes 23 templates: 9 core WordPress templates, 3 custom page templates, and 11 WooCommerce templates.
+Aegis includes 50 templates: 10 WordPress hierarchy templates, 11 page and post layouts, 3 utility templates, 9 content archive layouts, and 17 WooCommerce templates. 40 of them are registered as custom templates in `theme.json`. See [[template-reference]].
 
 ### How many patterns are included?
 
-**236 theme patterns** across 29 category folders. The companion plugin adds Modal starters and WooCommerce patterns (gated on dependencies). Pro adds premium marketing layouts. See [[pattern-reference]] for theme categories, [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md) / [Plugin Wiki](https://github.com/aegiswp/plugin/wiki), and [Pro Patterns](../../plugins/aegis-pro/docs/patterns/pro-patterns.md) / [Pro Wiki](https://github.com/aegiswp/pro/wiki).
+**234 theme patterns** in 28 category folders. The companion plugin adds Modal starters and WooCommerce patterns (gated on dependencies). Pro adds premium marketing layouts. See [[pattern-reference]] for theme categories, [Plugin Patterns](../../../../plugins/aegis/docs/features/plugin-patterns.md) / [Plugin Wiki](https://github.com/aegiswp/plugin/wiki), and [Pro Patterns](../../../../plugins/aegis-pro/docs/patterns/pro-patterns.md) / [Pro Wiki](https://github.com/aegiswp/pro/wiki).
 
 ### Can I create my own patterns?
 
@@ -125,7 +133,7 @@ The Blank template provides an empty canvas with no header, footer, or wrapper. 
 
 ### What custom blocks does Aegis include?
 
-The theme registers Countdown, Slider, Slide, Toggle, Toggle Content, and Related Posts. Video uses WordPress **`core/video`** (enhanced by the framework and companion plugins). Map and Modal require the [Aegis Plugin](../../plugins/aegis/docs/blocks/custom-blocks.md) ([Wiki](https://github.com/aegiswp/plugin/wiki)). Block feature toggles are at **Aegis → Blocks**.
+The theme registers Countdown, Slider, Slide, Toggle, Toggle Content, and Related Posts. Video uses WordPress **`core/video`** (enhanced by the framework and companion plugins). Map and Modal require the [Aegis Plugin](../../../../plugins/aegis/docs/blocks/custom-blocks.md) ([Wiki](https://github.com/aegiswp/plugin/wiki)). Block feature toggles are at **Aegis → Blocks**.
 
 ### Do I need Gutenberg plugin installed?
 
@@ -139,11 +147,11 @@ Yes. Aegis is compatible with third-party block plugins. The theme styles are ap
 
 ### Does Aegis support WooCommerce?
 
-Yes. The theme ships WooCommerce FSE templates. WooCommerce block patterns and multi-step checkout assets come from the free plugin when WooCommerce is active. See [[woocommerce-integration]], [Plugin WooCommerce Checkout](../../plugins/aegis/docs/features/woocommerce-checkout.md), and [Plugin Wiki](https://github.com/aegiswp/plugin/wiki).
+Yes. The theme ships WooCommerce FSE templates. WooCommerce block patterns and multi-step checkout assets come from the free plugin when WooCommerce is active. See [[woocommerce-integration]], [Plugin WooCommerce Checkout](../../../../plugins/aegis/docs/features/woocommerce-checkout.md), and [Plugin Wiki](https://github.com/aegiswp/plugin/wiki).
 
 ### Why don't I see shop or product patterns in the inserter?
 
-WooCommerce block patterns are registered by the **Aegis companion plugin** only when **WooCommerce is active**. Generic commerce marketing patterns (core blocks only) remain in the theme. See [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md).
+WooCommerce block patterns are registered by the **Aegis companion plugin** only when **WooCommerce is active**. Generic commerce marketing patterns (core blocks only) remain in the theme. See [Plugin Patterns](../../../../plugins/aegis/docs/features/plugin-patterns.md).
 
 ### Do I need WooCommerce installed for the theme to work?
 
@@ -165,7 +173,7 @@ Yes. Aegis is compatible with all major caching plugins (WP Super Cache, W3 Tota
 
 ### Where do I configure performance toggles?
 
-The theme handles zero-base asset loading — see [[../features/performance|Theme Performance]]. Site-wide admin toggles and Query Loop options live in the free plugin ([Performance](../../plugins/aegis/docs/features/performance.md) · [Wiki](https://github.com/aegiswp/plugin/wiki)). Pro Query Loop extras: [Query Performance](../../plugins/aegis-pro/docs/features/query-performance.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki).
+The theme handles zero-base asset loading — see [Theme Performance](../features/performance.md). Site-wide admin toggles and Query Loop options live in the free plugin ([Performance](../../../../plugins/aegis/docs/features/performance.md) · [Wiki](https://github.com/aegiswp/plugin/wiki)). Pro Query Loop extras: [Query Performance](../../../../plugins/aegis-pro/docs/features/query-performance.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki).
 
 ## Development
 
@@ -175,7 +183,7 @@ Use `wp-env` with Docker. Run `npm run env:start` to start a local WordPress ins
 
 ### How do I build the theme assets?
 
-Run `npm run build` in the theme directory for theme-owned blocks, or `npm run dev` for watch mode. Map, Modal, and admin assets are built in the companion plugin (`wp-content/plugins/aegis`). See [[building-assets]] and [plugin build docs](../../plugins/aegis/docs/development/building-assets.md).
+Run `npm run build` in the theme directory for theme-owned blocks, or `npm run dev` for watch mode. Map, Modal, and admin assets are built in the companion plugin (`wp-content/plugins/aegis`). See [[building-assets]] and [plugin build docs](../../../../plugins/aegis/docs/development/building-assets.md).
 
 ### Can I contribute to Aegis?
 

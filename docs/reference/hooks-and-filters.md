@@ -37,14 +37,22 @@ Fired when integrations are enabled (free plugin `IntegrationInjector`):
 | `aegis_before_learndash_lesson` / `aegis_after_learndash_lesson` | LearnDash lesson |
 | `aegis_before_learndash_topic` / `aegis_after_learndash_topic` | LearnDash topic |
 | `aegis_before_learndash_quiz` / `aegis_after_learndash_quiz` | LearnDash quiz |
-| `aegis_learndash_focus_header` / `aegis_learndash_focus_footer` | LearnDash Focus Mode template |
 | `aegis_before_bbpress_forum` / `aegis_after_bbpress_forum` | bbPress forums loop |
 | `aegis_before_bbpress_topic` / `aegis_after_bbpress_topic` | bbPress single topic |
 | `aegis_before_post_author` / `aegis_after_post_author` | `core/post-author` and `co-authors/block` |
 | `aegis_before_map_block` / `aegis_after_map_block` | Map block |
 | `aegis_before_video_block` / `aegis_after_video_block` | `core/video` when Connectors → BunnyCDN is on |
 
-Full catalog: [Plugin Hook Patterns](../../plugins/aegis/docs/features/hook-patterns.md).
+### Theme Integration Actions
+
+Fired by the theme framework itself (`vendor/aegis/framework/src/Integrations/LearnDash.php`), not by the companion plugin. Each fires once per request.
+
+| Hook | Arguments | Context |
+|------|-----------|---------|
+| `aegis_learndash_focus_header` | `int $course_id` | Top of the LearnDash Focus Mode layout |
+| `aegis_learndash_focus_footer` | `int $course_id` | Bottom of the LearnDash Focus Mode layout |
+
+Full catalog: [Plugin Hook Patterns](../../../../plugins/aegis/docs/features/hook-patterns.md).
 
 ## Admin Actions (Plugin)
 
@@ -88,7 +96,7 @@ Full catalog: [Plugin Hook Patterns](../../plugins/aegis/docs/features/hook-patt
 | `aegis_load_all_scripts` | Force-load all framework scripts |
 | `aegis_load_all_styles` | Force-load all framework styles |
 | `aegis_system_fonts` | System font definitions |
-| `aegis_dark_mode` | Enable/disable dark mode (default true) |
+| `aegis_dark_mode` | Enable or disable dark mode (default `true`). Returning `false` also removes the editor light/dark preview toggle |
 | `aegis_dynamic_custom_properties` | Dynamic CSS custom properties |
 | `aegis_patterns` | Pattern categories |
 | `aegis_pattern_dirs` | Pattern scan directories |
@@ -97,12 +105,21 @@ Full catalog: [Plugin Hook Patterns](../../plugins/aegis/docs/features/hook-patt
 | `aegis_comments_form_title_tag` | Comments form heading tag |
 | `aegis_placeholder_svg` | Placeholder SVG markup |
 | `aegis_format_inline_js` | Inline JS formatting |
+| `aegis_default_mode` | Default color mode, `'light'` or `'dark'`. Arguments: `string $mode`, `array $global_settings`. The default is `'dark'` when global settings define `custom.lightMode`, otherwise `'light'`. Also sets the starting mode of the editor preview toggle (`DarkMode.php`) |
+| `aegis_inline_css` / `aegis_inline_js` | Final inline CSS or JS string. Arguments: `string $string`, `string $template_html`, `bool $load_all`, `object $instance`. The prefix is the asset handle, which is the theme folder name (`AssetsTrait.php`) |
+| `aegis_template_html` | Collected front-end template, template part, and post markup that decides which conditional assets load. Argument: `string $markup` (`FrontendContentContext.php`) |
+| `aegis_editor_data` | Data passed to the framework editor script as `window.aegis`. Argument: `array $data` (`EditorAssets.php`) |
+| `aegis_query_enhancements_data` | Post types, taxonomies, meta operators, meta types, and order-by options for the Query enhancements panel. Argument: `array $data` (`QueryEnhancements.php`) |
+| `aegis_svg_settings` | SVG processing settings for sanitized uploads. Argument: `array $settings` (`SvgUpload.php`) |
+| `aegis_icon_sets` | Registered icon sets. Argument: `array $icon_sets` (set name ⇒ folder path) (`vendor/aegis/icons/src/Icon.php`) |
 
 ## Theme Filters
 
 | Filter | Description |
 |--------|-------------|
 | `aegis_dynamic_template_part_slug` | Swap a `core/template-part` slug at render time when an alternate `parts/{slug}.html` exists. See [[dynamic-template-parts]]. |
+| `aegis_theme_update_repository` | GitHub repository (`owner/name`) the theme checks for updates. Default `aegiswp/theme`. Argument: `string $repository` (`src/Admin/GitHubUpdater.php`). See [[updating]]. |
+| `aegis_companion_package_url` | Zip URL the companion plugin notice installs from. Default `https://github.com/aegiswp/plugin/releases/latest/download/aegis.zip`. Argument: `string $package` (`src/Admin/CompanionNotice.php`). Use it to pin a release or a mirror. |
 
 ## Pro Filters
 
@@ -117,21 +134,23 @@ Full catalog: [Plugin Hook Patterns](../../plugins/aegis/docs/features/hook-patt
 
 | Filter | Description |
 |--------|-------------|
-| `aegis_related_posts_query` | Related Posts WP_Query args |
+| `aegis_related_posts_query` | Related Posts `WP_Query` args. Arguments: `array $query_args`, `int $post_id`, `string $context` (the context gets a `-fallback` suffix for the fallback query, and is `block-preview` in the editor) |
 
 ## Usage Example
 
 ```php
 add_action( 'aegis_after_content', function () {
     if ( is_single() ) {
-        echo do_blocks( '<!-- wp:pattern {"slug":"cta-simple"} /-->' );
+        echo do_blocks( '<!-- wp:pattern {"slug":"cta-newsletter"} /-->' );
     }
 } );
 ```
 
 ## Next Steps
 
+- [Code Snippets](code-snippets.md) — Copy-ready examples for these hooks
+
 - [[hook-patterns]] — Injection hook guide
 - [[dynamic-template-parts]] — Contextual template part slug swaps
-- [Plugin Architecture](../../plugins/aegis/docs/development/architecture.md)
+- [Plugin Architecture](../../../../plugins/aegis/docs/development/architecture.md)
 - [[architecture]] — Theme architecture

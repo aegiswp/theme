@@ -11,5 +11,5 @@ return array(
 		'wp-hooks',
 		'wp-i18n',
 	),
-	'version'      => '1.0.3',
+	'version'      => '1.0.4',
 );

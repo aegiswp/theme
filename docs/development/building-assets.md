@@ -14,7 +14,7 @@ npm run dev               # Watch mode
 
 Output: `src/Blocks/` (countdown, slider, slide, toggle, toggle-content, related-posts).
 
-Video uses WordPress **`core/video`** — editor assets are built in the companion plugin. See [Plugin Building Assets](../../plugins/aegis/docs/development/building-assets.md).
+Video uses WordPress **`core/video`** — editor assets are built in the companion plugin. See [Plugin Building Assets](../../../../plugins/aegis/docs/development/building-assets.md).
 
 ## Plugin Build
 
@@ -24,7 +24,7 @@ npm install
 npm run build             # Admin + video editor (does not compile Map/Modal)
 ```
 
-See [Plugin Building Assets](../../plugins/aegis/docs/development/building-assets.md).
+See [Plugin Building Assets](../../../../plugins/aegis/docs/development/building-assets.md).
 
 ## Build Toolchain
 
@@ -233,7 +233,7 @@ npm run translate             # Requires `wp` on PATH
 npm run translate:studio      # WordPress Studio
 ```
 
-`prepare-translate.js` copies vendored Icon, Marquee, Newsletter, Accordion, SVG, Visibility, and Query Loop sources into `build/I18nScan` for the scan (`vendor/` is excluded). Bundled `editor.js` is not scanned; live SVG inspector strings come from `svg-editor.js`. WP-CLI scans JavaScript, not TypeScript, so run `npm run build` first if you changed theme block `*.tsx` / `*.ts` sources (for example `src/Blocks/slider/edit.tsx`, `countdown/edit.tsx`, `toggle/index.tsx`, `related-posts/edit.tsx`). Plugin strings belong in `wp-content/plugins/aegis/languages/aegis.pot`. Pro strings belong in `wp-content/plugins/aegis-pro/languages/aegis-pro.pot`. See [Plugin Building Assets](../../plugins/aegis/docs/development/building-assets.md#translations) and [[tools]].
+`prepare-translate.js` copies vendored Icon, Marquee, Newsletter, Accordion, SVG, Visibility, and Query Loop sources into `build/I18nScan` for the scan (`vendor/` is excluded). Bundled `editor.js` is not scanned; live SVG inspector strings come from `svg-editor.js`. WP-CLI scans JavaScript, not TypeScript, so run `npm run build` first if you changed theme block `*.tsx` / `*.ts` sources (for example `src/Blocks/slider/edit.tsx`, `countdown/edit.tsx`, `toggle/index.tsx`, `related-posts/edit.tsx`). Plugin strings belong in `wp-content/plugins/aegis/languages/aegis.pot`. Pro strings belong in `wp-content/plugins/aegis-pro/languages/aegis-pro.pot`. See [Plugin Building Assets](../../../../plugins/aegis/docs/development/building-assets.md#translations) and [[tools]].
 
 ## Next Steps
 

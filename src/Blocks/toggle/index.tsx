@@ -8,7 +8,12 @@
  */
 
 import type { CSSProperties, KeyboardEvent, SyntheticEvent } from 'react';
-import { useEffect, useLayoutEffect, useRef, useState } from '@wordpress/element';
+import {
+	useEffect,
+	useLayoutEffect,
+	useRef,
+	useState,
+} from '@wordpress/element';
 import { registerBlockType, createBlock } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
 import {
@@ -19,21 +24,19 @@ import {
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 import { useDispatch, useSelect } from '@wordpress/data';
-import {
-	PanelBody,
-	SelectControl,
-	RangeControl,
-} from '@wordpress/components';
+import { PanelBody, SelectControl, RangeControl } from '@wordpress/components';
 
+import type { BlockConfiguration, BlockSupports } from '@wordpress/blocks';
+import type { BlockEditorSelectors } from '../../types/block-editor';
 import metadata from './block.json';
 import './style.scss';
 
-interface ToggleAttributes {
+export type ToggleAttributes = {
 	switchStyle: string;
-	alignment: string;
+	alignment: 'left' | 'center' | 'right';
 	primaryLabel: string;
 	secondaryLabel: string;
-	initialContent: string;
+	initialContent: 'a' | 'b';
 	animationDuration: number;
 	allowNested?: boolean;
 	instanceId?: string;
@@ -44,7 +47,7 @@ interface ToggleAttributes {
 	iconType?: string;
 	allowMultiple?: boolean;
 	faqSchema?: boolean;
-}
+};
 
 interface EditProps {
 	attributes: ToggleAttributes;
@@ -172,7 +175,9 @@ function Edit( { attributes, setAttributes, clientId }: EditProps ) {
 
 	const innerBlocks = useSelect(
 		( select ) =>
-			select( 'core/block-editor' ).getBlocks( clientId ),
+			( select( 'core/block-editor' ) as BlockEditorSelectors ).getBlocks(
+				clientId
+			),
 		[ clientId ]
 	);
 	const selectedSlot = useSelect(
@@ -227,26 +232,26 @@ function Edit( { attributes, setAttributes, clientId }: EditProps ) {
 
 			const editor = select( 'core/block-editor' ) as {
 				getBlocksByName?: ( name: string ) => string[];
-				getBlock?: ( id: string ) =>
-					| { attributes?: { instanceId?: string } }
-					| undefined;
+				getBlock?: (
+					id: string
+				) => { attributes?: { instanceId?: string } } | undefined;
 			};
 
+			const { getBlocksByName, getBlock } = editor;
+
 			if (
-				typeof editor.getBlocksByName !== 'function' ||
-				typeof editor.getBlock !== 'function'
+				typeof getBlocksByName !== 'function' ||
+				typeof getBlock !== 'function'
 			) {
 				return false;
 			}
 
-			return editor
-				.getBlocksByName( 'aegis/toggle' )
-				.some(
-					( id ) =>
-						id !== clientId &&
-						editor.getBlock( id )?.attributes?.instanceId ===
-							attributes.instanceId
-				);
+			return getBlocksByName( 'aegis/toggle' ).some(
+				( id ) =>
+					id !== clientId &&
+					getBlock( id )?.attributes?.instanceId ===
+						attributes.instanceId
+			);
 		},
 		[ attributes.instanceId, clientId ]
 	);
@@ -256,12 +261,7 @@ function Edit( { attributes, setAttributes, clientId }: EditProps ) {
 		if ( ! attributes.instanceId || instanceIdTaken ) {
 			setAttributes( { instanceId: clientId } );
 		}
-	}, [
-		attributes.instanceId,
-		clientId,
-		instanceIdTaken,
-		setAttributes,
-	] );
+	}, [ attributes.instanceId, clientId, instanceIdTaken, setAttributes ] );
 
 	useEffect( () => {
 		if (
@@ -276,10 +276,7 @@ function Edit( { attributes, setAttributes, clientId }: EditProps ) {
 	}, [ activeSlot, selectedSlot ] );
 
 	const slotSignature = innerBlocks
-		.map(
-			( block ) =>
-				`${ block.name }:${ block.attributes?.slot ?? '' }`
-		)
+		.map( ( block ) => `${ block.name }:${ block.attributes?.slot ?? '' }` )
 		.join( '|' );
 
 	useEffect( () => {
@@ -421,11 +418,12 @@ function Edit( { attributes, setAttributes, clientId }: EditProps ) {
 							value={ switchStyle }
 							options={ styles.map( ( value ) => ( {
 								label:
-									value === 'pill'
-										? __( 'Pill', 'aegis' )
-										: value === 'buttons'
-										? __( 'Buttons', 'aegis' )
-										: __( 'Switch', 'aegis' ),
+									(
+										{
+											pill: __( 'Pill', 'aegis' ),
+											buttons: __( 'Buttons', 'aegis' ),
+										} as Record< string, string >
+									 )[ value ] ?? __( 'Switch', 'aegis' ),
 								value,
 							} ) ) }
 							onChange={ ( value ) =>
@@ -465,7 +463,8 @@ function Edit( { attributes, setAttributes, clientId }: EditProps ) {
 								value: 'a',
 							},
 							{
-								label: secondaryLabel || __( 'Second', 'aegis' ),
+								label:
+									secondaryLabel || __( 'Second', 'aegis' ),
 								value: 'b',
 							},
 						] }
@@ -509,11 +508,14 @@ function Edit( { attributes, setAttributes, clientId }: EditProps ) {
 					onKeyDown={ ( event ) => onTabKeyDown( event, 'a' ) }
 				>
 					{ extras.labels ? (
-						<span onMouseDown={ stopLabelEvent }>
+						<span
+							role="presentation"
+							onMouseDown={ stopLabelEvent }
+						>
 							<RichText
 								tagName="span"
 								value={ attributes.primaryLabel }
-								onChange={ ( value ) =>
+								onChange={ ( value: string ) =>
 									setAttributes( { primaryLabel: value } )
 								}
 								placeholder={ __( 'First', 'aegis' ) }
@@ -521,9 +523,7 @@ function Edit( { attributes, setAttributes, clientId }: EditProps ) {
 							/>
 						</span>
 					) : (
-						<span>
-							{ primaryLabel || __( 'First', 'aegis' ) }
-						</span>
+						<span>{ primaryLabel || __( 'First', 'aegis' ) }</span>
 					) }
 				</div>
 				{ switchStyle === 'switch' && (
@@ -538,7 +538,10 @@ function Edit( { attributes, setAttributes, clientId }: EditProps ) {
 					</span>
 				) }
 				{ switchStyle === 'pill' && (
-					<span className="aegis-toggle__indicator" aria-hidden="true" />
+					<span
+						className="aegis-toggle__indicator"
+						aria-hidden="true"
+					/>
 				) }
 				<div
 					className={
@@ -553,11 +556,14 @@ function Edit( { attributes, setAttributes, clientId }: EditProps ) {
 					onKeyDown={ ( event ) => onTabKeyDown( event, 'b' ) }
 				>
 					{ extras.labels ? (
-						<span onMouseDown={ stopLabelEvent }>
+						<span
+							role="presentation"
+							onMouseDown={ stopLabelEvent }
+						>
 							<RichText
 								tagName="span"
 								value={ attributes.secondaryLabel }
-								onChange={ ( value ) =>
+								onChange={ ( value: string ) =>
 									setAttributes( { secondaryLabel: value } )
 								}
 								placeholder={ __( 'Second', 'aegis' ) }
@@ -581,69 +587,74 @@ function save() {
 	return <InnerBlocks.Content />;
 }
 
-registerBlockType( metadata.name, {
-	edit: Edit,
-	save,
-	deprecated: [
-		{
-			attributes: {
-				heading: { type: 'string', default: '' },
-				headingTag: { type: 'string', default: 'h3' },
-				isOpen: { type: 'boolean', default: false },
-				iconPosition: { type: 'string', default: 'right' },
-				iconType: { type: 'string', default: 'chevron' },
-				allowMultiple: { type: 'boolean', default: true },
-				animationDuration: { type: 'number', default: 300 },
-				faqSchema: { type: 'boolean', default: false },
-			},
-			supports: metadata.supports,
-			save,
-			isEligible( attributes: ToggleAttributes, innerBlocks ) {
-				const alreadySwitcher = ( innerBlocks || [] ).some(
-					( block: { name: string } ) =>
-						block.name === 'aegis/toggle-content'
-				);
-
-				if ( alreadySwitcher ) {
-					return false;
-				}
-
-				return (
-					Object.prototype.hasOwnProperty.call(
-						attributes,
-						'iconType'
-					) ||
-					Object.prototype.hasOwnProperty.call(
-						attributes,
-						'headingTag'
-					)
-				);
-			},
-			migrate( attributes: ToggleAttributes, innerBlocks ) {
-				const first = innerBlocks[ 0 ];
-				const primary = first
-					? createBlock(
-							'aegis/toggle-content',
-							{ ...first.attributes, slot: 'a' },
-							first.innerBlocks
-					  )
-					: createBlock( 'aegis/toggle-content', { slot: 'a' } );
-
-				return [
-					{
-						switchStyle: 'switch',
-						alignment: 'center',
-						primaryLabel: attributes.heading || '',
-						secondaryLabel: '',
-						initialContent: 'a',
-						animationDuration: attributes.animationDuration || 300,
-					},
-					[
-						primary,
-						createBlock( 'aegis/toggle-content', { slot: 'b' } ),
-					],
-				];
-			},
+const deprecated: NonNullable<
+	BlockConfiguration< ToggleAttributes >[ 'deprecated' ]
+> = [
+	{
+		attributes: {
+			heading: { type: 'string', default: '' },
+			headingTag: { type: 'string', default: 'h3' },
+			isOpen: { type: 'boolean', default: false },
+			iconPosition: { type: 'string', default: 'right' },
+			iconType: { type: 'string', default: 'chevron' },
+			allowMultiple: { type: 'boolean', default: true },
+			animationDuration: { type: 'number', default: 300 },
+			faqSchema: { type: 'boolean', default: false },
 		},
-	],
-} );
+		supports: metadata.supports as BlockSupports,
+		save,
+		isEligible( attributes: Record< string, unknown >, innerBlocks ) {
+			const alreadySwitcher = ( innerBlocks || [] ).some(
+				( block: { name: string } ) =>
+					block.name === 'aegis/toggle-content'
+			);
+
+			if ( alreadySwitcher ) {
+				return false;
+			}
+
+			return (
+				Object.prototype.hasOwnProperty.call(
+					attributes,
+					'iconType'
+				) ||
+				Object.prototype.hasOwnProperty.call( attributes, 'headingTag' )
+			);
+		},
+		migrate( attributes: Record< string, unknown >, innerBlocks ) {
+			const first = innerBlocks[ 0 ];
+			const primary = first
+				? createBlock(
+						'aegis/toggle-content',
+						{ ...first.attributes, slot: 'a' },
+						first.innerBlocks
+					)
+				: createBlock( 'aegis/toggle-content', { slot: 'a' } );
+
+			return [
+				{
+					switchStyle: 'switch',
+					alignment: 'center',
+					primaryLabel: ( attributes.heading as string ) || '',
+					secondaryLabel: '',
+					initialContent: 'a',
+					animationDuration:
+						( attributes.animationDuration as number ) || 300,
+				},
+				[
+					primary,
+					createBlock( 'aegis/toggle-content', { slot: 'b' } ),
+				],
+			];
+		},
+	},
+];
+
+registerBlockType< ToggleAttributes >(
+	metadata as BlockConfiguration< ToggleAttributes >,
+	{
+		edit: Edit,
+		save,
+		deprecated,
+	}
+);

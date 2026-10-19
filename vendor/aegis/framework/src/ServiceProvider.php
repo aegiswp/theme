@@ -204,7 +204,8 @@ class ServiceProvider implements Registerable
 		DesignSystem\TemplatePatternExpander::class,
 		DesignSystem\BlockPatternsRest::class,
 		DesignSystem\NavigationOverlay::class,
-		DesignSystem\Hooks::class,
+		// DesignSystem\Hooks is not registered: CoreBlocks\TemplatePart and
+		// CoreBlocks\PostContent already fire the same injection hooks.
 		DesignSystem\Layout::class,
 		DesignSystem\Patterns::class,
 		DesignSystem\SkipLink::class,
@@ -296,6 +297,7 @@ class ServiceProvider implements Registerable
 			[
 				Integrations\WooCommerce\ProductGalleryLightbox::class,
 				Integrations\WooCommerce\SaleBadge::class,
+				Integrations\WooCommerce\MiniCartDrawer::class,
 			] as $wc_design_service
 		) {
 			if ( $this->integration_condition_met( $wc_design_service ) ) {
@@ -329,13 +331,24 @@ class ServiceProvider implements Registerable
 			Hook::annotations($service);
 		}
 
-		// Wire script and style registration when supported.
-		if ($service instanceof Scriptable) {
-			$service->scripts($scripts);
-		}
+		// Wire script and style registration when supported. Services read global
+		// settings and translate strings here, so wait for init: earlier, WordPress
+		// 6.7+ warns that the text domain loaded too early. Assets print later
+		// (wp_enqueue_scripts / enqueue_block_assets), so nothing is missed.
+		$register_assets = static function () use ($service, $scripts, $styles): void {
+			if ($service instanceof Scriptable) {
+				$service->scripts($scripts);
+			}
 
-		if ($service instanceof Styleable) {
-			$service->styles($styles);
+			if ($service instanceof Styleable) {
+				$service->styles($styles);
+			}
+		};
+
+		if (did_action('init')) {
+			$register_assets();
+		} else {
+			add_action('init', $register_assets, 0);
 		}
 	}
 

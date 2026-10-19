@@ -152,7 +152,7 @@ The theme keeps a Woo-free `header/default` for `parts/header.html`. When WooCom
 | `make clean` | Removes all build artefacts including `aegis/` dist dir |
 | `make validate` | Validates `theme.json` JSON syntax |
 
-- Node ≥ 20, npm ≥ 9, PHP ≥ 8.1, Composer ≥ 2.
+- Node ≥ 22.13 (`.nvmrc`: 22), npm ≥ 10, PHP ≥ 8.1, Composer ≥ 2.
 - Local dev environment: `wp-env` (`.wp-env.json`), port 8888.
 - In Studio (WordPress Studio / PHP WASM), prefix all WordPress CLI with `studio`: `studio wp plugin list`, `studio wp eval-file tools/audit-patterns.php`.
 
@@ -177,7 +177,7 @@ All workflows live in `.github/workflows/`. Key rules:
 The installable theme zip is built by `release.yml` using `rsync --exclude-from=.distignore`. Key exclusions:
 
 - `node_modules/`, `vendor/bin/`, dev-only vendor packages
-- `tests/`, `tools/` (including `tools/wpaudit/`), `bin/`, `.kiro/`, `.github/`, `.claude/`
+- `tests/`, `tools/` (including `tools/wpaudit/`), `bin/`, `.github/`, `.vscode/`
 - Source maps, TypeScript/SCSS source files, build config files
 
 The `vendor/` runtime (autoloader + `enshrined/svg-sanitize` + `psr/container`) **is included** in the zip. Run `composer install --no-dev` before packaging.

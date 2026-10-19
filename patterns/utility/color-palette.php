@@ -116,8 +116,8 @@ $system   = array(
 
 		<!-- wp:group {"style":{"width":{"mobile":"100%","desktop":"<?php echo esc_attr( $width ); ?>"}},"layout":{"type":"default"},"fontSize":"14"} -->
 		<div class="wp-block-group has-14-font-size">
-			<!-- wp:heading {"level":3,"textColor":"gray-400","fontSize":"16"} -->
-			<h3 class="wp-block-heading has-gray-400-color has-text-color has-16-font-size">
+			<!-- wp:heading {"level":3,"textColor":"neutral-400","fontSize":"16"} -->
+			<h3 class="wp-block-heading has-neutral-400-color has-text-color has-16-font-size">
 				<?php echo esc_html( Str::title_case( $color_name ) ); ?>
 			</h3>
 			<!-- /wp:heading -->
@@ -129,8 +129,8 @@ $system   = array(
 
 	<!-- wp:group {"style":{"width":{"mobile":"100%","desktop":"<?php echo esc_attr( $width_50 ); ?>"}},"layout":{"type":"default"},"fontSize":"14"} -->
 	<div class="wp-block-group has-14-font-size">
-		<!-- wp:heading {"level":3,"textColor":"gray-400","fontSize":"16"} -->
-		<h3 class="wp-block-heading has-gray-400-color has-text-color has-16-font-size">
+		<!-- wp:heading {"level":3,"textColor":"neutral-400","fontSize":"16"} -->
+		<h3 class="wp-block-heading has-neutral-400-color has-text-color has-16-font-size">
 			<?php echo esc_html( Str::title_case( 'system' ) ); ?>
 		</h3>
 		<!-- /wp:heading -->

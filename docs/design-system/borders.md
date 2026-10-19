@@ -72,7 +72,6 @@ The default border color is `neutral-200`, a light gray that provides subtle sep
 | Context | Recommended Color |
 |---------|-------------------|
 | Default borders (light mode) | `neutral-200` |
-| Default borders (dark mode) | `neutral-700` |
 | Active/focused elements | `primary-500` |
 | Success indicators | `success-500` |
 | Warning indicators | `warning-500` |
@@ -123,20 +122,19 @@ This creates a visual accent strip on the left edge of a quote or callout.
 Border tokens are available as CSS custom properties:
 
 ```css
-/* Border radius */
+var(--wp--custom--border--width)    /* 1px */
+var(--wp--custom--border--style)    /* solid */
+var(--wp--custom--border--color)    /* var(--wp--preset--color--neutral-200) */
 var(--wp--custom--border--radius)   /* 6px */
-
-/* Border color (uses the preset color) */
-var(--wp--preset--color--neutral-200)
 
 /* Usage example */
 .my-element {
-    border: 1px solid var(--wp--preset--color--neutral-200);
+    border: var(--wp--custom--border--width) var(--wp--custom--border--style) var(--wp--custom--border--color);
     border-radius: var(--wp--custom--border--radius);
 }
 ```
 
-## Theme.json Configuration
+## theme.json Configuration
 
 Border settings are defined in `theme.json`:
 
@@ -148,30 +146,24 @@ Border settings are defined in `theme.json`:
       "radius": true,
       "style": true,
       "width": true
-    }
-  },
-  "styles": {
-    "border": {
-      "width": "1px",
-      "style": "solid",
-      "color": "var(--wp--preset--color--neutral-200)",
-      "radius": "6px"
+    },
+    "custom": {
+      "border": {
+        "width": "1px",
+        "style": "solid",
+        "color": "var(--wp--preset--color--neutral-200)",
+        "radius": "6px"
+      }
     }
   }
 }
 ```
 
+The border defaults are **custom tokens** in `settings.custom.border`, not a global `styles.border` rule. WordPress outputs them as `--wp--custom--border--width`, `--wp--custom--border--style`, `--wp--custom--border--color`, and `--wp--custom--border--radius`. Blocks and elements opt in by referencing them. For example, `styles.elements.button` and `core/preformatted` use `var(--wp--custom--border--radius)`.
+
 ## Borders and Dark Mode
 
-In dark mode, border colors automatically adapt:
-
-| Context | Light Mode | Dark Mode |
-|---------|-----------|-----------|
-| Default border | `neutral-200` | `neutral-700` |
-| Subtle border | `neutral-100` | `neutral-800` |
-| Strong border | `neutral-300` | `neutral-600` |
-
-This ensures borders remain visible and proportional in both color modes.
+Dark mode remaps the palette shades (a light shade swaps with its dark counterpart), so a border set to `neutral-200`, including `--wp--custom--border--color`, turns dark automatically. Borders stay visible in both color modes without extra CSS. See [[dark-mode]].
 
 ## Design Guidelines
 
@@ -197,7 +189,7 @@ Borders and shadows can work together. A common pattern is a light border combin
 .card {
     border: 1px solid var(--wp--preset--color--neutral-200);
     box-shadow: var(--wp--preset--shadow--xs);
-    border-radius: 6px;
+    border-radius: var(--wp--custom--border--radius);
 }
 ```
 

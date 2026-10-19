@@ -8,6 +8,8 @@
  *
  * Supports install/activate actions, dismiss persistence (user meta + AJAX),
  * and passes a welcome flag through install/activate URLs for dashboard redirect.
+ * The plugin is installed from the latest GitHub release zip (it is not hosted
+ * on WordPress.org); the releases page is offered as a manual fallback.
  *
  * @package Aegis
  * @since   1.0.0
@@ -22,8 +24,11 @@ namespace Aegis\Admin;
 // Imports classes, interfaces, and functions used by the companion plugin onboarding notice.
 use function __;
 use function add_action;
+use function add_filter;
 use function add_query_arg;
 use function admin_url;
+use function apply_filters;
+use function check_admin_referer;
 use function check_ajax_referer;
 use function current_user_can;
 use function esc_attr;
@@ -35,11 +40,13 @@ use function get_current_user_id;
 use function get_template;
 use function get_user_meta;
 use function is_admin;
+use function is_wp_error;
 use function sanitize_text_field;
 use function self_admin_url;
 use function update_user_meta;
 use function wp_add_inline_script;
 use function wp_create_nonce;
+use function wp_die;
 use function wp_enqueue_script;
 use function wp_nonce_url;
 use function wp_safe_redirect;
@@ -61,11 +68,32 @@ class CompanionNotice {
 	public const PLUGIN_FILE = 'aegis/aegis.php';
 
 	/**
-	 * WordPress.org plugin directory slug used for installation.
+	 * Plugin directory slug (folder name inside the release zip).
 	 *
 	 * @var string
 	 */
 	public const PLUGIN_SLUG = 'aegis';
+
+	/**
+	 * GitHub releases page, offered as the manual download fallback.
+	 *
+	 * @var string
+	 */
+	public const RELEASES_URL = 'https://github.com/aegiswp/plugin/releases';
+
+	/**
+	 * Package URL of the latest release asset; GitHub redirects it to the newest tag.
+	 *
+	 * @var string
+	 */
+	public const PACKAGE_URL = 'https://github.com/aegiswp/plugin/releases/latest/download/aegis.zip';
+
+	/**
+	 * Custom update.php action that installs the plugin from {@see self::PACKAGE_URL}.
+	 *
+	 * @var string
+	 */
+	public const INSTALL_ACTION = 'aegis-install-companion';
 
 	/**
 	 * User meta key that stores whether the notice was dismissed.
@@ -81,12 +109,6 @@ class CompanionNotice {
 	 */
 	public const DISMISS_NONCE = 'aegis_dismiss_companion_notice';
 
-	/**
-	 * Public plugin page on WordPress.org.
-	 *
-	 * @var string
-	 */
-	public const PLUGIN_URI = 'https://wordpress.org/plugins/aegis/';
 
 	/**
 	 * Query argument appended to install/activate URLs for post-activation redirect.
@@ -110,6 +132,73 @@ class CompanionNotice {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_dismiss_script' ) );
 		add_action( 'wp_ajax_aegis_dismiss_companion_notice', array( $this, 'ajax_dismiss' ) );
 		add_filter( 'install_plugin_complete_actions', array( $this, 'append_welcome_to_install_activate' ), 10, 3 );
+		add_action( 'update-custom_' . self::INSTALL_ACTION, array( $this, 'install_from_github' ) );
+	}
+
+	/**
+	 * Install the companion plugin from the latest GitHub release zip.
+	 *
+	 * Runs on wp-admin/update.php?action=aegis-install-companion, mirroring core's
+	 * install-plugin screen. On failure, links to the releases page for a manual
+	 * download and upload.
+	 *
+	 * @return void
+	 */
+	public function install_from_github(): void {
+		if ( ! current_user_can( 'install_plugins' ) ) {
+			wp_die( esc_html__( 'Sorry, you are not allowed to install plugins on this site.', 'aegis' ) );
+		}
+
+		check_admin_referer( 'install-plugin_' . self::PLUGIN_SLUG );
+
+		require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+
+		// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited -- Globals read by admin-header.php.
+		global $title, $parent_file, $submenu_file;
+		$title        = __( 'Install Aegis Plugin', 'aegis' );
+		$parent_file  = 'plugins.php';
+		$submenu_file = 'plugin-install.php';
+		// phpcs:enable
+
+		require_once ABSPATH . 'wp-admin/admin-header.php';
+
+		$upgrader = new \Plugin_Upgrader(
+			new \Plugin_Installer_Skin(
+				array(
+					'type'  => 'web',
+					'title' => $title,
+					'url'   => $this->get_action_url(),
+				)
+			)
+		);
+
+		/**
+		 * Filters the companion plugin package URL (for example, to pin a release or use a mirror).
+		 *
+		 * @since 1.0.1
+		 *
+		 * @param string $package Package zip URL.
+		 */
+		$package = (string) apply_filters( 'aegis_companion_package_url', self::PACKAGE_URL );
+
+		$result = $upgrader->install( $package );
+
+		if ( ! $result || is_wp_error( $result ) ) {
+			?>
+			<div class="wrap">
+				<p>
+					<?php esc_html_e( 'The Aegis plugin could not be installed automatically. Download aegis.zip from the latest release and upload it under Plugins → Add New Plugin → Upload Plugin.', 'aegis' ); ?>
+				</p>
+				<p>
+					<a href="<?php echo esc_url( self::RELEASES_URL ); ?>" class="button button-primary" target="_blank" rel="noopener noreferrer">
+						<?php esc_html_e( 'Download from GitHub', 'aegis' ); ?>
+					</a>
+				</p>
+			</div>
+			<?php
+		}
+
+		require_once ABSPATH . 'wp-admin/admin-footer.php';
 	}
 
 	/**
@@ -242,8 +331,8 @@ class CompanionNotice {
 						<?php echo esc_html( $action_label ); ?>
 					</a>
 				<?php endif; ?>
-				<a href="<?php echo esc_url( self::PLUGIN_URI ); ?>" class="button button-secondary" target="_blank" rel="noopener noreferrer">
-					<?php esc_html_e( 'Learn more', 'aegis' ); ?>
+				<a href="<?php echo esc_url( self::RELEASES_URL ); ?>" class="button button-secondary" target="_blank" rel="noopener noreferrer">
+					<?php esc_html_e( 'Download from GitHub', 'aegis' ); ?>
 				</a>
 				<a href="<?php echo esc_url( $dismiss_url ); ?>" class="button-link aegis-companion-notice-dismiss-link">
 					<?php esc_html_e( 'Dismiss', 'aegis' ); ?>
@@ -289,7 +378,7 @@ class CompanionNotice {
 	}
 
 	/**
-	 * Primary action URL — activate if installed, otherwise install from WordPress.org.
+	 * Primary action URL — activate if installed, otherwise install from the latest GitHub release.
 	 *
 	 * @return string Empty string when the current user lacks the required capability.
 	 */
@@ -317,8 +406,7 @@ class CompanionNotice {
 
 		$url = add_query_arg(
 			array(
-				'action'          => 'install-plugin',
-				'plugin'          => self::PLUGIN_SLUG,
+				'action'          => self::INSTALL_ACTION,
 				self::WELCOME_ARG => '1',
 			),
 			self_admin_url( 'update.php' )

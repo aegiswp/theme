@@ -19,8 +19,8 @@
 		<div class="wp-block-cover__inner-container">
 			<!-- wp:group {"layout":{"type":"constrained","contentSize":"800px"}} -->
 			<div class="wp-block-group">
-				<!-- wp:paragraph {"align":"center","className":"is-style-sub-heading","textColor":"primary-600","fontSize":"16"} -->
-				<p class="aligncenter has-text-align-center is-style-sub-heading has-primary-600-color has-text-color has-16-font-size aligncenter"><?php echo esc_html__( 'June 20 — 22, 2026', 'aegis' ); ?></p>
+				<!-- wp:paragraph {"align":"center","className":"is-style-sub-heading","textColor":"primary-700","fontSize":"16"} -->
+				<p class="aligncenter has-text-align-center is-style-sub-heading has-primary-700-color has-text-color has-16-font-size aligncenter"><?php echo esc_html__( 'June 20 — 22, 2026', 'aegis' ); ?></p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:heading {"textAlign":"center","level":1,"textColor":"neutral-950","fontSize":"72"} -->

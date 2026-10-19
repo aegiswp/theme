@@ -26,8 +26,42 @@ use function class_exists;
 use function is_bbpress;
 use function locate_block_template;
 use function wp_dequeue_style;
+use function wp_deregister_style;
 
 class BbPress implements Conditional, Styleable {
+
+	/**
+	 * Match theme / Woo breadcrumb separators (` / `).
+	 *
+	 * @param array<string, mixed> $r Breadcrumb args after parse.
+	 *
+	 * @hook bbp_after_get_breadcrumb_parse_args
+	 *
+	 * @return array<string, mixed>
+	 */
+	public function breadcrumb_args( array $r ): array {
+		$r['sep']        = '/';
+		$r['pad_sep']    = 0;
+		$r['sep_before'] = '<span class="bbp-breadcrumb-sep aegis-breadcrumb-separator" aria-hidden="true">';
+		$r['sep_after']  = '</span>';
+
+		return $r;
+	}
+
+	/**
+	 * Drop the leading `|` before topic Subscribe (Favorite sits beside it).
+	 *
+	 * @param array<string, mixed> $r Subscribe link args after parse.
+	 *
+	 * @hook bbp_after_get_topic_subscribe_link_parse_args
+	 *
+	 * @return array<string, mixed>
+	 */
+	public function topic_subscribe_link_args( array $r ): array {
+		$r['before'] = '';
+
+		return $r;
+	}
 
 	/**
 	 * Condition.
@@ -54,10 +88,15 @@ class BbPress implements Conditional, Styleable {
 			'plugins/bbpress.css',
 			array(
 				'bbpress-forums',
+				'bbpress-wrapper',
 				'bbp-forum',
 				'bbp-topic',
 				'bbp-reply',
 				'bbp-breadcrumb',
+				'bbp-user',
+				'bbp-single-user',
+				'bbp-the-content',
+				'bbp-template-notice',
 			)
 		);
 	}
@@ -74,6 +113,8 @@ class BbPress implements Conditional, Styleable {
 	public function dequeue_default_styles(): void {
 		wp_dequeue_style( 'bbp-default' );
 		wp_dequeue_style( 'bbp-default-rtl' );
+		wp_deregister_style( 'bbp-default' );
+		wp_deregister_style( 'bbp-default-rtl' );
 	}
 
 	/**

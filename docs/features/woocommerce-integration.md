@@ -1,6 +1,6 @@
 # WooCommerce Integration
 
-Aegis provides WooCommerce **FSE templates** in the theme. Multi-step checkout assets and WooCommerce **block patterns** are owned by the free companion plugin when WooCommerce is active — see [Plugin WooCommerce Checkout](../../plugins/aegis/docs/features/woocommerce-checkout.md) and [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md) ([Wiki](https://github.com/aegiswp/plugin/wiki)).
+Aegis provides WooCommerce **FSE templates** in the theme. Multi-step checkout assets and WooCommerce **block patterns** are owned by the free companion plugin when WooCommerce is active — see [Plugin WooCommerce Checkout](../../../../plugins/aegis/docs/features/woocommerce-checkout.md) and [Plugin Patterns](../../../../plugins/aegis/docs/features/plugin-patterns.md) ([Wiki](https://github.com/aegiswp/plugin/wiki)).
 
 ## Requirements
 
@@ -37,11 +37,11 @@ Block patterns that contain `wp:woocommerce/*` blocks (product grids, store head
 
 Generic commerce **marketing** patterns without WooCommerce blocks (for example trust badges, shipping info) remain in the theme `patterns/commerce/` directory.
 
-See [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki).
+See [Plugin Patterns](../../../../plugins/aegis/docs/features/plugin-patterns.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki).
 
 ## Multi-Step Checkout
 
-The theme ships the **Multi-Step Checkout** FSE template (`page-checkout-multi-step.html`). Assign it in the Site Editor; checkout CSS/JS and integration gating are documented in the free plugin: [WooCommerce Checkout](../../plugins/aegis/docs/features/woocommerce-checkout.md) · [Wiki](https://github.com/aegiswp/plugin/wiki).
+The theme ships the **Multi-Step Checkout** FSE template (`page-checkout-multi-step.html`). Assign it in the Site Editor; checkout CSS/JS and integration gating are documented in the free plugin: [WooCommerce Checkout](../../../../plugins/aegis/docs/features/woocommerce-checkout.md) · [Wiki](https://github.com/aegiswp/plugin/wiki).
 
 ## Product Archive (Shop Page)
 

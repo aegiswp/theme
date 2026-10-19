@@ -46,9 +46,9 @@ npm run dev
 
 ### PHP lint and tests
 
-- PHPCS for **all three products** (theme, plugin, pro) runs from the **theme** directory: `composer run standards:check`.
-- The plugin has no root `composer.json` by design.
-- PHPUnit coverage is provided by **wpaudit only**: `composer test:wpaudit` (not a separate `tests/Unit` tree in this repo).
+- Theme PHPCS: `composer run standards:check` (or `composer lint`) from this directory.
+- Free plugin and Pro each have their own root `composer.json` / `phpcs.xml` — run `composer lint` inside `wp-content/plugins/aegis` or `wp-content/plugins/aegis-pro`.
+- PHPUnit coverage for the theme is provided by **wpaudit only**: `composer test:wpaudit` (not a separate `tests/Unit` tree in this repo).
 
 ### Vendor sync
 

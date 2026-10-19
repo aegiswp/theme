@@ -65,7 +65,7 @@ This page provides a complete alphabetical listing of all 60 style variations in
 | 57 | Violet | `styles/violet.json` | Classic purple | Creative, regal |
 | 58 | Walnut | `styles/walnut.json` | Rich brown | Warm, refined |
 | 59 | Wine | `styles/wine.json` | Deep burgundy | Elegant, mature |
-| 60 | Zinc | `styles/zinc.json` | Cool gray | Default, neutral |
+| 60 | Zinc | `styles/zinc.json` | Cool gray (dark background) | Dark, neutral |
 
 ## Variation Categories by Mood
 
@@ -91,7 +91,9 @@ Canary, Fuchsia, Neon, Orchid, Plum, Violet.
 
 ### Dark Variations (Dark Default Background)
 
-Charcoal, Dusk, Midnight, Obsidian.
+Midnight, Obsidian, Zinc. They set `styles.color.background` to `primary-950`. Charcoal and Dusk keep the default white background.
+
+The default style is the theme's `theme.json` (title **Light**), not a file in `styles/`.
 
 ## Applying a Variation
 
@@ -103,16 +105,15 @@ Charcoal, Dusk, Midnight, Obsidian.
 
 ## How Variations Affect Design Tokens
 
-Each variation may modify:
+Each variation may modify the following. No variation changes fonts, spacing, or layout.
 
 | Token Category | Example Changes |
 |----------------|----------------|
-| Primary colors | Different hue for the primary palette |
-| Background | Page and section background colors |
-| Text colors | Heading, body, and link colors |
-| Accent colors | Button backgrounds, link highlights |
-| Font pairing | Some variations adjust font families or weights |
-| Border colors | Card and divider border tones |
+| Primary colors | Different hue for the primary palette (all 60) |
+| Neutral and status colors | Shifted neutral and status shades (all 60) |
+| Background | Page background (Midnight, Obsidian, Zinc) |
+| Text colors | Body, heading, and link colors (Flamingo, Midnight, Obsidian, Zinc) |
+| Accent colors | Button colors (Flamingo, Midnight, Obsidian, Zinc) |
 
 ## Creating Custom Variations
 

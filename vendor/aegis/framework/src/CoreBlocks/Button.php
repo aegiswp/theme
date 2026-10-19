@@ -371,11 +371,32 @@ class Button implements Renderable {
 			$link->appendChild( $imported );
 		}
 
-		// Add a <title> element to the SVG for accessibility.
-		$title = $imported->insertBefore( DOM::create_element( 'title', $dom ), $imported->firstChild );
-		$text  = $dom->createTextNode( Str::title_case( $attrs['iconName'] ?? '' ) );
-		if ( $text ) {
-			$title->appendChild( $text );
+		// Drop saved <title> elements and their fixed IDs, which repeat when an icon is used twice.
+		foreach ( iterator_to_array( $imported->getElementsByTagName( 'title' ) ) as $saved_title ) {
+			$saved_title->parentNode->removeChild( $saved_title );
+		}
+		$imported->removeAttribute( 'aria-labelledby' );
+
+		$label = '';
+		foreach ( $link->childNodes as $node ) {
+			if ( $node !== $imported && ! ( $node instanceof \DOMElement && 'svg' === strtolower( $node->nodeName ) ) ) {
+				$label .= $node->textContent;
+			}
+		}
+
+		if ( '' !== trim( $label ) ) {
+			// The visible label names the button, so the icon is decorative.
+			$imported->removeAttribute( 'role' );
+			$imported->setAttribute( 'aria-hidden', 'true' );
+			$imported->setAttribute( 'focusable', 'false' );
+		} else {
+			// Icon-only button: the icon's <title> provides the accessible name.
+			$imported->setAttribute( 'role', 'img' );
+			$title = $imported->insertBefore( DOM::create_element( 'title', $dom ), $imported->firstChild );
+			$text  = $dom->createTextNode( Str::title_case( $attrs['iconName'] ?? '' ) );
+			if ( $text ) {
+				$title->appendChild( $text );
+			}
 		}
 
 		// Apply responsive classes and return the final HTML.

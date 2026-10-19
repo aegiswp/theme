@@ -1,326 +1,454 @@
 # Pattern Reference
 
-This page catalogs **theme-owned** block pattern categories — generic sections, commerce marketing layouts (core blocks only), and template composition patterns registered from `patterns/` in the theme.
+This page lists every block pattern the theme registers from `patterns/`. It is generated from the pattern file headers (`Title`, `Slug`, `Categories`, `Inserter`).
 
-WooCommerce block patterns (`wp:woocommerce/*`) and the TI Wishlist template pattern are **not** theme-owned. They register from the [Aegis companion plugin](../../plugins/aegis/docs/features/plugin-patterns.md) ([Wiki](https://github.com/aegiswp/plugin/wiki)) when WooCommerce (and TI Wishlist, for wishlist) are active. Premium layouts live in [Aegis Pro](../../plugins/aegis-pro/docs/patterns/pro-patterns.md) ([Wiki](https://github.com/aegiswp/pro/wiki)).
+WooCommerce block patterns (`wp:woocommerce/*`) and the TI Wishlist template pattern are **not** theme-owned. They register from the [Aegis companion plugin](../../../../plugins/aegis/docs/features/plugin-patterns.md) ([Wiki](https://github.com/aegiswp/plugin/wiki)) when WooCommerce (and TI Wishlist, for wishlist) are active. Modal starter patterns also live in the companion plugin. Premium layouts live in [Aegis Pro](../../../../plugins/aegis-pro/docs/patterns/pro-patterns.md) ([Wiki](https://github.com/aegiswp/pro/wiki)).
 
-The theme ships **236 registered block patterns** across **29 category folders**. With the companion plugin (including Modal starters when Modal is enabled) and Pro, the full Aegis pattern library exceeds **270** registered slugs.
+The theme ships **234 registered block patterns** in **28 category folders**. 52 of them are kept out of the inserter: the 48 `template` patterns, the 3 `hidden` patterns, and `utility-patterns`.
+
+## How Patterns Are Registered
+
+The framework (`vendor/aegis/framework/src/DesignSystem/Patterns.php`) loads every `*.php` file in each folder of `patterns/`. Files whose names start with a dot are not loaded.
+
+- **Category:** the folder name. Labels are the folder name in title case, with `cta` and `faq` shown as CTA and FAQ.
+- **Slug:** the first category plus the file's `Slug` header, joined with a hyphen. For example, `patterns/hero/split.php` with `Slug: split` registers as `hero-split`. Use this slug in `<!-- wp:pattern {"slug":"hero-split"} /-->`.
+- **Inserter:** a pattern is hidden from the inserter when its header says `Inserter: false` or its category is `hidden`.
+- When WooCommerce and the companion plugin are both active, the plugin's mini-cart header replaces the theme's `header-default`.
+- The four `blog-related-posts-*` patterns are removed when the theme Related Posts block is not registered. See [Related Posts](../blocks/related-posts.md).
+
+Child themes can add folders with the `aegis_pattern_dirs` filter, or change the list with `aegis_patterns`. See [Hooks and Filters](hooks-and-filters.md).
 
 ## Pattern Categories
 
-### 404
-
-Patterns for the 404 (page not found) error page.
-
-| Pattern | Description |
-|---------|-------------|
-| 404 Simple | Centered message with search form and home link. |
-| 404 Illustrated | Error message with decorative illustration. |
-| 404 Suggested Links | Error message with popular page suggestions. |
-
 ### About
 
-Patterns for about pages and company information sections.
+Folder `patterns/about/` · 3 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| About Simple | Text-based company overview with mission statement. |
-| About With Image | Side-by-side layout with company photo and description. |
-| About Timeline | Company history presented as a vertical timeline. |
-| About Values | Grid of company values with icons. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| About Founder Story | `about-founder-story` | `founder-story.php` | Yes |
+| About Mission Vision | `about-mission-vision` | `mission-vision.php` | Yes |
+| About Values Grid | `about-values-grid` | `values-grid.php` | Yes |
 
 ### Author
 
-Patterns for author profile displays.
+Folder `patterns/author/` · 6 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Author Bio Card | Compact author card with avatar, name, and bio. |
-| Author Full Profile | Extended author profile with social links and post count. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Author Archive with Sidebar | `author-archive-sidebar` | `archive-sidebar.php` | Yes |
+| Author Archive | `author-archive` | `archive.php` | Yes |
+| Author Biography Card | `author-biography-card` | `biography-card.php` | Yes |
+| Author Biography Horizontal | `author-biography-horizontal` | `biography-horizontal.php` | Yes |
+| Author Biography | `author-biography` | `biography.php` | Yes |
+| List with Author | `author-default` | `default.php` | Yes |
 
 ### Blog
 
-Patterns for blog listing pages and post layouts.
+Folder `patterns/blog/` · 16 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Blog Grid | Posts in a multi-column card grid. |
-| Blog List | Posts in a vertical list with thumbnails. |
-| Blog Featured | Large featured post followed by smaller post grid. |
-| Blog Minimal | Text-only post list without thumbnails. |
-| Related Posts: Grid | `aegis/related-posts` in a 3-column grid (`blog-related-posts-grid`). |
-| Related Posts: List | Related posts as a vertical list (`blog-related-posts-list`). |
-| Related Posts: Cards | Related posts as cards (`blog-related-posts-cards`). |
-| Related Posts: Minimal | Compact related posts (`blog-related-posts-minimal`). |
-
-These four Related Posts patterns unregister when **Aegis → Blocks → Related Posts** is implied off. They are theme-owned; do not copy them into the companion plugin.
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Blog Feed | `blog-featured-blog-feed` | `featured-blog-feed.php` | Yes |
+| Featured Post | `blog-featured-post` | `featured-post.php` | Yes |
+| Featured Posts | `blog-featured-posts` | `featured-posts.php` | Yes |
+| Grid Boxed | `blog-grid-boxed` | `grid-boxed.php` | Yes |
+| Grid Compact | `blog-grid-compact` | `grid-compact.php` | Yes |
+| Grid Masonry | `blog-grid-masonry` | `grid-masonry.php` | Yes |
+| Latest Posts | `blog-latest-posts` | `latest-posts.php` | Yes |
+| Minimal | `blog-minimal` | `minimal.php` | Yes |
+| Related Posts: Cards | `blog-related-posts-cards` | `related-posts-cards.php` | Yes |
+| Related Posts: Grid | `blog-related-posts-grid` | `related-posts-grid.php` | Yes |
+| Related Posts: List | `blog-related-posts-list` | `related-posts-list.php` | Yes |
+| Related Posts: Minimal | `blog-related-posts-minimal` | `related-posts-minimal.php` | Yes |
+| Single Blog Card | `blog-single-card` | `single-card.php` | Yes |
+| Single Column | `blog-single-column` | `single-column.php` | Yes |
+| Three Column Blog | `blog-three-column` | `three-column.php` | Yes |
+| Two Column Featured | `blog-two-column-featured` | `two-column-featured.php` | Yes |
 
 ### Commerce
 
-Patterns for e-commerce and product showcases.
+Folder `patterns/commerce/` · 8 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Product Grid | Multi-column product card layout. |
-| Product Featured | Large featured product with CTA button. |
-| Sale Banner | Promotional banner with countdown or badge. |
-| Product Categories | Visual category navigation grid. |
-| Trust Badges | Shipping, returns, and guarantee indicators. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Money-Back Guarantee | `commerce-guarantee` | `guarantee.php` | Yes |
+| Payment Icons | `commerce-payment-icons` | `payment-icons.php` | Yes |
+| Product Comparison | `commerce-product-comparison` | `product-comparison.php` | Yes |
+| Product Reviews | `commerce-product-reviews` | `product-reviews.php` | Yes |
+| Recently Viewed Products | `commerce-recently-viewed` | `recently-viewed.php` | Yes |
+| Shipping Information | `commerce-shipping-info` | `shipping-info.php` | Yes |
+| Size Guide | `commerce-size-guide` | `size-guide.php` | Yes |
+| Trust Badges | `commerce-trust-badges` | `trust-badges.php` | Yes |
 
 ### Contact
 
-Patterns for contact information and forms.
+Folder `patterns/contact/` · 5 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Contact Simple | Basic contact form layout. |
-| Contact Split | Two-column: form on one side, info on the other. |
-| Contact With Map | Contact form alongside a map embed. |
-| Contact Info Cards | Address, phone, and email in card format. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Form Boxed | `contact-form-boxed` | `form-boxed.php` | Yes |
+| Contact Form Map Overlay | `contact-form-map-overlay` | `form-map-overlay.php` | Yes |
+| Contact Form Map | `contact-form-map` | `form-map.php` | Yes |
+| Contact Icons | `contact-icons` | `icons.php` | Yes |
+| Contact Two Column | `contact-two-column` | `two-column.php` | Yes |
 
-### CTA (Call to Action)
+### CTA
 
-Patterns for conversion-focused sections.
+Folder `patterns/cta/` · 7 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| CTA Simple | Centered heading with button. |
-| CTA Split | Text on one side, form or button on the other. |
-| CTA Banner | Full-width background with overlay text and button. |
-| CTA With Stats | Call to action combined with achievement numbers. |
-| Newsletter CTA | Split heading and Search Newsletter signup (`is-style-newsletter`). |
-| Commerce Newsletter | Store signup CTA using the Search Newsletter variation. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Feature Banner | `cta-banner` | `banner.php` | Yes |
+| Box | `cta-box` | `box.php` | Yes |
+| Commerce Free Shipping CTA | `cta-commerce-free-shipping` | `commerce-free-shipping.php` | Yes |
+| Commerce Newsletter CTA | `cta-commerce-newsletter` | `commerce-newsletter.php` | Yes |
+| Commerce Sale CTA | `cta-commerce-sale` | `commerce-sale.php` | Yes |
+| Horizontal | `cta-horizontal` | `horizontal.php` | Yes |
+| Newsletter CTA | `cta-newsletter` | `newsletter.php` | Yes |
 
 ### Event
 
-Patterns for event listings and details.
+Folder `patterns/event/` · 28 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Event Card | Individual event with date, title, and location. |
-| Event List | Chronological list of upcoming events. |
-| Event Featured | Large event hero with countdown. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Cinema About | `event-event-cinema-about` | `cinema-about.php` | Yes |
+| Cinema Cast & Crew | `event-event-cinema-cast` | `cinema-cast.php` | Yes |
+| Cinema CTA | `event-event-cinema-cta` | `cinema-cta.php` | Yes |
+| Cinema Hero | `event-event-cinema-hero` | `cinema-hero.php` | Yes |
+| Conference CTA | `event-event-conference-cta` | `conference-cta.php` | Yes |
+| Conference Hero | `event-event-conference-hero` | `conference-hero.php` | Yes |
+| Conference Speakers | `event-event-conference-speakers` | `conference-speakers.php` | Yes |
+| Conference Tracks | `event-event-conference-tracks` | `conference-tracks.php` | Yes |
+| Conference Venue | `event-event-conference-venue` | `conference-venue.php` | Yes |
+| Exhibition About | `event-event-exhibition-about` | `exhibition-about.php` | Yes |
+| Exhibition Artists | `event-event-exhibition-artists` | `exhibition-artists.php` | Yes |
+| Exhibition Gallery | `event-event-exhibition-gallery` | `exhibition-gallery.php` | Yes |
+| Exhibition Hero | `event-event-exhibition-hero` | `exhibition-hero.php` | Yes |
+| Exhibition Info | `event-event-exhibition-info` | `exhibition-info.php` | Yes |
+| Exhibition Tours | `event-event-exhibition-tours` | `exhibition-tours.php` | Yes |
+| Music Festival Hero | `event-event-music-festival-hero` | `music-festival-hero.php` | Yes |
+| Music Festival Info | `event-event-music-festival-info` | `music-festival-info.php` | Yes |
+| Music Festival Lineup | `event-event-music-festival-lineup` | `music-festival-lineup.php` | Yes |
+| Music Festival Passes | `event-event-music-festival-passes` | `music-festival-passes.php` | Yes |
+| Talk Hero | `event-talk-hero` | `talk-hero.php` | Yes |
+| Talk Series | `event-event-talk-series` | `talk-series.php` | Yes |
+| Talk Speaker | `event-event-talk-speaker` | `talk-speaker.php` | Yes |
+| Talk Topics | `event-event-talk-topics` | `talk-topics.php` | Yes |
+| Workshop CTA | `event-event-workshop-cta` | `workshop-cta.php` | Yes |
+| Workshop Gallery | `event-event-workshop-gallery` | `workshop-gallery.php` | Yes |
+| Workshop Hero | `event-workshop-hero` | `workshop-hero.php` | Yes |
+| Workshop Instructor | `event-workshop-instructor` | `workshop-instructor.php` | Yes |
+| Workshop Schedule | `event-workshop-schedule` | `workshop-schedule.php` | Yes |
 
 ### FAQ
 
-Patterns for frequently asked questions.
+Folder `patterns/faq/` · 3 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| FAQ Accordion | Expandable question-and-answer list. |
-| FAQ Two Column | Questions and answers in side-by-side layout. |
-| FAQ Simple | Static list of questions with visible answers. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Accordion With Sidebar | `faq-accordion-sidebar` | `accordion-sidebar.php` | Yes |
+| Accordion | `faq-accordion` | `accordion.php` | Yes |
+| FAQs | `faq-default` | `default.php` | Yes |
 
 ### Featured
 
-Patterns for showcasing features and services (theme category merged into WordPress core **Featured**).
+Folder `patterns/featured/` · 5 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Feature Grid Icons | Multi-column feature cards with icons. |
-| Feature Alternating | Alternating image-text rows. |
-| Image | Full-width feature highlight with image and content. |
-| Feature Icon Boxes | Grid of icon boxes for features or services. |
-| Feature Images Two Column | Two-column feature section with staggered images. |
-| Icon grid (library) | Static grid of core icons. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Feature Alternating | `featured-alternating` | `alternating.php` | Yes |
+| Feature Grid Icons | `featured-grid-icons` | `grid-icons.php` | Yes |
+| Feature Icon Boxes | `featured-icon-boxes` | `icon-boxes.php` | Yes |
+| Image | `featured-image` | `image.php` | Yes |
+| Feature Images Two Column | `featured-images-two-column` | `images-two-column.php` | Yes |
 
 ### Footer
 
-Patterns for site footer areas.
+Folder `patterns/footer/` · 6 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Footer Multi-Column | Three or four column footer with links. |
-| Footer Simple | Single-row footer with copyright and links. |
-| Footer With Newsletter | Footer including an email signup form. |
-| Footer Centered | Centered logo, links, and social icons. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Centered | `footer-centered` | `centered.php` | Yes |
+| Footer Default | `footer-default` | `default.php` | Yes |
+| Minimal | `footer-minimal` | `minimal.php` | Yes |
+| Store Footer Default | `footer-store-default` | `store-default.php` | Yes |
+| Store Footer Minimal | `footer-store-minimal` | `store-minimal.php` | Yes |
+| Wide | `footer-wide` | `wide.php` | Yes |
 
 ### Header
 
-Patterns for site header areas.
+Folder `patterns/header/` · 6 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Header Standard | Logo, navigation, and utility icons. |
-| Header Centered | Centered logo with navigation below. |
-| Header With Banner | Header with announcement bar above. |
-| Header Minimal | Compact header with hamburger menu. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Center Logo | `header-center-logo` | `center-logo.php` | Yes |
+| Header Center Menu | `header-center-menu` | `center-menu.php` | Yes |
+| Header Default | `header-default` | `default.php` | Yes |
+| Menu Left | `header-menu-left` | `menu-left.php` | Yes |
+| Store Header Default | `header-store-default` | `store-default.php` | Yes |
+| Store Header Minimal | `header-store-minimal` | `store-minimal.php` | Yes |
 
 ### Hero
 
-Patterns for page hero and banner sections.
+Folder `patterns/hero/` · 7 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Hero Full Screen | Full viewport height with centered content. |
-| Hero Split | Two-column: text and image side by side. |
-| Hero With Video | Background video with text overlay. |
-| Hero Minimal | Simple centered heading and subheading. |
-| Hero With Form | Hero section with inline signup form. |
-| Hero Animated | Hero with animated elements or gradient. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Hero Archive | `hero-archive` | `archive.php` | Yes |
+| Hero Centered Dark | `hero-centered-dark` | `centered-dark.php` | Yes |
+| Hero Cover | `hero-cover` | `cover.php` | Yes |
+| Hero Image Below | `hero-image-below` | `image-below.php` | Yes |
+| Hero Minimal | `hero-minimal` | `minimal.php` | Yes |
+| Hero Split | `hero-split` | `split.php` | Yes |
+| Hero Video | `hero-video` | `video.php` | Yes |
 
 ### Hidden
 
-Utility patterns not displayed in the block inserter. Used internally for template composition.
+Folder `patterns/hidden/` · 3 patterns
 
-### Library
-
-General-purpose reusable section patterns.
-
-| Pattern | Description |
-|---------|-------------|
-| Content Section | Standard text content block with heading. |
-| Icon Grid | Static grid of WordPress Icon library glyphs (`core/icon`). |
-| Image Gallery | Responsive image grid. |
-| Video Section | Video embed with surrounding context. |
-| Divider Section | Decorative section separator. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Page 404 | `hidden-404` | `404.php` | No |
+| 404 Illustrated | `hidden-illustrated` | `illustrated.php` | No |
+| 404 Minimal | `hidden-minimal` | `minimal.php` | No |
 
 ### Logos
 
-Patterns for logo grids and client showcases.
+Folder `patterns/logos/` · 3 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Logo Grid | Multi-column grid of partner/client logos. |
-| Logo Row | Single row of logos with a label. |
-| Logo Marquee | Not a standalone theme pattern. Use the Group **Marquee** variation (theme Feature Banner, or Pro Feature Icon Boxes). |
-
-### Modal
-
-Modal starter patterns (`aegis/modal-newsletter`, `aegis/modal-contact`, `aegis/modal-video`, `aegis/modal-cookie-consent`) live in the **Aegis companion plugin** (`patterns/modal/`) and register only when the Modal block is enabled. They are not shipped in the theme. See [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md).
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| As Seen In | `logos-as-seen-in` | `as-seen-in.php` | Yes |
+| Logo Grid | `logos-logo-grid` | `logo-grid.php` | Yes |
+| Logo Row | `logos-logo-row` | `logo-row.php` | Yes |
 
 ### Newsletter
 
-Patterns for email signup sections. Banner, inline, and split are Group + Button CTAs — not the Search Newsletter variation (`is-style-newsletter`). That variation is used by **Newsletter CTA** and **Commerce Newsletter** under CTA.
+Folder `patterns/newsletter/` · 3 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Newsletter Banner | Full-width dark signup band with a subscribe button. |
-| Newsletter Inline | Centered heading, copy, and subscribe button. |
-| Newsletter Split | Two-column layout with copy and a subscribe CTA. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Newsletter Banner | `newsletter-banner` | `banner.php` | Yes |
+| Newsletter Inline | `newsletter-inline` | `inline.php` | Yes |
+| Newsletter Split | `newsletter-split` | `split.php` | Yes |
 
 ### Notice
 
-Patterns for alert and notification banners.
+Folder `patterns/notice/` · 16 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Notice Info | Informational notice bar. |
-| Notice Warning | Warning alert with icon. |
-| Notice Success | Success confirmation message. |
-| Notice Dismissible | Notice with close button. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Affiliate Disclaimer | `notice-disclaimer-affiliate` | `disclaimer-affiliate.php` | Yes |
+| Beta Disclaimer | `notice-disclaimer-beta` | `disclaimer-beta.php` | Yes |
+| Earnings Disclaimer | `notice-disclaimer-earnings` | `disclaimer-earnings.php` | Yes |
+| Editorial Independence Disclaimer | `notice-disclaimer-editorial` | `disclaimer-editorial.php` | Yes |
+| Financial Disclaimer | `notice-disclaimer-financial` | `disclaimer-financial.php` | Yes |
+| Legal Disclaimer | `notice-disclaimer-legal` | `disclaimer-legal.php` | Yes |
+| Medical Disclaimer | `notice-disclaimer-medical` | `disclaimer-medical.php` | Yes |
+| Sponsored Content Disclaimer | `notice-disclaimer-sponsored` | `disclaimer-sponsored.php` | Yes |
+| Testimonial Disclaimer | `notice-disclaimer-testimonial` | `disclaimer-testimonial.php` | Yes |
+| Age Verification Notice | `notice-notice-age-gate` | `notice-age-gate.php` | Yes |
+| Error Notice | `notice-notice-error` | `notice-error.php` | Yes |
+| Geographic Restriction Notice | `notice-notice-geo-restriction` | `notice-geo-restriction.php` | Yes |
+| Info Notice | `notice-notice-info` | `notice-info.php` | Yes |
+| Success Notice | `notice-notice-success` | `notice-success.php` | Yes |
+| Under Construction | `notice-notice-under-construction` | `notice-under-construction.php` | Yes |
+| Warning Notice | `notice-notice-warning` | `notice-warning.php` | Yes |
 
 ### Pages
 
-Full page layout patterns.
+Folder `patterns/pages/` · 20 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Landing | Complete landing page with hero, features, testimonials, and CTA. |
-| About | Full about page with story, team, and values. |
-| Contact | Complete contact page layout. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| About Page | `pages-about` | `about.php` | Yes |
+| Blog Page | `pages-blog` | `blog.php` | Yes |
+| Cinema Event | `pages-event-cinema` | `cinema.php` | Yes |
+| Conference Event | `pages-event-conference` | `conference.php` | Yes |
+| Contact Page | `pages-contact` | `contact.php` | Yes |
+| Exhibition Event | `pages-event-exhibition` | `exhibition.php` | Yes |
+| Funnel Sales Page | `pages-funnel-sales` | `funnel-sales.php` | Yes |
+| Funnel Squeeze Page | `pages-funnel-squeeze` | `funnel-squeeze.php` | Yes |
+| Funnel Thank You Page | `pages-funnel-thank-you` | `funnel-thank-you.php` | Yes |
+| Page Home | `pages-home` | `home.php` | Yes |
+| Landing Page | `pages-landing` | `landing.php` | Yes |
+| Music Festival | `pages-event-music-festival` | `music-festival.php` | Yes |
+| Portfolio Page | `pages-portfolio` | `portfolio.php` | Yes |
+| Product Landing Page (Dynamic) | `pages-product-landing-dynamic` | `product-landing-dynamic.php` | Yes |
+| Product Landing Page (Static) | `pages-product-landing-static` | `product-landing-static.php` | Yes |
+| Services Page | `pages-services` | `services.php` | Yes |
+| Shop Full Width | `pages-shop-full-width` | `shop-full-width.php` | Yes |
+| Shop Page | `pages-shop` | `shop.php` | Yes |
+| Talk & Lecture Event | `pages-event-talk` | `talk.php` | Yes |
+| Workshop Event | `pages-event-workshop` | `workshop.php` | Yes |
 
 ### Portfolio
 
-Patterns for project and work showcases.
+Folder `patterns/portfolio/` · 3 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Portfolio Grid | Filterable project grid with hover effects. |
-| Portfolio Masonry | Variable-height project cards. |
-| Portfolio Case Study | Detailed project breakdown layout. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Portfolio Image Gallery Grid | `portfolio-image-gallery-grid` | `image-gallery-grid.php` | Yes |
+| Portfolio Image Gallery | `portfolio-image-gallery` | `image-gallery.php` | Yes |
+| Project Showcase | `portfolio-project-showcase` | `project-showcase.php` | Yes |
 
 ### Pricing
 
-Patterns for pricing tables and plan comparisons.
+Folder `patterns/pricing/` · 4 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Pricing Table | Multi-column pricing cards with features. |
-| Pricing Comparison | Feature comparison table with plans. |
-| Pricing Simple | Minimal pricing with toggle (monthly/annual). |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Pricing Comparison Table | `pricing-comparison-table` | `comparison-table.php` | Yes |
+| Pricing Single Highlight | `pricing-single-highlight` | `single-highlight.php` | Yes |
+| Pricing Three Column | `pricing-three-column` | `three-column.php` | Yes |
+| Pricing Two Column | `pricing-two-column` | `two-column.php` | Yes |
 
 ### Product
 
-Patterns for individual product showcases.
+Folder `patterns/product/` · 3 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Product Hero | Large product image with details. |
-| Product Features | Product feature breakdown. |
-| Product Comparison | Multiple products side by side. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Product Category Grid | `product-category-grid` | `category-grid.php` | Yes |
+| Featured Product Grid | `product-featured-grid` | `featured-grid.php` | Yes |
+| On Sale Products | `product-on-sale` | `on-sale.php` | Yes |
+
+### Sidebar
+
+Folder `patterns/sidebar/` · 1 pattern
+
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Sidebar Default | `sidebar-default` | `default.php` | Yes |
 
 ### Slider
 
-Patterns using the Slider block.
+Folder `patterns/slider/` · 7 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Slider Testimonial | Testimonial carousel. |
-| Slider Image | Full-width image carousel. |
-| Slider Content | Multi-content sliding sections. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Books Slider | `slider-books` | `books.php` | Yes |
+| Features Slider | `slider-features` | `features.php` | Yes |
+| Hero Slider | `slider-hero` | `hero.php` | Yes |
+| Latest Posts Carousel | `slider-latest-posts` | `latest-posts.php` | Yes |
+| Portfolio Carousel | `slider-portfolio` | `portfolio.php` | Yes |
+| Team Carousel | `slider-team` | `team.php` | Yes |
+| Testimonials Slider | `slider-testimonials` | `testimonials.php` | Yes |
 
 ### Stats
 
-Patterns for statistics and number displays.
+Folder `patterns/stats/` · 4 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Stats Counter | Animated number counters in a row. |
-| Stats Cards | Statistics in card format with icons. |
-| Stats Inline | Compact inline number display. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Stats Four Columns | `stats-four-columns` | `four-columns.php` | Yes |
+| Stats Progress Bars | `stats-progress-bars` | `progress-bars.php` | Yes |
+| Stats Three Columns Dark | `stats-three-columns-dark` | `three-columns-dark.php` | Yes |
+| Stats Two Column Icons | `stats-two-column-icons` | `two-column-icons.php` | Yes |
 
 ### Team
 
-Patterns for team member displays.
+Folder `patterns/team/` · 4 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Team Grid | Multi-column team member cards. |
-| Team Detailed | Extended profiles with bio and social links. |
-| Team Compact | Small avatar-based team list. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Team Cards Social | `team-cards-social` | `cards-social.php` | Yes |
+| Team Grid Simple | `team-grid-simple` | `grid-simple.php` | Yes |
+| Team Members | `team-members` | `members.php` | Yes |
+| Team Spotlight | `team-spotlight` | `spotlight.php` | Yes |
 
 ### Template
 
-Patterns used for template-level composition (header + content + footer structures).
+Folder `patterns/template/` · 48 patterns
 
-| Pattern | Slug | Description |
-|---------|------|-------------|
-| Maintenance | `template-maintenance` | Branded maintenance layout with header, cover message, login link, and footer. Used by `templates/maintenance.html`. See [[maintenance-mode]]. |
-| Coming Soon | `template-coming-soon` | Site-wide coming soon composition. |
-| Page Coming Soon | `template-page-coming-soon` | Coming soon layout for page templates. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Template 404 | `template-404` | `404.php` | No |
+| Archive Product | `template-archive-product` | `archive-product.php` | No |
+| Template Archive | `template-archive` | `archive.php` | No |
+| Author Guest | `template-author-guest` | `author-guest.php` | No |
+| Template Author | `template-author` | `author.php` | No |
+| Blank | `template-blank` | `blank.php` | No |
+| Coming Soon | `template-coming-soon` | `coming-soon.php` | No |
+| Template Date | `template-date` | `date.php` | No |
+| Front Page | `template-front-page` | `front-page.php` | No |
+| Full Width | `template-full-width` | `full-width.php` | No |
+| Blog Home | `template-home` | `home.php` | No |
+| Maintenance | `template-maintenance` | `maintenance.php` | No |
+| Order Confirmation | `template-order-confirmation` | `order-confirmation.php` | No |
+| Page Boxed | `template-page-boxed` | `page-boxed.php` | No |
+| Page Cart | `template-page-cart` | `page-cart.php` | No |
+| Page Checkout Multi-Step | `template-page-checkout-multi-step` | `page-checkout-multi-step.php` | No |
+| Page Checkout | `template-page-checkout` | `page-checkout.php` | No |
+| Page Coming Soon | `template-page-coming-soon` | `page-coming-soon.php` | No |
+| Page Contact | `template-page-contact` | `page-contact.php` | No |
+| Page Hero Minimal | `template-page-hero-minimal` | `page-hero-minimal.php` | No |
+| Page Landing | `template-page-landing` | `page-landing.php` | No |
+| Page My Account | `template-page-my-account` | `page-my-account.php` | No |
+| Page No Title | `template-page-no-title` | `page-no-title.php` | No |
+| Page Wishlist | `template-page-wishlist` | `page-wishlist.php` | No |
+| Page With Sidebar | `template-page-with-sidebar` | `page-with-sidebar.php` | No |
+| Template Page | `template-page` | `page.php` | No |
+| Search Product | `template-search-product` | `search-product.php` | No |
+| Template Search | `template-search` | `search.php` | No |
+| Single Full Width | `template-single-full-width` | `single-full-width.php` | No |
+| Single No Featured Image | `template-single-no-featured-image` | `single-no-featured-image.php` | No |
+| Single Product Landing | `template-single-product-landing` | `single-product-landing.php` | No |
+| Single Product | `template-single-product` | `single-product.php` | No |
+| Template Single | `template-single` | `single.php` | No |
+| Category Books | `template-taxonomy-category-books` | `taxonomy-category-books.php` | No |
+| Category Events | `template-taxonomy-category-events` | `taxonomy-category-events.php` | No |
+| Category Podcasts | `template-taxonomy-category-podcasts` | `taxonomy-category-podcasts.php` | No |
+| Category Portfolio | `template-taxonomy-category-portfolio` | `taxonomy-category-portfolio.php` | No |
+| Category Recipes | `template-taxonomy-category-recipes` | `taxonomy-category-recipes.php` | No |
+| Category Video | `template-taxonomy-category-video` | `taxonomy-category-video.php` | No |
+| Category Archive | `template-taxonomy-category` | `taxonomy-category.php` | No |
+| Tag Featured | `template-taxonomy-post_tag-featured` | `taxonomy-post_tag-featured.php` | No |
+| Tag Archive | `template-taxonomy-post_tag` | `taxonomy-post_tag.php` | No |
+| Product Attribute | `template-taxonomy-product_attribute` | `taxonomy-product_attribute.php` | No |
+| Product Category Clothing | `template-taxonomy-product_cat-clothing` | `taxonomy-product_cat-clothing.php` | No |
+| Product Category Digital | `template-taxonomy-product_cat-digital` | `taxonomy-product_cat-digital.php` | No |
+| Product Category Outlet | `template-taxonomy-product_cat-outlet` | `taxonomy-product_cat-outlet.php` | No |
+| Taxonomy Product Category | `template-taxonomy-product_cat` | `taxonomy-product_cat.php` | No |
+| Taxonomy Product Tag | `template-taxonomy-product_tag` | `taxonomy-product_tag.php` | No |
 
 ### Testimonial
 
-Patterns for reviews and social proof.
+Folder `patterns/testimonial/` · 6 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Testimonial Cards | Grid of testimonial cards with avatars. |
-| Testimonial Slider | Carousel of rotating testimonials. |
-| Testimonial Large | Single large featured testimonial. |
-| Testimonial With Rating | Testimonials including star ratings. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Brands | `testimonial-brands` | `brands.php` | Yes |
+| Testimonial Cards Grid | `testimonial-cards-grid` | `cards-grid.php` | Yes |
+| Logo Cloud | `testimonial-logo-cloud` | `logo-cloud.php` | Yes |
+| Testimonial Quote Large | `testimonial-quote-large` | `quote-large.php` | Yes |
+| Testimonial Single | `testimonial-single` | `single.php` | Yes |
+| Testimonial Three Column | `testimonial-three-column` | `three-column.php` | Yes |
 
 ### Timeline
 
-Patterns for chronological content.
+Folder `patterns/timeline/` · 3 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Timeline Vertical | Vertical timeline with alternating sides. |
-| Timeline Horizontal | Horizontal scrolling timeline. |
-| Timeline Simple | Basic vertical list with dates. |
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Timeline Horizontal | `timeline-horizontal` | `horizontal.php` | Yes |
+| Timeline Stacked | `timeline-stacked` | `stacked.php` | Yes |
+| Timeline Vertical | `timeline-vertical` | `vertical.php` | Yes |
 
 ### Utility
 
-Helper patterns for layout and spacing.
+Folder `patterns/utility/` · 6 patterns
 
-| Pattern | Description |
-|---------|-------------|
-| Spacer Section | Configurable vertical space. |
-| Anchor Section | Invisible anchor point for navigation. |
-| Divider Decorative | Visual section separator. |
-
+| Pattern | Slug | File | Inserter |
+| --- | --- | --- | --- |
+| Color Palette | `utility-color-palette` | `color-palette.php` | Yes |
+| Utility Dark Mode Toggle | `utility-dark-mode-toggle` | `dark-mode-toggle.php` | Yes |
+| Gradients | `utility-gradients` | `gradients.php` | Yes |
+| Patterns | `utility-patterns` | `patterns.php` | No |
+| Skip to Content | `utility-skip-to-content` | `skip-to-content.php` | Yes |
+| Utility Search Toggle | `utility-utility-search-toggle` | `utility-search-toggle.php` | Yes |
 ## Inserting Patterns
 
 1. Open the block inserter (+) in the editor toolbar.
@@ -328,10 +456,12 @@ Helper patterns for layout and spacing.
 3. Select a category from the dropdown.
 4. Click a pattern to insert it.
 
+Patterns marked **No** in the Inserter column do not appear there. Templates and other patterns reference them by slug.
+
 ## Related Pages
 
 - [[block-patterns]] — Detailed guide on using and customizing patterns.
-- [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki) — WooCommerce and wishlist block patterns (companion plugin, gated).
-- [Pro Patterns](../../plugins/aegis-pro/docs/patterns/pro-patterns.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki) — Premium marketing layouts.
+- [Plugin Patterns](../../../../plugins/aegis/docs/features/plugin-patterns.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki) — WooCommerce and wishlist block patterns (companion plugin, gated).
+- [Pro Patterns](../../../../plugins/aegis-pro/docs/patterns/pro-patterns.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki) — Premium marketing layouts.
 - [[templates]] — How patterns are used within templates.
 - [[style-variations]] — How patterns adapt to different style variations.

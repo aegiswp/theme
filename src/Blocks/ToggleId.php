@@ -28,7 +28,12 @@ use function wp_unique_id;
 final class ToggleId {
 
 	/**
-	 * @param array<string, mixed> $attributes Block attributes.
+	 * Builds the toggle ID from a block instance.
+	 *
+	 * @param WP_Block|null        $block          Block instance, if available.
+	 * @param array<string, mixed> $attributes     Block attributes.
+	 * @param string               $rendered_inner Rendered inner HTML, used when the block instance is unavailable.
+	 * @return string
 	 */
 	public static function from_block( ?WP_Block $block, array $attributes, string $rendered_inner = '' ): string {
 		$inner = '';
@@ -43,7 +48,11 @@ final class ToggleId {
 	}
 
 	/**
-	 * @param array<string, mixed> $attributes Block attributes.
+	 * Builds the toggle ID from block attributes.
+	 *
+	 * @param array<string, mixed> $attributes   Block attributes.
+	 * @param string               $inner_source Serialized inner blocks, hashed when there is no anchor or instance ID.
+	 * @return string
 	 */
 	public static function from_attributes( array $attributes, string $inner_source = '' ): string {
 		$anchor   = isset( $attributes['anchor'] ) && is_string( $attributes['anchor'] ) ? $attributes['anchor'] : '';

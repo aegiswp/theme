@@ -5,6 +5,7 @@
 - [[requirements|Requirements]]
 - [[quick-start-guide|Quick Start Guide]]
 - [[updating|Updating]]
+- [[introduction-inventory|Theme Inventory]]
 
 ## Using the Theme
 
@@ -47,7 +48,7 @@
 - [[dynamic-template-parts|Dynamic Template Parts]]
 - [[maintenance-mode|Maintenance Mode]]
 - [[svg-icons|SVG Icons]]
-- [[image-lightbox|Image Lightbox]]
+- [[image-lightbox|Lightbox]]
 - [[embed-template|Embed Template]]
 - [[navigation-styles|Navigation Styles]]
 
@@ -55,8 +56,8 @@
 
 Plugin-owned docs (not duplicated here):
 
-- [Aegis Plugin docs](../../plugins/aegis/docs/home.md) · [Wiki](https://github.com/aegiswp/plugin/wiki)
-- [Aegis Pro docs](../../plugins/aegis-pro/docs/home.md) · [Wiki](https://github.com/aegiswp/pro/wiki)
+- [Aegis Plugin docs](../../../plugins/aegis/docs/home.md) · [Wiki](https://github.com/aegiswp/plugin/wiki)
+- [Aegis Pro docs](../../../plugins/aegis-pro/docs/home.md) · [Wiki](https://github.com/aegiswp/pro/wiki)
 
 ## Development
 
@@ -77,6 +78,7 @@ Plugin-owned docs (not duplicated here):
 - [[style-variations-reference|Style Variations Reference]]
 - [[css-variables-reference|CSS Variables Reference]]
 - [[hooks-and-filters|Hooks and Filters]]
+- [[code-snippets|Code Snippets]]
 - [[file-structure|File Structure]]
 
 ## Help

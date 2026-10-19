@@ -235,8 +235,8 @@ See [[dark-mode]] for configuration details.
 4. Enable page caching.
 5. Check server response time (TTFB).
 6. See [[performance]] for theme optimization strategies.
-7. Enable plugin toggles at **Aegis → Performance** (oEmbed, dashicons, heartbeat, XML-RPC/head cleanup, embed facades, emoji with Pro) — see [[../../plugins/aegis/docs/features/performance|Plugin Performance]].
-8. For Query Loops, enable **Query Loop Performance** at **Aegis → Performance**; with Pro, configure per-block options in [[../../plugins/aegis-pro/docs/features/query-performance|Query Performance (Pro)]].
+7. Enable plugin toggles at **Aegis → Performance** (oEmbed, dashicons, heartbeat, XML-RPC/head cleanup, embed facades, emoji with Pro) — see [Plugin Performance](../../../../plugins/aegis/docs/features/performance.md).
+8. For Query Loops, enable **Query Loop Performance** at **Aegis → Performance**; with Pro, configure per-block options in [Query Performance (Pro)](../../../../plugins/aegis-pro/docs/features/query-performance.md).
 
 ### Assets Loading on Every Page
 
@@ -303,7 +303,7 @@ See [[woocommerce-integration#wishlist-ti-woocommerce-wishlist]] for full setup 
 
 1. Install and activate **WooCommerce** and the **Aegis companion plugin**.
 2. Confirm WooCommerce block templates are enabled.
-3. See [[faq#why-dont-i-see-shop-or-product-patterns-in-the-inserter]] and [Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md).
+3. See [[faq#why-dont-i-see-shop-or-product-patterns-in-the-inserter]] and [Plugin Patterns](../../../../plugins/aegis/docs/features/plugin-patterns.md).
 
 ## Plugin Conflicts
 
@@ -346,4 +346,4 @@ If your issue is not listed here:
 - [[updating]] — Update troubleshooting.
 - [[requirements]] — Verify system requirements.
 - [[performance]] — Theme performance optimization.
-- [[../../plugins/aegis/docs/features/performance|Plugin Performance]] — Site-wide and Query Loop toggles.
+- [Plugin Performance](../../../../plugins/aegis/docs/features/performance.md) — Site-wide and Query Loop toggles.

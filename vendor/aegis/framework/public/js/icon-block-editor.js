@@ -44,7 +44,9 @@
 	}
 
 	function shouldApplyIconSaveStyles( blockName, attributes ) {
-		if ( 'core/button' === blockName ) {
+		// aegis/tab icons are rendered into the tabs nav by Tabs.php (front end)
+		// and the tabs block edit (editor); saving them here invalidates tab HTML.
+		if ( 'core/button' === blockName || 'aegis/tab' === blockName ) {
 			return false;
 		}
 

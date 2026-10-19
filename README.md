@@ -326,7 +326,7 @@ Aegis is a comprehensive Full Site Editing (FSE) theme that extends the capabili
 
 **Advanced Text Formats**: Extended text formatting options including clear formatting, underline, gradient text, dynamic font sizes, and more. These formatting tools provide fine-grained control over typography and text presentation.
 
-**Pattern Library**: Comprehensive collection of 236 block patterns organized across 29 category folders including author pages, blog layouts, commerce templates, contact forms, CTAs, FAQs, features, footers, headers, heroes, page layouts, portfolios, pricing, testimonials, and utility patterns (Modal starters live in the companion plugin). All patterns are designed for performance and accessibility.
+**Pattern Library**: Comprehensive collection of 234 block patterns organized across 28 category folders including author pages, blog layouts, commerce templates, contact forms, CTAs, FAQs, features, footers, headers, heroes, page layouts, portfolios, pricing, testimonials, and utility patterns (Modal starters live in the companion plugin). All patterns are designed for performance and accessibility.
 
 ### Enhanced Core Blocks
 
@@ -382,10 +382,10 @@ Aegis extends the following WordPress core blocks with additional functionality,
 | Toggle | `aegis/toggle` | Theme |
 | Toggle Content | `aegis/toggle-content` | Theme |
 | Related Posts | `aegis/related-posts` | Theme |
-| Map | `aegis/map` | [Aegis Plugin](../plugins/aegis/docs/blocks/custom-blocks.md) |
-| Modal | `aegis/modal` | [Aegis Plugin](../plugins/aegis/docs/blocks/modals.md) |
+| Map | `aegis/map` | [Aegis Plugin](../../plugins/aegis/docs/blocks/custom-blocks.md) |
+| Modal | `aegis/modal` | [Aegis Plugin](../../plugins/aegis/docs/blocks/modals.md) |
 
-Documentation: [Theme docs](docs/blocks/custom-blocks.md) · [Plugin docs](../plugins/aegis/docs/home.md) · [Pro docs](../plugins/aegis-pro/docs/home.md)
+Documentation: [Theme docs](docs/blocks/custom-blocks.md) · [Plugin docs](../../plugins/aegis/docs/home.md) · [Pro docs](../../plugins/aegis-pro/docs/home.md)
 
 ### Block Variations
 
@@ -403,7 +403,7 @@ Aegis includes the following custom block variations that extend WordPress core 
 
 ### Plugin Integrations
 
-Framework styling applies when integrations are enabled in the **Aegis plugin** dashboard. Full toggle list and SEO delegation: [Integrations Dashboard](../plugins/aegis/docs/features/integrations-dashboard.md). Theme framework CSS covers WooCommerce, Fluent Forms, Fluent Booking, Gravity Forms, Ninja Forms, LearnDash, LifterLMS, Sensei, EDD, AffiliateWP, bbPress, Meta Box, Syntax Highlighting Code Block, and Code Block Pro when toggled on.
+Framework styling applies when integrations are enabled in the **Aegis plugin** dashboard. Full toggle list and SEO delegation: [Integrations Dashboard](../../plugins/aegis/docs/features/integrations-dashboard.md). Theme framework CSS covers WooCommerce, Fluent Forms, Fluent Booking, Gravity Forms, Ninja Forms, LearnDash, LifterLMS, Sensei, EDD, AffiliateWP, bbPress, Meta Box, Syntax Highlighting Code Block, and Code Block Pro when toggled on.
 
 | Plugin | Category | Notes |
 |--------|----------|-------|
@@ -434,7 +434,7 @@ Framework styling applies when integrations are enabled in the **Aegis plugin** 
 
 ### User Experience
 
-**Intelligent Dark Mode**: Dark mode uses the `is-style-dark` class and theme tokens. See [theme dark mode docs](docs/features/dark-mode.md).
+**Intelligent Dark Mode**: Dark mode uses the `is-style-dark` class and theme tokens. See [theme dark mode docs](docs/using-the-theme/dark-mode.md).
 
 **Accessibility-ready foundation**: Semantic landmarks (`header` / `main` / `aside` / `footer`), skip-to-content (auto-injected before the header; explicit pattern on the Blank template), visible `:focus` / `:focus-visible` styles, labeled demo forms, reduced-motion hooks (including document fade-in and slider autoplay), and keyboard support for Slider, Toggle, Accordion List, and the search dialog. Stock patterns avoid placeholder-only inputs and multiple page-level `<h1>`s in carousels. Targets **WCAG 2.2 AA** as infrastructure; site-wide conformance remains content- and plugin-dependent. See [docs/features/accessibility.md](docs/features/accessibility.md). CI runs pa11y-ci (WCAG2AA, threshold 0) via [`.github/workflows/accessibility.yml`](.github/workflows/accessibility.yml).
 
@@ -442,13 +442,13 @@ Framework styling applies when integrations are enabled in the **Aegis plugin** 
 
 ### Developer Tools & Framework
 
-**Custom Block Collection**: The theme registers six custom blocks — Countdown, Slider, Slide, Toggle, Toggle Content, and Related Posts. Video uses enhanced **`core/video`**. Map and Modal require the [Aegis companion plugin](../plugins/aegis/docs/blocks/custom-blocks.md), which requires the Aegis theme.
+**Custom Block Collection**: The theme registers six custom blocks — Countdown, Slider, Slide, Toggle, Toggle Content, and Related Posts. Video uses enhanced **`core/video`**. Map and Modal require the [Aegis companion plugin](../../plugins/aegis/docs/blocks/custom-blocks.md), which requires the Aegis theme.
 
-**Analytics**: Configured in the companion plugin at **Aegis → Connectors** (one tab per provider). See [plugin analytics docs](../plugins/aegis/docs/features/analytics.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki).
+**Analytics**: Configured in the companion plugin at **Aegis → Connectors** (one tab per provider). See [plugin analytics docs](../../plugins/aegis/docs/features/analytics.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki).
 
-**Hook Patterns**: Framework fires injection hooks on template parts and content. Hook pattern CPT management requires [Aegis Pro](../plugins/aegis-pro/docs/features/hook-patterns-pro.md).
+**Hook Patterns**: Framework fires injection hooks on template parts and content. Hook pattern CPT management requires [Aegis Pro](../../plugins/aegis-pro/docs/features/hook-patterns-pro.md).
 
-**Conditional Logic**: Block visibility and admin settings are in the [Aegis plugin](../plugins/aegis/docs/features/conditional-logic.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki).
+**Conditional Logic**: Block visibility and admin settings are in the [Aegis plugin](../../plugins/aegis/docs/features/conditional-logic.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki).
 
 **Framework Architecture**: Built on the Aegis Framework (`vendor/aegis/framework`) with ServiceProvider pattern. Provides a robust foundation for theme development and extensibility.
 
@@ -589,7 +589,7 @@ If you find setting up WordPress locally overwhelming, consider using [wp-env](h
 
 - [Aegis](https://github.com/aegiswp/theme/releases/)
 - [WordPress 7.0+](https://wordpress.org/download/) (Tested up to 7.1.3)
-- PHP **8.1+** (Node **20+** and npm **10+** for building blocks and running wp-env; see `package.json` `engines` and `.nvmrc`)
+- PHP **8.1+** (Node **22.13+** and npm **10+** for building blocks and running wp-env; see `package.json` `engines` and `.nvmrc`)
 - License: [GPLv2](https://www.gnu.org/licenses/gpl-2.0.html) or later.
 
 #### Release version
@@ -616,7 +616,7 @@ To optionally run tests locally, it will also be required:
 - [Node.js](https://nodejs.org/en/)
 - [Composer](https://getcomposer.org/)
 
-Install dev tooling from the theme directory: `npm install` and `composer install`. Use a **Node.js 20+** LTS (see `package.json` `engines` and `.nvmrc`).
+Install dev tooling from the theme directory: `npm install` and `composer install`. Use **Node.js 22.13+** (the version in `.nvmrc`, also used by CI; see `package.json` `engines`).
 
 **JavaScript / CSS (block source)**
 

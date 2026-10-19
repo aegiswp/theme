@@ -324,16 +324,24 @@ class Icon {
 			'permission_callback' => static fn() => current_user_can( 'edit_posts' ),
 			'callback'            => static fn( WP_REST_Request $request ): array => static::get_icon_data( $request ),
 			'methods'             => WP_REST_Server::READABLE,
-			[
-				'args' => [
-					'sets' => [
-						'required' => false,
-						'type'     => 'string',
-					],
-					'set'  => [
-						'required' => false,
-						'type'     => 'string',
-					],
+			'args'                => [
+				'sets' => [
+					'required'          => false,
+					'type'              => 'string',
+					'description'       => 'When set, return only icon set slugs.',
+					'sanitize_callback' => 'sanitize_text_field',
+				],
+				'set'  => [
+					'required'          => false,
+					'type'              => 'string',
+					'description'       => 'Load one set with full SVG markup (lazy picker).',
+					'sanitize_callback' => 'sanitize_text_field',
+				],
+				'full' => [
+					'required'    => false,
+					'type'        => 'boolean',
+					'description' => 'Load every set with SVGs (heavy; avoid in the editor).',
+					'default'     => false,
 				],
 			],
 		];
@@ -409,42 +417,168 @@ HTML;
 	}
 
 	/**
-	 * Returns icon data for rest endpoint
+	 * Max SVG count loaded eagerly for the default catalog (button/tab picker).
+	 * Larger Pro packs load on demand via ?set=.
+	 */
+	private const EAGER_SET_ICON_LIMIT = 80;
+
+	/**
+	 * Normalizes icon set slugs (legacy "WordPress" → wordpress).
+	 */
+	public static function normalize_set_slug( string $set ): string {
+		$set = strtolower( trim( $set ) );
+
+		return $set === '' ? 'wordpress' : $set;
+	}
+
+	/**
+	 * Whether a set should ship full SVGs in the default catalog response.
+	 *
+	 * @param string               $set  Set slug.
+	 * @param array<string,string> $dirs Icon set directories.
+	 */
+	private static function is_eager_icon_set( string $set, array $dirs ): bool {
+		$always = [ 'wordpress', 'social', 'payment', 'payment-brand', 'brand' ];
+
+		if ( in_array( $set, $always, true ) ) {
+			return true;
+		}
+
+		// Known large Pro packs — stub without globbing (glob is slow on WASM).
+		$lazy = [ 'feather', 'hand-drawn', 'heroicons', 'phosphor-duotone', 'remixicon', 'lucide', 'tabler' ];
+
+		if ( in_array( $set, $lazy, true ) ) {
+			return false;
+		}
+
+		$dir = $dirs[ $set ] ?? '';
+
+		if ( $dir === '' || ! is_dir( $dir ) ) {
+			return $set === 'wordpress';
+		}
+
+		$files = glob( $dir . '/*.svg' );
+
+		return is_array( $files ) && count( $files ) <= self::EAGER_SET_ICON_LIMIT;
+	}
+
+	/**
+	 * Icon names in a set (no SVG bodies).
+	 *
+	 * @return list<string>
+	 */
+	public static function get_set_icon_names( string $set ): array {
+		$set       = static::normalize_set_slug( $set );
+		$icon_sets = static::get_icon_sets();
+		$names     = [];
+
+		if ( isset( $icon_sets[ $set ] ) && is_string( $icon_sets[ $set ] ) ) {
+			$files = glob( $icon_sets[ $set ] . '/*.svg' );
+
+			if ( is_array( $files ) ) {
+				foreach ( $files as $file ) {
+					$names[] = basename( (string) $file, '.svg' );
+				}
+			}
+		}
+
+		if ( $set === 'wordpress' ) {
+			foreach ( array_keys( static::get_core_library_slugs() ) as $core_slug ) {
+				$names[] = (string) $core_slug;
+			}
+		}
+
+		$names = array_values( array_unique( $names ) );
+		sort( $names );
+
+		return $names;
+	}
+
+	/**
+	 * Full SVG map for one icon set.
+	 *
+	 * @return array<string, string> name => svg
+	 */
+	public static function get_set_icons( string $set ): array {
+		$set = static::normalize_set_slug( $set );
+
+		$cache_key = 'aegis_icon_set_v1_' . $set;
+		$cached    = get_transient( $cache_key );
+
+		if ( is_array( $cached ) ) {
+			return $cached;
+		}
+
+		$icon_sets = static::get_icon_sets();
+		$icons     = [];
+
+		if ( isset( $icon_sets[ $set ] ) && is_string( $icon_sets[ $set ] ) ) {
+			$files = glob( $icon_sets[ $set ] . '/*.svg' );
+
+			if ( is_array( $files ) ) {
+				foreach ( $files as $file ) {
+					$name           = basename( (string) $file, '.svg' );
+					$icons[ $name ] = static::get_svg( $set, $name, 24, null );
+				}
+			}
+		}
+
+		if ( $set === 'wordpress' ) {
+			foreach ( array_keys( static::get_core_library_slugs() ) as $core_slug ) {
+				if ( ! isset( $icons[ $core_slug ] ) ) {
+					$icons[ $core_slug ] = static::get_svg( 'wordpress', $core_slug, 24, null );
+				}
+			}
+		}
+
+		set_transient( $cache_key, $icons, DAY_IN_SECONDS );
+
+		return $icons;
+	}
+
+	/**
+	 * Returns icon data for rest endpoint.
+	 *
+	 * Default (no params): catalog — small sets with SVGs, large packs as empty
+	 * stubs so the button/tab picker can list them and load via ?set=.
+	 * ?set=slug — one set with full SVGs.
+	 * ?sets=1 — set slug list only.
+	 * ?full=1 — every set with SVGs (legacy / WP 7.0 merge; avoid in editor).
 	 *
 	 * @since 1.0.0
 	 *
 	 * @param ?WP_REST_Request $request Request object.
 	 *
-	 * @return mixed array|string
+	 * @return array<string, mixed>
 	 */
 	public static function get_icon_data( ?WP_REST_Request $request ) {
-		$icon_data = [];
-		$icon_sets = Icon::get_icon_sets();
+		$icon_sets = static::get_icon_sets();
 
-		foreach ( $icon_sets as $icon_set => $set_dir ) {
-			$icons = glob( $set_dir . '/*.svg' );
-
-			foreach ( $icons as $icon ) {
-				$name = basename( $icon, '.svg' );
-
-				$icon_data[ $icon_set ][ $name ] = static::get_svg( $icon_set, $name, 24, null );
-			}
-		}
-
-		foreach ( array_keys( static::get_core_library_slugs() ) as $core_slug ) {
-			if ( ! isset( $icon_data['wordpress'][ $core_slug ] ) ) {
-				$icon_data['wordpress'][ $core_slug ] = static::get_svg( 'wordpress', $core_slug, 24, null );
-			}
-		}
-
-		if ( $request && $request->get_param( 'set' ) ) {
-			$set = $request->get_param( 'set' );
-
-			return $icon_data[ $set ];
+		if ( ! isset( $icon_sets['wordpress'] ) ) {
+			$icon_sets['wordpress'] = '';
 		}
 
 		if ( $request && $request->get_param( 'sets' ) ) {
-			return array_keys( $icon_data );
+			return array_keys( $icon_sets );
+		}
+
+		if ( $request && $request->get_param( 'set' ) ) {
+			return static::get_set_icons( (string) $request->get_param( 'set' ) );
+		}
+
+		$force_full = $request && $request->get_param( 'full' );
+
+		$icon_data = [];
+
+		foreach ( array_keys( $icon_sets ) as $icon_set ) {
+			$set = static::normalize_set_slug( (string) $icon_set );
+
+			if ( $force_full || static::is_eager_icon_set( $set, $icon_sets ) ) {
+				$icon_data[ $set ] = static::get_set_icons( $set );
+			} else {
+				// Stub: set appears in Select Icon Set; SVGs load via ?set=.
+				$icon_data[ $set ] = [];
+			}
 		}
 
 		return $icon_data;
@@ -565,17 +699,15 @@ HTML;
 	public static function get_picker_items(): array {
 		$items = [];
 
-		foreach ( static::get_icon_data( null ) as $set => $icons ) {
-			if ( ! is_array( $icons ) ) {
-				continue;
-			}
+		foreach ( array_keys( static::get_icon_sets() ) as $set ) {
+			$set = static::normalize_set_slug( (string) $set );
 
-			foreach ( array_keys( $icons ) as $name ) {
+			foreach ( static::get_set_icon_names( $set ) as $name ) {
 				$items[] = [
-					'name'   => static::to_registry_id( (string) $set, (string) $name ),
+					'name'   => static::to_registry_id( $set, (string) $name ),
 					'label'  => Str::title_case( (string) $name ),
 					'source' => 'aegis',
-					'set'    => (string) $set,
+					'set'    => $set,
 				];
 			}
 		}

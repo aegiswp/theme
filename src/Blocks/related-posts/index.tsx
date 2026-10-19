@@ -9,6 +9,8 @@ import { registerBlockType } from '@wordpress/blocks';
 import { SVG, Path } from '@wordpress/primitives';
 
 import Edit from './edit';
+import type { RelatedPostsAttributes } from './edit';
+import type { BlockConfiguration } from '@wordpress/blocks';
 import metadata from './block.json';
 import './style.scss';
 
@@ -18,8 +20,11 @@ const icon = (
 	</SVG>
 );
 
-registerBlockType( metadata.name, {
-	icon,
-	edit: Edit,
-	save: () => null,
-} );
+registerBlockType< RelatedPostsAttributes >(
+	metadata as BlockConfiguration< RelatedPostsAttributes >,
+	{
+		icon,
+		edit: Edit,
+		save: () => null,
+	}
+);

@@ -89,6 +89,11 @@
 	}
 
 	function unregisterInlineSvgFormat() {
+		/* boot() runs twice; unregistering a missing format logs a console error. */
+		const store = wp.data && wp.data.select( 'core/rich-text' );
+		if ( store && store.getFormatType && ! store.getFormatType( 'aegis/inline-svg' ) ) {
+			return;
+		}
 		if ( wp.richText && wp.richText.unregisterFormatType ) {
 			wp.richText.unregisterFormatType( 'aegis/inline-svg' );
 		}

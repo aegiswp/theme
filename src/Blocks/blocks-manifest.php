@@ -161,7 +161,7 @@ return array (
       ),
     ),
     'editorScript' => 'file:index.js',
-    'style' => 'file:style.css',
+    'style' => 'file:style-index.css',
     'viewScript' => 'file:view.js',
     'render' => 'file:render.php',
   ),

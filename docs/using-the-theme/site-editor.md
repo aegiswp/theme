@@ -23,6 +23,7 @@ The Site Editor opens with a full preview of your site. From here, you can edit 
 | Undo/Redo | Revert or reapply changes |
 | List view | See the block hierarchy |
 | Styles icon | Open the Global Styles panel |
+| Light/dark preview (moon or sun icon) | Preview the canvas in light or dark mode. Added by Aegis 1.0.1 |
 | Save button | Publish your changes |
 
 ### Left Sidebar Navigation
@@ -77,9 +78,19 @@ The Styles panel controls your site-wide design settings:
 
 See [[global-styles]] and [[style-variations]] for detailed instructions.
 
+### Previewing Light and Dark Mode
+
+Aegis adds a light and dark preview toggle to the top bar of the Site Editor and the block editor. Click the moon icon to preview the canvas in dark mode, and the sun icon to switch back. The preview uses the same color remaps as the front end, so you can check patterns and templates in both modes without leaving the editor.
+
+- The preview only changes the editor canvas. It does not change your site.
+- Your choice is saved per user. With no saved choice, the editor starts in the site's default mode (`aegis_default_mode` filter).
+- The toggle is hidden when dark mode is turned off with the `aegis_dark_mode` filter.
+
+See [[dark-mode]] for details.
+
 ## Adding Content with Patterns
 
-Aegis provides **236 theme block patterns** across **29 category folders** (plus companion plugin and Pro patterns):
+Aegis provides **234 theme block patterns** in **28 category folders** (plus companion plugin and Pro patterns):
 
 1. Click the **Block Inserter** (+) in the top toolbar.
 2. Switch to the **Patterns** tab.
@@ -153,7 +164,7 @@ The Site Editor has some limitations to be aware of:
 
 ## Next Steps
 
-- [[templates]] — Learn about the 23 available page templates.
+- [[templates]] — Learn about the 50 templates.
 - [[template-parts]] — Explore the header, footer, and sidebar parts.
 - [[global-styles]] — Deep dive into style customization.
 - [[block-patterns]] — Discover the pattern library.

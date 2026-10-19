@@ -14,5 +14,5 @@ return array(
 		'wp-i18n',
 		'wp-rich-text',
 	),
-	'version'      => '20260905121900',
+	'version'      => '20261018120000',
 );

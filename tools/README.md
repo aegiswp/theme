@@ -16,6 +16,7 @@ Utility scripts for building, translating, auditing, and migrating the Aegis the
 | `wpaudit/phpunit.xml`, `wpaudit/phpcs.xml`, `wpaudit/phpstan.neon` | Yes | Package quality config |
 | `wpaudit/config/.wpauditrc.example.json`, `wpaudit/config/.wpauditrc.schema.json` | Yes | Optional audit config examples |
 | `scratch/` | **No** | Local probes (gitignored) |
+| Any other file at the top of `tools/` | **No** | One-off probes and fixes; `tools/.gitignore` is an allowlist, so add a `!/<file>` line to track a new maintained tool |
 | `wpaudit/vendor/` | **No** | `composer install --working-dir=tools/wpaudit` in CI |
 | `wpaudit/.phpunit.cache/`, `wpaudit/coverage/` | **No** | Test caches / coverage output |
 | `wpaudit/.github/` | **No** | Nested workflows not used |

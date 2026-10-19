@@ -7,7 +7,14 @@ Aegis uses a content-width system that controls how blocks align and how wide co
 | Setting | Value | Description |
 |---------|-------|-------------|
 | Content Size | 720px (max) | Maximum width for standard content blocks. |
-| Wide Size | 1620px (max) | Maximum width for wide-aligned blocks. |
+| Wide Size | 1200px (max) | Maximum width for wide-aligned blocks. |
+
+Both values are `min()` expressions, so on narrow screens they shrink to the viewport minus the `lg` spacing step on each side:
+
+```text
+contentSize: min(calc(100% - var(--wp--preset--spacing--lg,3rem) * 2), 720px)
+wideSize:    min(calc(100% - var(--wp--preset--spacing--lg,3rem) * 2), 1200px)
+```
 
 ### Content Size
 
@@ -17,7 +24,7 @@ Blocks aligned to "None" or "Default" will not exceed this width.
 
 ### Wide Size
 
-The wide size (1620px) determines the maximum width of blocks aligned to "Wide." This allows certain elements to break out of the standard content column for visual emphasis while still maintaining some margin from the viewport edges.
+The wide size (1200px) determines the maximum width of blocks aligned to "Wide." This allows certain elements to break out of the standard content column for visual emphasis while still maintaining some margin from the viewport edges.
 
 ### Full Width
 
@@ -30,7 +37,7 @@ WordPress blocks support several alignment options that interact with the layout
 | Alignment | Behavior | Max Width |
 |-----------|----------|-----------|
 | None (default) | Contained within content width | 720px |
-| Wide | Breaks out to wide width | 1620px |
+| Wide | Breaks out to wide width | 1200px |
 | Full width | Spans the entire viewport | 100vw |
 | Left | Floats left within content width | — |
 | Right | Floats right within content width | — |
@@ -68,7 +75,7 @@ The default layout type for most containers. Blocks inside are constrained to th
 
 ```
 ┌─────────────────────────────────────────────┐  ← Viewport
-│    ┌───────────────────────────────────┐    │  ← Wide (1620px)
+│    ┌───────────────────────────────────┐    │  ← Wide (1200px)
 │    │    ┌───────────────────────┐      │    │  ← Content (720px)
 │    │    │   Standard block      │      │    │
 │    │    └───────────────────────┘      │    │
@@ -110,29 +117,35 @@ Root padding adds space between the content and the viewport edges, preventing c
   "styles": {
     "spacing": {
       "padding": {
-        "top": "0",
-        "right": "var(--wp--preset--spacing--md)",
-        "bottom": "0",
-        "left": "var(--wp--preset--spacing--md)"
+        "right": "var(--wp--preset--spacing--lg)",
+        "left": "var(--wp--preset--spacing--lg)"
       }
     }
   }
 }
 ```
 
+The root padding is the `lg` step, which is fluid: 24px on phones, up to 48px on wide screens. See [[spacing]].
+
 The `useRootPaddingAwareAlignments` setting ensures full-width blocks can still stretch edge to edge while content blocks respect the root padding.
+
+### Full-Width Blocks Inside the Main Element
+
+Templates wrap content in `main.site-main`. When that element carries root padding (`has-global-padding`), its full-width children cancel it with negative margins equal to `--wp--style--root--padding-left` and `--wp--style--root--padding-right` (`style.css`). Core does the same for `.has-global-padding > .alignfull`.
+
+Without this rule, every nested full-width group added another layer of root padding and squeezed content on phones. The fix shipped in 1.0.1.
 
 ## Responsive Behavior
 
 The layout system adapts to different viewport sizes:
 
-- On viewports narrower than 720px, content blocks fill the available width minus root padding.
-- On viewports between 720px and 1620px, standard blocks are constrained but wide blocks fill the viewport minus padding.
-- On viewports wider than 1620px, wide-aligned blocks stop growing at 1620px.
+- On narrow viewports, content blocks fill the available width minus the `lg` step on each side.
+- On viewports up to about 1300px, standard blocks are constrained to 720px but wide blocks fill the viewport minus that padding.
+- On wider viewports, wide-aligned blocks stop growing at 1200px.
 
 Full-width blocks always span the entire viewport regardless of size.
 
-## Theme.json Configuration
+## theme.json Configuration
 
 Layout settings are defined in `theme.json`:
 
@@ -140,8 +153,8 @@ Layout settings are defined in `theme.json`:
 {
   "settings": {
     "layout": {
-      "contentSize": "720px",
-      "wideSize": "1620px"
+      "contentSize": "min(calc(100% - var(--wp--preset--spacing--lg,3rem) * 2), 720px)",
+      "wideSize": "min(calc(100% - var(--wp--preset--spacing--lg,3rem) * 2), 1200px)"
     },
     "useRootPaddingAwareAlignments": true
   }
@@ -153,8 +166,10 @@ Layout settings are defined in `theme.json`:
 Layout dimensions are available as CSS custom properties:
 
 ```css
-var(--wp--style--global--content-size)  /* 720px */
-var(--wp--style--global--wide-size)     /* 1620px */
+var(--wp--style--global--content-size)  /* up to 720px */
+var(--wp--style--global--wide-size)     /* up to 1200px */
+var(--wp--style--root--padding-left)    /* lg step */
+var(--wp--style--root--padding-right)   /* lg step */
 ```
 
 ## Layout Best Practices
@@ -169,7 +184,7 @@ The 720px content width is optimized for:
 
 ### When to Use Wide Alignment
 
-Wide alignment (1620px) works well for:
+Wide alignment (1200px) works well for:
 
 - Image galleries and portfolios.
 - Multi-column feature sections.

@@ -40,7 +40,9 @@ Pro directories are merged via `Aegis\Icons\Icon::FILTER` in `plugins/aegis-pro/
 ## REST and editor extras
 
 - `aegis/v1/icons` remains for the button/tab picker (`RestIconsMerge::register_rest_route()`).
-- `RestIconsMerge::merge_aegis_icons` is skipped on WP 7.1+ (`wp_register_icon` exists). On WP 7.0 it still appends Aegis sets to `GET /wp/v2/icons`.
+- Default `GET` returns a **catalog**: small sets include SVG bodies; large Pro packs are empty stubs. Load one pack with `?set=phosphor-duotone`. List slugs with `?sets=1`. Legacy full dump: `?full=1` (WP 7.0 merge only).
+- `icons-rest-editor.js` lazy-loads `?set=` when the selected button/tab changes packs, and normalizes `WordPress` → `wordpress`.
+- `RestIconsMerge::merge_aegis_icons` is skipped on WP 7.1+ (`wp_register_icon` exists). On WP 7.0 it still appends Aegis sets to `GET /wp/v2/icons` via `?full=1`.
 - Editor extras: `public/js/icon-block-editor.js` (link, custom SVG, gallery, gradient). `mapToCoreIcon` emits `{set}/{name}`, not `aegis/{set}/{name}`.
 
 ## Migration

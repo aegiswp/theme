@@ -135,7 +135,7 @@ For a comprehensive check including accessibility:
 
 ```bash
 npm run test:a11y
-npm run audit
+composer test:wpaudit
 ```
 
 ## Continuous Integration

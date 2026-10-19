@@ -17,8 +17,9 @@ Root repo files that are also documentation (not the Docsify wiki tree):
 - `README.md`, `INSTRUCTIONS.md`, `DESIGN.md`, `BUILD.md`
 - `CONTRIBUTING.md`, `AGENTS.md`
 - WordPress.org `readme.txt` (theme / plugins)
+- Plugin/Pro: `.github/WORKFLOWS.md` (CI and release zip contents)
 
-Theme `docs/` is excluded from the installable theme zip (`.distignore`). Docs ship on GitHub and the wiki, not in the WordPress.org package.
+Theme `docs/` is excluded from the installable theme zip (`.distignore`). Docs ship on GitHub and the wiki, not in the WordPress.org package. Free plugin and Pro each maintain their own `CONTRIBUTING.md`, `composer.json` / `phpcs.xml`, and release excludes (`.distignore` + `.gitattributes` `export-ignore`).
 
 ## Scope rules
 
@@ -64,7 +65,7 @@ Docs use wiki-style links (Docsify / GitHub wiki compatible):
 The slug is the file name without `.md` (and without the folder path when the wiki is flat-synced). For cross-repo or out-of-tree links, use normal Markdown links:
 
 ```markdown
-[Plugin Patterns](../../plugins/aegis/docs/features/plugin-patterns.md)
+[Plugin Patterns](../../../../plugins/aegis/docs/features/plugin-patterns.md)
 [Plugin Wiki](https://github.com/aegiswp/plugin/wiki)
 ```
 

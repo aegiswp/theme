@@ -10,7 +10,7 @@ Before installing Aegis, ensure your environment meets the [[requirements]].
 
 ### Method 1: Upload via WordPress Admin
 
-1. Download the latest release of Aegis from the [GitHub Releases page](https://github.com/aegiswp/theme/releases/).
+1. Download `aegis.zip` from the latest Aegis release on the [GitHub Releases page](https://github.com/aegiswp/theme/releases/).
 2. Log in to your WordPress admin dashboard.
 3. Navigate to **Appearance → Themes**.
 4. Click the **Add New Theme** button at the top of the page.
@@ -21,7 +21,7 @@ Before installing Aegis, ensure your environment meets the [[requirements]].
 
 ### Method 2: Manual Installation via FTP or File Manager
 
-1. Download the latest release of Aegis from the [GitHub Releases page](https://github.com/aegiswp/theme/releases/).
+1. Download `aegis.zip` from the latest Aegis release on the [GitHub Releases page](https://github.com/aegiswp/theme/releases/).
 2. Extract the `.zip` file on your local machine.
 3. Connect to your server via FTP or use your hosting control panel file manager.
 4. Navigate to the `wp-content/themes/` directory.
@@ -77,15 +77,27 @@ After activating Aegis:
 
 ### Optional: Install Companion Plugins
 
-The theme works standalone (templates, patterns, theme blocks). For Map, Modal, the Aegis admin dashboard, integrations, snippets, conditionals, and analytics, install the companion plugins:
+The theme works standalone (templates, patterns, theme blocks). For Map, Modal, the Aegis admin dashboard, integrations (including **Community → bbPress** and **SEO**), snippets, conditionals, and analytics, install the companion plugins:
 
-- **Aegis Plugin** (free) — [docs](../../plugins/aegis/docs/getting-started/installation.md) · [Wiki](https://github.com/aegiswp/plugin/wiki)
-- **Aegis Pro** — Requires Aegis theme; [docs](../../plugins/aegis-pro/docs/getting-started/installation.md) · [Wiki](https://github.com/aegiswp/pro/wiki)
+- **Aegis Plugin** (free) — [docs](../../../../plugins/aegis/docs/getting-started/installation.md) · [Wiki](https://github.com/aegiswp/plugin/wiki)
+- **Aegis Pro** — Coming soon. Requires the Aegis theme; [docs](../../../../plugins/aegis-pro/docs/getting-started/installation.md) · [Wiki](https://github.com/aegiswp/pro/wiki)
+
+#### Installing the Companion Plugin From the Theme Notice
+
+While the companion plugin is inactive, **Appearance → Themes** shows an admin notice to administrators who can install plugins.
+
+- If the plugin is not installed, **Install** downloads and installs the latest release from GitHub: `https://github.com/aegiswp/plugin/releases/latest/download/aegis.zip`. The plugin is not hosted on WordPress.org.
+- If the plugin is installed but inactive, **Activate** turns it on.
+- After install or activation, you land on the Aegis dashboard.
+- If the automatic install fails, the notice links to the [plugin releases page](https://github.com/aegiswp/plugin/releases). Download `aegis.zip` there and upload it under **Plugins → Add New Plugin → Upload Plugin**.
+- Dismissing the notice hides it for your user account.
+
+Developers can pin a release or use a mirror with the `aegis_companion_package_url` filter. See [Hooks and Filters](../reference/hooks-and-filters.md#theme-filters).
 
 ## Next Steps
 
 - [[quick-start-guide]] — Learn how to start building with Aegis.
 - [[site-editor]] — Explore the Full Site Editing experience.
 - [[block-patterns]] — Discover the available patterns for rapid page building.
-- [Aegis Plugin docs](../../plugins/aegis/docs/home.md) · [Wiki](https://github.com/aegiswp/plugin/wiki) — Map, Modal, admin, integrations.
-- [Aegis Pro docs](../../plugins/aegis-pro/docs/home.md) · [Wiki](https://github.com/aegiswp/pro/wiki) — Video, query, Pro blocks.
+- [Aegis Plugin docs](../../../../plugins/aegis/docs/home.md) · [Wiki](https://github.com/aegiswp/plugin/wiki) — Map, Modal, admin, integrations.
+- [Aegis Pro docs](../../../../plugins/aegis-pro/docs/home.md) · [Wiki](https://github.com/aegiswp/pro/wiki) — Video, query, Pro blocks.

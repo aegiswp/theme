@@ -1,13 +1,14 @@
 /*
  Theme Name: Aegis
  Theme URI: https://www.atmostfear-entertainment.com/aegis/
+ Update URI: https://github.com/aegiswp/theme
  Author: Atmostfear Entertainment
  Author URI: https://www.atmostfear-entertainment.com/
  Description: A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes.
 Requires at least: 7.0
  Tested up to: 7.1.3
  Requires PHP: 8.1
- Version: 1.0.0
+ Version: 1.0.1
  License: GPL-2.0-or-later
  License URI: https://www.gnu.org/licenses/gpl-2.0.html
  Text Domain: aegis
@@ -73,6 +74,17 @@ main.site-main > .alignfull {
 	max-width: none !important;
 	margin-left: 0 !important;
 	margin-right: 0 !important;
+}
+
+/*
+ * When main carries root padding, full-width children must cancel it (as core
+ * does for .has-global-padding > .alignfull). Without this, every nested
+ * full-width group adds another root padding and squeezes content on phones.
+ */
+main.site-main.has-global-padding > .alignfull {
+	width: auto !important;
+	margin-left: calc(var(--wp--style--root--padding-left) * -1) !important;
+	margin-right: calc(var(--wp--style--root--padding-right) * -1) !important;
 }
 
 /* Payment method icons — Visa-style 3:2 cards in frontend + Site Editor */

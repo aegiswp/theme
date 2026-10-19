@@ -13,6 +13,7 @@ import {
 	InnerBlocks,
 	store as blockEditorStore,
 } from '@wordpress/block-editor';
+import type { BlockEditorSelectors } from '../../types/block-editor';
 import {
 	PanelBody,
 	SelectControl,
@@ -23,7 +24,7 @@ import {
 import { useSelect } from '@wordpress/data';
 import { useEffect, useRef } from '@wordpress/element';
 
-interface SliderAttributes {
+export type SliderAttributes = {
 	type: string;
 	perPage: number;
 	perMove: number;
@@ -35,11 +36,11 @@ interface SliderAttributes {
 	showDots: boolean;
 	speed: number;
 	interval: number;
-	direction: string;
+	direction: 'ltr' | 'rtl' | 'ttb';
 	height: string;
 	breakpoints: boolean;
 	keyboard: boolean;
-}
+};
 
 interface EditProps {
 	attributes: SliderAttributes;
@@ -100,18 +101,27 @@ function sliderFeatures(): SliderFeatures {
 	};
 }
 
-export default function Edit( { attributes, setAttributes, clientId }: EditProps ) {
+export default function Edit( {
+	attributes,
+	setAttributes,
+	clientId,
+}: EditProps ) {
 	const extras = sliderFeatures();
 	const previewPerPage =
 		attributes.type === 'fade' ? 1 : Math.max( 1, attributes.perPage || 1 );
 	const listRef = useRef< HTMLDivElement | null >( null );
 	const slideCount = useSelect(
-		( select ) => select( blockEditorStore ).getBlockCount( clientId ),
+		( select ) =>
+			(
+				select( blockEditorStore ) as unknown as BlockEditorSelectors
+			 ).getBlockCount( clientId ),
 		[ clientId ]
 	);
 	const selectedSlideClientId = useSelect(
 		( select ) => {
-			const store = select( blockEditorStore );
+			const store = select(
+				blockEditorStore
+			) as unknown as BlockEditorSelectors;
 			const selectedId = store.getSelectedBlockClientId();
 			if ( ! selectedId ) {
 				return null;
@@ -119,7 +129,7 @@ export default function Edit( { attributes, setAttributes, clientId }: EditProps
 			if ( store.getBlockRootClientId( selectedId ) === clientId ) {
 				return selectedId;
 			}
-			let current = selectedId;
+			let current: string | null = selectedId;
 			while ( current ) {
 				const parentId = store.getBlockRootClientId( current );
 				if ( parentId === clientId ) {
@@ -176,9 +186,7 @@ export default function Edit( { attributes, setAttributes, clientId }: EditProps
 			label: __( 'Marquee', 'aegis' ),
 			value: 'marquee',
 		},
-		extras.fade
-			? { label: __( 'Fade', 'aegis' ), value: 'fade' }
-			: null,
+		extras.fade ? { label: __( 'Fade', 'aegis' ), value: 'fade' } : null,
 	].filter( Boolean ) as { label: string; value: string }[];
 
 	return (
@@ -405,9 +413,7 @@ export default function Edit( { attributes, setAttributes, clientId }: EditProps
 								<span
 									key={ index }
 									className={
-										index === 0
-											? 'is-active'
-											: undefined
+										index === 0 ? 'is-active' : undefined
 									}
 								/>
 							)

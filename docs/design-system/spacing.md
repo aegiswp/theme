@@ -1,32 +1,46 @@
 # Spacing
 
-Aegis uses a consistent spacing scale with 11 steps, based on the Tailwind CSS v3 spacing system. These tokens ensure visual consistency across all components, patterns, and layouts.
+Aegis uses one spacing scale with 11 steps, defined in `theme.json` under `settings.spacing.spacingSizes`. The four smallest steps are fixed. The seven larger steps are fluid: each is a `clamp()` that grows from a mobile minimum to the named size as the viewport widens.
 
 ## Spacing Scale
 
-The spacing scale ranges from 4px to 96px:
+| Slug | Editor name | Value | Range |
+|------|-------------|-------|-------|
+| `xxxs` | XXXS (4px) | `4px` | Fixed |
+| `xxs` | XXS (8px) | `8px` | Fixed |
+| `2xs` | 2XS (12px) | `12px` | Fixed |
+| `xs` | XS (16px) | `16px` | Fixed |
+| `sm` | S (24px) | `clamp(20px,calc(18.34px + 0.442vw),24px)` | 20–24px |
+| `md` | M (32px) | `clamp(24px,calc(20.69px + 0.884vw),32px)` | 24–32px |
+| `ml` | ML (40px) | `clamp(24px,calc(17.37px + 1.768vw),40px)` | 24–40px |
+| `lg` | L (48px) | `clamp(24px,calc(14.06px + 2.652vw),48px)` | 24–48px |
+| `xl` | XL (64px) | `clamp(40px,calc(30.06px + 2.652vw),64px)` | 40–64px |
+| `xll` | XLL (80px) | `clamp(48px,calc(34.74px + 3.536vw),80px)` | 48–80px |
+| `xxl` | XXL (96px) | `clamp(56px,calc(39.43px + 4.420vw),96px)` | 56–96px |
 
-| Token | Value | Pixels | Typical Usage |
-|-------|-------|--------|---------------|
-| `xxxs` | 0.25rem | 4px | Tight inline gaps, icon spacing |
-| `xxs` | 0.5rem | 8px | Compact element spacing |
-| `xs` | 0.75rem | 12px | Small internal padding |
-| `sm` | 1rem | 16px | Default padding, small gaps |
-| `md` | 1.5rem | 24px | Medium section padding |
-| `lg` | 2rem | 32px | Large internal spacing |
-| `xl` | 2.5rem | 40px | Section gaps |
-| `2xl` | 3rem | 48px | Large section spacing |
-| `3xl` | 4rem | 64px | Major section divisions |
-| `4xl` | 5rem | 80px | Large layout spacing |
-| `xxl` | 6rem | 96px | Maximum section separation |
+There are no `2xl`, `3xl`, or `4xl` slugs. Older copies of these docs listed them by mistake.
+
+The editor names show the largest value of each fluid step. On a phone, `lg` is 24px, not 48px.
+
+## Global Defaults
+
+| Setting | Value |
+|---------|-------|
+| Block gap (`styles.spacing.blockGap`) | `var(--wp--preset--spacing--sm)` |
+| Root padding, left and right (`styles.spacing.padding`) | `var(--wp--preset--spacing--lg)` |
+| Spacing units | `%`, `em`, `px`, `rem`, `vh`, `vw` |
+| Custom spacing sizes | On |
+| Generated spacing scale (`spacingScale`) | Off (`steps: 0`) |
+
+The layout widths in `theme.json` also subtract the `lg` step on both sides. See [[layout]].
 
 ## Using Spacing in the Editor
 
 ### Block Spacing (Gap)
 
-Block spacing controls the vertical distance between blocks within a container:
+Block spacing controls the distance between blocks within a container:
 
-1. Select a Group, Column, or other container block.
+1. Select a Group, Columns, or other container block.
 2. In the block settings sidebar, find **Dimensions**.
 3. Adjust **Block spacing** using the preset scale or a custom value.
 
@@ -47,85 +61,80 @@ Margin adds external space around a block:
 2. In the block settings, find **Dimensions → Margin**.
 3. Adjust top and bottom margins (horizontal margins are controlled by alignment).
 
-## Spacing in Theme.json
+## Spacing in theme.json
 
-The spacing scale is defined in `theme.json` under `settings.spacing.spacingSizes`:
+An excerpt of the definition:
 
 ```json
 {
   "settings": {
     "spacing": {
       "spacingSizes": [
-        { "slug": "xxxs", "size": "0.25rem", "name": "3XS" },
-        { "slug": "xxs", "size": "0.5rem", "name": "2XS" },
-        { "slug": "xs", "size": "0.75rem", "name": "XS" },
-        { "slug": "sm", "size": "1rem", "name": "SM" },
-        { "slug": "md", "size": "1.5rem", "name": "MD" },
-        { "slug": "lg", "size": "2rem", "name": "LG" },
-        { "slug": "xl", "size": "2.5rem", "name": "XL" },
-        { "slug": "2xl", "size": "3rem", "name": "2XL" },
-        { "slug": "3xl", "size": "4rem", "name": "3XL" },
-        { "slug": "4xl", "size": "5rem", "name": "4XL" },
-        { "slug": "xxl", "size": "6rem", "name": "XXL" }
+        { "name": "XXXS (4px)", "slug": "xxxs", "size": "4px" },
+        { "name": "XXS (8px)", "slug": "xxs", "size": "8px" },
+        { "name": "2XS (12px)", "slug": "2xs", "size": "12px" },
+        { "name": "XS (16px)", "slug": "xs", "size": "16px" },
+        { "name": "S (24px)", "slug": "sm", "size": "clamp(20px,calc(18.34px + 0.442vw),24px)" },
+        { "name": "M (32px)", "slug": "md", "size": "clamp(24px,calc(20.69px + 0.884vw),32px)" }
       ]
     }
   }
 }
 ```
 
+The full list is in `theme.json`.
+
 ## CSS Custom Properties
 
-Spacing tokens are available as CSS custom properties:
+WordPress turns each slug into a preset variable. A slug that starts with a digit gets a hyphen, so `2xs` becomes `2-xs`.
 
 ```css
-var(--wp--preset--spacing--xxxs)   /* 0.25rem (4px) */
-var(--wp--preset--spacing--xxs)    /* 0.5rem (8px) */
-var(--wp--preset--spacing--xs)     /* 0.75rem (12px) */
-var(--wp--preset--spacing--sm)     /* 1rem (16px) */
-var(--wp--preset--spacing--md)     /* 1.5rem (24px) */
-var(--wp--preset--spacing--lg)     /* 2rem (32px) */
-var(--wp--preset--spacing--xl)     /* 2.5rem (40px) */
-var(--wp--preset--spacing--2-xl)   /* 3rem (48px) */
-var(--wp--preset--spacing--3-xl)   /* 4rem (64px) */
-var(--wp--preset--spacing--4-xl)   /* 5rem (80px) */
-var(--wp--preset--spacing--xxl)    /* 6rem (96px) */
+var(--wp--preset--spacing--xxxs)  /* 4px */
+var(--wp--preset--spacing--xxs)   /* 8px */
+var(--wp--preset--spacing--2-xs)  /* 12px */
+var(--wp--preset--spacing--xs)    /* 16px */
+var(--wp--preset--spacing--sm)    /* 20–24px */
+var(--wp--preset--spacing--md)    /* 24–32px */
+var(--wp--preset--spacing--ml)    /* 24–40px */
+var(--wp--preset--spacing--lg)    /* 24–48px */
+var(--wp--preset--spacing--xl)    /* 40–64px */
+var(--wp--preset--spacing--xll)   /* 48–80px */
+var(--wp--preset--spacing--xxl)   /* 56–96px */
 ```
+
+In block markup, use the preset reference form: `"var:preset|spacing|md"`.
+
+The framework also exposes `--wp--custom--spacing--gap`, which is `var(--wp--style--block-gap)`.
 
 ## Spacing Guidelines
 
 ### Section Spacing
 
-For vertical spacing between major page sections:
-
-| Context | Recommended Token |
-|---------|-------------------|
-| Between hero and first section | `3xl` to `xxl` |
-| Between content sections | `2xl` to `3xl` |
-| Between related sub-sections | `xl` to `2xl` |
-| Between heading and content | `sm` to `md` |
+| Context | Recommended Slug |
+|---------|------------------|
+| Between hero and first section | `xll` to `xxl` |
+| Between content sections | `xl` to `xll` |
+| Between related sub-sections | `lg` to `xl` |
+| Between heading and content | `xs` to `sm` |
 
 ### Component Internal Spacing
 
-For padding within components like cards, callouts, and containers:
+| Context | Recommended Slug |
+|---------|------------------|
+| Card padding | `sm` to `md` |
+| Input field padding | `2xs` to `xs` |
+| List item gap | `xxs` to `2xs` |
 
-| Context | Recommended Token |
-|---------|-------------------|
-| Card padding | `md` to `lg` |
-| Button padding (horizontal) | `md` |
-| Button padding (vertical) | `xs` to `sm` |
-| Input field padding | `xs` to `sm` |
-| List item gap | `xs` to `sm` |
+Buttons use fixed padding from `styles.elements.button` (10px by 16px), not a spacing preset.
 
 ### Inline Spacing
 
-For horizontal gaps between inline elements:
-
-| Context | Recommended Token |
-|---------|-------------------|
-| Icon to text gap | `xxs` to `xs` |
-| Between buttons | `sm` |
-| Grid column gap | `md` to `lg` |
-| Navigation item gap | `sm` to `md` |
+| Context | Recommended Slug |
+|---------|------------------|
+| Icon to text gap | `xxs` to `2xs` |
+| Between buttons | `xs` |
+| Grid column gap | `sm` to `md` |
+| Navigation item gap | `xs` to `sm` |
 
 ## Global Spacing Settings
 
@@ -140,11 +149,11 @@ To configure site-wide spacing defaults:
 
 ## Responsive Behavior
 
-The spacing scale uses fixed `rem` values, which means spacing remains consistent relative to the root font size. On smaller viewports, you may want to reduce spacing for specific sections:
+Because `sm` through `xxl` are fluid, section spacing shrinks on small screens without extra CSS. The fixed steps (`xxxs` to `xs`) stay the same size at every width, which keeps small gaps and icon spacing predictable.
 
-- Use smaller spacing tokens for mobile layouts.
+- Use the fluid steps for section padding and large gaps.
+- Use the fixed steps for tight inline spacing.
 - The editor allows different padding values per side, enabling asymmetric spacing.
-- Container blocks can have responsive padding set through the interface.
 
 ## Next Steps
 

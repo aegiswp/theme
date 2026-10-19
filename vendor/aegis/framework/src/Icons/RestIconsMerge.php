@@ -85,7 +85,10 @@ class RestIconsMerge {
 
 		$search = strtolower( (string) $request->get_param( 'search' ) );
 
-		$icon_map = Icon::get_icon_data( null );
+		// Full SVGs for WP 7.0 wp/v2/icons merge only (skipped on 7.1+ above).
+		$full_request = new WP_REST_Request( 'GET', '/aegis/v1/icons' );
+		$full_request->set_param( 'full', true );
+		$icon_map = Icon::get_icon_data( $full_request );
 
 		if ( ! is_array( $icon_map ) ) {
 			return $response;

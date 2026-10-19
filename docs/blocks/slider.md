@@ -41,10 +41,10 @@ Slide blocks **only** insert inside a Slider (`parent: aegis/slider` in `block.j
 1. Insert the **Slider** block (defaults include three Slide children, one visible at a time).
 2. Build content inside each **Slide**.
 3. Configure autoplay, arrows, dots, and loop in Slider settings. Raise **Slides Per Page** to show more than one slide at once.
-4. Set **Type** to `marquee` for continuous scrolling (uses Splide AutoScroll). That is not the Group **Marquee** variation — see [[block-variations#marquee]] and [Plugin Marquee](../../plugins/aegis/docs/blocks/marquee.md).
+4. Set **Type** to `marquee` for continuous scrolling (uses Splide AutoScroll). That is not the Group **Marquee** variation — see [[block-variations#marquee]] and [Plugin Marquee](../../../../plugins/aegis/docs/blocks/marquee.md).
 5. Set **Type** to `fade` when the Fade extra is on (Splide fade; one slide per page).
 
-New sliders default to **Slides Per Page** 1. Saved blocks keep their stored `perPage`. A template that still has `"perPage":3` with three slides shows every slide at once, so Splide hides overflow arrows and dots. Set **Slides Per Page** to 1 or add more slides. See [[../troubleshooting/common-issues#slider-arrows-and-dots-missing]].
+New sliders default to **Slides Per Page** 1. Saved blocks keep their stored `perPage`. A template that still has `"perPage":3` with three slides shows every slide at once, so Splide hides overflow arrows and dots. Set **Slides Per Page** to 1 or add more slides. See [Common Issues](../troubleshooting/common-issues.md#slider-arrows-and-dots-missing).
 
 ## Aegis → Blocks → Slider
 
@@ -69,7 +69,7 @@ Plugin demo patterns `aegis/slider-*` register only when Slider is implied on. I
 
 **Aegis → Blocks → Slider** Pro extras (when Aegis Pro is active): fade effect, thumbnails, lightbox, mousewheel, aspect ratio, lazy loading, arrow styles, dot styles, and an autoplay pause control. Each extra is gated like Map/Countdown. The inspector reads `window.aegisSliderEditor.features`. Frontend extras run on **Splide**. Swiper-only effects (cube, coverflow, flip, cards, creative) were leftover from an older stack and are not offered.
 
-See [Plugin Block Variations](../../plugins/aegis/docs/blocks/block-variations.md) and [Pro Block Extensions](../../plugins/aegis-pro/docs/features/block-extensions.md).
+See [Plugin Block Variations](../../../../plugins/aegis/docs/blocks/block-variations.md) and [Pro Block Extensions](../../../../plugins/aegis-pro/docs/features/block-extensions.md).
 
 ## Developer notes
 
@@ -80,7 +80,7 @@ See [Plugin Block Variations](../../plugins/aegis/docs/blocks/block-variations.m
 - Styles: `block.json` `style` is `file:style-index.css` plus the `splide` handle. Webpack compiles `style.scss` because `index.tsx` imports it (same pattern as Related Posts).
 - View scripts: `view.js`, `splide`, `splide-autoscroll`. `view.ts` waits until `Splide` is defined before mounting.
 - Editor canvas lays slides in a horizontal row (`--aegis-slider-per-page`). Arrows and dots in the editor are decorative chrome, not interactive Splide controls.
-- Accessibility: keyboard arrow navigation — see [[../features/accessibility|Accessibility]]
+- Accessibility: keyboard arrow navigation — see [Accessibility](../features/accessibility.md)
 
 ## Next Steps
 

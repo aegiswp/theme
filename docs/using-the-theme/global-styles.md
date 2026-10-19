@@ -38,8 +38,8 @@ Configure site-wide text settings:
 
 | Option | Description |
 |--------|-------------|
-| Font family | Choose from Lexend (body), Lexend Deca (headings), or JetBrains Mono (code). |
-| Size | Select from the fluid type scale (8px to 96px with `clamp()`). |
+| Font family | Choose from Lexend (`lexend`, body), Lexend Deca (`lexend-deca`, headings), or JetBrains (`jetbrains`, code). |
+| Size | Select from the 27 fluid sizes (8px to 96px with `clamp()`), or Inherit. |
 | Appearance | Font weight (thin through black) and style (normal or italic). |
 | Line height | Relative line height value. |
 | Letter spacing | Additional space between characters. |
@@ -92,9 +92,9 @@ Configure content dimensions and spacing:
 | Setting | Default | Description |
 |---------|---------|-------------|
 | Content size | 720px (max) | Maximum width for standard content. |
-| Wide size | 1620px (max) | Maximum width for wide-aligned blocks. |
-| Padding | Based on spacing scale | Space between content and viewport edges. |
-| Block spacing | Based on spacing scale | Vertical gap between blocks. |
+| Wide size | 1200px (max) | Maximum width for wide-aligned blocks. |
+| Padding | `lg` spacing step (24–48px), left and right | Space between content and viewport edges. |
+| Block spacing | `sm` spacing step (20–24px) | Vertical gap between blocks. |
 
 See [[layout]] for detailed layout configuration.
 

@@ -55,7 +55,7 @@ npm run migrate:video
 npm run migrate:video:studio
 ```
 
-Review affected pages in the Site Editor after running. See [[../getting-started/updating#aegisvideo--corevideo]].
+Review affected pages in the Site Editor after running. See [Updating](../getting-started/updating.md#aegisvideo--corevideo).
 
 ## migrate-icons (WP-CLI)
 
@@ -68,7 +68,7 @@ studio wp aegis migrate-icons
 studio wp aegis migrate-icons --dry-run
 ```
 
-See [[../getting-started/updating#image-icon--coreicon]] and [[../features/svg-icons]].
+See [Updating](../getting-started/updating.md#image-icon--coreicon) and [SVG Icons](../features/svg-icons.md).
 
 ## WPAudit (`tools/wpaudit/`)
 
@@ -82,4 +82,4 @@ One-off Site Editor probes and local diagnostics belong in `tools/scratch/` (git
 
 - [[testing]] — PHPUnit, performance, accessibility
 - [[building-assets]] — Block build workflow
-- [[../reference/file-structure]] — Repository layout
+- [File Structure](../reference/file-structure.md) — Repository layout

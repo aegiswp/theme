@@ -47,10 +47,11 @@ readme.txt text eol=crlf
 
 # Export ignore (files not included in git archive / distribution)
 /.github export-ignore
-/.claude export-ignore
-/.cursor export-ignore
-/.kiro export-ignore
+/.vscode export-ignore
 /docs export-ignore
+/languages export-ignore
+/LICENSE export-ignore
+/LICENCE export-ignore
 /config export-ignore
 /tools export-ignore
 /bin export-ignore
@@ -132,14 +133,12 @@ STUDIO.md export-ignore
 
 # Dev-only and tooling (align with .distignore for `git archive` / source exports)
 .nvmrc export-ignore
-.vscode export-ignore
-.idea export-ignore
-.fleet export-ignore
 .wp-env.override.json export-ignore
 node_modules/ export-ignore
 tests/ export-ignore
 patterns/README.txt export-ignore
 patterns/**/.* export-ignore
+patterns/custom/ export-ignore
 .phpunit.result.cache export-ignore
 .phpunit.cache/ export-ignore
 coverage/ export-ignore
@@ -153,3 +152,5 @@ docker-compose*.yml export-ignore
 docker-compose*.yaml export-ignore
 .env export-ignore
 .env.* export-ignore
+_tmp_* export-ignore
+src/types/ export-ignore

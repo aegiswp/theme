@@ -3,20 +3,20 @@ Contributors: atmostfearentertainment
 Requires at least: 7.0
 Tested up to: 7.1.3
 Requires PHP: 8.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Aegis is a WordPress block theme and design-system framework built on systematic design tokens: structured colour scales, fluid typography, and constraint-based spacing for visual consistency across patterns and templates. It ships self-hosted Lexend and JetBrains Mono fonts, compiled custom blocks, 236 patterns for blog, commerce, events, portfolio, and contact, plus WooCommerce templates, dark/light mode, RTL support, and an accessibility-ready foundation aimed at WCAG 2.2 Level AA (full conformance still depends on site content).
+Aegis is a WordPress block theme and design-system framework built on systematic design tokens: structured colour scales, fluid typography, and constraint-based spacing for visual consistency across patterns and templates. It ships self-hosted Lexend and JetBrains Mono fonts, compiled custom blocks, 234 patterns for blog, commerce, events, portfolio, and contact, plus WooCommerce templates, dark/light mode, RTL support, and an accessibility-ready foundation aimed at WCAG 2.2 Level AA (full conformance still depends on site content).
 
 == Installation ==
 
 1. Upload the theme folder to `/wp-content/themes/` or install the zip via **Appearance → Themes → Add New → Upload Theme**.
 2. Activate **Aegis** under **Appearance → Themes**.
 3. Open **Appearance → Editor** to customize templates, template parts, and global styles.
-4. Optional: install WooCommerce for shop templates and patterns; other integrations are enabled from **Aegis → Integrations** in the admin.
+4. Optional: install the free Aegis companion plugin for Map/Modal, the Integrations dashboard (including **Community → bbPress** and **SEO**), and admin settings. WooCommerce templates apply when WooCommerce is active.
 
 == Frequently Asked Questions ==
 
@@ -50,7 +50,34 @@ Yes. Templates with a header get an injected skip link. The Blank template has n
 
 == Changelog ==
 
-= 1.0.0 - 2026-10-13 =
+= 1.0.1 - 2026-10-19 =
+* Added: Theme updates from GitHub releases appear in Dashboard → Updates and on the Themes screen, with one-click updates, auto-updates, and release notes.
+* Added: A light/dark toggle in the editor top bar previews the canvas in either mode, remembered per user.
+* Added: Audio block styling: a padded card with a full-width player that fits small screens, and the caption inside the card.
+* Added: The site header stays fixed at the top of the screen while scrolling.
+* Added: In the mobile menu, tapping an item with sub-items slides in a panel with those items and a Back button.
+* Added: The Home page hero shows three images: a centered main image with two images behind it.
+* Changed: The default header has a Contact button instead of the People and avatar buttons.
+* Changed: The Home page hero links to the plugin download instead of the docs, and the release badge is removed.
+* Changed: Navigation submenus open to the right of their parent item.
+* Changed: Updated the theme screenshot to show the new Home page.
+* Fixed: Captions on images and other media were too small; they now use the 14px size (13px on phones).
+* Renamed Image Compare and Image Lightbox labels to Compare and Lightbox in docs and related UI copy.
+* bbPress framework styles (avatars, forms, topic rows, breadcrumbs, Subscribe/Favorite, member layout) when the Aegis plugin Community integration is on.
+* Empty footer Navigation blocks no longer list every page as a fallback.
+* The companion plugin notice now installs the Aegis plugin from its latest GitHub release, with a link to the releases page as a fallback.
+* Fixed: Mobile layout no longer squeezes or overflows content; spacing presets and large font sizes now scale with screen size.
+* Fixed: Font sizes used by patterns but missing from theme.json (56, 42, 15, 13, 11) are now defined.
+* Fixed: Patterns no longer reference spacing and color presets the theme doesn't define, so their padding and colors now apply.
+* Fixed: Pro Tabs blocks no longer show as invalid in the editor (tab icon styles are no longer saved into the tab markup).
+* Fixed: Header, footer, and content injection hooks fire once per page instead of twice.
+* Fixed: Accessibility improvements: dark mode text contrast, button and logo link names, unique icon and heading IDs, the closed mini-cart drawer, and focus under the sticky header.
+* Fixed: No more "translation loading triggered too early" notice in WordPress 6.7 and later.
+* Fixed: Marquee and WooCommerce blocks in patterns no longer show as invalid in the editor.
+* Fixed: Countdown block styles now load on the front end.
+* Fixed: Without WooCommerce, the editor no longer shows unsupported WooCommerce blocks in the header and store patterns.
+
+= 1.0.0 - 2026-10-14 =
 * Initial release.
 
 == Copyright ==
@@ -74,10 +101,10 @@ Composer
 License: MIT
 License URL: https://github.com/composer/composer/blob/main/LICENSE
 
-enshrined/svg-sanitize
-Copyright (c) enshrined
-License: GPL-3.0-or-later
-License URL: https://www.gnu.org/licenses/gpl-3.0.html
+enshrined/svg-sanitize 1.0.0
+Copyright (c) Daryll Doyle
+License: GPL-2.0-or-later
+License URL: https://www.gnu.org/licenses/gpl-2.0.html
 Source: https://github.com/darylldoyle/svg-sanitizer
 
 psr/container

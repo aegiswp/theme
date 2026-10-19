@@ -34,13 +34,18 @@ PHP services and block source files:
 
 ```
 src/
-├── bootstrap.php
+├── bootstrap.php            # Starts theme services (see below)
 ├── helpers.php
+├── NavigationFallback.php   # Short sample menu for empty Navigation blocks (1.0.1)
+├── PatternDependencies.php  # Hides patterns whose blocks need an inactive plugin (1.0.1)
 ├── Admin/
-│   └── CompanionNotice.php
+│   ├── CompanionNotice.php  # Companion plugin install notice (installs from GitHub)
+│   └── GitHubUpdater.php    # Theme updates from GitHub releases (1.0.1)
 └── Blocks/                  # block.json + TSX sources (compiled in place)
     ├── BlockRegistrar.php
     ├── RelatedPostsQuery.php
+    ├── ToggleId.php         # Stable data-toggle-id for Toggle switchers
+    ├── blocks-manifest.php  # Generated block metadata collection (npm run build)
     ├── countdown/
     ├── slider/
     ├── slide/
@@ -48,6 +53,8 @@ src/
     ├── toggle-content/
     └── related-posts/
 ```
+
+`src/bootstrap.php` starts `CompanionNotice`, `GitHubUpdater`, `BlockRegistrar`, and `NavigationFallback`, and registers the theme's `payment`, `payment-brand`, and `integrations` icon sets. `blocks-manifest.php` is written by `tools/generate-blocks-manifest.php` at the end of `npm run build`; `BlockRegistrar` passes it to `wp_register_block_metadata_collection()`. Do not edit it by hand.
 
 Engine PHP (patterns REST, template expander, dynamic parts, navigation overlay, editor overlay fix, Woo breadcrumbs including Store Breadcrumb delimiter wrap) lives in `vendor/aegis/framework`. Admin dashboard, conditionals, and multi-step checkout live in the companion plugin.
 
@@ -66,7 +73,7 @@ Composer packages:
 
 **Theme-owned** block patterns by category (`hero/`, `cta/`, `template/`, etc.) — generic sections and marketing layouts using core blocks. WooCommerce block patterns (`wp:woocommerce/*`) and the TI Wishlist pattern live in the **companion plugin**, not here. The theme keeps a Woo-free `header/default` so `parts/header.html` still resolves when WooCommerce is inactive.
 
-Companion plugin pattern directories (see [Plugin File Structure](../../plugins/aegis/docs/development/file-structure.md)):
+Companion plugin pattern directories (see [Plugin File Structure](../../../../plugins/aegis/docs/development/file-structure.md)):
 
 - `wp-content/plugins/aegis/patterns/woocommerce/` — gated on WooCommerce
 - `wp-content/plugins/aegis/patterns/wishlist/` — gated on WooCommerce + TI Wishlist
@@ -80,8 +87,8 @@ Pro premium patterns: `wp-content/plugins/aegis-pro/patterns/`.
 
 | Path | Docs |
 |------|------|
-| `wp-content/plugins/aegis/` | [Plugin docs](../../plugins/aegis/docs/home.md) · [Wiki](https://github.com/aegiswp/plugin/wiki) |
-| `wp-content/plugins/aegis-pro/` | [Pro docs](../../plugins/aegis-pro/docs/home.md) · [Wiki](https://github.com/aegiswp/pro/wiki) |
+| `wp-content/plugins/aegis/` | [Plugin docs](../../../../plugins/aegis/docs/home.md) · [Wiki](https://github.com/aegiswp/plugin/wiki) |
+| `wp-content/plugins/aegis-pro/` | [Pro docs](../../../../plugins/aegis-pro/docs/home.md) · [Wiki](https://github.com/aegiswp/pro/wiki) |
 
 ## Generated / Excluded from Dev
 
@@ -93,4 +100,4 @@ Pro premium patterns: `wp-content/plugins/aegis-pro/patterns/`.
 
 - [[architecture]] — Technical architecture
 - [[building-assets]] — Build commands
-- [Plugin File Structure](../../plugins/aegis/docs/development/file-structure.md)
+- [Plugin File Structure](../../../../plugins/aegis/docs/development/file-structure.md)

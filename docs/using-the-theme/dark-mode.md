@@ -6,7 +6,7 @@ Aegis includes built-in dark mode support that inverts the color scheme for comf
 
 Dark mode in Aegis uses a class-based toggle mechanism:
 
-- **Light mode (default):** The site renders with the standard color palette defined in the active style variation.
+- **Light mode (default):** The site renders with the standard color palette defined in the active style variation. Midnight, Obsidian, and Zinc start from a dark background.
 - **Dark mode:** When the `is-style-dark` class is present on the `<body>` element, CSS custom properties are remapped to their dark equivalents.
 
 This approach ensures that:
@@ -38,40 +38,67 @@ To enable dark mode on individual pages:
 
 ### Via Toggle Button
 
-Aegis supports a user-facing dark mode toggle that allows visitors to switch between light and dark modes:
+The **Utility Dark Mode Toggle** pattern (`utility-dark-mode-toggle`) gives visitors a light and dark switch:
 
-1. The toggle button adds or removes the `is-style-dark` class on the `<body>` element via JavaScript.
-2. The visitor preference is stored in `localStorage` for persistence across page loads.
-3. You can include the dark mode toggle in the header template part.
+1. Each button sets `is-style-dark` or `is-style-light` on the `<body>` element.
+2. It also sets the `aegisDarkMode` cookie (`true` or `false`, kept for one day), so the server adds the same class on the next page load. A value of `system` follows the operating system again.
+3. Place the pattern in the header template part to offer it site-wide.
+
+For testing, add `?dark_mode=true` or `?dark_mode=false` to any URL. The URL parameter overrides the cookie for that request.
 
 ## Color Mapping
 
-When dark mode is active, the color palette inverts intelligently:
+Dark mode swaps each palette shade with its counterpart (`DarkMode.php`). A few examples:
 
-| Token | Light Mode | Dark Mode |
-|-------|-----------|-----------|
-| Background | Neutral-0 (white) | Neutral-950 (near-black) |
-| Foreground | Neutral-950 (near-black) | Neutral-0 (white) |
-| Surface | Neutral-50 | Neutral-900 |
-| Border | Neutral-200 | Neutral-700 |
-| Muted text | Neutral-500 | Neutral-400 |
-| Primary accent | Zinc-600 | Zinc-400 |
+| Token | Becomes in Dark Mode |
+|-------|----------------------|
+| `neutral-0` (page background) | `neutral-950` |
+| `neutral-50` (surfaces) | `neutral-900` |
+| `neutral-200` (borders) | `neutral-700` |
+| `neutral-700` (body text) | `neutral-200` |
+| `neutral-800` (headings) | `neutral-100` |
+| `primary-900` (buttons) | `primary-100` |
+| `primary-600` | `primary-400` |
+| `success-600`, `warning-600`, `error-600`, `info-600` | the `-100` shade, and the reverse |
 
-The full color system, including Success, Warning, and Error tokens, adjusts accordingly to maintain contrast ratios and readability.
+The `500` shades stay the same. The page background comes from `--wp--custom--body--background`.
 
 ## Respecting System Preferences
 
-Aegis can detect the visitor operating system dark mode preference using the `prefers-color-scheme` media query:
+Aegis follows the visitor's operating system preference with the `prefers-color-scheme` media query until the visitor picks a mode:
 
 ```css
 @media (prefers-color-scheme: dark) {
-    body:not(.is-style-light) {
+    html body:not(.is-style-light):not(.is-style-dark) {
         /* Dark mode custom properties applied */
     }
 }
 ```
 
-When automatic detection is enabled, the site follows the system preference unless the visitor explicitly toggles the mode.
+Once the visitor uses the toggle, the body carries `is-style-light` or `is-style-dark`, and the system preference no longer applies.
+
+## Default Mode
+
+On the front end, the body gets a `default-mode-light` or `default-mode-dark` class. The default is light, unless the global settings define `custom.lightMode`, in which case it is dark. Change it with the `aegis_default_mode` filter:
+
+```php
+add_filter( 'aegis_default_mode', function ( string $mode, array $global_settings ): string {
+    return 'dark';
+}, 10, 2 );
+```
+
+The filter also sets the starting mode of the editor preview toggle. See [[hooks-and-filters]].
+
+## Previewing Dark Mode in the Editor
+
+Since 1.0.1, the block editor and Site Editor have a light and dark preview toggle in the top bar, next to the Styles and Settings buttons (moon and sun icons).
+
+- One click switches the editor canvas between light and dark. The canvas uses the same token remaps as the front end.
+- The preview only affects the editor. It does not change your site or any content.
+- Your choice is saved per user in the editor preferences. With no saved choice, the editor starts in the site's default mode.
+- The toggle's sidebar also has **Light** and **Dark** buttons as a fallback.
+
+The toggle loads only when dark mode is available. Returning `false` from `aegis_dark_mode`, or setting `custom.darkMode` to `false` in global settings, removes it.
 
 ## Dark Mode and Style Variations
 
@@ -88,7 +115,7 @@ Dark mode in Aegis is designed to keep default token pairings at **WCAG 2.2 AA**
 
 Editor-chosen colors and media overlays still need a contrast check. See [[accessibility]].
 
-To hide a block, post, or hook pattern in light or dark mode, use **Aegis → Conditionals → Accessibility → Color Scheme**. Those rules follow the same `is-style-*` / `default-mode-*` classes as the visitor toggle. See [Plugin Conditional Logic](../../plugins/aegis/docs/features/conditional-logic.md#accessibility-extras).
+To hide a block, post, or hook pattern in light or dark mode, use **Aegis → Conditionals → Accessibility → Color Scheme**. Those rules follow the same `is-style-*` / `default-mode-*` classes as the visitor toggle. See [Plugin Conditional Logic](../../../../plugins/aegis/docs/features/conditional-logic.md#accessibility-extras).
 
 ## Per-Section Dark Mode
 
@@ -106,11 +133,15 @@ The WordPress **Icon** block uses `currentColor` for fills (and strokes on outli
 
 ## Disabling Dark Mode
 
-If you do not want dark mode available on your site:
+To turn dark mode off completely, return `false` from the `aegis_dark_mode` filter:
 
-- Do not add the `is-style-dark` class to any templates or blocks.
-- Remove the dark mode toggle from the header template part if present.
-- Visitors will always see the light mode regardless of their system preferences.
+```php
+add_filter( 'aegis_dark_mode', '__return_false' );
+```
+
+This removes the dark mode styles, the system-preference rule, and the editor preview toggle. Setting `settings.custom.darkMode` to `false` in a child theme's `theme.json` has the same effect.
+
+If you only want to stop offering a choice, remove the dark mode toggle pattern from your templates and parts.
 
 ## Custom Dark Mode Adjustments
 
@@ -124,21 +155,21 @@ For dark-mode-specific overrides, you can use the Additional CSS section or a cu
 
 ```css
 .is-style-dark {
-    --wp--preset--color--primary-500: #custom-dark-value;
+    --wp--preset--color--primary-500: #a1a1aa;
 }
 ```
 
 ## Implementation Details
 
-The dark mode system works through CSS custom property reassignment. When the `is-style-dark` class is present:
+The dark mode system works through CSS custom property reassignment (`vendor/aegis/framework/src/DesignSystem/DarkMode.php`):
 
-1. Background tokens are swapped to dark values.
-2. Foreground tokens are swapped to light values.
-3. Surface, border, and accent tokens adjust to maintain visual hierarchy.
-4. Shadow tokens adjust opacity for dark backgrounds.
-5. Gradient tokens may adjust to dark-appropriate versions.
+1. The framework outputs two rule sets: `html body.is-style-light` and `html body.is-style-dark`, each with the full palette for that mode.
+2. Each palette shade is swapped with its counterpart from the shade map (see Color Mapping).
+3. The same remaps apply to any block with the `is-style-dark` or `is-style-light` class, which is how per-section dark mode works.
+4. A `prefers-color-scheme` rule applies the opposite mode when the visitor has not chosen one.
+5. The server reads the `aegisDarkMode` cookie and the `dark_mode` URL parameter to add the right body class.
 
-No JavaScript framework or library is required — the mechanism is pure CSS with a minimal script for toggle interaction and preference storage.
+No JavaScript framework or library is required. The visitor toggle is a few lines of inline script in the toggle pattern.
 
 ## Next Steps
 

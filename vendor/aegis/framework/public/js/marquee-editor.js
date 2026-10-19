@@ -86,8 +86,11 @@
 		return raw + 's';
 	}
 
-	function gateMarqueeStyles( style, attrs ) {
-		const f = features();
+	/* Saved markup ignores the admin gates (ungated = true): the server applies them when rendering, and gated output made blocks invalid whenever a setting changed. */
+	function gateMarqueeStyles( style, attrs, ungated ) {
+		const f = ungated
+			? { speed: true, responsiveSpeed: true, direction: true, pauseHover: true }
+			: features();
 		const next = Object.assign( {}, style );
 		let mobile = attrs && attrs.speedMobile;
 		let desktop = attrs && attrs.speedDesktop;
@@ -393,7 +396,7 @@
 
 				return Object.assign( {}, extraProps, {
 					className: className,
-					style: gateMarqueeStyles( extraProps.style || {}, attributes ),
+					style: gateMarqueeStyles( extraProps.style || {}, attributes, true ),
 				} );
 			},
 			11

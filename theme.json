@@ -86,7 +86,7 @@
         {
           "name": "Primary 25",
           "slug": "primary-25",
-          "color": "#f8efe9"
+          "color": "#fcfcfd"
         },
         {
           "name": "Neutral 950",
@@ -578,8 +578,18 @@
           }
         }
       },
+      "darkMode": {
+        "palette": {
+          "neutral-400": "#949494",
+          "neutral-500": "#a3a3a3",
+          "success-100": "#052e1f",
+          "warning-100": "#3a2603",
+          "error-100": "#3b0a14",
+          "info-100": "#0a2540"
+        }
+      },
       "subHeading": {
-        "color": "var(--wp--preset--color--primary-500)",
+        "color": "var(--wp--preset--color--primary-600)",
         "lineHeight": "1.25"
       },
       "buttonOutline": {
@@ -632,7 +642,11 @@
         "boxShadow": "none"
       },
       "header": {
-        "zIndex": "2"
+        "zIndex": "100",
+        "position": "sticky",
+        "top": "var(--wp-admin--admin-bar--height, 0px)",
+        "background": "var(--wp--preset--color--neutral-0)",
+        "scrollPadding": "5rem"
       },
       "button": {
         "padding": {
@@ -658,99 +672,117 @@
         {
           "name": "96px",
           "slug": "96",
-          "size": "clamp(80px,9.6vw,96px)",
+          "size": "clamp(56px,calc(39.43px + 4.420vw),96px)",
           "fluid": {
-            "min": "80px",
+            "min": "56px",
             "max": "96px"
           }
         },
         {
           "name": "88px",
           "slug": "88",
-          "size": "clamp(72px,8.8vw,88px)",
+          "size": "clamp(52px,calc(37.08px + 3.978vw),88px)",
           "fluid": {
-            "min": "72px",
+            "min": "52px",
             "max": "88px"
           }
         },
         {
           "name": "80px",
           "slug": "80",
-          "size": "clamp(64px,8vw,80px)",
+          "size": "clamp(48px,calc(34.74px + 3.536vw),80px)",
           "fluid": {
-            "min": "64px",
+            "min": "48px",
             "max": "80px"
           }
         },
         {
           "name": "72px",
           "slug": "72",
-          "size": "clamp(56px,7.2vw,72px)",
+          "size": "clamp(44px,calc(32.40px + 3.094vw),72px)",
           "fluid": {
-            "min": "56px",
+            "min": "44px",
             "max": "72px"
           }
         },
         {
           "name": "64px",
           "slug": "64",
-          "size": "clamp(52px,6.4vw,64px)",
+          "size": "clamp(40px,calc(30.06px + 2.652vw),64px)",
           "fluid": {
-            "min": "52px",
+            "min": "40px",
             "max": "64px"
           }
         },
         {
           "name": "60px",
           "slug": "60",
-          "size": "clamp(48px,6vw,60px)",
+          "size": "clamp(38px,calc(28.88px + 2.431vw),60px)",
           "fluid": {
-            "min": "48px",
+            "min": "38px",
             "max": "60px"
+          }
+        },
+        {
+          "name": "56px",
+          "slug": "56",
+          "size": "clamp(37px,calc(29.13px + 2.099vw),56px)",
+          "fluid": {
+            "min": "37px",
+            "max": "56px"
           }
         },
         {
           "name": "52px",
           "slug": "52",
-          "size": "clamp(44px,5.2vw,52px)",
+          "size": "clamp(36px,calc(29.37px + 1.768vw),52px)",
           "fluid": {
-            "min": "44px",
+            "min": "36px",
             "max": "52px"
           }
         },
         {
           "name": "48px",
           "slug": "48",
-          "size": "clamp(40px,4.8vw,48px)",
+          "size": "clamp(34px,calc(28.20px + 1.547vw),48px)",
           "fluid": {
-            "min": "40px",
+            "min": "34px",
             "max": "48px"
           }
         },
         {
           "name": "44px",
           "slug": "44",
-          "size": "clamp(40px,4.4vw,44px)",
+          "size": "clamp(32px,calc(27.03px + 1.326vw),44px)",
           "fluid": {
-            "min": "40px",
+            "min": "32px",
             "max": "44px"
+          }
+        },
+        {
+          "name": "42px",
+          "slug": "42",
+          "size": "clamp(31px,calc(26.44px + 1.215vw),42px)",
+          "fluid": {
+            "min": "31px",
+            "max": "42px"
           }
         },
         {
           "name": "40px",
           "slug": "40",
-          "size": "clamp(36px,4vw,40px)",
+          "size": "clamp(30px,calc(25.86px + 1.105vw),40px)",
           "fluid": {
-            "min": "36px",
+            "min": "30px",
             "max": "40px"
           }
         },
         {
           "name": "36px",
           "slug": "36",
-          "size": "clamp(32px,3.6vw,36px)",
+          "size": "clamp(28px,calc(24.69px + 0.884vw),36px)",
           "fluid": {
-            "min": "32px",
+            "min": "28px",
             "max": "36px"
           }
         },
@@ -818,6 +850,15 @@
           }
         },
         {
+          "name": "15px",
+          "slug": "15",
+          "size": "clamp(14px,calc(13.59px + 0.110vw),15px)",
+          "fluid": {
+            "min": "14px",
+            "max": "15px"
+          }
+        },
+        {
           "name": "14px",
           "slug": "14",
           "size": "clamp(13px,1.4vw,14px)",
@@ -827,12 +868,30 @@
           }
         },
         {
+          "name": "13px",
+          "slug": "13",
+          "size": "clamp(12px,calc(11.59px + 0.110vw),13px)",
+          "fluid": {
+            "min": "12px",
+            "max": "13px"
+          }
+        },
+        {
           "name": "12px",
           "slug": "12",
           "size": "clamp(11px,1.2vw,12px)",
           "fluid": {
             "min": "11px",
             "max": "12px"
+          }
+        },
+        {
+          "name": "11px",
+          "slug": "11",
+          "size": "clamp(10px,calc(9.59px + 0.110vw),11px)",
+          "fluid": {
+            "min": "10px",
+            "max": "11px"
           }
         },
         {
@@ -906,7 +965,7 @@
               "fontDisplay": "swap",
               "fontWeight": "100 900",
               "src": [
-                "file:./assets/fonts/jetbrains.woff2"
+                "file:./assets/fonts/jetbrainsmono.woff2"
               ]
             }
           ]
@@ -957,37 +1016,37 @@
         {
           "name": "S (24px)",
           "slug": "sm",
-          "size": "24px"
+          "size": "clamp(20px,calc(18.34px + 0.442vw),24px)"
         },
         {
           "name": "M (32px)",
           "slug": "md",
-          "size": "32px"
+          "size": "clamp(24px,calc(20.69px + 0.884vw),32px)"
         },
         {
           "name": "ML (40px)",
           "slug": "ml",
-          "size": "40px"
+          "size": "clamp(24px,calc(17.37px + 1.768vw),40px)"
         },
         {
           "name": "L (48px)",
           "slug": "lg",
-          "size": "48px"
+          "size": "clamp(24px,calc(14.06px + 2.652vw),48px)"
         },
         {
           "name": "XL (64px)",
           "slug": "xl",
-          "size": "64px"
+          "size": "clamp(40px,calc(30.06px + 2.652vw),64px)"
         },
         {
           "name": "XLL (80px)",
           "slug": "xll",
-          "size": "80px"
+          "size": "clamp(48px,calc(34.74px + 3.536vw),80px)"
         },
         {
           "name": "XXL (96px)",
           "slug": "xxl",
-          "size": "96px"
+          "size": "clamp(56px,calc(39.43px + 4.420vw),96px)"
         }
       ]
     }
@@ -1091,7 +1150,7 @@
         },
         "typography": {
           "textAlign": "left",
-          "fontSize": "var(--wp--preset--font-size--12)"
+          "fontSize": "var(--wp--preset--font-size--14)"
         }
       },
       "heading": {
@@ -1172,6 +1231,26 @@
         },
         "color": {
           "background": "var(--wp--preset--color--neutral-100)"
+        },
+        "spacing": {
+          "padding": {
+            "top": "var(--wp--preset--spacing--xs)",
+            "right": "var(--wp--preset--spacing--xs)",
+            "bottom": "var(--wp--preset--spacing--xs)",
+            "left": "var(--wp--preset--spacing--xs)"
+          }
+        },
+        "elements": {
+          "caption": {
+            "spacing": {
+              "padding": {
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0"
+              }
+            }
+          }
         }
       },
       "core/avatar": {

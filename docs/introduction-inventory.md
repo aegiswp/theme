@@ -12,7 +12,7 @@ Left out on purpose: Map, Modal, analytics, conditional logic, the plugin Integr
 | --- | --- |
 | Theme | Aegis |
 | Author | Atmostfear Entertainment |
-| Version | 1.0.0 |
+| Version | 1.0.1 |
 | Requires WordPress | 7.0 |
 | Tested up to | 7.1.3 |
 | Requires PHP | 8.1 |
@@ -23,7 +23,7 @@ The stylesheet header describes Aegis as a native block framework: full-site edi
 
 What the theme actually ships is a bit more specific. Three variable fonts are bundled and declared in `theme.json` (Lexend, Lexend Deca, and JetBrains), so they are not loaded from Google Fonts. The framework loads its CSS and JavaScript only when a block on the page needs them. `style.css` still contains a few rules of its own: linked-heading hover color, hidden gravatar captions, wide and full alignment inside post content, and payment-icon layout.
 
-`readme.txt` is the public summary: a token-based block theme with color, type, and spacing scales, compiled custom blocks, a large pattern library, WooCommerce templates, dark and light mode, RTL, and an accessibility-ready foundation. Older docs undercount the library (they say about 23 templates and about 200 patterns). This inventory uses the files.
+`readme.txt` is the public summary: a token-based block theme with color, type, and spacing scales, compiled custom blocks, a large pattern library, WooCommerce templates, dark and light mode, RTL, and an accessibility-ready foundation. This inventory counts the files: 50 templates and 234 patterns.
 
 Directory tags in `style.css`: accessibility-ready, block-patterns, block-styles, blog, custom-colors, custom-logo, custom-menu, e-commerce, editor-style, featured-images, footer-widgets, full-site-editing, full-width-template, grid-layout, one-column, portfolio, rtl-language-support, sticky-post, style-variations, template-editing, threaded-comments, three-columns, translation-ready, two-columns, wide-blocks.
 
@@ -36,7 +36,7 @@ Tokens live in `theme.json` (schema version 3, title "Light"). Values below are 
 - Appearance tools are on.
 - Root-padding-aware alignments are on.
 - Border color, radius, style, and width are on.
-- Image lightbox is enabled.
+- Lightbox is enabled.
 - Sticky position is on.
 - Minimum width is on.
 - Custom duotones and custom gradients are on. The default WordPress palette, default duotones, and default gradients are off.
@@ -47,10 +47,12 @@ Tokens live in `theme.json` (schema version 3, title "Light"). Values below are 
 
 | Preset | Value |
 | --- | --- |
-| Content width | `min(calc(100dvw - var(--wp--preset--spacing--lg, 2rem) * 2), 720px)` |
-| Wide width | `min(calc(100dvw - var(--wp--preset--spacing--lg, 2rem) * 2), 1152px)` |
+| Content width | `min(calc(100% - var(--wp--preset--spacing--lg,3rem) * 2), 720px)` |
+| Wide width | `min(calc(100% - var(--wp--preset--spacing--lg,3rem) * 2), 1200px)` |
 
-The wide size in `theme.json` is 1152px. Older README copy that says 1620px is out of date.
+The wide size in `theme.json` is 1200px. Older copy that says 1620px or 1152px is out of date.
+
+On phones, full-width blocks inside `main.site-main.has-global-padding` cancel the root padding with negative margins (`style.css`), so nested full-width groups no longer stack extra padding.
 
 ### Color
 
@@ -74,13 +76,13 @@ Default page background is Neutral 0 (`#ffffff`). Default text is Neutral 700. B
 
 ### Typography
 
-23 fluid font-size presets, plus Inherit: 96, 88, 80, 72, 64, 60, 52, 48, 44, 40, 36, 32, 28, 24, 22, 20, 18, 16, 14, 12, 10, 8.
+27 fluid font-size presets, plus Inherit: 96, 88, 80, 72, 64, 60, 56, 52, 48, 44, 42, 40, 36, 32, 28, 24, 22, 20, 18, 16, 15, 14, 13, 12, 11, 10, 8. The slug is the number (`--wp--preset--font-size--44`). Each one is a `clamp()` between a mobile minimum and the named size, so large sizes shrink on phones (for example, 96 starts at 56px).
 
 | Family | Slug | Face |
 | --- | --- | --- |
 | Lexend | `lexend` | Variable, weight 300–900, `assets/fonts/lexend.woff2` |
-| Lexend Deca | `lexend-deca` | Variable, weight 300–900, falls back to Lexend |
-| JetBrains | `jetbrains` | Variable, weight 100–900, `assets/fonts/jetbrains.woff2` |
+| Lexend Deca | `lexend-deca` | Variable, weight 300–900, `assets/fonts/lexend-deca.woff2`, falls back to Lexend |
+| JetBrains (JetBrains Mono) | `jetbrains` | Variable, weight 100–900, in `assets/fonts/` |
 
 Custom font-weight tokens run from thin (100) through black (900).
 
@@ -90,7 +92,7 @@ Block style defaults in `theme.json` cover audio, avatar, buttons, breadcrumbs, 
 
 ### Spacing
 
-11 steps: XXXS 4px, XXS 8px, 2XS 12px, XS 16px, S 24px, M 32px, ML 40px, L 48px, XL 64px, XLL 80px, XXL 96px.
+11 steps. XXXS 4px, XXS 8px, 2XS 12px, and XS 16px are fixed. The rest are fluid `clamp()` values: S 20–24px, M 24–32px, ML 24–40px, L 24–48px, XL 40–64px, XLL 48–80px, XXL 56–96px.
 
 ### Shadows
 
@@ -170,7 +172,7 @@ Eight presets: None, XX Small, X Small, Small, Medium, Large, X Large, XX Large.
 | Wine | Elegant, mature |
 | Zinc | Default, neutral |
 
-Charcoal, Dusk, Midnight, and Obsidian use a dark default background.
+Midnight, Obsidian, and Zinc use a dark default background (`primary-950`).
 
 ## Templates
 
@@ -254,12 +256,9 @@ Shop styling that also ships in the theme framework, and applies with WooCommerc
 
 ## Patterns
 
-`patterns/` contains **236 registered patterns** in 29 folders. The registrar loads `*.php` in each folder. None of the files set `Inserter: no`. Patterns in the `hidden` category are still kept out of the inserter by the pattern loader. Modal starters are owned by the companion plugin, not this tree.
+`patterns/` contains **234 registered patterns** in 28 folders. The registrar loads `*.php` in each folder and skips files whose names start with a dot. 52 files set `Inserter: false`: all 48 in `template`, the 3 in `hidden`, and `utility/patterns.php`. Patterns in the `hidden` category are also kept out of the inserter by the pattern loader. Modal starters are owned by the companion plugin, not this tree.
 
-Inserter category labels match the folder name, with `cta` and `faq` shown as CTA and FAQ.
-
-`footer/wide - Copy.php` is a second file with the same title and slug as `footer/wide.php`. It is a duplicate, not a separate footer.
-
+Inserter category labels match the folder name, with `cta` and `faq` shown as CTA and FAQ. Registered slugs are the category plus the file's `Slug` header, for example `hero-split`. The full slug list is in the [Pattern Reference](reference/pattern-reference.md).
 
 ### about (3)
 
@@ -273,11 +272,11 @@ Inserter category labels match the folder name, with `cta` and `faq` shown as CT
 
 | Pattern | Description |
 | --- | --- |
-| Author Archive | A full-width author archive with avatar header and three-column post grid. |
 | Author Archive with Sidebar | An author archive with a sticky sidebar containing author details and a post list. |
-| Author Biography | A centered author biography section with large avatar, bio text, and social links. |
+| Author Archive | A full-width author archive with avatar header and three-column post grid. |
 | Author Biography Card | A compact author card with avatar, name, role, short bio, and social links. |
 | Author Biography Horizontal | A slim horizontal author strip with avatar, name, bio, and social links in a single row. |
+| Author Biography | A centered author biography section with large avatar, bio text, and social links. |
 | List with Author | A horizontal list layout with author information. |
 
 ### blog (16)
@@ -319,8 +318,8 @@ Inserter category labels match the folder name, with `cta` and `faq` shown as CT
 | Pattern | Description |
 | --- | --- |
 | Form Boxed | A boxed contact form layout. |
-| Contact Form Map | A contact form with embedded map. |
 | Contact Form Map Overlay | A contact form with map overlay background. |
+| Contact Form Map | A contact form with embedded map. |
 | Contact Icons | Contact information with icons. |
 | Contact Two Column | A two-column contact section with form and info. |
 
@@ -373,8 +372,8 @@ Inserter category labels match the folder name, with `cta` and `faq` shown as CT
 
 | Pattern | Description |
 | --- | --- |
-| Accordion | An accordion FAQ section. |
 | Accordion With Sidebar | A wide accordion FAQ section. |
+| Accordion | An accordion FAQ section. |
 | FAQs | A frequently asked questions section. |
 
 ### featured (5)
@@ -387,17 +386,16 @@ Inserter category labels match the folder name, with `cta` and `faq` shown as CT
 | Image | A feature section with image and content. |
 | Feature Images Two Column | A two-column feature section with staggered images. |
 
-### footer (7)
+### footer (6)
 
 | Pattern | Description |
 | --- | --- |
 | Centered | A centered footer with logo and copyright. |
-| Footer Default |  |
+| Footer Default | — |
 | Minimal | A minimal footer layout. |
 | Store Footer Default | A full store footer with shop links, customer service links, payment icons, and newsletter signup. |
 | Store Footer Minimal | A minimal store footer with copyright, privacy/terms links, and payment icons — ideal for checkout and funnel pages. |
-| Wide | Duplicate file `footer/wide - Copy.php` with the same slug. Not a separate footer. |
-| Wide | A wide footer with multiple columns. (`footer/wide.php`) |
+| Wide | A wide footer with multiple columns. |
 
 ### header (6)
 
@@ -405,7 +403,7 @@ Inserter category labels match the folder name, with `cta` and `faq` shown as CT
 | --- | --- |
 | Center Logo | A header with centered logo and navigation. |
 | Header Center Menu | A header with centered menu navigation. |
-| Header Default |  |
+| Header Default | — |
 | Menu Left | A header with left-aligned menu. |
 | Store Header Default | A full store header with logo, shop navigation, search, customer account, and mini-cart. |
 | Store Header Minimal | A minimal store header with logo and secure checkout badge — ideal for checkout and funnel pages. |
@@ -429,12 +427,6 @@ Inserter category labels match the folder name, with `cta` and `faq` shown as CT
 | Page 404 | A 404 error page layout. Not shown in the inserter. |
 | 404 Illustrated | A 404 error page with a large illustration area and search prompt. Not shown in the inserter. |
 | 404 Minimal | A minimal 404 error page with heading and navigation link. Not shown in the inserter. |
-
-### library (1)
-
-| Pattern | Description |
-| --- | --- |
-| Icon grid (library) | Static grid of core icons — use instead of the legacy all-icons image variation. |
 
 ### logos (3)
 
@@ -486,15 +478,15 @@ Inserter category labels match the folder name, with `cta` and `faq` shown as CT
 | Funnel Sales Page | A long-form sales page with problem/solution framing, feature highlights, testimonials, FAQ, guarantee, and CTA — uses minimal header/footer. |
 | Funnel Squeeze Page | A high-conversion squeeze page with headline, benefit bullets, and email capture form — uses minimal header/footer. |
 | Funnel Thank You Page | A post-purchase thank you page with order confirmation message, next steps, upsell product grid, and social sharing — uses minimal header/footer. |
-| Page Home |  |
+| Page Home | — |
 | Landing Page | A full landing page with hero, features, social proof, testimonials, contact form, and closing CTA. |
 | Music Festival | A vibrant full page layout for a music festival or concert event. |
 | Portfolio Page | A complete portfolio page showcasing projects and work. |
 | Product Landing Page (Dynamic) | A dynamic product landing page using WooCommerce product collections, featured products, on-sale grid, and category browsing. |
 | Product Landing Page (Static) | A static product landing page with hero, features, testimonials, trust badges, and CTA — ideal for a single flagship product. |
 | Services Page | A complete services page layout showcasing offerings. |
-| Shop Page | A complete shop landing page for e-commerce sites. |
 | Shop Full Width | A full-width shop page with top-bar filters and a wide product grid without sidebar. |
+| Shop Page | A complete shop landing page for e-commerce sites. |
 | Talk & Lecture Event | A focused full page layout for a single talk, lecture, or keynote presentation. |
 | Workshop Event | A full page layout for a hands-on workshop or training event. |
 
@@ -502,8 +494,8 @@ Inserter category labels match the folder name, with `cta` and `faq` shown as CT
 
 | Pattern | Description |
 | --- | --- |
-| Portfolio Image Gallery | An image gallery for portfolio showcases. |
 | Portfolio Image Gallery Grid | A grid-based image gallery for portfolios. |
+| Portfolio Image Gallery | An image gallery for portfolio showcases. |
 | Project Showcase | A detailed project showcase layout. |
 
 ### pricing (4)
@@ -563,54 +555,54 @@ Inserter category labels match the folder name, with `cta` and `faq` shown as CT
 
 | Pattern | Description |
 | --- | --- |
-| Template 404 |  |
-| Template Archive |  |
-| Archive Product |  |
-| Template Author |  |
-| Author Guest |  |
-| Blank |  |
-| Coming Soon |  |
-| Template Date |  |
-| Front Page |  |
-| Full Width |  |
-| Blog Home |  |
-| Maintenance |  |
-| Order Confirmation |  |
-| Template Page |  |
-| Page Boxed |  |
-| Page Cart |  |
-| Page Checkout |  |
-| Page Checkout Multi-Step |  |
-| Page Coming Soon |  |
-| Page Contact |  |
-| Page Hero Minimal |  |
-| Page Landing |  |
-| Page My Account |  |
-| Page No Title |  |
-| Page Wishlist |  |
-| Page With Sidebar |  |
-| Template Search |  |
-| Search Product |  |
-| Template Single |  |
-| Single Full Width |  |
-| Single No Featured Image |  |
-| Single Product |  |
-| Single Product Landing |  |
-| Category Archive |  |
-| Category Books |  |
-| Category Events |  |
-| Category Podcasts |  |
-| Category Portfolio |  |
-| Category Recipes |  |
-| Category Video |  |
-| Tag Archive |  |
-| Tag Featured |  |
-| Product Attribute |  |
-| Taxonomy Product Category |  |
-| Product Category Clothing |  |
-| Product Category Digital |  |
-| Product Category Outlet |  |
-| Taxonomy Product Tag |  |
+| Template 404 | Not shown in the inserter. |
+| Archive Product | Not shown in the inserter. |
+| Template Archive | Not shown in the inserter. |
+| Author Guest | Not shown in the inserter. |
+| Template Author | Not shown in the inserter. |
+| Blank | Minimal page shell with skip link and main landmark. Authors should supply exactly one h1 in post content. Not shown in the inserter. |
+| Coming Soon | Not shown in the inserter. |
+| Template Date | Not shown in the inserter. |
+| Front Page | Not shown in the inserter. |
+| Full Width | Not shown in the inserter. |
+| Blog Home | Not shown in the inserter. |
+| Maintenance | Not shown in the inserter. |
+| Order Confirmation | Not shown in the inserter. |
+| Page Boxed | Not shown in the inserter. |
+| Page Cart | Not shown in the inserter. |
+| Page Checkout Multi-Step | Not shown in the inserter. |
+| Page Checkout | Not shown in the inserter. |
+| Page Coming Soon | Not shown in the inserter. |
+| Page Contact | Not shown in the inserter. |
+| Page Hero Minimal | Not shown in the inserter. |
+| Page Landing | Not shown in the inserter. |
+| Page My Account | Not shown in the inserter. |
+| Page No Title | Page template without an automatic title. Authors must supply exactly one h1 heading in the page content. Not shown in the inserter. |
+| Page Wishlist | Not shown in the inserter. |
+| Page With Sidebar | Not shown in the inserter. |
+| Template Page | Not shown in the inserter. |
+| Search Product | Not shown in the inserter. |
+| Template Search | Not shown in the inserter. |
+| Single Full Width | Not shown in the inserter. |
+| Single No Featured Image | Not shown in the inserter. |
+| Single Product Landing | Not shown in the inserter. |
+| Single Product | Not shown in the inserter. |
+| Template Single | Not shown in the inserter. |
+| Category Books | Not shown in the inserter. |
+| Category Events | Not shown in the inserter. |
+| Category Podcasts | Not shown in the inserter. |
+| Category Portfolio | Not shown in the inserter. |
+| Category Recipes | Not shown in the inserter. |
+| Category Video | Not shown in the inserter. |
+| Category Archive | Not shown in the inserter. |
+| Tag Featured | Not shown in the inserter. |
+| Tag Archive | Not shown in the inserter. |
+| Product Attribute | Not shown in the inserter. |
+| Product Category Clothing | Not shown in the inserter. |
+| Product Category Digital | Not shown in the inserter. |
+| Product Category Outlet | Not shown in the inserter. |
+| Taxonomy Product Category | Not shown in the inserter. |
+| Taxonomy Product Tag | Not shown in the inserter. |
 
 ### testimonial (6)
 
@@ -635,12 +627,12 @@ Inserter category labels match the folder name, with `cta` and `faq` shown as CT
 
 | Pattern | Description |
 | --- | --- |
-| Color Palette |  |
-| Utility Dark Mode Toggle |  |
-| Gradients |  |
-| Patterns |  |
+| Color Palette | — |
+| Utility Dark Mode Toggle | — |
+| Gradients | — |
+| Patterns | Not shown in the inserter. |
 | Skip to Content | Accessibility link that allows keyboard users to skip navigation and jump directly to main content. |
-| Utility Search Toggle |  |
+| Utility Search Toggle | — |
 
 ## Theme blocks
 
@@ -756,6 +748,7 @@ The theme registers icon collections on the WordPress Icon block (`core/icon`). 
 | WordPress | 214 | `vendor/aegis/icons` |
 | Payment | 6 | `assets/icons/payment` |
 | Payment (brand colors) | 6 | `assets/icons/payment-brand` |
+| Integrations | 15 | `assets/icons/integrations` (single-color plugin marks) |
 
 The payment set follows the theme color scheme. The brand-color set keeps the original card colors. Core already ships its own `core` collection; Aegis does not duplicate those glyphs.
 
@@ -811,16 +804,16 @@ Color-scheme conditionals in the plugin admin are not a theme feature.
 
 ## Core blocks the framework styles
 
-These core blocks have theme framework classes. The enhancement is styling, supports, and the controls above. Core behavior is not replaced.
+These 37 core blocks have theme framework classes. Image also gets lightbox extras from `ImageLightbox.php`. The enhancement is styling, supports, and the controls above. Core behavior is not replaced.
 
-Button, Buttons, Calendar, Code, Columns, Cover, Details, Group, Heading, Icon, Image, Image lightbox, List, Navigation, Navigation submenu, Page list, Paragraph, Post author, Post comments form, Post content, Post date, Post excerpt, Post featured image, Post template, Post terms, Post title, Query, Query pagination, Query title, Search, Shortcode, Social link, Social links, Spacer, Table of contents, Tag cloud, Template part, Video.
+Button, Buttons, Calendar, Code, Columns, Cover, Details, Group, Heading, Icon, Image, List, Navigation, Navigation submenu, Page list, Paragraph, Post author, Post comments form, Post content, Post date, Post excerpt, Post featured image, Post template, Post terms, Post title, Query, Query pagination, Query title, Search, Shortcode, Social link, Social links, Spacer, Table of contents, Tag cloud, Template part, Video.
 
 Notable pieces a post can name without going into plugin extras:
 
 - Breadcrumbs use `core/breadcrumbs`, with matching styles for Rank Math, SEOPress, Yoast, and WooCommerce Store Breadcrumbs when those markup patterns are present.
 - Search toggle is CSS.
 - Navigation overlays and mega-menu submenus.
-- Image lightbox follows light and dark. The expand control sits on the image. Captions stay on the figure.
+- Lightbox follows light and dark. The expand control sits on the image. Captions stay on the figure.
 
 ## Third-party styling that ships in the theme
 

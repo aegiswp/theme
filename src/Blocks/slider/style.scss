@@ -282,6 +282,7 @@
 
 	// Single-slide sliders: one full centered slide (matches frontend).
 	&.is-single-page {
+
 		.block-editor-block-list__block.wp-block-aegis-slide,
 		.wp-block-aegis-slide {
 			--aegis-slide-basis: 100%;
@@ -459,7 +460,7 @@
 	margin: -1px;
 	padding: 0;
 	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
+	clip-path: inset(50%);
 	border: 0;
 }
 
@@ -530,7 +531,7 @@
 			display: block;
 			width: 24px;
 			height: 24px;
-			stroke: currentColor;
+			stroke: currentcolor;
 		}
 	}
 
@@ -549,7 +550,7 @@
 			display: block;
 			width: 24px;
 			height: 24px;
-			stroke: currentColor;
+			stroke: currentcolor;
 		}
 
 		@media (min-width: 960px) {

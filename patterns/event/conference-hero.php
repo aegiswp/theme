@@ -15,8 +15,8 @@
 	<div class="wp-block-group">
 		<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","justifyContent":"center"}} -->
 		<div class="wp-block-group">
-			<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"primary-600","fontSize":"14"} -->
-			<p class="is-style-sub-heading has-primary-600-color has-text-color has-14-font-size"><?php echo esc_html__( 'October 8 — 10, 2026', 'aegis' ); ?></p>
+			<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"primary-700","fontSize":"14"} -->
+			<p class="is-style-sub-heading has-primary-700-color has-text-color has-14-font-size"><?php echo esc_html__( 'October 8 — 10, 2026', 'aegis' ); ?></p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph {"textColor":"neutral-400","fontSize":"14"} -->

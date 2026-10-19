@@ -66,6 +66,22 @@ Navigation styles can be applied in template HTML using the WordPress block styl
 
 The navigation styles are registered by `Aegis\Framework\DesignSystem\NavigationOverlay`. Inline CSS is generated for each style variation and attached during block registration. Overlay stylesheet lives at `vendor/aegis/framework/public/css/block-styles/navigation-overlay.css` and loads when a `core/navigation` block (or overlay style class) is present.
 
+## Mobile Menu Submenus
+
+In the overlay (mobile) menu, submenus start closed. Tapping an item that has sub-items, or the arrow beside it, slides in a panel with:
+
+- a **Back** button that returns to the previous level;
+- the parent item as a title, linked to its page when it has one;
+- the sub-items, each with its own arrow if it has further sub-items.
+
+This applies to every Navigation block, including Page List items and the "Always" overlay setting. Keyboard users can press **Escape** to go back one level; **Tab** stays inside the open menu. Closing the menu resets it to the top level. Users who prefer reduced motion get the panels without the slide animation.
+
+The behavior comes from `vendor/aegis/framework/public/js/navigation-drilldown.js`, which loads only on pages that have submenus, with its styles in `core-blocks/navigation.css`. If JavaScript is unavailable, the menu shows core's fully expanded list.
+
+## Submenu Direction
+
+On desktop, submenus open to the right of their parent item in every Navigation block, including right-aligned menus (core WordPress opens them to the left there). Nested submenus open further to the right. In right-aligned menus, the last top-level item is the exception: its submenu opens toward the left so it stays on screen. These rules live in `vendor/aegis/framework/public/css/core-blocks/navigation.css`.
+
 ## Accessibility
 
 All navigation overlay variations:

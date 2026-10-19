@@ -15,8 +15,8 @@ declare(strict_types=1);
 ?>
 <!-- wp:aegis/slider {"perPage":1,"autoplay":false,"interval":8000,"showArrows":false,"showDots":true,"loop":true,"lightboxEnabled":false,"align":"wide","metadata":{"name":"Testimonials"}} -->
 <!-- wp:aegis/slide {"metadata":{"name":"Sarah Johnson"}} -->
-	<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|70","left":"var:preset|spacing|50","right":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"constrained","contentSize":"700px","justifyContent":"center"}} -->
-	<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--50)">
+	<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xll","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"},"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"constrained","contentSize":"700px","justifyContent":"center"}} -->
+	<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xll);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"20px","lineHeight":"1"}}} -->
 		<p class="has-text-align-center" style="font-size:20px;line-height:1">★★★★★</p>
 		<!-- /wp:paragraph -->
@@ -49,8 +49,8 @@ declare(strict_types=1);
 <!-- /wp:aegis/slide -->
 
 <!-- wp:aegis/slide {"metadata":{"name":"Michael Chen"}} -->
-	<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|70","left":"var:preset|spacing|50","right":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"constrained","contentSize":"700px","justifyContent":"center"}} -->
-	<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--50)">
+	<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xll","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"},"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"constrained","contentSize":"700px","justifyContent":"center"}} -->
+	<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xll);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"20px","lineHeight":"1"}}} -->
 		<p class="has-text-align-center" style="font-size:20px;line-height:1">★★★★★</p>
 		<!-- /wp:paragraph -->
@@ -83,8 +83,8 @@ declare(strict_types=1);
 <!-- /wp:aegis/slide -->
 
 <!-- wp:aegis/slide {"metadata":{"name":"Emily Rodriguez"}} -->
-	<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|70","left":"var:preset|spacing|50","right":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"constrained","contentSize":"700px","justifyContent":"center"}} -->
-	<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--50)">
+	<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xll","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"},"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"constrained","contentSize":"700px","justifyContent":"center"}} -->
+	<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xll);padding-left:var(--wp--preset--spacing--lg)">
 		<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"20px","lineHeight":"1"}}} -->
 		<p class="has-text-align-center" style="font-size:20px;line-height:1">★★★★★</p>
 		<!-- /wp:paragraph -->

@@ -1,5 +1,18 @@
-# Local-only. Maintained scripts in this directory are tracked; these paths are not.
-scratch/
+# Allowlist: everything in tools/ is local-only unless listed below.
+# One-off probes, fixes, and migrations stay on your machine (or in scratch/).
+# To track a new maintained tool, add a "!/<file>" line and document it in README.md.
+/*
+!/.gitignore
+!/README.md
+!/audit-patterns.php
+!/clean-build.js
+!/finish-translate.js
+!/generate-blocks-manifest.php
+!/migrate-aegis-video.php
+!/prepare-translate.js
+!/wpaudit/
+
+# WPAudit: tracked package, minus local install output and caches.
 wpaudit/vendor/
 wpaudit/.phpunit.cache/
 wpaudit/coverage/

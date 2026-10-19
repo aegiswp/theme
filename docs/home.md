@@ -4,14 +4,14 @@ Welcome to the official documentation for the Aegis WordPress theme. Aegis is a 
 
 ## About Aegis
 
-The theme provides templates, patterns, style variations, and six theme-registered custom blocks (Countdown, Slider, Slide, Toggle, Toggle Content, Related Posts). Video uses WordPress **`core/video`**, enhanced by the Aegis framework (see [[enhanced-core-blocks]]). The **Aegis framework** (`vendor/aegis/framework`) enhances 37 core blocks and registers block variations.
+The theme provides 50 templates, 234 patterns, 60 style variations, and six theme-registered custom blocks (Countdown, Slider, Slide, Toggle, Toggle Content, Related Posts). Video uses WordPress **`core/video`**, enhanced by the Aegis framework (see [[enhanced-core-blocks]]). The **Aegis framework** (`vendor/aegis/framework`) enhances 37 core blocks and registers block variations.
 
 Companion products extend the theme (documented separately):
 
 | Product | Local docs | Wiki / GitHub |
 |---------|------------|---------------|
-| **Aegis Plugin** (free) | [Plugin docs](../../plugins/aegis/docs/home.md) | [Wiki](https://github.com/aegiswp/plugin/wiki) · [docs tree](https://github.com/aegiswp/plugin/tree/main/docs) |
-| **Aegis Pro** | [Pro docs](../../plugins/aegis-pro/docs/home.md) | [Wiki](https://github.com/aegiswp/pro/wiki) · [docs tree](https://github.com/aegiswp/pro/tree/main/docs) |
+| **Aegis Plugin** (free) | [Plugin docs](../../../plugins/aegis/docs/home.md) | [Wiki](https://github.com/aegiswp/plugin/wiki) · [docs tree](https://github.com/aegiswp/plugin/tree/main/docs) |
+| **Aegis Pro** (coming soon) | [Pro docs](../../../plugins/aegis-pro/docs/home.md) | [Wiki](https://github.com/aegiswp/pro/wiki) · [docs tree](https://github.com/aegiswp/pro/tree/main/docs) |
 
 ## Documentation Contents
 
@@ -20,7 +20,8 @@ Companion products extend the theme (documented separately):
 - [[installation]] — Install and activate the theme
 - [[requirements]] — System requirements (theme + plugin versions)
 - [[quick-start-guide]] — Get up and running
-- [[updating]] — Update safely
+- [[updating]] — Update safely (automatic updates from GitHub since 1.0.1)
+- [[introduction-inventory]] — Everything the theme ships, counted from the files
 
 ### Using the Theme
 
@@ -54,11 +55,17 @@ Companion products extend the theme (documented separately):
 
 ### Development
 
-- [[development-setup]], [[building-assets]], [[tools]], [[architecture]], [[deployment]], [[contributing]], [[documentation]]
+- [[development-setup]], [[building-assets]], [[tools]], [[code-quality]], [[testing]], [[architecture]], [[deployment]], [[contributing]], [[documentation]]
 
 ### Reference
 
-- [[template-reference]], [[pattern-reference]], [[hooks-and-filters]], [[file-structure]]
+- [[template-reference]] — 50 templates
+- [[pattern-reference]] — 234 patterns with slugs
+- [[style-variations-reference]] — 60 style variations
+- [[css-variables-reference]] — Every design token as a CSS custom property
+- [[hooks-and-filters]] — Actions and filters
+- [[code-snippets]] — Copy-ready examples
+- [[file-structure]] — Repository layout
 
 ### Troubleshooting
 
@@ -66,7 +73,7 @@ Companion products extend the theme (documented separately):
 
 ---
 
-**Theme Version:** 1.0.0  
+**Theme Version:** 1.0.1  
 **Requires WordPress:** 7.0 or later  
 **Requires PHP:** 8.1 or later  
 **License:** GPL-2.0-or-later

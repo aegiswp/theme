@@ -114,7 +114,7 @@ With the companion plugin active, **Aegis → Blocks → Icon** gates extras on 
 | Custom SVG | Paste SVG markup on the block |
 | Icon Gallery | Grid of every icon in the selected set |
 | Responsive Sizing | Per-breakpoint icon size |
-| REST API Endpoint | `aegis/v1/icons` for the button/tab picker; on WordPress 7.0 also merges sets into `wp/v2/icons` |
+| REST API Endpoint | `aegis/v1/icons` for the button/tab picker (catalog + per-set lazy load); on WordPress 7.0 also merges sets into `wp/v2/icons` |
 
 ## Migrating Legacy Image Icons
 
@@ -130,7 +130,7 @@ studio wp aegis migrate-icons --dry-run
 
 The command updates posts, pages, other post types, and `widget_block` widgets. Review affected templates in the Site Editor afterward.
 
-See [[../getting-started/updating#image-icon--coreicon]].
+See [Updating](../getting-started/updating.md#image-icon--coreicon).
 
 ## Adding Custom Icons to the Library
 
@@ -173,10 +173,10 @@ The WordPress **Social Icons** block (`core/social-links`) is separate from the 
 ## Next Steps
 
 - [[block-variations]] — SVG Image variation (`is-style-svg`).
-- [[image-lightbox]] — Image lightbox extras on `core/image`.
-- [Plugin SVG Upload](../../plugins/aegis/docs/features/svg-upload.md) — Uploading `.svg` files to the Media Library ([Wiki](https://github.com/aegiswp/plugin/wiki)).
+- [[image-lightbox]] — Lightbox extras on `core/image`.
+- [Plugin SVG Upload](../../../../plugins/aegis/docs/features/svg-upload.md) — Uploading `.svg` files to the Media Library ([Wiki](https://github.com/aegiswp/plugin/wiki)).
 - [[enhanced-core-blocks]] — Other core block enhancements.
 - [[accessibility]] — Skip links and labeling.
 - [[dark-mode]] — Color tokens icons inherit.
-- [Plugin Block Variations](../../plugins/aegis/docs/blocks/block-variations.md) — Icon feature toggles.
-- [Pro Fonts and Icons](../../plugins/aegis-pro/docs/features/fonts-and-icons.md) — Extra collections.
+- [Plugin Block Variations](../../../../plugins/aegis/docs/blocks/block-variations.md) — Icon feature toggles.
+- [Pro Fonts and Icons](../../../../plugins/aegis-pro/docs/features/fonts-and-icons.md) — Extra collections.

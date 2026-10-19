@@ -33,12 +33,12 @@ jobs:
           echo "RELEASE_TAG=$TAG" >> $GITHUB_ENV
 
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: '20'
+          node-version-file: '.nvmrc'
           cache: 'npm'
 
       - name: Install System Dependencies
@@ -76,16 +76,6 @@ jobs:
       - name: Install Composer Dependencies (production, for package)
         run: composer install --no-dev --prefer-dist --no-progress --no-interaction --optimize-autoloader
 
-      # Automatically compile .po to .mo
-      - name: Compile Translations
-        run: |
-          mkdir -p languages
-          for po in languages/*.po; do
-            if [ -f "$po" ]; then
-              msgfmt "$po" -o "${po%.po}.mo"
-            fi
-          done
-
       - name: Package theme (installable build only)
         id: package_theme
         run: |
@@ -106,11 +96,20 @@ jobs:
           test -f "$THEME_SLUG/vendor/autoload.php"
           test -f "$THEME_SLUG/screenshot.png"
           test -d "$THEME_SLUG/src/Blocks"
+          # The framework is required at runtime; a broad .distignore pattern must never drop it.
+          test -f "$THEME_SLUG/vendor/aegis/framework/src/ServiceProvider.php"
+          test -f "$THEME_SLUG/vendor/aegis/icons/src/Icon.php"
 
           # WPAudit and other contributor tools must never ship in the theme zip.
           if [ -e "$THEME_SLUG/tools" ] || [ -e "$THEME_SLUG/vendor/aegis/wpaudit" ]; then
             echo "::error::Installable zip must not include tools/ or vendor/aegis/wpaudit (WPAudit is GitHub-only)."
             find "$THEME_SLUG" \( -path '*/tools/*' -o -path '*/wpaudit/*' \) | head
+            exit 1
+          fi
+
+          # Languages and the theme license stay in the repository only.
+          if [ -e "$THEME_SLUG/languages" ] || [ -e "$THEME_SLUG/LICENSE" ] || [ -e "$THEME_SLUG/LICENCE" ]; then
+            echo "::error::Installable zip must not include languages/ or the theme license file."
             exit 1
           fi
 

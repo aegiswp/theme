@@ -1,6 +1,6 @@
 # Templates
 
-Aegis provides 23 templates that control the layout of different page types across your site. Each template is a collection of blocks that defines how content is structured and displayed.
+Aegis provides 50 templates that control the layout of different page types across your site. Each template is a collection of blocks that defines how content is structured and displayed.
 
 ## Understanding Templates
 
@@ -8,43 +8,19 @@ In a block theme, templates are HTML files composed entirely of block markup. Th
 
 ## Available Templates
 
-### Core WordPress Templates
+The theme ships 50 template files. 40 of them are registered in `theme.json` as `customTemplates`, so they show up in the template picker for the post types they list. The full list, with files, post types, and the pattern each one loads, is in the [Template Reference](../reference/template-reference.md).
 
-| Template | Filename | Description |
-|----------|----------|-------------|
-| Index | `index.html` | The fallback template used when no more specific template is available. Displays a standard blog layout. |
-| Front Page | `front-page.html` | The site homepage when configured to show a static page under **Settings → Reading**. |
-| Page | `page.html` | The default template for static pages. Also used for bbPress forum views when the Aegis bbPress integration is on. |
-| Single Post | `single.html` | The template for individual blog posts. |
-| Archive | `archive.html` | Used for category, tag, date, and author archive listings. |
-| Author | `author.html` | Displays posts by a specific author with author information. |
-| Date | `date.html` | Displays posts filtered by date (year, month, or day). |
-| Search Results | `search.html` | Displays search results when a visitor uses the site search. |
-| 404 (Not Found) | `404.html` | Displayed when a requested page does not exist. |
+| Group | Templates |
+| --- | --- |
+| Hierarchy (10) | Index, Front Page, Blog Home, Page, Single, Archive, Author, Date, Search, 404 |
+| Page and post layouts (11) | Blank, Full Width, Page (No Title), Page: Boxed, Page: Hero Minimal, Page: Contact, Page: Landing, Page: With Sidebar, Single: Full Width, Single: No Featured Image, Author: Guest |
+| Utility (3) | Maintenance, Coming Soon, Page: Coming Soon |
+| Content archives (9) | Category Archives; Category: Books, Events, Podcasts, Portfolio, Recipes, Video; Tag Archives; Tag: Featured |
+| WooCommerce (17) | Archive: Product, Single item: Product, Single Product: Landing, Product Search Results, Search: Product, Taxonomy Product Category, Taxonomy Product Tag, Product Attribute, Product Category: Clothing / Digital / Outlet, Page: Cart, Page: Checkout, Page: Checkout Multi-Step, Order Confirmation, Page: My Account, Page: Wishlist |
 
-### Custom Page Templates
+WooCommerce templates are hidden from the Site Editor template picker when WooCommerce is inactive. Page: Wishlist is also hidden unless TI WooCommerce Wishlist is active.
 
-| Template | Filename | Description |
-|----------|----------|-------------|
-| Page (No Title) | `page-no-title.html` | A page template that omits the page title, useful for landing pages. |
-| Full Width | `full-width.html` | A page template without sidebar constraints, spanning the full viewport. |
-| Blank | `blank.html` | A minimal template with no header, footer, or surrounding structure. Ideal for custom landing pages and sales pages. |
-
-### WooCommerce Templates
-
-| Template | Filename | Description |
-|----------|----------|-------------|
-| Product Archive | `archive-product.html` | The main shop page displaying all products. |
-| Single Product | `single-product.html` | Individual product detail pages. |
-| Product Search Results | `product-search-results.html` | Displays results from a product-specific search. |
-| Product Category | `taxonomy-product_cat.html` | Products filtered by category taxonomy. |
-| Product Tag | `taxonomy-product_tag.html` | Products filtered by tag taxonomy. |
-| Cart | `page-cart.html` | The shopping cart page. |
-| Checkout | `page-checkout.html` | The standard single-page checkout. |
-| Multi-Step Checkout | `page-checkout-multi-step.html` | An enhanced checkout split across multiple steps for improved user experience. |
-| Order Confirmation | `order-confirmation.html` | Displayed after a successful order is placed. |
-| My Account | `page-my-account.html` | Customer account dashboard and management pages. |
-| Wishlist | `page-wishlist.html` | Customer product wishlist page. |
+Each template file loads one pattern from `patterns/template/` (for example `template-single`). To change a template's default layout in code, edit that pattern.
 
 ## Using Templates
 
@@ -93,7 +69,7 @@ Most Aegis templates follow a consistent structure:
 └─────────────────────────────────────┘
 ```
 
-The **Blank** template is an exception — it contains only a Post Content block with no header or footer.
+The **Blank** template is an exception. It has no header or footer, only a skip link and a `<main>` group with Post Content.
 
 ## Template Hierarchy in Aegis
 
@@ -114,7 +90,7 @@ The multi-step checkout template (`page-checkout-multi-step.html`) splits the ch
 2. **Payment** — Payment method and billing details.
 3. **Review** — Order summary and confirmation.
 
-This template requires WooCommerce to be active and **Aegis → Integrations → E-commerce → WooCommerce** on. Checkout CSS/JS live in the companion plugin and load on this template (or when the page contains `aegis-checkout-multi-step` markup). See [WooCommerce Checkout](../../plugins/aegis/docs/features/woocommerce-checkout.md).
+This template requires WooCommerce to be active and **Aegis → Integrations → E-commerce → WooCommerce** on. Checkout CSS/JS live in the companion plugin and load on this template (or when the page contains `aegis-checkout-multi-step` markup). See [WooCommerce Checkout](../../../../plugins/aegis/docs/features/woocommerce-checkout.md).
 
 ### Product Templates
 
@@ -134,7 +110,7 @@ See [[woocommerce-integration#wishlist-ti-woocommerce-wishlist]] for shortcode d
 
 ## bbPress
 
-There is no dedicated `single-forum.html` (or similar) template. When **Aegis → Integrations → Content → bbPress** is on, the framework wraps bbPress views in the **Page** template: `locate_block_template( $template, 'page', array( 'page.php' ) )`. WordPress resolves `templates/page.html`; the PHP fallback from bbPress theme-compat is kept. Editing **Page** in the Site Editor is what changes the forum chrome (header, footer, and surrounding layout).
+There is no dedicated `single-forum.html` (or similar) template. When **Aegis → Integrations → Community → bbPress** is on, the framework wraps bbPress views in the **Page** template: `locate_block_template( $template, 'page', array( 'page.php' ) )`. WordPress resolves `templates/page.html`; the PHP fallback from bbPress theme-compat is kept. Editing **Page** in the Site Editor is what changes the forum chrome (header, footer, and surrounding layout).
 
 ## Maintenance and Coming Soon
 

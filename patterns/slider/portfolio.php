@@ -13,8 +13,8 @@
 declare(strict_types=1);
 
 ?>
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"},"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained"},"metadata":{"name":"Portfolio Carousel"}} -->
-<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)">
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"},"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"constrained"},"metadata":{"name":"Portfolio Carousel"}} -->
+<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
 	<!-- wp:heading {"textAlign":"center"} -->
 	<h2 class="wp-block-heading has-text-align-center"><?php echo esc_html__( 'Our Latest Work', 'aegis' ); ?></h2>
 	<!-- /wp:heading -->
@@ -27,12 +27,12 @@ declare(strict_types=1);
 	<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
 	<!-- /wp:spacer -->
 
-	<!-- wp:aegis/slider {"lightboxEnabled":false,"perPage":3,"autoplay":false,"showArrows":true,"showDots":false,"loop":true,"drag":true,"breakpoints":true,"align":"wide","style":{"spacing":{"blockGap":"16px"}},"metadata":{"name":"Portfolio"}} -->
+	<!-- wp:aegis/slider {"lightboxEnabled":false,"perPage":3,"autoplay":false,"showArrows":true,"showDots":false,"loop":true,"drag":true,"breakpoints":true,"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"metadata":{"name":"Portfolio"}} -->
 		<!-- wp:aegis/slide {"metadata":{"name":"E-commerce Platform"}} -->
 			<!-- wp:cover {"dimRatio":50,"overlayColor":"neutral-0","isUserOverlayColor":true,"minHeight":420,"minHeightUnit":"px","contentPosition":"bottom left","className":"is-style-dark","style":{"border":{"radius":"16px"}}} -->
 			<div class="wp-block-cover has-custom-content-position is-position-bottom-left is-style-dark" style="border-radius:16px;min-height:420px"><span aria-hidden="true" class="wp-block-cover__background has-neutral-0-background-color has-background-dim"></span><div class="wp-block-cover__inner-container">
-				<!-- wp:group {"style":{"spacing":{"blockGap":"6px","padding":{"top":"28px","bottom":"28px","left":"28px","right":"28px"}}}} -->
-				<div class="wp-block-group" style="padding-top:28px;padding-right:28px;padding-bottom:28px;padding-left:28px">
+				<!-- wp:group {"style":{"spacing":{"blockGap":"6px","padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
+				<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
 					<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem","fontWeight":"600","letterSpacing":"0.08em","textTransform":"uppercase"}},"textColor":"neutral-950"} -->
 					<p class="has-neutral-950-color has-text-color" style="font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html__( 'Web Development', 'aegis' ); ?></p>
 					<!-- /wp:paragraph -->
@@ -49,8 +49,8 @@ declare(strict_types=1);
 		<!-- wp:aegis/slide {"metadata":{"name":"Brand Identity"}} -->
 			<!-- wp:cover {"dimRatio":50,"overlayColor":"neutral-0","isUserOverlayColor":true,"minHeight":420,"minHeightUnit":"px","contentPosition":"bottom left","className":"is-style-dark","style":{"border":{"radius":"16px"}}} -->
 			<div class="wp-block-cover has-custom-content-position is-position-bottom-left is-style-dark" style="border-radius:16px;min-height:420px"><span aria-hidden="true" class="wp-block-cover__background has-neutral-0-background-color has-background-dim"></span><div class="wp-block-cover__inner-container">
-				<!-- wp:group {"style":{"spacing":{"blockGap":"6px","padding":{"top":"28px","bottom":"28px","left":"28px","right":"28px"}}}} -->
-				<div class="wp-block-group" style="padding-top:28px;padding-right:28px;padding-bottom:28px;padding-left:28px">
+				<!-- wp:group {"style":{"spacing":{"blockGap":"6px","padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
+				<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
 					<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem","fontWeight":"600","letterSpacing":"0.08em","textTransform":"uppercase"}},"textColor":"neutral-950"} -->
 					<p class="has-neutral-950-color has-text-color" style="font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html__( 'Branding', 'aegis' ); ?></p>
 					<!-- /wp:paragraph -->
@@ -67,8 +67,8 @@ declare(strict_types=1);
 		<!-- wp:aegis/slide {"metadata":{"name":"Wellness Tracker"}} -->
 			<!-- wp:cover {"dimRatio":50,"overlayColor":"neutral-0","isUserOverlayColor":true,"minHeight":420,"minHeightUnit":"px","contentPosition":"bottom left","className":"is-style-dark","style":{"border":{"radius":"16px"}}} -->
 			<div class="wp-block-cover has-custom-content-position is-position-bottom-left is-style-dark" style="border-radius:16px;min-height:420px"><span aria-hidden="true" class="wp-block-cover__background has-neutral-0-background-color has-background-dim"></span><div class="wp-block-cover__inner-container">
-				<!-- wp:group {"style":{"spacing":{"blockGap":"6px","padding":{"top":"28px","bottom":"28px","left":"28px","right":"28px"}}}} -->
-				<div class="wp-block-group" style="padding-top:28px;padding-right:28px;padding-bottom:28px;padding-left:28px">
+				<!-- wp:group {"style":{"spacing":{"blockGap":"6px","padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
+				<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
 					<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem","fontWeight":"600","letterSpacing":"0.08em","textTransform":"uppercase"}},"textColor":"neutral-950"} -->
 					<p class="has-neutral-950-color has-text-color" style="font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html__( 'Mobile App', 'aegis' ); ?></p>
 					<!-- /wp:paragraph -->
@@ -85,8 +85,8 @@ declare(strict_types=1);
 		<!-- wp:aegis/slide {"metadata":{"name":"Product Dashboard"}} -->
 			<!-- wp:cover {"dimRatio":50,"overlayColor":"neutral-0","isUserOverlayColor":true,"minHeight":420,"minHeightUnit":"px","contentPosition":"bottom left","className":"is-style-dark","style":{"border":{"radius":"16px"}}} -->
 			<div class="wp-block-cover has-custom-content-position is-position-bottom-left is-style-dark" style="border-radius:16px;min-height:420px"><span aria-hidden="true" class="wp-block-cover__background has-neutral-0-background-color has-background-dim"></span><div class="wp-block-cover__inner-container">
-				<!-- wp:group {"style":{"spacing":{"blockGap":"6px","padding":{"top":"28px","bottom":"28px","left":"28px","right":"28px"}}}} -->
-				<div class="wp-block-group" style="padding-top:28px;padding-right:28px;padding-bottom:28px;padding-left:28px">
+				<!-- wp:group {"style":{"spacing":{"blockGap":"6px","padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
+				<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
 					<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem","fontWeight":"600","letterSpacing":"0.08em","textTransform":"uppercase"}},"textColor":"neutral-950"} -->
 					<p class="has-neutral-950-color has-text-color" style="font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html__( 'UI/UX Design', 'aegis' ); ?></p>
 					<!-- /wp:paragraph -->
@@ -103,8 +103,8 @@ declare(strict_types=1);
 		<!-- wp:aegis/slide {"metadata":{"name":"Campaign Launch"}} -->
 			<!-- wp:cover {"dimRatio":50,"overlayColor":"neutral-0","isUserOverlayColor":true,"minHeight":420,"minHeightUnit":"px","contentPosition":"bottom left","className":"is-style-dark","style":{"border":{"radius":"16px"}}} -->
 			<div class="wp-block-cover has-custom-content-position is-position-bottom-left is-style-dark" style="border-radius:16px;min-height:420px"><span aria-hidden="true" class="wp-block-cover__background has-neutral-0-background-color has-background-dim"></span><div class="wp-block-cover__inner-container">
-				<!-- wp:group {"style":{"spacing":{"blockGap":"6px","padding":{"top":"28px","bottom":"28px","left":"28px","right":"28px"}}}} -->
-				<div class="wp-block-group" style="padding-top:28px;padding-right:28px;padding-bottom:28px;padding-left:28px">
+				<!-- wp:group {"style":{"spacing":{"blockGap":"6px","padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
+				<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
 					<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem","fontWeight":"600","letterSpacing":"0.08em","textTransform":"uppercase"}},"textColor":"neutral-950"} -->
 					<p class="has-neutral-950-color has-text-color" style="font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html__( 'Digital Marketing', 'aegis' ); ?></p>
 					<!-- /wp:paragraph -->

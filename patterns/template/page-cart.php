@@ -61,11 +61,17 @@
 				</div>
 				<!-- /wp:woocommerce/cart-order-summary-block -->
 
-				<!-- wp:woocommerce/cart-express-payment-block /-->
+				<!-- wp:woocommerce/cart-express-payment-block -->
+<div class="wp-block-woocommerce-cart-express-payment-block"></div>
+<!-- /wp:woocommerce/cart-express-payment-block -->
 
-				<!-- wp:woocommerce/proceed-to-checkout-block /-->
+				<!-- wp:woocommerce/proceed-to-checkout-block -->
+<div class="wp-block-woocommerce-proceed-to-checkout-block"></div>
+<!-- /wp:woocommerce/proceed-to-checkout-block -->
 
-				<!-- wp:woocommerce/cart-accepted-payment-methods-block /-->
+				<!-- wp:woocommerce/cart-accepted-payment-methods-block -->
+<div class="wp-block-woocommerce-cart-accepted-payment-methods-block"></div>
+<!-- /wp:woocommerce/cart-accepted-payment-methods-block -->
 			</div>
 			<!-- /wp:woocommerce/cart-totals-block -->
 		</div>

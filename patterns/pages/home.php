@@ -17,11 +17,6 @@
  style="padding-top:0;padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--lg)">
  <!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
  <div class="wp-block-group">
- <!-- wp:paragraph {"align":"center","className":"is-style-sub-heading","style":{"border":{"width":"1px","radius":"99px"},"spacing":{"padding":{"top":"6px","bottom":"6px","right":"var:preset|spacing|xs","left":"var:preset|spacing|xs"},"margin":{"top":"0","bottom":"var:preset|spacing|xs"}},"typography":{"lineHeight":"1"}},"backgroundColor":"neutral-950","textColor":"primary-25","borderColor":"neutral-950","fontSize":"12"} -->
- <p class="has-text-align-center is-style-sub-heading has-border-color has-neutral-950-border-color has-primary-25-color has-neutral-950-background-color has-text-color has-background has-12-font-size"
- style="border-width:1px;border-radius:99px;margin-top:0;margin-bottom:var(--wp--preset--spacing--xs);padding-top:6px;padding-right:var(--wp--preset--spacing--xs);padding-bottom:6px;padding-left:var(--wp--preset--spacing--xs);line-height:1"><?php echo esc_html__( 'RELEASE V1.0.0', 'aegis' ); ?></p>
- <!-- /wp:paragraph -->
-
  <!-- wp:icon {"icon":"social/aegis","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-1.5 -1.5 27 27\" fill=\"currentColor\" role=\"img\" aria-labelledby=\"icon-hero-aegis\" data-icon=\"social-aegis\" style=\"min-width:120px;height:120px\"><title id=\"icon-hero-aegis\">Aegis Icon</title><path d=\"M10.06 7.75 L12.02 3.87 L13.95 7.72 L16.65 9.29 L12.03 0 L7.34 9.3 L10.06 7.75 Z M18.37 12.72 L18.2 12.36 L15.5 10.79 L17.02 13.68 L20.05 18.61 L12.02 15.17 L3.98 18.62 L6.96 13.68 L8.39 10.81 L5.67 12.39 L5.5 12.71 L0 22.87 L12.01 16.87 L24 22.94 L18.37 12.72 Z\" fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\"></path></svg>","style":{"dimensions":{"width":"120px"}}} /-->
 
  <!-- wp:heading {"textAlign":"center","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs"}}},"fontSize":"44"} -->
@@ -42,10 +37,9 @@
  href="/wp-admin/site-editor.php"><?php echo esc_html__( 'Open Editor', 'aegis' ); ?></a></div>
  <!-- /wp:button -->
 
- <!-- wp:button {"backgroundColor":"neutral-800","onclick":"","size":"large","iconSet":"wordpress","iconName":"pages","iconSize":"15px","iconPosition":"end","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-labelledby=\"icon-696222c2e1e7c\" data-icon=\"wordpress-pages\" width=\"24\" height=\"24\" fill=\"currentColor\"><title id=\"icon-696222c2e1e7c\">Pages Icon</title><path d=\"M7 13.8h6v-1.5H7v1.5zM18 16V4c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2zM5.5 16V4c0-.3.2-.5.5-.5h10c.3 0 .5.2.5.5v12c0 .3-.2.5-.5.5H6c-.3 0-.5-.2-.5-.5zM7 10.5h8V9H7v1.5zm0-3.3h8V5.8H7v1.4zM20.2 6v13c0 .7-.6 1.2-1.2 1.2H8v1.5h11c1.5 0 2.7-1.2 2.7-2.8V6h-1.5z\"></path></svg>"} -->
+ <!-- wp:button {"backgroundColor":"neutral-800","onclick":"","size":"large","iconSet":"wordpress","iconName":"plugins","iconSize":"15px","iconPosition":"end","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-labelledby=\"icon-hero-plugin\" data-icon=\"wordpress-plugins\" width=\"24\" height=\"24\" fill=\"currentColor\"><title id=\"icon-hero-plugin\">Plugins Icon</title><path d=\"M10.5 4v4h3V4H15v4h1.5a1 1 0 0 1 1 1v4l-3 4v2a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-2l-3-4V9a1 1 0 0 1 1-1H9V4h1.5zm.5 12.5v2h2v-2l3-4v-3H8v3l3 4z\"></path></svg>"} -->
  <div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button"
- href="https://github.com/aegiswp/theme/wiki" target="_blank"
- rel="noreferrer noopener nofollow"><?php echo esc_html__( 'Read Docs', 'aegis' ); ?></a></div>
+  href="https://www.atmostfear-entertainment.com/aegis/plugin/"><?php echo esc_html__( 'Get Plugin', 'aegis' ); ?></a></div>
  <!-- /wp:button -->
  </div>
  <!-- /wp:buttons -->
@@ -54,9 +48,31 @@
  </div>
  <!-- /wp:group -->
 
- <!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
- <figure class="wp-block-image size-full"><img alt="" /></figure>
- <!-- /wp:image -->
+<!-- wp:group {"metadata":{"name":"Hero images"},"align":"wide","style":{"position":{"all":"relative"},"spacing":{"padding":{"top":"var:preset|spacing|sm","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--xl)">
+<!-- wp:group {"style":{"position":{"all":"relative"},"zIndex":{"all":"3"},"spacing":{"margin":{"right":"auto","left":"auto"}},"width":{"all":"60%","mobile":"100%"}},"layout":{"type":"default"}} -->
+<div class="wp-block-group" style="margin-right:auto;margin-left:auto">
+<!-- wp:image {"aspectRatio":"16/10","scale":"cover","sizeSlug":"full","linkDestination":"none","width":"100%"} -->
+<figure class="wp-block-image size-full is-resized"><img alt="<?php echo esc_attr__( 'Hero image', 'aegis' ); ?>" style="aspect-ratio:16/10;object-fit:cover;width:100%"/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"style":{"position":{"all":"absolute"},"zIndex":{"all":"1"},"top":{"all":"12%"},"left":{"all":"0px"},"width":{"all":"34%"},"display":{"mobile":"none"}},"layout":{"type":"default"}} -->
+<div class="wp-block-group">
+<!-- wp:image {"aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none","width":"100%"} -->
+<figure class="wp-block-image size-full is-resized"><img alt="<?php echo esc_attr__( 'Left image', 'aegis' ); ?>" style="aspect-ratio:4/3;object-fit:cover;width:100%"/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"style":{"position":{"all":"absolute"},"zIndex":{"all":"1"},"top":{"all":"12%"},"right":{"all":"0px"},"width":{"all":"34%"},"display":{"mobile":"none"}},"layout":{"type":"default"}} -->
+<div class="wp-block-group">
+<!-- wp:image {"aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none","width":"100%"} -->
+<figure class="wp-block-image size-full is-resized"><img alt="<?php echo esc_attr__( 'Right image', 'aegis' ); ?>" style="aspect-ratio:4/3;object-fit:cover;width:100%"/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
  </div>
  <!-- /wp:group -->
 

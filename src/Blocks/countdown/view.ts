@@ -90,8 +90,6 @@
 		}
 		wrapper.setAttribute( INIT_FLAG, '' );
 
-		let config = parseConfig( wrapper );
-
 		const segmentsContainer = wrapper.querySelector< HTMLElement >(
 			'.aegis-countdown__segments'
 		);
@@ -99,6 +97,8 @@
 		if ( ! segmentsContainer ) {
 			return;
 		}
+
+		let config = parseConfig( wrapper );
 
 		const expiredContainer = wrapper.querySelector< HTMLElement >(
 			'.aegis-countdown__expired'
@@ -140,7 +140,7 @@
 
 			if ( expired ) {
 				expired = false;
-				segmentsContainer.removeAttribute( 'hidden' );
+				segmentsContainer?.removeAttribute( 'hidden' );
 				if ( expiredContainer ) {
 					expiredContainer.setAttribute( 'hidden', '' );
 				}
@@ -197,7 +197,7 @@
 			} );
 
 			if ( config.expiryMessage && expiredContainer ) {
-				segmentsContainer.setAttribute( 'hidden', '' );
+				segmentsContainer?.setAttribute( 'hidden', '' );
 				expiredContainer.removeAttribute( 'hidden' );
 			}
 

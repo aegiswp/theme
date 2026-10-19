@@ -108,7 +108,9 @@ interface SliderConfig {
 			),
 			proLazyThreshold: proLazy.threshold,
 			proFade,
-			proWheel: Boolean( pro?.mousewheel?.enabled ) && ! Boolean( pro?.mousewheel?.invert ),
+			proWheel:
+				Boolean( pro?.mousewheel?.enabled ) &&
+				! Boolean( pro?.mousewheel?.invert ),
 		};
 	}
 
@@ -158,14 +160,17 @@ interface SliderConfig {
 									Math.floor( config.perPage / 2 )
 								),
 							},
-					  }
+						}
 					: {},
 				direction: config.direction,
 				height: config.height || undefined,
 			};
 		} else {
+			const slideType = config.loop ? 'loop' : 'slide';
+			const tabletPerPage = config.perPage > 1 ? 2 : 1;
+
 			options = {
-				type: isFade ? 'fade' : config.loop ? 'loop' : 'slide',
+				type: isFade ? 'fade' : slideType,
 				perPage: isFade ? 1 : config.perPage,
 				perMove: config.perMove,
 				autoplay: allowAutoplay,
@@ -185,15 +190,11 @@ interface SliderConfig {
 				breakpoints: config.breakpoints
 					? {
 							782: {
-								perPage: isFade
-									? 1
-									: config.perPage > 1
-									? 2
-									: 1,
+								perPage: isFade ? 1 : tabletPerPage,
 								perMove: config.perMove > 1 ? 2 : 1,
 							},
 							512: { perPage: 1, perMove: 1 },
-					  }
+						}
 					: {},
 				arrowPath:
 					'M13.4 1 9.5 4.2 24.1 20 9.5 35.8l3.8 3.2 17.1-19-17-19z',
@@ -267,14 +268,20 @@ interface SliderConfig {
 			return false;
 		}
 
-		if ( attrSrc === PLACEHOLDER_GIF || attrSrc.startsWith( 'data:image/svg' ) ) {
+		if (
+			attrSrc === PLACEHOLDER_GIF ||
+			attrSrc.startsWith( 'data:image/svg' )
+		) {
 			return false;
 		}
 
 		try {
 			const resolved = new URL( img.currentSrc || img.src, location.href )
 				.href;
-			if ( resolved === location.href || resolved === `${ location.origin }/` ) {
+			if (
+				resolved === location.href ||
+				resolved === `${ location.origin }/`
+			) {
 				return false;
 			}
 		} catch {

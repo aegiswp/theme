@@ -184,7 +184,7 @@ Block and page visibility extras at **Aegis → Conditionals → Accessibility**
 
 On posts, those classes are added to the existing `core/post-content` wrapper. Hook patterns wrap the whole pattern. Turning an extra off skips both the classes and the CSS.
 
-See [Plugin Conditional Logic](../../plugins/aegis/docs/features/conditional-logic.md#accessibility-extras).
+See [Plugin Conditional Logic](../../../../plugins/aegis/docs/features/conditional-logic.md#accessibility-extras).
 
 ## Next Steps
 

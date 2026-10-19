@@ -67,9 +67,9 @@ All fonts (Lexend, Lexend Deca, JetBrains Mono) are served from the theme direct
 
 Using variable font files reduces the number of HTTP requests:
 
-- One file for Lexend covers all weights (100–900).
-- One file for Lexend Deca covers all weights.
-- One file for JetBrains Mono covers regular and italic.
+- One file for Lexend covers weights 300–900.
+- One file for Lexend Deca covers weights 300–900.
+- One file for JetBrains Mono (`jetbrains` slug) covers weights 100–900, upright only.
 
 ### Font Display Strategy
 
@@ -82,10 +82,10 @@ Fonts use `font-display: swap`:
 
 ### Conditional Font Loading
 
-Fonts are only loaded when they are actually used on the page:
+`theme.json` declares the font faces, and browsers download a `woff2` file only when text on the page uses that family:
 
-- JetBrains Mono loads only when a code block is present.
-- If a style variation uses only one font family, the unused font does not load.
+- JetBrains Mono downloads only when code text is on the page.
+- Lexend Deca downloads when headings are present.
 
 ## Image Optimization
 
@@ -142,7 +142,7 @@ Aegis is optimized for Google Core Web Vitals:
 ### Running WPAudit
 
 ```bash
-npm run audit
+composer test:wpaudit
 ```
 
 See [[testing]] for more details on running performance tests.
@@ -179,7 +179,7 @@ When building custom pages or templates:
 
 ## Next Steps
 
-- [[../../plugins/aegis/docs/features/performance|Plugin Performance]] — Free site-wide toggles (oEmbed, dashicons, heartbeat, head/API cleanup, embed facades) and Pro emoji / Query Loop Performance. With Pro active, the theme defers emoji stripping to that toggle; free-plugin and standalone theme installs keep zero-base frontend emoji removal. Standalone theme enables embed facades by default; with the free plugin they default off until toggled.
+- [Plugin Performance](../../../../plugins/aegis/docs/features/performance.md) — Free site-wide toggles (oEmbed, dashicons, heartbeat, head/API cleanup, embed facades) and Pro emoji / Query Loop Performance. With Pro active, the theme defers emoji stripping to that toggle; free-plugin and standalone theme installs keep zero-base frontend emoji removal. Standalone theme enables embed facades by default; with the free plugin they default off until toggled.
 - [[testing]] — Running performance tests
 - [[building-assets]] — Understanding the build process.
 - [[deployment]] — Production deployment considerations.

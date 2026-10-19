@@ -9,11 +9,11 @@
  */
 ?>
 
-<!-- wp:cover {"className":"is-style-dark","dimRatio":60,"overlayColor":"neutral-0","isUserOverlayColor":true,"minHeight":85,"minHeightUnit":"vh","isDark":true,"metadata":{"categories":["hero"],"patternName":"hero-video","name":"Hero Video"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xxl"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:cover {"className":"is-style-dark","dimRatio":70,"overlayColor":"neutral-0","isUserOverlayColor":true,"minHeight":85,"minHeightUnit":"vh","isDark":true,"metadata":{"categories":["hero"],"patternName":"hero-video","name":"Hero Video"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xxl"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-cover alignfull is-style-dark"
 	style="padding-top:var(--wp--preset--spacing--xxl);padding-bottom:var(--wp--preset--spacing--xxl);min-height:85vh">
 	<span aria-hidden="true"
-		class="wp-block-cover__background has-neutral-0-background-color has-background-dim-60 has-background-dim"></span>
+		class="wp-block-cover__background has-neutral-0-background-color has-background-dim-70 has-background-dim"></span>
 	<div class="wp-block-cover__inner-container">
 		<!-- wp:group {"layout":{"type":"constrained","contentSize":"800px"}} -->
 		<div class="wp-block-group">

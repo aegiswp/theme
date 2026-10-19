@@ -1,6 +1,6 @@
 {
   "name": "aegis-theme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Aegis - Native Block Framework",
   "author": "Atmostfear Entertainment",
   "license": "GPL-2.0-or-later",
@@ -18,7 +18,7 @@
     "url": "https://github.com/aegiswp/theme/issues"
   },
   "engines": {
-    "node": ">=20.18.0",
+    "node": ">=22.13.0",
     "npm": ">=10.0.0"
   },
   "browserslist": [
@@ -26,26 +26,41 @@
   ],
   "prettier": "@wordpress/prettier-config",
   "devDependencies": {
-    "@wordpress/element": "^6.46.0",
+    "@types/react": "^18.3.31",
+    "@wordpress/block-editor": "^18.1.0",
+    "@wordpress/blocks": "^16.2.0",
+    "@wordpress/components": "^42.0.0",
+    "@wordpress/data": "^10.57.0",
+    "@wordpress/element": "^9.0.0",
     "@wordpress/env": "^11.17.0",
+    "@wordpress/i18n": "^6.30.0",
+    "@wordpress/primitives": "^4.57.0",
     "@wordpress/scripts": "^36.1.0",
-    "pa11y-ci": "^5.0.0"
+    "@wordpress/server-side-render": "^6.33.0",
+    "pa11y-ci": "^5.0.0",
+    "typescript": "^6.0.3"
   },
   "overrides": {
+    "@simple-git/argv-parser": "^2.0.1",
     "axios": ">=1.15.0",
-    "qs": ">=6.14.1",
+    "basic-ftp": ">=5.3.0",
+    "fast-xml-parser": ">=5.7.2",
     "glob": ">=10.5.0",
-    "webpack-dev-server": ">=5.2.2",
+    "immutable": ">=5.1.9",
+    "launch-editor": ">=2.14.2",
     "lodash": ">=4.17.21",
     "lodash-es": ">=4.17.21",
-    "fast-xml-parser": ">=5.7.2",
-    "basic-ftp": ">=5.3.0",
     "minimatch": ">=9.0.0",
-    "serialize-javascript": ">=7.0.5",
-    "immutable": ">=5.1.9",
-    "svgo": ">=3.3.3",
     "postcss": ">=8.5.30",
-    "uuid": ">=11.0.0"
+    "qs": ">=6.16.1",
+    "serialize-javascript": ">=7.0.5",
+    "shell-quote": ">=1.12.0",
+    "simple-git": "^4.0.2",
+    "smol-toml": "^1.9.1",
+    "svgo": ">=3.3.3",
+    "uuid": ">=11.0.0",
+    "webpack-dev-server": ">=6.0.0",
+    "ws": ">=8.22.0"
   },
   "scripts": {
     "build": "wp-scripts build --webpack-copy-php && php tools/generate-blocks-manifest.php",
@@ -58,10 +73,11 @@
     "env:clean": "wp-env clean all",
     "env:install": "wp-env run cli -- bash -c \"wp core install --url=http://localhost:8888 --title=Aegis-Dev --admin_user=admin --admin_password=password --admin_email=dev@local.invalid --skip-email || true; wp theme activate aegis\"",
     "env:cli": "wp-env run cli -- wp",
-    "lint": "npm run lint:js && npm run lint:css && npm run lint:pkg-json",
+    "lint": "npm run lint:js && npm run lint:css && npm run lint:types && npm run lint:pkg-json",
     "lint:js": "wp-scripts lint-js",
     "lint:css": "wp-scripts lint-style",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "lint:types": "tsc --noEmit -p tsconfig.json",
     "lint:php": "composer run standards:check",
     "format": "wp-scripts format",
     "test": "composer test:php",
@@ -74,7 +90,7 @@
     "audit-patterns:studio": "studio wp eval-file tools/audit-patterns.php",
     "migrate:video": "wp eval-file tools/migrate-aegis-video.php",
     "migrate:video:studio": "studio wp eval-file tools/migrate-aegis-video.php",
-    "translate": "node tools/prepare-translate.js && wp i18n make-pot . languages/aegis.pot --domain=aegis --skip-block-json --skip-theme-json --exclude=node_modules,vendor,.git,dist,.wp-env && node tools/finish-translate.js",
-    "translate:studio": "node tools/prepare-translate.js && studio wp --path ../../.. i18n make-pot wp-content/themes/aegis wp-content/themes/aegis/languages/aegis.pot --domain=aegis --skip-block-json --skip-theme-json --exclude=node_modules,vendor,.git,dist,.wp-env && node tools/finish-translate.js"
+    "translate": "node tools/prepare-translate.js && wp i18n make-pot . languages/aegis.pot --domain=aegis --skip-block-json --skip-theme-json --exclude=node_modules,vendor,.git,dist,.wp-env,patterns/custom && node tools/finish-translate.js",
+    "translate:studio": "node tools/prepare-translate.js && studio wp --path ../../.. i18n make-pot wp-content/themes/aegis wp-content/themes/aegis/languages/aegis.pot --domain=aegis --skip-block-json --skip-theme-json --exclude=node_modules,vendor,.git,dist,.wp-env,patterns/custom && node tools/finish-translate.js"
   }
 }

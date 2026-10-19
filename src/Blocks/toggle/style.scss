@@ -8,7 +8,7 @@
  */
 
 .wp-block-aegis-toggle {
-	--aegis-toggle-track: color-mix(in srgb, currentColor 12%, transparent);
+	--aegis-toggle-track: color-mix(in srgb, currentcolor 12%, transparent);
 	--aegis-toggle-surface: var(
 		--wp--custom--body--background,
 		var(--wp--preset--color--neutral-0, #fff)
@@ -136,7 +136,7 @@
 }
 
 .aegis-toggle--style-buttons .aegis-toggle__button {
-	border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+	border: 1px solid color-mix(in srgb, currentcolor 20%, transparent);
 	border-radius: 4px;
 }
 

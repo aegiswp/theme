@@ -84,14 +84,14 @@ See [[dark-mode]] for configuration details.
 
 Enhance Aegis with companion plugins:
 
-- **Aegis Plugin** (free) — Map and Modal blocks, admin dashboard, integrations, snippets, conditionals, analytics. See [docs](../../plugins/aegis/docs/getting-started/installation.md) · [Wiki](https://github.com/aegiswp/plugin/wiki).
-- **Aegis Pro** — Hook patterns, video stack, query conditions, Pro blocks. Requires Aegis theme. See [docs](../../plugins/aegis-pro/docs/getting-started/installation.md) · [Wiki](https://github.com/aegiswp/pro/wiki).
+- **Aegis Plugin** (free) — Map and Modal blocks, admin dashboard, integrations, snippets, conditionals, analytics. See [docs](../../../../plugins/aegis/docs/getting-started/installation.md) · [Wiki](https://github.com/aegiswp/plugin/wiki).
+- **Aegis Pro** — Hook patterns, video stack, query conditions, Pro blocks. Requires Aegis theme. See [docs](../../../../plugins/aegis-pro/docs/getting-started/installation.md) · [Wiki](https://github.com/aegiswp/pro/wiki).
 
 After installing the plugin, open **Aegis → Dashboard** to configure blocks and integrations.
 
 ## Building a Page with Patterns
 
-Aegis includes **236 theme block patterns** across **29 category folders** (plus companion plugin and Pro patterns). Here is a typical workflow for assembling a page:
+Aegis includes **234 theme block patterns** in **28 category folders** (plus companion plugin and Pro patterns). Here is a typical workflow for assembling a page:
 
 1. **Start with a Hero pattern** — Choose from the Hero category for your page header.
 2. **Add Feature sections** — Showcase your services or capabilities.
@@ -114,7 +114,7 @@ Each pattern is fully customizable after insertion. Change colors, text, images,
 
 ## Recommended Reading
 
-- [[templates]] — Learn about the 23 available page templates.
+- [[templates]] — Learn about the 50 templates.
 - [[block-patterns]] — Explore the full pattern library.
 - [[color-palette]] — Understand the design system color tokens.
 - [[typography]] — Configure fonts and type scale.

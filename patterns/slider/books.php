@@ -13,8 +13,8 @@
 declare(strict_types=1);
 
 ?>
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"},"blockGap":"var:preset|spacing|20"}},"layout":{"type":"constrained"},"metadata":{"name":"Books Slider"}} -->
-<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)">
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xll","bottom":"var:preset|spacing|xll"},"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"constrained"},"metadata":{"name":"Books Slider"}} -->
+<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xll);padding-bottom:var(--wp--preset--spacing--xll)">
 	<!-- wp:heading {"textAlign":"center"} -->
 	<h2 class="wp-block-heading has-text-align-center"><?php echo esc_html__( 'Featured Books', 'aegis' ); ?></h2>
 	<!-- /wp:heading -->
@@ -49,12 +49,12 @@ declare(strict_types=1);
 					<h3 class="wp-block-heading" style="margin-top:8px;margin-bottom:0;font-size:2rem;font-weight:600;line-height:1.2"><?php echo esc_html__( 'Building With Blocks', 'aegis' ); ?></h3>
 					<!-- /wp:heading -->
 
-					<!-- wp:paragraph {"style":{"typography":{"fontSize":"1.0625rem","lineHeight":"1.65"},"spacing":{"margin":{"top":"16px","bottom":"0"}}},"textColor":"neutral-500"} -->
-					<p class="has-neutral-500-color has-text-color" style="margin-top:16px;margin-bottom:0;font-size:1.0625rem;line-height:1.65"><?php echo esc_html__( 'A practical guide to crafting fast, accessible WordPress sites with the block editor—patterns, theme.json, and modern design systems included.', 'aegis' ); ?></p>
+					<!-- wp:paragraph {"style":{"typography":{"fontSize":"1.0625rem","lineHeight":"1.65"},"spacing":{"margin":{"top":"var:preset|spacing|xs","bottom":"0"}}},"textColor":"neutral-500"} -->
+					<p class="has-neutral-500-color has-text-color" style="margin-top:var(--wp--preset--spacing--xs);margin-bottom:0;font-size:1.0625rem;line-height:1.65"><?php echo esc_html__( 'A practical guide to crafting fast, accessible WordPress sites with the block editor—patterns, theme.json, and modern design systems included.', 'aegis' ); ?></p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"28px"},"blockGap":{"left":"12px"}}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
-					<div class="wp-block-buttons" style="margin-top:28px">
+					<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"},"blockGap":{"left":"12px"}}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
+					<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 						<!-- wp:button {"className":"is-style-fill"} -->
 						<div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button"><?php echo esc_html__( 'Read More', 'aegis' ); ?></a></div>
 						<!-- /wp:button -->
@@ -91,12 +91,12 @@ declare(strict_types=1);
 					<h3 class="wp-block-heading" style="margin-top:8px;margin-bottom:0;font-size:2rem;font-weight:600;line-height:1.2"><?php echo esc_html__( 'Content That Converts', 'aegis' ); ?></h3>
 					<!-- /wp:heading -->
 
-					<!-- wp:paragraph {"style":{"typography":{"fontSize":"1.0625rem","lineHeight":"1.65"},"spacing":{"margin":{"top":"16px","bottom":"0"}}},"textColor":"neutral-500"} -->
-					<p class="has-neutral-500-color has-text-color" style="margin-top:16px;margin-bottom:0;font-size:1.0625rem;line-height:1.65"><?php echo esc_html__( 'Learn how to structure landing pages, CTAs, and storytelling so every visit moves readers closer to action—without sacrificing brand clarity.', 'aegis' ); ?></p>
+					<!-- wp:paragraph {"style":{"typography":{"fontSize":"1.0625rem","lineHeight":"1.65"},"spacing":{"margin":{"top":"var:preset|spacing|xs","bottom":"0"}}},"textColor":"neutral-500"} -->
+					<p class="has-neutral-500-color has-text-color" style="margin-top:var(--wp--preset--spacing--xs);margin-bottom:0;font-size:1.0625rem;line-height:1.65"><?php echo esc_html__( 'Learn how to structure landing pages, CTAs, and storytelling so every visit moves readers closer to action—without sacrificing brand clarity.', 'aegis' ); ?></p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"28px"},"blockGap":{"left":"12px"}}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
-					<div class="wp-block-buttons" style="margin-top:28px">
+					<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"},"blockGap":{"left":"12px"}}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
+					<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 						<!-- wp:button {"className":"is-style-fill"} -->
 						<div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button"><?php echo esc_html__( 'Read More', 'aegis' ); ?></a></div>
 						<!-- /wp:button -->
@@ -133,12 +133,12 @@ declare(strict_types=1);
 					<h3 class="wp-block-heading" style="margin-top:8px;margin-bottom:0;font-size:2rem;font-weight:600;line-height:1.2"><?php echo esc_html__( 'Speed Without Compromise', 'aegis' ); ?></h3>
 					<!-- /wp:heading -->
 
-					<!-- wp:paragraph {"style":{"typography":{"fontSize":"1.0625rem","lineHeight":"1.65"},"spacing":{"margin":{"top":"16px","bottom":"0"}}},"textColor":"neutral-500"} -->
-					<p class="has-neutral-500-color has-text-color" style="margin-top:16px;margin-bottom:0;font-size:1.0625rem;line-height:1.65"><?php echo esc_html__( 'Techniques for lean assets, smart loading, and Core Web Vitals—so your site feels instant on every device.', 'aegis' ); ?></p>
+					<!-- wp:paragraph {"style":{"typography":{"fontSize":"1.0625rem","lineHeight":"1.65"},"spacing":{"margin":{"top":"var:preset|spacing|xs","bottom":"0"}}},"textColor":"neutral-500"} -->
+					<p class="has-neutral-500-color has-text-color" style="margin-top:var(--wp--preset--spacing--xs);margin-bottom:0;font-size:1.0625rem;line-height:1.65"><?php echo esc_html__( 'Techniques for lean assets, smart loading, and Core Web Vitals—so your site feels instant on every device.', 'aegis' ); ?></p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"28px"},"blockGap":{"left":"12px"}}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
-					<div class="wp-block-buttons" style="margin-top:28px">
+					<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"},"blockGap":{"left":"12px"}}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
+					<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
 						<!-- wp:button {"className":"is-style-fill"} -->
 						<div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button"><?php echo esc_html__( 'Read More', 'aegis' ); ?></a></div>
 						<!-- /wp:button -->

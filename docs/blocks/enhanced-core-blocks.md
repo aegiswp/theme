@@ -15,97 +15,104 @@ No core block functionality is removed or broken. All enhancements are additive.
 
 ## Enhanced Blocks
 
-The following 37 core blocks receive enhancements in Aegis:
+Each block below has a class in `vendor/aegis/framework/src/CoreBlocks/` that filters its front-end output (`render_block_core/{name}`). That folder also holds `IconBlockAttributes.php` (extra attributes for Icon) and `ImageLightbox.php` (lightbox extras for Image), which are helpers, not separate blocks. Blocks not listed here, such as Gallery, Media & Text, Table, Pullquote, or Separator, have no framework class. They get at most `theme.json` styling and block styles.
 
 ### Text Blocks
 
 | Block | Enhancements |
 |-------|-------------|
-| Paragraph | Fluid font sizes, lead text style, drop cap styling |
-| Heading | Fluid responsive sizing, extended weight options, gradient text support |
-| List | Custom bullet/number styling, spacing controls, icon list style |
-| Quote | Multiple visual styles (bordered, large, minimal), citation styling |
-| Pullquote | Accent border styling, typography presets |
-| Preformatted | Code font, background styling, border radius |
-| Code | Syntax-aware styling, dark background, scrollable overflow |
-| Verse | Monospace styling, subtle background |
+| Paragraph | Ensures the `wp-block-paragraph` class, applies custom margin and padding, and fixes malformed URLs |
+| Heading | Custom spacing, a unique `id` for anchor links, and better heading text on search results pages |
+| List | Flexbox layout controls, custom spacing, and a URL formatting fix. Block styles add checklists, dashes, and more (see below) |
+| Code | Applies the block's margin settings to the `<pre>` element. Copy-to-clipboard control |
+| Details | Custom expand and collapse icons, custom padding, and a script for smooth open and close animation |
+| Shortcode | Runs shortcodes in the block and strips the stray `<p>` tags WordPress adds |
 
 ### Media Blocks
 
 | Block | Enhancements |
 |-------|-------------|
-| Image | Shadow options, border radius, hover effects, aspect ratio presets. Lightbox overlay follows light/dark (or the Site Editor background). Expand-on-click trigger sits on the image, not the full-width figure. Image captions stay on the figure, not the overlay. The former Image Icon variation was removed — use `core/icon`. Extra lightbox features are gated at **Aegis → Blocks → Image Lightbox** — see [[../features/image-lightbox]]. The same Aspect Ratio / Height / Object Fit / Object Position inspector also applies to Pro `aegis/image-compare` (`render_block_aegis/image-compare`; height uses CSS custom properties on the wrapper) |
+| Image | Shadow options, border radius, hover effects, aspect ratio presets. Lightbox overlay follows light/dark (or the Site Editor background). Expand-on-click trigger sits on the image, not the full-width figure. Image captions stay on the figure, not the overlay. The former Image Icon variation was removed — use `core/icon`. Extra lightbox features are gated at **Aegis → Blocks → Lightbox** — see [Lightbox](../features/image-lightbox.md). The same Aspect Ratio / Height / Object Fit / Object Position inspector also applies to Pro `aegis/image-compare` (`render_block_aegis/image-compare`; height uses CSS custom properties on the wrapper) |
 | Icon | WordPress Icon library (`core/{name}`) plus Aegis collections (`social/{name}`, Pro sets). Custom SVG, gradients, gallery, and `currentColor` for dark mode — see [[svg-icons]] |
-| Gallery | Gap controls, rounded styles, hover overlay effects |
-| Cover | Gradient overlay presets, minimum height options, parallax improvements |
-| Media & Text | Responsive stacking improvements, gap controls |
-| Video | Aspect ratio options, rounded corners, shadow — see [[core-video]] for plugin and Pro enhancements |
+| Cover | Fallback placeholder image, custom padding, and z-index control through a CSS custom property |
+| Audio | Styled as a card in `theme.json`: Neutral 100 background, the theme border radius, and `xs` inner padding. The player fills the card and can shrink below core's 300px minimum, so it fits narrow columns and phones. The caption sits inside the card at caption size, without the default caption padding. Overrides that need more than `theme.json` live in `vendor/aegis/framework/public/css/core-blocks/audio.css`, which loads only when an Audio block is on the page (and in the editor). Margin and padding are adjustable per block under **Dimensions** |
+| Video | Moves the background color to a custom property and loads the Aegis video player assets once per request — see [[core-video]] for plugin and Pro enhancements |
 
 ### Layout Blocks
 
 | Block | Enhancements |
 |-------|-------------|
-| Group | Shadow presets, border styles, background patterns, multiple layout types |
-| Columns | Responsive breakpoint improvements, vertical alignment, gap presets |
-| Column | Individual padding, background, and border support |
-| Row | Extended alignment and wrapping controls |
-| Stack | Gap presets, responsive spacing |
-| Separator | Color options, width variations (short, medium, wide), thickness control |
-| Spacer | Preset height options matching the spacing scale |
+| Group | `minHeight`, custom spacing, and accessibility handling when the HTML tag is `<main>` |
+| Columns | Custom margin, an `is-stacked-on-mobile` or `is-not-stacked-on-mobile` class, and the column count as a data attribute |
+| Buttons | Custom margin and padding on the button group wrapper |
+| Button | Custom icons, responsive controls, CSS transforms, button text repair, and URL fixes |
+| Spacer | Merges margin settings and drops the fixed width when a responsive width is set |
+| Template Part | Applies color settings to the part wrapper and fires the `aegis_before_{slug}` and `aegis_after_{slug}` hooks (see [[hook-patterns]]). Skip links are left untouched |
 
 ### Navigation Blocks
 
 | Block | Enhancements |
 |-------|-------------|
-| Navigation | Mobile menu styling, hamburger variants, submenu animations |
-| Navigation Link | Active state styling, icon support |
-| Site Logo | Size presets, border radius, dark mode inversion |
-| Site Title | Typography presets, link styling |
+| Navigation | Overlay menu styles, CSS filters, dynamic submenu border CSS from `theme.json`, and accessibility fixes in the markup |
+| Navigation Submenu | Converts color and spacing settings into CSS custom properties on the submenu list. Supports multi-column mega menus |
+| Page List | Applies the block gap as a CSS custom property |
+| Search | Input and button styling, shadow presets, custom box shadows, and the CSS search toggle |
+| Social Links | Replaces inline hex colors with the matching palette variables, so icons follow style variations and dark mode |
+| Social Link | Renders icons from the Aegis social icon set |
+| Table of Contents | Rebuilds the list from the page title and in-content headings, applies block gap, and detects sidebar placement |
 
-### Widget Blocks
-
-| Block | Enhancements |
-|-------|-------------|
-| Search | Expanded styling options, button variants, icon toggle |
-| Social Icons | Color schemes, hover effects, size presets |
-| Post Title | Fluid typography, gradient text support |
-| Post Excerpt | Line clamp options, read-more styling |
-| Post Featured Image | Aspect ratio, shadow, border radius, hover effects |
-| Post Date | Icon prefix, relative date formatting |
-| Post Terms | Chip/badge styling, separator options |
-| Post Author | Avatar styling, layout options |
-| Post Navigation Link | Arrow styling, card layout option |
-
-### Dynamic Blocks
+### Post and Query Blocks
 
 | Block | Enhancements |
 |-------|-------------|
-| Query Loop | Responsive columns, gaps, featured-first, equal-height, no-results — gated at **Aegis → Blocks → Query Loop**. See [Plugin Query Loop](../../plugins/aegis/docs/blocks/query-loop.md). |
-| Pagination | Styled number navigation, accessible landmarks |
-| Comments | Thread styling, alternating backgrounds, avatar sizes |
-| Table | Responsive horizontal scroll, striped rows, border options |
+| Post Title | Uses the posts page title on the blog index and sets a heading `id` from the anchor or text |
+| Post Content | Custom spacing, an optional content limit, and the `aegis_before_content` / `aegis_after_content` hooks |
+| Post Excerpt | Visibility on singular pages, Read More link handling, length limits, and custom styling. Adds excerpt support to pages |
+| Post Featured Image | Box shadows, CSS transforms, and CSS filters for normal and hover states |
+| Post Date | Applies custom margin to the wrapper |
+| Post Terms | Can rebuild the list to show all terms of a taxonomy, and styles terms as badges |
+| Post Author | Custom border and spacing; the name wrapper becomes a `<span>` |
+| Post Comments Form | Configurable title heading tag (`aegis_comments_form_title_tag`) and the context `core/comments` needs |
+| Post Template | Grid or flex layout and spacing for each Query Loop item |
+| Query | Responsive columns, gaps, featured-first, equal-height, no-results — gated at **Aegis → Blocks → Query Loop**. See [Plugin Query Loop](../../../../plugins/aegis/docs/blocks/query-loop.md). |
+| Query Pagination | Merges margin, padding, and border radius into the pagination `<nav>` |
+| Query Title | Renders the posts page title on the blog index (and a placeholder in the editor) when WordPress outputs none |
+| Calendar | Moves color classes from the `<table>` to the wrapper so padding and margins display |
+| Tag Cloud | Enforces a minimum font size from the block's size settings |
 
 ## Block Styles
 
-Many enhanced blocks register additional style variations. Block styles appear in the **Styles** panel when you select a block:
+The framework registers these styles (`vendor/aegis/framework/src/DesignSystem/BlockStyles.php`). They appear in the **Styles** panel when you select a block:
 
-### Example: Quote Block Styles
+| Block | Styles |
+|-------|--------|
+| Archive Title | Sub-heading |
+| Buttons | Surface |
+| Button | Ghost |
+| Code | Surface, Light, Dark |
+| Columns | Surface, Light, Dark |
+| Column | Surface, Light, Dark |
+| Comment Author Name | Heading |
+| Details | Heading (summary) |
+| Group | Surface, Light, Dark |
+| List | Checklist, Check outline, Check circle, Square, List heading, Dash, None |
+| List Item | Surface |
+| Navigation | Heading |
+| Page List | None |
+| Paragraph | Sub-heading, Notice, Heading |
+| Post Author Name | Heading |
+| Post Terms | List, Sub-heading, Badges |
+| Post Title | Sub-heading |
+| Query Pagination | Badges |
+| Read More | Button |
+| Site Title | Heading |
+| Spacer | Angle, Curve, Round, Wave, Fade |
+| Tag Cloud | Badges |
+| Quote | Surface |
 
-| Style | Description |
-|-------|-------------|
-| Default | Standard blockquote with left border accent |
-| Large | Oversized quote marks with larger text |
-| Minimal | No border, subtle indentation only |
-| Bordered | Full border wrap with padding |
+Quote gets only the Surface style.
 
-### Example: Separator Block Styles
-
-| Style | Description |
-|-------|-------------|
-| Default | Full width thin line |
-| Wide | Wider than content, thinner line |
-| Dots | Three centered dots |
-| Short | Centered short accent line |
+The framework also **removes** some core styles: Rounded and Default from Image and Site Logo, and **Wide and Dots from Separator**. Separator keeps only its default style.
 
 ## Global Block Styling
 
@@ -128,25 +135,14 @@ You can override the default styling of any block type:
 
 ## Block Supports
 
-Aegis enables additional block supports that WordPress core does not enable by default for some blocks:
-
-| Support | Description | Blocks Affected |
-|---------|-------------|----------------|
-| Border | Border width, color, radius | Group, Column, Image |
-| Shadow | Box shadow presets | Group, Column, Button, Image |
-| Spacing | Margin and padding controls | Most layout blocks |
-| Typography | Extended font size and family | All text blocks |
-| Color | Background, text, link colors | Most blocks |
+`theme.json` turns on appearance tools, border controls (color, radius, style, width), link color, custom spacing sizes, and custom duotones and gradients for every block. Per-block defaults (colors, typography, spacing, borders) for 35 core blocks live under `styles.blocks` in `theme.json`. The framework inspector controls (animation, box shadow, filters, transforms, responsive visibility, and more) are documented in [[introduction-inventory]].
 
 ## Responsive Behavior
 
-All enhanced blocks include responsive improvements:
+Responsive improvements in the enhanced blocks:
 
-- **Columns** collapse to a single column on narrow viewports.
-- **Navigation** switches to a mobile hamburger menu below a configurable breakpoint.
-- **Media & Text** stacks vertically on mobile.
-- **Table** becomes horizontally scrollable on small screens.
-- **Gallery** adjusts column count based on available width.
+- **Columns** collapse to a single column on narrow viewports unless stacking is turned off (`is-not-stacked-on-mobile`).
+- **Navigation** switches to its overlay menu on small screens, using one of the Aegis overlay styles (Slide-in, Slide-in Left, Fullscreen, Scroll).
 
 ### Core Responsive States and Aegis Breakpoints
 
@@ -164,7 +160,7 @@ Keep both systems. Prefer Core for ordinary style changes; use Aegis for visibil
 
 ### Breadcrumbs
 
-`core/breadcrumbs` receives theme.json styles and the `breadcrumbs.css` stylesheet (also applied when `.rank-math-breadcrumb`, `.seopress-breadcrumbs`, `#breadcrumbs`, or `.yoast-breadcrumbs` markup is present; separators styled via Rank Math `.separator` and SEOPress `.breadcrumb-sep`; Yoast current crumb via `.breadcrumb_last` without a forced flex wrapper). WooCommerce Store Breadcrumbs (`woocommerce/breadcrumbs`) use `woocommerce-breadcrumbs.css` and wrap the delimiter in `.aegis-breadcrumb-separator`, same as classic Woo breadcrumbs. See [[woocommerce-integration#breadcrumbs]] and [SEO Schema Delegation](../../plugins/aegis/docs/features/seo-schema-delegation.md).
+`core/breadcrumbs` receives theme.json styles and the `breadcrumbs.css` stylesheet (also applied when `.rank-math-breadcrumb`, `.seopress-breadcrumbs`, `#breadcrumbs`, or `.yoast-breadcrumbs` markup is present; separators styled via Rank Math `.separator` and SEOPress `.breadcrumb-sep`; Yoast current crumb via `.breadcrumb_last` without a forced flex wrapper). WooCommerce Store Breadcrumbs (`woocommerce/breadcrumbs`) use `woocommerce-breadcrumbs.css` and wrap the delimiter in `.aegis-breadcrumb-separator`, same as classic Woo breadcrumbs. See [[woocommerce-integration#breadcrumbs]] and [SEO Schema Delegation](../../../../plugins/aegis/docs/features/seo-schema-delegation.md).
 
 ## Accessibility
 
