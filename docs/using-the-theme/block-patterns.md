@@ -1,6 +1,6 @@
 # Block Patterns
 
-Aegis ships with **234 theme block patterns** in **28 category folders**. Companion **plugin** patterns (Modal starters when Modal is enabled; WooCommerce patterns when WooCommerce is active) and **Pro** premium patterns are documented separately — [Plugin Patterns](../../../../plugins/aegis/docs/features/plugin-patterns.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki) · [Pro Patterns](../../../../plugins/aegis-pro/docs/patterns/pro-patterns.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki).
+Aegis ships with **234 theme block patterns** in **28 category folders**. Companion **plugin** patterns (Modal starters when Modal is enabled; WooCommerce patterns when WooCommerce is active) and **Pro** premium patterns are documented separately — [Plugin Patterns](../../../../plugins/aegis/docs/features/plugin-patterns.md) · [Pro Patterns](../../../../plugins/aegis-pro/docs/patterns/pro-patterns.md).
 
 ## Understanding Block Patterns
 
@@ -9,6 +9,10 @@ A block pattern is a pre-arranged group of blocks that forms a complete section 
 ## Inserting a Pattern
 
 ### From the Block Inserter
+
+![The block inserter's Patterns tab with Aegis pattern categories listed on the left and pattern previews on the right. Numbered callouts: 1 The Patterns tab; 2 Aegis pattern categories. Pick one to see its previews.](../screenshots/inserter-patterns.png)
+
+*Browse Aegis patterns by category in the block inserter.*
 
 1. Click the **Block Inserter** (+) in the top toolbar of the editor.
 2. Switch to the **Patterns** tab.
@@ -22,6 +26,10 @@ A block pattern is a pre-arranged group of blocks that forms a complete section 
 3. Select the pattern from the results.
 
 ### From the Pattern Explorer
+
+![The full-screen pattern explorer showing a grid of large pattern previews with a category list and search field. Numbered callouts: 1 Search every pattern; 2 Categories.](../screenshots/pattern-explorer.png)
+
+*The pattern explorer shows larger previews.*
 
 1. In the Patterns tab of the block inserter, click **Explore all patterns**.
 2. Browse the full-screen pattern explorer with previews.
@@ -64,7 +72,7 @@ Theme patterns live in **28** `patterns/` category folders:
 
 Related Posts layouts (`blog-related-posts-grid`, `list`, `cards`, `minimal`) are in the **Blog** category. They unregister when **Aegis → Blocks → Related Posts** is implied off. See [Related Posts Block](../blocks/related-posts.md).
 
-**Modal** patterns (`aegis/modal-*`) are registered by the [Aegis companion plugin](../../../../plugins/aegis/docs/features/plugin-patterns.md) ([Wiki](https://github.com/aegiswp/plugin/wiki)) when the Modal block is enabled — they are not theme patterns.
+**Modal** patterns (`aegis/modal-*`) are registered by the [Aegis companion plugin](../../../../plugins/aegis/docs/features/plugin-patterns.md) when the Modal block is enabled — they are not theme patterns.
 
 ## Customizing Patterns After Insertion
 
@@ -119,6 +127,10 @@ WC header patterns with mini-cart and customer-account blocks live in the **comp
 
 ### Synced Patterns (formerly Reusable Blocks)
 
+![The Create pattern dialog with a name field, a category field, and the Synced toggle switched on.](../screenshots/create-pattern.png)
+
+*Save your own blocks as a synced pattern to reuse them across the site.*
+
 1. Select the blocks you want to save as a pattern.
 2. Click the **Options** menu (three dots) in the block toolbar.
 3. Select **Create pattern**.
@@ -145,7 +157,7 @@ Developers can register patterns by creating PHP files in the `patterns/` direct
 <!-- /wp:group -->
 ```
 
-Aegis registers the file under its first category plus the `Slug` header, so this example becomes `featured-my-feature-section`. Files whose names start with a dot are skipped. In a child theme, add the file to the child theme's `patterns/{category}/` folder, or register more folders with the `aegis_pattern_dirs` filter.
+Aegis registers the file under its first category plus the `Slug` header, so this example becomes `featured-my-feature-section`. Files whose names start with a dot are skipped. To keep your own patterns outside the theme folder, register more folders with the `aegis_pattern_dirs` filter from a plugin.
 
 ## Browsing Patterns by Page Type
 

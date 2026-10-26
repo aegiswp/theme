@@ -29,11 +29,15 @@ Integration styles use design tokens and adapt to style variations and dark mode
 
 Toggle state and credentials are owned by the free plugin (**Aegis → Integrations** / **Connectors**). This theme page only documents framework CSS that ships with the theme.
 
-See [Integrations Dashboard](../../../../plugins/aegis/docs/features/integrations-dashboard.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki).
+![Aegis → Integrations in WordPress admin, listing supported plugins with their detection status and styling toggles.](../screenshots/integrations.png)
+
+*Aegis → Integrations shows which plugins the theme styles.*
+
+See [Integrations Dashboard](../../../../plugins/aegis/docs/features/integrations-dashboard.md).
 
 ## SEO Plugins
 
-Visual breadcrumbs use `core/breadcrumbs` styled to theme tokens; Rank Math / SEOPress / Yoast trails share the same breadcrumbs stylesheet when present. Schema delegation and Pro video sitemaps are documented in the free plugin / Pro: [SEO Schema Delegation](../../../../plugins/aegis/docs/features/seo-schema-delegation.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki).
+Visual breadcrumbs use `core/breadcrumbs` styled to theme tokens; Rank Math / SEOPress / Yoast trails share the same breadcrumbs stylesheet when present. Schema delegation and Pro video sitemaps are documented in the free plugin / Pro: [SEO Schema Delegation](../../../../plugins/aegis/docs/features/seo-schema-delegation.md).
 
 ## How Integration Styles Load
 
@@ -45,7 +49,7 @@ See [[performance]] for conditional asset loading.
 
 ## Plugins Without Framework CSS
 
-Plugins not listed above may still work with default styling. Apply custom CSS via Global Styles or child theme overrides. Request integration on [GitHub](https://github.com/aegiswp/theme/issues).
+Plugins not listed above may still work with default styling. Apply custom CSS via Global Styles or child theme overrides. Request an integration through the [Aegis documentation site](https://www.atmostfear-entertainment.com/docs/aegis/).
 
 | Plugin | Theme integration |
 |--------|-------------------|
@@ -57,6 +61,6 @@ Plugins not listed above may still work with default styling. Apply custom CSS v
 ## Next Steps
 
 - [[woocommerce-integration]] — WooCommerce templates
-- [Integrations Dashboard](../../../../plugins/aegis/docs/features/integrations-dashboard.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki)
-- [Pro docs](../../../../plugins/aegis-pro/docs/home.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki)
+- [Integrations Dashboard](../../../../plugins/aegis/docs/features/integrations-dashboard.md)
+- [Pro docs](../../../../plugins/aegis-pro/docs/home.md)
 - [[performance]] — Conditional loading

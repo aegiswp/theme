@@ -109,6 +109,10 @@ Additional colors used for specific interface needs:
 
 Most blocks expose color settings in the right sidebar:
 
+![The block settings for a Group block: Color under Typography for the text, and Color under Background open with the Aegis palette swatches.](../screenshots/block-color-panel.png)
+
+*Apply palette colors from a block's Color panel.*
+
 1. Select a block.
 2. Open the **Color** section in block settings.
 3. Choose from the palette presets or enter a custom value.
@@ -122,6 +126,10 @@ Available color options vary by block but typically include:
 ### Global Color Settings
 
 To change colors site-wide, use Global Styles:
+
+![Styles → Colors in the Site Editor showing the Aegis palette and the element colors for links, captions, buttons, and headings. Numbered callouts: 1 The Aegis palette; 2 Colors for text, links, headings, captions, and buttons.](../screenshots/global-colors.png)
+
+*Change site-wide colors in Styles → Colors.*
 
 1. Open the Site Editor (**Appearance → Editor**).
 2. Click the **Styles** icon.

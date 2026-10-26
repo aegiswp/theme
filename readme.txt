@@ -3,7 +3,7 @@ Contributors: atmostfearentertainment
 Requires at least: 7.0
 Tested up to: 7.1.3
 Requires PHP: 8.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,28 @@ Yes. Templates with a header get an injected skip link. The Blank template has n
 
 == Changelog ==
 
+= 1.0.2 - 2026-10-26 =
+* Added: Navigation blocks with the is-drilldown class use the same slide-through submenus as the mobile menu, including a Back button.
+* Added: Books Slider and Latest Posts Carousel patterns.
+* Changed: The Home page hero shows Open Editor and Read Docs buttons again. Read Docs links to the Aegis docs on atmostfear-entertainment.com.
+* Changed: Patterns load only when used, and pattern headers and icon lists are cached, so pages load much faster.
+* Changed: Template tags print public post fields only, and Query Loop blocks ignore private meta keys unless a filter allows them.
+* Changed: The onclick block setting and unrestricted Additional Styles are kept only for users who can post unfiltered HTML.
+* Changed: Links that open in a new tab always get rel="noopener", and video facades only play YouTube and Vimeo.
+* Removed: SVG uploads to the Media Library. SVGs already uploaded stay where they are.
+* Reverted: Sticky site header from 1.0.1. The header scrolls with the page again.
+* Fixed: Slider arrows sit over a single slide and beside multi-slide carousels; dots stay clear of the cards.
+* Fixed: Slides always render as a slider item, including patterns that save only their inner blocks.
+* Fixed: Circular avatars in slides stay square, and book covers keep their own aspect ratio
+* Fixed: Hero, Features, Portfolio, and Team slider patterns use theme colors, with the lightbox off.
+* Fixed: Faster page loads on every host, especially hosts that restrict file access with open_basedir.
+* Fixed: WooCommerce variation scripts no longer load on every page.
+* Fixed: WooCommerce patterns used in templates render on the front end.
+* Fixed: Copy-to-clipboard buttons copy code exactly as written.
+* Fixed: Structured data for embeds, FAQ accordions, and countdowns is escaped safely.
+* Fixed: The block inserter's Patterns tab lists patterns again.
+* Fixed: The Icon block's icon library loads its icons, including All and search, in under a second.
+
 = 1.0.1 - 2026-10-19 =
 * Added: Theme updates from GitHub releases appear in Dashboard → Updates and on the Themes screen, with one-click updates, auto-updates, and release notes.
 * Added: A light/dark toggle in the editor top bar previews the canvas in either mode, remembered per user.
@@ -75,6 +97,8 @@ Yes. Templates with a header get an injected skip link. The Blank template has n
 * Fixed: No more "translation loading triggered too early" notice in WordPress 6.7 and later.
 * Fixed: Marquee and WooCommerce blocks in patterns no longer show as invalid in the editor.
 * Fixed: Countdown block styles now load on the front end.
+* Fixed: Pages with a Tag Cloud block no longer fail on a new site that has no tags yet.
+* Fixed: Text contrast in dark sections, notices in dark mode, and several event, hero and footer patterns.
 * Fixed: Without WooCommerce, the editor no longer shows unsupported WooCommerce blocks in the header and store patterns.
 
 = 1.0.0 - 2026-10-14 =

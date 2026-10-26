@@ -163,7 +163,7 @@ defined( 'ABSPATH' ) || exit;
 		);
 	}
 	?>
-	<script type="application/ld+json"><?php echo wp_json_encode( $aegis_embed_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ); ?></script>
+	<script type="application/ld+json"><?php echo wp_json_encode( $aegis_embed_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG ); ?></script>
 
 </div>
 <?php

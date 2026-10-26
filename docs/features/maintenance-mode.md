@@ -1,6 +1,6 @@
 # Maintenance Mode
 
-Aegis ships an on-brand Maintenance template and pattern so you can present a planned-outage page that matches Global Styles. Forcing that template for logged-out visitors requires a small `template_include` hook in a child theme or custom plugin — the parent theme does not activate maintenance mode by itself.
+Aegis ships an on-brand Maintenance template and pattern so you can present a planned-outage page that matches Global Styles. Forcing that template for logged-out visitors requires a small `template_include` hook added through a plugin — the theme does not activate maintenance mode by itself.
 
 This approach follows the [on-brand maintenance mode for block themes](https://developer.wordpress.org/news/2026/07/on-brand-maintenance-mode-for-wordpress-block-themes/) pattern from the WordPress Developer Blog.
 
@@ -16,6 +16,10 @@ This is **not** WordPress core update maintenance mode.
 The snippets below do **not** call `wp_is_maintenance_mode()`. They serve a Site Editor template titled **Maintenance** for logged-out visitors.
 
 ## What Aegis Ships
+
+![The Aegis maintenance template on the front end with the site logo, a message that the site is under maintenance, and a short note.](../screenshots/maintenance.png)
+
+*The maintenance template that ships with Aegis.*
 
 | File | Role |
 |------|------|
@@ -45,7 +49,7 @@ Logged-in users always see the live site so your team can work during an outage 
 
 ## Advanced: Add the Hook
 
-Add the filter in a **child theme** `functions.php` or a small custom plugin. Do not edit the Aegis parent theme — updates would overwrite your changes.
+Add the filter through a plugin: a **Functions (PHP)** snippet in [Aegis → Code Snippets](../../../../plugins/aegis/docs/features/code-snippets.md) or a site-specific plugin. See [Where to Put Snippets](../reference/code-snippets.md#where-to-put-snippets). Do not edit the Aegis theme files — updates would overwrite your changes.
 
 ### Minimal approach
 

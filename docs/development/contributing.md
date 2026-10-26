@@ -4,12 +4,11 @@ This page outlines how to contribute to the Aegis theme. Contributions are welco
 
 ## Getting Started
 
-1. Fork the [Aegis repository](https://github.com/aegiswp/theme) on GitHub.
-2. Clone your fork locally.
-3. Set up the [[development-setup|development setup]].
-4. Create a branch for your contribution.
-5. Make your changes.
-6. Submit a pull request.
+1. Get a copy of the Aegis source code.
+2. Set up the [[development-setup|development setup]].
+3. Create a branch for your contribution.
+4. Make your changes.
+5. Submit a pull request.
 
 ## Branch Strategy
 
@@ -112,12 +111,12 @@ All commands must pass without errors.
 
 ### PR Process
 
-1. Push your branch to your fork:
+1. Push your branch:
    ```bash
    git push -u origin feature/your-feature-name
    ```
 
-2. Open a pull request against the `develop` branch on the main repository.
+2. Open a pull request against the `develop` branch.
 
 3. Fill in the PR template with:
    - Summary of changes.
@@ -197,7 +196,7 @@ All PRs go through code review:
 
 ### Bug Fixes
 
-1. Check [existing issues](https://github.com/aegiswp/theme/issues) for duplicates.
+1. Check existing bug reports for duplicates.
 2. Create an issue describing the bug (if one does not exist).
 3. Reference the issue in your PR.
 4. Include a test that verifies the fix.
@@ -215,7 +214,7 @@ Documentation PRs use the `docs/*` branch prefix. Source pages live under `docs/
 
 Typical updates:
 
-- Wiki pages in `docs/` (plus `_sidebar.md` / `home.md` when adding pages).
+- Pages in `docs/` (plus `_sidebar.md` / `home.md` when adding pages).
 - Root contributor files (`README.md`, `DESIGN.md`, `INSTRUCTIONS.md`, `readme.txt`).
 - Code comments (PHPDoc, JSDoc) when APIs change.
 
@@ -231,7 +230,7 @@ Translations are managed through WordPress.org or direct contributions:
 
 When reporting bugs:
 
-1. Search [existing issues](https://github.com/aegiswp/theme/issues) first.
+1. Search existing bug reports first. Send new reports to Atmostfear Entertainment through the [Aegis documentation site](https://www.atmostfear-entertainment.com/docs/aegis/).
 2. Include:
    - WordPress version.
    - PHP version.

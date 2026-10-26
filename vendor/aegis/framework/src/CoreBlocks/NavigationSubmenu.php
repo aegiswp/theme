@@ -82,7 +82,7 @@ class NavigationSubmenu implements Renderable {
 			$styles['--wp--custom--submenu--background'] = $color['background'];
 		}
 		if ( isset( $attrs['backgroundColor'] ) ) {
-			$styles['--wp--custom--submenu--background'] = 'var(--wp--preset--color--' . $attrs['backgroundColor'] . ')';
+			$styles['--wp--custom--submenu--background'] = 'var(--wp--preset--color--' . _wp_to_kebab_case( (string) $attrs['backgroundColor'] ) . ')';
 		}
 
 		// Set text color from either a custom value or a theme preset.
@@ -90,7 +90,7 @@ class NavigationSubmenu implements Renderable {
 			$styles['--wp--custom--submenu--color'] = $color['text'];
 		}
 		if ( isset( $attrs['textColor'] ) ) {
-			$styles['--wp--custom--submenu--color'] = 'var(--wp--preset--color--' . $attrs['textColor'] . ')';
+			$styles['--wp--custom--submenu--color'] = 'var(--wp--preset--color--' . _wp_to_kebab_case( (string) $attrs['textColor'] ) . ')';
 		}
 
 		// --- Spacing Properties ---
@@ -132,7 +132,7 @@ class NavigationSubmenu implements Renderable {
 		$submenu_style = $submenu->getAttribute( 'style' );
 		$css           = $submenu_style ? $submenu_style . ';' : '';
 		foreach ( $styles as $property => $value ) {
-			$css .= $value ? "$property:$value;" : '';
+			$css .= $value && CSS::is_single_value( (string) $value ) ? "$property:$value;" : '';
 		}
 		$submenu->setAttribute( 'style', $css );
 

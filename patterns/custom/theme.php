@@ -24,12 +24,12 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"fontSize":"20"} -->
-<p class="has-text-align-center has-20-font-size"><?php echo esc_html__( 'Aegis is a full-site-editing block theme built on tokens: 40 colors, 27 fluid type sizes, 11 spacing steps, 60 style variations, 236 patterns, and 50 templates. No page builder. No lock-in.', 'aegis' ); ?></p>
+<p class="has-text-align-center has-20-font-size"><?php echo esc_html__( 'Aegis is a full-site-editing block theme built on tokens: 40 colors, 27 fluid type sizes, 11 spacing steps, 60 style variations, 234 patterns, and 50 templates. No page builder. No lock-in.', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md);margin-bottom:var(--wp--preset--spacing--md)"><!-- wp:button {"backgroundColor":"neutral-800","size":"large","iconSet":"remixicon","iconName":"download-2-line","iconSize":"16px","iconPosition":"end"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://github.com/aegiswp/theme/releases/tag/v1.0.0"><?php echo esc_html__( 'Download Aegis — Free', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://github.com/aegiswp/theme/releases/download/v1.0.1/aegis.zip"><?php echo esc_html__( 'Download Aegis — Free', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"className":"is-style-ghost","size":"large","iconSet":"remixicon","iconName":"arrow-right-line","iconSize":"16px","iconPosition":"end"} -->
@@ -43,32 +43,16 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"metadata":{"name":"Hero collage"},"align":"wide","style":{"position":{"all":"relative"},"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"default"}} -->
-<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--xl)"><!-- wp:group {"style":{"position":{"all":"relative"},"zIndex":{"all":"3"},"spacing":{"margin":{"right":"auto","left":"auto"}},"width":{"all":"60%","mobile":"100%"}},"layout":{"type":"default"}} -->
-<div class="wp-block-group" style="margin-right:auto;margin-left:auto"><!-- wp:image {"width":"100%","aspectRatio":"16/10","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img alt="Screenshot placeholder: Aegis in the Site Editor with the Styles panel open" style="aspect-ratio:16/10;object-fit:cover;width:100%;height:auto"/></figure>
-<!-- /wp:image --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"style":{"position":{"all":"absolute"},"zIndex":{"all":"1"},"top":{"all":"12%"},"left":{"all":"0px"},"width":{"all":"34%"},"display":{"mobile":"none"}},"layout":{"type":"default"}} -->
-<div class="wp-block-group"><!-- wp:image {"width":"100%","aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img alt="Screenshot placeholder: a style variation in light mode" style="aspect-ratio:4/3;object-fit:cover;width:100%;height:auto"/></figure>
-<!-- /wp:image --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"style":{"position":{"all":"absolute"},"zIndex":{"all":"1"},"top":{"all":"12%"},"right":{"all":"0px"},"width":{"all":"34%"},"display":{"mobile":"none"}},"layout":{"type":"default"}} -->
-<div class="wp-block-group"><!-- wp:image {"width":"100%","aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img alt="Screenshot placeholder: the same page in dark mode" style="aspect-ratio:4/3;object-fit:cover;width:100%;height:auto"/></figure>
-<!-- /wp:image --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group --></div>
+<!-- wp:aegis/image-compare {"beforeImage":{"id":251646,"url":"https://www.atmostfear-entertainment.com/wp-content/uploads/2026/10/aegis_100_dark_mode.png","alt":"Aegis site in dark mode","width":1920,"height":938,"sizes":{"full":{"url":"https://www.atmostfear-entertainment.com/wp-content/uploads/2026/10/aegis_100_dark_mode.png","height":938,"width":1920,"orientation":"landscape"}}},"afterImage":{"id":251651,"url":"https://www.atmostfear-entertainment.com/wp-content/uploads/2026/10/aegis_100_light_mode.png","alt":"Aegis site in light mode","width":1920,"height":938,"sizes":{"full":{"url":"https://www.atmostfear-entertainment.com/wp-content/uploads/2026/10/aegis_100_light_mode.png","height":938,"width":1920,"orientation":"landscape"}}}} -->
+<div class="wp-block-aegis-image-compare"><img src="https://www.atmostfear-entertainment.com/wp-content/uploads/2026/10/aegis_100_dark_mode.png" alt="Aegis site in dark mode"/><img src="https://www.atmostfear-entertainment.com/wp-content/uploads/2026/10/aegis_100_light_mode.png" alt="Aegis site in light mode"/></div>
+<!-- /wp:aegis/image-compare --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"metadata":{"name":"Numbers"},"align":"full","className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","right":"var:preset|spacing|lg","bottom":"var:preset|spacing|md","left":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull is-style-surface" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--lg)"><!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|md"}},"layout":{"type":"grid","columnCount":5,"minimumColumnWidth":"120px"}} -->
 <div class="wp-block-group alignwide"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"className":"is-style-heading","style":{"typography":{"lineHeight":"1","textAlign":"center"}},"fontSize":"48"} -->
-<p class="has-text-align-center is-style-heading has-48-font-size" style="line-height:1">236</p>
+<p class="has-text-align-center is-style-heading has-48-font-size" style="line-height:1">234</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"textColor":"neutral-500","fontSize":"14"} -->
@@ -143,7 +127,7 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><?php echo esc_html__( '11 spacing steps from 4px to 96px, with the larger seven scaling to the screen', 'aegis' ); ?></li>
+<li><?php echo esc_html__( '11 spacing steps from 4px to 96px, seven of them fluid', 'aegis' ); ?></li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -157,8 +141,8 @@
 <!-- /wp:column -->
 
 <!-- wp:column {"verticalAlignment":"center"} -->
-<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"aspectRatio":"16/9","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img alt="Screenshot placeholder: color, type, and spacing tokens in Global Styles" style="aspect-ratio:16/9;object-fit:cover"/></figure>
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"id":251660,"aspectRatio":"16/9","scale":"cover","sizeSlug":"full","isDecorative":true} -->
+<figure class="wp-block-image size-full"><img src="https://www.atmostfear-entertainment.com/wp-content/uploads/2026/10/aegis_100_editor_styles.png" alt="" class="wp-image-251660" style="aspect-ratio:16/9;object-fit:cover" role="none"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>
@@ -167,8 +151,8 @@
 <!-- wp:group {"metadata":{"name":"Variations"},"align":"full","className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","right":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull is-style-surface" style="padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)"><!-- wp:columns {"verticalAlignment":"center","align":"wide","className":"is-reverse-on-mobile","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|lg","left":"var:preset|spacing|lg"}}}} -->
 <div class="wp-block-columns alignwide are-vertically-aligned-center is-reverse-on-mobile"><!-- wp:column {"verticalAlignment":"center"} -->
-<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"aspectRatio":"16/9","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img alt="Screenshot placeholder: grid of style variations in light and dark" style="aspect-ratio:16/9;object-fit:cover"/></figure>
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"id":251661,"aspectRatio":"16/9","scale":"cover","sizeSlug":"full","linkDestination":"none","isDecorative":true} -->
+<figure class="wp-block-image size-full"><img src="https://www.atmostfear-entertainment.com/wp-content/uploads/2026/10/aegis_100_editor_starter_patterns.png" alt="" class="wp-image-251661" style="aspect-ratio:16/9;object-fit:cover" role="none"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 
@@ -199,99 +183,11 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><?php echo esc_html__( 'Charcoal, Dusk, Midnight, and Obsidian start dark by default', 'aegis' ); ?></li>
+<li><?php echo esc_html__( 'Midnight, Obsidian, and Zinc start dark by default', 'aegis' ); ?></li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"metadata":{"name":"Dark mode"},"align":"full","className":"is-style-dark","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","right":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"},"anchor":"dark-mode"} -->
-<div class="wp-block-group alignfull is-style-dark" id="dark-mode" style="padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)"><!-- wp:group {"metadata":{"name":"Heading"},"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"720px"}} -->
-<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--lg)"><!-- wp:paragraph {"className":"is-style-sub-heading","style":{"typography":{"textAlign":"center"}}} -->
-<p class="has-text-align-center is-style-sub-heading"><?php echo esc_html__( 'Dark mode', 'aegis' ); ?></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading {"style":{"typography":{"textAlign":"center"}},"fontSize":"48"} -->
-<h2 class="wp-block-heading has-text-align-center has-48-font-size"><?php echo esc_html__( 'Light and Dark From One Set of Tokens', 'aegis' ); ?></h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"fontSize":"18"} -->
-<p class="has-text-align-center has-18-font-size"><?php echo esc_html__( 'Dark mode is a class, not a second theme. Every token remaps, so blocks, patterns, and templates switch together — per page, per section, or at the visitor’s request.', 'aegis' ); ?></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|sm","left":"var:preset|spacing|sm"},"margin":{"bottom":"var:preset|spacing|md"}}}} -->
-<div class="wp-block-columns alignwide" style="margin-bottom:var(--wp--preset--spacing--md)"><!-- wp:column -->
-<div class="wp-block-column"><!-- wp:image {"aspectRatio":"16/10","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img alt="Screenshot placeholder: a page in light mode" style="aspect-ratio:16/10;object-fit:cover"/></figure>
-<!-- /wp:image --></div>
-<!-- /wp:column -->
-
-<!-- wp:column -->
-<div class="wp-block-column"><!-- wp:image {"aspectRatio":"16/10","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img alt="Screenshot placeholder: the same page in dark mode" style="aspect-ratio:16/10;object-fit:cover"/></figure>
-<!-- /wp:image --></div>
-<!-- /wp:column --></div>
-<!-- /wp:columns -->
-
-<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"grid","columnCount":4,"minimumColumnWidth":"220px"}} -->
-<div class="wp-block-group alignwide"><!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","right":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm","left":"var:preset|spacing|sm"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
-<div class="wp-block-group is-style-surface" style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-<div class="wp-block-group"><!-- wp:icon {"icon":"remixicon/contrast-2-line","style":{"dimensions":{"width":"20px"}},"textColor":"primary-500"} /-->
-
-<!-- wp:heading {"level":3,"style":{"typography":{"fontWeight":"500"}},"fontSize":"18"} -->
-<h3 class="wp-block-heading has-18-font-size" style="font-weight:500"><?php echo esc_html__( 'Visitor Toggle', 'aegis' ); ?></h3>
-<!-- /wp:heading --></div>
-<!-- /wp:group -->
-
-<!-- wp:paragraph {"fontSize":"15"} -->
-<p class="has-15-font-size"><?php echo esc_html__( 'A toggle that remembers each visitor’s choice and follows their system setting until they pick.', 'aegis' ); ?></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","right":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm","left":"var:preset|spacing|sm"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
-<div class="wp-block-group is-style-surface" style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-<div class="wp-block-group"><!-- wp:icon {"icon":"remixicon/layout-row-line","style":{"dimensions":{"width":"20px"}},"textColor":"primary-500"} /-->
-
-<!-- wp:heading {"level":3,"style":{"typography":{"fontWeight":"500"}},"fontSize":"18"} -->
-<h3 class="wp-block-heading has-18-font-size" style="font-weight:500"><?php echo esc_html__( 'Per-Section Dark Mode', 'aegis' ); ?></h3>
-<!-- /wp:heading --></div>
-<!-- /wp:group -->
-
-<!-- wp:paragraph {"fontSize":"15"} -->
-<p class="has-15-font-size"><?php echo esc_html__( 'Add the dark style to any Group to flip one section — like this one — while the rest of the page stays light.', 'aegis' ); ?></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","right":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm","left":"var:preset|spacing|sm"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
-<div class="wp-block-group is-style-surface" style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-<div class="wp-block-group"><!-- wp:icon {"icon":"remixicon/palette-line","style":{"dimensions":{"width":"20px"}},"textColor":"primary-500"} /-->
-
-<!-- wp:heading {"level":3,"style":{"typography":{"fontWeight":"500"}},"fontSize":"18"} -->
-<h3 class="wp-block-heading has-18-font-size" style="font-weight:500"><?php echo esc_html__( 'Dark-Ready Variations', 'aegis' ); ?></h3>
-<!-- /wp:heading --></div>
-<!-- /wp:group -->
-
-<!-- wp:paragraph {"fontSize":"15"} -->
-<p class="has-15-font-size"><?php echo esc_html__( 'All 60 style variations ship their own dark mapping. Charcoal, Dusk, Midnight, and Obsidian start dark by default.', 'aegis' ); ?></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","right":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm","left":"var:preset|spacing|sm"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
-<div class="wp-block-group is-style-surface" style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-<div class="wp-block-group"><!-- wp:icon {"icon":"remixicon/eye-off-line","style":{"dimensions":{"width":"20px"}},"textColor":"primary-500"} /-->
-
-<!-- wp:heading {"level":3,"style":{"typography":{"fontWeight":"500"}},"fontSize":"18"} -->
-<h3 class="wp-block-heading has-18-font-size" style="font-weight:500"><?php echo esc_html__( 'Mode-Aware Content', 'aegis' ); ?></h3>
-<!-- /wp:heading --></div>
-<!-- /wp:group -->
-
-<!-- wp:paragraph {"fontSize":"15"} -->
-<p class="has-15-font-size"><?php echo esc_html__( 'Show or hide any block in one mode with the hide-light-mode and hide-dark-mode classes — ideal for swapping logos.', 'aegis' ); ?></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"metadata":{"name":"Patterns"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","right":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
@@ -301,7 +197,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"style":{"typography":{"textAlign":"center"}},"fontSize":"48"} -->
-<h2 class="wp-block-heading has-text-align-center has-48-font-size"><?php echo esc_html__( '236 Patterns That Inherit Your Brand', 'aegis' ); ?></h2>
+<h2 class="wp-block-heading has-text-align-center has-48-font-size"><?php echo esc_html__( '234 Patterns That Inherit Your Brand', 'aegis' ); ?></h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"fontSize":"18"} -->
@@ -531,7 +427,7 @@
 <div class="wp-block-group"><!-- wp:icon {"icon":"remixicon/timer-line","style":{"dimensions":{"width":"20px"}},"textColor":"primary-500"} /-->
 
 <!-- wp:paragraph {"className":"is-style-sub-heading"} -->
-<p class="is-style-sub-heading"><?php echo esc_html__( 'Launches', 'aegis' ); ?></p>
+<p class="is-style-sub-heading"><?php echo esc_html__( 'Block', 'aegis' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -549,7 +445,7 @@
 <div class="wp-block-group"><!-- wp:icon {"icon":"remixicon/slideshow-3-line","style":{"dimensions":{"width":"20px"}},"textColor":"primary-500"} /-->
 
 <!-- wp:paragraph {"className":"is-style-sub-heading"} -->
-<p class="is-style-sub-heading"><?php echo esc_html__( 'Showcases', 'aegis' ); ?></p>
+<p class="is-style-sub-heading"><?php echo esc_html__( 'Block', 'aegis' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -567,7 +463,7 @@
 <div class="wp-block-group"><!-- wp:icon {"icon":"remixicon/toggle-line","style":{"dimensions":{"width":"20px"}},"textColor":"primary-500"} /-->
 
 <!-- wp:paragraph {"className":"is-style-sub-heading"} -->
-<p class="is-style-sub-heading"><?php echo esc_html__( 'Pricing', 'aegis' ); ?></p>
+<p class="is-style-sub-heading"><?php echo esc_html__( 'Block', 'aegis' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -585,7 +481,7 @@
 <div class="wp-block-group"><!-- wp:icon {"icon":"remixicon/links-line","style":{"dimensions":{"width":"20px"}},"textColor":"primary-500"} /-->
 
 <!-- wp:paragraph {"className":"is-style-sub-heading"} -->
-<p class="is-style-sub-heading"><?php echo esc_html__( 'Engagement', 'aegis' ); ?></p>
+<p class="is-style-sub-heading"><?php echo esc_html__( 'Block', 'aegis' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -603,7 +499,7 @@
 <div class="wp-block-group"><!-- wp:icon {"icon":"remixicon/list-settings-line","style":{"dimensions":{"width":"20px"}},"textColor":"primary-500"} /-->
 
 <!-- wp:paragraph {"className":"is-style-sub-heading"} -->
-<p class="is-style-sub-heading"><?php echo esc_html__( 'Interactive', 'aegis' ); ?></p>
+<p class="is-style-sub-heading"><?php echo esc_html__( 'Variations', 'aegis' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -621,7 +517,7 @@
 <div class="wp-block-group"><!-- wp:icon {"icon":"remixicon/quill-pen-line","style":{"dimensions":{"width":"20px"}},"textColor":"primary-500"} /-->
 
 <!-- wp:paragraph {"className":"is-style-sub-heading"} -->
-<p class="is-style-sub-heading"><?php echo esc_html__( 'Layout', 'aegis' ); ?></p>
+<p class="is-style-sub-heading"><?php echo esc_html__( 'Variations', 'aegis' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -639,7 +535,7 @@
 <div class="wp-block-group"><!-- wp:icon {"icon":"remixicon/magic-line","style":{"dimensions":{"width":"20px"}},"textColor":"primary-500"} /-->
 
 <!-- wp:paragraph {"className":"is-style-sub-heading"} -->
-<p class="is-style-sub-heading"><?php echo esc_html__( 'Animation', 'aegis' ); ?></p>
+<p class="is-style-sub-heading"><?php echo esc_html__( 'Controls', 'aegis' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -657,7 +553,7 @@
 <div class="wp-block-group"><!-- wp:icon {"icon":"remixicon/eye-line","style":{"dimensions":{"width":"20px"}},"textColor":"primary-500"} /-->
 
 <!-- wp:paragraph {"className":"is-style-sub-heading"} -->
-<p class="is-style-sub-heading"><?php echo esc_html__( 'Breakpoints', 'aegis' ); ?></p>
+<p class="is-style-sub-heading"><?php echo esc_html__( 'Controls', 'aegis' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -729,23 +625,9 @@
 <!-- /wp:column -->
 
 <!-- wp:column {"verticalAlignment":"center"} -->
-<div class="wp-block-column is-vertically-aligned-center"><!-- wp:group {"metadata":{"name":"Header screenshots"},"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
-<div class="wp-block-group"><!-- wp:image {"aspectRatio":"4/1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img alt="Screenshot placeholder: default header" style="aspect-ratio:4/1;object-fit:cover"/></figure>
-<!-- /wp:image -->
-
-<!-- wp:image {"aspectRatio":"4/1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img alt="Screenshot placeholder: header with a mega menu" style="aspect-ratio:4/1;object-fit:cover"/></figure>
-<!-- /wp:image -->
-
-<!-- wp:image {"aspectRatio":"4/1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img alt="Screenshot placeholder: transparent sticky header" style="aspect-ratio:4/1;object-fit:cover"/></figure>
-<!-- /wp:image -->
-
-<!-- wp:image {"aspectRatio":"4/1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img alt="Screenshot placeholder: store header with mini-cart" style="aspect-ratio:4/1;object-fit:cover"/></figure>
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"id":251668,"aspectRatio":"16/9","scale":"cover","focalPoint":{"x":1,"y":0.5},"sizeSlug":"full","isDecorative":true} -->
+<figure class="wp-block-image size-full"><img src="https://www.atmostfear-entertainment.com/wp-content/uploads/2026/10/aegis_100_headers.png" alt="" class="wp-image-251668" style="aspect-ratio:16/9;object-fit:cover;object-position:100% 50%" role="none"/></figure>
 <!-- /wp:image --></div>
-<!-- /wp:group --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>
 <!-- /wp:group -->
@@ -753,8 +635,8 @@
 <!-- wp:group {"metadata":{"name":"Commerce"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","right":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)"><!-- wp:columns {"verticalAlignment":"center","align":"wide","className":"is-reverse-on-mobile","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|lg","left":"var:preset|spacing|lg"}}}} -->
 <div class="wp-block-columns alignwide are-vertically-aligned-center is-reverse-on-mobile"><!-- wp:column {"verticalAlignment":"center"} -->
-<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"aspectRatio":"16/9","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img alt="Screenshot placeholder: Aegis product page and multi-step checkout" style="aspect-ratio:16/9;object-fit:cover"/></figure>
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"id":251664,"aspectRatio":"16/9","scale":"cover","sizeSlug":"full","isDecorative":true} -->
+<figure class="wp-block-image size-full"><img src="https://www.atmostfear-entertainment.com/wp-content/uploads/2026/10/aegis_100_shop.png" alt="" class="wp-image-251664" style="aspect-ratio:16/9;object-fit:cover" role="none"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 
@@ -836,7 +718,7 @@
 <!-- /wp:group -->
 
 <!-- wp:paragraph {"fontSize":"15"} -->
-<p class="has-15-font-size"><?php echo esc_html__( 'Framework CSS and JavaScript load per feature, not as one bundle. Fonts are self-hosted and video embeds use click-to-load facades.', 'aegis' ); ?></p>
+<p class="has-15-font-size"><?php echo esc_html__( 'CSS and JavaScript load per feature, not as one bundle. Fonts are self-hosted and video embeds use click-to-load facades.', 'aegis' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -850,7 +732,7 @@
 <!-- /wp:group -->
 
 <!-- wp:paragraph {"fontSize":"15"} -->
-<p class="has-15-font-size"><?php echo esc_html__( 'Every change runs pa11y-ci against WCAG 2 AA with a zero-error threshold, plus PHPCS and pattern audits.', 'aegis' ); ?></p>
+<p class="has-15-font-size"><?php echo esc_html__( 'Every change runs pa11y-ci against WCAG 2 AA with a zero-error threshold, plus PHPCS and theme.json validation.', 'aegis' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -881,7 +763,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"fontSize":"18"} -->
-<p class="has-text-align-center has-18-font-size"><?php echo esc_html__( 'Matching styles ship in the theme for 14 popular plugins and load only when that plugin is present.', 'aegis' ); ?></p>
+<p class="has-text-align-center has-18-font-size"><?php echo esc_html__( 'Matching styles ship in the theme for 16 popular plugins, including Co-Authors Plus and BunnyCDN, and load only when that plugin is present.', 'aegis' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -1095,17 +977,7 @@
 <p class="has-15-font-size"><?php echo esc_html__( 'Strict types, PSR-4 services, and Composer packages — PHP 8.1 and up.', 'aegis' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
-<!-- /wp:group -->
-
-<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
-<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md);margin-bottom:var(--wp--preset--spacing--md)"><!-- wp:button {"backgroundColor":"neutral-800","iconSet":"remixicon","iconName":"arrow-right-line","iconSize":"16px","iconPosition":"end"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://www.atmostfear-entertainment.com/aegis/framework/"><?php echo esc_html__( 'Explore the Framework', 'aegis' ); ?></a></div>
-<!-- /wp:button -->
-
-<!-- wp:button {"className":"is-style-ghost","iconSet":"remixicon","iconName":"github-line","iconSize":"16px","iconPosition":"end"} -->
-<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link wp-element-button" href="https://github.com/aegiswp/theme"><?php echo esc_html__( 'View on GitHub', 'aegis' ); ?></a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons --></div>
+<!-- /wp:group --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"metadata":{"name":"Ecosystem"},"align":"full","className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","right":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
@@ -1115,7 +987,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"style":{"typography":{"textAlign":"center"}},"fontSize":"48"} -->
-<h2 class="wp-block-heading has-text-align-center has-48-font-size"><?php echo esc_html__( 'One System, Four Layers', 'aegis' ); ?></h2>
+<h2 class="wp-block-heading has-text-align-center has-48-font-size"><?php echo esc_html__( 'One System, Three Layers', 'aegis' ); ?></h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"fontSize":"18"} -->
@@ -1123,26 +995,8 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":"260px"}} -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"grid","columnCount":2,"minimumColumnWidth":"320px"}} -->
 <div class="wp-block-group alignwide"><!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","right":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm","left":"var:preset|spacing|sm"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
-<div class="wp-block-group is-style-surface" style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-<div class="wp-block-group"><!-- wp:icon {"icon":"remixicon/braces-line","style":{"dimensions":{"width":"20px"}},"textColor":"primary-500"} /-->
-
-<!-- wp:heading {"level":3,"style":{"typography":{"fontWeight":"500"}},"fontSize":"18"} -->
-<h3 class="wp-block-heading has-18-font-size" style="font-weight:500"><?php echo esc_html__( 'Aegis Framework — Built In', 'aegis' ); ?></h3>
-<!-- /wp:heading --></div>
-<!-- /wp:group -->
-
-<!-- wp:paragraph {"fontSize":"15"} -->
-<p class="has-15-font-size"><?php echo esc_html__( 'The engine inside the theme: nothing loads by default, and each style and script ships only when a page uses it.', 'aegis' ); ?></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"fontSize":"15"} -->
-<p class="has-15-font-size"><a href="https://www.atmostfear-entertainment.com/aegis/framework/"><?php echo esc_html__( 'Explore the Framework →', 'aegis' ); ?></a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","right":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm","left":"var:preset|spacing|sm"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 <div class="wp-block-group is-style-surface" style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 <div class="wp-block-group"><!-- wp:icon {"icon":"remixicon/dashboard-3-line","style":{"dimensions":{"width":"20px"}},"textColor":"primary-500"} /-->
 
@@ -1152,7 +1006,7 @@
 <!-- /wp:group -->
 
 <!-- wp:paragraph {"fontSize":"15"} -->
-<p class="has-15-font-size"><?php echo esc_html__( 'The control center: Map and Modal blocks, about 150 feature toggles, conditionals, snippets, and integrations.', 'aegis' ); ?></p>
+<p class="has-15-font-size"><?php echo esc_html__( 'The control center: Map and Modal blocks, 82 feature toggles, conditionals, snippets, and integrations.', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"15"} -->
@@ -1195,7 +1049,7 @@
 <div class="wp-block-columns alignwide"><!-- wp:column -->
 <div class="wp-block-column"><!-- wp:details {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
 <details class="wp-block-details is-style-surface" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)"><summary><?php echo esc_html__( 'Is Aegis really free?', 'aegis' ); ?></summary><!-- wp:paragraph {"fontSize":"16"} -->
-<p class="has-16-font-size"><?php echo esc_html__( 'Yes. The theme is GPL-licensed with no license key, upsell prompts, or phone-home code. Pro features live in a separate plugin.', 'aegis' ); ?></p>
+<p class="has-16-font-size"><?php echo esc_html__( 'Yes. The theme is GPL-licensed with no license key and no upsell prompts. Update checks go only to its public GitHub releases, and Pro features live in a separate plugin.', 'aegis' ); ?></p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
@@ -1260,7 +1114,7 @@
 
 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"neutral-800"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://github.com/aegiswp/theme/releases/tag/v1.0.0"><?php echo esc_html__( 'Download Aegis — Free', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://github.com/aegiswp/theme/releases/download/v1.0.1/aegis.zip"><?php echo esc_html__( 'Download Aegis — Free', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"className":"is-style-ghost"} -->
@@ -1268,6 +1122,5 @@
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group --></div>
-<!-- /wp:group -->
-</div>
+<!-- /wp:group --></div>
 <!-- /wp:group -->

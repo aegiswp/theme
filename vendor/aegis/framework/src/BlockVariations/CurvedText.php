@@ -54,6 +54,11 @@ class CurvedText implements Renderable {
 		// Clear paragraph text and prepare for SVG insertion.
 		$dom            = DOM::create( $block_content );
 		$p              = DOM::get_element( 'p', $dom );
+
+		if ( ! $p ) {
+			return $block_content;
+		}
+
 		$p->textContent = '';
 
 		$svg_dom     = DOM::create( $svg_string );

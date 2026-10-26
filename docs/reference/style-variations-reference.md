@@ -97,6 +97,10 @@ The default style is the theme's `theme.json` (title **Light**), not a file in `
 
 ## Applying a Variation
 
+![The Browse styles grid in the Site Editor showing the Aegis color variations, with one selected. Numbered callouts: 1 The selected variation; 2 Save keeps the variation.](../screenshots/browse-variations.png)
+
+*Apply a variation from Browse styles.*
+
 1. Open the Site Editor (**Appearance → Editor**).
 2. Click the **Styles** icon (half-filled circle).
 3. Click **Browse styles**.

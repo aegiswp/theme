@@ -30,6 +30,10 @@ Saved accordion-era Toggle blocks (heading + one content pane) migrate to a swit
 
 ## Usage
 
+![A Toggle block in the editor with its switch and the first Toggle Content panel open, and the Toggle Settings in the sidebar. Numbered callouts: 1 The first Toggle Content panel, open; 2 Initial view and animation.](../screenshots/toggle-editor.png)
+
+*Each Toggle Content block is one switchable panel.*
+
 1. Enable at least one extra at **Aegis → Blocks → Toggle** (Pill, Switch, or Buttons is enough).
 2. Insert the **Toggle** block.
 3. Edit the two labels (with Custom Labels on) and add blocks inside each **Toggle Content** view.
@@ -39,6 +43,10 @@ Saved accordion-era Toggle blocks (heading + one content pane) migrate to a swit
 ## Appearance (light and dark)
 
 Pill, switch, and button styles use Aegis mode tokens so labels stay readable in light and dark:
+
+![The same Toggle block shown in the light and dark styles side by side.](../screenshots/toggle-light-dark.png)
+
+*Toggle in light and dark mode.*
 
 - Pill chip and switch thumb: `--wp--custom--body--background` (page surface)
 - Pill active label: `--wp--custom--body--color`

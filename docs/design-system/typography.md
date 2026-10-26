@@ -136,11 +136,19 @@ Because all three fonts are variable, every weight in a font's range renders fro
 
 ### Setting Font Size
 
+![The Typography panel of a paragraph block with the font size presets from the Aegis type scale and the custom size control.](../screenshots/font-size.png)
+
+*Pick a size from the Aegis type scale.*
+
 1. Select a text block (Paragraph, Heading, or similar).
 2. In the right sidebar, find the **Typography** section.
 3. Choose a size from the preset dropdown or enter a custom value.
 
 ### Setting Font Family
+
+![The Typography panel of a paragraph with the font family dropdown open, listing Default, Sans Serif, Serif, Monospace, and the Lexend, Lexend Deca, and JetBrains fonts that ship with Aegis.](../screenshots/font-family.png)
+
+*Choose from the fonts bundled with the theme.*
 
 1. Select a text block.
 2. In the Typography section, click the font family selector.

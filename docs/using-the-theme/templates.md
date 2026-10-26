@@ -28,6 +28,10 @@ Each template file loads one pattern from `patterns/template/` (for example `tem
 
 When editing a page in the block editor:
 
+![The page settings sidebar in the block editor with the Template control open, listing Aegis page templates such as Page (No Title) and Page with Sidebar. Numbered callouts: 1 Template row in the page settings; 2 Change template lists the Aegis page templates.](../screenshots/page-template.png)
+
+*Pick a template for a page from the Template control in the page settings.*
+
 1. Open the **Page** tab in the right sidebar.
 2. Under **Template**, click the current template name.
 3. Select a different template from the list.
@@ -44,6 +48,10 @@ To modify the structure of a template:
 5. Click **Save**.
 
 ### Creating a Custom Template
+
+![The Add template dialog in the Site Editor showing template types such as Author Archives, Category Archives, Tag Archives, and Custom template. Numbered callouts: 1 Template types: author, category, and tag archives, and more; 2 Custom template: apply it to any post or page.](../screenshots/add-template.png)
+
+*Create a custom template from Templates → Add New Template.*
 
 1. In the Site Editor, go to **Templates**.
 2. Click the **+** button to add a new template.
@@ -122,7 +130,7 @@ Aegis includes utility templates for planned outages and launch pages:
 | Coming Soon | `coming-soon.html` | Site-wide coming soon layout. |
 | Page Coming Soon | `page-coming-soon.html` | Page-assigned coming soon layout. |
 
-Forcing the Maintenance template for logged-out visitors requires a small `template_include` hook in a child theme or plugin. See [[maintenance-mode]] for the full advanced how-to and code snippets.
+Forcing the Maintenance template for logged-out visitors requires a small `template_include` hook, added through a plugin such as an Aegis Code Snippets snippet. See [[maintenance-mode]] for the full advanced how-to and code snippets.
 
 ## Customization Tips
 

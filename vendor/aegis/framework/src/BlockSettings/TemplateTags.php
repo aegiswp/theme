@@ -57,6 +57,11 @@ use function is_null;
 use function is_year;
 use function preg_match_all;
 use function shortcode_exists;
+use function current_user_can;
+use function is_post_publicly_viewable;
+use function is_protected_meta;
+use function is_scalar;
+use function post_password_required;
 use function str_contains;
 use function str_replace;
 use function strip_tags;
@@ -73,7 +78,7 @@ use function strtolower;
  * The following are some of the available template tags:
  *
  * ### Post Tags
- * Any valid post field (e.g., `post_title`, `post_date`), any custom field key,
+ * Public post fields (e.g., `post_title`, `post_date`), any non-protected custom field key,
  * `post_id`, `permalink`, `post_type_label`, `read_time`.
  *
  * ### Archive Tags
@@ -155,14 +160,14 @@ class TemplateTags implements Renderable {
 				continue;
 			}
 
-			// First, try to resolve the tag as a post field or post meta.
-			if ( ! is_null( $post_id ) ) {
-				$post_field = get_post_field( $tag, $post_id );
+			// First, try to resolve the tag as a public post field or custom field.
+			if ( ! is_null( $post_id ) && $this->can_read_post_data( (int) $post_id ) ) {
+				$post_field = in_array( $tag, $this->get_post_fields(), true ) ? get_post_field( $tag, $post_id ) : '';
 				if ( $post_field ) {
 					$replacement = $post_field;
-				} else {
+				} elseif ( ! is_protected_meta( $tag, 'post' ) ) {
 					$post_meta = get_post_meta( $post_id, $tag, true );
-					if ( $post_meta ) {
+					if ( is_scalar( $post_meta ) && $post_meta ) {
 						$replacement = $post_meta;
 					}
 				}
@@ -183,6 +188,57 @@ class TemplateTags implements Renderable {
 		}
 
 		return str_replace( array_keys( $replacements ), array_values( $replacements ), $block_content );
+	}
+
+	/**
+	 * Post fields that `{field}` tags may print.
+	 *
+	 * Fields such as `post_password` and raw `post_content` are left out:
+	 * the tag text is chosen by whoever writes the block, while the post it
+	 * reads can be another author's (for example inside a Query Loop).
+	 *
+	 * @return string[]
+	 */
+	private function get_post_fields(): array {
+		/**
+		 * Filters the post fields available as template tags.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param string[] $fields Post field names.
+		 */
+		return (array) apply_filters(
+			'aegis_template_tag_post_fields',
+			[
+				'post_author',
+				'post_date',
+				'post_date_gmt',
+				'post_title',
+				'post_excerpt',
+				'post_status',
+				'post_name',
+				'post_modified',
+				'post_modified_gmt',
+				'post_parent',
+				'post_type',
+				'comment_count',
+			]
+		);
+	}
+
+	/**
+	 * Whether the current viewer may see field and meta values of a post.
+	 *
+	 * @param int $post_id Post ID.
+	 *
+	 * @return bool
+	 */
+	private function can_read_post_data( int $post_id ): bool {
+		if ( ! $post_id || post_password_required( $post_id ) ) {
+			return false;
+		}
+
+		return is_post_publicly_viewable( $post_id ) || current_user_can( 'read_post', $post_id );
 	}
 
 	/**

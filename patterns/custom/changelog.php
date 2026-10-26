@@ -30,7 +30,7 @@
 <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md);margin-bottom:var(--wp--preset--spacing--md)">
 <!-- wp:button {"backgroundColor":"neutral-800","size":"large","iconSet":"remixicon","iconName":"download-2-line","iconSize":"16px","iconPosition":"end"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://github.com/aegiswp/theme/releases/tag/v1.0.0"><?php echo esc_html__( 'Download Free', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://github.com/aegiswp/theme/releases/download/v1.0.2/aegis.zip"><?php echo esc_html__( 'Download Aegis — Free', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 <!-- wp:button {"size":"large","className":"is-style-ghost","iconSet":"remixicon","iconName":"github-line","iconSize":"16px","iconPosition":"end"} -->
 <div class="wp-block-button is-style-ghost"><a class="wp-block-button__link wp-element-button" href="https://github.com/aegiswp"><?php echo esc_html__( 'Releases on GitHub', 'aegis' ); ?></a></div>
@@ -63,10 +63,10 @@
 </div>
 <!-- /wp:group -->
 <!-- wp:paragraph {"className":"is-style-heading","fontFamily":"jetbrains","style":{"typography":{"lineHeight":"1"}},"fontSize":"40"} -->
-<p class="is-style-heading has-40-font-size has-jetbrains-font-family" style="line-height:1"><?php echo esc_html__( 'v1.0.1', 'aegis' ); ?></p>
+<p class="is-style-heading has-40-font-size has-jetbrains-font-family" style="line-height:1"><?php echo esc_html__( 'v1.0.2', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"textColor":"neutral-500","fontSize":"14"} -->
-<p class="has-neutral-500-color has-text-color has-14-font-size"><?php echo esc_html__( 'Releasing Monday, October 19, 2026', 'aegis' ); ?></p>
+<p class="has-neutral-500-color has-text-color has-14-font-size"><?php echo esc_html__( 'Released October 26, 2026', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -84,7 +84,7 @@
 <p class="is-style-heading has-40-font-size has-jetbrains-font-family" style="line-height:1"><?php echo esc_html__( 'v1.0.0', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"textColor":"neutral-500","fontSize":"14"} -->
-<p class="has-neutral-500-color has-text-color has-14-font-size"><?php echo esc_html__( 'Releasing Monday, October 19, 2026', 'aegis' ); ?></p>
+<p class="has-neutral-500-color has-text-color has-14-font-size"><?php echo esc_html__( 'Released October 19, 2026', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -142,10 +142,149 @@
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
 <div class="wp-block-group">
 <!-- wp:paragraph {"backgroundColor":"neutral-950","textColor":"primary-25","fontFamily":"jetbrains","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"14"} -->
-<p class="has-primary-25-color has-text-color has-neutral-950-background-color has-background has-14-font-size has-jetbrains-font-family" style="border-radius:99px;padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'v1.0.1', 'aegis' ); ?></p>
+<p class="has-primary-25-color has-text-color has-neutral-950-background-color has-background has-14-font-size has-jetbrains-font-family" style="border-radius:99px;padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'v1.0.2', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
-<!-- wp:paragraph {"backgroundColor":"info-100","textColor":"info-600","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"12"} -->
-<p class="has-info-600-color has-text-color has-info-100-background-color has-background has-12-font-size" style="border-radius:99px;padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Releasing Monday', 'aegis' ); ?></p>
+<!-- wp:paragraph {"backgroundColor":"success-100","textColor":"neutral-950","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"12"} -->
+<p class="has-neutral-950-color has-text-color has-success-100-background-color has-background has-12-font-size" style="border-radius:99px;padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Latest', 'aegis' ); ?></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"is-style-sub-heading","fontSize":"14"} -->
+<p class="is-style-sub-heading has-14-font-size"><?php echo esc_html__( 'October 26, 2026', 'aegis' ); ?></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:heading {"level":3,"fontSize":"24"} -->
+<h3 class="wp-block-heading has-24-font-size"><?php echo esc_html__( 'Faster pages, inline drilldown menus, and security hardening', 'aegis' ); ?></h3>
+<!-- /wp:heading -->
+<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+<div class="wp-block-group">
+<!-- wp:paragraph {"backgroundColor":"success-100","textColor":"neutral-950","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"},"margin":{"top":"var:preset|spacing|sm"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"12"} -->
+<p class="has-neutral-950-color has-text-color has-success-100-background-color has-background has-12-font-size" style="border-radius:99px;margin-top:var(--wp--preset--spacing--sm);padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Added', 'aegis' ); ?></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:list {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xxs"}}},"fontSize":"15"} -->
+<ul style="margin-top:var(--wp--preset--spacing--xxs)" class="wp-block-list has-15-font-size">
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Slide-through submenus on inline Navigation menus with the is-drilldown class, with the same Back button and nested panels as the mobile menu.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Books Slider pattern: one book per view with a 2:3 cover and arrows outside the slide.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Latest Posts Carousel pattern: post cards with the featured image, category, date, title, and excerpt.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Developer filters for the post fields template tags can print and the private meta keys Query Loop blocks can use.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+<div class="wp-block-group">
+<!-- wp:paragraph {"backgroundColor":"info-100","textColor":"neutral-950","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"},"margin":{"top":"var:preset|spacing|sm"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"12"} -->
+<p class="has-neutral-950-color has-text-color has-info-100-background-color has-background has-12-font-size" style="border-radius:99px;margin-top:var(--wp--preset--spacing--sm);padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Changed', 'aegis' ); ?></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:list {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xxs"}}},"fontSize":"15"} -->
+<ul style="margin-top:var(--wp--preset--spacing--xxs)" class="wp-block-list has-15-font-size">
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Patterns load only when used, and pattern details and icon lists are cached, so pages load much faster on every host.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'The Home page hero shows Open Editor and Read Docs, and Read Docs links to the Aegis documentation.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'The site header scrolls with the page again. The sticky header from 1.0.1 can be turned back on in theme.json.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Template tags print public post fields only, and nothing for password-protected posts or posts the visitor cannot read.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Query Loop meta filters and sorting ignore private meta keys unless a filter allows them.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Meta Box block bindings skip private fields, password-protected posts, and posts the visitor cannot read.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'The onclick block setting and unrestricted Additional Styles are kept only for users who can post unfiltered HTML.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Links that open in a new tab always get rel="noopener", and video facades play only YouTube and Vimeo.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Inline SVG replaces an image only when it points to an SVG file inside wp-content.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+<div class="wp-block-group">
+<!-- wp:paragraph {"backgroundColor":"error-100","textColor":"neutral-950","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"},"margin":{"top":"var:preset|spacing|sm"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"12"} -->
+<p class="has-neutral-950-color has-text-color has-error-100-background-color has-background has-12-font-size" style="border-radius:99px;margin-top:var(--wp--preset--spacing--sm);padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Removed', 'aegis' ); ?></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:list {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xxs"}}},"fontSize":"15"} -->
+<ul style="margin-top:var(--wp--preset--spacing--xxs)" class="wp-block-list has-15-font-size">
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'SVG uploads to the Media Library. SVGs already uploaded stay where they are.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'The unused data-ajax option on copy-to-clipboard buttons.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+<div class="wp-block-group">
+<!-- wp:paragraph {"backgroundColor":"warning-100","textColor":"neutral-950","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"},"margin":{"top":"var:preset|spacing|sm"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"12"} -->
+<p class="has-neutral-950-color has-text-color has-warning-100-background-color has-background has-12-font-size" style="border-radius:99px;margin-top:var(--wp--preset--spacing--sm);padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Fixed', 'aegis' ); ?></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:list {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xxs"}}},"fontSize":"15"} -->
+<ul style="margin-top:var(--wp--preset--spacing--xxs)" class="wp-block-list has-15-font-size">
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Slider arrows sit over a single slide and beside multi-slide carousels, and dots stay clear of the cards.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Slides always render as slider items, including patterns that save only their inner blocks.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Circular avatars in slides stay square, and book covers keep their own aspect ratio.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Hero, Features, Portfolio, and Team slider patterns use theme colors, with the lightbox off.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'WooCommerce variation scripts no longer load on every page.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'WooCommerce patterns used in templates render on the front end.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Copy-to-clipboard buttons copy code exactly as written.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Structured data for embeds, FAQ accordions, and countdowns is escaped safely.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Pattern blocks with an unusual slug render the matching pattern.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'The block inserter\'s Patterns tab lists patterns again.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'The Icon block\'s icon library loads its icons, including All and search, in under a second.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--xl)">
+<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
+<div class="wp-block-group">
+<!-- wp:paragraph {"backgroundColor":"neutral-950","textColor":"primary-25","fontFamily":"jetbrains","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"14"} -->
+<p class="has-primary-25-color has-text-color has-neutral-950-background-color has-background has-14-font-size has-jetbrains-font-family" style="border-radius:99px;padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'v1.0.1', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"is-style-sub-heading","fontSize":"14"} -->
 <p class="is-style-sub-heading has-14-font-size"><?php echo esc_html__( 'October 19, 2026', 'aegis' ); ?></p>
@@ -155,9 +294,13 @@
 <!-- wp:heading {"level":3,"fontSize":"24"} -->
 <h3 class="wp-block-heading has-24-font-size"><?php echo esc_html__( 'Native updates, editor dark preview, and mobile polish', 'aegis' ); ?></h3>
 <!-- /wp:heading -->
-<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"success-600","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"fontSize":"12"} -->
-<p class="is-style-sub-heading has-success-600-color has-text-color has-12-font-size" style="margin-top:var(--wp--preset--spacing--sm)"><?php echo esc_html__( 'Added', 'aegis' ); ?></p>
+<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+<div class="wp-block-group">
+<!-- wp:paragraph {"backgroundColor":"success-100","textColor":"neutral-950","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"},"margin":{"top":"var:preset|spacing|sm"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"12"} -->
+<p class="has-neutral-950-color has-text-color has-success-100-background-color has-background has-12-font-size" style="border-radius:99px;margin-top:var(--wp--preset--spacing--sm);padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Added', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 <!-- wp:list {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xxs"}}},"fontSize":"15"} -->
 <ul style="margin-top:var(--wp--preset--spacing--xxs)" class="wp-block-list has-15-font-size">
 <!-- wp:list-item -->
@@ -180,9 +323,13 @@
 <!-- /wp:list-item -->
 </ul>
 <!-- /wp:list -->
-<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"info-600","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"fontSize":"12"} -->
-<p class="is-style-sub-heading has-info-600-color has-text-color has-12-font-size" style="margin-top:var(--wp--preset--spacing--sm)"><?php echo esc_html__( 'Changed', 'aegis' ); ?></p>
+<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+<div class="wp-block-group">
+<!-- wp:paragraph {"backgroundColor":"info-100","textColor":"neutral-950","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"},"margin":{"top":"var:preset|spacing|sm"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"12"} -->
+<p class="has-neutral-950-color has-text-color has-info-100-background-color has-background has-12-font-size" style="border-radius:99px;margin-top:var(--wp--preset--spacing--sm);padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Changed', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 <!-- wp:list {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xxs"}}},"fontSize":"15"} -->
 <ul style="margin-top:var(--wp--preset--spacing--xxs)" class="wp-block-list has-15-font-size">
 <!-- wp:list-item -->
@@ -211,9 +358,13 @@
 <!-- /wp:list-item -->
 </ul>
 <!-- /wp:list -->
-<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"warning-600","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"fontSize":"12"} -->
-<p class="is-style-sub-heading has-warning-600-color has-text-color has-12-font-size" style="margin-top:var(--wp--preset--spacing--sm)"><?php echo esc_html__( 'Fixed', 'aegis' ); ?></p>
+<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+<div class="wp-block-group">
+<!-- wp:paragraph {"backgroundColor":"warning-100","textColor":"neutral-950","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"},"margin":{"top":"var:preset|spacing|sm"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"12"} -->
+<p class="has-neutral-950-color has-text-color has-warning-100-background-color has-background has-12-font-size" style="border-radius:99px;margin-top:var(--wp--preset--spacing--sm);padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Fixed', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 <!-- wp:list {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xxs"}}},"fontSize":"15"} -->
 <ul style="margin-top:var(--wp--preset--spacing--xxs)" class="wp-block-list has-15-font-size">
 <!-- wp:list-item -->
@@ -235,6 +386,9 @@
 <li><?php echo esc_html__( 'Patterns no longer reference undefined spacing and color presets.', 'aegis' ); ?></li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
+<li><?php echo esc_html__( 'Hard-coded spacing in the footer, slider, team, and checkout patterns now uses the fluid presets, so it scales down on phones.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
 <li><?php echo esc_html__( 'Pro Tabs blocks no longer show as invalid in the editor.', 'aegis' ); ?></li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
@@ -252,6 +406,21 @@
 <!-- wp:list-item -->
 <li><?php echo esc_html__( 'Without WooCommerce, the editor no longer shows unsupported WooCommerce blocks in the header and store patterns.', 'aegis' ); ?></li>
 <!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Text contrast in dark sections, notices in dark mode, and several event, hero and footer patterns.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Portfolio page pattern: project titles stay readable over light images.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Countdown block: its front-end styles now load.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Pages with a Tag Cloud block no longer stop with an error on a new site that has no tags yet.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><?php echo esc_html__( 'Removed a console error in the editor when Inline SVG is turned off.', 'aegis' ); ?></li>
+<!-- /wp:list-item -->
 </ul>
 <!-- /wp:list -->
 </div>
@@ -263,8 +432,8 @@
 <!-- wp:paragraph {"backgroundColor":"neutral-950","textColor":"primary-25","fontFamily":"jetbrains","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"14"} -->
 <p class="has-primary-25-color has-text-color has-neutral-950-background-color has-background has-14-font-size has-jetbrains-font-family" style="border-radius:99px;padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'v1.0.0', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
-<!-- wp:paragraph {"backgroundColor":"success-100","textColor":"success-600","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"12"} -->
-<p class="has-success-600-color has-text-color has-success-100-background-color has-background has-12-font-size" style="border-radius:99px;padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Latest', 'aegis' ); ?></p>
+<!-- wp:paragraph {"backgroundColor":"neutral-100","textColor":"neutral-700","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"12"} -->
+<p class="has-neutral-700-color has-text-color has-neutral-100-background-color has-background has-12-font-size" style="border-radius:99px;padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Previous', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"is-style-sub-heading","fontSize":"14"} -->
 <p class="is-style-sub-heading has-14-font-size"><?php echo esc_html__( 'October 14, 2026', 'aegis' ); ?></p>
@@ -275,7 +444,7 @@
 <h3 class="wp-block-heading has-24-font-size"><?php echo esc_html__( 'Initial stable release', 'aegis' ); ?></h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"textColor":"neutral-600","fontSize":"15"} -->
-<p class="has-neutral-600-color has-text-color has-15-font-size"><?php echo esc_html__( 'The first stable release of the block theme and design-system framework: design tokens, 60 style variations, 236 patterns, 50 templates, and six custom blocks.', 'aegis' ); ?></p>
+<p class="has-neutral-600-color has-text-color has-15-font-size"><?php echo esc_html__( 'The first stable release of the block theme and design-system framework: design tokens, 60 style variations, 234 patterns, 50 templates, and six custom blocks.', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -310,8 +479,8 @@
 <!-- wp:paragraph {"backgroundColor":"neutral-950","textColor":"primary-25","fontFamily":"jetbrains","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"14"} -->
 <p class="has-primary-25-color has-text-color has-neutral-950-background-color has-background has-14-font-size has-jetbrains-font-family" style="border-radius:99px;padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'v1.0.0', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
-<!-- wp:paragraph {"backgroundColor":"info-100","textColor":"info-600","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"12"} -->
-<p class="has-info-600-color has-text-color has-info-100-background-color has-background has-12-font-size" style="border-radius:99px;padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Releasing Monday', 'aegis' ); ?></p>
+<!-- wp:paragraph {"backgroundColor":"success-100","textColor":"neutral-950","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"12"} -->
+<p class="has-neutral-950-color has-text-color has-success-100-background-color has-background has-12-font-size" style="border-radius:99px;padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Latest', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"is-style-sub-heading","fontSize":"14"} -->
 <p class="is-style-sub-heading has-14-font-size"><?php echo esc_html__( 'October 19, 2026', 'aegis' ); ?></p>
@@ -321,9 +490,13 @@
 <!-- wp:heading {"level":3,"fontSize":"24"} -->
 <h3 class="wp-block-heading has-24-font-size"><?php echo esc_html__( 'Initial release', 'aegis' ); ?></h3>
 <!-- /wp:heading -->
-<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"success-600","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"fontSize":"12"} -->
-<p class="is-style-sub-heading has-success-600-color has-text-color has-12-font-size" style="margin-top:var(--wp--preset--spacing--sm)"><?php echo esc_html__( 'Added', 'aegis' ); ?></p>
+<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+<div class="wp-block-group">
+<!-- wp:paragraph {"backgroundColor":"success-100","textColor":"neutral-950","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"},"margin":{"top":"var:preset|spacing|sm"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"12"} -->
+<p class="has-neutral-950-color has-text-color has-success-100-background-color has-background has-12-font-size" style="border-radius:99px;margin-top:var(--wp--preset--spacing--sm);padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Added', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 <!-- wp:list {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xxs"}}},"fontSize":"15"} -->
 <ul style="margin-top:var(--wp--preset--spacing--xxs)" class="wp-block-list has-15-font-size">
 <!-- wp:list-item -->
@@ -365,8 +538,8 @@
 <!-- wp:paragraph {"backgroundColor":"neutral-950","textColor":"primary-25","fontFamily":"jetbrains","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"14"} -->
 <p class="has-primary-25-color has-text-color has-neutral-950-background-color has-background has-14-font-size has-jetbrains-font-family" style="border-radius:99px;padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'v1.0.0', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
-<!-- wp:paragraph {"backgroundColor":"warning-100","textColor":"warning-600","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"12"} -->
-<p class="has-warning-600-color has-text-color has-warning-100-background-color has-background has-12-font-size" style="border-radius:99px;padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Coming soon', 'aegis' ); ?></p>
+<!-- wp:paragraph {"backgroundColor":"warning-100","textColor":"neutral-950","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"12"} -->
+<p class="has-neutral-950-color has-text-color has-warning-100-background-color has-background has-12-font-size" style="border-radius:99px;padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Coming soon', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"is-style-sub-heading","fontSize":"14"} -->
 <p class="is-style-sub-heading has-14-font-size"><?php echo esc_html__( 'Date to be announced', 'aegis' ); ?></p>
@@ -376,9 +549,13 @@
 <!-- wp:heading {"level":3,"fontSize":"24"} -->
 <h3 class="wp-block-heading has-24-font-size"><?php echo esc_html__( 'Initial release', 'aegis' ); ?></h3>
 <!-- /wp:heading -->
-<!-- wp:paragraph {"className":"is-style-sub-heading","textColor":"success-600","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"fontSize":"12"} -->
-<p class="is-style-sub-heading has-success-600-color has-text-color has-12-font-size" style="margin-top:var(--wp--preset--spacing--sm)"><?php echo esc_html__( 'Added', 'aegis' ); ?></p>
+<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+<div class="wp-block-group">
+<!-- wp:paragraph {"backgroundColor":"success-100","textColor":"neutral-950","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"4px","right":"var:preset|spacing|xxs","bottom":"4px","left":"var:preset|spacing|xxs"},"margin":{"top":"var:preset|spacing|sm"}},"typography":{"lineHeight":"1","fontWeight":"500"}},"fontSize":"12"} -->
+<p class="has-neutral-950-color has-text-color has-success-100-background-color has-background has-12-font-size" style="border-radius:99px;margin-top:var(--wp--preset--spacing--sm);padding-top:4px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:4px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Added', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 <!-- wp:list {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xxs"}}},"fontSize":"15"} -->
 <ul style="margin-top:var(--wp--preset--spacing--xxs)" class="wp-block-list has-15-font-size">
 <!-- wp:list-item -->
@@ -497,7 +674,7 @@
 <div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://www.atmostfear-entertainment.com/blogs/aegis/"><?php echo esc_html__( 'Visit the blog', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 <!-- wp:button {"className":"is-style-ghost","iconSet":"remixicon","iconName":"download-2-line","iconSize":"16px","iconPosition":"end"} -->
-<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link wp-element-button" href="https://github.com/aegiswp/theme/releases/tag/v1.0.0"><?php echo esc_html__( 'Download Free', 'aegis' ); ?></a></div>
+<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link wp-element-button" href="https://github.com/aegiswp/theme/releases/download/v1.0.2/aegis.zip"><?php echo esc_html__( 'Download Aegis — Free', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->

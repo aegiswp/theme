@@ -84,6 +84,10 @@ Each block below has a class in `vendor/aegis/framework/src/CoreBlocks/` that fi
 
 The framework registers these styles (`vendor/aegis/framework/src/DesignSystem/BlockStyles.php`). They appear in the **Styles** panel when you select a block:
 
+![The Styles section of a List block's settings with the Accordion style Aegis adds.](../screenshots/block-styles.png)
+
+*Aegis adds extra styles to core blocks.*
+
 | Block | Styles |
 |-------|--------|
 | Archive Title | Sub-heading |
@@ -147,6 +151,10 @@ Responsive improvements in the enhanced blocks:
 ### Core Responsive States and Aegis Breakpoints
 
 WordPress Core responsive style states (viewport-specific spacing, color, typography, and related supports in the Site Editor) apply to blocks that use standard block supports. Aegis continues to provide complementary controls Core does not fully replace:
+
+![The block editor with the tablet preview active and a Group block selected.](../screenshots/responsive.png)
+
+*Responsive settings at the Aegis breakpoints.*
 
 | Concern | Handled by |
 |---------|------------|

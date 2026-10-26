@@ -56,8 +56,8 @@
 
 Plugin-owned docs (not duplicated here):
 
-- [Aegis Plugin docs](../../../plugins/aegis/docs/home.md) · [Wiki](https://github.com/aegiswp/plugin/wiki)
-- [Aegis Pro docs](../../../plugins/aegis-pro/docs/home.md) · [Wiki](https://github.com/aegiswp/pro/wiki)
+- [Aegis Plugin docs](../../../plugins/aegis/docs/home.md)
+- [Aegis Pro docs](../../../plugins/aegis-pro/docs/home.md)
 
 ## Development
 

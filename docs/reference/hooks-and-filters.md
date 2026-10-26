@@ -101,6 +101,8 @@ Full catalog: [Plugin Hook Patterns](../../../../plugins/aegis/docs/features/hoo
 | `aegis_patterns` | Pattern categories |
 | `aegis_pattern_dirs` | Pattern scan directories |
 | `aegis_template_tags` | Template tag output |
+| `aegis_template_tag_post_fields` | Post fields that `{field}` template tags can print. Argument: `string[] $fields`. Defaults to public fields only: title, excerpt, dates, author, status, slug, parent, post type, and comment count (`TemplateTags.php`) |
+| `aegis_query_protected_meta_keys` | `_`-prefixed meta keys that Query Loop meta filters and meta sorting accept. Argument: `string[] $keys`. Default: WooCommerce product keys (`_price`, `_regular_price`, `_sale_price`, `_stock`, `_wc_average_rating`, `_wc_review_count`) (`QueryEnhancements.php`) |
 | `aegis_words_per_minute` | Reading time calculation (default 200) |
 | `aegis_comments_form_title_tag` | Comments form heading tag |
 | `aegis_placeholder_svg` | Placeholder SVG markup |
@@ -110,7 +112,6 @@ Full catalog: [Plugin Hook Patterns](../../../../plugins/aegis/docs/features/hoo
 | `aegis_template_html` | Collected front-end template, template part, and post markup that decides which conditional assets load. Argument: `string $markup` (`FrontendContentContext.php`) |
 | `aegis_editor_data` | Data passed to the framework editor script as `window.aegis`. Argument: `array $data` (`EditorAssets.php`) |
 | `aegis_query_enhancements_data` | Post types, taxonomies, meta operators, meta types, and order-by options for the Query enhancements panel. Argument: `array $data` (`QueryEnhancements.php`) |
-| `aegis_svg_settings` | SVG processing settings for sanitized uploads. Argument: `array $settings` (`SvgUpload.php`) |
 | `aegis_icon_sets` | Registered icon sets. Argument: `array $icon_sets` (set name ⇒ folder path) (`vendor/aegis/icons/src/Icon.php`) |
 
 ## Theme Filters
@@ -119,7 +120,7 @@ Full catalog: [Plugin Hook Patterns](../../../../plugins/aegis/docs/features/hoo
 |--------|-------------|
 | `aegis_dynamic_template_part_slug` | Swap a `core/template-part` slug at render time when an alternate `parts/{slug}.html` exists. See [[dynamic-template-parts]]. |
 | `aegis_theme_update_repository` | GitHub repository (`owner/name`) the theme checks for updates. Default `aegiswp/theme`. Argument: `string $repository` (`src/Admin/GitHubUpdater.php`). See [[updating]]. |
-| `aegis_companion_package_url` | Zip URL the companion plugin notice installs from. Default `https://github.com/aegiswp/plugin/releases/latest/download/aegis.zip`. Argument: `string $package` (`src/Admin/CompanionNotice.php`). Use it to pin a release or a mirror. |
+| `aegis_companion_package_url` | Zip URL the companion plugin notice installs from. Default: the `aegis.zip` package of the latest plugin release. Argument: `string $package` (`src/Admin/CompanionNotice.php`). Use it to pin a release or a mirror. |
 
 ## Pro Filters
 

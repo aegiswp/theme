@@ -30,6 +30,7 @@ use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
 use function esc_html__;
+use function esc_textarea;
 use function explode;
 use function html_entity_decode;
 use function implode;
@@ -92,6 +93,8 @@ class CopyToClipboard implements Renderable, Scriptable {
   <path d="M13.7475 19.2499L18.2475 19.2499"></path>
 </svg>
 SVG;
+		// The decoded code is text again, so escape it before it goes back into markup.
+		$content                = esc_textarea( $content );
 		$copy_to_clipboard_html = "<div class='copy-to-clipboard'><span >$copied</span><button class='click-to-copy-button' title='$label'>$svg</button><textarea>$content</textarea></div>";
 
 		// --- DOM Manipulation ---

@@ -17,10 +17,12 @@ use function in_array;
 use function is_array;
 use function is_null;
 use function is_string;
+use function max;
 use function preg_replace;
 use function rtrim;
 use function str_contains;
 use function str_replace;
+use function strlen;
 use function trim;
 use function wp_json_file_decode;
 
@@ -54,12 +56,62 @@ class CSS {
 				continue;
 			}
 
-			$value     = self::format_custom_property( (string) $value );
+			$value = self::format_custom_property( (string) $value );
+
+			// Values often come from block attributes; one value must not add more declarations.
+			if ( ! self::is_single_value( (string) $value ) ) {
+				continue;
+			}
+
 			$semicolon = $trim && $property === array_key_last( $styles ) ? '' : ';';
 			$css       .= $property . ':' . $value . $semicolon;
 		}
 
 		return rtrim( $css, ';' );
+	}
+
+	/**
+	 * Whether a value is a single CSS value, with no top-level `;`, `{` or `}`.
+	 *
+	 * Those characters are allowed inside quotes and parentheses, so values
+	 * such as `url('data:image/svg+xml;utf8,…')` still pass.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $value CSS value.
+	 *
+	 * @return bool
+	 */
+	public static function is_single_value( string $value ): bool {
+		$depth = 0;
+		$quote = '';
+		$len   = strlen( $value );
+
+		for ( $i = 0; $i < $len; $i++ ) {
+			$char = $value[ $i ];
+
+			if ( $quote !== '' ) {
+				if ( $char === '\\' ) {
+					++$i;
+				} elseif ( $char === $quote ) {
+					$quote = '';
+				}
+
+				continue;
+			}
+
+			if ( $char === '"' || $char === "'" ) {
+				$quote = $char;
+			} elseif ( $char === '(' ) {
+				++$depth;
+			} elseif ( $char === ')' ) {
+				$depth = max( 0, $depth - 1 );
+			} elseif ( $depth === 0 && ( $char === ';' || $char === '{' || $char === '}' ) ) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	/**

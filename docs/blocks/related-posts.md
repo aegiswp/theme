@@ -31,6 +31,10 @@ This is the **canonical** related-posts path. The former `core/query` Related Po
 
 ## Usage
 
+![The Related Posts block under a blog post on the front end, showing three post cards with featured images and titles. Numbered callouts: 1 Related posts: cards with featured image and title.](../screenshots/related-posts.png)
+
+*Related Posts under a single post.*
+
 1. Insert **Related Posts** (typically on single post templates).
 2. Set post count and layout variant.
 3. Choose **Related by** (auto taxonomies, category, tag, or author).
@@ -44,6 +48,10 @@ Content options (heading, post count, columns, excerpt length, image ratio) appl
 ## Aegis → Blocks → Related Posts
 
 There is no parent Related Posts toggle. Enabling any extra implies the block (same pattern as Query Loop). Without the plugin, all extras behave as on.
+
+![Aegis → Blocks with the Related Posts section open, showing its feature toggles.](../screenshots/blocks-related-posts.png)
+
+*Related Posts options in Aegis → Blocks.*
 
 | Extra | Inspector | Off fallback |
 |-------|-----------|--------------|

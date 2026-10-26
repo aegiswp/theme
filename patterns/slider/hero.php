@@ -31,8 +31,8 @@ declare(strict_types=1);
 				<div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button"><?php echo esc_html__( 'Get Started', 'aegis' ); ?></a></div>
 				<!-- /wp:button -->
 
-				<!-- wp:button {"textColor":"neutral-0","className":"is-style-outline","style":{"elements":{"link":{"color":{"text":"var:preset|color|neutral-0"}}}}} -->
-				<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-neutral-0-color has-text-color has-link-color wp-element-button"><?php echo esc_html__( 'Learn More', 'aegis' ); ?></a></div>
+				<!-- wp:button {"textColor":"neutral-950","className":"is-style-outline","style":{"elements":{"link":{"color":{"text":"var:preset|color|neutral-950"}}}}} -->
+				<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-neutral-950-color has-text-color has-link-color wp-element-button"><?php echo esc_html__( 'Learn More', 'aegis' ); ?></a></div>
 				<!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->

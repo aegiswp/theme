@@ -6,6 +6,10 @@ Block feature toggles are at **Aegis → Blocks** when the plugin is active — 
 
 ## Theme-Registered Blocks
 
+![The block inserter searched for Aegis, listing Countdown, Slider, Toggle, and Related Posts blocks.](../screenshots/inserter-aegis-blocks.png)
+
+*Search the inserter for Aegis to find the theme's blocks.*
+
 | Block | Namespace | Documentation |
 |-------|-----------|---------------|
 | Countdown | `aegis/countdown` | [[countdown]] |

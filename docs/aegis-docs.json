@@ -1,0 +1,135 @@
+{
+	"package": "theme",
+	"repo": "https://github.com/aegiswp/theme",
+	"repo_root": "..",
+	"branch": "main",
+	"set": {
+		"name": "Theme",
+		"slug": "theme",
+		"description": "Install, customize, and extend the Aegis block theme: templates, patterns, style variations, the design system, custom blocks, and features.",
+		"icon": "wordpress/brush",
+		"order": 0,
+		"parent": {
+			"name": "Aegis",
+			"slug": "aegis",
+			"description": "Documentation for the Aegis block theme, its companion plugin, and Aegis Pro.",
+			"icon": "wordpress/shield"
+		}
+	},
+	"skip": [ "_sidebar.md", "_footer.md" ],
+	"external": [
+		{ "match": "plugins/aegis-pro/", "url": "https://www.atmostfear-entertainment.com/docs/aegis/" }
+	],
+	"sections": [
+		{
+			"name": "Getting Started",
+			"icon": "wordpress/home",
+			"docs": [
+				{ "file": "home.md", "title": "Overview", "slug": "overview" },
+				"getting-started/installation.md",
+				"getting-started/requirements.md",
+				"getting-started/quick-start-guide.md",
+				"getting-started/updating.md",
+				{ "file": "introduction-inventory.md", "title": "Theme Inventory" }
+			]
+		},
+		{
+			"name": "Using the Theme",
+			"icon": "wordpress/layout",
+			"docs": [
+				"using-the-theme/site-editor.md",
+				"using-the-theme/templates.md",
+				"using-the-theme/template-parts.md",
+				"using-the-theme/block-patterns.md",
+				"using-the-theme/style-variations.md",
+				"using-the-theme/global-styles.md",
+				"using-the-theme/dark-mode.md"
+			]
+		},
+		{
+			"name": "Design System",
+			"icon": "wordpress/styles",
+			"docs": [
+				"design-system/color-palette.md",
+				"design-system/typography.md",
+				"design-system/spacing.md",
+				"design-system/shadows.md",
+				"design-system/gradients.md",
+				"design-system/borders.md",
+				"design-system/layout.md"
+			]
+		},
+		{
+			"name": "Blocks",
+			"icon": "wordpress/block-default",
+			"docs": [
+				"blocks/custom-blocks.md",
+				"blocks/countdown.md",
+				"blocks/slider.md",
+				"blocks/toggle.md",
+				"blocks/related-posts.md",
+				"blocks/core-video.md",
+				"blocks/enhanced-core-blocks.md",
+				"blocks/block-variations.md"
+			]
+		},
+		{
+			"name": "Features",
+			"icon": "wordpress/star-filled",
+			"docs": [
+				"features/woocommerce-integration.md",
+				"features/plugin-integrations.md",
+				"features/accessibility.md",
+				"features/performance.md",
+				"features/hook-patterns.md",
+				"features/dynamic-template-parts.md",
+				"features/maintenance-mode.md",
+				"features/svg-icons.md",
+				{ "file": "features/image-lightbox.md", "slug": "lightbox" },
+				"features/embed-template.md",
+				"features/navigation-styles.md"
+			]
+		},
+		{
+			"name": "Help",
+			"icon": "wordpress/help",
+			"docs": [
+				"troubleshooting/common-issues.md",
+				{ "file": "troubleshooting/faq.md", "title": "FAQ" }
+			]
+		},
+		{
+			"name": "Reference",
+			"icon": "wordpress/list-view",
+			"docs": [
+				"reference/template-reference.md",
+				"reference/pattern-reference.md",
+				"reference/style-variations-reference.md",
+				"reference/css-variables-reference.md",
+				"reference/hooks-and-filters.md",
+				"reference/code-snippets.md",
+				"reference/file-structure.md"
+			]
+		},
+		{
+			"name": "Development",
+			"icon": "wordpress/code",
+			"docs": [
+				"development/development-setup.md",
+				"development/building-assets.md",
+				"development/tools.md",
+				"development/code-quality.md",
+				"development/testing.md",
+				"development/contributing.md",
+				"development/documentation.md",
+				"development/deployment.md",
+				"development/architecture.md"
+			]
+		}
+	],
+	"screenshots": {
+		"features/woocommerce-integration.md": [
+			{ "after": "Wishlist (TI WooCommerce Wishlist)", "alt": "A product card with the wishlist heart button, next to the wishlist page listing saved products.", "caption": "Wishlist buttons and the wishlist page." }
+		]
+	}
+}

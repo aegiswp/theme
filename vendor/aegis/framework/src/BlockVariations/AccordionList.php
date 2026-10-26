@@ -243,7 +243,7 @@ class AccordionList implements Renderable {
 				'@type'      => 'FAQPage',
 				'mainEntity' => $faq_entities,
 			);
-			$html  .= '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES ) . '</script>';
+			$html  .= '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_HEX_TAG ) . '</script>';
 		}
 
 		return $html;

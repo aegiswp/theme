@@ -2,13 +2,13 @@
 
 This page lists every block pattern the theme registers from `patterns/`. It is generated from the pattern file headers (`Title`, `Slug`, `Categories`, `Inserter`).
 
-WooCommerce block patterns (`wp:woocommerce/*`) and the TI Wishlist template pattern are **not** theme-owned. They register from the [Aegis companion plugin](../../../../plugins/aegis/docs/features/plugin-patterns.md) ([Wiki](https://github.com/aegiswp/plugin/wiki)) when WooCommerce (and TI Wishlist, for wishlist) are active. Modal starter patterns also live in the companion plugin. Premium layouts live in [Aegis Pro](../../../../plugins/aegis-pro/docs/patterns/pro-patterns.md) ([Wiki](https://github.com/aegiswp/pro/wiki)).
+WooCommerce block patterns (`wp:woocommerce/*`) and the TI Wishlist template pattern are **not** theme-owned. They register from the [Aegis companion plugin](../../../../plugins/aegis/docs/features/plugin-patterns.md) when WooCommerce (and TI Wishlist, for wishlist) are active. Modal starter patterns also live in the companion plugin. Premium layouts live in [Aegis Pro](../../../../plugins/aegis-pro/docs/patterns/pro-patterns.md).
 
 The theme ships **234 registered block patterns** in **28 category folders**. 52 of them are kept out of the inserter: the 48 `template` patterns, the 3 `hidden` patterns, and `utility-patterns`.
 
 ## How Patterns Are Registered
 
-The framework (`vendor/aegis/framework/src/DesignSystem/Patterns.php`) loads every `*.php` file in each folder of `patterns/`. Files whose names start with a dot are not loaded.
+The framework (`vendor/aegis/framework/src/DesignSystem/Patterns.php`) registers every `*.php` file in each folder of `patterns/`. Files whose names start with a dot are skipped. Since 1.0.2 it reads only the file header (`Pattern::register_from_file()`) and registers the pattern with its `filePath`, so WordPress runs the file only when the pattern's content is used. Headers are cached; see [Performance](../features/performance.md#pattern-and-icon-loading).
 
 - **Category:** the folder name. Labels are the folder name in title case, with `cta` and `faq` shown as CTA and FAQ.
 - **Slug:** the first category plus the file's `Slug` header, joined with a hyphen. For example, `patterns/hero/split.php` with `Slug: split` registers as `hero-split`. Use this slug in `<!-- wp:pattern {"slug":"hero-split"} /-->`.
@@ -16,9 +16,13 @@ The framework (`vendor/aegis/framework/src/DesignSystem/Patterns.php`) loads eve
 - When WooCommerce and the companion plugin are both active, the plugin's mini-cart header replaces the theme's `header-default`.
 - The four `blog-related-posts-*` patterns are removed when the theme Related Posts block is not registered. See [Related Posts](../blocks/related-posts.md).
 
-Child themes can add folders with the `aegis_pattern_dirs` filter, or change the list with `aegis_patterns`. See [Hooks and Filters](hooks-and-filters.md).
+Plugins can add folders with the `aegis_pattern_dirs` filter, or change the list with `aegis_patterns`. See [Hooks and Filters](hooks-and-filters.md).
 
 ## Pattern Categories
+
+![The block inserter's pattern categories list showing the Aegis categories such as About, Blog, Commerce, CTA, Event, FAQ, and Hero. Numbered callouts: 1 Aegis categories such as About, Blog, Commerce, CTA, Event, FAQ, and Hero.](../screenshots/pattern-categories.png)
+
+*Aegis pattern categories in the block inserter.*
 
 ### About
 
@@ -461,7 +465,7 @@ Patterns marked **No** in the Inserter column do not appear there. Templates and
 ## Related Pages
 
 - [[block-patterns]] — Detailed guide on using and customizing patterns.
-- [Plugin Patterns](../../../../plugins/aegis/docs/features/plugin-patterns.md) · [Plugin Wiki](https://github.com/aegiswp/plugin/wiki) — WooCommerce and wishlist block patterns (companion plugin, gated).
-- [Pro Patterns](../../../../plugins/aegis-pro/docs/patterns/pro-patterns.md) · [Pro Wiki](https://github.com/aegiswp/pro/wiki) — Premium marketing layouts.
+- [Plugin Patterns](../../../../plugins/aegis/docs/features/plugin-patterns.md) — WooCommerce and wishlist block patterns (companion plugin, gated).
+- [Pro Patterns](../../../../plugins/aegis-pro/docs/patterns/pro-patterns.md) — Premium marketing layouts.
 - [[templates]] — How patterns are used within templates.
 - [[style-variations]] — How patterns adapt to different style variations.

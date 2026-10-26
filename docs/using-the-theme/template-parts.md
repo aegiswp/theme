@@ -27,38 +27,43 @@ The default Aegis header includes:
 - **Contact** — A button with a mail icon that links to your site's `/contact/` page. It is hidden on phones. Create a page with the slug `contact`, or edit the button's link.
 - **Dark Mode Toggle** — An optional button to switch between light and dark modes.
 
-### Sticky Header
+### Header Position
 
-The header stays fixed at the top of the screen while visitors scroll. On desktop it sits just below the WordPress admin bar when you are logged in; on phones (600px and narrower) it sticks to the very top, because the admin bar scrolls away there. The header has an opaque background so content doesn't show through it.
+The header scrolls with the page. It has an opaque background, so content never shows through it if you make it sticky.
 
 The behavior comes from `settings.custom.header` in `theme.json`:
 
 | Key | Default | CSS variable |
 |-----|---------|--------------|
-| `position` | `sticky` | `--wp--custom--header--position` |
-| `top` | `var(--wp-admin--admin-bar--height, 0px)` | `--wp--custom--header--top` |
+| `position` | `relative` | `--wp--custom--header--position` |
+| `top` | `0px` | `--wp--custom--header--top` |
 | `zIndex` | `100` | `--wp--custom--header--z-index` |
 | `background` | `var(--wp--preset--color--neutral-0)` | `--wp--custom--header--background` |
-| `scrollPadding` | `5rem` | `--wp--custom--header--scroll-padding` |
+| `scrollPadding` | `0px` | `--wp--custom--header--scroll-padding` |
 
-`scrollPadding` keeps in-page links and keyboard focus from landing under the header; raise it if your header is taller than 80px.
+> **Changed in 1.0.2.** Aegis 1.0.1 made the header sticky by default. Version 1.0.2 restored the scrolling header.
 
-To turn the sticky header off, set `position` to `relative` and `scrollPadding` to `0` in a child theme's `theme.json` or a style variation:
+#### Make the Header Sticky
 
-```json
-{
-  "version": 3,
-  "settings": {
-    "custom": {
-      "header": { "position": "relative", "scrollPadding": "0" }
-    }
-  }
+Add this to **Styles → Additional CSS** in the Site Editor. It survives theme updates:
+
+```css
+body {
+	--wp--custom--header--position: sticky;
+	--wp--custom--header--top: var(--wp-admin--admin-bar--height, 0px);
+	--wp--custom--header--scroll-padding: 5rem;
 }
 ```
+
+On desktop the sticky header sits just below the WordPress admin bar when you are logged in. On phones (600px and narrower) it sticks to the very top, because the admin bar scrolls away there. `scrollPadding` keeps in-page links and keyboard focus from landing under the header; raise it if your header is taller than 80px.
 
 A header given its own position in the block settings (a `has-position-*` class) keeps that setting instead.
 
 ### Editing the Header
+
+![The Aegis header template part open in the Site Editor with the List View open on the left and the header design choices in the sidebar. Numbered callouts: 1 List view of the header: site logo, Navigation, and buttons; 2 The Aegis header.](../screenshots/header-part.png)
+
+*Edit the header from Patterns → Template parts → Header.*
 
 1. Navigate to **Appearance → Editor**.
 2. Click **Patterns** in the left sidebar.
@@ -87,6 +92,10 @@ The default Aegis footer includes:
 - **Social icons** — Links to social media profiles.
 
 ### Editing the Footer
+
+![The Aegis footer template part in the Site Editor with columns of links, the site tagline, and the copyright row. Numbered callouts: 1 Columns of links.](../screenshots/footer-part.png)
+
+*The footer template part in the Site Editor.*
 
 1. Navigate to **Appearance → Editor**.
 2. Click **Patterns** in the left sidebar.
@@ -145,6 +154,10 @@ To remove a sidebar from a template, delete the Template Part block referencing 
 ## Creating Custom Template Parts
 
 You can create additional template parts for specialized needs:
+
+![The Create template part dialog with a name field and the area choice of Header, Footer, or General. Numbered callouts: 1 Name the template part; 2 Area: Header, Footer, or General.](../screenshots/create-template-part.png)
+
+*Create a template part and choose the area it belongs to.*
 
 1. In the Site Editor, go to **Patterns → Template Parts**.
 2. Click the **+** button to add a new template part.

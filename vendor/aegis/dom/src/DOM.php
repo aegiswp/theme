@@ -13,17 +13,25 @@ use DOMXPath;
 use Exception;
 use WP_Error;
 use function addslashes;
+use function array_diff;
+use function array_filter;
+use function array_unique;
 use function bin2hex;
 use function current;
 use function iconv;
+use function implode;
+use function in_array;
 use function is_a;
 use function is_null;
 use function libxml_clear_errors;
 use function libxml_use_internal_errors;
 use function ltrim;
 use function preg_replace_callback;
+use function preg_split;
 use function sprintf;
+use function strtolower;
 use function strtoupper;
+use function trim;
 use const LIBXML_HTML_NODEFDTD;
 use const LIBXML_HTML_NOIMPLIED;
 use const XML_ELEMENT_NODE;
@@ -301,6 +309,39 @@ class DOM {
 	 */
 	public static function get_styles( DOMElement $element ): array {
 		return CSS::string_to_array( $element->getAttribute( 'style' ) );
+	}
+
+	/**
+	 * Sets a link's target and rel from block attributes.
+	 *
+	 * Only `_blank` and `_self` targets are kept, and a new-tab link always
+	 * gets `noopener` (and never `opener`), so the opened page cannot reach
+	 * back through `window.opener`.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param DOMElement $link   The link element.
+	 * @param string     $target Target from block attributes.
+	 * @param string     $rel    Rel from block attributes.
+	 *
+	 * @return void
+	 */
+	public static function set_link_target( DOMElement $link, string $target, string $rel ): void {
+		$target = in_array( $target, [ '_blank', '_self' ], true ) ? $target : '';
+		$tokens = array_filter( preg_split( '/\s+/', strtolower( trim( $rel ) ) ) ?: [] );
+		$tokens = array_diff( $tokens, [ 'opener' ] );
+
+		if ( $target === '_blank' ) {
+			$tokens[] = 'noopener';
+		}
+
+		if ( $target !== '' ) {
+			$link->setAttribute( 'target', $target );
+		}
+
+		if ( $tokens ) {
+			$link->setAttribute( 'rel', implode( ' ', array_unique( $tokens ) ) );
+		}
 	}
 
 	/**

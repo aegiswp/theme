@@ -51,8 +51,20 @@ class Pattern {
 	 * @return void
 	 */
 	public static function register_from_file( string $file ): void {
-		$pattern = self::parse_file( $file );
+		// Files register lazily: core includes them only when the content is read.
+		self::register( is_readable( $file ) ? self::parse_headers( $file ) : self::parse_file( $file ) );
+	}
 
+	/**
+	 * Registers an already parsed block pattern and its categories.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $pattern Pattern data from parse_file() or parse_headers().
+	 *
+	 * @return void
+	 */
+	public static function register( array $pattern ): void {
 		if ( ! isset( $pattern['slug'] ) ) {
 			return;
 		}
@@ -102,15 +114,7 @@ class Pattern {
 		}
 
 		$content         = '';
-		$default_headers = [
-			'categories'  => 'Categories',
-			'title'       => 'Title',
-			'slug'        => 'Slug',
-			'block_types' => 'Block Types',
-			'inserter'    => 'Inserter',
-			'ID'          => 'ID',
-			'theme'       => 'Theme',
-		];
+		$default_headers = self::HEADERS;
 
 		if ( is_readable( $file ) ) {
 			$headers = get_file_data( $file, $default_headers );
@@ -137,6 +141,67 @@ class Pattern {
 			}
 		}
 
+		$pattern = self::build( $file, $headers ?? [] );
+
+		if ( ! $pattern ) {
+			return [];
+		}
+
+		$pattern['content'] = Str::replace_first(
+			Str::between( '<?php', '?>', $content ),
+			'',
+			$content
+		);
+
+		return $pattern;
+	}
+
+	/**
+	 * Parses a pattern file's header without executing it.
+	 *
+	 * The returned pattern carries `filePath` instead of `content`, so the
+	 * block patterns registry includes the file only when its content is read.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $file The absolute path to the pattern's PHP file.
+	 *
+	 * @return array An array of parsed pattern data or an empty array on failure.
+	 */
+	public static function parse_headers( string $file ): array {
+		$pattern = self::build( $file, get_file_data( $file, self::HEADERS ) );
+
+		if ( $pattern ) {
+			$pattern['filePath'] = $file;
+		}
+
+		return $pattern;
+	}
+
+	/**
+	 * Header fields read from pattern files.
+	 *
+	 * @var array<string, string>
+	 */
+	private const HEADERS = [
+		'categories'  => 'Categories',
+		'title'       => 'Title',
+		'slug'        => 'Slug',
+		'block_types' => 'Block Types',
+		'inserter'    => 'Inserter',
+		'ID'          => 'ID',
+		'theme'       => 'Theme',
+	];
+
+	/**
+	 * Builds pattern properties, minus content, from parsed header fields.
+	 *
+	 * @param string $file    The pattern file path, used to work out the theme.
+	 * @param array  $headers Parsed header fields.
+	 *
+	 * @return array
+	 */
+	private static function build( string $file, array $headers ): array {
 		if ( ! isset( $headers['title'], $headers['slug'], $headers['categories'] ) ) {
 			return [];
 		}
@@ -165,16 +230,9 @@ class Pattern {
 
 		$slug = ( $categories[0] ?? 'common' ) . '-' . $headers['slug'];
 
-		$content = Str::replace_first(
-			Str::between( '<?php', '?>', $content ),
-			'',
-			$content
-		);
-
 		$pattern = [
 			'slug'        => $slug,
 			'title'       => $headers['title'],
-			'content'     => $content,
 			'categories'  => [ ...$categories ],
 			'description' => $headers['description'] ?? '',
 			'blockTypes'  => explode( ',', $headers['block_types'] ?? [] ),

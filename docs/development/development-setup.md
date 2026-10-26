@@ -26,11 +26,12 @@ git --version       # Any recent version
 docker --version    # Latest stable
 ```
 
-## Clone the Repository
+## Get the Source
+
+Place the Aegis source in `wp-content/themes/aegis`, then open that folder:
 
 ```bash
-git clone https://github.com/aegiswp/theme.git aegis
-cd aegis
+cd wp-content/themes/aegis
 ```
 
 ## Install Dependencies
@@ -211,14 +212,7 @@ Recommended extensions:
 
 To develop with the full Aegis ecosystem:
 
-```bash
-# Clone the free plugin
-cd ../../../plugins/
-git clone https://github.com/aegiswp/plugin.git aegis
-
-# Clone Pro (requires access)
-git clone https://github.com/aegiswp/pro.git aegis-pro
-```
+Place the free plugin source in `wp-content/plugins/aegis` and, if you have access, the Pro source in `wp-content/plugins/aegis-pro`.
 
 Then add them to `.wp-env.json`:
 

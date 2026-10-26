@@ -76,8 +76,8 @@ Aegis does not require any plugins to function as a theme. All core functionalit
 
 | Plugin | Purpose |
 |--------|---------|
-| **Aegis Plugin** (free) | Map and Modal blocks, admin dashboard, integrations, snippets, conditionals, analytics — [docs](../../../../plugins/aegis/docs/home.md) · [Wiki](https://github.com/aegiswp/plugin/wiki) |
-| **Aegis Pro** | Hook patterns, video stack, query conditions, Pro blocks — requires Aegis theme — [docs](../../../../plugins/aegis-pro/docs/home.md) · [Wiki](https://github.com/aegiswp/pro/wiki) |
+| **Aegis Plugin** (free) | Map and Modal blocks, admin dashboard, integrations, snippets, conditionals, analytics — [docs](../../../../plugins/aegis/docs/home.md) |
+| **Aegis Pro** | Hook patterns, video stack, query conditions, Pro blocks — requires Aegis theme — [docs](../../../../plugins/aegis-pro/docs/home.md) |
 
 ### Plugin Requirements (Separate Products)
 
@@ -96,6 +96,10 @@ Framework styling integrations (when plugin toggles enabled):
 Additional integrations (ACF, SEO plugins, Google Maps, analytics) are configured in the [Aegis plugin Integrations dashboard](../../../../plugins/aegis/docs/features/integrations-dashboard.md).
 
 ## Checking Your Environment
+
+![Tools → Site Health → Info with the Server section expanded, showing the PHP version, memory limit, and installed extensions. Numbered callouts: 1 The PHP version your host runs; 2 The memory limit.](../screenshots/site-health-info.png)
+
+*Site Health → Info shows the PHP and WordPress versions your host provides.*
 
 ### Check PHP Version
 

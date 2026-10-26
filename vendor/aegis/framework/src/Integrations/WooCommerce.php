@@ -23,6 +23,7 @@ namespace Aegis\Framework\Integrations;
 // Imports classes, interfaces, and functions used by the woocommerce integration component.
 use Aegis\Container\Interfaces\Conditional;
 use WP_Block_Patterns_Registry;
+use WP_REST_Request;
 use function class_exists;
 use function defined;
 use function esc_html;
@@ -133,18 +134,33 @@ class WooCommerce implements Conditional {
 	 * Only `woocommerce/`-namespaced patterns are removed so Aegis companion
 	 * slugs are never unregistered.
 	 *
+	 * Runs right before the patterns endpoint is served, not on init: reading
+	 * every registered pattern loads each lazy pattern file, which is too
+	 * costly on every front-end request.
+	 *
 	 * @since 1.0.0
 	 *
-	 * @hook init 11
+	 * @param mixed  $result  Response to replace the requested version with.
+	 * @param mixed  $server  Server instance.
+	 * @param mixed  $request Request used to generate the response.
 	 *
-	 * @return void
+	 * @hook rest_pre_dispatch
+	 *
+	 * @return mixed Unchanged result.
 	 */
-	public function unregister_woocommerce_block_patterns(): void {
+	public function unregister_woocommerce_block_patterns( $result, $server, $request ) {
+		static $done = false;
+
+		if ( $done || ! $request instanceof WP_REST_Request || ! str_starts_with( $request->get_route(), '/wp/v2/block-patterns/patterns' ) ) {
+			return $result;
+		}
+
+		$done    = true;
 		$control = get_option( 'aegis_pattern_control', [] );
 		$keep    = is_array( $control ) && ! empty( $control['woocommerce_keep_patterns'] );
 
 		if ( $keep && defined( 'AEGIS_PRO_VERSION' ) ) {
-			return;
+			return $result;
 		}
 
 		$registry   = WP_Block_Patterns_Registry::get_instance();
@@ -157,5 +173,7 @@ class WooCommerce implements Conditional {
 				$registry->unregister( $name );
 			}
 		}
+
+		return $result;
 	}
 }

@@ -122,6 +122,10 @@ WordPress selects templates in priority order. For Aegis:
 
 ## Assigning Templates to Pages
 
+![The Template control in the page settings sidebar with the list of available Aegis page templates. Numbered callouts: 1 Available Aegis page templates. Pick one to apply it to this page.](../screenshots/template-control.png)
+
+*Assign a template from the page settings.*
+
 1. Edit a page in the block editor.
 2. Open the **Page** tab in the right sidebar.
 3. Click the template name under **Template**.

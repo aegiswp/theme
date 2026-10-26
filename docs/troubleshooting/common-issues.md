@@ -14,7 +14,7 @@ This page documents frequently encountered problems when using the Aegis theme a
 
 1. Connect to your server via FTP or file manager.
 2. Verify that the `vendor/` directory exists inside `wp-content/themes/aegis/`.
-3. If missing, download the theme from the [GitHub Releases page](https://github.com/aegiswp/theme/releases/) (release packages include `vendor/`).
+3. If missing, download `aegis.zip` from the latest Aegis release (release packages include `vendor/`).
 4. Alternatively, run `composer install --no-dev` in the theme directory if you have SSH access.
 
 ### Theme Does Not Appear in Theme List
@@ -56,15 +56,16 @@ Update WordPress to version 7.0 or later via **Dashboard → Updates**.
 
 **Symptom:** The pattern categories are empty or patterns do not appear in the inserter.
 
-**Cause:** Pattern files may not have loaded correctly, or WooCommerce/plugin patterns are gated.
+**Cause:** Pattern files may not have loaded correctly, or WooCommerce/plugin patterns are gated. Before Aegis 1.0.2 one theme pattern broke the whole list, and the **Patterns** tab stayed empty.
 
 **Solution:**
 
-1. Clear all caches (browser, page cache plugin, server cache).
-2. Deactivate and reactivate the theme.
-3. Ensure the theme `patterns/` directory exists and contains PHP files.
-4. For **WooCommerce shop patterns**, install and activate **WooCommerce** and the **Aegis companion plugin**. See [[faq#why-dont-i-see-shop-or-product-patterns-in-the-inserter]].
-5. Check the PHP error log for any pattern registration errors.
+1. Update Aegis to 1.0.2 or later.
+2. Clear all caches (browser, page cache plugin, server cache).
+3. Deactivate and reactivate the theme.
+4. Ensure the theme `patterns/` directory exists and contains PHP files.
+5. For **WooCommerce shop patterns**, install and activate **WooCommerce** and the **Aegis companion plugin**. See [[faq#why-dont-i-see-shop-or-product-patterns-in-the-inserter]].
+6. Check the PHP error log for any pattern registration errors.
 
 ### Site Editor Shows Blank Page
 
@@ -135,6 +136,19 @@ Update WordPress to version 7.0 or later via **Dashboard → Updates**.
 3. For custom collections, confirm the Icon block `icon` attribute is `{collection}/{name}` (for example `social/facebook`), not a removed Image Icon variation (`is-style-icon`).
 4. Hard-refresh and check that icon CSS loads on the front end (`core-blocks/icon.css`).
 5. See [[svg-icons]].
+
+### Icon Library Shows No Icons
+
+**Symptom:** The Icon block's **Icon library** lists its collections, but the icon grid keeps loading and never shows any icons, including under **All** and in search.
+
+**Cause:** Before Aegis 1.0.2, each request for icons read every icon file of every collection, about 5,800 with the Pro sets. Slower hosts could not finish in time.
+
+**Solution:**
+
+1. Update Aegis to 1.0.2 or later. The library then loads only the icons it shows and caches them.
+2. The first opening after an update or an icon change rebuilds the cache and can take a few seconds. Later openings take under a second.
+3. If it still does not load, check the browser's Network tab for the `wp/v2/icons` request and the PHP error log.
+4. See [[svg-icons]].
 
 ### SVG Image variation shows the media uploader or an Optimize SVG button
 
@@ -314,7 +328,7 @@ When you suspect a plugin conflict:
 1. Deactivate all plugins.
 2. Check if the issue resolves.
 3. Reactivate plugins one by one to identify the conflict.
-4. Report the conflict on [GitHub](https://github.com/aegiswp/theme/issues) with details.
+4. Report the conflict, with details, through the [Aegis documentation site](https://www.atmostfear-entertainment.com/docs/aegis/).
 
 ### Common Conflicting Plugin Types
 
@@ -330,9 +344,9 @@ See [[updating]] for detailed update troubleshooting, including failed updates a
 
 If your issue is not listed here:
 
-1. Search the [GitHub Issues](https://github.com/aegiswp/theme/issues) for similar reports.
+1. Search the [Aegis documentation](https://www.atmostfear-entertainment.com/docs/aegis/) for similar reports.
 2. Check the [[faq]] for additional answers.
-3. Open a new issue with:
+3. Report the issue with:
    - WordPress version
    - PHP version
    - Aegis version

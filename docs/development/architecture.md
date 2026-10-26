@@ -30,7 +30,7 @@ src/
 ├── NavigationFallback.php     # block_core_navigation_render_fallback: sample menu instead of every page
 ├── PatternDependencies.php    # rest_pre_dispatch (patterns endpoint): hide patterns with blocks from inactive plugins
 ├── Admin/
-│   ├── CompanionNotice.php    # Install companion plugin notice (GitHub release zip)
+│   ├── CompanionNotice.php    # Install companion plugin notice (release zip)
 │   └── GitHubUpdater.php      # update_themes_github.com: updates from GitHub releases
 └── Blocks/                    # block.json + TSX sources (compiled in place)
     ├── BlockRegistrar.php
@@ -71,8 +71,8 @@ These features are **not** in theme PHP — see plugin docs:
 
 | Feature | Documentation |
 |---------|---------------|
-| Analytics | [Plugin Analytics](../../../../plugins/aegis/docs/features/analytics.md) · [Wiki](https://github.com/aegiswp/plugin/wiki) |
-| Conditionals admin/evaluator | [Conditional Logic](../../../../plugins/aegis/docs/features/conditional-logic.md) · [Wiki](https://github.com/aegiswp/plugin/wiki) |
+| Analytics | [Plugin Analytics](../../../../plugins/aegis/docs/features/analytics.md) |
+| Conditionals admin/evaluator | [Conditional Logic](../../../../plugins/aegis/docs/features/conditional-logic.md) |
 | Admin dashboard | [Plugin Architecture](../../../../plugins/aegis/docs/development/architecture.md) |
 | Multi-step checkout | [WooCommerce Checkout](../../../../plugins/aegis/docs/features/woocommerce-checkout.md) |
 | Integrations dashboard | [Integrations Dashboard](../../../../plugins/aegis/docs/features/integrations-dashboard.md) |

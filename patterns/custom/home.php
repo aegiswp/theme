@@ -11,16 +11,15 @@
  */
 ?>
 <!-- wp:group {"metadata":{"name":"Custom Home"},"align":"full","style":{"spacing":{"blockGap":"0"}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull">
-<!-- wp:group {"metadata":{"name":"Hero"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","right":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull"><!-- wp:group {"metadata":{"name":"Hero"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","right":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)"><!-- wp:group {"style":{"spacing":{"padding":{"bottom":"var:preset|spacing|md"}}},"layout":{"type":"constrained","contentSize":"760px"}} -->
 <div class="wp-block-group" style="padding-bottom:var(--wp--preset--spacing--md)"><!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"className":"is-style-sub-heading has-border-color has-neutral-950-border-color","style":{"border":{"width":"1px","radius":"99px"},"spacing":{"padding":{"top":"6px","bottom":"6px","right":"var:preset|spacing|xs","left":"var:preset|spacing|xs"},"margin":{"top":"0","bottom":"var:preset|spacing|xs"}},"typography":{"lineHeight":"1","textAlign":"center"}},"backgroundColor":"neutral-950","textColor":"primary-25","fontSize":"12"} -->
-<p class="has-text-align-center is-style-sub-heading has-border-color has-neutral-950-border-color has-primary-25-color has-neutral-950-background-color has-text-color has-background has-12-font-size" style="border-width:1px;border-radius:99px;margin-top:0;margin-bottom:var(--wp--preset--spacing--xs);padding-top:6px;padding-right:var(--wp--preset--spacing--xs);padding-bottom:6px;padding-left:var(--wp--preset--spacing--xs);line-height:1"><?php echo esc_html__( 'THE AEGIS ECOSYSTEM', 'aegis' ); ?></p>
+<p class="has-text-align-center is-style-sub-heading has-border-color has-neutral-950-border-color has-primary-25-color has-neutral-950-background-color has-text-color has-background has-12-font-size" style="border-width:1px;border-radius:99px;margin-top:0;margin-bottom:var(--wp--preset--spacing--xs);padding-top:6px;padding-right:var(--wp--preset--spacing--xs);padding-bottom:6px;padding-left:var(--wp--preset--spacing--xs);line-height:1"><?php echo esc_html__( 'The Aegis Ecosystem', 'aegis' ); ?></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":1,"style":{"spacing":{"padding":{"top":"var:preset|spacing|xs"}},"typography":{"textAlign":"center"}},"fontSize":"60"} -->
-<h1 class="wp-block-heading has-text-align-center has-60-font-size" style="padding-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Native Block Framework', 'aegis' ); ?></h1>
+<h1 class="wp-block-heading has-text-align-center has-60-font-size" style="padding-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Build Natively With Blocks', 'aegis' ); ?></h1>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"fontSize":"20"} -->
@@ -29,7 +28,7 @@
 
 <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md);margin-bottom:var(--wp--preset--spacing--md)"><!-- wp:button {"backgroundColor":"neutral-800","size":"large","iconSet":"remixicon","iconName":"download-2-line","iconSize":"16px","iconPosition":"end"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://github.com/aegiswp/theme/releases/tag/v1.0.0"><?php echo esc_html__( 'Download Free', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://github.com/aegiswp/theme/releases/download/v1.0.1/aegis.zip"><?php echo esc_html__( 'Download Free', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"className":"is-style-ghost","size":"large","iconSet":"remixicon","iconName":"time-line","iconSize":"16px","iconPosition":"end"} -->
@@ -38,39 +37,39 @@
 <!-- /wp:buttons -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"textColor":"neutral-500","fontSize":"14"} -->
-<p class="has-text-align-center has-neutral-500-color has-text-color has-14-font-size"><?php echo esc_html__( 'Theme and plugin are free · GPL-2.0-or-later · Aegis Pro is coming soon', 'aegis' ); ?></p>
+<p class="has-text-align-center has-neutral-500-color has-text-color has-14-font-size"><?php echo esc_html__( 'Theme and plugin are free · GPL-2.0-or-later · Aegis Pro is coming soon.', 'aegis' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"metadata":{"name":"Hero collage"},"align":"wide","style":{"position":{"all":"relative"},"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--xl)"><!-- wp:group {"style":{"position":{"all":"relative"},"zIndex":{"all":"3"},"spacing":{"margin":{"right":"auto","left":"auto"}},"width":{"all":"60%","mobile":"100%"}},"layout":{"type":"default"}} -->
-<div class="wp-block-group" style="margin-right:auto;margin-left:auto"><!-- wp:image {"width":"100%","aspectRatio":"16/10","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img alt="Hero image placeholder: main screenshot" style="aspect-ratio:16/10;object-fit:cover;width:100%;height:auto"/></figure>
+<div class="wp-block-group" style="margin-right:auto;margin-left:auto"><!-- wp:image {"id":251646,"width":"100%","aspectRatio":"16/9","scale":"cover","sizeSlug":"full","isDecorative":true} -->
+<figure class="wp-block-image size-full is-resized"><img src="https://www.atmostfear-entertainment.com/wp-content/uploads/2026/10/aegis_100_dark_mode.png" alt="" class="wp-image-251646" style="aspect-ratio:16/9;object-fit:cover;width:100%;height:auto" role="none"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"style":{"position":{"all":"absolute"},"zIndex":{"all":"1"},"top":{"all":"12%"},"left":{"all":"0px"},"width":{"all":"34%"},"display":{"mobile":"none"}},"layout":{"type":"default"}} -->
-<div class="wp-block-group"><!-- wp:image {"width":"100%","aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img alt="Hero image placeholder: left background" style="aspect-ratio:4/3;object-fit:cover;width:100%;height:auto"/></figure>
+<div class="wp-block-group"><!-- wp:image {"id":251652,"width":"100%","aspectRatio":"4/3","scale":"cover","focalPoint":{"x":0,"y":0.5},"sizeSlug":"full","isDecorative":true} -->
+<figure class="wp-block-image size-full is-resized"><img src="https://www.atmostfear-entertainment.com/wp-content/uploads/2026/10/aegis_100_dashboard.png" alt="" class="wp-image-251652" style="aspect-ratio:4/3;object-fit:cover;object-position:0% 50%;width:100%;height:auto" role="none"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"style":{"position":{"all":"absolute"},"zIndex":{"all":"1"},"top":{"all":"12%"},"right":{"all":"0px"},"width":{"all":"34%"},"display":{"mobile":"none"}},"layout":{"type":"default"}} -->
-<div class="wp-block-group"><!-- wp:image {"width":"100%","aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img alt="Hero image placeholder: right background" style="aspect-ratio:4/3;object-fit:cover;width:100%;height:auto"/></figure>
+<div class="wp-block-group"><!-- wp:image {"id":251657,"width":"100%","aspectRatio":"4/3","scale":"cover","focalPoint":{"x":0,"y":0.5},"sizeSlug":"full","linkDestination":"none","isDecorative":true} -->
+<figure class="wp-block-image size-full is-resized"><img src="https://www.atmostfear-entertainment.com/wp-content/uploads/2026/10/aegis_100_ide.jpg" alt="" class="wp-image-251657" style="aspect-ratio:4/3;object-fit:cover;object-position:0% 50%;width:100%;height:auto" role="none"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"style":{"position":{"all":"absolute"},"zIndex":{"all":"4"},"top":{"all":"30%"},"left":{"all":"13%"},"width":{"all":"14%"},"display":{"mobile":"none"}},"layout":{"type":"default"}} -->
-<div class="wp-block-group"><!-- wp:image {"width":"100%","aspectRatio":"3/4","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img alt="Hero image placeholder: left portrait" style="aspect-ratio:3/4;object-fit:cover;width:100%;height:auto"/></figure>
+<div class="wp-block-group"><!-- wp:image {"id":251647,"width":"100%","aspectRatio":"3/4","scale":"cover","sizeSlug":"full","isDecorative":true} -->
+<figure class="wp-block-image size-full is-resized"><img src="https://www.atmostfear-entertainment.com/wp-content/uploads/2026/10/aegis_100_browse_styles.png" alt="" class="wp-image-251647" style="aspect-ratio:3/4;object-fit:cover;width:100%;height:auto" role="none"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"style":{"position":{"all":"absolute"},"zIndex":{"all":"4"},"top":{"all":"30%"},"right":{"all":"13%"},"width":{"all":"14%"},"display":{"mobile":"none"}},"layout":{"type":"default"}} -->
-<div class="wp-block-group"><!-- wp:image {"width":"100%","aspectRatio":"3/4","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img alt="Hero image placeholder: right portrait" style="aspect-ratio:3/4;object-fit:cover;width:100%;height:auto"/></figure>
+<div class="wp-block-group"><!-- wp:image {"id":251648,"width":"100%","aspectRatio":"3/4","scale":"cover","focalPoint":{"x":0.5,"y":0.6},"sizeSlug":"full","isDecorative":true} -->
+<figure class="wp-block-image size-full is-resized"><img src="https://www.atmostfear-entertainment.com/wp-content/uploads/2026/10/aegis_100_styles.png" alt="" class="wp-image-251648" style="aspect-ratio:3/4;object-fit:cover;object-position:50% 60%;width:100%;height:auto" role="none"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
@@ -96,7 +95,7 @@
 <div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)"><!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|md"}},"layout":{"type":"grid","columnCount":5,"minimumColumnWidth":"120px"}} -->
 <div class="wp-block-group alignwide"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"className":"is-style-heading","style":{"typography":{"lineHeight":"1","textAlign":"center"}},"fontSize":"48"} -->
-<p class="has-text-align-center is-style-heading has-48-font-size" style="line-height:1">236</p>
+<p class="has-text-align-center is-style-heading has-48-font-size" style="line-height:1">234</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"textColor":"neutral-500","fontSize":"14"} -->
@@ -307,7 +306,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"style":{"typography":{"textAlign":"center"}},"fontSize":"48"} -->
-<h2 class="wp-block-heading has-text-align-center has-48-font-size"><?php echo esc_html__( 'Four Layers. One System.', 'aegis' ); ?></h2>
+<h2 class="wp-block-heading has-text-align-center has-48-font-size"><?php echo esc_html__( 'Three Layers. One System.', 'aegis' ); ?></h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"fontSize":"18"} -->
@@ -315,58 +314,8 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"grid","columnCount":4,"minimumColumnWidth":"240px"}} -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":"260px"}} -->
 <div class="wp-block-group alignwide"><!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","right":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
-<div class="wp-block-group is-style-surface" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)"><!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
-<div class="wp-block-group"><!-- wp:icon {"icon":"remixicon/braces-line","style":{"dimensions":{"width":"28px"}},"textColor":"primary-500"} /-->
-
-<!-- wp:paragraph {"className":"is-style-notice","style":{"spacing":{"padding":{"top":"6px","right":"var:preset|spacing|xxs","bottom":"6px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontWeight":"500"},"border":{"radius":"99px"}},"backgroundColor":"neutral-800","textColor":"primary-25","fontSize":"12"} -->
-<p class="is-style-notice has-primary-25-color has-neutral-800-background-color has-text-color has-background has-12-font-size" style="border-radius:99px;padding-top:6px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:6px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Built In', 'aegis' ); ?></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:heading {"level":3,"fontSize":"32"} -->
-<h3 class="wp-block-heading has-32-font-size"><?php echo esc_html__( 'Aegis Framework', 'aegis' ); ?></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph {"className":"is-style-heading"} -->
-<p class="is-style-heading"><?php echo esc_html__( 'Foundation', 'aegis' ); ?></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"fontSize":"15"} -->
-<p class="has-15-font-size"><?php echo esc_html__( 'The engine inside the theme. Nothing loads by default, and each style and script ships only when a page uses it.', 'aegis' ); ?></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {"className":"is-style-checklist","style":{"spacing":{"blockGap":"var:preset|spacing|xxs","margin":{"top":"var:preset|spacing|xxs"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
-<ul style="margin-top:var(--wp--preset--spacing--xxs)" class="wp-block-list is-style-checklist"><!-- wp:list-item -->
-<li><?php echo esc_html__( 'Zero CSS, JavaScript, or font assets by default', 'aegis' ); ?></li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><?php echo esc_html__( '173 CSS partials and 26 script modules on demand', 'aegis' ); ?></li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><?php echo esc_html__( 'One theme.json token system for color, type, and space', 'aegis' ); ?></li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><?php echo esc_html__( 'Strict-typed PHP 8.1 with documented hooks', 'aegis' ); ?></li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
-<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--xs);margin-bottom:var(--wp--preset--spacing--xs)"><!-- wp:button {"backgroundColor":"neutral-800","style":{"dimensions":{"width":"100%"}},"iconSet":"remixicon","iconName":"arrow-right-line","iconSize":"16px","iconPosition":"end"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://www.atmostfear-entertainment.com/aegis/framework/"><?php echo esc_html__( 'Explore the Framework', 'aegis' ); ?></a></div>
-<!-- /wp:button -->
-
-<!-- wp:button {"className":"is-style-ghost","style":{"dimensions":{"width":"100%"}},"iconSet":"remixicon","iconName":"github-line","iconSize":"16px","iconPosition":"end"} -->
-<div class="wp-block-button is-style-ghost"><a class="wp-block-button__link wp-element-button" href="https://github.com/aegiswp/theme"><?php echo esc_html__( 'View on GitHub', 'aegis' ); ?></a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","right":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 <div class="wp-block-group is-style-surface" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)"><!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 <div class="wp-block-group"><!-- wp:icon {"icon":"remixicon/palette-line","style":{"dimensions":{"width":"28px"}},"textColor":"primary-500"} /-->
 
@@ -393,7 +342,7 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><?php echo esc_html__( '236 patterns and 50 templates', 'aegis' ); ?></li>
+<li><?php echo esc_html__( '234 patterns and 50 templates', 'aegis' ); ?></li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -407,7 +356,7 @@
 
 <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--xs);margin-bottom:var(--wp--preset--spacing--xs)"><!-- wp:button {"backgroundColor":"neutral-800","style":{"dimensions":{"width":"100%"}},"iconSet":"remixicon","iconName":"download-2-line","iconSize":"16px","iconPosition":"end"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://github.com/aegiswp/theme/releases/tag/v1.0.0"><?php echo esc_html__( 'Download Theme', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://github.com/aegiswp/theme/releases/download/v1.0.1/aegis.zip"><?php echo esc_html__( 'Download Theme', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"className":"is-style-ghost","style":{"dimensions":{"width":"100%"}},"iconSet":"remixicon","iconName":"arrow-right-line","iconSize":"16px","iconPosition":"end"} -->
@@ -443,7 +392,7 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><?php echo esc_html__( 'About 150 block feature toggles', 'aegis' ); ?></li>
+<li><?php echo esc_html__( '82 block feature toggles', 'aegis' ); ?></li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -457,7 +406,7 @@
 
 <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--xs);margin-bottom:var(--wp--preset--spacing--xs)"><!-- wp:button {"backgroundColor":"neutral-800","style":{"dimensions":{"width":"100%"}},"iconSet":"remixicon","iconName":"download-2-line","iconSize":"16px","iconPosition":"end"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://github.com/aegiswp/plugin/releases/tag/v1.0.0"><?php echo esc_html__( 'Download Plugin', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://github.com/aegiswp/plugin/releases/download/v1.0.0/aegis.zip"><?php echo esc_html__( 'Download Plugin', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"className":"is-style-ghost","style":{"dimensions":{"width":"100%"}},"iconSet":"remixicon","iconName":"arrow-right-line","iconSize":"16px","iconPosition":"end"} -->
@@ -471,7 +420,7 @@
 <div class="wp-block-group"><!-- wp:icon {"icon":"remixicon/vip-crown-2-line","style":{"dimensions":{"width":"28px"}},"textColor":"primary-500"} /-->
 
 <!-- wp:paragraph {"className":"is-style-notice","style":{"spacing":{"padding":{"top":"6px","right":"var:preset|spacing|xxs","bottom":"6px","left":"var:preset|spacing|xxs"}},"typography":{"lineHeight":"1","fontWeight":"500"},"border":{"radius":"99px"}},"backgroundColor":"neutral-800","textColor":"primary-25","fontSize":"12"} -->
-<p class="is-style-notice has-primary-25-color has-neutral-800-background-color has-text-color has-background has-12-font-size" style="border-radius:99px;padding-top:6px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:6px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Coming Soon', 'aegis' ); ?></p>
+<p class="is-style-notice has-primary-25-color has-neutral-800-background-color has-text-color has-background has-12-font-size" style="border-radius:99px;padding-top:6px;padding-right:var(--wp--preset--spacing--xxs);padding-bottom:6px;padding-left:var(--wp--preset--spacing--xxs);font-weight:500;line-height:1"><?php echo esc_html__( 'Coming soon', 'aegis' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -549,24 +498,24 @@
 <!-- /wp:column -->
 
 <!-- wp:column {"verticalAlignment":"center"} -->
-<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"spacing":{"margin":{"right":"var:preset|spacing|xl"}}}} -->
-<figure class="wp-block-image size-full" style="margin-right:var(--wp--preset--spacing--xl)"><img alt="Image placeholder: block editor with the pattern library" style="aspect-ratio:4/3;object-fit:cover"/></figure>
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"id":251658,"aspectRatio":"16/9","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"spacing":{"margin":{"right":"var:preset|spacing|xl"}}}} -->
+<figure class="wp-block-image size-full" style="margin-right:var(--wp--preset--spacing--xl)"><img src="https://www.atmostfear-entertainment.com/wp-content/uploads/2026/10/aegis_100_dark_style-1.png" alt="" class="wp-image-251658" style="aspect-ratio:16/9;object-fit:cover"/></figure>
 <!-- /wp:image -->
 
-<!-- wp:image {"aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"position":{"all":"relative"},"zIndex":{"all":"90"},"spacing":{"margin":{"top":"-100px","left":"var:preset|spacing|xl"}}}} -->
-<figure class="wp-block-image size-full" style="margin-top:-100px;margin-left:var(--wp--preset--spacing--xl)"><img alt="Image placeholder: the same section on the live site in dark mode" style="aspect-ratio:4/3;object-fit:cover"/></figure>
+<!-- wp:image {"id":251646,"aspectRatio":"16/9","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"position":{"all":"relative"},"zIndex":{"all":"90"},"spacing":{"margin":{"top":"-100px","left":"var:preset|spacing|xl"}}}} -->
+<figure class="wp-block-image size-full" style="margin-top:-100px;margin-left:var(--wp--preset--spacing--xl)"><img src="https://www.atmostfear-entertainment.com/wp-content/uploads/2026/10/aegis_100_dark_mode.png" alt="" class="wp-image-251646" style="aspect-ratio:16/9;object-fit:cover"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
 
-<!-- wp:columns {"verticalAlignment":"center","align":"wide","className":"is-reverse-on-mobile","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|lg","left":"var:preset|spacing|lg"}}}} -->
-<div class="wp-block-columns alignwide are-vertically-aligned-center is-reverse-on-mobile"><!-- wp:column {"verticalAlignment":"center"} -->
-<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"spacing":{"margin":{"right":"var:preset|spacing|xl"}}}} -->
-<figure class="wp-block-image size-full" style="margin-right:var(--wp--preset--spacing--xl)"><img alt="Image placeholder: Aegis source code in an editor" style="aspect-ratio:4/3;object-fit:cover"/></figure>
+<!-- wp:columns {"verticalAlignment":"center","align":"wide","className":"is-reverse-on-mobile is-style-dark","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|lg","left":"var:preset|spacing|lg"}}}} -->
+<div class="wp-block-columns alignwide are-vertically-aligned-center is-reverse-on-mobile is-style-dark"><!-- wp:column {"verticalAlignment":"center"} -->
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"id":251659,"aspectRatio":"16/9","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"spacing":{"margin":{"right":"var:preset|spacing|xl"}}}} -->
+<figure class="wp-block-image size-full" style="margin-right:var(--wp--preset--spacing--xl)"><img src="https://www.atmostfear-entertainment.com/wp-content/uploads/2026/10/aegis_100_light_style.png" alt="" class="wp-image-251659" style="aspect-ratio:16/9;object-fit:cover"/></figure>
 <!-- /wp:image -->
 
-<!-- wp:image {"aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"position":{"all":"relative"},"zIndex":{"all":"90"},"spacing":{"margin":{"top":"-100px","left":"var:preset|spacing|xl"}}}} -->
-<figure class="wp-block-image size-full" style="margin-top:-100px;margin-left:var(--wp--preset--spacing--xl)"><img alt="Image placeholder: the Aegis GitHub repository" style="aspect-ratio:4/3;object-fit:cover"/></figure>
+<!-- wp:image {"id":251651,"aspectRatio":"16/9","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"position":{"all":"relative"},"zIndex":{"all":"90"},"spacing":{"margin":{"top":"-100px","left":"var:preset|spacing|xl"}}}} -->
+<figure class="wp-block-image size-full" style="margin-top:-100px;margin-left:var(--wp--preset--spacing--xl)"><img src="https://www.atmostfear-entertainment.com/wp-content/uploads/2026/10/aegis_100_light_mode.png" alt="" class="wp-image-251651" style="aspect-ratio:16/9;object-fit:cover"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 
@@ -585,15 +534,15 @@
 
 <!-- wp:list {"className":"is-style-checklist","style":{"spacing":{"blockGap":"var:preset|spacing|xxs","margin":{"top":"var:preset|spacing|sm"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
 <ul style="margin-top:var(--wp--preset--spacing--sm)" class="wp-block-list is-style-checklist"><!-- wp:list-item -->
-<li><?php echo esc_html__( 'Strict-typed PHP 8.1 framework with documented hooks and filters', 'aegis' ); ?></li>
+<li><?php echo esc_html__( 'Strict-typed PHP 8.1 code with documented hooks and filters', 'aegis' ); ?></li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><?php echo esc_html__( 'Assets load per feature, with no jQuery dependency', 'aegis' ); ?></li>
+<li><?php echo esc_html__( 'Front-end assets load per feature, with no jQuery', 'aegis' ); ?></li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><?php echo esc_html__( 'Accessibility checks run on every change', 'aegis' ); ?></li>
+<li><?php echo esc_html__( 'Automated accessibility checks run on every theme change', 'aegis' ); ?></li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 
@@ -632,7 +581,7 @@
 <!-- /wp:group -->
 
 <!-- wp:heading {"level":3,"fontSize":"20"} -->
-<h3 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'Activate the Theme', 'aegis' ); ?></h3>
+<h3 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'Activate the theme', 'aegis' ); ?></h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"fontSize":"15"} -->
@@ -650,7 +599,7 @@
 <!-- /wp:group -->
 
 <!-- wp:heading {"level":3,"fontSize":"20"} -->
-<h3 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'Add the Free Plugin', 'aegis' ); ?></h3>
+<h3 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'Add the free plugin', 'aegis' ); ?></h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"fontSize":"15"} -->
@@ -668,7 +617,7 @@
 <!-- /wp:group -->
 
 <!-- wp:heading {"level":3,"fontSize":"20"} -->
-<h3 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'Unlock Pro at Launch', 'aegis' ); ?></h3>
+<h3 class="wp-block-heading has-20-font-size"><?php echo esc_html__( 'Unlock Pro at launch', 'aegis' ); ?></h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"fontSize":"15"} -->
@@ -780,18 +729,18 @@
 <!-- /wp:group -->
 
 <!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignwide"><!-- wp:table {"hasFixedLayout":false,"className":"is-style-stripes"} -->
-<figure class="wp-block-table is-style-stripes"><table><thead><tr><th><?php echo esc_html__( 'Feature', 'aegis' ); ?></th><th class="has-text-align-center" data-align="center"><?php echo esc_html__( 'Theme', 'aegis' ); ?></th><th class="has-text-align-center" data-align="center"><?php echo esc_html__( '+ Plugin', 'aegis' ); ?></th><th class="has-text-align-center" data-align="center"><?php echo esc_html__( '+ Pro (soon)', 'aegis' ); ?></th></tr></thead><tbody><tr><td><?php echo esc_html__( 'Design tokens, 60 style variations, and dark mode', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td></tr><tr><td><?php echo esc_html__( '236 patterns and 50 templates', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td></tr><tr><td><?php echo esc_html__( 'Countdown, Slider, Toggle, and Related Posts blocks', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td></tr><tr><td><?php echo esc_html__( 'WooCommerce templates and plugin styling', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td></tr><tr><td><?php echo esc_html__( 'Map and Modal blocks', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td></tr><tr><td><?php echo esc_html__( 'About 150 block feature toggles', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td></tr><tr><td><?php echo esc_html__( 'Visibility, user, schedule, and accessibility conditions', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td></tr><tr><td><?php echo esc_html__( 'Code snippets and hooks catalog', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td></tr><tr><td><?php echo esc_html__( '22 plugin integrations and SEO schema', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td></tr><tr><td><?php echo esc_html__( 'Privacy-first analytics and performance tools', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td></tr><tr><td><?php echo esc_html__( 'Tabs and Compare blocks', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td></tr><tr><td><?php echo esc_html__( 'Map, Modal, Slider, Countdown, and Toggle Pro extras', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td></tr><tr><td><?php echo esc_html__( 'Visibility presets and advanced conditions', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td></tr><tr><td><?php echo esc_html__( 'Hook patterns', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td></tr><tr><td><?php echo esc_html__( 'Query Loop Pro with AJAX, filters, and masonry', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td></tr><tr><td><?php echo esc_html__( 'BunnyCDN video, overlays, and video analytics', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td></tr><tr><td><?php echo esc_html__( 'LMS and CRM automation', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td></tr><tr><td><?php echo esc_html__( '5,400+ icons and 39 premium patterns', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( '&#x2714;', 'aegis' ); ?></td></tr><tr><td><?php echo esc_html__( 'Availability', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( 'Free now', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( 'Free now', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( 'Coming soon', 'aegis' ); ?></td></tr></tbody></table></figure>
+<div class="wp-block-group alignwide"><!-- wp:table {"hasFixedLayout":false,"align":"wide","className":"is-style-stripes"} -->
+<figure class="wp-block-table alignwide is-style-stripes"><table><thead><tr><th><?php echo esc_html__( 'Feature', 'aegis' ); ?></th><th class="has-text-align-center" data-align="center"><?php echo esc_html__( 'Theme', 'aegis' ); ?></th><th class="has-text-align-center" data-align="center"><?php echo esc_html__( '+ Plugin', 'aegis' ); ?></th><th class="has-text-align-center" data-align="center"><?php echo esc_html__( '+ Pro (soon)', 'aegis' ); ?></th></tr></thead><tbody><tr><td><?php echo esc_html__( 'Design tokens, 60 style variations, and dark mode', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">✔</td><td class="has-text-align-center" data-align="center">✔</td><td class="has-text-align-center" data-align="center">✔</td></tr><tr><td><?php echo esc_html__( '234 patterns and 50 templates', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">✔</td><td class="has-text-align-center" data-align="center">✔</td><td class="has-text-align-center" data-align="center">✔</td></tr><tr><td><?php echo esc_html__( 'Countdown, Slider, Toggle, and Related Posts blocks', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">✔</td><td class="has-text-align-center" data-align="center">✔</td><td class="has-text-align-center" data-align="center">✔</td></tr><tr><td><?php echo esc_html__( 'WooCommerce templates and plugin styling', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">✔</td><td class="has-text-align-center" data-align="center">✔</td><td class="has-text-align-center" data-align="center">✔</td></tr><tr><td><?php echo esc_html__( 'Map and Modal blocks', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">✔</td><td class="has-text-align-center" data-align="center">✔</td></tr><tr><td><?php echo esc_html__( 'Block feature toggles (82 free, 68 more in Pro)', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">✔</td><td class="has-text-align-center" data-align="center">✔</td></tr><tr><td><?php echo esc_html__( 'Visibility, user, schedule, and accessibility conditions', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">✔</td><td class="has-text-align-center" data-align="center">✔</td></tr><tr><td><?php echo esc_html__( 'Code snippets and hooks catalog', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">✔</td><td class="has-text-align-center" data-align="center">✔</td></tr><tr><td><?php echo esc_html__( '22 plugin integrations and SEO schema', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">✔</td><td class="has-text-align-center" data-align="center">✔</td></tr><tr><td><?php echo esc_html__( 'Privacy-first analytics and performance tools', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">✔</td><td class="has-text-align-center" data-align="center">✔</td></tr><tr><td><?php echo esc_html__( 'Tabs and Compare blocks', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">✔</td></tr><tr><td><?php echo esc_html__( 'Map, Modal, Slider, Countdown, and Toggle Pro extras', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">✔</td></tr><tr><td><?php echo esc_html__( 'Visibility presets and advanced conditions', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">✔</td></tr><tr><td><?php echo esc_html__( 'Hook patterns', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">✔</td></tr><tr><td><?php echo esc_html__( 'Query Loop Pro with AJAX, filters, and masonry', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">✔</td></tr><tr><td><?php echo esc_html__( 'BunnyCDN video, overlays, and video analytics', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">✔</td></tr><tr><td><?php echo esc_html__( 'LMS and CRM automation', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">✔</td></tr><tr><td><?php echo esc_html__( '5,400+ icons and 39 premium patterns', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">—</td><td class="has-text-align-center" data-align="center">✔</td></tr><tr><td><?php echo esc_html__( 'Availability', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( 'Free now', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( 'Free now', 'aegis' ); ?></td><td class="has-text-align-center" data-align="center"><?php echo esc_html__( 'Coming soon', 'aegis' ); ?></td></tr></tbody></table></figure>
 <!-- /wp:table --></div>
 <!-- /wp:group -->
 
 <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md);margin-bottom:var(--wp--preset--spacing--md)"><!-- wp:button {"backgroundColor":"neutral-800","iconSet":"remixicon","iconName":"download-2-line","iconSize":"16px","iconPosition":"end"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://github.com/aegiswp/theme/releases/tag/v1.0.0"><?php echo esc_html__( 'Download Theme', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://github.com/aegiswp/theme/releases/download/v1.0.1/aegis.zip"><?php echo esc_html__( 'Download Theme', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"backgroundColor":"neutral-800","iconSet":"remixicon","iconName":"download-2-line","iconSize":"16px","iconPosition":"end"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://github.com/aegiswp/plugin/releases/tag/v1.0.0"><?php echo esc_html__( 'Download Plugin', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://github.com/aegiswp/plugin/releases/download/v1.0.0/aegis.zip"><?php echo esc_html__( 'Download Plugin', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"className":"is-style-ghost","iconSet":"remixicon","iconName":"time-line","iconSize":"16px","iconPosition":"end"} -->
@@ -811,7 +760,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"fontSize":"18"} -->
-<p class="has-text-align-center has-18-font-size"><?php echo esc_html__( 'Our team designs, engineers, and migrates sites on the Aegis framework.', 'aegis' ); ?></p>
+<p class="has-text-align-center has-18-font-size"><?php echo esc_html__( 'Our team designs, engineers, and migrates sites built on Aegis.', 'aegis' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -981,7 +930,7 @@
 
 <!-- wp:details {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|xs","right":"var:preset|spacing|xs"}}},"expandIcon":"plus"} -->
 <details class="wp-block-details is-style-surface" style="padding-top:var(--wp--preset--spacing--xs);padding-right:var(--wp--preset--spacing--xs);padding-bottom:var(--wp--preset--spacing--xs);padding-left:var(--wp--preset--spacing--xs)"><summary><?php echo esc_html__( 'Do I need a third-party page builder?', 'aegis' ); ?></summary><!-- wp:paragraph {"fontSize":"16"} -->
-<p class="has-16-font-size"><?php echo esc_html__( 'No. Aegis works with the WordPress Site Editor and Core Blocks, so your content stays portable.', 'aegis' ); ?></p>
+<p class="has-16-font-size"><?php echo esc_html__( 'No. Aegis works with the WordPress Site Editor and core blocks, so your content stays portable.', 'aegis' ); ?></p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details --></div>
 <!-- /wp:column -->
@@ -1034,7 +983,7 @@
 
 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"neutral-800","iconSet":"remixicon","iconName":"download-2-line","iconSize":"16px","iconPosition":"end"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://github.com/aegiswp/theme/releases/tag/v1.0.0"><?php echo esc_html__( 'Download Free', 'aegis' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button" href="https://github.com/aegiswp/theme/releases/download/v1.0.1/aegis.zip"><?php echo esc_html__( 'Download Free', 'aegis' ); ?></a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"className":"is-style-ghost","iconSet":"remixicon","iconName":"time-line","iconSize":"16px","iconPosition":"end"} -->
@@ -1046,6 +995,5 @@
 <p class="has-text-align-center has-neutral-500-color has-text-color has-14-font-size"><a href="https://www.atmostfear-entertainment.com/contact/"><?php echo esc_html__( 'Questions? Contact us any time.', 'aegis' ); ?></a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
-<!-- /wp:group -->
-</div>
+<!-- /wp:group --></div>
 <!-- /wp:group -->

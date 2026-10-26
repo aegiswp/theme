@@ -14,6 +14,10 @@ There is no Image Icon variation. Do not insert an Image block and style it as a
 
 ## Using the Icon Block
 
+![The Icon library in the editor with the search field, the list of collections, and a grid of icons from the selected collection. Numbered callouts: 1 Search every collection; 2 Icons from the selected library. Click one to insert it.](../screenshots/icon-library.png)
+
+*Choose an icon from the Icon block's picker.*
+
 1. Open the block inserter (+).
 2. Search for **Icon**.
 3. Insert the Icon block.
@@ -44,6 +48,10 @@ The `svg` style is registered once in PHP (`Svg::register_style()`), not via `Bl
 
 Collections register with `wp_register_icon_collection()` / `wp_register_icon()` when the Icon feature is enabled and WordPress is 7.1 or later.
 
+![The Icon library in the editor with its search field and the list of icon collections: WordPress, Social, Aegis, Integrations, Payment, Brand, Feather, Heroicons, Phosphor Duotone, Remix Icon, and more. Numbered callouts: 1 Search icons.](../screenshots/icon-picker.png)
+
+*Switch between icon libraries.*
+
 | Collection | IDs | Source |
 |------------|-----|--------|
 | Core | `core/{name}` | WordPress (`wp-includes` icon library) |
@@ -56,6 +64,8 @@ Collections register with `wp_register_icon_collection()` / `wp_register_icon()`
 | Hand Drawn | `hand-drawn/{name}` | Aegis Pro |
 | Plugins | `plugin/{name}` | Aegis Pro |
 | Brand | `brand/{name}` | Aegis Pro |
+
+The library opens quickly even with every Pro set installed (about 5,800 icons). When it asks for icons, Aegis loads only the requested collection or search results, not every icon file. The SVGs of each collection are cached in an `aegis_icon_content_{collection}` option (not autoloaded). The cache rebuilds on its own when an icon is added, removed, or renamed, or when the theme is updated, so the first opening after a change takes a few seconds longer.
 
 Aegis does not duplicate Core glyphs. A former `wordpress/star-filled` icon is stored as `core/star-filled`. Legacy saved IDs `aegis/{set}/{name}` still resolve when content is rendered or migrated.
 
@@ -174,7 +184,6 @@ The WordPress **Social Icons** block (`core/social-links`) is separate from the 
 
 - [[block-variations]] — SVG Image variation (`is-style-svg`).
 - [[image-lightbox]] — Lightbox extras on `core/image`.
-- [Plugin SVG Upload](../../../../plugins/aegis/docs/features/svg-upload.md) — Uploading `.svg` files to the Media Library ([Wiki](https://github.com/aegiswp/plugin/wiki)).
 - [[enhanced-core-blocks]] — Other core block enhancements.
 - [[accessibility]] — Skip links and labeling.
 - [[dark-mode]] — Color tokens icons inherit.

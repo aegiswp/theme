@@ -7,7 +7,7 @@ This page explains how to update the Aegis theme to the latest version safely an
 Before performing any update, take the following precautions:
 
 1. **Back up your site** — Create a full backup of your database and files.
-2. **Check the changelog** — Review the [release notes](https://github.com/aegiswp/theme/releases) for breaking changes.
+2. **Check the changelog** — Review the release notes shown with the update on **Dashboard → Updates**, or the theme's `CHANGELOG.md`, for breaking changes.
 3. **Test in staging** — If possible, test the update on a staging environment first.
 4. **Check plugin compatibility** — Ensure your companion plugins (Aegis Plugin, Aegis Pro) are compatible with the new theme version.
 
@@ -55,6 +55,10 @@ The command updates all public post types and `widget_block` widgets. Review hea
 
 Since 1.0.1, Aegis updates itself from GitHub through the normal WordPress update screens. No plugin or account is needed.
 
+![Dashboard → Updates listing an available Aegis theme update with the installed and new version numbers and the Update Themes button.](../screenshots/theme-update.png)
+
+*Aegis updates appear in Dashboard → Updates like any other theme.*
+
 - `style.css` declares `Update URI: https://github.com/aegiswp/theme`, so WordPress does not look for Aegis on WordPress.org.
 - The theme's updater (`src/Admin/GitHubUpdater.php`) reads the latest published release of `aegiswp/theme`. Drafts and pre-releases are skipped.
 - When that release is newer than the installed version, WordPress shows the usual **Update now** link under **Appearance → Themes** and in **Dashboard → Updates**. The release notes open from the update link.
@@ -77,7 +81,7 @@ The repository must publish releases with an `aegis.zip` asset.
 
 ### Method 2: Manual Update via Upload
 
-1. Download `aegis.zip` from the latest release on the [GitHub Releases page](https://github.com/aegiswp/theme/releases/).
+1. Download `aegis.zip` from the latest Aegis release.
 2. Navigate to **Appearance → Themes**.
 3. Click **Add New Theme** and then **Upload Theme**.
 4. Select the downloaded `.zip` file.
@@ -123,7 +127,7 @@ When updating the theme, you should also check for updates to companion plugins:
 
 | Plugin | Update Location |
 |--------|----------------|
-| Aegis Plugin (free) | **Plugins → Installed Plugins**. Install it from the theme's admin notice, which downloads the latest GitHub release |
+| Aegis Plugin (free) | **Plugins → Installed Plugins**. Install it from the theme's admin notice, which downloads the latest plugin release |
 | Aegis Pro | Coming soon |
 
 Always update the theme and plugins together to ensure compatibility.
@@ -177,21 +181,21 @@ If your site does not work correctly after updating:
 1. Clear all caches (browser, plugin, server).
 2. Deactivate and reactivate the theme.
 3. Check **Tools → Site Health** for any reported issues.
-4. If the issue persists, restore your backup and report the issue on [GitHub](https://github.com/aegiswp/theme/issues).
+4. If the issue persists, restore your backup and report the issue through the [Aegis documentation site](https://www.atmostfear-entertainment.com/docs/aegis/).
 
 ### Rolling Back
 
 To revert to a previous version:
 
-1. Download the previous release from [GitHub Releases](https://github.com/aegiswp/theme/releases/).
+1. Download the `aegis.zip` of the previous release.
 2. Follow the manual update process (Method 2 or Method 3) using the older version file.
 
 ## Staying Informed
 
 To be notified of new releases:
 
-- Watch the [GitHub repository](https://github.com/aegiswp/theme) for release notifications.
-- Follow [@aegiswp](https://github.com/aegiswp) on GitHub.
+- New versions appear in **Dashboard → Updates** and on **Appearance → Themes**. Enable auto-updates for Aegis to install them automatically.
+- Release news is published on the [Aegis documentation site](https://www.atmostfear-entertainment.com/docs/aegis/).
 
 ## Next Steps
 

@@ -41,7 +41,11 @@ use Aegis\Framework\ServiceProvider;
 use function __;
 use function absint;
 use function class_exists;
+use function current_user_can;
 use function function_exists;
+use function is_post_publicly_viewable;
+use function is_protected_meta;
+use function post_password_required;
 use function get_post_meta;
 use function get_the_ID;
 use function implode;
@@ -173,13 +177,24 @@ class MetaBox implements Conditional, Styleable {
 			return null;
 		}
 
-		$post_id = $block_instance->context['postId'] ?? get_the_ID();
+		$post_id   = absint( $block_instance->context['postId'] ?? get_the_ID() );
+		$field_key = sanitize_key( $field_key );
 
 		if ( ! $post_id ) {
 			return null;
 		}
 
-		$value = rwmb_meta( sanitize_key( $field_key ), [], absint( $post_id ) );
+		// Same checks as core's post-meta source: the key is chosen by the block
+		// author, but the post can be another author's (e.g. in a Query Loop).
+		if ( is_protected_meta( $field_key, 'post' ) || post_password_required( $post_id ) ) {
+			return null;
+		}
+
+		if ( ! is_post_publicly_viewable( $post_id ) && ! current_user_can( 'read_post', $post_id ) ) {
+			return null;
+		}
+
+		$value = rwmb_meta( $field_key, [], $post_id );
 
 		if ( $value ) {
 			$value = $this->format_field_value_for_attribute( $value, $attribute_name );

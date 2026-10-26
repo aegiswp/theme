@@ -19,13 +19,16 @@ use Aegis\Utilities\Str;
 use WP_Icon_Collections_Registry;
 use WP_Icons_Registry;
 use function basename;
+use function filemtime;
 use function function_exists;
+use function get_option;
 use function glob;
 use function is_array;
 use function is_string;
 use function preg_match;
 use function sprintf;
 use function strtolower;
+use function update_option;
 use function version_compare;
 use function __;
 
@@ -58,6 +61,10 @@ class Library {
 			return;
 		}
 
+		$cache       = get_option( self::FILES_OPTION, [] );
+		$cache       = is_array( $cache ) ? $cache : [];
+		$cache_dirty = false;
+
 		foreach ( $sets as $set => $dir ) {
 			$set = strtolower( (string) $set );
 
@@ -69,9 +76,9 @@ class Library {
 				continue;
 			}
 
-			$files = glob( $dir . '/*.svg' );
+			$files = $this->get_svg_files( $dir, $cache, $cache_dirty );
 
-			if ( ! is_array( $files ) || $files === [] ) {
+			if ( $files === [] ) {
 				continue;
 			}
 
@@ -127,6 +134,63 @@ class Library {
 				);
 			}
 		}
+
+		if ( $cache_dirty ) {
+			update_option( self::FILES_OPTION, $cache, false );
+		}
+	}
+
+	/**
+	 * Option caching each icon directory's SVG file names.
+	 */
+	private const FILES_OPTION = 'aegis_icon_files';
+
+	/**
+	 * SVG files in an icon directory.
+	 *
+	 * Listing thousands of icons on every request is slow on some hosts
+	 * (open_basedir checks each match), so names are cached per directory
+	 * and re-read when the directory's mtime changes, which adding,
+	 * removing or renaming an icon does.
+	 *
+	 * @param string $dir   Icon directory.
+	 * @param array  $cache Cached listings keyed by directory, updated in place.
+	 * @param bool   $dirty Set to true when the cache changes.
+	 *
+	 * @return string[] Absolute file paths.
+	 */
+	private function get_svg_files( string $dir, array &$cache, bool &$dirty ): array {
+		$mtime = @filemtime( $dir ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
+
+		if ( $mtime === false ) {
+			return [];
+		}
+
+		$entry = $cache[ $dir ] ?? null;
+
+		if ( ! is_array( $entry ) || ( $entry['mtime'] ?? null ) !== $mtime || ! is_array( $entry['names'] ?? null ) ) {
+			$files = glob( $dir . '/*.svg' );
+			$names = [];
+
+			foreach ( is_array( $files ) ? $files : [] as $file ) {
+				$names[] = basename( (string) $file );
+			}
+
+			$entry         = [
+				'mtime' => $mtime,
+				'names' => $names,
+			];
+			$cache[ $dir ] = $entry;
+			$dirty         = true;
+		}
+
+		$files = [];
+
+		foreach ( $entry['names'] as $name ) {
+			$files[] = $dir . '/' . $name;
+		}
+
+		return $files;
 	}
 
 	/**

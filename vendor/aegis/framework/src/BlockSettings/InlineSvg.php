@@ -35,17 +35,27 @@ use function content_url;
 use function dirname;
 use function esc_attr;
 use function explode;
-use function file_exists;
 use function file_get_contents;
 use function get_template_directory;
 use function implode;
 use function in_array;
+use function is_file;
 use function method_exists;
+use function pathinfo;
 use function property_exists;
+use function rawurldecode;
+use function realpath;
 use function str_contains;
 use function str_replace;
+use function str_starts_with;
+use function strlen;
+use function strtok;
+use function strtolower;
+use function substr;
+use function trailingslashit;
 use function trim;
 use function urldecode;
+use function wp_parse_url;
 
 
 /**
@@ -156,6 +166,34 @@ class InlineSvg implements Renderable {
 	}
 
 	/**
+	 * Maps an image URL to an `.svg` file inside the content directory.
+	 *
+	 * The URL comes from post content, so the resolved path must stay inside
+	 * wp-content and be an existing `.svg` file.
+	 *
+	 * @param string $src Image URL.
+	 *
+	 * @return string Absolute file path, or empty string when not allowed.
+	 */
+	private function get_content_svg_path( string $src ): string {
+		$base_url = trailingslashit( content_url() );
+		$path     = (string) wp_parse_url( $src, PHP_URL_PATH );
+
+		if ( ! str_starts_with( $src, $base_url ) || strtolower( pathinfo( $path, PATHINFO_EXTENSION ) ) !== 'svg' ) {
+			return '';
+		}
+
+		$content_dir = realpath( dirname( get_template_directory(), 2 ) );
+		$file        = realpath( $content_dir . '/' . rawurldecode( substr( strtok( $src, '?#' ), strlen( $base_url ) ) ) );
+
+		if ( ! $content_dir || ! $file || ! is_file( $file ) || strtolower( pathinfo( $file, PATHINFO_EXTENSION ) ) !== 'svg' ) {
+			return '';
+		}
+
+		return str_starts_with( $file, $content_dir . DIRECTORY_SEPARATOR ) ? $file : '';
+	}
+
+	/**
 	 * Replaces `<img>` tags that link to `.svg` files with inline `<svg>` markup.
 	 *
 	 * This method targets specific core blocks. If it finds an `<img>` tag with a
@@ -196,8 +234,8 @@ class InlineSvg implements Renderable {
 		}
 
 		// Construct the absolute server path to the SVG file.
-		$file = str_replace( content_url(), dirname( get_template_directory(), 2 ), $img->getAttribute( 'src' ) );
-		if ( ! file_exists( $file ) ) {
+		$file = $this->get_content_svg_path( $img->getAttribute( 'src' ) );
+		if ( $file === '' ) {
 			return $block_content;
 		}
 

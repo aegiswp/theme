@@ -151,6 +151,7 @@ class ServiceProvider implements Registerable
 		CoreBlocks\Icon::class,
 		CoreBlocks\IconBlockAttributes::class,
 		Icons\RestIconsMerge::class,
+		Icons\RestIconsList::class,
 		Icons\Library::class,
 		Icons\IconCli::class,
 		CoreBlocks\Image::class,
@@ -209,7 +210,6 @@ class ServiceProvider implements Registerable
 		DesignSystem\Layout::class,
 		DesignSystem\Patterns::class,
 		DesignSystem\SkipLink::class,
-		DesignSystem\SvgUpload::class,
 		DesignSystem\SystemFonts::class,
 		DesignSystem\Templates::class,
 	];

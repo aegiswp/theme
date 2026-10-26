@@ -42,6 +42,10 @@ All interactive elements are fully keyboard accessible:
 
 Aegis provides clearly visible focus indicators:
 
+![A navigation menu with a clearly outlined keyboard focus ring around the focused menu item.](../screenshots/focus-styles.png)
+
+*Visible focus styles for keyboard users.*
+
 - High-contrast outline around focused elements.
 - Focus styles adapt to both light and dark mode.
 - Focus indicators are never hidden or removed.
@@ -87,6 +91,10 @@ Aegis uses ARIA attributes to enhance screen reader experiences:
 ## Skip Links
 
 A skip-to-content link is the first focusable element on every page:
+
+![The Skip to content link shown at the top of the page after pressing Tab, above the site header.](../screenshots/skip-link.png)
+
+*The skip link appears on the first Tab press.*
 
 - Hidden visually by default (`.screen-reader-text`).
 - Becomes visible when focused via keyboard.

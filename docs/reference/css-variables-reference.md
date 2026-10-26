@@ -265,6 +265,10 @@ There is no `--wp--custom--typography--*` group. Heading and body line heights a
 
 ### In the Site Editor
 
+![Styles → Additional CSS in the Site Editor with custom CSS using Aegis variables such as var(--wp--preset--color--primary-600). Numbered callouts: 1 Custom CSS using Aegis variables such as var(--wp--preset--color--primary-600).](../screenshots/additional-css.png)
+
+*Use Aegis CSS variables in Additional CSS.*
+
 1. Navigate to **Appearance → Editor → Styles**.
 2. Click the Options menu (three dots).
 3. Select **Additional CSS**.

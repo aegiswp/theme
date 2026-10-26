@@ -39,7 +39,7 @@ src/
 ├── NavigationFallback.php   # Short sample menu for empty Navigation blocks (1.0.1)
 ├── PatternDependencies.php  # Hides patterns whose blocks need an inactive plugin (1.0.1)
 ├── Admin/
-│   ├── CompanionNotice.php  # Companion plugin install notice (installs from GitHub)
+│   ├── CompanionNotice.php  # Companion plugin install notice (installs the latest release)
 │   └── GitHubUpdater.php    # Theme updates from GitHub releases (1.0.1)
 └── Blocks/                  # block.json + TSX sources (compiled in place)
     ├── BlockRegistrar.php
@@ -87,8 +87,8 @@ Pro premium patterns: `wp-content/plugins/aegis-pro/patterns/`.
 
 | Path | Docs |
 |------|------|
-| `wp-content/plugins/aegis/` | [Plugin docs](../../../../plugins/aegis/docs/home.md) · [Wiki](https://github.com/aegiswp/plugin/wiki) |
-| `wp-content/plugins/aegis-pro/` | [Pro docs](../../../../plugins/aegis-pro/docs/home.md) · [Wiki](https://github.com/aegiswp/pro/wiki) |
+| `wp-content/plugins/aegis/` | [Plugin docs](../../../../plugins/aegis/docs/home.md) |
+| `wp-content/plugins/aegis-pro/` | [Pro docs](../../../../plugins/aegis-pro/docs/home.md) |
 
 ## Generated / Excluded from Dev
 

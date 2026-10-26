@@ -38,6 +38,10 @@ Every layer uses one color token, `--wp--custom--box-shadow--color`. It is set i
 
 ### Applying a Shadow to a Block
 
+![The Border & Shadow panel of a Group block with the shadow presets open, and the card in the canvas showing the selected shadow.](../screenshots/shadow.png)
+
+*Pick a shadow preset in the Border & Shadow panel.*
+
 1. Select a block that supports shadows (Group, Column, Image, Button, and others).
 2. In the block settings sidebar, find the **Shadow** option under **Border** or **Styles**.
 3. Click the shadow picker to see the preset options.

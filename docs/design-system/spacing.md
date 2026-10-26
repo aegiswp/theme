@@ -48,6 +48,10 @@ Block spacing controls the distance between blocks within a container:
 
 Padding adds internal space between a block boundary and its content:
 
+![The Dimensions panel of a Group block with padding set to an Aegis spacing preset, and the padding area highlighted on the block in the canvas.](../screenshots/padding.png)
+
+*Padding uses the Aegis spacing scale.*
+
 1. Select any block.
 2. In the block settings, find **Dimensions → Padding**.
 3. Use the linked or individual controls for top, right, bottom, and left padding.

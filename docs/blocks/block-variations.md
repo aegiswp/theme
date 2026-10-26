@@ -26,6 +26,10 @@ A block variation is a preconfigured version of an existing block with specific 
 
 An interactive list where each item can be expanded to reveal additional content.
 
+![An Accordion List on the front end with one item expanded and the others collapsed.](../screenshots/accordion-list.png)
+
+*The Accordion List variation.*
+
 ### Base Block
 
 `core/list` with the `is-style-accordion` class. The style is registered once in PHP (`AccordionList::register_style()`), gated by **Aegis → Blocks → Accordion**. Other list styles (`checklist`, `dash`, and so on) stay on `BlockStyles`.
@@ -57,6 +61,10 @@ An interactive list where each item can be expanded to reveal additional content
 
 An animated number that counts up from zero to a target value when the element scrolls into view.
 
+![A row of Counter variations on the front end showing large numbers with labels underneath.](../screenshots/counter.png)
+
+*Counters animate up to their value when they scroll into view.*
+
 ### Base Block
 
 `core/paragraph` with custom attributes and intersection observer script.
@@ -87,6 +95,10 @@ An animated number that counts up from zero to a target value when the element s
 ## Curved Text
 
 Text rendered along a circular or curved SVG path for decorative headings and badges.
+
+![The Curved Text variation selected in the editor, with its content and the container and path size settings in the sidebar. Numbered callouts: 1 Curved Text bends the paragraph along a circle; 2 Curve settings for the selected text.](../screenshots/curved-text-editor.png)
+
+*Curved Text and its settings.*
 
 ### Base Block
 
@@ -229,6 +241,8 @@ There is no parent SVG toggle. Enabling any extra at **Aegis → Blocks → SVG*
 | `svg_onclick` | Image onclick kept on the inlined SVG or mask span | onclick not copied after the `img` is removed |
 | `svg_inline` | Rich-text **Inline SVG** format in paragraphs | Format hidden; CSS-masked `has-inline-svg` images stay as images |
 | `svg_inline_file` | Inline `.svg` files on Image, Button, Site Logo, Featured Image | `img src="*.svg"` stays an image |
+
+Inline SVG files replace an image only when the image points to an `.svg` file inside `wp-content`. The Onclick setting is kept only when the user who saves the content has the `unfiltered_html` capability (administrators on single sites). SVG files cannot be uploaded to the Media Library: paste the markup instead.
 
 Saved `is-style-svg` blocks still inline on the front end when the variation is implied off, so theme patterns (logo clouds, home brand marks) keep working.
 

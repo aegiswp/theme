@@ -37,9 +37,10 @@
  href="/wp-admin/site-editor.php"><?php echo esc_html__( 'Open Editor', 'aegis' ); ?></a></div>
  <!-- /wp:button -->
 
- <!-- wp:button {"backgroundColor":"neutral-800","onclick":"","size":"large","iconSet":"wordpress","iconName":"plugins","iconSize":"15px","iconPosition":"end","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-labelledby=\"icon-hero-plugin\" data-icon=\"wordpress-plugins\" width=\"24\" height=\"24\" fill=\"currentColor\"><title id=\"icon-hero-plugin\">Plugins Icon</title><path d=\"M10.5 4v4h3V4H15v4h1.5a1 1 0 0 1 1 1v4l-3 4v2a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-2l-3-4V9a1 1 0 0 1 1-1H9V4h1.5zm.5 12.5v2h2v-2l3-4v-3H8v3l3 4z\"></path></svg>"} -->
+ <!-- wp:button {"backgroundColor":"neutral-800","onclick":"","size":"large","iconSet":"wordpress","iconName":"pages","iconSize":"15px","iconPosition":"end","iconSvgString":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" role=\"img\" aria-labelledby=\"icon-696222c2e1e7c\" data-icon=\"wordpress-pages\" width=\"24\" height=\"24\" fill=\"currentColor\"><title id=\"icon-696222c2e1e7c\">Pages Icon</title><path d=\"M7 13.8h6v-1.5H7v1.5zM18 16V4c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2zM5.5 16V4c0-.3.2-.5.5-.5h10c.3 0 .5.2.5.5v12c0 .3-.2.5-.5.5H6c-.3 0-.5-.2-.5-.5zM7 10.5h8V9H7v1.5zm0-3.3h8V5.8H7v1.4zM20.2 6v13c0 .7-.6 1.2-1.2 1.2H8v1.5h11c1.5 0 2.7-1.2 2.7-2.8V6h-1.5z\"></path></svg>"} -->
  <div class="wp-block-button"><a class="wp-block-button__link has-neutral-800-background-color has-background wp-element-button"
-  href="https://www.atmostfear-entertainment.com/aegis/plugin/"><?php echo esc_html__( 'Get Plugin', 'aegis' ); ?></a></div>
+ href="https://www.atmostfear-entertainment.com/docs/aegis/" target="_blank"
+ rel="noreferrer noopener nofollow"><?php echo esc_html__( 'Read Docs', 'aegis' ); ?></a></div>
  <!-- /wp:button -->
  </div>
  <!-- /wp:buttons -->

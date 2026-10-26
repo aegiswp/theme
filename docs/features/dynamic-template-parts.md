@@ -40,7 +40,7 @@ Return the original `$slug` (or a non-string / empty value) to leave the part un
 
 ## Examples
 
-Add these to a **child theme** `functions.php` or a small custom plugin. Create the matching `parts/*.html` files first.
+Add these through a plugin: a **Functions (PHP)** snippet in [Aegis → Code Snippets](../../../../plugins/aegis/docs/features/code-snippets.md) or a site-specific plugin. See [Where to Put Snippets](../reference/code-snippets.md#where-to-put-snippets). Create the matching `parts/*.html` files first.
 
 ### Category-based sidebar on single posts
 
@@ -129,7 +129,7 @@ parts/sidebar-news.html
 
 You can use a thin pattern wrapper (same as the shipped `header`, `footer`, and `sidebar` parts) or full block markup.
 
-Site Editor–created template parts are unreliable for custom slugs today ([Gutenberg #57629](https://github.com/WordPress/gutenberg/issues/57629)). Control slugs via theme files whenever possible.
+Site Editor–created template parts are unreliable for custom slugs today (Gutenberg issue 57629). Control slugs via theme files whenever possible.
 
 ## Related
 

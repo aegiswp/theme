@@ -5,6 +5,58 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2026-10-26
+
+### Added
+
+- Slide-through submenus on inline Navigation blocks. A block with the `is-drilldown` class and no overlay gets the same **Back** button, parent title, and nested panels as the mobile overlay menu. Inline menus do not trap Tab, and they return to the top level when something dispatches `aegis:drilldown-reset`. Drilldown rows use a 44px target.
+- Books Slider pattern (`books`): one book per view, a 2:3 cover, arrows outside the slide (`is-arrows-outside`), and the lightbox off.
+- Latest Posts Carousel pattern (`latest-posts`): post cards with the featured image, category, date, title, and excerpt, using the Pro query carousel (3 / 2 / 1 slides per view).
+- `Pattern::parse_headers()` reads a pattern file's header without running the file and returns the pattern with `filePath` instead of `content`. `Pattern::register()` registers an already parsed pattern and its categories.
+- `aegis_template_tag_post_fields` filter: the post fields that `{field}` template tags can print.
+- `aegis_query_protected_meta_keys` filter: the `_`-prefixed meta keys that Query Loop blocks can filter and sort by. It defaults to WooCommerce's product keys (`_price`, `_regular_price`, `_sale_price`, `_stock`, `_wc_average_rating`, `_wc_review_count`).
+- `DOM::set_link_target()` sets a link's `target` and `rel` from block attributes.
+
+### Changed
+
+- Theme patterns load lazily. `Pattern::register_from_file()` reads only the file header and registers the pattern with `filePath`, so WordPress runs a pattern file only when its content is used.
+- Pattern folder listings and parsed headers are cached in the `aegis_pattern_headers` option (not autoloaded). A folder is listed again when its modified time changes, which adding, removing, or renaming a pattern does. The editor, REST API, and WP-CLI re-read a file's header when the file's modified time changes. Front-end requests use the cached headers, and pattern content is always read from the file. If a template asks for a pattern slug that is not registered, that request re-checks every file, so a renamed slug works on the front end right away. The cache starts fresh when the active theme or its version changes, so theme updates never serve outdated pattern headers.
+- The icon library caches each icon folder's SVG file names in the `aegis_icon_files` option (not autoloaded) and lists the folder again when its modified time changes. Before, it listed about 5,700 SVG files on every request.
+- WooCommerce plugin patterns (`woocommerce/`) are removed right before the editor loads the pattern list, not on every `init`. Reading the whole pattern registry on `init` loaded every pattern file.
+- `{field}` template tags print public post fields only: title, excerpt, dates, author, status, slug, parent, post type, and comment count. Custom fields still work, except `_`-prefixed ones. Nothing is printed for password-protected posts or posts the visitor cannot read.
+- Meta Box block bindings skip `_`-prefixed fields, password-protected posts, and posts the visitor cannot read, the same as core's post meta binding.
+- Query Loop meta filters and meta sorting ignore `_`-prefixed keys unless the `aegis_query_protected_meta_keys` filter lists them.
+- Button and image links that open in a new tab always get `rel="noopener"`. `target` accepts `_blank` or `_self` only.
+- Video embed facades only play YouTube (`youtube.com`, `youtube-nocookie.com`) and Vimeo (`player.vimeo.com`) player URLs over HTTPS. Other embeds render as before, without a facade.
+- Inline SVG replaces an image only when it points to an `.svg` file inside `wp-content`.
+- Inline styles built from block settings skip a value that contains `;`, `{`, or `}` outside quotes or parentheses. **Additional Styles** saved by users without the `unfiltered_html` capability keep only the CSS properties WordPress allows in post content.
+- The `onclick` block setting is kept only when the user who saves the content has the `unfiltered_html` capability.
+
+### Removed
+
+- SVG uploads. The theme no longer adds SVG or SVGZ to the allowed upload types, so WordPress's default applies and SVG files cannot be uploaded to the Media Library. SVGs already in the Media Library stay where they are. The `aegis_svg_settings` filter and the `svg_upload`, `svg_strip_colors`, `svg_strip_dimensions`, and `svg_strip_styles` settings no longer do anything.
+- The unused `data-ajax` option on copy-to-clipboard buttons.
+
+### Reverted
+
+- Sticky site header from 1.0.1. `settings.custom.header` in `theme.json` is `position: relative`, `top: 0px`, and `scrollPadding: 0px`. Set `position` back to `sticky` and `scrollPadding` to `5rem` to restore that behavior.
+- Home page hero (`pages-home`) buttons from 1.0.1. The hero shows **Open Editor** and **Read Docs** again, and **Read Docs** links to `https://www.atmostfear-entertainment.com/docs/aegis/`. The three-image layout stays, and the release badge stays removed.
+
+### Fixed
+
+- Slider controls. On a single visible slide, arrows sit over the media. When more than one slide is visible, or the slider has `is-arrows-outside`, they sit in gutters beside the slides. Dots stay clear of the cards, except on full-bleed cover heroes. Chevrons and dots use Neutral 950.
+- Slide markup. Patterns that save only inner blocks still get a `.splide__slide` wrapper, with `role="group"` and the "slide" role description. Content that already has that wrapper is not wrapped again. The block can be renamed in the editor, and older saves are covered by deprecations so the editor does not throw on color supports.
+- Images inside slides. Circular avatars stay square and shrink-wrapped. Covers that set their own aspect ratio (the 2:3 book covers) are not forced to 1:1.
+- Hero, Features, Portfolio, and Team slider patterns use theme colors and image placeholders, with the lightbox off.
+- Page load times. The theme no longer lists every icon or runs every pattern file on each request, so pages load much faster on every host. The gain is largest on hosts that restrict file access with `open_basedir`, where each file check is costly.
+- WooCommerce's variation scripts (`underscore`, `wp-util`, and `wc-add-to-cart-variation`) loaded on every page, because running every pattern file enqueued them. They now load only where a variable product form needs them.
+- `woocommerce/` patterns used in templates or content rendered empty on the front end, because they were removed on every request. They now render.
+- Copy-to-clipboard buttons copy code exactly as written, including text that looks like HTML.
+- Structured data (`application/ld+json`) for embeds, FAQ accordions, and countdowns escapes `<` and `>`.
+- `aegis/pattern` blocks with an unusual slug render the matching pattern instead of misreading the slug.
+- The block inserter's **Patterns** tab was empty, and `GET /wp/v2/block-patterns/patterns` returned a critical error. The **Patterns** utility pattern (`utility/patterns.php`) set a `$patterns` variable, and WordPress runs pattern files inside the pattern registry, where that name holds the registry's own list. The variable is now `$category_patterns`.
+- The Icon block's **Icon library** never showed any icons. WordPress's `GET /wp/v2/icons` reads and sanitizes every registered SVG (about 5,800 with the Aegis sets) before it filters by collection or search. `Icons\RestIconsList` now serves the two icon list routes. It filters first, then loads only the matching icons, and keeps each collection's sanitized SVGs in an `aegis_icon_content_{collection}` option (not autoloaded). The option is rebuilt when an icon is added, removed, or renamed, or when the theme version changes. Core's permission check, arguments, and response format are unchanged. On a local site, one collection now loads in under 0.1 s and the whole library in about 0.6 s, instead of 15 s.
+
 ## [1.0.1] - 2026-10-19
 
 ### Added
@@ -50,6 +102,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - WooCommerce patterns and templates (shop, product archives, cart, Coming Soon) no longer show invalid filter, cart, and Coming Soon blocks in the editor.
 - Removed a console error in the editor when Inline SVG is turned off.
 - Without WooCommerce, the editor no longer shows "unsupported block" placeholders: header patterns drop the cart and account icons, and patterns built on WooCommerce blocks are hidden. Patterns that use the Aegis plugin's map block are hidden when the plugin is inactive (`PatternDependencies`).
+- Accessibility: sub-headings in sections with their own background and text color follow that text color, so they stay readable on dark sections.
+- Accessibility: outline buttons in dark sections keep a transparent background instead of the filled dark-section button style.
+- Accessibility: in dark mode, the soft Success, Warning, Error and Info backgrounds become dark tints, so notice text stays readable.
+- Accessibility: text in dark-styled event patterns (cinema, conference, workshop, music festival), the Hero Video overlay, the Wide footer search button and the Slider Hero outline button now meets WCAG AA contrast in light and dark mode.
+- Pages with a Tag Cloud block (including the Sidebar pattern) no longer stop with a fatal error on a site that has no tags yet. Curved Text and Social Link rendering also skip missing elements instead of failing.
+- Portfolio page pattern: the project cards use a 60% overlay so their white titles stay readable over light images.
 - Countdown block: its front-end styles (segment layout and spacing) now load. `block.json` pointed to a stylesheet the build never produced.
 - `composer.json` no longer sets a `version` field, so `composer validate --strict` in the release workflow passes.
 

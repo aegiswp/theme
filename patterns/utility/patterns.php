@@ -88,9 +88,9 @@ foreach ( $all_categories as $category ) {
 		<!-- /wp:heading -->
 
 		<?php
-		$patterns = glob( $category . '/*.php' );
+		$category_patterns = glob( $category . '/*.php' );
 
-		foreach ( $patterns as $pattern ) :
+		foreach ( $category_patterns as $pattern ) :
 			?>
 
 			<?php

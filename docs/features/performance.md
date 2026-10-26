@@ -104,6 +104,28 @@ The Video block uses a facade pattern:
 2. The video player (iframe or native) loads only when the user clicks play.
 3. This eliminates heavy third-party script loading on page load.
 
+Facades only play YouTube (`youtube.com`, `youtube-nocookie.com`) and Vimeo (`player.vimeo.com`) player URLs over HTTPS. Other embeds render as normal, without a facade.
+
+## Pattern and Icon Loading
+
+Since 1.0.2, Aegis no longer runs every pattern file or lists every icon on each request.
+
+| Item | What Aegis does | Cache |
+|------|-----------------|-------|
+| Patterns | Reads only each file's header and registers the pattern with its file path. WordPress runs a pattern file only when its content is used. | `aegis_pattern_headers` option (not autoloaded) |
+| Icons | Lists each icon folder's SVG file names once (about 5,700 files) | `aegis_icon_files` option (not autoloaded) |
+
+How the caches stay current:
+
+- A folder is listed again when its modified time changes. Adding, removing, or renaming a pattern or icon does that.
+- The editor, the REST API, and WP-CLI re-read a pattern's header when its file changes. Front-end requests use the cached headers. Pattern content is always read from the file.
+- If a template asks for a pattern slug that is not registered, that request re-checks every pattern file, so a renamed slug works on the front end right away.
+- The pattern cache starts fresh when the active theme or its version changes, so a theme update never serves old pattern headers.
+
+The gain is largest on hosts that restrict file access with `open_basedir`, where each file check is costly. WooCommerce's variation scripts (`underscore`, `wp-util`, `wc-add-to-cart-variation`) also load only where a variable product form needs them.
+
+You do not need to clear these caches. Edits to a pattern's content show right away. A changed header (title, categories, slug) is picked up the next time the editor, REST API, or WP-CLI loads the pattern list.
+
 ## Critical Rendering Path
 
 Aegis minimizes render-blocking resources:

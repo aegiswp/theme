@@ -12,7 +12,7 @@ Left out on purpose: Map, Modal, analytics, conditional logic, the plugin Integr
 | --- | --- |
 | Theme | Aegis |
 | Author | Atmostfear Entertainment |
-| Version | 1.0.1 |
+| Version | 1.0.2 |
 | Requires WordPress | 7.0 |
 | Tested up to | 7.1.3 |
 | Requires PHP | 8.1 |
@@ -108,6 +108,10 @@ Eight presets: None, XX Small, X Small, Small, Medium, Large, X Large, XX Large.
 ## Style variations
 
 60 variations in `styles/`. Each file sets `title` to the name below. Mood notes are the theme's own labels from the style-variation reference. Every variation keeps its own dark mapping when dark mode is on.
+
+![The grid of Aegis color variations in the Site Editor Styles panel, with dark, warm, and cool palettes side by side. Numbered callouts: 1 Aegis color variations: dark, warm, and cool palettes side by side.](screenshots/style-variations.png)
+
+*A selection of the 60 Aegis style variations.*
 
 | Variation | Character |
 | --- | --- |
@@ -716,7 +720,7 @@ Extra block controls from the framework. Names only. Plugin toggles that disable
 
 | Control | What it adds |
 | --- | --- |
-| Additional styles | Custom CSS on a block |
+| Additional styles | Custom CSS on a block. Saved by a user without the `unfiltered_html` capability, only the CSS properties WordPress allows in post content are kept |
 | Animation | Motion, with CSS and script loaded when used |
 | Backdrop blur | Backdrop-filter blur |
 | Box shadow | Shadow beyond the eight presets |
@@ -727,7 +731,7 @@ Extra block controls from the framework. Names only. Plugin toggles that disable
 | Responsive | Breakpoint layout, including visibility and positioning |
 | Visibility | Server-side show and hide from a visibility attribute |
 | Subheading | Sub-heading treatment, including gradient clip |
-| Template tags | Replacements in block content, including reading time at 200 words per minute (`aegis_words_per_minute`) |
+| Template tags | Replacements in block content, including reading time at 200 words per minute (`aegis_words_per_minute`). `{field}` tags print public post fields only (`aegis_template_tag_post_fields`) and custom fields that do not start with `_`. Nothing is printed for password-protected posts or posts the visitor cannot read |
 | Query layout | Responsive layout on Query |
 | Query enhancements | Extra query parameters |
 | Query no results | Custom empty state for Query |
@@ -735,7 +739,7 @@ Extra block controls from the framework. Names only. Plugin toggles that disable
 | Inline color | Inline color |
 | Inline SVG | Inline SVG rendering |
 | Copy to clipboard | Copy control on code |
-| Onclick | Click action and template-tag replacement |
+| Onclick | Click action and template-tag replacement. Kept only when the user who saves the content has the `unfiltered_html` capability |
 | Placeholder | Placeholder content when a block is empty |
 
 ## Icons
@@ -752,7 +756,7 @@ The theme registers icon collections on the WordPress Icon block (`core/icon`). 
 
 The payment set follows the theme color scheme. The brand-color set keeps the original card colors. Core already ships its own `core` collection; Aegis does not duplicate those glyphs.
 
-An SVG sanitizer ships in the theme framework. The screen that turns SVG uploads on is the companion plugin, and that screen is not part of this inventory.
+The theme does not allow SVG uploads. SVG icons and images come from files that ship with the theme or plugins.
 
 ## Navigation and search
 

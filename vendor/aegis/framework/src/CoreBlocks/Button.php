@@ -216,12 +216,8 @@ class Button implements Renderable {
 			$link->setAttribute( 'href', $on_click ? 'javascript:void(0)' : '#' );
 		}
 
-		if ( ! empty( $attrs['linkTarget'] ) ) {
-			$link->setAttribute( 'target', (string) $attrs['linkTarget'] );
-		}
-
-		if ( ! empty( $attrs['rel'] ) ) {
-			$link->setAttribute( 'rel', (string) $attrs['rel'] );
+		if ( ! empty( $attrs['linkTarget'] ) || ! empty( $attrs['rel'] ) ) {
+			DOM::set_link_target( $link, (string) ( $attrs['linkTarget'] ?? '' ), (string) ( $attrs['rel'] ?? '' ) );
 		}
 
 		// Apply aria-label for accessibility.

@@ -4,6 +4,10 @@ Global Styles is the system that controls your site-wide design settings in the 
 
 ## Accessing Global Styles
 
+![The Site Editor top toolbar with the Styles icon (a half-filled circle) highlighted and the Styles panel open beside the canvas. Numbered callouts: 1 The Styles icon in the top toolbar; 2 The Styles panel opens beside the canvas.](../screenshots/styles-toolbar.png)
+
+*Open Global Styles with the Styles icon in the Site Editor.*
+
 1. Navigate to **Appearance → Editor** to open the Site Editor.
 2. Click the **Styles** icon (half-filled circle) in the top-right toolbar.
 3. The Styles panel opens on the right side.
@@ -21,6 +25,10 @@ The Global Styles panel contains the following sections:
 | Blocks | Per-block type style overrides |
 
 ## Typography Settings
+
+![The Typography panel listing Text, Links, Headings, Captions, and Buttons, with the font family and size controls for Text open. Numbered callouts: 1 Font family for body text; 2 Font size presets.](../screenshots/typography-text.png)
+
+*Set site-wide typography for each element.*
 
 ### Global Typography
 
@@ -53,6 +61,10 @@ See [[typography]] for the full type scale and font details.
 ### Palette
 
 Aegis provides a comprehensive color palette based on the Tailwind CSS v3 scale:
+
+![The Colors → Palette screen showing the Aegis theme palette swatches and the custom colors section. Numbered callouts: 1 The Aegis theme palette; 2 Add your own custom colors.](../screenshots/palette.png)
+
+*The Aegis color palette in Global Styles.*
 
 - **Primary (Zinc)** — 25 through 950 shades.
 - **Neutral** — 0 through 950 shades.
@@ -101,6 +113,10 @@ See [[layout]] for detailed layout configuration.
 ## Per-Block Styling
 
 Global Styles allows you to set default styles for specific block types:
+
+![The Styles → Blocks list with the Button block selected, showing its typography, color, and border controls. Numbered callouts: 1 Typography for every Button; 2 Color, then border and more below.](../screenshots/styles-button-block.png)
+
+*Style every instance of a block from Styles → Blocks.*
 
 1. In the Styles panel, scroll to the **Blocks** section.
 2. Click **Blocks** or search for a specific block type.

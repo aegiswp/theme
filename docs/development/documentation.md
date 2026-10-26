@@ -6,32 +6,42 @@ For general contribution workflow (branches, commits, PRs), see [[contributing]]
 
 ## Where documentation lives
 
-| Product | Local tree | Public wiki |
-|---------|------------|-------------|
-| **Theme** | `wp-content/themes/aegis/docs/` | [aegiswp/theme wiki](https://github.com/aegiswp/theme/wiki) |
-| **Plugin (free)** | `wp-content/plugins/aegis/docs/` | [aegiswp/plugin wiki](https://github.com/aegiswp/plugin/wiki) |
-| **Pro** | `wp-content/plugins/aegis-pro/docs/` | [aegiswp/pro wiki](https://github.com/aegiswp/pro/wiki) |
+| Product | Local tree | Doc Set |
+|---------|------------|---------|
+| **Theme** | `wp-content/themes/aegis/docs/` | Theme |
+| **Plugin (free)** | `wp-content/plugins/aegis/docs/` | Companion Plugin |
+| **Pro** | `wp-content/plugins/aegis-pro/docs/` | Pro |
+| **Ads** | `wp-content/plugins/aegis-ads/docs/` | Ads |
 
-Root repo files that are also documentation (not the Docsify wiki tree):
+The published documentation is at [atmostfear-entertainment.com/docs/aegis](https://www.atmostfear-entertainment.com/docs/aegis/). The Markdown files are the source. The **Aegis Docs** plugin imports them into `aegis_doc` posts, one Doc Set per folder:
+
+```bash
+wp aegis-docs import wp-content/themes/aegis/docs wp-content/plugins/aegis/docs wp-content/plugins/aegis-pro/docs wp-content/plugins/aegis-ads/docs
+```
+
+Each folder has an `aegis-docs.json` manifest with the Doc Set, its sections, the order of the pages, and the screenshots to add. Import related folders together so links between them resolve. Running the import again updates the existing docs, so edit the Markdown, not the imported posts. Add `--dry-run` to check links without writing anything.
+
+Screenshots go in the folder's `screenshots/` directory and are linked like any image: `![What the screenshot shows](../screenshots/name.png)`. On import, each PNG, JPG, GIF, WebP, or AVIF file a doc links to is uploaded to the Media Library once and reused on later imports (matched by its content). When a page gets a real screenshot, remove its placeholder from the manifest's `screenshots` list.
+
+Root files that are also documentation:
 
 - `README.md`, `INSTRUCTIONS.md`, `DESIGN.md`, `BUILD.md`
 - `CONTRIBUTING.md`, `AGENTS.md`
 - WordPress.org `readme.txt` (theme / plugins)
-- Plugin/Pro: `.github/WORKFLOWS.md` (CI and release zip contents)
 
-Theme `docs/` is excluded from the installable theme zip (`.distignore`). Docs ship on GitHub and the wiki, not in the WordPress.org package. Free plugin and Pro each maintain their own `CONTRIBUTING.md`, `composer.json` / `phpcs.xml`, and release excludes (`.distignore` + `.gitattributes` `export-ignore`).
+Theme `docs/` is excluded from the installable theme zip (`.distignore`). Free plugin and Pro each maintain their own `CONTRIBUTING.md`, `composer.json` / `phpcs.xml`, and release excludes (`.distignore` + `.gitattributes` `export-ignore`).
 
 ## Scope rules
 
 - **Theme docs** cover templates, patterns, `theme.json` tokens, style variations, theme-registered blocks, and theme-owned features.
 - **Plugin / Pro docs** cover companion features (Modal, Map, integrations dashboard, Pro patterns, etc.). Do not duplicate those pages under the theme tree.
-- Cross-link instead: use relative links to sibling docs trees, or the public wiki URLs listed on [[home]].
+- Cross-link instead: use relative links to the sibling docs trees. The import turns them into links to the matching doc.
 - Prefer design tokens over hardcoded hex in examples. When documenting palette values, match live `theme.json` (see [[color-palette]] and root `DESIGN.md`).
 - Keep counts accurate (patterns, templates, palette size). Prefer [[introduction-inventory]] and on-disk trees over outdated README copy.
 
 ## Page anatomy
 
-Each wiki page is a Markdown file under `docs/`. Typical layout:
+Each page is a Markdown file under `docs/`. Typical layout:
 
 ```text
 docs/
@@ -55,18 +65,17 @@ docs/
 
 ### Links
 
-Docs use wiki-style links (Docsify / GitHub wiki compatible):
+Docs use wiki-style links:
 
 ```markdown
 [[color-palette]]
 [[color-palette|Color Palette]]
 ```
 
-The slug is the file name without `.md` (and without the folder path when the wiki is flat-synced). For cross-repo or out-of-tree links, use normal Markdown links:
+The slug is the file name without `.md`. For links to another docs tree, use normal relative Markdown links:
 
 ```markdown
 [Plugin Patterns](../../../../plugins/aegis/docs/features/plugin-patterns.md)
-[Plugin Wiki](https://github.com/aegiswp/plugin/wiki)
 ```
 
 ### Headings and tone
@@ -80,7 +89,7 @@ The slug is the file name without `.md` (and without the folder path when the wi
 ## Adding or updating a page
 
 1. Create or edit the `.md` file in the correct folder under `docs/`.
-2. Add a sidebar entry in `docs/_sidebar.md` under the right section.
+2. Add the file to its section in `docs/aegis-docs.json`, and a sidebar entry in `docs/_sidebar.md`. Files missing from the manifest are imported into a "More" section.
 3. If the page is a primary topic, add a one-line link under the matching section in `docs/home.md`.
 4. From feature/code PRs, update any page that would otherwise be wrong (counts, hexes, APIs, file paths).
 5. Open a PR on a `docs/*` branch when the change is documentation-only.
@@ -97,7 +106,7 @@ The slug is the file name without `.md` (and without the folder path when the wi
 ### Checklist (docs PR)
 
 - [ ] Page title and filename are clear and kebab-case
-- [ ] `_sidebar.md` updated (and `home.md` if it is a top-level topic)
+- [ ] `aegis-docs.json` and `_sidebar.md` updated (and `home.md` if it is a top-level topic)
 - [ ] Internal links use `[[slug]]` / `[[slug|Label]]`
 - [ ] No plugin/Pro content duplicated into theme docs (cross-link instead)
 - [ ] Token / palette / pattern counts match `theme.json` and on-disk files
@@ -118,7 +127,7 @@ The slug is the file name without `.md` (and without the folder path when the wi
 - Do not put contributor docs only in chat or issues; land them in `docs/` or the root files above.
 - Do not invent Secondary / Tertiary / Quaternary palette families — they were removed.
 - Do not document Success / Info / Warning / Error as full 50–950 scales; each ships `100` / `500` / `600` only.
-- Do not assume `docs/` is present in a zip downloaded from a GitHub Release of the theme.
+- Do not assume `docs/` is present in the theme zip.
 
 ## Next steps
 

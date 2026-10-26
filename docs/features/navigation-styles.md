@@ -6,6 +6,10 @@ Aegis extends the WordPress Navigation block (`core/navigation`) with four custo
 
 ### Slide-in Drawer
 
+![The mobile menu open as a slide-in drawer on a phone, with the menu items stacked and a close button at the top. Numbered callouts: 1 Close the menu.](../screenshots/nav-slide-in.png)
+
+*The Slide-in Drawer navigation style.*
+
 | Property | Value |
 |----------|-------|
 | Style name | `slide-in` |
@@ -25,6 +29,10 @@ A fixed-position drawer that slides in from the right side when opened. The draw
 Similar to the Slide-in Drawer but enters from the left side instead of the right. Useful for sites with left-to-right reading direction where the navigation should feel anchored to the starting edge.
 
 ### Fullscreen Overlay
+
+![The navigation open as a fullscreen overlay on a phone, with the menu items over a solid background and a close button.](../screenshots/nav-fullscreen.png)
+
+*The Fullscreen Overlay navigation style.*
 
 | Property | Value |
 |----------|-------|
@@ -47,6 +55,10 @@ A fixed-position overlay that slides down from the top edge. Spans the full widt
 ## Using Navigation Styles
 
 ### In the Site Editor
+
+![The Navigation block selected in the header with the Styles section of its settings showing the four overlay styles. Numbered callouts: 1 Styles: Slide-in, Slide-in Left, Fullscreen, and Scroll; 2 The selected Navigation block.](../screenshots/navigation-styles.png)
+
+*Pick a navigation style in the block's Styles section.*
 
 1. Navigate to **Appearance → Editor**.
 2. Select the Navigation block in your header template part.
@@ -77,6 +89,17 @@ In the overlay (mobile) menu, submenus start closed. Tapping an item that has su
 This applies to every Navigation block, including Page List items and the "Always" overlay setting. Keyboard users can press **Escape** to go back one level; **Tab** stays inside the open menu. Closing the menu resets it to the top level. Users who prefer reduced motion get the panels without the slide animation.
 
 The behavior comes from `vendor/aegis/framework/public/js/navigation-drilldown.js`, which loads only on pages that have submenus, with its styles in `core-blocks/navigation.css`. If JavaScript is unavailable, the menu shows core's fully expanded list.
+
+### Slide-Through Submenus in an Inline Menu
+
+Since 1.0.2, a Navigation block that is always shown inline (no overlay) can use the same slide-through panels. Add `is-drilldown` to **Advanced → Additional CSS class(es)** on the Navigation block, and set its overlay to **Off**.
+
+Inline drilldown menus work like the overlay menu, with two differences:
+
+- **Tab** is not kept inside the menu, because the menu is part of the page.
+- The menu returns to the top level when the `aegis:drilldown-reset` event is dispatched on the Navigation block, for example when a sidebar that holds it closes: `nav.dispatchEvent( new CustomEvent( 'aegis:drilldown-reset' ) )`, where `nav` is the `.wp-block-navigation.is-drilldown` element.
+
+Each drilldown row is at least 44px tall, so it is easy to tap.
 
 ## Submenu Direction
 

@@ -10,7 +10,11 @@ Before installing Aegis, ensure your environment meets the [[requirements]].
 
 ### Method 1: Upload via WordPress Admin
 
-1. Download `aegis.zip` from the latest Aegis release on the [GitHub Releases page](https://github.com/aegiswp/theme/releases/).
+![Appearance → Themes → Add New Theme with the Upload Theme panel open, aegis.zip chosen in the file field, and the Install Now button.](../screenshots/theme-upload.png)
+
+*Uploading aegis.zip from Appearance → Themes → Add New Theme.*
+
+1. Download `aegis.zip` from the latest Aegis release.
 2. Log in to your WordPress admin dashboard.
 3. Navigate to **Appearance → Themes**.
 4. Click the **Add New Theme** button at the top of the page.
@@ -21,7 +25,7 @@ Before installing Aegis, ensure your environment meets the [[requirements]].
 
 ### Method 2: Manual Installation via FTP or File Manager
 
-1. Download `aegis.zip` from the latest Aegis release on the [GitHub Releases page](https://github.com/aegiswp/theme/releases/).
+1. Download `aegis.zip` from the latest Aegis release.
 2. Extract the `.zip` file on your local machine.
 3. Connect to your server via FTP or use your hosting control panel file manager.
 4. Navigate to the `wp-content/themes/` directory.
@@ -40,14 +44,12 @@ composer require aegiswp/theme
 
 Ensure the theme is placed in the correct `wp-content/themes/aegis` directory.
 
-### Method 4: Using Git (Development)
+### Method 4: From Source (Development)
 
-For development purposes, you can clone the repository directly:
+For development, place the Aegis source in `wp-content/themes/aegis` and build it:
 
 ```bash
-cd wp-content/themes/
-git clone https://github.com/aegiswp/theme.git aegis
-cd aegis
+cd wp-content/themes/aegis
 composer install
 npm install
 npm run build
@@ -71,6 +73,10 @@ composer install --no-dev
 
 After activating Aegis:
 
+![Appearance → Themes with Aegis listed first as the active theme.](../screenshots/themes-active.png)
+
+*Aegis listed as the active theme.*
+
 1. Visit your site frontend to confirm the theme is rendering correctly.
 2. Navigate to **Appearance → Editor** to access the Site Editor.
 3. Check that block patterns are available in the block inserter.
@@ -79,17 +85,21 @@ After activating Aegis:
 
 The theme works standalone (templates, patterns, theme blocks). For Map, Modal, the Aegis admin dashboard, integrations (including **Community → bbPress** and **SEO**), snippets, conditionals, and analytics, install the companion plugins:
 
-- **Aegis Plugin** (free) — [docs](../../../../plugins/aegis/docs/getting-started/installation.md) · [Wiki](https://github.com/aegiswp/plugin/wiki)
-- **Aegis Pro** — Coming soon. Requires the Aegis theme; [docs](../../../../plugins/aegis-pro/docs/getting-started/installation.md) · [Wiki](https://github.com/aegiswp/pro/wiki)
+![The Aegis companion notice on Appearance → Themes recommending the free Aegis plugin, with the Activate Aegis Plugin button (Install and Activate when the plugin is not installed yet). Numbered callouts: 1 Installs and activates the free Aegis plugin.](../screenshots/companion-notice.png)
+
+*The theme suggests its companion plugin after activation.*
+
+- **Aegis Plugin** (free) — [docs](../../../../plugins/aegis/docs/getting-started/installation.md)
+- **Aegis Pro** — Coming soon. Requires the Aegis theme; [docs](../../../../plugins/aegis-pro/docs/getting-started/installation.md)
 
 #### Installing the Companion Plugin From the Theme Notice
 
 While the companion plugin is inactive, **Appearance → Themes** shows an admin notice to administrators who can install plugins.
 
-- If the plugin is not installed, **Install** downloads and installs the latest release from GitHub: `https://github.com/aegiswp/plugin/releases/latest/download/aegis.zip`. The plugin is not hosted on WordPress.org.
+- If the plugin is not installed, **Install** downloads and installs the `aegis.zip` package of the latest plugin release. The plugin is not hosted on WordPress.org.
 - If the plugin is installed but inactive, **Activate** turns it on.
 - After install or activation, you land on the Aegis dashboard.
-- If the automatic install fails, the notice links to the [plugin releases page](https://github.com/aegiswp/plugin/releases). Download `aegis.zip` there and upload it under **Plugins → Add New Plugin → Upload Plugin**.
+- If the automatic install fails, the notice links to the plugin releases page. Download `aegis.zip` there and upload it under **Plugins → Add New Plugin → Upload Plugin**.
 - Dismissing the notice hides it for your user account.
 
 Developers can pin a release or use a mirror with the `aegis_companion_package_url` filter. See [Hooks and Filters](../reference/hooks-and-filters.md#theme-filters).
@@ -99,5 +109,5 @@ Developers can pin a release or use a mirror with the `aegis_companion_package_u
 - [[quick-start-guide]] — Learn how to start building with Aegis.
 - [[site-editor]] — Explore the Full Site Editing experience.
 - [[block-patterns]] — Discover the available patterns for rapid page building.
-- [Aegis Plugin docs](../../../../plugins/aegis/docs/home.md) · [Wiki](https://github.com/aegiswp/plugin/wiki) — Map, Modal, admin, integrations.
-- [Aegis Pro docs](../../../../plugins/aegis-pro/docs/home.md) · [Wiki](https://github.com/aegiswp/pro/wiki) — Video, query, Pro blocks.
+- [Aegis Plugin docs](../../../../plugins/aegis/docs/home.md) — Map, Modal, admin, integrations.
+- [Aegis Pro docs](../../../../plugins/aegis-pro/docs/home.md) — Video, query, Pro blocks.

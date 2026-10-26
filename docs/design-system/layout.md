@@ -34,6 +34,10 @@ Blocks aligned to "Full width" ignore both content and wide size constraints, sp
 
 WordPress blocks support several alignment options that interact with the layout settings:
 
+![The block toolbar alignment menu showing None, Wide width, and Full width, with an image block stretched to wide width in the canvas.](../screenshots/alignment.png)
+
+*Content, wide, and full-width alignment.*
+
 | Alignment | Behavior | Max Width |
 |-----------|----------|-----------|
 | None (default) | Contained within content width | 720px |
@@ -57,6 +61,10 @@ WordPress blocks support several alignment options that interact with the layout
 ### Per-Block Layout Settings
 
 Container blocks (Group, Columns, Cover) can override global layout:
+
+![The Layout panel of a Group block with the Inner blocks use content width toggle.](../screenshots/layout-panel.png)
+
+*Override content and wide sizes on a single block.*
 
 1. Select the container block.
 2. In the block settings sidebar, find **Layout**.

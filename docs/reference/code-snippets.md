@@ -6,35 +6,35 @@ For the hooks themselves (file, arguments, and when they run), see [Hooks and Fi
 
 ## Where to Put Snippets
 
-Use a **child theme**, so theme updates never overwrite your code.
+Add snippets through a plugin, not a theme's `functions.php`. Code in a plugin survives theme updates and keeps working if you switch themes.
 
-1. Create the folder `wp-content/themes/aegis-child/`.
-2. Add `style.css`:
+### Aegis Code Snippets (recommended)
 
-   ```css
-   /*
-   Theme Name: Aegis Child
-   Template:   aegis
-   Version:    1.0.0
-   */
-   ```
+The free Aegis plugin has a built-in [Code Snippets](../../../../plugins/aegis/docs/features/code-snippets.md) screen:
 
-3. Add `functions.php`:
+1. Go to **Aegis → Code Snippets → Settings** and turn on **PHP Enabled**.
+2. Add a snippet and choose the **Functions (PHP)** type.
+3. Paste the code, leave **Where to run** on **Everywhere** (or pick **Frontend only** or **Admin only**), turn the snippet on, and save.
 
-   ```php
-   <?php
-   /**
-    * Aegis Child functions.
-    */
+Functions snippets run early on `init`. A snippet that hooks something WordPress or the theme runs before `init` (for example `after_setup_theme`) belongs in a site-specific plugin instead. If a snippet causes a fatal error, Safe Mode pauses snippets so you can fix it.
 
-   defined( 'ABSPATH' ) || exit;
+### A Site-Specific Plugin
 
-   // Paste snippets below.
-   ```
+Create `wp-content/plugins/my-site-snippets/my-site-snippets.php`:
 
-4. Activate **Aegis Child** at **Appearance → Themes**. Aegis styles, templates, and patterns keep working.
+```php
+<?php
+/**
+ * Plugin Name: My Site Snippets
+ * Description: Custom code for this site.
+ */
 
-Paste each snippet at the end of the child theme's `functions.php`. A code snippets plugin (or the Aegis plugin's **Aegis → Snippets** screen, as a PHP snippet) works too.
+defined( 'ABSPATH' ) || exit;
+
+// Paste snippets below.
+```
+
+Activate **My Site Snippets** under **Plugins**, then paste each snippet at the end of the file. Any other code snippets plugin works too.
 
 > Snippets that call `add_filter()` must **return** a value. Test on a staging site first.
 
@@ -56,11 +56,11 @@ The repository's latest release must include an `aegis.zip` asset with an `aegis
 
 ### Install the Companion Plugin From a Pinned Release
 
-`aegis_companion_package_url` — the zip the companion plugin notice installs. Default: the latest `aegiswp/plugin` release.
+`aegis_companion_package_url` — the zip the companion plugin notice installs. Default: the `aegis.zip` package of the latest plugin release.
 
 ```php
 add_filter( 'aegis_companion_package_url', function ( string $package ): string {
-	return 'https://github.com/aegiswp/plugin/releases/download/v1.0.0/aegis.zip';
+	return 'https://example.com/downloads/aegis-1.0.0.zip'; // Your own copy of the release zip.
 } );
 ```
 
@@ -124,7 +124,7 @@ add_filter( 'aegis_pattern_dirs', function ( array $dirs ): array {
 ```php
 add_filter( 'aegis_dynamic_template_part_slug', function ( string $slug, array $parsed_block ): string {
 	if ( 'header' === $slug && is_page( 'landing' ) ) {
-		return 'header-minimal'; // Your own parts/header-minimal.html in the child theme.
+		return 'header-minimal'; // parts/header-minimal.html must exist in the theme.
 	}
 	return $slug;
 }, 10, 2 );
@@ -176,6 +176,19 @@ add_filter( 'aegis_template_tags', function ( array $tags, $post_id ): array {
 	return $tags;
 }, 10, 2 );
 ```
+
+### Let Template Tags Print Another Post Field
+
+`aegis_template_tag_post_fields` — the post fields that `{field}` tags can print, for example `{post_title}`. The default list is `post_author`, `post_date`, `post_date_gmt`, `post_title`, `post_excerpt`, `post_status`, `post_name`, `post_modified`, `post_modified_gmt`, `post_parent`, `post_type`, and `comment_count`.
+
+```php
+add_filter( 'aegis_template_tag_post_fields', function ( array $fields ): array {
+	$fields[] = 'menu_order'; // Use {menu_order} in any paragraph.
+	return $fields;
+} );
+```
+
+Custom fields work as tags too, except names that start with `_`. Tags print nothing for password-protected posts or posts the visitor cannot read. Do not add `post_password` or `post_content`.
 
 ### Change Reading Speed
 
@@ -304,6 +317,19 @@ add_filter( 'aegis_editor_data', function ( array $data ): array {
 } );
 ```
 
+### Filter or Sort Query Loops by a Protected Meta Key
+
+`aegis_query_protected_meta_keys` — the `_`-prefixed meta keys that Query Loop meta filters and meta sorting accept. Other `_` keys are ignored. Default: WooCommerce's `_price`, `_regular_price`, `_sale_price`, `_stock`, `_wc_average_rating`, and `_wc_review_count`.
+
+```php
+add_filter( 'aegis_query_protected_meta_keys', function ( array $keys ): array {
+	$keys[] = '_event_start_date';
+	return $keys;
+} );
+```
+
+Only add keys whose values are safe for anyone who can edit posts to see.
+
 ### Change Query Loop Editor Options
 
 `aegis_query_enhancements_data` — options in the theme's Query Loop controls: `postTypes`, `taxonomies`, `metaCompareOperators`, `metaTypes`, `orderByOptions`.
@@ -318,17 +344,6 @@ add_filter( 'aegis_query_enhancements_data', function ( array $data ): array {
 ---
 
 ## SVG and Icons
-
-### Change SVG Upload Cleaning
-
-`aegis_svg_settings` — `svg_upload`, `svg_strip_colors`, `svg_strip_dimensions`, `svg_strip_styles`.
-
-```php
-add_filter( 'aegis_svg_settings', function ( array $settings ): array {
-	$settings['svg_strip_dimensions'] = true; // Let CSS control icon size.
-	return $settings;
-} );
-```
 
 ### Add an Icon Set
 

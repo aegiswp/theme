@@ -6,6 +6,10 @@ Aegis provides a custom embed content template that replaces the WordPress defau
 
 The custom embed template (`embed-content.php` at the theme root) provides the following improvements over the WordPress default:
 
+![An Aegis post embed card, as shown when the post is embedded in another WordPress site, with the featured image, title, excerpt, and site name.](../screenshots/embed.png)
+
+*How an Aegis post looks when embedded elsewhere.*
+
 - **Featured image** — Always renders the featured image in a rectangular (above-title) layout.
 - **Article schema.org** — Adds structured data in JSON-LD format for improved SEO and rich previews.
 - **Reordered content** — Uses a logical content order: image, title, date, excerpt, terms, footer.

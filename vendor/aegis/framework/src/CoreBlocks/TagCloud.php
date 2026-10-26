@@ -52,6 +52,11 @@ class TagCloud implements Renderable {
 		$dom       = DOM::create( $block_content );
 		$paragraph = DOM::get_element( 'p', $dom );
 
+		// No tags yet (a new site): the block renders without a paragraph.
+		if ( ! $paragraph ) {
+			return $block_content;
+		}
+
 		// Enforce a minimum font size using the largest configured value.
 		$paragraph->setAttribute(
 			'style',

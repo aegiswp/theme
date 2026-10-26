@@ -47,6 +47,7 @@ use function get_taxonomy;
 use function get_taxonomies;
 use function in_array;
 use function is_array;
+use function is_protected_meta;
 use function is_admin;
 use function get_post_type_object;
 use function post_type_exists;
@@ -102,6 +103,41 @@ class QueryEnhancements implements Scriptable {
 		'CHAR', 'NUMERIC', 'DECIMAL', 'DATE',
 		'DATETIME', 'TIME', 'SIGNED', 'UNSIGNED',
 	];
+
+	/**
+	 * Sanitizes a meta key from block attributes, refusing protected keys.
+	 *
+	 * Filtering or sorting public posts by a private (`_`-prefixed) key lets
+	 * the block author infer its values from which posts render. Protected
+	 * keys that are safe to query are allowed through the filter.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $key Raw meta key.
+	 *
+	 * @return string Sanitized key, or empty string when not allowed.
+	 */
+	private static function allowed_meta_key( string $key ): string {
+		$key = sanitize_key( $key );
+
+		if ( $key === '' || ! is_protected_meta( $key, 'post' ) ) {
+			return $key;
+		}
+
+		/**
+		 * Filters protected meta keys that Query Loop blocks may filter or sort by.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param string[] $keys Protected meta keys.
+		 */
+		$allowed = (array) apply_filters(
+			'aegis_query_protected_meta_keys',
+			[ '_price', '_regular_price', '_sale_price', '_stock', '_wc_average_rating', '_wc_review_count' ]
+		);
+
+		return in_array( $key, $allowed, true ) ? $key : '';
+	}
 
 	/**
 	 * Allowed taxonomy query operators.
@@ -336,7 +372,7 @@ class QueryEnhancements implements Scriptable {
 
 		// Meta query (QE2/QE3/QE4: validate compare, type, and sanitize key).
 		$meta_key = ServiceProvider::is_block_enabled( 'query_loop_meta_query' )
-			? sanitize_key( $attrs['aegisMetaKey'] ?? '' )
+			? self::allowed_meta_key( (string) ( $attrs['aegisMetaKey'] ?? '' ) )
 			: '';
 		if ( ! empty( $meta_key ) ) {
 			$meta_value   = sanitize_text_field( $attrs['aegisMetaValue'] ?? '' );
@@ -376,7 +412,7 @@ class QueryEnhancements implements Scriptable {
 		$order_by_meta = ServiceProvider::is_block_enabled( 'query_loop_order_meta' )
 			&& ( $attrs['aegisOrderByMeta'] ?? false );
 		if ( $order_by_meta ) {
-			$order_meta_key  = sanitize_key( $attrs['aegisOrderMetaKey'] ?? '' );
+			$order_meta_key  = self::allowed_meta_key( (string) ( $attrs['aegisOrderMetaKey'] ?? '' ) );
 			$order_meta_type = $attrs['aegisOrderMetaType'] ?? 'CHAR';
 
 			// Validate order meta type (QE3).

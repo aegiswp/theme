@@ -6,12 +6,17 @@ Welcome to the official documentation for the Aegis WordPress theme. Aegis is a 
 
 The theme provides 50 templates, 234 patterns, 60 style variations, and six theme-registered custom blocks (Countdown, Slider, Slide, Toggle, Toggle Content, Related Posts). Video uses WordPress **`core/video`**, enhanced by the Aegis framework (see [[enhanced-core-blocks]]). The **Aegis framework** (`vendor/aegis/framework`) enhances 37 core blocks and registers block variations.
 
+![A site using the Aegis theme in its default style: the header with logo and navigation, a hero section with a large heading, and a grid of feature cards below. Numbered callouts: 1 Header with the logo and navigation; 2 A hero section with a heading and buttons.](screenshots/aegis-default.png)
+
+*The Aegis theme in its default style variation.*
+
 Companion products extend the theme (documented separately):
 
-| Product | Local docs | Wiki / GitHub |
-|---------|------------|---------------|
-| **Aegis Plugin** (free) | [Plugin docs](../../../plugins/aegis/docs/home.md) | [Wiki](https://github.com/aegiswp/plugin/wiki) · [docs tree](https://github.com/aegiswp/plugin/tree/main/docs) |
-| **Aegis Pro** (coming soon) | [Pro docs](../../../plugins/aegis-pro/docs/home.md) | [Wiki](https://github.com/aegiswp/pro/wiki) · [docs tree](https://github.com/aegiswp/pro/tree/main/docs) |
+| Product | Docs |
+|---------|------|
+| **Aegis Plugin** (free) | [Plugin docs](../../../plugins/aegis/docs/home.md) |
+| **Aegis Pro** (coming soon) | [Pro docs](../../../plugins/aegis-pro/docs/home.md) |
+| **Aegis Ads** | [Ads docs](../../../plugins/aegis-ads/docs/home.md) |
 
 ## Documentation Contents
 
@@ -73,7 +78,7 @@ Companion products extend the theme (documented separately):
 
 ---
 
-**Theme Version:** 1.0.1  
+**Theme Version:** 1.0.2  
 **Requires WordPress:** 7.0 or later  
 **Requires PHP:** 8.1 or later  
 **License:** GPL-2.0-or-later

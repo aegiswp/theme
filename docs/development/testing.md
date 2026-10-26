@@ -73,7 +73,7 @@ npm run test:a11y:env
 
 ### Configuration
 
-Defaults live in `.pa11yci.json`. GitHub Actions (`.github/workflows/accessibility.yml`) seeds a post and page, writes **`.pa11yci.ci.json`** with resolved `?p=` / `?page_id=` URLs (because `php -S` does not rewrite pretty permalinks), then runs `pa11y-ci --threshold 0`.
+Defaults live in `.pa11yci.json`. The CI accessibility workflow (`accessibility.yml`) seeds a post and page, writes **`.pa11yci.ci.json`** with resolved `?p=` / `?page_id=` URLs (because `php -S` does not rewrite pretty permalinks), then runs `pa11y-ci --threshold 0`.
 
 ```json
 {

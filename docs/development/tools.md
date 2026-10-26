@@ -4,7 +4,7 @@ Utility scripts in the theme `tools/` directory for builds, pattern audits, migr
 
 ## Repository policy
 
-| Location | On GitHub | In theme zip |
+| Location | In the source repository | In theme zip |
 |----------|-----------|--------------|
 | `tools/` maintained scripts | Yes | No |
 | `tools/wpaudit/` source (`src/`, `tests/`, `composer.json`/`lock`, configs) | Yes | No |

@@ -28,9 +28,16 @@ use Aegis\Dom\DOM;
 use Aegis\Dom\JS;
 use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
+use function current_user_can;
+use function is_array;
+use function is_string;
+use function parse_blocks;
+use function serialize_blocks;
 use function str_contains;
 use function strval;
 use function trim;
+use function wp_slash;
+use function wp_unslash;
 
 
 /**
@@ -63,6 +70,50 @@ class Onclick implements Renderable {
 	 */
 	public function __construct( TemplateTags $template_tags ) {
 		$this->template_tags = $template_tags;
+	}
+
+	/**
+	 * Strips `onclick` block attributes saved by users without `unfiltered_html`.
+	 *
+	 * The attribute becomes a live event handler on render, so it carries the
+	 * same trust as raw script. Core kses only strips tags from attribute
+	 * values, so it is removed here, like kses removes `on*` HTML attributes.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $content Slashed post content.
+	 *
+	 * @hook  content_save_pre 20
+	 *
+	 * @return string
+	 */
+	public function strip_unfiltered( $content ) {
+		if ( ! is_string( $content ) || ! str_contains( $content, 'onclick' ) || current_user_can( 'unfiltered_html' ) ) {
+			return $content;
+		}
+
+		return wp_slash( serialize_blocks( self::strip_blocks( parse_blocks( wp_unslash( $content ) ) ) ) );
+	}
+
+	/**
+	 * Removes the `onclick` attribute from blocks and their inner blocks.
+	 *
+	 * @param array $blocks Parsed blocks.
+	 *
+	 * @return array
+	 */
+	private static function strip_blocks( array $blocks ): array {
+		foreach ( $blocks as &$block ) {
+			if ( is_array( $block['attrs'] ?? null ) ) {
+				unset( $block['attrs']['onclick'] );
+			}
+
+			if ( ! empty( $block['innerBlocks'] ) ) {
+				$block['innerBlocks'] = self::strip_blocks( $block['innerBlocks'] );
+			}
+		}
+
+		return $blocks;
 	}
 
 	/**

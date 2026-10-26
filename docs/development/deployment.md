@@ -24,10 +24,10 @@ Aegis follows semantic versioning (SemVer):
 6. **Release preparation** — When ready, `develop` is merged to `main`.
 7. **Version bump** — Update version numbers in `style.css`, `package.json`, and `readme.txt`, and update `CHANGELOG.md`.
 8. **Tag** — Push a tag in the form `v1.2.3` (or `v1.2.3-rc1`).
-9. **Automated build** — The tag starts `.github/workflows/release.yml`, which builds and uploads the package (see below).
+9. **Automated build** — The tag starts the release workflow (`release.yml`), which builds and uploads the package (see below).
 10. **Publish** — Review the draft release on GitHub and publish it. Sites update only after the release is published.
 
-The companion plugin is released separately from its own repository (`aegiswp/plugin`).
+The companion plugin is released separately from its own repository.
 
 ### The Release Workflow (`release.yml`)
 
@@ -65,7 +65,7 @@ zip -r aegis.zip aegis
 
 `.distignore` keeps these out of the package, among others:
 
-- `node_modules/`, `tests/`, `.git/`, and `.github/`
+- `node_modules/`, `tests/`, `.git/`, and CI configuration
 - `docs/`, `tools/`, `build/`, `languages/`, and `LICENSE`
 - Build configuration (`package.json`, `webpack.config.js`, `composer.json`, `phpcs.xml`, `phpunit.xml`)
 - TypeScript and SCSS sources and source maps in `src/Blocks/`
@@ -84,7 +84,7 @@ zip -r aegis.zip aegis
 
 ### Deployment via Upload
 
-1. Download the release `.zip` from GitHub Releases.
+1. Download the release `aegis.zip`.
 2. Upload through **Appearance → Themes → Add New → Upload**.
 3. Activate the theme.
 
@@ -122,7 +122,7 @@ deploy:
 |---------|---------|
 | `src/` (PHP, plus compiled block JS/CSS and `block.json` in `src/Blocks/`) | `node_modules/` |
 | `vendor/` (no-dev) | `tests/` |
-| `assets/` (fonts, icons, images) | `.git/`, `.github/` |
+| `assets/` (fonts, icons, images) | `.git/`, CI configuration |
 | `parts/` | `build/`, `tools/`, `docs/` |
 | `patterns/` | `webpack.config.js`, `eslint.config.cjs`, `tsconfig.json` |
 | `styles/` | `phpunit.xml`, `phpcs.xml` |
@@ -160,7 +160,7 @@ If a deployment causes issues:
 
 ### Via Theme Upload
 
-1. Download the previous release from GitHub Releases.
+1. Download the `aegis.zip` of the previous release.
 2. Upload and activate the previous version.
 
 ### Via Git

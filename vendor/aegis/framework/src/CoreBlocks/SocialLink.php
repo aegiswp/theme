@@ -87,6 +87,10 @@ class SocialLink implements Renderable {
 			$svg_dom = DOM::create( Icon::get_svg( 'social', 'slack' ) );
 			$svg     = DOM::get_element( 'svg', $svg_dom );
 
+			if ( ! $svg ) {
+				return $block_content;
+			}
+
 			$svg->setAttribute( 'fill', 'currentColor' );
 			$svg->setAttribute( 'width', '24' );
 			$svg->setAttribute( 'height', '24' );
@@ -108,6 +112,10 @@ class SocialLink implements Renderable {
 			$dom = DOM::create( $block_content );
 			$li  = DOM::get_element( 'li', $dom );
 			$a   = DOM::get_element( 'a', $li );
+
+			if ( ! $a ) {
+				return $block_content;
+			}
 
 			$a->setAttribute( 'href', '#' );
 

@@ -6,6 +6,10 @@ Aegis includes 31 gradient presets for backgrounds, overlays, and decorative ele
 
 ### Applying a Gradient Background
 
+![The Background settings of a Group block with Gradient open, listing Aegis gradient presets.](../screenshots/gradient-background.png)
+
+*Apply an Aegis gradient as a block background.*
+
 1. Select a block that supports gradient backgrounds (Group, Cover, Columns, Button, and others).
 2. In the block settings sidebar, find the **Color** section.
 3. Click **Background**.
@@ -15,6 +19,10 @@ Aegis includes 31 gradient presets for backgrounds, overlays, and decorative ele
 ### Overlays on Cover Blocks
 
 Cover blocks accept a gradient as their overlay. The scrim and vignette presets below are made for this.
+
+![A Cover block with a photo and a gradient overlay, with the Overlay picker open on the Gradient tab showing the Aegis presets.](../screenshots/cover-gradient.png)
+
+*Gradient overlays keep text readable on Cover images.*
 
 ## Available Gradient Presets
 

@@ -10,6 +10,10 @@ If you have not already activated Aegis, navigate to **Appearance → Themes** i
 
 Aegis is a Full Site Editing (FSE) theme. All customization happens through the WordPress Site Editor:
 
+![The Site Editor opened from Appearance → Editor, with Identity, Styles, Pages, Navigation, Patterns, and Templates in the left sidebar and a preview of the site on the right. Numbered callouts: 1 Navigation menus; 2 Global styles and style variations; 3 Pages; 4 Templates and template parts; 5 Patterns.](../screenshots/site-editor.png)
+
+*Appearance → Editor opens the Site Editor.*
+
 1. Navigate to **Appearance → Editor** in the admin dashboard.
 2. The Site Editor opens with a preview of your site.
 3. Use the left sidebar navigation to access templates, template parts, patterns, and styles.
@@ -19,6 +23,10 @@ For a detailed overview of the Site Editor interface, see [[site-editor]].
 ## Step 3: Choose a Style Variation
 
 Aegis ships with 60 style variations that change your entire site appearance with one click:
+
+![The Styles panel in the Site Editor with Browse styles open, showing the grid of Aegis color variations with one selected. Numbered callouts: 1 The selected variation; 2 Save keeps the variation.](../screenshots/browse-styles.png)
+
+*Browse styles lists every Aegis style variation.*
 
 1. In the Site Editor, click the **Styles** icon (half-filled circle) in the top-right toolbar.
 2. Click **Browse styles** to see all available variations.
@@ -30,6 +38,10 @@ See [[style-variations]] for a full list of available variations.
 ## Step 4: Set Up Your Homepage
 
 To create a homepage using Aegis block patterns:
+
+![The block inserter open on the Patterns tab, with the Hero category selected and Aegis hero patterns previewed in a column. Numbered callouts: 1 The Hero category; 2 Aegis hero patterns. Click one to insert it.](../screenshots/patterns-hero.png)
+
+*Insert Aegis patterns from the Patterns tab of the block inserter.*
 
 1. Navigate to **Pages → Add New Page** in the admin dashboard.
 2. Give your page a title (for example, "Home").
@@ -51,6 +63,10 @@ Then set it as your homepage:
 
 To set up your site navigation:
 
+![The header template part in the Site Editor with the Navigation block selected and its menu items listed in the block settings sidebar. Numbered callouts: 1 The Navigation block; 2 Its menu items, listed in the block settings.](../screenshots/header-navigation.png)
+
+*Edit menu items on the Navigation block inside the header.*
+
 1. Open the Site Editor (**Appearance → Editor**).
 2. Click on the header area to select it.
 3. Click on the Navigation block within the header.
@@ -62,6 +78,10 @@ You can also manage navigation menus under **Appearance → Editor → Navigatio
 ## Step 6: Customize Global Styles
 
 Fine-tune your site design beyond style variations:
+
+![The Styles panel showing Typography, Colors, Background, Shadows, Layout, and Blocks, with a preview card of the active variation at the top. Numbered callouts: 1 Typography; 2 Colors; 3 Background, Shadows, Layout, and Blocks below.](../screenshots/styles-panel.png)
+
+*Global Styles control site-wide typography, colors, and layout.*
 
 1. In the Site Editor, click the **Styles** icon.
 2. Adjust **Typography** settings for headings, body text, and links.
@@ -84,8 +104,8 @@ See [[dark-mode]] for configuration details.
 
 Enhance Aegis with companion plugins:
 
-- **Aegis Plugin** (free) — Map and Modal blocks, admin dashboard, integrations, snippets, conditionals, analytics. See [docs](../../../../plugins/aegis/docs/getting-started/installation.md) · [Wiki](https://github.com/aegiswp/plugin/wiki).
-- **Aegis Pro** — Hook patterns, video stack, query conditions, Pro blocks. Requires Aegis theme. See [docs](../../../../plugins/aegis-pro/docs/getting-started/installation.md) · [Wiki](https://github.com/aegiswp/pro/wiki).
+- **Aegis Plugin** (free) — Map and Modal blocks, admin dashboard, integrations, snippets, conditionals, analytics. See [docs](../../../../plugins/aegis/docs/getting-started/installation.md).
+- **Aegis Pro** — Hook patterns, video stack, query conditions, Pro blocks. Requires Aegis theme. See [docs](../../../../plugins/aegis-pro/docs/getting-started/installation.md).
 
 After installing the plugin, open **Aegis → Dashboard** to configure blocks and integrations.
 

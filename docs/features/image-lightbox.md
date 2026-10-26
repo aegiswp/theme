@@ -12,6 +12,10 @@ Image captions stay on the figure in the content. They are not shown in the ligh
 
 Features are off by default when the companion plugin is active. Enable All on the Lightbox section, or turn on individual extras:
 
+![Aegis → Blocks with the Image section open, showing the lightbox feature toggles.](../screenshots/blocks-lightbox.png)
+
+*Lightbox toggles in Aegis → Blocks.*
+
 | Toggle | What it adds |
 |--------|----------------|
 | Gallery Navigation | Treats lightbox images in the same Group, Row, Stack, Column, or Gallery as a set. Shows Core prev/next arrows and allows arrow-key navigation. |
@@ -30,6 +34,10 @@ Slider lightbox (`slider_lightbox`) is a separate Pro feature on the Slider bloc
 ## How grouping works
 
 WordPress already groups images inside a **Gallery** block (Core sets `galleryId` and `data-wp-interactive="core/gallery"` on the gallery wrapper). Aegis grouping also covers lightbox images that share a Group (including Row and Stack layouts) or Column parent when Gallery Navigation, Swipe, or Thumbnails is on. Those wrappers get the same Core gallery interactivity context so prev/next, keyboard, and touch swipe work. Images in separate columns stay separate sets — use a Gallery block to group a row of images across columns.
+
+![The lightbox open on the front end over a dimmed page, with previous and next arrows to move through a gallery. Numbered callouts: 1 Previous image in the gallery; 2 Next image; 3 Close.](../screenshots/lightbox.png)
+
+*Images in the same gallery open as one group.*
 
 ## Next Steps
 

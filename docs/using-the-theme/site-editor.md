@@ -13,6 +13,10 @@ The Site Editor opens with a full preview of your site. From here, you can edit 
 
 ## Site Editor Interface
 
+![The Site Editor interface: the left navigation sidebar, the site title and Save area, and the canvas. Numbered callouts: 1 Left: navigation sidebar; 2 Right: the canvas. Click it to edit.](../screenshots/site-editor-interface.png)
+
+*The main areas of the Site Editor.*
+
 ### Top Toolbar
 
 | Element | Purpose |
@@ -30,6 +34,10 @@ The Site Editor opens with a full preview of your site. From here, you can edit 
 
 The left sidebar provides access to all editable components:
 
+![The Site Editor left sidebar listing Identity, Styles, Pages, Navigation, Patterns, and Templates. Numbered callouts: 1 Navigation menus; 2 Global styles and style variations; 3 Pages; 4 Templates and template parts; 5 Patterns.](../screenshots/site-editor-sidebar.png)
+
+*Each sidebar item opens a different part of your site's design.*
+
 - **Navigation** — Manage site navigation menus.
 - **Styles** — Apply style variations and customize global settings.
 - **Pages** — Edit individual page layouts.
@@ -39,6 +47,10 @@ The left sidebar provides access to all editable components:
 ## Editing Templates
 
 Templates control the layout of different page types (homepage, single posts, archives, and more).
+
+![The Templates screen of the Site Editor listing All templates from Aegis and its plugins, such as All Archives, Archive: Product, and Author Archives, as cards. Numbered callouts: 1 Templates from Aegis and its plugins; 2 Each template with a live preview. Click to edit.](../screenshots/templates.png)
+
+*Choose a template to edit from the Templates screen.*
 
 To edit a template:
 
@@ -81,6 +93,10 @@ See [[global-styles]] and [[style-variations]] for detailed instructions.
 ### Previewing Light and Dark Mode
 
 Aegis adds a light and dark preview toggle to the top bar of the Site Editor and the block editor. Click the moon icon to preview the canvas in dark mode, and the sun icon to switch back. The preview uses the same color remaps as the front end, so you can check patterns and templates in both modes without leaving the editor.
+
+![The same template shown twice in the Site Editor, once in the light style and once in the dark style after the editor's dark mode toggle.](../screenshots/light-dark-preview.png)
+
+*Preview a template in light and dark mode before saving.*
 
 - The preview only changes the editor canvas. It does not change your site.
 - Your choice is saved per user. With no saved choice, the editor starts in the site's default mode (`aegis_default_mode` filter).

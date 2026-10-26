@@ -1,10 +1,13 @@
 (() => {
 	/* Slide-through submenus for the Navigation block's overlay (mobile) menu. */
+	/* Navigation blocks with the `is-drilldown` class and no overlay get the same behavior inline. */
 	const data = ( window.aegis && window.aegis.navDrilldown ) || {};
 	const BACK = data.back || 'Back';
 	const OPEN = data.open || 'Show %s submenu';
 
 	const CONTAINER = '.wp-block-navigation__responsive-container';
+	/* Core copies the block's classes onto the inner list too, so match the <nav> only. */
+	const STATIC = 'nav.wp-block-navigation.is-drilldown';
 	const CONTENT = '.wp-block-navigation__responsive-container-content';
 	const SUBMENU = '.wp-block-navigation__submenu-container';
 	const ROW = ':scope > .wp-block-navigation-item__content';
@@ -13,7 +16,8 @@
 	const CHEVRON_RIGHT = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M10.6 6 9.4 7l4.6 5-4.6 5 1.2 1 5.4-6z" fill="currentColor"></path></svg>';
 	const CHEVRON_LEFT = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M14.6 7 13.4 6 8 12l5.4 6 1.2-1-4.6-5z" fill="currentColor"></path></svg>';
 
-	const isOpen = ( container ) => container.classList.contains( 'is-menu-open' );
+	const isStatic = ( container ) => 'true' === container.dataset.aegisDrilldownStatic;
+	const isOpen = ( container ) => isStatic( container ) || container.classList.contains( 'is-menu-open' );
 	const submenuOf = ( li ) => Array.from( li.children ).find( ( el ) => el.matches( SUBMENU ) );
 	const visible = ( el ) => el.getClientRects().length > 0;
 
@@ -186,7 +190,8 @@
 				goBack( container );
 				return;
 			}
-			if ( 'Tab' !== event.key ) {
+			/* Inline menus share the page with other controls, so only overlays trap focus. */
+			if ( 'Tab' !== event.key || isStatic( container ) ) {
 				return;
 			}
 			const items = Array.from( container.querySelectorAll( FOCUSABLE ) ).filter( visible );
@@ -207,6 +212,12 @@
 			}
 		}, true );
 
+		/* Inline menus have no open state to watch; whatever hides them dispatches `aegis:drilldown-reset`. */
+		if ( isStatic( container ) ) {
+			container.addEventListener( 'aegis:drilldown-reset', () => setCurrent( container, null ) );
+			return;
+		}
+
 		/* Start from the top level each time the menu opens. State lives in data attributes because the Interactivity API rewrites these elements' class lists. */
 		new MutationObserver( () => {
 			if ( ! isOpen( container ) && container.dataset.aegisDrilledIn ) {
@@ -215,7 +226,16 @@
 		} ).observe( container, { attributes: true, attributeFilter: [ 'class' ] } );
 	};
 
-	const run = () => document.querySelectorAll( CONTAINER ).forEach( init );
+	const run = () => {
+		document.querySelectorAll( CONTAINER ).forEach( init );
+		document.querySelectorAll( STATIC ).forEach( ( nav ) => {
+			if ( nav.querySelector( CONTAINER ) ) {
+				return;
+			}
+			nav.dataset.aegisDrilldownStatic = 'true';
+			init( nav );
+		} );
+	};
 
 	if ( 'loading' === document.readyState ) {
 		document.addEventListener( 'DOMContentLoaded', run );

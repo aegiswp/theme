@@ -27,6 +27,10 @@ The **Countdown** block (`aegis/countdown`) displays an animated timer counting 
 
 ## Usage
 
+![A Countdown block in the editor showing days, hours, minutes, and seconds, with the time and date picker in the block settings. Numbered callouts: 1 Days, hours, minutes, and seconds, live in the editor; 2 Time of the deadline; 3 Pick the date in the calendar.](../screenshots/countdown-editor.png)
+
+*Set the target date and time in the Countdown settings.*
+
 1. Insert the **Countdown** block from the block inserter.
 2. Set **Target date** in the block sidebar.
 3. Toggle which units to display (days, hours, minutes, seconds).
@@ -37,6 +41,10 @@ The **Countdown** block (`aegis/countdown`) displays an animated timer counting 
 ## Aegis → Blocks → Countdown
 
 There is no parent Countdown toggle. Enabling any extra implies the block (same pattern as Related Posts and Slider). Without the plugin, all extras behave as on.
+
+![Aegis → Blocks with the Countdown section open, showing its feature toggles.](../screenshots/blocks-countdown.png)
+
+*Countdown options in Aegis → Blocks.*
 
 | Extra | Inspector | Off fallback |
 |-------|-----------|--------------|

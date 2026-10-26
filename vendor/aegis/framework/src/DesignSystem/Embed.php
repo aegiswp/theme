@@ -23,9 +23,12 @@ use function esc_attr;
 use function esc_html__;
 use function esc_url;
 use function get_block_wrapper_attributes;
+use function in_array;
 use function preg_match;
 use function sprintf;
 use function str_contains;
+use function strtolower;
+use function wp_parse_url;
 use function wp_parse_args;
 use function wp_strip_all_tags;
 
@@ -57,8 +60,14 @@ class Embed implements Renderable, Scriptable, Styleable {
 			return $block_content;
 		}
 
-		$iframe_src = html_entity_decode( $matches[1], ENT_QUOTES );
-		$poster     = $this->get_poster_url( $provider, $url, $iframe_src );
+		$iframe_src = $this->get_player_url( html_entity_decode( $matches[1], ENT_QUOTES ) );
+
+		// Leave the original embed alone when the player is not a known provider URL.
+		if ( $iframe_src === '' ) {
+			return $block_content;
+		}
+
+		$poster = $this->get_poster_url( $provider, $url, $iframe_src );
 
 		if ( $poster === '' ) {
 			return $block_content;
@@ -84,7 +93,7 @@ class Embed implements Renderable, Scriptable, Styleable {
 				__( 'Play %s video', 'aegis' ),
 				$provider !== '' ? ucfirst( $provider ) : __( 'embedded', 'aegis' )
 			) ),
-			esc_attr( $iframe_src ),
+			esc_url( $iframe_src ),
 			esc_html__( 'Play video', 'aegis' )
 		);
 	}
@@ -166,6 +175,30 @@ class Embed implements Renderable, Scriptable, Styleable {
 		}
 
 		return '';
+	}
+
+	/**
+	 * Return the player URL when it is an https URL on a facade provider host.
+	 *
+	 * The facade activates this URL as an iframe on click, so it must not be
+	 * a script URL or point anywhere other than the video providers.
+	 *
+	 * @param string $src Iframe source URL.
+	 *
+	 * @return string Empty string when the URL is not allowed.
+	 */
+	private function get_player_url( string $src ): string {
+		$scheme = strtolower( (string) wp_parse_url( $src, PHP_URL_SCHEME ) );
+		$host   = strtolower( (string) wp_parse_url( $src, PHP_URL_HOST ) );
+		$hosts  = [
+			'www.youtube.com',
+			'youtube.com',
+			'www.youtube-nocookie.com',
+			'youtube-nocookie.com',
+			'player.vimeo.com',
+		];
+
+		return $scheme === 'https' && in_array( $host, $hosts, true ) ? $src : '';
 	}
 
 	/**

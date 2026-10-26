@@ -164,12 +164,7 @@ class Placeholder implements Renderable, Styleable {
 				$link->setAttribute( 'href', esc_url( $href ) );
 			}
 			// Add target and rel attributes.
-			if ( $link_target = $block['linkTarget'] ?? '' ) {
-				$link->setAttribute( 'target', $link_target );
-			}
-			if ( $rel = esc_attr( $block['rel'] ?? '' ) ) {
-				$link->setAttribute( 'rel', $rel );
-			}
+			DOM::set_link_target( $link, (string) ( $block['linkTarget'] ?? '' ), (string) ( $block['rel'] ?? '' ) );
 			// Add classes and append the placeholder inside the link.
 			$link_classes   = explode( ' ', $link->getAttribute( 'class' ) );
 			$link_classes[] = 'wp-block-image__link';

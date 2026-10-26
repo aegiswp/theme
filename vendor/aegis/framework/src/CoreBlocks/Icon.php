@@ -387,7 +387,7 @@ class Icon implements Renderable {
 		$styles = CSS::string_to_array( $wrapper->getAttribute( 'style' ) );
 		$styles['--wp--custom--icon--url'] = 'url(\'data:image/svg+xml;utf8,' . $svg . '\')';
 
-		$gradient = (string) ( $attrs['gradient'] ?? '' );
+		$gradient = _wp_to_kebab_case( (string) ( $attrs['gradient'] ?? '' ) );
 		if ( ( $attrs['textColor'] ?? null ) || ( $attrs['style']['color']['text'] ?? null ) ) {
 			$styles['--wp--custom--icon--background'] = "var(--wp--preset--gradient--{$gradient})";
 		} else {

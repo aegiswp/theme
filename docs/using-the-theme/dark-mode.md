@@ -21,6 +21,10 @@ This approach ensures that:
 
 To enable dark mode site-wide:
 
+![The block settings for a Group block with Advanced open and is-style-dark in the Additional CSS class(es) field, and the block shown dark in the canvas.](../screenshots/dark-mode-class.png)
+
+*Add is-style-dark to the outer Group block to switch a template to dark mode.*
+
 1. Open the Site Editor (**Appearance → Editor**).
 2. Edit the template that wraps your content.
 3. Select the outermost Group block.
@@ -39,6 +43,10 @@ To enable dark mode on individual pages:
 ### Via Toggle Button
 
 The **Utility Dark Mode Toggle** pattern (`utility-dark-mode-toggle`) gives visitors a light and dark switch:
+
+![A site header with the dark mode toggle, with the page shown in dark mode.](../screenshots/dark-mode-toggle.png)
+
+*The dark mode toggle lets visitors switch between light and dark.*
 
 1. Each button sets `is-style-dark` or `is-style-light` on the `<body>` element.
 2. It also sets the `aegisDarkMode` cookie (`true` or `false`, kept for one day), so the server adds the same class on the next page load. A value of `system` follows the operating system again.
@@ -93,6 +101,10 @@ The filter also sets the starting mode of the editor preview toggle. See [[hooks
 
 Since 1.0.1, the block editor and Site Editor have a light and dark preview toggle in the top bar, next to the Styles and Settings buttons (moon and sun icons).
 
+![The block editor canvas rendered in dark colors after adding is-style-dark, with the block settings sidebar still in its normal light theme.](../screenshots/dark-mode-editor.png)
+
+*The editor canvas previews dark mode as you work.*
+
 - One click switches the editor canvas between light and dark. The canvas uses the same token remaps as the front end.
 - The preview only affects the editor. It does not change your site or any content.
 - Your choice is saved per user in the editor preferences. With no saved choice, the editor starts in the site's default mode.
@@ -138,6 +150,8 @@ To turn dark mode off completely, return `false` from the `aegis_dark_mode` filt
 ```php
 add_filter( 'aegis_dark_mode', '__return_false' );
 ```
+
+Add it through a plugin, such as a **Functions (PHP)** snippet in **Aegis → Code Snippets**. See [Where to Put Snippets](../reference/code-snippets.md#where-to-put-snippets).
 
 This removes the dark mode styles, the system-preference rule, and the editor preview toggle. Setting `settings.custom.darkMode` to `false` in a child theme's `theme.json` has the same effect.
 

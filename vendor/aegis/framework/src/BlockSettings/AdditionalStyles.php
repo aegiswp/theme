@@ -28,7 +28,16 @@ use Aegis\Dom\CSS;
 use Aegis\Dom\DOM;
 use Aegis\Framework\Interfaces\Renderable;
 use WP_Block;
+use function current_user_can;
+use function is_array;
+use function is_string;
+use function parse_blocks;
 use function rtrim;
+use function safecss_filter_attr;
+use function serialize_blocks;
+use function str_contains;
+use function wp_slash;
+use function wp_unslash;
 
 
 /**
@@ -42,6 +51,51 @@ use function rtrim;
  * @since   1.0.0
  */
 class AdditionalStyles implements Renderable {
+
+	/**
+	 * Filters `additionalStyles` saved by users without `unfiltered_html`.
+	 *
+	 * Core kses runs inline `style` attributes through safecss_filter_attr(),
+	 * but not block attributes, so the same filter is applied here.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $content Slashed post content.
+	 *
+	 * @hook  content_save_pre 20
+	 *
+	 * @return string
+	 */
+	public function filter_unfiltered( $content ) {
+		if ( ! is_string( $content ) || ! str_contains( $content, 'additionalStyles' ) || current_user_can( 'unfiltered_html' ) ) {
+			return $content;
+		}
+
+		return wp_slash( serialize_blocks( self::filter_blocks( parse_blocks( wp_unslash( $content ) ) ) ) );
+	}
+
+	/**
+	 * Runs `additionalStyles` through safecss_filter_attr() in blocks and inner blocks.
+	 *
+	 * @param array $blocks Parsed blocks.
+	 *
+	 * @return array
+	 */
+	private static function filter_blocks( array $blocks ): array {
+		foreach ( $blocks as &$block ) {
+			if ( is_string( $block['attrs']['additionalStyles'] ?? null ) ) {
+				$block['attrs']['additionalStyles'] = safecss_filter_attr( $block['attrs']['additionalStyles'] );
+			} elseif ( is_array( $block['attrs'] ?? null ) ) {
+				unset( $block['attrs']['additionalStyles'] );
+			}
+
+			if ( ! empty( $block['innerBlocks'] ) ) {
+				$block['innerBlocks'] = self::filter_blocks( $block['innerBlocks'] );
+			}
+		}
+
+		return $blocks;
+	}
 
 	/**
 	 * Renders the block with additional custom CSS.

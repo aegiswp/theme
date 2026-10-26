@@ -1,6 +1,25 @@
 ( function () {
 	'use strict';
 
+	// Same provider hosts as Embed::get_player_url(); post markup can add facade buttons too.
+	const PLAYER_HOSTS = [
+		'www.youtube.com',
+		'youtube.com',
+		'www.youtube-nocookie.com',
+		'youtube-nocookie.com',
+		'player.vimeo.com',
+	];
+
+	function isPlayerUrl( src ) {
+		try {
+			const url = new URL( src, window.location.href );
+
+			return url.protocol === 'https:' && PLAYER_HOSTS.includes( url.hostname );
+		} catch ( e ) {
+			return false;
+		}
+	}
+
 	function activateEmbed( button ) {
 		const wrapper = button.closest( '.aegis-embed__wrapper' );
 
@@ -10,7 +29,7 @@
 
 		const src = button.getAttribute( 'data-embed-src' );
 
-		if ( ! src ) {
+		if ( ! src || ! isPlayerUrl( src ) ) {
 			return;
 		}
 

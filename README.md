@@ -2,7 +2,8 @@
 
 Welcome to the Aegis Theme development repository.
 
-![Aegis](https://github.com/aegiswp/theme/blob/main/screenshot.png)
+
+![Aegis](https://github.com/user-attachments/assets/365b757e-43c1-4701-831f-aa4e6d5368b1)
 
 ## Status
 

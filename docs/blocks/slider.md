@@ -38,6 +38,10 @@ Slide blocks **only** insert inside a Slider (`parent: aegis/slider` in `block.j
 
 ## Usage
 
+![A Slider block in the editor with the List View open and the Slider Settings (type, slides per page, speed, direction) in the sidebar. Numbered callouts: 1 List view: the Slider and its Slide blocks; 2 Slider Settings: type, slides per page, speed, autoplay, arrows, and dots.](../screenshots/slider-editor.png)
+
+*Add Slide blocks inside the Slider and set navigation in the sidebar.*
+
 1. Insert the **Slider** block (defaults include three Slide children, one visible at a time).
 2. Build content inside each **Slide**.
 3. Configure autoplay, arrows, dots, and loop in Slider settings. Raise **Slides Per Page** to show more than one slide at once.
@@ -49,6 +53,10 @@ New sliders default to **Slides Per Page** 1. Saved blocks keep their stored `pe
 ## Aegis → Blocks → Slider
 
 There is no parent Slider toggle. Enabling any extra implies the block (same pattern as Related Posts). Without the plugin, all extras behave as on. The `aegis/slide` child uses the same parent key.
+
+![Aegis → Blocks with the Slider section open, showing its feature toggles.](../screenshots/blocks-slider.png)
+
+*Slider options in Aegis → Blocks.*
 
 | Extra | Inspector | Off fallback |
 |-------|-----------|--------------|
