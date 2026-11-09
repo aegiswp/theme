@@ -3,7 +3,7 @@
  * Fast wp/v2/icons listing for the Icon library on WordPress 7.1+.
  *
  * @package Aegis\Framework\Icons
- * @since   1.0.3
+ * @since   1.0.2
  */
 
 // Enforces strict type checking for all code in this file, ensuring type safety for the fast wp/v2/icons listing.
@@ -13,6 +13,7 @@ declare( strict_types=1 );
 namespace Aegis\Framework\Icons;
 
 // Imports classes, interfaces, and functions used by the fast wp/v2/icons listing.
+use Aegis\Icons\Icon;
 use Closure;
 use WP_Icon_Collections_Registry;
 use WP_Icons_Registry;
@@ -21,11 +22,14 @@ use WP_REST_Request;
 use function class_exists;
 use function delete_option;
 use function dirname;
+use function file_get_contents;
 use function filemtime;
 use function function_exists;
 use function get_option;
 use function is_array;
+use function is_readable;
 use function is_string;
+use function is_wp_error;
 use function md5;
 use function rest_ensure_response;
 use function serialize;
@@ -42,6 +46,8 @@ use function wp_get_theme;
  * Icon library never finishes loading on slower hosts. This filters first,
  * then loads only the matching icons, and keeps the sanitized SVG of each
  * collection in a non-autoloaded option until its icons change.
+ *
+ * @since 1.0.2
  */
 class RestIconsList {
 
@@ -62,6 +68,8 @@ class RestIconsList {
 	 *
 	 * Permission checks, arguments, and the schema stay core's.
 	 *
+	 * @since 1.0.2
+	 *
 	 * @param array $endpoints Registered REST endpoints.
 	 *
 	 * @return array
@@ -72,20 +80,39 @@ class RestIconsList {
 			return $endpoints;
 		}
 
+		$list_routes = [
+			'/wp/v2/icons',
+			'/wp/v2/icons/(?P<collection>[a-z0-9](?:[a-z0-9_-]*[a-z0-9])?)',
+		];
+		$item_route  = '/wp/v2/icons/(?P<name>[a-z0-9](?:[a-z0-9_-]*[a-z0-9])?/[a-z0-9](?:[a-z0-9_-]*[a-z0-9])?)';
+
 		foreach ( $endpoints as $route => $handlers ) {
-			if ( $route !== '/wp/v2/icons' && $route !== '/wp/v2/icons/(?P<collection>[a-z0-9](?:[a-z0-9_-]*[a-z0-9])?)' ) {
+			$is_list = in_array( $route, $list_routes, true );
+			$is_item = $route === $item_route;
+
+			if ( ! $is_list && ! $is_item ) {
 				continue;
 			}
 
 			foreach ( (array) $handlers as $key => $handler ) {
 				$callback = is_array( $handler ) ? ( $handler['callback'] ?? null ) : null;
 
-				if ( ! is_array( $callback ) || ! ( $callback[0] ?? null ) instanceof WP_REST_Controller || ( $callback[1] ?? '' ) !== 'get_items' ) {
+				if ( ! is_array( $callback ) || ! ( $callback[0] ?? null ) instanceof WP_REST_Controller ) {
 					continue;
 				}
 
-				$this->controller                       = $callback[0];
-				$endpoints[ $route ][ $key ]['callback'] = [ $this, 'get_items' ];
+				$method = (string) ( $callback[1] ?? '' );
+
+				if ( $is_list && $method !== 'get_items' ) {
+					continue;
+				}
+
+				if ( $is_item && $method !== 'get_item' ) {
+					continue;
+				}
+
+				$this->controller                        = $callback[0];
+				$endpoints[ $route ][ $key ]['callback'] = [ $this, $method ];
 			}
 		}
 
@@ -93,9 +120,43 @@ class RestIconsList {
 	}
 
 	/**
+	 * Single icon response with Aegis SVG sanitization for file-backed icons.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param WP_REST_Request $request Request object.
+	 *
+	 * @return \WP_REST_Response|\WP_Error
+	 */
+	public function get_item( $request ) {
+		$controller = $this->controller;
+
+		if ( $controller === null ) {
+			return rest_ensure_response( [] );
+		}
+
+		$icon = $controller->get_icon( (string) $request['name'] );
+
+		if ( is_wp_error( $icon ) ) {
+			return $icon;
+		}
+
+		$file = (string) ( $icon['file_path'] ?? '' );
+		$svg  = $this->sanitize_file_svg( $file );
+
+		if ( $svg !== '' ) {
+			$icon['content'] = $svg;
+		}
+
+		return rest_ensure_response( $controller->prepare_item_for_response( $icon, $request ) );
+	}
+
+	/**
 	 * Lists icons, filtered by collection and search before any file is read.
 	 *
 	 * Same response as core: icon fields come from the core controller.
+	 *
+	 * @since 1.0.2
 	 *
 	 * @param WP_REST_Request $request Request object.
 	 *
@@ -167,8 +228,11 @@ class RestIconsList {
 	 * Sanitized SVG content of every icon in a collection, cached per collection.
 	 *
 	 * The cache is rebuilt when the collection's icons, their folders, or the
-	 * theme version change. Content comes from the core registry, so it is
-	 * sanitized exactly as core does it.
+	 * theme version change. Aegis file-backed icons are sanitized with the
+	 * icons package (keeps brand payment `rect`/`circle` fills). Core's
+	 * registry kses only allows `path`/`polygon` and would strip those.
+	 *
+	 * @since 1.0.2
 	 *
 	 * @param string            $collection Collection slug.
 	 * @param WP_Icons_Registry $registry   Icons registry.
@@ -195,7 +259,8 @@ class RestIconsList {
 			}
 		}
 
-		$signature = md5( serialize( [ $files, $dirs, wp_get_theme( 'aegis' )->get( 'Version' ) ] ) );
+		// Bump cache when sanitizer strategy or payment SVG paints change.
+		$signature = md5( serialize( [ 'v7-aegis-svg', $files, $dirs, wp_get_theme( 'aegis' )->get( 'Version' ) ] ) );
 		$option    = self::CACHE_PREFIX . $collection;
 		$cached    = get_option( $option );
 
@@ -206,6 +271,13 @@ class RestIconsList {
 		$content = [];
 
 		foreach ( $files as $name => $file ) {
+			$svg = $this->sanitize_file_svg( $file );
+
+			if ( $svg !== '' ) {
+				$content[ $name ] = $svg;
+				continue;
+			}
+
 			$icon = $registry->get_registered_icon( $name );
 
 			if ( is_array( $icon ) && is_string( $icon['content'] ?? null ) && $icon['content'] !== '' ) {
@@ -224,5 +296,24 @@ class RestIconsList {
 		);
 
 		return $content;
+	}
+
+	/**
+	 * Reads and sanitizes an icon SVG from disk with the Aegis sanitizer.
+	 *
+	 * @param string $file Absolute path to an .svg file.
+	 */
+	private function sanitize_file_svg( string $file ): string {
+		if ( $file === '' || ! is_readable( $file ) ) {
+			return '';
+		}
+
+		$raw = file_get_contents( $file );
+
+		if ( ! is_string( $raw ) || $raw === '' ) {
+			return '';
+		}
+
+		return Icon::sanitize_svg( $raw );
 	}
 }

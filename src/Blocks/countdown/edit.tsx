@@ -5,7 +5,7 @@
  * @since   1.0.0
  */
 
-import { __ } from '@wordpress/i18n';
+import { __, _x } from '@wordpress/i18n';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -14,7 +14,43 @@ import {
 	TextControl,
 	DateTimePicker,
 } from '@wordpress/components';
-import { useState, useEffect } from '@wordpress/element';
+import { getSettings } from '@wordpress/date';
+import { useState, useEffect, useMemo, Fragment } from '@wordpress/element';
+
+type DateOrder = 'dmy' | 'mdy' | 'ymd';
+
+/**
+ * Same calendar/time settings as the post Publish schedule picker.
+ *
+ * @see https://github.com/WordPress/gutenberg/blob/trunk/packages/editor/src/components/post-schedule/index.js
+ */
+function usePublishDateTimePickerProps() {
+	return useMemo( () => {
+		const settings = getSettings();
+		// Match core: detect 12-hour clocks from the site time format.
+		const is12Hour = /a(?!\\)/i.test(
+			settings.formats.time
+				.toLowerCase()
+				.replace( /\\\\/g, '' )
+				.split( '' )
+				.reverse()
+				.join( '' )
+		);
+		// Use the default text domain so core locale packs set day/month/year order.
+		const dateOrder = _x(
+			'dmy',
+			'Order of day, month, and year. Available formats are "dmy", "mdy", and "ymd".'
+		) as DateOrder;
+
+		return {
+			is12Hour,
+			startOfWeek: settings.l10n?.startOfWeek ?? 0,
+			dateOrder: ( dateOrder === 'mdy' || dateOrder === 'ymd'
+				? dateOrder
+				: 'dmy' ) as DateOrder,
+		};
+	}, [] );
+}
 
 interface CountdownLabels {
 	days: string;
@@ -139,6 +175,35 @@ function pad( value: number ): string {
 	return String( value ).padStart( 2, '0' );
 }
 
+/**
+ * Local datetime string in the format DateTimePicker writes back.
+ *
+ * @param date Date to format in the visitor's local time.
+ */
+function toPickerDatetime( date: Date ): string {
+	return (
+		[
+			date.getFullYear(),
+			pad( date.getMonth() + 1 ),
+			pad( date.getDate() ),
+		].join( '-' ) +
+		'T' +
+		[
+			pad( date.getHours() ),
+			pad( date.getMinutes() ),
+			pad( date.getSeconds() ),
+		].join( ':' )
+	);
+}
+
+/** Default target: one week from now, on the hour. */
+function defaultCountdownDatetime(): string {
+	const target = new Date();
+	target.setDate( target.getDate() + 7 );
+	target.setMinutes( 0, 0, 0 );
+	return toPickerDatetime( target );
+}
+
 export default function Edit( { attributes, setAttributes }: EditProps ) {
 	const extras = countdownFeatures();
 	const {
@@ -173,6 +238,15 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 		getTimeRemaining( datetime, previewTimezone )
 	);
 
+	// Seed a target so the picker and canvas preview stay in sync (the picker
+	// otherwise shows "now" while the attribute stays empty).
+	useEffect( () => {
+		if ( ! datetime ) {
+			setAttributes( { datetime: defaultCountdownDatetime() } );
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps -- seed once on insert only
+	}, [] );
+
 	useEffect( () => {
 		if ( ! datetime ) {
 			setTime( { days: 0, hours: 0, minutes: 0, seconds: 0, total: 0 } );
@@ -189,6 +263,7 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 	const blockProps = useBlockProps( {
 		className: `aegis-countdown aegis-countdown--${ previewLayout }`,
 	} );
+	const dateTimePickerProps = usePublishDateTimePickerProps();
 
 	const isExpired = datetime !== '' && time.total <= 0;
 	const sep = SEPARATOR_MAP[ previewSeparator ] || '';
@@ -233,13 +308,18 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 		<div { ...blockProps }>
 			<InspectorControls>
 				<PanelBody title={ __( 'Countdown Settings', 'aegis' ) }>
-					<DateTimePicker
-						currentDate={ datetime || undefined }
-						onChange={ ( value ) =>
-							setAttributes( { datetime: value || '' } )
-						}
-						is12Hour={ false }
-					/>
+					<div className="aegis-countdown-datetime">
+						<DateTimePicker
+							currentDate={ datetime || undefined }
+							onChange={ ( value ) =>
+								setAttributes( {
+									datetime:
+										value || defaultCountdownDatetime(),
+								} )
+							}
+							{ ...dateTimePickerProps }
+						/>
+					</div>
 					{ extras.timezone && (
 						<SelectControl
 							label={ __( 'Timezone', 'aegis' ) }
@@ -468,31 +548,16 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 				) }
 			</InspectorControls>
 
-			{ ! datetime && (
-				<div className="aegis-countdown-editor__placeholder">
-					<span className="dashicons dashicons-clock"></span>
-					<p>
-						{ __(
-							'Select a target date and time in the block settings.',
-							'aegis'
-						) }
-					</p>
-				</div>
-			) }
-
-			{ datetime && isExpired && previewExpiry && (
+			{ isExpired && previewExpiry ? (
 				<div className="aegis-countdown__expired">
 					<p>{ previewExpiry }</p>
 				</div>
-			) }
-
-			{ datetime && ( ! isExpired || ! previewExpiry ) && (
+			) : (
 				<div className="aegis-countdown__segments">
 					{ visibleSegments.map( ( segment, index ) => (
-						<>
+						<Fragment key={ segment.key }>
 							{ index > 0 && sep && (
 								<span
-									key={ `sep-${ segment.key }` }
 									className="aegis-countdown__separator"
 									aria-hidden="true"
 								>
@@ -500,7 +565,6 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 								</span>
 							) }
 							<div
-								key={ segment.key }
 								className="aegis-countdown__segment"
 								data-unit={ segment.key }
 							>
@@ -511,7 +575,7 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 									{ segment.label }
 								</span>
 							</div>
-						</>
+						</Fragment>
 					) ) }
 				</div>
 			) }

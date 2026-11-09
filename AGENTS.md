@@ -12,7 +12,7 @@ This file is read by AI coding agents (Claude Code, Cursor, Copilot, etc.) worki
 - **Author:** Atmostfear Entertainment
 - **Text domain:** `aegis`
 - **Minimum PHP:** 8.1 — use typed properties, named arguments, and `declare(strict_types=1)` in all PHP files
-- **Minimum WordPress:** 7.0 (tested up to 7.1.3)
+- **Minimum WordPress:** 7.0 (tested up to 7.1.4)
 
 ---
 

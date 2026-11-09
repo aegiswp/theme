@@ -6,9 +6,9 @@
  Author URI: https://www.atmostfear-entertainment.com/
  Description: A native block framework engineered for raw velocity. Aegis loads zero CSS, JavaScript, or font assets by default, delivering a pure architectural foundation. It empowers designers with deep visual controls—including SVG management, fluid typography, and intrinsic responsiveness—while providing developers with a strict, standards-based environment. The definitive foundation for high-performance child themes.
 Requires at least: 7.0
- Tested up to: 7.1.3
+ Tested up to: 7.1.4
  Requires PHP: 8.1
- Version: 1.0.2
+ Version: 1.1.0
  License: GPL-2.0-or-later
  License URI: https://www.gnu.org/licenses/gpl-2.0.html
  Text Domain: aegis
@@ -87,7 +87,7 @@ main.site-main.has-global-padding > .alignfull {
 	margin-right: calc(var(--wp--style--root--padding-right) * -1) !important;
 }
 
-/* Payment method icons — Visa-style 3:2 cards in frontend + Site Editor */
+/* Payment method icons — theme-adaptive 3:2 cards in frontend + Site Editor */
 .aegis-payment-icons.wp-block-group,
 .editor-styles-wrapper .aegis-payment-icons.wp-block-group {
 	align-items: center;
@@ -101,14 +101,15 @@ main.site-main.has-global-padding > .alignfull {
 	flex: 0 0 var(--aegis-payment-icon-width);
 	width: var(--aegis-payment-icon-width);
 	max-width: var(--aegis-payment-icon-width);
+	aspect-ratio: 3 / 2;
+	overflow: hidden;
+	background: transparent;
 }
 
 .aegis-payment-icons .wp-block-icon svg,
 .aegis-payment-icons svg[data-icon^="payment"],
-.aegis-payment-icons svg[data-icon^="payment-brand"],
 .editor-styles-wrapper .aegis-payment-icons .wp-block-icon svg,
-.editor-styles-wrapper .aegis-payment-icons svg[data-icon^="payment"],
-.editor-styles-wrapper .aegis-payment-icons svg[data-icon^="payment-brand"] {
+.editor-styles-wrapper .aegis-payment-icons svg[data-icon^="payment"] {
 	display: block;
 	box-sizing: border-box;
 	width: var(--aegis-payment-icon-width, 48px) !important;
@@ -118,8 +119,18 @@ main.site-main.has-global-padding > .alignfull {
 	aspect-ratio: 3 / 2 !important;
 	overflow: visible;
 	color: inherit;
-	/* Defeat icon.css svg[fill=none]{stroke:currentColor} card outline */
+}
+
+.aegis-payment-icons svg[data-icon^="payment-"]:not([data-icon$="-outline"]),
+.editor-styles-wrapper .aegis-payment-icons svg[data-icon^="payment-"]:not([data-icon$="-outline"]) {
+	/* Filled mono: defeat icon.css svg[fill=none]{stroke:currentColor} */
 	stroke: none !important;
+}
+
+.wp-block-icon svg[data-icon^="payment-"] path[stroke],
+.editor-styles-wrapper .wp-block-icon svg[data-icon^="payment-"] path[stroke],
+svg[data-icon^="payment-"] path[stroke] {
+	fill: none !important;
 }
 
 /* Store footer newsletter — defeat form.css input margin-bottom in flex row */
@@ -195,6 +206,20 @@ a.skip-to-content.screen-reader-text:focus {
 body.is-style-dark .wp-block-search__input:focus-visible,
 body.is-style-dark .search-modal .wp-block-search__input:focus-visible {
 	outline-color: var(--wp--preset--color--primary-400, #60a5fa) !important;
+}
+
+/* Form fields: the framework removes the outline and only darkens the 1px border, so add the same ring as buttons. Checkboxes and radios keep their own focus style. */
+input:not([type="checkbox"], [type="radio"], [type="submit"], [type="button"], [type="reset"], [type="hidden"]):focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+	outline: 2px solid var(--wp--preset--color--primary-500, #2563eb);
+	outline-offset: 2px;
+}
+
+body.is-style-dark input:not([type="checkbox"], [type="radio"], [type="submit"], [type="button"], [type="reset"], [type="hidden"]):focus-visible,
+body.is-style-dark select:focus-visible,
+body.is-style-dark textarea:focus-visible {
+	outline-color: var(--wp--preset--color--primary-400, #60a5fa);
 }
 
 /* Document fade-in: respect reduced motion */

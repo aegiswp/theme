@@ -2,7 +2,7 @@
 /**
  * Title: Exhibition Event
  * Slug: event-exhibition
- * Categories: pages, events
+ * Categories: pages, event
  * Keywords: exhibition, gallery, art, museum, visual, event
  * Description: A minimal and elegant full page layout for an art exhibition or gallery event.
  * Viewport Width: 1280
@@ -10,7 +10,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["pages"],"patternName":"page-event-exhibition","name":"Exhibition Event"},"align":"full","layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"categories":["pages","event"],"patternName":"page-event-exhibition","name":"Exhibition Event"},"align":"full","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull"><!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained","contentSize":"900px"}} -->
 	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xxl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 		<div class="wp-block-group"><!-- wp:paragraph {"align":"center","className":"is-style-sub-heading","fontSize":"14"} -->

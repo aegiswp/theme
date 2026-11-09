@@ -36,7 +36,7 @@
 					<h6 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size"><?php echo esc_html__( 'Navigation', 'aegis' ); ?></h6>
 					<!-- /wp:heading -->
 
-					<!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} /-->
+					<!-- wp:navigation {"ariaLabel":"<?php echo esc_attr( sprintf( /* translators: %d: footer menu number. */ __( 'Footer menu %d', 'aegis' ), 1 ) ); ?>","overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} /-->
 				</div>
 				<!-- /wp:column -->
 
@@ -46,7 +46,7 @@
 					<h6 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size"><?php echo esc_html__( 'Navigation', 'aegis' ); ?></h6>
 					<!-- /wp:heading -->
 
-					<!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} /-->
+					<!-- wp:navigation {"ariaLabel":"<?php echo esc_attr( sprintf( /* translators: %d: footer menu number. */ __( 'Footer menu %d', 'aegis' ), 2 ) ); ?>","overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} /-->
 				</div>
 				<!-- /wp:column -->
 			</div>
@@ -62,7 +62,7 @@
 					<h6 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size"><?php echo esc_html__( 'Navigation', 'aegis' ); ?></h6>
 					<!-- /wp:heading -->
 
-					<!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} /-->
+					<!-- wp:navigation {"ariaLabel":"<?php echo esc_attr( sprintf( /* translators: %d: footer menu number. */ __( 'Footer menu %d', 'aegis' ), 3 ) ); ?>","overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} /-->
 				</div>
 				<!-- /wp:column -->
 
@@ -72,7 +72,7 @@
 					<h6 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size"><?php echo esc_html__( 'Navigation', 'aegis' ); ?></h6>
 					<!-- /wp:heading -->
 
-					<!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} /-->
+					<!-- wp:navigation {"ariaLabel":"<?php echo esc_attr( sprintf( /* translators: %d: footer menu number. */ __( 'Footer menu %d', 'aegis' ), 4 ) ); ?>","overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} /-->
 				</div>
 				<!-- /wp:column -->
 			</div>
@@ -88,7 +88,7 @@
 					<h6 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size"><?php echo esc_html__( 'Navigation', 'aegis' ); ?></h6>
 					<!-- /wp:heading -->
 
-					<!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} /-->
+					<!-- wp:navigation {"ariaLabel":"<?php echo esc_attr( sprintf( /* translators: %d: footer menu number. */ __( 'Footer menu %d', 'aegis' ), 5 ) ); ?>","overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} /-->
 				</div>
 				<!-- /wp:column -->
 
@@ -98,7 +98,7 @@
 					<h6 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size"><?php echo esc_html__( 'Navigation', 'aegis' ); ?></h6>
 					<!-- /wp:heading -->
 
-					<!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} /-->
+					<!-- wp:navigation {"ariaLabel":"<?php echo esc_attr( sprintf( /* translators: %d: footer menu number. */ __( 'Footer menu %d', 'aegis' ), 6 ) ); ?>","overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} /-->
 				</div>
 				<!-- /wp:column -->
 			</div>

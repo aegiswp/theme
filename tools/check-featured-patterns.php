@@ -1,4 +1,9 @@
 <?php
+// Dev tool: run from the command line only, never over HTTP.
+if ( PHP_SAPI !== 'cli' ) {
+	exit( 1 );
+}
+
 $registry = WP_Block_Patterns_Registry::get_instance()->get_all_registered();
 $slugs    = [];
 foreach ( $registry as $pattern ) {

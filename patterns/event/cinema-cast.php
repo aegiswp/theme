@@ -9,8 +9,8 @@
  */
 ?>
 
-<!-- wp:group {"className":"is-style-dark","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"backgroundColor":"neutral-0","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-neutral-0-background-color has-background is-style-dark" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
+<!-- wp:group {"className":"is-style-dark","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"neutral-0","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull has-neutral-0-background-color has-background is-style-dark" style="padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
 	<!-- wp:heading {"textAlign":"center","textColor":"neutral-950","fontSize":"32"} -->
 	<h2 class="wp-block-heading has-text-align-center has-neutral-950-color has-text-color has-32-font-size"><?php echo esc_html__( 'Cast & Crew', 'aegis' ); ?></h2>
 	<!-- /wp:heading -->

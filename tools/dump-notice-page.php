@@ -1,4 +1,9 @@
 <?php
+// Dev tool: run from the command line only, never over HTTP.
+if ( PHP_SAPI !== 'cli' ) {
+	exit( 1 );
+}
+
 $c = get_post( 2237 )->post_content;
 // Show first success-related chunk.
 if ( preg_match( '/<!-- wp:group \{[^}]*Success Notice[^}]*\} -->.*?<!-- \/wp:group -->\s*<!-- \/wp:group -->/s', $c, $m ) ) {

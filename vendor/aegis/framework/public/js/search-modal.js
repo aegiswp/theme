@@ -10,7 +10,18 @@
 		element.classList.toggle( 'has-display-none', hidden );
 	};
 
+	const FOCUSABLE =
+		'input,button,a[href],textarea,select,[tabindex]:not([tabindex="-1"])';
+
+	// The element that opened the modal, so focus can return to it on close.
+	let lastOpener = null;
+
+	const isVisible = ( element ) =>
+		element.getClientRects().length > 0 &&
+		window.getComputedStyle( element ).visibility !== 'hidden';
+
 	const open = () => {
+		lastOpener = document.activeElement;
 		getModals().forEach( ( modal ) => {
 			setHidden( modal, false );
 			modal.setAttribute( 'aria-hidden', 'false' );
@@ -56,7 +67,11 @@
 		} );
 		document.body.classList.remove( 'search-modal-open' );
 
-		const opener = document.querySelector( OPEN_SELECTOR );
+		const opener =
+			lastOpener && document.contains( lastOpener )
+				? lastOpener
+				: document.querySelector( OPEN_SELECTOR );
+		lastOpener = null;
 		if ( opener ) {
 			opener.focus();
 		}
@@ -115,26 +130,43 @@
 				close();
 			} );
 
-			modal.addEventListener( 'keydown', ( event ) => {
-				if ( event.key !== 'Tab' || modal.classList.contains( 'has-display-none' ) ) {
-					return;
-				}
-				const focusable = modal.querySelectorAll(
-					'input,button,a[href],textarea,select,[tabindex]:not([tabindex="-1"])'
+		} );
+
+		// Keep Tab inside the open modal. The close button lives outside the
+		// modal element, so it is part of the cycle too.
+		document.addEventListener( 'keydown', ( event ) => {
+			if ( event.key !== 'Tab' ) {
+				return;
+			}
+			const openModal = [ ...modals ].find(
+				( modal ) => ! modal.classList.contains( 'has-display-none' )
+			);
+			if ( ! openModal ) {
+				return;
+			}
+			const focusable = [
+				...openModal.querySelectorAll( FOCUSABLE ),
+				...document.querySelectorAll( CLOSE_SELECTOR ),
+			]
+				.filter( ( element, index, all ) => all.indexOf( element ) === index )
+				.filter( isVisible )
+				.sort( ( a, b ) =>
+					a.compareDocumentPosition( b ) & Node.DOCUMENT_POSITION_FOLLOWING
+						? -1
+						: 1
 				);
-				if ( ! focusable.length ) {
-					return;
-				}
-				const first = focusable[ 0 ];
-				const last = focusable[ focusable.length - 1 ];
-				if ( event.shiftKey && document.activeElement === first ) {
-					event.preventDefault();
-					last.focus();
-				} else if ( ! event.shiftKey && document.activeElement === last ) {
-					event.preventDefault();
-					first.focus();
-				}
-			} );
+			if ( ! focusable.length ) {
+				return;
+			}
+			const first = focusable[ 0 ];
+			const last = focusable[ focusable.length - 1 ];
+			if ( event.shiftKey && document.activeElement === first ) {
+				event.preventDefault();
+				last.focus();
+			} else if ( ! event.shiftKey && document.activeElement === last ) {
+				event.preventDefault();
+				first.focus();
+			}
 		} );
 
 		document.querySelectorAll( OPEN_SELECTOR ).forEach( ( button ) => {

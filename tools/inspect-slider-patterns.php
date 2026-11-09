@@ -1,4 +1,9 @@
 <?php
+// Dev tool: run from the command line only, never over HTTP.
+if ( PHP_SAPI !== 'cli' ) {
+	exit( 1 );
+}
+
 /**
  * Inspect which slider patterns are registered and whether they include placeholders.
  *

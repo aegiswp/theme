@@ -32,10 +32,18 @@ use function esc_html;
 use function esc_html__;
 use function esc_html_e;
 use function esc_url;
-use function get_bloginfo;
+use function function_exists;
+use function get_current_screen;
+use function get_file_data;
 use function get_site_transient;
+use function home_url;
+use function in_array;
 use function is_array;
+use function is_plugin_active;
+use function is_readable;
 use function is_wp_error;
+use function preg_match_all;
+use function version_compare;
 use function json_decode;
 use function language_attributes;
 use function ltrim;
@@ -103,6 +111,13 @@ class GitHubUpdater {
 	public const NOTES_ACTION = 'aegis_theme_release_notes';
 
 	/**
+	 * Companion plugin basename checked by the update hold.
+	 *
+	 * @var string
+	 */
+	public const PLUGIN_FILE = 'aegis/aegis.php';
+
+	/**
 	 * Register update hooks.
 	 *
 	 * Runs on every request (not only admin): core also checks for updates from cron.
@@ -113,6 +128,116 @@ class GitHubUpdater {
 		add_filter( 'update_themes_github.com', array( $this, 'filter_update' ), 10, 3 );
 		add_action( 'wp_ajax_' . self::NOTES_ACTION, array( $this, 'render_release_notes' ) );
 		add_action( 'upgrader_process_complete', array( $this, 'flush_cache' ) );
+		add_action( 'admin_notices', array( $this, 'render_hold_notice' ) );
+	}
+
+	/**
+	 * Plugin version a release requires, read from its notes.
+	 *
+	 * Matches a line such as `Requires Aegis plugin: 1.1.0` (case-insensitive;
+	 * tolerates list markers, quotes, headings, bold, italics and code ticks).
+	 * When several lines match, the highest version wins.
+	 *
+	 * @param string $notes GitHub release body.
+	 *
+	 * @return string|null Version like "1.1.0", or null when the release has no requirement.
+	 */
+	public static function parse_required_plugin_version( string $notes ): ?string {
+		$matches = array();
+
+		if ( ! preg_match_all( '/^[\s>*_`#+-]*Requires\s+Aegis\s+plugin[\s*_`]*:[\s*_`]*v?(\d+\.\d+(?:\.\d+)?)(?![\d.]*\d)/im', $notes, $matches ) ) {
+			return null;
+		}
+
+		$highest = null;
+
+		foreach ( $matches[1] as $version ) {
+			if ( null === $highest || version_compare( $version, $highest, '>' ) ) {
+				$highest = $version;
+			}
+		}
+
+		return $highest;
+	}
+
+	/**
+	 * Whether the Aegis plugin is installed, active and at least the given version.
+	 *
+	 * Reads the plugin header directly, so it works without the plugin loaded.
+	 *
+	 * @param string $required Minimum plugin version.
+	 *
+	 * @return bool
+	 */
+	public static function plugin_requirement_met( string $required ): bool {
+		$file = WP_PLUGIN_DIR . '/' . self::PLUGIN_FILE;
+
+		if ( ! is_readable( $file ) ) {
+			return false;
+		}
+
+		if ( ! function_exists( 'is_plugin_active' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
+
+		if ( ! is_plugin_active( self::PLUGIN_FILE ) ) {
+			return false;
+		}
+
+		$data      = get_file_data( $file, array( 'Version' => 'Version' ) );
+		$installed = (string) ( $data['Version'] ?? '' );
+
+		return '' !== $installed && version_compare( $installed, $required, '>=' );
+	}
+
+	/**
+	 * Show why a theme update is not offered, on update-related admin screens.
+	 *
+	 * Uses the cached release only, so it never triggers a GitHub request.
+	 *
+	 * @return void
+	 */
+	public function render_hold_notice(): void {
+		if ( ! current_user_can( 'update_themes' ) && ! current_user_can( 'install_plugins' ) ) {
+			return;
+		}
+
+		$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+
+		if ( ! $screen || ! in_array( $screen->id, array( 'themes', 'update-core', 'plugins' ), true ) ) {
+			return;
+		}
+
+		$cached = get_site_transient( self::CACHE_KEY );
+
+		if ( ! is_array( $cached ) || empty( $cached['version'] ) ) {
+			return;
+		}
+
+		$required = self::parse_required_plugin_version( (string) ( $cached['notes'] ?? '' ) );
+
+		if ( null === $required || self::plugin_requirement_met( $required ) ) {
+			return;
+		}
+		?>
+		<div class="notice notice-warning aegis-update-hold-notice">
+			<p>
+				<?php
+				echo esc_html(
+					sprintf(
+						/* translators: 1: Required Aegis plugin version, 2: Aegis theme version that is waiting. */
+						__( 'Update the Aegis plugin to %1$s before updating the theme. Aegis theme %2$s is waiting for it and will be offered once the plugin is installed, active and up to date.', 'aegis' ),
+						$required,
+						(string) $cached['version']
+					)
+				);
+				?>
+				<?php if ( current_user_can( 'activate_plugins' ) || current_user_can( 'update_plugins' ) ) : ?>
+					<a href="<?php echo esc_url( admin_url( 'plugins.php' ) ); ?>"><?php esc_html_e( 'Go to Plugins', 'aegis' ); ?></a>
+				<?php endif; ?>
+			</p>
+		</div>
+		<?php
 	}
 
 	/**
@@ -132,6 +257,13 @@ class GitHubUpdater {
 		$release = $this->get_release();
 
 		if ( null === $release ) {
+			return $update;
+		}
+
+		// Hold releases that need a newer Aegis plugin until it is installed, active and new enough.
+		$required = self::parse_required_plugin_version( $release['notes'] );
+
+		if ( null !== $required && ! self::plugin_requirement_met( $required ) ) {
 			return $update;
 		}
 
@@ -187,7 +319,7 @@ class GitHubUpdater {
 				'timeout' => 10,
 				'headers' => array(
 					'Accept'     => 'application/vnd.github+json',
-					'User-Agent' => 'Aegis-Theme-Updater; ' . get_bloginfo( 'url' ),
+					'User-Agent' => 'Aegis-Theme-Updater; ' . home_url(),
 				),
 			)
 		);

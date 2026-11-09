@@ -2,7 +2,7 @@
 /**
  * Title: Cinema Event
  * Slug: event-cinema
- * Categories: pages, events
+ * Categories: pages, event
  * Keywords: cinema, film, movie, screening, premiere, event
  * Description: A full page layout for a cinema screening or film premiere event.
  * Viewport Width: 1280
@@ -10,7 +10,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["pages","events"],"patternName":"event-cinema"},"align":"full","layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"categories":["pages","event"],"patternName":"event-cinema"},"align":"full","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull">
 
 	<!-- wp:cover {"className":"is-style-dark","dimRatio":90,"overlayColor":"neutral-0","isUserOverlayColor":true,"minHeight":100,"minHeightUnit":"vh","isDark":true,"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xxl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->

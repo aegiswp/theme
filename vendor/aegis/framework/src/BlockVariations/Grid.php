@@ -80,8 +80,9 @@ class Grid implements Renderable {
 
 		if ( $div ) {
 			// Default to stretching items to be equal height.
+			// !important beats Core is-layout-flex { align-items: center }.
 			$styles                = CSS::string_to_array( $div->getAttribute( 'style' ) );
-			$styles['align-items'] = 'stretch';
+			$styles['align-items'] = 'stretch !important';
 			$div->setAttribute( 'style', CSS::array_to_string( $styles ) );
 			$block_content = $dom->saveHTML();
 		}

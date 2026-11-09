@@ -27,6 +27,7 @@ namespace Aegis\Framework\DesignSystem;
 use Aegis\Framework\InlineAssets\Styles;
 use function array_flip;
 use function file_get_contents;
+use function filemtime;
 use function glob;
 use function is_a;
 use function is_admin;
@@ -143,7 +144,7 @@ class BlockCss {
 					'handle'  => 'aegis-core-' . $slug,
 					'src'     => $this->css_url . 'core-blocks/' . $basename,
 					'deps'    => [],
-					'version' => '1.0.0',
+					'version' => (string) filemtime( $file ),
 					'media'   => 'all',
 					'path'    => $file,
 				]

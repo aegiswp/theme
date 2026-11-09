@@ -43,17 +43,20 @@
 		}
 	}
 
-	// Minimal full-slider controls (white chevrons / dots over media).
+	// Overlay controls (heroes / single slide): always light so they read on dark media
+	// in both light and dark site modes. Neutral 950 is near-black in light mode and
+	// disappears on cover slides.
 	// Do not change `transform` on hover — Splide centers arrows with translateY(-50%).
 	.splide__arrow {
 		width: 2.25em;
 		height: 2.25em;
 		background: transparent;
 		opacity: 0.7;
+		color: #fff;
 		transition: opacity 0.2s ease;
 
 		svg {
-			fill: var(--wp--preset--color--neutral-950, #fff);
+			fill: #fff;
 			width: 1.35em;
 			height: 1.35em;
 			filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55));
@@ -65,7 +68,7 @@
 			opacity: 1;
 
 			svg {
-				fill: var(--wp--preset--color--neutral-950, #fff);
+				fill: #fff;
 				opacity: 1;
 			}
 		}
@@ -75,7 +78,7 @@
 		}
 
 		&:focus-visible {
-			outline: 2px solid var(--wp--preset--color--neutral-950, #fff);
+			outline: 2px solid #fff;
 			outline-offset: 2px;
 			opacity: 1;
 		}
@@ -86,20 +89,69 @@
 		height: 8px;
 		margin: 0;
 		opacity: 0.45;
-		background: var(--wp--preset--color--neutral-950, #fff);
+		color: #fff;
+		background: transparent;
 		box-shadow: none;
 		transition: opacity 0.2s ease, transform 0.2s ease;
 
+		&::before {
+			background: #fff;
+			opacity: 1;
+		}
+
 		&.is-active {
 			opacity: 1;
-			background: var(--wp--preset--color--neutral-950, #fff);
+			background: transparent;
 			box-shadow: none;
 			transform: scale(1.15);
+
+			&::before {
+				background: #fff;
+				opacity: 1;
+			}
 		}
 
 		&:focus-visible {
-			outline: 2px solid var(--wp--preset--color--neutral-950, #fff);
+			outline: 2px solid #fff;
 			outline-offset: 4px;
+		}
+	}
+
+	// Multi-page / outside arrows sit on the page surface — use contrast text color.
+	&[data-per-page]:not([data-per-page='1']),
+	&.is-arrows-outside {
+
+		.splide__arrow {
+			color: var(--wp--preset--color--neutral-950, currentColor);
+
+			svg {
+				fill: var(--wp--preset--color--neutral-950, currentColor);
+				filter: none;
+			}
+
+			&:hover:not(:disabled) svg {
+				fill: var(--wp--preset--color--neutral-950, currentColor);
+			}
+
+			&:focus-visible {
+				outline-color: var(--wp--preset--color--neutral-950, currentColor);
+			}
+		}
+
+		.splide__pagination__page {
+			color: var(--wp--preset--color--neutral-950, currentColor);
+
+			&::before {
+				background: var(--wp--preset--color--neutral-950, currentColor);
+			}
+
+			&.is-active::before {
+				background: var(--wp--preset--color--neutral-950, currentColor);
+			}
+
+			&:focus-visible {
+				outline-color: var(--wp--preset--color--neutral-950, currentColor);
+			}
 		}
 	}
 

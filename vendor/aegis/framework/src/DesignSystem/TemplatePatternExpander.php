@@ -21,6 +21,8 @@ use WP_REST_Request;
 use WP_REST_Response;
 use function did_action;
 use function preg_match;
+use function realpath;
+use function str_starts_with;
 use function preg_replace_callback;
 
 /**
@@ -282,13 +284,22 @@ final class TemplatePatternExpander {
 			: get_template_directory() . '/templates/';
 		$candidates = array( $slug );
 
+		// The slug can come from a request, so only plain template names may reach the file system.
+		if ( ! preg_match( '/^[A-Za-z0-9_-]+$/', $slug ) ) {
+			return '';
+		}
+
 		if ( $slug === 'home' ) {
 			$candidates[] = 'front-page';
 		}
 
+		$root = realpath( $base );
+
 		foreach ( $candidates as $candidate_slug ) {
-			$path = $base . $candidate_slug . '.html';
-			if ( is_readable( $path ) ) {
+			$path = realpath( $base . $candidate_slug . '.html' );
+
+			// Stay inside the theme's templates or parts folder.
+			if ( $path && $root && str_starts_with( $path, $root . DIRECTORY_SEPARATOR ) && is_readable( $path ) ) {
 				return (string) file_get_contents( $path );
 			}
 		}

@@ -5,7 +5,7 @@
  * Categories: notice
  * Keywords: disclaimer, legal, liability, terms, law, general
  * Description: A formal general-purpose legal and liability disclaimer with a separator line.
- * Viewport Width: 1280
+ * Viewport Width: 600
  */
 ?>
 

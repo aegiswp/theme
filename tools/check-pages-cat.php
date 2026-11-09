@@ -1,4 +1,9 @@
 <?php
+// Dev tool: run from the command line only, never over HTTP.
+if ( PHP_SAPI !== 'cli' ) {
+	exit( 1 );
+}
+
 $registry = WP_Block_Patterns_Registry::get_instance();
 $cats     = WP_Block_Pattern_Categories_Registry::get_instance()->get_all_registered();
 $page_cat  = null;

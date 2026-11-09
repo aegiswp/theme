@@ -1,4 +1,9 @@
 <?php
+// Dev tool: run from the command line only, never over HTTP.
+if ( PHP_SAPI !== 'cli' ) {
+	exit( 1 );
+}
+
 $post = get_post( 2206 );
 if ( ! $post ) {
 	WP_CLI::error( 'Feature page not found.' );

@@ -111,7 +111,7 @@ class QueryEnhancements implements Scriptable {
 	 * the block author infer its values from which posts render. Protected
 	 * keys that are safe to query are allowed through the filter.
 	 *
-	 * @since 1.0.0
+	 * @since 1.0.2
 	 *
 	 * @param string $key Raw meta key.
 	 *
@@ -127,7 +127,7 @@ class QueryEnhancements implements Scriptable {
 		/**
 		 * Filters protected meta keys that Query Loop blocks may filter or sort by.
 		 *
-		 * @since 1.0.0
+		 * @since 1.0.2
 		 *
 		 * @param string[] $keys Protected meta keys.
 		 */

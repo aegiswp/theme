@@ -57,6 +57,7 @@ Collections register with `wp_register_icon_collection()` / `wp_register_icon()`
 | Core | `core/{name}` | WordPress (`wp-includes` icon library) |
 | Aegis | `wordpress/{name}` | Gutenberg-only SVGs that Core does not ship |
 | Social | `social/{name}` | Theme social set (brands Core does not include) |
+| Payment | `payment/{name}`, `payment/{name}-outline` | Mono and mono-outline marks from [svg-credit-card-payment-icons](https://github.com/marcovoliveira/svg-credit-card-payment-icons) (`currentColor`; store patterns use `*-outline`) |
 | Remix Icon | `remixicon/{name}` | Aegis Pro |
 | Phosphor Duotone | `phosphor-duotone/{name}` | Aegis Pro |
 | Heroicons | `heroicons/{name}` | Aegis Pro |
@@ -65,7 +66,7 @@ Collections register with `wp_register_icon_collection()` / `wp_register_icon()`
 | Plugins | `plugin/{name}` | Aegis Pro |
 | Brand | `brand/{name}` | Aegis Pro |
 
-The library opens quickly even with every Pro set installed (about 5,800 icons). When it asks for icons, Aegis loads only the requested collection or search results, not every icon file. The SVGs of each collection are cached in an `aegis_icon_content_{collection}` option (not autoloaded). The cache rebuilds on its own when an icon is added, removed, or renamed, or when the theme is updated, so the first opening after a change takes a few seconds longer.
+The library opens quickly even with every Pro set installed (about 5,800 icons). When it asks for icons, Aegis loads only the requested collection or search results, not every icon file. The SVGs of each collection are cached in an `aegis_icon_content_{collection}` option (not autoloaded). File-backed Aegis icons are sanitized with the icons package (so shapes Core would strip still reach the editor). The cache rebuilds on its own when an icon is added, removed, or renamed, or when the theme is updated, so the first opening after a change takes a few seconds longer.
 
 Aegis does not duplicate Core glyphs. A former `wordpress/star-filled` icon is stored as `core/star-filled`. Legacy saved IDs `aegis/{set}/{name}` still resolve when content is rendered or migrated.
 
@@ -91,7 +92,7 @@ Icons use `currentColor` by default:
 
 Stroked icons (outline sets) keep `fill="none"` and `stroke="currentColor"`. Aegis re-renders non-`core` library icons on the front end so WordPress SVG sanitization does not strip stroke attributes.
 
-For SVGs with multiple decorative colors, those fills are preserved. Theme color applies only to `currentColor` and literal ink (`#000`, `black`).
+For SVGs with multiple decorative colors, those fills are preserved. Theme color applies only to `currentColor` and literal ink (`#000`, `black`). Payment marks (`payment/*`) use `currentColor` so they follow light and dark mode like Social.
 
 See [[dark-mode]].
 

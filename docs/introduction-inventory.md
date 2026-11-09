@@ -14,7 +14,7 @@ Left out on purpose: Map, Modal, analytics, conditional logic, the plugin Integr
 | Author | Atmostfear Entertainment |
 | Version | 1.0.2 |
 | Requires WordPress | 7.0 |
-| Tested up to | 7.1.3 |
+| Tested up to | 7.1.4 |
 | Requires PHP | 8.1 |
 | License | GPL-2.0-or-later |
 | Text domain | `aegis` |
@@ -23,7 +23,7 @@ The stylesheet header describes Aegis as a native block framework: full-site edi
 
 What the theme actually ships is a bit more specific. Three variable fonts are bundled and declared in `theme.json` (Lexend, Lexend Deca, and JetBrains), so they are not loaded from Google Fonts. The framework loads its CSS and JavaScript only when a block on the page needs them. `style.css` still contains a few rules of its own: linked-heading hover color, hidden gravatar captions, wide and full alignment inside post content, and payment-icon layout.
 
-`readme.txt` is the public summary: a token-based block theme with color, type, and spacing scales, compiled custom blocks, a large pattern library, WooCommerce templates, dark and light mode, RTL, and an accessibility-ready foundation. This inventory counts the files: 50 templates and 234 patterns.
+`readme.txt` is the public summary: a token-based block theme with color, type, and spacing scales, compiled custom blocks, a large pattern library, WooCommerce templates, dark and light mode, RTL, and an accessibility-ready foundation. This inventory counts the files: 50 templates and 229 patterns.
 
 Directory tags in `style.css`: accessibility-ready, block-patterns, block-styles, blog, custom-colors, custom-logo, custom-menu, e-commerce, editor-style, featured-images, footer-widgets, full-site-editing, full-width-template, grid-layout, one-column, portfolio, rtl-language-support, sticky-post, style-variations, template-editing, threaded-comments, three-columns, translation-ready, two-columns, wide-blocks.
 
@@ -260,7 +260,7 @@ Shop styling that also ships in the theme framework, and applies with WooCommerc
 
 ## Patterns
 
-`patterns/` contains **234 registered patterns** in 28 folders. The registrar loads `*.php` in each folder and skips files whose names start with a dot. 52 files set `Inserter: false`: all 48 in `template`, the 3 in `hidden`, and `utility/patterns.php`. Patterns in the `hidden` category are also kept out of the inserter by the pattern loader. Modal starters are owned by the companion plugin, not this tree.
+`patterns/` contains **231 registered patterns** in 28 folders. The registrar loads `*.php` in each folder and skips files whose names start with a dot. 52 files set `Inserter: false`: all 48 in `template`, the 3 in `hidden`, and `utility/patterns.php`. Patterns in the `hidden` category are also kept out of the inserter by the pattern loader. Modal starters are owned by the companion plugin, not this tree.
 
 Inserter category labels match the folder name, with `cta` and `faq` shown as CTA and FAQ. Registered slugs are the category plus the file's `Slug` header, for example `hero-split`. The full slug list is in the [Pattern Reference](reference/pattern-reference.md).
 
@@ -309,7 +309,7 @@ Inserter category labels match the folder name, with `cta` and `faq` shown as CT
 | Pattern | Description |
 | --- | --- |
 | Money-Back Guarantee | A money-back guarantee section with SVG icon, heading, and description. |
-| Payment Icons | Accepted payment method icons that inherit the theme dark/light color scheme. Use Payment Icons (Brand Colors) for original card colors. |
+| Payment Icons | Accepted payment method icons that inherit dark/light (`payment/*-outline` mono-outline marks). |
 | Product Comparison | A side-by-side product comparison table pattern for comparing product features. |
 | Product Reviews | A standalone product reviews section with star rating summary and individual review cards. |
 | Recently Viewed Products | A section displaying recently viewed products using a product collection grid. |
@@ -317,15 +317,15 @@ Inserter category labels match the folder name, with `cta` and `faq` shown as CT
 | Size Guide | An expandable size guide table pattern for apparel and clothing stores. |
 | Trust Badges | A row of inline SVG trust icons for secure checkout, money-back guarantee, free shipping, and 24/7 support. |
 
-### contact (5)
+### contact (3)
 
 | Pattern | Description |
 | --- | --- |
 | Form Boxed | A boxed contact form layout. |
-| Contact Form Map Overlay | A contact form with map overlay background. |
-| Contact Form Map | A contact form with embedded map. |
 | Contact Icons | Contact information with icons. |
 | Contact Two Column | A two-column contact section with form and info. |
+
+Contact Form Map and Contact Form Map Overlay ship in the companion plugin (`aegis/form-map`, `aegis/form-map-overlay`) when the Map block is enabled.
 
 ### cta (7)
 
@@ -525,14 +525,13 @@ Inserter category labels match the folder name, with `cta` and `faq` shown as CT
 | --- | --- |
 | Sidebar Default | A complete blog sidebar with author bio, search, recent posts, categories, archives, calendar, tags, and social links. |
 
-### slider (7)
+### slider (6)
 
 | Pattern | Description |
 | --- | --- |
 | Books Slider | A full-width book slider with cover image on the left and title, description, and CTAs on the right. |
 | Features Slider | A features carousel displaying service cards with icons and descriptions. |
 | Hero Slider | A full-width hero slider with call-to-action buttons. |
-| Latest Posts Carousel | A card carousel of the latest posts with featured image, category, date, title, and excerpt. |
 | Portfolio Carousel | A multi-slide portfolio carousel showcasing projects with hover overlays. |
 | Team Carousel | A team members carousel with profile photos and social links. |
 | Testimonials Slider | A testimonials carousel with customer reviews, avatars, and star ratings. |
@@ -608,13 +607,11 @@ Inserter category labels match the folder name, with `cta` and `faq` shown as CT
 | Taxonomy Product Category | Not shown in the inserter. |
 | Taxonomy Product Tag | Not shown in the inserter. |
 
-### testimonial (6)
+### testimonial (4)
 
 | Pattern | Description |
 | --- | --- |
-| Brands | A brands and partners showcase. |
 | Testimonial Cards Grid | A grid of testimonial cards with ratings. |
-| Logo Cloud | A logo cloud showcasing clients or partners. |
 | Testimonial Quote Large | A large centered testimonial quote. |
 | Testimonial Single | A single testimonial quote. |
 | Testimonial Three Column | A three-column testimonial section. |
@@ -750,11 +747,9 @@ The theme registers icon collections on the WordPress Icon block (`core/icon`). 
 | --- | --- | --- |
 | Social | 44 | `vendor/aegis/icons` |
 | WordPress | 214 | `vendor/aegis/icons` |
-| Payment | 6 | `assets/icons/payment` |
-| Payment (brand colors) | 6 | `assets/icons/payment-brand` |
-| Integrations | 15 | `assets/icons/integrations` (single-color plugin marks) |
+| Payment | 32 | `vendor/aegis/icons/public/icons/payment` (mono + `*-outline` mono-outline marks, Apache-2.0) |
 
-The payment set follows the theme color scheme. The brand-color set keeps the original card colors. Core already ships its own `core` collection; Aegis does not duplicate those glyphs.
+Payment icons come from [svg-credit-card-payment-icons](https://github.com/marcovoliveira/svg-credit-card-payment-icons) (`mono` / `monoOutline`, Apache-2.0 / MIT). Store footers and the Payment Icons pattern use `payment/{name}-outline`. Fills and strokes use `currentColor` for light and dark mode. Core already ships its own `core` collection; Aegis does not duplicate those glyphs.
 
 The theme does not allow SVG uploads. SVG icons and images come from files that ship with the theme or plugins.
 

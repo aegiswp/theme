@@ -39,10 +39,12 @@ use function get_current_screen;
 use function get_current_user_id;
 use function get_template;
 use function get_user_meta;
+use function in_array;
 use function is_admin;
 use function is_wp_error;
 use function sanitize_text_field;
 use function self_admin_url;
+use function sprintf;
 use function update_user_meta;
 use function wp_add_inline_script;
 use function wp_create_nonce;
@@ -118,6 +120,13 @@ class CompanionNotice {
 	public const WELCOME_ARG = 'aegis_welcome';
 
 	/**
+	 * First plugin version that provides the Slider, Toggle, Countdown and Related Posts blocks.
+	 *
+	 * @var string
+	 */
+	public const BLOCKS_MIN_VERSION = '1.1.0';
+
+	/**
 	 * Register admin hooks for the companion notice.
 	 *
 	 * @return void
@@ -129,6 +138,7 @@ class CompanionNotice {
 
 		add_action( 'admin_init', array( $this, 'handle_dismiss' ) );
 		add_action( 'admin_notices', array( $this, 'render_notice' ) );
+		add_action( 'admin_notices', array( $this, 'render_blocks_notice' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_dismiss_script' ) );
 		add_action( 'wp_ajax_aegis_dismiss_companion_notice', array( $this, 'ajax_dismiss' ) );
 		add_filter( 'install_plugin_complete_actions', array( $this, 'append_welcome_to_install_activate' ), 10, 3 );
@@ -326,6 +336,9 @@ class CompanionNotice {
 				?>
 			</p>
 			<p>
+				<?php echo esc_html( $this->get_blocks_message() ); ?>
+			</p>
+			<p>
 				<?php if ( $action_url !== '' ) : ?>
 					<a href="<?php echo esc_url( $action_url ); ?>" class="button button-primary">
 						<?php echo esc_html( $action_label ); ?>
@@ -337,6 +350,53 @@ class CompanionNotice {
 				<a href="<?php echo esc_url( $dismiss_url ); ?>" class="button-link aegis-companion-notice-dismiss-link">
 					<?php esc_html_e( 'Dismiss', 'aegis' ); ?>
 				</a>
+			</p>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Message explaining that the Aegis blocks come from the plugin.
+	 *
+	 * @return string
+	 */
+	private function get_blocks_message(): string {
+		return sprintf(
+			/* translators: %s: Minimum Aegis plugin version. */
+			__( 'The Aegis blocks (Slider, Toggle, Countdown, Related Posts) are provided by the Aegis plugin version %s or newer.', 'aegis' ),
+			self::BLOCKS_MIN_VERSION
+		);
+	}
+
+	/**
+	 * Warn on the themes and plugins screens when the active plugin is too old to provide the blocks.
+	 *
+	 * The install/activate notice covers a missing or inactive plugin; this one covers an active but older plugin.
+	 *
+	 * @return void
+	 */
+	public function render_blocks_notice(): void {
+		if ( get_template() !== 'aegis' || ! $this->is_plugin_active() ) {
+			return;
+		}
+
+		if ( ! current_user_can( 'update_plugins' ) && ! current_user_can( 'install_plugins' ) ) {
+			return;
+		}
+
+		$screen = get_current_screen();
+		if ( ! $screen || ! in_array( $screen->id, array( 'themes', 'plugins', 'update-core' ), true ) ) {
+			return;
+		}
+
+		if ( GitHubUpdater::plugin_requirement_met( self::BLOCKS_MIN_VERSION ) ) {
+			return;
+		}
+		?>
+		<div class="notice notice-warning aegis-companion-blocks-notice">
+			<p>
+				<?php echo esc_html( $this->get_blocks_message() ); ?>
+				<a href="<?php echo esc_url( self_admin_url( 'plugins.php' ) ); ?>"><?php esc_html_e( 'Go to Plugins', 'aegis' ); ?></a>
 			</p>
 		</div>
 		<?php

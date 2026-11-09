@@ -7,6 +7,11 @@
 
 declare( strict_types=1 );
 
+// Dev tool: run from the command line only, never over HTTP.
+if ( PHP_SAPI !== 'cli' ) {
+	exit( 1 );
+}
+
 $blocks_dir = __DIR__ . '/../src/Blocks';
 $manifest   = [];
 $files      = glob( $blocks_dir . '/*/block.json' ) ?: [];

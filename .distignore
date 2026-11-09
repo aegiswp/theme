@@ -50,7 +50,11 @@ tools/
 tools/wpaudit/
 vendor/aegis/wpaudit/
 
-# Vendor dev dependencies (safety net if a zip is built without --no-dev)
+# Vendor dev dependencies (safety net only).
+# Release builds MUST run `composer install --no-dev --optimize-autoloader` first so
+# vendor/composer/autoload_*.php no longer require these paths. Stripping these
+# dirs from a --dev tree without regenerating autoload causes a WSOD
+# (missing myclabs/deep-copy, phpunit, etc.).
 
 vendor/bin/
 vendor/dealerdirect/
@@ -176,10 +180,6 @@ patterns/README.txt
 # Local-only leading-dot pattern drafts (never ship)
 
 patterns/**/.*
-
-# Internal marketing patterns (live site only — not in theme zip)
-
-patterns/custom/
 
 # Empty / legacy
 

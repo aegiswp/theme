@@ -120,6 +120,9 @@ class EditorAssets
 
 		wp_enqueue_script($handle);
 
+		// The main bundle holds most inspector strings, so register its JS translations too.
+		wp_set_script_translations($handle, 'aegis');
+
 		$default = [
 			'siteUrl' => esc_url(get_home_url()),
 			'adminUrl' => esc_url(get_admin_url()),
@@ -769,7 +772,7 @@ class EditorAssets
 			$handle,
 			$this->styles->url . 'editor.css',
 			[],
-			Debug::is_enabled() ? (string) filemtime($this->styles->dir . 'editor.css') : '1.0.0'
+			(string) filemtime( $this->styles->dir . 'editor.css' )
 		);
 
 		wp_enqueue_style($handle);

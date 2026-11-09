@@ -1,4 +1,42 @@
 .wp-block-image{display:flex;flex-wrap:wrap}.wp-block-image:not(.is-placeholder){border:0 !important}.wp-block-image>div{max-width:100% !important;aspect-ratio:inherit;object-fit:inherit;object-position:inherit}.wp-block-image svg{max-width:100%}.wp-block-image:not(.has-background) svg{border-radius:inherit}.wp-block-image:not(.is-placeholder) svg:not(.components-placeholder__illustration){height:auto}.wp-block-image a{display:inherit;object-position:inherit}.wp-block-image[style*="-radius"] img{border-radius:inherit}figure.wp-block-image{text-align:center}figure.wp-block-image.aligncenter{display:block}figure.wp-block-image img{display:block;height:auto;max-width:100%;margin-left:auto;margin-right:auto;object-position:inherit}
+/* Mosaic/CSS grids: equal row height via stretch; cover-fill media centered.
+   Grid items (FE figure / editor block wrapper) use aspect-ratio 3/2 so auto
+   rows size from column width; stretch equalizes narrower cells. Absolute fill
+   applies only to lightbox/media/img — never editor resizable/placeholder UI. */
+.has-display-grid,.has-display-inline-grid{align-items:stretch!important;justify-items:stretch!important}
+/* Grid items */
+.has-display-grid>.wp-block-image,
+.has-display-inline-grid>.wp-block-image,
+.is-layout-grid>.wp-block-image,
+.has-display-grid>.block-editor-block-list__block.wp-block-image,
+.has-display-inline-grid>.block-editor-block-list__block.wp-block-image,
+.has-display-grid>.block-editor-block-list__block:has(> .wp-block-image),
+.has-display-inline-grid>.block-editor-block-list__block:has(> .wp-block-image),
+.block-editor-block-list__block.has-display-grid .block-editor-block-list__block.wp-block-image,
+.block-editor-block-list__block.has-display-inline-grid .block-editor-block-list__block.wp-block-image,
+.block-editor-block-list__block.has-display-grid .block-editor-block-list__block:has(> .wp-block-image),
+.block-editor-block-list__block.has-display-inline-grid .block-editor-block-list__block:has(> .wp-block-image){position:relative;display:block!important;width:100%;min-height:0;align-self:stretch;justify-self:stretch;overflow:hidden;aspect-ratio:3/2;height:auto;margin-left:0!important;margin-right:0!important}
+/* Nested editor figure (rare): fill the wrapper cell that owns aspect-ratio. */
+.has-display-grid .block-editor-block-list__block:not(.wp-block-image)>.wp-block-image,
+.has-display-inline-grid .block-editor-block-list__block:not(.wp-block-image)>.wp-block-image{position:relative;display:block!important;width:100%!important;height:100%!important;max-width:none!important;margin:0!important;aspect-ratio:auto!important}
+/* Beat placeholder 16/9 so empty mosaic tiles share the same 3/2 cell ratio. */
+.has-display-grid>.wp-block-image.is-placeholder,
+.has-display-inline-grid>.wp-block-image.is-placeholder,
+.is-layout-grid>.wp-block-image.is-placeholder,
+.has-display-grid>.block-editor-block-list__block.wp-block-image.is-placeholder,
+.has-display-inline-grid>.block-editor-block-list__block.wp-block-image.is-placeholder{aspect-ratio:3/2!important}
+.has-display-grid .wp-block-image>.aegis-lightbox-media,
+.has-display-inline-grid .wp-block-image>.aegis-lightbox-media,
+.is-layout-grid .wp-block-image>.aegis-lightbox-media,
+.has-display-grid .wp-block-image>a,
+.has-display-inline-grid .wp-block-image>a,
+.is-layout-grid .wp-block-image>a{position:absolute;inset:0;display:block!important;width:100%!important;height:100%!important;max-width:none!important;min-height:0;margin:0!important;margin-inline:0!important}
+.has-display-grid .wp-block-image .components-resizable-box__container,
+.has-display-inline-grid .wp-block-image .components-resizable-box__container,
+.is-layout-grid .wp-block-image .components-resizable-box__container{width:100%!important;height:100%!important;max-width:none!important}
+.has-display-grid .wp-block-image img,
+.has-display-inline-grid .wp-block-image img,
+.is-layout-grid .wp-block-image img{position:absolute;inset:0;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;margin:0!important;object-fit:cover!important;object-position:center center!important}
 /* Fully rounded images must stay circular; height:auto alone follows intrinsic landscape ratios and becomes an oval.
    Attribute selectors match both saved markup (no space) and the editor DOM (space after colon).
    Shrink-wrap the figure: after upload WP often leaves only border-radius on the figure (width moves to img).

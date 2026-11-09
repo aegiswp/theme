@@ -1,6 +1,6 @@
 {
   "name": "aegis-theme",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Aegis - Native Block Framework",
   "author": "Atmostfear Entertainment",
   "license": "GPL-2.0-or-later",
@@ -31,6 +31,7 @@
     "@wordpress/blocks": "^16.2.0",
     "@wordpress/components": "^42.0.0",
     "@wordpress/data": "^10.57.0",
+    "@wordpress/date": "^5.57.0",
     "@wordpress/element": "^9.0.0",
     "@wordpress/env": "^11.17.0",
     "@wordpress/i18n": "^6.30.0",
@@ -44,14 +45,17 @@
     "@simple-git/argv-parser": "^2.0.1",
     "axios": ">=1.15.0",
     "basic-ftp": ">=5.3.0",
+    "fast-uri": "3.1.9",
     "fast-xml-parser": ">=5.7.2",
     "glob": ">=10.5.0",
     "immutable": ">=5.1.9",
+    "js-yaml@5": "5.4.1",
     "launch-editor": ">=2.14.2",
     "lodash": ">=4.17.21",
     "lodash-es": ">=4.17.21",
     "minimatch": ">=9.0.0",
     "postcss": ">=8.5.30",
+    "postcss-selector-parser@6": "6.1.5",
     "qs": ">=6.16.1",
     "serialize-javascript": ">=7.0.5",
     "shell-quote": ">=1.12.0",
@@ -91,7 +95,7 @@
     "audit-patterns:studio": "studio wp eval-file tools/audit-patterns.php",
     "migrate:video": "wp eval-file tools/migrate-aegis-video.php",
     "migrate:video:studio": "studio wp eval-file tools/migrate-aegis-video.php",
-    "translate": "node tools/prepare-translate.js && wp i18n make-pot . languages/aegis.pot --domain=aegis --skip-block-json --skip-theme-json --exclude=node_modules,vendor,.git,dist,.wp-env,patterns/custom && node tools/finish-translate.js",
-    "translate:studio": "node tools/prepare-translate.js && studio wp --path ../../.. i18n make-pot wp-content/themes/aegis wp-content/themes/aegis/languages/aegis.pot --domain=aegis --skip-block-json --skip-theme-json --exclude=node_modules,vendor,.git,dist,.wp-env,patterns/custom && node tools/finish-translate.js"
+    "translate": "node tools/prepare-translate.js && wp i18n make-pot . languages/aegis.pot --domain=aegis --skip-block-json --skip-theme-json --exclude=node_modules,vendor,.git,dist,.wp-env && node tools/finish-translate.js",
+    "translate:studio": "node tools/prepare-translate.js && studio wp --path ../../.. i18n make-pot wp-content/themes/aegis wp-content/themes/aegis/languages/aegis.pot --domain=aegis --skip-block-json --skip-theme-json --exclude=node_modules,vendor,.git,dist,.wp-env && node tools/finish-translate.js"
   }
 }

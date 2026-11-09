@@ -77,8 +77,16 @@ $interval       = $attributes['interval'] ?? 5000;
 $direction      = $attributes['direction'] ?? 'ltr';
 $height         = $attributes['height'] ?? '';
 $breakpoints    = $attributes['breakpoints'] ?? true;
-$gap_raw        = $attributes['style']['spacing']['blockGap'] ?? '0';
-$gap            = is_array( $gap_raw ) ? ( $gap_raw['left'] ?? $gap_raw['horizontal'] ?? '0' ) : $gap_raw;
+$gap_raw = $attributes['style']['spacing']['blockGap'] ?? '0';
+$gap     = is_array( $gap_raw ) ? ( $gap_raw['left'] ?? $gap_raw['horizontal'] ?? '0' ) : $gap_raw;
+$gap     = is_string( $gap ) ? $gap : '0';
+
+// Splide needs a real CSS length. Convert WP preset tokens
+// (`var:preset|spacing|md`) to `var(--wp--preset--spacing--md)`.
+if ( $gap !== '' && $gap !== '0' && class_exists( '\Aegis\DOM\CSS' ) ) {
+	$resolved = \Aegis\DOM\CSS::format_custom_property( $gap );
+	$gap      = is_string( $resolved ) && $resolved !== '' ? $resolved : $gap;
+}
 
 $extra_on = static function ( string $key ): bool {
 	if ( class_exists( '\Aegis\Framework\ServiceProvider' ) ) {

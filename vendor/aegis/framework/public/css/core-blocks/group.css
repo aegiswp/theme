@@ -1,1 +1,9 @@
 .wp-block-column>.wp-block-group{max-width:100% !important}.wp-block-group.is-vertical{flex-direction:column;gap:1em}:where(.wp-block-group.has-background){padding:0}
+/* Sticky vertical stacks (sidebar): stretch cards and their widgets to one width.
+   Core defaults vertical flex to align-items:flex-start, so search/calendar/lists shrink-wrap. */
+.wp-block-group.is-position-sticky.is-vertical.is-layout-flex{align-items:stretch!important}
+.wp-block-group.is-position-sticky.is-vertical.is-layout-flex>.wp-block-group{width:100%;max-width:100%;box-sizing:border-box}
+.wp-block-group.is-position-sticky .is-style-surface.is-vertical.is-layout-flex{align-items:stretch!important}
+.wp-block-group.is-position-sticky .is-style-surface :is(.wp-block-search,.wp-block-calendar,.wp-block-categories,.wp-block-categories-list,.wp-block-archives,.wp-block-archives-list,.wp-block-latest-posts,.wp-block-latest-posts__list,.wp-block-tag-cloud){width:100%!important;max-width:100%;box-sizing:border-box}
+.wp-block-group.is-position-sticky .is-style-surface .wp-block-search__inside-wrapper{width:100%;max-width:100%}
+.wp-block-group.is-position-sticky .is-style-surface .wp-block-calendar table{width:100%}

@@ -1,4 +1,9 @@
 <?php
+// Dev tool: run from the command line only, never over HTTP.
+if ( PHP_SAPI !== 'cli' ) {
+	exit( 1 );
+}
+
 $content = do_blocks( '<!-- wp:pattern {"slug":"sidebar-default"} /-->' );
 
 foreach ( array( 'wp-block-avatar', 'About the Author', 'wp-block-calendar', 'wp-block-latest-posts', 'wp-block-categories', 'wp-block-archives', 'wp-block-tag-cloud', 'wp-block-social-links', 'is-style-newsletter' ) as $needle ) {

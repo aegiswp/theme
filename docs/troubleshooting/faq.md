@@ -6,7 +6,7 @@ This page answers common questions about the Aegis theme.
 
 ### What is Aegis?
 
-Aegis is a WordPress Full Site Editing (FSE) block theme built for performance and flexibility. It provides a zero-base loading architecture, 60 style variations, **234 theme block patterns** in 28 category folders (plus companion plugin and Pro patterns), and deep integration with the WordPress Site Editor.
+Aegis is a WordPress Full Site Editing (FSE) block theme built for performance and flexibility. It provides a zero-base loading architecture, 60 style variations, **232 theme block patterns** in 28 category folders (plus companion plugin and Pro patterns), and deep integration with the WordPress Site Editor.
 
 ### What does "zero-base loading" mean?
 
@@ -117,7 +117,7 @@ Aegis includes 50 templates: 10 WordPress hierarchy templates, 11 page and post 
 
 ### How many patterns are included?
 
-**234 theme patterns** in 28 category folders. The companion plugin adds Modal starters and WooCommerce patterns (gated on dependencies). Pro adds premium marketing layouts. See [[pattern-reference]] for theme categories, [Plugin Patterns](../../../../plugins/aegis/docs/features/plugin-patterns.md), and [Pro Patterns](../../../../plugins/aegis-pro/docs/patterns/pro-patterns.md).
+**232 theme patterns** in 28 category folders. The companion plugin adds Modal starters and WooCommerce patterns (gated on dependencies). Pro adds premium marketing layouts. See [[pattern-reference]] for theme categories, [Plugin Patterns](../../../../plugins/aegis/docs/features/plugin-patterns.md), and [Pro Patterns](../../../../plugins/aegis-pro/docs/patterns/pro-patterns.md).
 
 ### Can I create my own patterns?
 

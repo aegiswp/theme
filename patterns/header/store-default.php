@@ -22,7 +22,7 @@
 
 		<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
 		<div class="wp-block-group">
-			<!-- wp:navigation {"icon":"menu","metadata":{"ignoredHookedBlocks":["woocommerce/customer-account"]},"style":{"spacing":{"padding":{"top":"var:preset|spacing|xxs","bottom":"var:preset|spacing|xxs"}}},"layout":{"type":"flex","justifyContent":"center"}} /-->
+			<!-- wp:navigation {"ariaLabel":"<?php echo esc_attr__( 'Main menu', 'aegis' ); ?>","icon":"menu","metadata":{"ignoredHookedBlocks":["woocommerce/customer-account"]},"style":{"spacing":{"padding":{"top":"var:preset|spacing|xxs","bottom":"var:preset|spacing|xxs"}}},"layout":{"type":"flex","justifyContent":"center"}} /-->
 		</div>
 		<!-- /wp:group -->
 

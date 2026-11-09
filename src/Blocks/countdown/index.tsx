@@ -13,6 +13,7 @@ import type { CountdownAttributes } from './edit';
 import save from './save';
 import type { BlockConfiguration } from '@wordpress/blocks';
 import metadata from './block.json';
+import './editor.scss';
 import './style.scss';
 
 const icon = (

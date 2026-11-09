@@ -1,6 +1,6 @@
 # Block Patterns
 
-Aegis ships with **234 theme block patterns** in **28 category folders**. Companion **plugin** patterns (Modal starters when Modal is enabled; WooCommerce patterns when WooCommerce is active) and **Pro** premium patterns are documented separately — [Plugin Patterns](../../../../plugins/aegis/docs/features/plugin-patterns.md) · [Pro Patterns](../../../../plugins/aegis-pro/docs/patterns/pro-patterns.md).
+Aegis ships with **232 theme block patterns** in **28 category folders**. Companion **plugin** patterns (Modal starters when Modal is enabled; WooCommerce patterns when WooCommerce is active) and **Pro** premium patterns are documented separately — [Plugin Patterns](../../../../plugins/aegis/docs/features/plugin-patterns.md) · [Pro Patterns](../../../../plugins/aegis-pro/docs/patterns/pro-patterns.md).
 
 ## Understanding Block Patterns
 
@@ -158,6 +158,8 @@ Developers can register patterns by creating PHP files in the `patterns/` direct
 ```
 
 Aegis registers the file under its first category plus the `Slug` header, so this example becomes `featured-my-feature-section`. Files whose names start with a dot are skipped. To keep your own patterns outside the theme folder, register more folders with the `aegis_pattern_dirs` filter from a plugin.
+
+When a child theme is active, Aegis scans the parent `patterns/` folders first, then the child’s. That keeps inherited templates (header, footer, front page) resolving parent slugs such as `header-default`, while a child file in the same category folder with the same basename replaces the parent pattern. Reference patterns with the Aegis slug (`{category}-{slug}`), not the WordPress `theme/slug` form — core’s pattern file scan is disabled so those theme-prefixed names are never registered.
 
 ## Browsing Patterns by Page Type
 

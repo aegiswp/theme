@@ -28,6 +28,11 @@ use function wp_list_pluck;
 final class RelatedPostsQuery {
 
 	/**
+	 * Most posts one block may query. Matches the block editor's Number of Posts range.
+	 */
+	public const MAX_POSTS = 12;
+
+	/**
 	 * Run a related posts query with optional fallback.
 	 *
 	 * @param int                  $post_id         Current post ID.
@@ -80,7 +85,7 @@ final class RelatedPostsQuery {
 	public static function latest( int $posts_per_page, string $post_type = 'post', array $options = array() ): ?WP_Query {
 		$query_args = array(
 			'post_type'           => $post_type,
-			'posts_per_page'      => $posts_per_page,
+			'posts_per_page'      => max( 1, min( self::MAX_POSTS, $posts_per_page ) ),
 			'ignore_sticky_posts' => true,
 			'no_found_rows'       => true,
 		);
@@ -130,7 +135,7 @@ final class RelatedPostsQuery {
 	public static function build_args( int $post_id, string $post_type, int $posts_per_page, string $taxonomy_source, array $options = array() ): array {
 		$query_args = array(
 			'post_type'           => $post_type,
-			'posts_per_page'      => $posts_per_page,
+			'posts_per_page'      => max( 1, min( self::MAX_POSTS, $posts_per_page ) ),
 			'post__not_in'        => array( $post_id ),
 			'ignore_sticky_posts' => true,
 			'no_found_rows'       => true,

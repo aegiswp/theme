@@ -43,6 +43,7 @@ use function function_exists;
 use function get_option;
 use function get_stylesheet;
 use function get_stylesheet_directory;
+use function get_template_directory;
 use function glob;
 use function in_array;
 use function is_admin;
@@ -54,11 +55,13 @@ use function remove_theme_support;
 use function rest_get_url_prefix;
 use function str_contains;
 use function str_replace;
+use function str_starts_with;
 use function strtoupper;
 use function trailingslashit;
 use function ucwords;
 use function update_option;
 use function wp_get_theme;
+use function wp_normalize_path;
 use function wp_unslash;
 
 /**
@@ -96,7 +99,7 @@ class Patterns implements Renderable {
 	}
 
 	/**
-	 * Manually registers default patterns to avoid loading in child themes.
+	 * Manually registers theme patterns (core file scan is disabled).
 	 *
 	 * @since 1.0.0
 	 *
@@ -167,7 +170,7 @@ class Patterns implements Renderable {
 				}
 
 				// Plugin commerce patterns own these slugs when WooCommerce is active.
-				if ( $this->skip_theme_commerce_overlay( $category, $basename ) ) {
+				if ( $this->skip_theme_commerce_overlay( $category, $basename, $file ) ) {
 					continue;
 				}
 
@@ -473,12 +476,16 @@ HTML;
 	/**
 	 * Skip theme patterns that the companion plugin overlays when WooCommerce is on.
 	 *
-	 * `header-default` stays in the theme (no Woo blocks) so the site header
-	 * still resolves when WooCommerce is inactive or the companion plugin is
-	 * not loaded. Only skip when the plugin is present and will register the
-	 * mini-cart overlay for the same slug.
+	 * Only the parent theme `header/default` is skipped so the plugin can
+	 * register its mini-cart `header-default`. A child theme that ships its
+	 * own `header/default.php` keeps that pattern. Without the companion
+	 * plugin or WooCommerce, the theme header stays registered.
+	 *
+	 * @param string $category Pattern category directory name.
+	 * @param string $basename Pattern file basename without `.php`.
+	 * @param string $file     Absolute path to the pattern file.
 	 */
-	private function skip_theme_commerce_overlay( string $category, string $basename ): bool {
+	private function skip_theme_commerce_overlay( string $category, string $basename, string $file ): bool {
 		if ( 'header' !== $category || 'default' !== $basename ) {
 			return false;
 		}
@@ -488,11 +495,22 @@ HTML;
 			return false;
 		}
 
-		return \Aegis\Plugin\Integrations\WooCommerce::is_plugin_active();
+		if ( ! \Aegis\Plugin\Integrations\WooCommerce::is_plugin_active() ) {
+			return false;
+		}
+
+		$template_dir = trailingslashit( wp_normalize_path( get_template_directory() ) );
+
+		return str_starts_with( wp_normalize_path( $file ), $template_dir );
 	}
 
 	/**
 	 * Returns array of pattern directories.
+	 *
+	 * Parent patterns must stay registered when a child theme is active:
+	 * inherited templates and parts (header, footer, front-page) reference
+	 * parent slugs such as `header-default` and `pages-home`. Child dirs are
+	 * listed after the parent so same category/basename files override.
 	 *
 	 * @since 1.0.0
 	 *
@@ -502,16 +520,17 @@ HTML;
 		$template_dir   = get_template_directory();
 		$stylesheet_dir = get_stylesheet_directory();
 		$default_dirs   = [];
+
+		// Parent first when a child is active; stylesheet alone when it is the parent.
+		if ( $template_dir !== $stylesheet_dir ) {
+			$default_dirs[] = $template_dir . '/patterns';
+		}
+
 		$default_dirs[] = $stylesheet_dir . '/patterns';
 
 		$dirs = apply_filters( 'aegis_pattern_dirs', $default_dirs );
 
 		$category_dirs = [];
-
-		// Register parent template patterns.
-		if ( $template_dir !== $stylesheet_dir ) {
-			$category_dirs[] = $template_dir . '/patterns/template';
-		}
 
 		foreach ( $dirs as $dir ) {
 			$dir = trailingslashit( $dir );

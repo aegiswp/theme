@@ -1,4 +1,9 @@
 <?php
+// Dev tool: run from the command line only, never over HTTP.
+if ( PHP_SAPI !== 'cli' ) {
+	exit( 1 );
+}
+
 $revision = get_post( 2294 );
 if ( ! $revision || 'revision' !== $revision->post_type ) {
 	WP_CLI::error( 'Revision 2294 not found.' );

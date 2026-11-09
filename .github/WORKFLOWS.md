@@ -219,29 +219,38 @@ Warnings are not blockers on dev branch for faster iteration
 #### What it does:
 - ✓ Validates tag format (semantic versioning)
 - ✓ Runs full test suite (PHPCS, linting, PHPUnit)
-- ✓ Builds production package
-- ✓ Compiles translations (.po → .mo)
-- ✓ Generates SHA256 checksum
-- ✓ Creates **draft** GitHub release
+- ✓ Reinstalls Composer **without** `--dev` and regenerates optimized autoload
+- ✓ Asserts autoload maps do not reference PHPUnit / `myclabs/deep-copy`
+- ✓ Builds installable `aegis.zip` + versioned `aegis-<version>.zip` (rsync + `.distignore`, root folder `aegis/`)
+- ✓ Generates SHA256 checksums
+- ✓ Creates **draft** GitHub release with install-from-Assets callout
 - ✓ Includes validation checklist
+
+#### Installable zip vs GitHub “Source code”
+The workflow already packages **`aegis/`** inside `aegis.zip`. GitHub **also** always attaches automatic **Source code (zip/tar.gz)** archives named after the **repository** (`aegiswp/theme` → downloads like `theme-1.0.2.zip`). Those are the raw git tree, not the WordPress theme package. Users who install Source code get a `theme-1.0.2` folder and often a WSOD from incomplete/dev Composer vendor layout. Tell testers: **Assets → `aegis.zip` only.**
 
 #### If it fails:
 1. Check tag format (must be v1.2.3 or v1.2.3-rc1)
 2. Ensure all tests pass on main branch
 3. Verify composer.lock is up-to-date
+4. If autoload checks fail: never package a `--dev` vendor tree by only excluding `vendor/myclabs` via `.distignore` — run `composer install --no-dev --optimize-autoloader` first
 
 #### Release process:
 1. Add `screenshot.png` (1200×900) at the theme root if not already present
 2. Tag: `git tag v1.2.3 && git push origin v1.2.3`
 3. Wait for release.yml to complete
-4. Review draft release on GitHub
+4. Review draft release on GitHub (confirm Assets list `aegis.zip`, not only Source code)
 5. Verify package contents and checksum
 6. Click "Publish release"
 
 #### Package verification:
 ```bash
-# Download the release and verify checksum
+# Download the release asset aegis.zip (not Source code) and verify checksum
 sha256sum -c aegis.zip.sha256
+# Root folder must be aegis/
+unzip -l aegis.zip | head | grep aegis/style.css
+# Autoload must not reference stripped PHPUnit packages
+unzip -p aegis.zip aegis/vendor/composer/autoload_files.php | grep -E 'myclabs|phpunit' && exit 1 || true
 ```
 
 ---

@@ -57,13 +57,11 @@
 				<p class="has-neutral-600-color has-text-color has-14-font-size"><?php echo esc_html__( 'Enter your email to receive weekly updates. No spam, ever.', 'aegis' ); ?></p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}},"layout":{"type":"flex"}} -->
-				<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
-					<!-- wp:button {"backgroundColor":"neutral-800","width":100,"className":"is-style-fill","fontSize":"15"} -->
-<div class="wp-block-button is-style-fill has-custom-width wp-block-button__width-100"><a class="wp-block-button__link has-neutral-800-background-color has-background has-15-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Get Started', 'aegis' ); ?></a></div>
-<!-- /wp:button -->
+				<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}},"layout":{"type":"constrained"}} -->
+				<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--md)">
+					<!-- wp:search {"label":"","showLabel":false,"placeholder":"Email address","width":100,"widthUnit":"%","buttonText":"Subscribe","buttonPosition":"button-outside","buttonUseIcon":false,"className":"is-style-newsletter"} /-->
 				</div>
-				<!-- /wp:buttons -->
+				<!-- /wp:group -->
 
 				<!-- wp:paragraph {"textColor":"neutral-400","fontSize":"12","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}}} -->
 				<p class="has-neutral-400-color has-text-color has-12-font-size" style="margin-top:var(--wp--preset--spacing--sm)"><?php echo esc_html__( 'By subscribing, you agree to our Privacy Policy. Unsubscribe at any time.', 'aegis' ); ?></p>

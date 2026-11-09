@@ -2,7 +2,7 @@
 /**
  * Title: Talk & Lecture Event
  * Slug: event-talk
- * Categories: pages, events
+ * Categories: pages, event
  * Keywords: talk, lecture, keynote, speaker, presentation, event
  * Description: A focused full page layout for a single talk, lecture, or keynote presentation.
  * Viewport Width: 1280
@@ -10,7 +10,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["pages","events"],"patternName":"event-talk"},"align":"full","layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"categories":["pages","event"],"patternName":"event-talk"},"align":"full","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull">
 
 	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}},"border":{"bottom":{"color":"var:preset|color|neutral-100","width":"1px"}}},"layout":{"type":"constrained"}} -->

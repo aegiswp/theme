@@ -318,7 +318,7 @@ class DOM {
 	 * gets `noopener` (and never `opener`), so the opened page cannot reach
 	 * back through `window.opener`.
 	 *
-	 * @since 1.0.0
+	 * @since 1.0.2
 	 *
 	 * @param DOMElement $link   The link element.
 	 * @param string     $target Target from block attributes.

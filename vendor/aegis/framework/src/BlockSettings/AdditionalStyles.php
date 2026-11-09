@@ -58,7 +58,7 @@ class AdditionalStyles implements Renderable {
 	 * Core kses runs inline `style` attributes through safecss_filter_attr(),
 	 * but not block attributes, so the same filter is applied here.
 	 *
-	 * @since 1.0.0
+	 * @since 1.0.2
 	 *
 	 * @param string $content Slashed post content.
 	 *
@@ -76,6 +76,8 @@ class AdditionalStyles implements Renderable {
 
 	/**
 	 * Runs `additionalStyles` through safecss_filter_attr() in blocks and inner blocks.
+	 *
+	 * @since 1.0.2
 	 *
 	 * @param array $blocks Parsed blocks.
 	 *

@@ -47,7 +47,7 @@ if ( '' === trim( $aegis_sidebar_author_bio ) ) {
 $aegis_sidebar_author_url = $aegis_sidebar_author_id ? get_author_posts_url( $aegis_sidebar_author_id ) : home_url( '/' );
 ?>
 
-<!-- wp:group {"metadata":{"categories":["sidebar"],"patternName":"sidebar-default","name":"Sidebar Default"},"style":{"spacing":{"blockGap":"var:preset|spacing|md"},"position":{"type":"sticky","top":"0px"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+<!-- wp:group {"metadata":{"categories":["sidebar"],"patternName":"sidebar-default","name":"Sidebar Default"},"style":{"spacing":{"blockGap":"var:preset|spacing|md"},"position":{"type":"sticky","top":"0px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 <div class="wp-block-group">
 
 	<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"},"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
@@ -80,7 +80,7 @@ $aegis_sidebar_author_url = $aegis_sidebar_author_id ? get_author_posts_url( $ae
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"},"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+	<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"},"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 	<div class="wp-block-group is-style-surface" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
 		<!-- wp:heading {"level":3,"fontSize":"16"} -->
 		<h3 class="wp-block-heading has-16-font-size"><?php echo esc_html__( 'Search', 'aegis' ); ?></h3>
@@ -90,7 +90,7 @@ $aegis_sidebar_author_url = $aegis_sidebar_author_id ? get_author_posts_url( $ae
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"},"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+	<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"},"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 	<div class="wp-block-group is-style-surface" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
 		<!-- wp:heading {"level":3,"fontSize":"16"} -->
 		<h3 class="wp-block-heading has-16-font-size"><?php echo esc_html__( 'Recent Posts', 'aegis' ); ?></h3>
@@ -100,7 +100,7 @@ $aegis_sidebar_author_url = $aegis_sidebar_author_id ? get_author_posts_url( $ae
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"},"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+	<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"},"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 	<div class="wp-block-group is-style-surface" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
 		<!-- wp:heading {"level":3,"fontSize":"16"} -->
 		<h3 class="wp-block-heading has-16-font-size"><?php echo esc_html__( 'Categories', 'aegis' ); ?></h3>
@@ -110,7 +110,7 @@ $aegis_sidebar_author_url = $aegis_sidebar_author_id ? get_author_posts_url( $ae
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"},"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+	<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"},"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 	<div class="wp-block-group is-style-surface" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
 		<!-- wp:heading {"level":3,"fontSize":"16"} -->
 		<h3 class="wp-block-heading has-16-font-size"><?php echo esc_html__( 'Archives', 'aegis' ); ?></h3>
@@ -120,7 +120,7 @@ $aegis_sidebar_author_url = $aegis_sidebar_author_id ? get_author_posts_url( $ae
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"},"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+	<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"},"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 	<div class="wp-block-group is-style-surface" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
 		<!-- wp:heading {"level":3,"fontSize":"16"} -->
 		<h3 class="wp-block-heading has-16-font-size"><?php echo esc_html__( 'Calendar', 'aegis' ); ?></h3>
@@ -130,7 +130,7 @@ $aegis_sidebar_author_url = $aegis_sidebar_author_id ? get_author_posts_url( $ae
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"},"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+	<!-- wp:group {"className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|md","right":"var:preset|spacing|md"},"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 	<div class="wp-block-group is-style-surface" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--md)">
 		<!-- wp:heading {"level":3,"fontSize":"16"} -->
 		<h3 class="wp-block-heading has-16-font-size"><?php echo esc_html__( 'Tags', 'aegis' ); ?></h3>

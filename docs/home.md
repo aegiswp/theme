@@ -4,7 +4,7 @@ Welcome to the official documentation for the Aegis WordPress theme. Aegis is a 
 
 ## About Aegis
 
-The theme provides 50 templates, 234 patterns, 60 style variations, and six theme-registered custom blocks (Countdown, Slider, Slide, Toggle, Toggle Content, Related Posts). Video uses WordPress **`core/video`**, enhanced by the Aegis framework (see [[enhanced-core-blocks]]). The **Aegis framework** (`vendor/aegis/framework`) enhances 37 core blocks and registers block variations.
+The theme provides 50 templates, 230 patterns, 60 style variations, and six theme-registered custom blocks (Countdown, Slider, Slide, Toggle, Toggle Content, Related Posts). Video uses WordPress **`core/video`**, enhanced by the Aegis framework (see [[enhanced-core-blocks]]). The **Aegis framework** (`vendor/aegis/framework`) enhances 37 core blocks and registers block variations.
 
 ![A site using the Aegis theme in its default style: the header with logo and navigation, a hero section with a large heading, and a grid of feature cards below. Numbered callouts: 1 Header with the logo and navigation; 2 A hero section with a heading and buttons.](screenshots/aegis-default.png)
 
@@ -65,7 +65,7 @@ Companion products extend the theme (documented separately):
 ### Reference
 
 - [[template-reference]] — 50 templates
-- [[pattern-reference]] — 234 patterns with slugs
+- [[pattern-reference]] — 230 patterns with slugs
 - [[style-variations-reference]] — 60 style variations
 - [[css-variables-reference]] — Every design token as a CSS custom property
 - [[hooks-and-filters]] — Actions and filters

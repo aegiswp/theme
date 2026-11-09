@@ -1,4 +1,9 @@
 <?php
+// Dev tool: run from the command line only, never over HTTP.
+if ( PHP_SAPI !== 'cli' ) {
+	exit( 1 );
+}
+
 echo 'repo=' . ( class_exists( '\Aegis\Plugin\Settings\Repository' ) ? '1' : '0' ) . "\n";
 if ( class_exists( '\Aegis\Plugin\Settings\Repository' ) ) {
 	echo 'wc_integration=' . ( \Aegis\Plugin\Settings\Repository::is_integration_enabled( 'woocommerce' ) ? '1' : '0' ) . "\n";

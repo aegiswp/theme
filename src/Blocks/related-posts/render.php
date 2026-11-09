@@ -24,7 +24,9 @@ if ( ! $is_editor_preview && ( ! is_singular() || is_front_page() ) ) {
 }
 
 $posts_per_page     = (int) ( $attributes['postsPerPage'] ?? 3 );
-$columns            = (int) ( $attributes['columns'] ?? 3 );
+$columns            = max( 1, min( 4, (int) ( $attributes['columns'] ?? 3 ) ) );
+// Always fetch enough posts to fill the requested columns.
+$posts_per_page     = max( $posts_per_page, $columns );
 $show_image         = (bool) ( $attributes['showFeaturedImage'] ?? true );
 $show_date          = (bool) ( $attributes['showDate'] ?? true );
 $show_excerpt       = (bool) ( $attributes['showExcerpt'] ?? true );
@@ -108,6 +110,7 @@ $wrapper_attrs = get_block_wrapper_attributes(
 				'columns-' . $columns,
 			)
 		),
+		'style'      => '--aegis-related-columns:' . $columns . ';',
 		'aria-label' => ! empty( $heading ) ? $heading : __( 'Related Posts', 'aegis' ),
 	)
 );

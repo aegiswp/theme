@@ -70,6 +70,28 @@ interface SliderConfig {
 		};
 	}
 
+	/**
+	 * Resolve gap for Splide. WordPress stores presets as
+	 * `var:preset|spacing|md`; Splide needs `var(--wp--preset--spacing--md)`.
+	 *
+	 * @param gap Raw data-gap attribute.
+	 */
+	function resolveGap( gap: string ): string {
+		const value = gap.trim();
+
+		if ( value === '' || value === '0' ) {
+			return '0';
+		}
+
+		if ( value.startsWith( 'var:' ) ) {
+			return (
+				'var(--wp--' + value.slice( 4 ).split( '|' ).join( '--' ) + ')'
+			);
+		}
+
+		return value;
+	}
+
 	function parseConfig( el: HTMLElement ): SliderConfig {
 		const pro = parseProConfig( el );
 		const proLazy = parseProLazyConfig( el );
@@ -99,7 +121,7 @@ interface SliderConfig {
 			height: el.getAttribute( 'data-height' ) || '',
 			breakpoints: el.getAttribute( 'data-breakpoints' ) !== 'false',
 			keyboard: el.getAttribute( 'data-keyboard' ) !== 'false',
-			gap: el.getAttribute( 'data-gap' ) || '0',
+			gap: resolveGap( el.getAttribute( 'data-gap' ) || '0' ),
 			lightbox: el.getAttribute( 'data-lightbox' ) === 'true',
 			lazyLoad,
 			lazyPreload: parseInt(

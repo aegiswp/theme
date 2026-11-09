@@ -326,7 +326,7 @@ Aegis is a comprehensive Full Site Editing (FSE) theme that extends the capabili
 
 **Advanced Text Formats**: Extended text formatting options including clear formatting, underline, gradient text, dynamic font sizes, and more. These formatting tools provide fine-grained control over typography and text presentation.
 
-**Pattern Library**: Comprehensive collection of 234 block patterns organized across 28 category folders including author pages, blog layouts, commerce templates, contact forms, CTAs, FAQs, features, footers, headers, heroes, page layouts, portfolios, pricing, testimonials, and utility patterns (Modal starters live in the companion plugin). All patterns are designed for performance and accessibility.
+**Pattern Library**: Comprehensive collection of 232 block patterns organized across 28 category folders including author pages, blog layouts, commerce templates, contact forms, CTAs, FAQs, features, footers, headers, heroes, page layouts, portfolios, pricing, testimonials, and utility patterns (Modal starters live in the companion plugin). All patterns are designed for performance and accessibility.
 
 ### Enhanced Core Blocks
 
@@ -588,7 +588,7 @@ If you find setting up WordPress locally overwhelming, consider using [wp-env](h
 #### Requirements
 
 - [Aegis](https://github.com/aegiswp/theme/releases/)
-- [WordPress 7.0+](https://wordpress.org/download/) (Tested up to 7.1.3)
+- [WordPress 7.0+](https://wordpress.org/download/) (tested up to 7.1.4)
 - PHP **8.1+** (Node **22.13+** and npm **10+** for building blocks and running wp-env; see `package.json` `engines` and `.nvmrc`)
 - License: [GPLv2](https://www.gnu.org/licenses/gpl-2.0.html) or later.
 
@@ -797,6 +797,8 @@ No, and this is by design. Although we follow a strict internal roadmap, we choo
 The thumbnail on this README.md file:
 
 Aegis by [Atmostfear Entertainment S.A.S.](https://www.atmostfear-entertainment.com/), CCO
+
+Payment mono and mono-outline icons (`payment/{name}`, `payment/{name}-outline`) are from [svg-credit-card-payment-icons](https://github.com/marcovoliveira/svg-credit-card-payment-icons) (Apache License 2.0; package.json also lists MIT). Fills and strokes are normalized to `currentColor` for theme dark/light mode.
 
 
 ## Suggestions?

@@ -15,14 +15,14 @@
 		<!-- wp:group {"className":"is-style-surface has-background-white-color","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}},"backgroundColor":"neutral-100","layout":{"type":"default"}} -->
 		<div class="wp-block-group is-style-surface has-background-white-color has-neutral-100-background-color has-background" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0"><!-- wp:post-featured-image {"isLink":true,"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"}},"aspectRatio":{"all":""},"objectFit":{"all":""}}} /-->
 
-			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","right":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm","left":"var:preset|spacing|sm"},"margin":{"top":"0","right":"0","bottom":"0","left":"0"}}},"layout":{"type":"default"}} -->
+			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","right":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm","left":"var:preset|spacing|sm"},"margin":{"top":"0","right":"0","bottom":"0","left":"0"},"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 			<div class="wp-block-group" style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--sm)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs","margin":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 				<div class="wp-block-group" style="margin-top:0;margin-bottom:0"><!-- wp:post-date {"metadata":{"bindings":{"datetime":{"source":"core/post-data","args":{"field":"date"}}}},"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"fontSize":"14"} /--></div>
 				<!-- /wp:group -->
 
-				<!-- wp:post-title {"level":3,"isLink":true,"fontSize":"24"} /-->
+				<!-- wp:post-title {"level":3,"isLink":true,"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"fontSize":"24"} /-->
 
-				<!-- wp:post-excerpt {"hideReadMore":true} /-->
+				<!-- wp:post-excerpt {"hideReadMore":true,"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} /-->
 			</div>
 			<!-- /wp:group -->
 		</div>

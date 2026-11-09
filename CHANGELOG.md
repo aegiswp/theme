@@ -5,6 +5,69 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - Unreleased
+
+### Added
+
+- Payment icon set in the icons package: mono and mono-outline marks (`payment/{name}`, `payment/{name}-outline`) from [svg-credit-card-payment-icons](https://github.com/marcovoliveira/svg-credit-card-payment-icons) (Apache-2.0). Store footers and the Payment Icons pattern use `*-outline`.
+
+### Changed
+
+- The image lightbox is off by default (`settings.lightbox.enabled` is `false` in `theme.json`). Turn it on per image in the editor.
+- **Blocks move to the Aegis plugin**: Slider, Slide, Toggle, Toggle Content, Countdown and Related Posts are now provided by the Aegis plugin 1.1.0 or newer when it is active. The theme still contains the blocks and registers each one only if the plugin has not; with the plugin providing them, the theme's duplicate Slider and Related Posts patterns are hidden. Existing content is unchanged. The next theme release removes the blocks from the theme.
+- **Update hold**: the GitHub updater does not offer a release whose notes contain `Requires Aegis plugin: X.Y.Z` until the Aegis plugin is installed, active and at least that version, and shows an admin notice explaining the wait.
+- Companion plugin notice mentions that the Aegis blocks need plugin 1.1.0 or newer, and warns when the active plugin is older.
+- **Store Footer Default**: the © and · in the copyright line display correctly (the file was saved in the wrong text encoding).
+- Event page patterns use category `event` (with `pages`) instead of `events`, so sections and full pages share one Event inserter category.
+- Event section patterns add horizontal `lg` padding on full-width groups so wide columns are not flush to the viewport edges.
+- Tested up to WordPress 7.1.4.
+- Related Posts Display and Style Variant inspector controls use Aegis Audio–style visual card pickers (preview glyphs, selected border) instead of toggles and a button group.
+
+### Removed
+
+- The theme's own Video block player (script, stylesheet and settings). The Aegis Video add-on provides the player; the standard WordPress player is used without it.
+- Latest Posts Carousel pattern (`slider-latest-posts`). It uses the Pro Query Loop carousel, so it now ships with Aegis Pro (`patterns/aegis/slider/latest-posts.php`).
+- Integrations icon set (`assets/icons/integrations/`). No longer needed.
+- Theme `payment` and `payment-brand` icon sets under `assets/icons/`. Brand logos live as `payment` in the icons package; `assets/icons/` removed.
+- Slater and Payrexx payment logo sets. Replaced by mono / mono-outline `payment` marks from svg-credit-card-payment-icons.
+- Query Loop “Related Posts” variation from the inserter. Use the `aegis/related-posts` theme block; advanced Query Loop related querying stays on Aegis Pro (`aegisProRelatedPosts`).
+- Duplicate theme Contact Form Map and Contact Form Map Overlay patterns. Keep the companion plugin copies (`aegis/form-map`, `aegis/form-map-overlay`), which register when Map is enabled.
+
+### Fixed
+
+- Child themes that ship `patterns/header/default.php` keep registering `header-default` when WooCommerce is active. Only the parent theme header is left to the companion plugin mini-cart overlay.
+- Slider arrows and dots stay visible on dark hero media in light mode. Overlay controls use white (with a drop shadow); multi-page / `is-arrows-outside` controls still use Neutral 950 so they contrast with the page surface in both modes.
+- Slider multi-slide layouts (`perPage` > 1) render full-width slides on the front end when Block Gap uses a spacing preset (`var:preset|spacing|…`). The gap is now resolved to a CSS custom property before Splide initializes, matching the editor preview.
+- Newsletter Banner, Inline, and Split patterns use the email Search field (`is-style-newsletter`) instead of a Subscribe button only.
+- Newsletter Search style (`is-style-newsletter`) spaces the email field and Subscribe button when the button is outside (CTA / sidebar / blog patterns). Button-inside stays a joined shell.
+- Newsletter style class is kept on the front end (and the search icon stays hidden) so CTA patterns match the editor; signup JS still requires the Newsletter feature.
+- Blog post meta, title, and excerpt spacing. Flow/constrained query stacks get `sm` padding on post title and excerpt (layout support zeroes margins, so padding is used). Flex card stacks keep explicit `gap`. Three Column and related blog patterns updated.
+- Countdown block date picker matches the post Publish schedule picker (site 12/24-hour format, week start, and day/month/year order). Inspector time/AM–PM row alignment matches Publish; editor canvas shows a live countdown preview like the front end.
+- Related Posts Columns control redistributes posts across the grid (and raises post count when needed) instead of leaving empty adjacent columns.
+- Payment icons (`payment/*`) render as theme-adaptive mono marks in the block editor and on the front end. Core icon kses is bypassed via Aegis-sanitized REST content and front-end re-render from disk.
+
+- Author archives include the site header, main landmark, and footer, matching the other archive templates, and show the author name as the page heading.
+- Related Posts queries at most 12 posts per block on the server, the same range as the editor control. A post with a larger saved value no longer loads that many.
+- The icons REST route only caches real icon sets. Requests for unknown set names no longer create cache entries in the database.
+- Header and footer navigation menus have unique accessible names ("Main menu", footer column headings, or "Footer menu N"). Before, footer menus were announced as just a number.
+- Search modal: the Close button is reachable with Tab and is part of the focus trap, and closing returns focus to the button that opened it. The script's cache version is bumped so browsers load the update.
+- Blank template shows its skip-to-content link. It referenced the pattern by a name that was never registered.
+- Block editor settings panels (inspector controls) can be translated: the main editor script now registers its JavaScript translations like the other editor scripts.
+- Block editor Inset control uses the stable `BoxControl` when the editor provides it.
+- Countdown block editor passes a typed date order to the date picker (no change in behavior).
+- Text fields, email and other inputs, selects, and textareas show a 2px focus ring for keyboard users, matching buttons and search. Before, the framework removed the outline and only the 1px border changed. Checkboxes and radios keep their own focus style.
+
+### Security
+
+- Template tags (`{post_title}`, custom fields, and the rest) are escaped for where they appear. Links and image sources only accept allowed URL protocols, so a tag can no longer produce a `javascript:` link. Tags inside `style`, `srcset`, and `on*` attributes are left as-is.
+- Template tags in HTML attributes only show data from publicly viewable posts. Private post titles, excerpts, and custom fields that only the current viewer can read still appear in text, but are no longer placed into links or image URLs that a post author chose.
+- Template tags in `onclick` handlers are escaped with `esc_js()`, so a value cannot end the JS string it sits in.
+- Inline SVG icons converted from a CSS mask are passed through the SVG sanitizer before they are added to the page.
+- The SVG sanitizer outputs nothing if its sanitizer library is missing, instead of returning the SVG unchanged.
+- The block editor's template lookup only reads template and template part files by plain name, and only inside the theme's `templates/` and `parts/` folders. Before, a crafted request could ask it to read an `.html` file elsewhere on the server.
+- Icon names are treated as file names. Names with path characters or `..` no longer resolve, and an icon file must sit inside its icon set's folder. Before, a block with a crafted icon name could render any readable `.svg` file.
+- Developer scripts in `tools/` refuse to run unless started from the command line. They are not part of the release zip, but could previously be triggered by opening their address in a browser on a development copy.
+
 ## [1.0.2] - 2026-10-26
 
 ### Added

@@ -4,7 +4,7 @@ This page lists every block pattern the theme registers from `patterns/`. It is 
 
 WooCommerce block patterns (`wp:woocommerce/*`) and the TI Wishlist template pattern are **not** theme-owned. They register from the [Aegis companion plugin](../../../../plugins/aegis/docs/features/plugin-patterns.md) when WooCommerce (and TI Wishlist, for wishlist) are active. Modal starter patterns also live in the companion plugin. Premium layouts live in [Aegis Pro](../../../../plugins/aegis-pro/docs/patterns/pro-patterns.md).
 
-The theme ships **234 registered block patterns** in **28 category folders**. 52 of them are kept out of the inserter: the 48 `template` patterns, the 3 `hidden` patterns, and `utility-patterns`.
+The theme ships **231 registered block patterns** in **28 category folders**. 52 of them are kept out of the inserter: the 48 `template` patterns, the 3 `hidden` patterns, and `utility-patterns`.
 
 ## How Patterns Are Registered
 
@@ -87,13 +87,13 @@ Folder `patterns/commerce/` · 8 patterns
 
 ### Contact
 
-Folder `patterns/contact/` · 5 patterns
+Folder `patterns/contact/` · 3 patterns
+
+Map contact layouts (`aegis/form-map`, `aegis/form-map-overlay`) live in the companion plugin and register when the Map block is enabled.
 
 | Pattern | Slug | File | Inserter |
 | --- | --- | --- | --- |
 | Form Boxed | `contact-form-boxed` | `form-boxed.php` | Yes |
-| Contact Form Map Overlay | `contact-form-map-overlay` | `form-map-overlay.php` | Yes |
-| Contact Form Map | `contact-form-map` | `form-map.php` | Yes |
 | Contact Icons | `contact-icons` | `icons.php` | Yes |
 | Contact Two Column | `contact-two-column` | `two-column.php` | Yes |
 
@@ -329,14 +329,13 @@ Folder `patterns/sidebar/` · 1 pattern
 
 ### Slider
 
-Folder `patterns/slider/` · 7 patterns
+Folder `patterns/slider/` · 6 patterns
 
 | Pattern | Slug | File | Inserter |
 | --- | --- | --- | --- |
 | Books Slider | `slider-books` | `books.php` | Yes |
 | Features Slider | `slider-features` | `features.php` | Yes |
 | Hero Slider | `slider-hero` | `hero.php` | Yes |
-| Latest Posts Carousel | `slider-latest-posts` | `latest-posts.php` | Yes |
 | Portfolio Carousel | `slider-portfolio` | `portfolio.php` | Yes |
 | Team Carousel | `slider-team` | `team.php` | Yes |
 | Testimonials Slider | `slider-testimonials` | `testimonials.php` | Yes |
@@ -420,13 +419,11 @@ Folder `patterns/template/` · 48 patterns
 
 ### Testimonial
 
-Folder `patterns/testimonial/` · 6 patterns
+Folder `patterns/testimonial/` · 4 patterns
 
 | Pattern | Slug | File | Inserter |
 | --- | --- | --- | --- |
-| Brands | `testimonial-brands` | `brands.php` | Yes |
 | Testimonial Cards Grid | `testimonial-cards-grid` | `cards-grid.php` | Yes |
-| Logo Cloud | `testimonial-logo-cloud` | `logo-cloud.php` | Yes |
 | Testimonial Quote Large | `testimonial-quote-large` | `quote-large.php` | Yes |
 | Testimonial Single | `testimonial-single` | `single.php` | Yes |
 | Testimonial Three Column | `testimonial-three-column` | `three-column.php` | Yes |

@@ -20,12 +20,12 @@
 					<!-- /wp:column -->
 
 					<!-- wp:column {"verticalAlignment":"center","width":""} -->
-					<div class="wp-block-column is-vertically-aligned-center"><!-- wp:group {"align":"wide","layout":{"type":"flex","orientation":"vertical","justifyContent":"left"}} -->
-						<div class="wp-block-group alignwide"><!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","style":{"typography":{"lineHeight":"0"}}} -->
-							<p class="alignleft has-text-align-left is-style-sub-heading alignleft" style="line-height:0"><?php echo esc_html__( 'Featured', 'aegis' ); ?></p>
+					<div class="wp-block-column is-vertically-aligned-center"><!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left"}} -->
+						<div class="wp-block-group alignwide"><!-- wp:paragraph {"align":"left","className":"is-style-sub-heading","style":{"typography":{"lineHeight":"0"},"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
+							<p class="alignleft has-text-align-left is-style-sub-heading alignleft" style="line-height:0;margin-top:0;margin-bottom:0"><?php echo esc_html__( 'Featured', 'aegis' ); ?></p>
 							<!-- /wp:paragraph -->
 
-							<!-- wp:post-title {"isLink":true} /-->
+							<!-- wp:post-title {"isLink":true,"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} /-->
 
 							<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs","margin":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 							<div class="wp-block-group" style="margin-top:0;margin-bottom:0"><!-- wp:post-terms {"term":"category","style":{"typography":{"textDecoration":"none"},"spacing":{"margin":{"top":"0","bottom":"0"}}},"fontSize":"14"} /-->
@@ -37,10 +37,10 @@
 								<!-- wp:post-date {"metadata":{"bindings":{"datetime":{"source":"core/post-data","args":{"field":"date"}}}},"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"fontSize":"14"} /-->
 							</div>
 							<!-- /wp:group -->
+
+							<!-- wp:post-excerpt {"hideReadMore":true,"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} /-->
 						</div>
 						<!-- /wp:group -->
-
-						<!-- wp:post-excerpt {"hideReadMore":true} /-->
 					</div>
 					<!-- /wp:column -->
 				</div>

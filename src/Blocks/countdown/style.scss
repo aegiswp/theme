@@ -103,31 +103,6 @@
 	border: 0;
 }
 
-// Editor placeholder.
-.aegis-countdown-editor__placeholder {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding: 2rem;
-	border: 2px dashed rgba(0, 0, 0, 0.15);
-	border-radius: 4px;
-	text-align: center;
-	color: rgba(0, 0, 0, 0.5);
-
-	.dashicons {
-		font-size: 2rem;
-		width: 2rem;
-		height: 2rem;
-		margin-bottom: 0.5rem;
-	}
-
-	p {
-		margin: 0;
-		font-size: 0.875rem;
-	}
-}
-
 // Reduced motion.
 @media (prefers-reduced-motion: reduce) {
 
@@ -151,10 +126,5 @@
 
 	.aegis-countdown__label {
 		opacity: 1;
-	}
-
-	.aegis-countdown-editor__placeholder {
-		border-color: CanvasText;
-		color: CanvasText;
 	}
 }

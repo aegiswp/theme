@@ -2,7 +2,7 @@
 /**
  * Title: Conference Event
  * Slug: event-conference
- * Categories: pages, events
+ * Categories: pages, event
  * Keywords: conference, summit, tech, speakers, event
  * Description: A professional full page layout for a tech conference or summit.
  * Viewport Width: 1280
@@ -10,7 +10,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["pages"],"patternName":"page-event-conference","name":"Conference Event"},"align":"full","layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"categories":["pages","event"],"patternName":"page-event-conference","name":"Conference Event"},"align":"full","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull"><!-- wp:group {"align":"full","className":"is-style-surface","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xxl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
 	<div class="wp-block-group alignfull is-style-surface" style="padding-top:var(--wp--preset--spacing--xxl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xxl);padding-left:var(--wp--preset--spacing--lg)"><!-- wp:group {"layout":{"type":"constrained","contentSize":"720px"}} -->
 		<div class="wp-block-group"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","justifyContent":"center"}} -->

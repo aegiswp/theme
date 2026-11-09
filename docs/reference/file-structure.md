@@ -54,7 +54,7 @@ src/
     └── related-posts/
 ```
 
-`src/bootstrap.php` starts `CompanionNotice`, `GitHubUpdater`, `BlockRegistrar`, and `NavigationFallback`, and registers the theme's `payment`, `payment-brand`, and `integrations` icon sets. `blocks-manifest.php` is written by `tools/generate-blocks-manifest.php` at the end of `npm run build`; `BlockRegistrar` passes it to `wp_register_block_metadata_collection()`. Do not edit it by hand.
+`src/bootstrap.php` starts `CompanionNotice`, `GitHubUpdater`, `BlockRegistrar`, and `NavigationFallback`. Icon collections under `vendor/aegis/icons/public/icons/` (including `payment`) are discovered automatically. `blocks-manifest.php` is written by `tools/generate-blocks-manifest.php` at the end of `npm run build`; `BlockRegistrar` passes it to `wp_register_block_metadata_collection()`. Do not edit it by hand.
 
 Engine PHP (patterns REST, template expander, dynamic parts, navigation overlay, editor overlay fix, Woo breadcrumbs including Store Breadcrumb delimiter wrap) lives in `vendor/aegis/framework`. Admin dashboard, conditionals, and multi-step checkout live in the companion plugin.
 

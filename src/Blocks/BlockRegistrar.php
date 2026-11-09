@@ -12,8 +12,10 @@ namespace Aegis\Blocks;
 
 use Aegis\Framework\ServiceProvider;
 use WP_Block;
+use WP_Block_Patterns_Registry;
 use WP_Block_Type;
 use WP_Block_Type_Registry;
+use function class_exists;
 use function function_exists;
 use function get_template_directory;
 use function get_template_directory_uri;
@@ -22,13 +24,16 @@ use function is_array;
 use function is_readable;
 use function register_block_type;
 use function unregister_block_pattern;
+use function filemtime;
 use function wp_add_inline_script;
+use function wp_enqueue_script;
 use function wp_json_encode;
 use function wp_register_block_metadata_collection;
 use function wp_register_script;
 use function wp_register_style;
 use function wp_script_is;
 use function wp_scripts;
+use function wp_style_is;
 
 /**
  * Registers theme block directories that contain block.json.
@@ -44,12 +49,46 @@ final class BlockRegistrar {
 		add_action( 'init', array( self::class, 'register_splide_assets' ), 8 );
 		add_action( 'init', array( self::class, 'register' ), 9 );
 		add_action( 'init', array( self::class, 'sync_related_posts_patterns' ), 20 );
+		add_action( 'init', array( self::class, 'sync_plugin_provided_patterns' ), 21 );
 		add_action( 'init', array( self::class, 'bind_slider_view_dependencies' ), 20 );
 		add_action( 'enqueue_block_editor_assets', array( self::class, 'localize_related_posts_features' ) );
 		add_action( 'enqueue_block_editor_assets', array( self::class, 'localize_slider_features' ) );
 		add_action( 'enqueue_block_editor_assets', array( self::class, 'localize_countdown_features' ) );
 		add_action( 'enqueue_block_editor_assets', array( self::class, 'localize_toggle_features' ) );
+		add_action( 'enqueue_block_editor_assets', array( self::class, 'enqueue_related_posts_query_variation' ), 20 );
 		add_filter( 'render_block_context', array( self::class, 'provide_toggle_content_context' ), 10, 3 );
+	}
+
+	/**
+	 * Unregister the legacy Query Loop Related Posts variation so only
+	 * `aegis/related-posts` appears in the inserter.
+	 *
+	 * @return void
+	 */
+	public static function enqueue_related_posts_query_variation(): void {
+		$path = get_template_directory() . '/assets/js/related-posts-query-variation.js';
+		$url  = get_template_directory_uri() . '/assets/js/related-posts-query-variation.js';
+
+		if ( ! is_readable( $path ) ) {
+			return;
+		}
+
+		$handle = 'aegis-related-posts-query-variation';
+		$deps   = array( 'wp-blocks' );
+		$parent = 'aegis-editor';
+
+		// Load after the framework editor script that registers the variation.
+		if ( wp_script_is( $parent, 'registered' ) || wp_script_is( $parent, 'enqueued' ) ) {
+			$deps[] = $parent;
+		}
+
+		wp_enqueue_script(
+			$handle,
+			$url,
+			$deps,
+			(string) filemtime( $path ),
+			true
+		);
 	}
 
 	/**
@@ -82,29 +121,36 @@ final class BlockRegistrar {
 		$splide_ver = isset( $splide_asset['version'] ) ? (string) $splide_asset['version'] : '1.0.0';
 		$auto_ver   = isset( $auto_asset['version'] ) ? (string) $auto_asset['version'] : '1.0.0';
 
-		wp_register_script(
-			'splide',
-			$js_url . 'splide.js',
-			array(),
-			$splide_ver,
-			array(
-				'in_footer' => true,
-				'strategy'  => 'defer',
-			)
-		);
+		// Each handle is guarded so the Aegis plugin's copy (same handles) wins without a duplicate registration.
+		if ( ! wp_script_is( 'splide', 'registered' ) ) {
+			wp_register_script(
+				'splide',
+				$js_url . 'splide.js',
+				array(),
+				$splide_ver,
+				array(
+					'in_footer' => true,
+					'strategy'  => 'defer',
+				)
+			);
+		}
 
-		wp_register_script(
-			'splide-autoscroll',
-			$js_url . 'splide-autoscroll.js',
-			array( 'splide' ),
-			$auto_ver,
-			array(
-				'in_footer' => true,
-				'strategy'  => 'defer',
-			)
-		);
+		if ( ! wp_script_is( 'splide-autoscroll', 'registered' ) ) {
+			wp_register_script(
+				'splide-autoscroll',
+				$js_url . 'splide-autoscroll.js',
+				array( 'splide' ),
+				$auto_ver,
+				array(
+					'in_footer' => true,
+					'strategy'  => 'defer',
+				)
+			);
+		}
 
-		wp_register_style( 'splide', $css_url, array(), $splide_ver );
+		if ( ! wp_style_is( 'splide', 'registered' ) ) {
+			wp_register_style( 'splide', $css_url, array(), $splide_ver );
+		}
 	}
 
 	/**
@@ -232,6 +278,38 @@ final class BlockRegistrar {
 
 		foreach ( self::related_posts_pattern_slugs() as $slug ) {
 			unregister_block_pattern( $slug );
+		}
+	}
+
+	/**
+	 * Whether the Aegis plugin provides these blocks.
+	 *
+	 * True once the plugin's registrar class is loaded (plugin 1.1.0 or newer).
+	 * Safe when the class does not exist.
+	 *
+	 * @return bool
+	 */
+	public static function plugin_provides_blocks(): bool {
+		return class_exists( '\Aegis\Plugin\Blocks\ThemeBlocksRegistrar' );
+	}
+
+	/**
+	 * Drop the theme's Slider and Related Posts patterns when the plugin ships its own.
+	 *
+	 * The plugin registers the same layouts, so keeping the theme copies would
+	 * show every pattern twice in the inserter.
+	 *
+	 * @return void
+	 */
+	public static function sync_plugin_provided_patterns(): void {
+		if ( ! self::plugin_provides_blocks() ) {
+			return;
+		}
+
+		foreach ( self::plugin_provided_pattern_slugs() as $slug ) {
+			if ( WP_Block_Patterns_Registry::get_instance()->is_registered( $slug ) ) {
+				unregister_block_pattern( $slug );
+			}
 		}
 	}
 
@@ -382,6 +460,22 @@ final class BlockRegistrar {
 			);
 			return;
 		}
+	}
+
+	/**
+	 * Theme pattern slugs the plugin provides: `patterns/slider/*` and `patterns/blog/related-posts-*`.
+	 *
+	 * @return array<int, string>
+	 */
+	private static function plugin_provided_pattern_slugs(): array {
+		$files = glob( get_template_directory() . '/patterns/slider/*.php' );
+		$slugs = self::related_posts_pattern_slugs();
+
+		foreach ( is_array( $files ) ? $files : array() as $file ) {
+			$slugs[] = 'slider-' . basename( $file, '.php' );
+		}
+
+		return $slugs;
 	}
 
 	/**

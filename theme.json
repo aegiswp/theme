@@ -12,7 +12,7 @@
       "width": true
     },
     "lightbox": {
-      "enabled": true
+      "enabled": false
     },
     "position": {
       "sticky": true

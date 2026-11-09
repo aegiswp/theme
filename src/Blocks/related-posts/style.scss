@@ -19,6 +19,9 @@
 	list-style: none;
 	padding: 0;
 	margin: 0;
+	// Prefer the inline --aegis-related-columns from render.php so editor SSR
+	// and the front end stay in sync when the Columns control changes.
+	grid-template-columns: repeat(var(--aegis-related-columns, 3), minmax(0, 1fr));
 }
 
 .wp-block-aegis-related-posts__post {
@@ -98,23 +101,23 @@
 }
 
 /* --------------------------------------------------------------------------
- * Column variants
+ * Column variants (fallback when --aegis-related-columns is missing)
  * ----------------------------------------------------------------------- */
 
-.wp-block-aegis-related-posts.columns-1 .wp-block-aegis-related-posts__grid {
-	grid-template-columns: 1fr;
+.wp-block-aegis-related-posts.columns-1 {
+	--aegis-related-columns: 1;
 }
 
-.wp-block-aegis-related-posts.columns-2 .wp-block-aegis-related-posts__grid {
-	grid-template-columns: repeat(2, 1fr);
+.wp-block-aegis-related-posts.columns-2 {
+	--aegis-related-columns: 2;
 }
 
-.wp-block-aegis-related-posts.columns-3 .wp-block-aegis-related-posts__grid {
-	grid-template-columns: repeat(3, 1fr);
+.wp-block-aegis-related-posts.columns-3 {
+	--aegis-related-columns: 3;
 }
 
-.wp-block-aegis-related-posts.columns-4 .wp-block-aegis-related-posts__grid {
-	grid-template-columns: repeat(4, 1fr);
+.wp-block-aegis-related-posts.columns-4 {
+	--aegis-related-columns: 4;
 }
 
 /* --------------------------------------------------------------------------
@@ -226,18 +229,18 @@
 
 @media (max-width: 781px) {
 
-	.wp-block-aegis-related-posts.columns-3 .wp-block-aegis-related-posts__grid,
-	.wp-block-aegis-related-posts.columns-4 .wp-block-aegis-related-posts__grid {
-		grid-template-columns: repeat(2, 1fr);
+	.wp-block-aegis-related-posts.columns-3,
+	.wp-block-aegis-related-posts.columns-4 {
+		--aegis-related-columns: 2;
 	}
 }
 
 @media (max-width: 599px) {
 
-	.wp-block-aegis-related-posts.columns-2 .wp-block-aegis-related-posts__grid,
-	.wp-block-aegis-related-posts.columns-3 .wp-block-aegis-related-posts__grid,
-	.wp-block-aegis-related-posts.columns-4 .wp-block-aegis-related-posts__grid {
-		grid-template-columns: 1fr;
+	.wp-block-aegis-related-posts.columns-2,
+	.wp-block-aegis-related-posts.columns-3,
+	.wp-block-aegis-related-posts.columns-4 {
+		--aegis-related-columns: 1;
 	}
 
 	.wp-block-aegis-related-posts.is-style-list .wp-block-aegis-related-posts__post {

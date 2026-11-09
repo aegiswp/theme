@@ -79,7 +79,7 @@ class Onclick implements Renderable {
 	 * same trust as raw script. Core kses only strips tags from attribute
 	 * values, so it is removed here, like kses removes `on*` HTML attributes.
 	 *
-	 * @since 1.0.0
+	 * @since 1.0.2
 	 *
 	 * @param string $content Slashed post content.
 	 *
@@ -97,6 +97,8 @@ class Onclick implements Renderable {
 
 	/**
 	 * Removes the `onclick` attribute from blocks and their inner blocks.
+	 *
+	 * @since 1.0.2
 	 *
 	 * @param array $blocks Parsed blocks.
 	 *
@@ -132,7 +134,7 @@ class Onclick implements Renderable {
 			return '';
 		}
 
-		$js = $this->template_tags->render( $js, $block, $instance );
+		$js = $this->template_tags->render_script( $js, $instance );
 
 		return JS::format_inline_js( $js );
 	}

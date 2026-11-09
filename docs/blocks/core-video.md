@@ -6,24 +6,13 @@ Aegis does **not** register a custom `aegis/video` block. Video uses WordPress *
 
 | Layer | Enhancement |
 |-------|-------------|
-| **Theme framework** | Styling, MediaElement skins (`video.css`), optional custom player (`video_custom_player`) |
-| **Free plugin** | Type selector in the editor (YouTube / Vimeo / Audio / Bunny). Schema markup extra. Theater mode and keyboard extras require Custom Player |
+| **Theme framework** | Styling, MediaElement skins (`video.css`) |
+| **Free plugin** | Type selector in the editor (YouTube / Vimeo / Audio / Bunny). Schema markup extra. Player features come from the Aegis Video add-on |
 | **Aegis Pro** | BunnyCDN, chapters, engagement, marketing, analytics, advanced player extras, privacy, multi-audio, SEO sitemaps — see [Video Stack](../../../../plugins/aegis-pro/docs/features/video-stack.md) |
 
-## Custom Player extras
+## Custom player
 
-Enable **Custom Player** at **Aegis → Blocks → Video**, then:
-
-![A Video block on the front end with its poster image, play button, time, progress bar, and controls.](../screenshots/video-player.png)
-
-*The core Video block with Aegis player extras.*
-
-| Extra | Effect |
-|-------|--------|
-| **Theater Mode** | Theater button on the custom player |
-| **Keyboard Shortcuts** | Space, arrows, M, F, T, and related keys when the player is focused |
-
-Those extras do nothing while Custom Player is off. Sticky playback is a **Pro** extra (`video_sticky_player`), not part of the free custom player — see [Pro Video Stack — Sticky player](../../../../plugins/aegis-pro/docs/features/video-stack.md#sticky-player).
+The custom player, theater mode, keyboard shortcuts and player skins are provided by the free **Aegis Video** add-on, not the theme. Without the add-on, the Video block uses the standard WordPress player.
 
 ## Usage
 

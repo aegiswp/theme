@@ -121,8 +121,14 @@ class InlineSvg implements Renderable {
 			}
 
 			// Extract the raw SVG from the data URI string.
-			$svg_string  = str_replace( [ "url('data:image/svg+xml;utf8,", "')" ], '', $mask );
-			$svg_string  = urldecode( $svg_string );
+			// The style can come from post content or expanded template tags, so
+			// the decoded markup is sanitized like every other SVG sink.
+			$svg_string = str_replace( [ "url('data:image/svg+xml;utf8,", "')" ], '', $mask );
+			$svg_string = Icon::sanitize_svg( urldecode( $svg_string ) );
+			if ( $svg_string === '' ) {
+				continue;
+			}
+
 			$svg_dom     = DOM::create( $svg_string );
 			$svg_element = DOM::get_element( 'svg', $svg_dom );
 			if ( ! $svg_element ) {

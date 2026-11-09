@@ -517,6 +517,54 @@ class Responsive implements Renderable, Scriptable, Styleable {
 			$css .= sprintf( '@media(min-width:782px){%s}', $desktop );
 		}
 
+		// Editor-only mosaic grids. Prefer the same-element case
+		// (has-display-grid + is-layout-* together). Never target bare
+		// .wp-block-group children — that matched nested groups (color
+		// swatches) and stacked grids as full-width rows.
+		$same  = '.block-editor-block-list__block.has-display-grid.is-layout-flex,'
+			. '.block-editor-block-list__block.has-display-grid.is-layout-grid,'
+			. '.block-editor-block-list__block.has-display-grid.is-grid';
+		$same_inline = '.block-editor-block-list__block.has-display-inline-grid.is-layout-flex,'
+			. '.block-editor-block-list__block.has-display-inline-grid.is-layout-grid,'
+			. '.block-editor-block-list__block.has-display-inline-grid.is-grid';
+		$nested_host = '.block-editor-block-list__block.has-display-grid:not(.is-layout-flex):not(.is-layout-grid):not(.is-grid)';
+		$nested_host_inline = '.block-editor-block-list__block.has-display-inline-grid:not(.is-layout-flex):not(.is-layout-grid):not(.is-grid)';
+		$nested_root = ' > :is(.is-layout-flex,.is-layout-grid)';
+
+		$css .= $same
+			. '{display:grid!important;'
+			. 'grid-template-columns:var(--grid-template-columns);'
+			. 'grid-template-rows:var(--grid-template-rows)}'
+			. $same_inline
+			. '{display:inline-grid!important;'
+			. 'grid-template-columns:var(--grid-template-columns);'
+			. 'grid-template-rows:var(--grid-template-rows)}'
+			. $nested_host . ':has(' . ltrim( $nested_root ) . '),'
+			. $nested_host_inline . ':has(' . ltrim( $nested_root ) . ')'
+			. '{display:block!important}'
+			. $nested_host . $nested_root
+			. '{display:grid!important;'
+			. 'grid-template-columns:var(--grid-template-columns);'
+			. 'grid-template-rows:var(--grid-template-rows)}'
+			. $nested_host_inline . $nested_root
+			. '{display:inline-grid!important;'
+			. 'grid-template-columns:var(--grid-template-columns);'
+			. 'grid-template-rows:var(--grid-template-rows)}'
+			. '@media(max-width:781px){'
+			. $same . ',' . $same_inline . ','
+			. $nested_host . $nested_root . ','
+			. $nested_host_inline . $nested_root
+			. '{grid-template-columns:var(--grid-template-columns-mobile,var(--grid-template-columns));'
+			. 'grid-template-rows:var(--grid-template-rows-mobile,var(--grid-template-rows))}'
+			. '}'
+			. '@media(min-width:782px){'
+			. $same . ',' . $same_inline . ','
+			. $nested_host . $nested_root . ','
+			. $nested_host_inline . $nested_root
+			. '{grid-template-columns:var(--grid-template-columns-desktop,var(--grid-template-columns));'
+			. 'grid-template-rows:var(--grid-template-rows-desktop,var(--grid-template-rows))}'
+			. '}';
+
 		return $css;
 	}
 }

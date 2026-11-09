@@ -19,7 +19,7 @@
 </div>
 	<!-- /wp:group -->
 
-	<!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm"}},"typography":{"fontStyle":"normal","fontWeight":"500"}},"layout":{"type":"flex","justifyContent":"center","flexWrap":"wrap"}} -->
+	<!-- wp:navigation {"ariaLabel":"<?php echo esc_attr__( 'Footer menu', 'aegis' ); ?>","overlayMenu":"never","style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm"}},"typography":{"fontStyle":"normal","fontWeight":"500"}},"layout":{"type":"flex","justifyContent":"center","flexWrap":"wrap"}} -->
 		<!-- wp:navigation-link {"label":"<?php echo esc_attr__( 'Home', 'aegis' ); ?>","url":"<?php echo esc_url( home_url( '/' ) ); ?>","kind":"custom","isTopLevelLink":true} /-->
 		<!-- wp:navigation-link {"label":"<?php echo esc_attr__( 'About', 'aegis' ); ?>","url":"<?php echo esc_url( home_url( '/about/' ) ); ?>","kind":"custom","isTopLevelLink":true} /-->
 		<!-- wp:navigation-link {"label":"<?php echo esc_attr__( 'Blog', 'aegis' ); ?>","url":"<?php echo esc_url( home_url( '/blog/' ) ); ?>","kind":"custom","isTopLevelLink":true} /-->

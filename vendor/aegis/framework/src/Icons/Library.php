@@ -200,6 +200,7 @@ class Library {
 		$labels = [
 			'wordpress'         => __( 'Aegis', 'aegis' ),
 			'social'            => __( 'Social', 'aegis' ),
+			'payment'           => __( 'Payment', 'aegis' ),
 			'remixicon'         => __( 'Remix Icon', 'aegis' ),
 			'plugin'            => __( 'Plugins', 'aegis' ),
 			'hand-drawn'        => __( 'Hand Drawn', 'aegis' ),

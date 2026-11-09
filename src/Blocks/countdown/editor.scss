@@ -1,0 +1,60 @@
+/**
+ * Countdown Block - Editor Styles
+ *
+ * Keeps the inspector DateTimePicker aligned like the post Publish schedule
+ * popover. Theme form element rules (fieldset/legend/input) can otherwise
+ * distort the time row and AM/PM control.
+ *
+ * @package Aegis
+ * @since   1.0.3
+ */
+
+.aegis-countdown-datetime {
+	// Theme form.css floats legends and pads fieldsets; reset for WP components.
+	fieldset {
+		margin: 0 0 16px;
+		padding: 0;
+		border: 0;
+		min-inline-size: 0;
+	}
+
+	fieldset:last-child {
+		margin-bottom: 0;
+	}
+
+	legend {
+		float: none;
+		width: auto;
+		margin: 0 0 8px;
+		padding: 0;
+		font-family: inherit;
+		font-weight: 500;
+		color: inherit;
+	}
+
+	// Time + AM/PM + timezone share one baseline (Publish popover behavior).
+	.components-datetime__time-wrapper,
+	.components-datetime .components-flex {
+		align-items: center;
+	}
+
+	.components-datetime .components-base-control,
+	.components-datetime .components-base-control__field {
+		margin-bottom: 0;
+	}
+
+	// Match AM/PM segmented control height to the hour/minute inputs.
+	.components-toggle-group-control {
+		min-height: 40px;
+	}
+
+	// Prevent theme input padding from breaking the joined time field.
+	.components-datetime input {
+		margin: 0;
+		min-height: 0;
+		line-height: inherit;
+		font: inherit;
+		border-radius: inherit;
+		box-shadow: none;
+	}
+}

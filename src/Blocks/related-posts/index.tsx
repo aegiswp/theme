@@ -12,6 +12,7 @@ import Edit from './edit';
 import type { RelatedPostsAttributes } from './edit';
 import type { BlockConfiguration } from '@wordpress/blocks';
 import metadata from './block.json';
+import './editor.scss';
 import './style.scss';
 
 const icon = (

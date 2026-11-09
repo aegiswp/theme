@@ -19,16 +19,14 @@
 	<p class="aligncenter has-text-align-center has-neutral-600-color has-text-color has-15-font-size aligncenter"><?php echo esc_html__( 'Get product updates, tips, and insights delivered to your inbox. No spam, unsubscribe anytime.', 'aegis' ); ?></p>
 	<!-- /wp:paragraph -->
 
-	<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
-	<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)">
-		<!-- wp:button {"backgroundColor":"neutral-800","className":"is-style-fill","fontSize":"15"} -->
-<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-neutral-800-background-color has-background has-15-font-size has-custom-font-size wp-element-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Subscribe to Newsletter', 'aegis' ); ?></a></div>
-<!-- /wp:button -->
+	<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--md)">
+		<!-- wp:search {"label":"","showLabel":false,"placeholder":"Email address","width":100,"widthUnit":"%","buttonText":"Subscribe","buttonPosition":"button-outside","buttonUseIcon":false,"className":"is-style-newsletter"} /-->
 	</div>
-	<!-- /wp:buttons -->
+	<!-- /wp:group -->
 
-	<!-- wp:paragraph {"align":"center","textColor":"neutral-400","fontSize":"13"} -->
-	<p class="aligncenter has-text-align-center has-neutral-400-color has-text-color has-13-font-size aligncenter"><?php echo esc_html__( 'Join 5,000+ subscribers. We respect your privacy.', 'aegis' ); ?></p>
+	<!-- wp:paragraph {"align":"center","textColor":"neutral-400","fontSize":"13","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"}}}} -->
+	<p class="aligncenter has-text-align-center has-neutral-400-color has-text-color has-13-font-size aligncenter" style="margin-top:var(--wp--preset--spacing--xs)"><?php echo esc_html__( 'Join 5,000+ subscribers. We respect your privacy.', 'aegis' ); ?></p>
 	<!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

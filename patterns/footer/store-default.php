@@ -131,11 +131,11 @@
 
 		<!-- wp:group {"className":"aegis-payment-icons","style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
 		<div class="wp-block-group aegis-payment-icons">
-			<!-- wp:icon {"icon":"payment/visa","ariaLabel":"Visa","style":{"dimensions":{"width":"38px"}}} /-->
+			<!-- wp:icon {"icon":"payment/visa-outline","ariaLabel":"Visa","style":{"dimensions":{"width":"38px"}}} /-->
 
-			<!-- wp:icon {"icon":"payment/mastercard","ariaLabel":"Mastercard","style":{"dimensions":{"width":"38px"}}} /-->
+			<!-- wp:icon {"icon":"payment/mastercard-outline","ariaLabel":"Mastercard","style":{"dimensions":{"width":"38px"}}} /-->
 
-			<!-- wp:icon {"icon":"payment/paypal","ariaLabel":"PayPal","style":{"dimensions":{"width":"38px"}}} /-->
+			<!-- wp:icon {"icon":"payment/paypal-outline","ariaLabel":"PayPal","style":{"dimensions":{"width":"38px"}}} /-->
 		</div>
 		<!-- /wp:group -->
 	</div>

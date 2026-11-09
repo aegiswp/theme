@@ -31,6 +31,9 @@ jobs:
           fi
           echo "✓ Tag format is valid: $TAG"
           echo "RELEASE_TAG=$TAG" >> $GITHUB_ENV
+          # Used for versioned asset names (aegis-1.0.2.zip). Repo Source code
+          # archives stay theme-<tag>.zip because the GitHub repo is named `theme`.
+          echo "VERSION=${TAG#v}" >> $GITHUB_ENV
 
       - name: Checkout Code
         uses: actions/checkout@v5
@@ -74,17 +77,37 @@ jobs:
           echo "✓ Pre-release validation complete"
 
       - name: Install Composer Dependencies (production, for package)
-        run: composer install --no-dev --prefer-dist --no-progress --no-interaction --optimize-autoloader
+        run: |
+          # Must run after validation. Regenerates vendor/composer/autoload_* without
+          # PHPUnit/dev packages. Never zip a --dev tree and only .distignore-strip
+          # vendor/myclabs — that leaves require() maps pointing at missing files.
+          composer install --no-dev --prefer-dist --no-progress --no-interaction --optimize-autoloader
+
+          if grep -E 'myclabs/deep-copy|phpunit/phpunit' vendor/composer/autoload_*.php; then
+            echo "::error::Production Composer autoload still references PHPUnit/dev packages."
+            exit 1
+          fi
+          if [ -e vendor/myclabs ] || [ -e vendor/phpunit ]; then
+            echo "::error::Production vendor/ still contains myclabs or phpunit."
+            exit 1
+          fi
+          # Theme bootstrap must remain the only files-autoload entry.
+          grep -q 'src/bootstrap.php' vendor/composer/autoload_files.php
 
       - name: Package theme (installable build only)
         id: package_theme
         run: |
           THEME_SLUG="aegis"
-          rm -rf "$THEME_SLUG" "${THEME_SLUG}.zip" "${THEME_SLUG}.zip.sha256"
+          VERSION="${RELEASE_TAG#v}"
+          VERSIONED_ZIP="${THEME_SLUG}-${VERSION}.zip"
+
+          rm -rf "$THEME_SLUG" "${THEME_SLUG}.zip" "${THEME_SLUG}.zip.sha256" "$VERSIONED_ZIP" "${VERSIONED_ZIP}.sha256"
 
           mkdir -p "$THEME_SLUG"
           # Excludes: .distignore (dev deps, tests, sources, Node, CI, etc.).
           # Includes: block patterns/templates, theme.json, built assets, `vendor/` (no dev).
+          # Zip root folder MUST be `aegis/` (Text Domain / theme directory), never the
+          # GitHub repo name `theme` (Source code archives unpack as theme-1.0.2/).
           rsync -am ./ "$THEME_SLUG"/ \
             --exclude-from='.distignore' \
             --exclude='_playground/' \
@@ -99,6 +122,17 @@ jobs:
           # The framework is required at runtime; a broad .distignore pattern must never drop it.
           test -f "$THEME_SLUG/vendor/aegis/framework/src/ServiceProvider.php"
           test -f "$THEME_SLUG/vendor/aegis/icons/src/Icon.php"
+
+          # Autoload maps must not reference packages .distignore strips (WSOD if they do).
+          if grep -E 'myclabs/deep-copy|phpunit/phpunit' "$THEME_SLUG"/vendor/composer/autoload_*.php; then
+            echo "::error::Packaged autoload still references stripped PHPUnit/dev packages."
+            exit 1
+          fi
+          if [ -e "$THEME_SLUG/vendor/myclabs" ] || [ -e "$THEME_SLUG/vendor/phpunit" ]; then
+            echo "::error::Installable zip must not include vendor/myclabs or vendor/phpunit."
+            exit 1
+          fi
+          php -r "require '${THEME_SLUG}/vendor/autoload.php'; echo \"autoload_ok\\n\";"
 
           # WPAudit and other contributor tools must never ship in the theme zip.
           if [ -e "$THEME_SLUG/tools" ] || [ -e "$THEME_SLUG/vendor/aegis/wpaudit" ]; then
@@ -115,40 +149,55 @@ jobs:
 
           echo "Files in dist: $(find "$THEME_SLUG" -type f | wc -l)"
           zip -r "${THEME_SLUG}.zip" "$THEME_SLUG"
-          unzip -l "${THEME_SLUG}.zip" | head -n 20 | grep -q "aegis/style.css"
+          unzip -l "${THEME_SLUG}.zip" | head -n 40 | tee /tmp/aegis-zip-listing.txt
+          grep -q "aegis/style.css" /tmp/aegis-zip-listing.txt
+          # Guard against accidental repo-name packaging (users report theme-1.0.2 folders).
+          if grep -E '(^|/)theme/' /tmp/aegis-zip-listing.txt; then
+            echo "::error::Installable zip must not contain a theme/ root (expected aegis/)."
+            exit 1
+          fi
 
-          # Generate SHA256 checksum
-          sha256sum "${THEME_SLUG}.zip" > "${THEME_SLUG}.zip.sha256"
-          cat "${THEME_SLUG}.zip.sha256"
+          # Stable name for docs + versioned name so Assets are obvious next to
+          # GitHub's auto "Source code" archive (theme-<tag>.zip from repo name).
+          cp "${THEME_SLUG}.zip" "$VERSIONED_ZIP"
+          sha256sum "${THEME_SLUG}.zip" | tee "${THEME_SLUG}.zip.sha256"
+          sha256sum "$VERSIONED_ZIP" | tee "${VERSIONED_ZIP}.sha256"
 
           echo "zip_path=${THEME_SLUG}.zip" >> $GITHUB_OUTPUT
+          echo "versioned_zip_path=${VERSIONED_ZIP}" >> $GITHUB_OUTPUT
           echo "checksum_path=${THEME_SLUG}.zip.sha256" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release (Draft)
         uses: softprops/action-gh-release@v2
         with:
+          name: Aegis ${{ env.RELEASE_TAG }} — install from Assets (aegis.zip)
           files: |
             aegis.zip
             aegis.zip.sha256
+            aegis-${{ env.VERSION }}.zip
+            aegis-${{ env.VERSION }}.zip.sha256
           draft: true
           generate_release_notes: true
           body: |
+            > **Install for WordPress:** under **Assets**, download **`aegis.zip`** (or `aegis-${{ env.VERSION }}.zip`).
+            > Upload via **Appearance → Themes → Add New → Upload Theme**.
+            >
+            > Do **not** use GitHub **Source code (zip/tar.gz)**. Those archives are named `theme-…` because this repository is `aegiswp/theme`, and they are the development tree — not an installable theme package.
+
             ## Release Information
             **Tag**: ${{ env.RELEASE_TAG }}
             **Status**: Draft (awaiting review and approval)
-
-            ### Install
-            Download `aegis.zip`, upload via **Appearance → Themes → Add New → Upload Theme**, or unzip to `wp-content/themes/aegis/`.
+            **Installable package root folder**: `aegis/`
 
             ### Validation Checklist
             - [x] Tag format validated (semantic versioning)
             - [x] Linting passed (JS, CSS, PHP)
             - [x] Composer files validated
+            - [x] Production Composer autoload has no PHPUnit/dev package refs
             - [x] Package root folder is `aegis/` inside the zip
             - [x] SHA256 checksum generated
 
             ### Verification
-            To verify the package integrity, run:
             ```bash
             sha256sum -c aegis.zip.sha256
             unzip -l aegis.zip | head

@@ -172,10 +172,18 @@ class Icon {
 			return '';
 		}
 
+		// The name can come from block attributes, so it is a file name, never a path.
+		if ( $name === '' || preg_match( '#[\\\\/\0]|\.\.#', $name ) ) {
+			return '';
+		}
+
 		$dir  = $icon_sets[ $set ];
 		$file = $dir . '/' . $name . '.svg';
+		$real = realpath( $file );
+		$root = realpath( $dir );
+		$safe = $real && $root && str_starts_with( $real, $root . DIRECTORY_SEPARATOR );
 
-		if ( ! file_exists( $file ) ) {
+		if ( ! $safe ) {
 			if ( $set === 'wordpress' && function_exists( 'wp_get_icon' ) ) {
 				$core = wp_get_icon(
 					'core/' . $name,
@@ -194,7 +202,7 @@ class Icon {
 			return '';
 		}
 
-		$html = file_get_contents( $file );
+		$html = file_get_contents( $real );
 
 		$dom = DOM::create( trim( $html ) );
 		$svg = DOM::get_element( 'svg', $dom );
@@ -226,7 +234,7 @@ class Icon {
 				$styles['min-width'] = $size;
 
 				// Payment card marks use a 3:2 frame; a square height crushes them in the editor.
-				if ( str_starts_with( $set, 'payment' ) ) {
+				if ( static::is_payment_card_set( $set ) ) {
 					$styles['width']        = $size;
 					$styles['height']       = 'auto';
 					$styles['aspect-ratio'] = '3 / 2';
@@ -238,7 +246,7 @@ class Icon {
 			} else {
 				$svg->setAttribute( 'width', (string) $size );
 
-				if ( str_starts_with( $set, 'payment' ) ) {
+				if ( static::is_payment_card_set( $set ) ) {
 					$svg->setAttribute( 'height', (string) ( (float) $size * 2 / 3 ) );
 				} else {
 					$svg->setAttribute( 'height', (string) $size );
@@ -286,6 +294,13 @@ class Icon {
 				$el->setAttribute( 'stroke', 'currentColor' );
 			}
 		}
+	}
+
+	/**
+	 * Whether an icon set uses Visa-style 3:2 payment card frames.
+	 */
+	private static function is_payment_card_set( string $set ): bool {
+		return str_starts_with( $set, 'payment' );
 	}
 
 	/**
@@ -438,7 +453,7 @@ HTML;
 	 * @param array<string,string> $dirs Icon set directories.
 	 */
 	private static function is_eager_icon_set( string $set, array $dirs ): bool {
-		$always = [ 'wordpress', 'social', 'payment', 'payment-brand', 'brand' ];
+		$always = [ 'wordpress', 'social', 'payment', 'brand' ];
 
 		if ( in_array( $set, $always, true ) ) {
 			return true;
@@ -531,7 +546,10 @@ HTML;
 			}
 		}
 
-		set_transient( $cache_key, $icons, DAY_IN_SECONDS );
+		// Only cache real sets, so a made-up ?set= value cannot add database rows.
+		if ( isset( $icon_sets[ $set ] ) || $set === 'wordpress' ) {
+			set_transient( $cache_key, $icons, DAY_IN_SECONDS );
+		}
 
 		return $icons;
 	}
@@ -727,19 +745,21 @@ HTML;
 	public static function sanitize_svg( string $svg ): string {
 		$svg = self::decode_svg_string( $svg );
 
-		// Sanitize SVG.
-		if ( class_exists( 'enshrined\svgSanitize\Sanitizer' ) ) {
-			static $sanitizer = null;
-
-			if ( is_null( $sanitizer ) ) {
-				$sanitizer = new Sanitizer();
-
-				$sanitizer->minify( true );
-				$sanitizer->removeXMLTag( true );
-			}
-
-			$svg = $sanitizer->sanitize( $svg ) ?: '';
+		// Sanitize SVG. Without the sanitizer nothing is output (fail closed).
+		if ( ! class_exists( 'enshrined\svgSanitize\Sanitizer' ) ) {
+			return '';
 		}
+
+		static $sanitizer = null;
+
+		if ( is_null( $sanitizer ) ) {
+			$sanitizer = new Sanitizer();
+
+			$sanitizer->minify( true );
+			$sanitizer->removeXMLTag( true );
+		}
+
+		$svg = $sanitizer->sanitize( $svg ) ?: '';
 
 		// Remove comments.
 		$svg = preg_replace( '/<!--(.|\s)*?-->/', '', $svg );

@@ -58,7 +58,7 @@ class Pattern {
 	/**
 	 * Registers an already parsed block pattern and its categories.
 	 *
-	 * @since 1.0.0
+	 * @since 1.0.2
 	 *
 	 * @param array $pattern Pattern data from parse_file() or parse_headers().
 	 *
@@ -162,7 +162,7 @@ class Pattern {
 	 * The returned pattern carries `filePath` instead of `content`, so the
 	 * block patterns registry includes the file only when its content is read.
 	 *
-	 * @since 1.0.0
+	 * @since 1.0.2
 	 *
 	 * @param string $file The absolute path to the pattern's PHP file.
 	 *

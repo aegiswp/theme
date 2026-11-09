@@ -47,7 +47,7 @@
 					<h2 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size"><?php echo esc_html__( 'Company', 'aegis' ); ?></h2>
 					<!-- /wp:heading -->
 
-					<!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+					<!-- wp:navigation {"ariaLabel":"<?php echo esc_attr__( 'Company', 'aegis' ); ?>","overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 						<!-- wp:navigation-link {"label":"<?php echo esc_attr__( 'About', 'aegis' ); ?>","url":"<?php echo esc_url( home_url( '/about/' ) ); ?>","kind":"custom","isTopLevelLink":true} /-->
 						<!-- wp:navigation-link {"label":"<?php echo esc_attr__( 'Blog', 'aegis' ); ?>","url":"<?php echo esc_url( home_url( '/blog/' ) ); ?>","kind":"custom","isTopLevelLink":true} /-->
 						<!-- wp:navigation-link {"label":"<?php echo esc_attr__( 'Careers', 'aegis' ); ?>","url":"#","kind":"custom","isTopLevelLink":true} /-->
@@ -61,7 +61,7 @@
 					<h2 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size"><?php echo esc_html__( 'Product', 'aegis' ); ?></h2>
 					<!-- /wp:heading -->
 
-					<!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+					<!-- wp:navigation {"ariaLabel":"<?php echo esc_attr__( 'Product', 'aegis' ); ?>","overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 						<!-- wp:navigation-link {"label":"<?php echo esc_attr__( 'Features', 'aegis' ); ?>","url":"#","kind":"custom","isTopLevelLink":true} /-->
 						<!-- wp:navigation-link {"label":"<?php echo esc_attr__( 'Pricing', 'aegis' ); ?>","url":"#","kind":"custom","isTopLevelLink":true} /-->
 						<!-- wp:navigation-link {"label":"<?php echo esc_attr__( 'Integrations', 'aegis' ); ?>","url":"#","kind":"custom","isTopLevelLink":true} /-->
@@ -82,7 +82,7 @@
 					<h2 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size"><?php echo esc_html__( 'Resources', 'aegis' ); ?></h2>
 					<!-- /wp:heading -->
 
-					<!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+					<!-- wp:navigation {"ariaLabel":"<?php echo esc_attr__( 'Resources', 'aegis' ); ?>","overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 						<!-- wp:navigation-link {"label":"<?php echo esc_attr__( 'Documentation', 'aegis' ); ?>","url":"#","kind":"custom","isTopLevelLink":true} /-->
 						<!-- wp:navigation-link {"label":"<?php echo esc_attr__( 'Support', 'aegis' ); ?>","url":"#","kind":"custom","isTopLevelLink":true} /-->
 						<!-- wp:navigation-link {"label":"<?php echo esc_attr__( 'Community', 'aegis' ); ?>","url":"#","kind":"custom","isTopLevelLink":true} /-->
@@ -96,7 +96,7 @@
 					<h2 class="wp-block-heading has-text-align-left is-style-heading has-inherit-font-size"><?php echo esc_html__( 'Legal', 'aegis' ); ?></h2>
 					<!-- /wp:heading -->
 
-					<!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+					<!-- wp:navigation {"ariaLabel":"<?php echo esc_attr__( 'Legal', 'aegis' ); ?>","overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|xs"},"blockGap":"10px"},"typography":{"fontStyle":"normal","fontWeight":"400"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 						<!-- wp:navigation-link {"label":"<?php echo esc_attr__( 'Privacy', 'aegis' ); ?>","url":"#","kind":"custom","isTopLevelLink":true} /-->
 						<!-- wp:navigation-link {"label":"<?php echo esc_attr__( 'Terms', 'aegis' ); ?>","url":"#","kind":"custom","isTopLevelLink":true} /-->
 						<!-- wp:navigation-link {"label":"<?php echo esc_attr__( 'Contact', 'aegis' ); ?>","url":"<?php echo esc_url( home_url( '/contact/' ) ); ?>","kind":"custom","isTopLevelLink":true} /-->

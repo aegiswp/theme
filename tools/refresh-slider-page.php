@@ -1,4 +1,9 @@
 <?php
+// Dev tool: run from the command line only, never over HTTP.
+if ( PHP_SAPI !== 'cli' ) {
+	exit( 1 );
+}
+
 /**
  * Rebuild Slider demo page + clear pattern caches.
  *
@@ -12,7 +17,6 @@ $files   = array(
 	'features.php',
 	'portfolio.php',
 	'hero.php',
-	'latest-posts.php',
 	'books.php',
 );
 

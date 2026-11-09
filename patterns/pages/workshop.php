@@ -2,7 +2,7 @@
 /**
  * Title: Workshop Event
  * Slug: event-workshop
- * Categories: pages, events
+ * Categories: pages, event
  * Keywords: workshop, hands-on, training, class, learning, event
  * Description: A full page layout for a hands-on workshop or training event.
  * Viewport Width: 1280
@@ -10,7 +10,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["pages","events"],"patternName":"event-workshop"},"align":"full","layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"categories":["pages","event"],"patternName":"event-workshop"},"align":"full","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull">
 
 	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"neutral-50","layout":{"type":"constrained"}} -->

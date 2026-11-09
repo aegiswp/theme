@@ -3,7 +3,7 @@
 	display: flex;
 	flex-wrap: nowrap;
 	align-items: stretch;
-	gap: 0 !important;
+	gap: var(--wp--preset--spacing--xxs, 8px);
 	width: 100%;
 	max-width: 100%;
 }
@@ -19,7 +19,7 @@
 	align-items: stretch;
 	min-width: 0;
 	width: auto !important;
-	gap: 0 !important;
+	gap: var(--wp--preset--spacing--xxs, 8px);
 	margin: 0;
 	padding: 0 !important;
 	border: 0 !important;
@@ -37,9 +37,6 @@
 	box-sizing: border-box;
 	border: var(--wp--custom--input--border, var(--wp--custom--border, 1px solid currentColor)) !important;
 	border-radius: var(--wp--custom--border--radius, 0);
-	border-top-right-radius: 0;
-	border-bottom-right-radius: 0;
-	border-right-width: 0 !important;
 	padding: var(--wp--custom--button--padding-top, 10px) var(--wp--preset--spacing--sm, 1rem) var(--wp--custom--button--padding-bottom, 10px) var(--wp--preset--spacing--sm, 1rem) !important;
 	line-height: var(--wp--preset--font-size--20, 1.25);
 	background-color: var(--wp--custom--body--background, #fff);
@@ -57,10 +54,7 @@
 	height: auto !important;
 	white-space: nowrap;
 	border: var(--wp--custom--input--border, var(--wp--custom--border, 1px solid currentColor)) !important;
-	border-left-width: 0 !important;
 	border-radius: var(--wp--custom--border--radius, 0);
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
 	background: var(--wp--custom--button--background) !important;
 	color: var(--wp--custom--button--color, inherit) !important;
 	padding: var(--wp--custom--button--padding-top, 10px) var(--wp--custom--button--padding-right, 16px) var(--wp--custom--button--padding-bottom, 10px) var(--wp--custom--button--padding-left, 16px) !important;
@@ -68,9 +62,15 @@
 	font-weight: var(--wp--custom--button--font-weight);
 }
 
+/* Button inside: keep a joined field + button shell. */
+.is-style-newsletter.wp-block-search__button-inside {
+	gap: 0 !important;
+}
+
 .is-style-newsletter.wp-block-search__button-inside .wp-block-search__inside-wrapper {
 	flex: 1 1 auto;
 	flex-wrap: nowrap;
+	gap: 0 !important;
 	border: var(--wp--custom--input--border, var(--wp--custom--border, 1px solid currentColor));
 	border-radius: var(--wp--custom--border--radius, 0);
 	overflow: hidden;

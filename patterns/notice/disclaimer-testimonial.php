@@ -5,7 +5,7 @@
  * Categories: notice
  * Keywords: disclaimer, testimonial, results, typical, individual, guarantee
  * Description: A full-width results-not-typical disclosure for testimonials and case studies.
- * Viewport Width: 1280
+ * Viewport Width: 600
  */
 ?>
 

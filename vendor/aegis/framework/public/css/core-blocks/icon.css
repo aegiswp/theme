@@ -67,22 +67,39 @@ a>.wp-block-icon {
 	aspect-ratio: 1;
 }
 
-/* Payment icons: keep 3:2 Visa cards; never stroke the SVG frame */
+/* Payment icons: mono / mono-outline marks at 3:2 (card frame is in the SVG) */
 .aegis-payment-icons .wp-block-icon {
 	--aegis-payment-icon-width: var(--wp--custom--icon--size, 48px);
 	line-height: 0;
 	flex: 0 0 var(--aegis-payment-icon-width);
 	width: var(--aegis-payment-icon-width);
 	max-width: var(--aegis-payment-icon-width);
+	aspect-ratio: 3 / 2;
+	overflow: hidden;
+	background: transparent;
 }
 
 .aegis-payment-icons .wp-block-icon svg,
-.aegis-payment-icons svg[data-icon^="payment"],
-.aegis-payment-icons svg[data-icon^="payment-brand"] {
+.aegis-payment-icons svg[data-icon^="payment"] {
 	width: var(--aegis-payment-icon-width, 48px) !important;
 	min-width: var(--aegis-payment-icon-width, 48px) !important;
 	max-width: var(--aegis-payment-icon-width, 48px) !important;
 	height: auto !important;
 	aspect-ratio: 3 / 2 !important;
+}
+
+/* Filled mono marks: defeat icon.css svg[fill=none]{stroke:currentColor} on the root */
+.aegis-payment-icons svg[data-icon^="payment-"]:not([data-icon$="-outline"]) {
 	stroke: none !important;
+}
+
+/*
+ * Core `.wp-block-icon svg { fill: currentColor }` inherits into stroke-only
+ * card frames. Keep payment stroke paths hollow in the block + icon library.
+ */
+.wp-block-icon svg[data-icon^="payment-"] path[stroke],
+.block-editor-icons-selector svg[data-icon^="payment-"] path[stroke],
+.components-modal__content svg[data-icon^="payment-"] path[stroke],
+svg[data-icon^="payment-"] path[stroke] {
+	fill: none !important;
 }

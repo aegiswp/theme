@@ -28,11 +28,14 @@ use Aegis\Framework\Interfaces\Renderable;
 use Aegis\Utilities\Str;
 use WP_Block;
 use WP_Block_Type_Registry;
+use WP_HTML_Tag_Processor;
 use function add_filter;
 use function apply_filters;
 use function array_keys;
 use function array_merge;
 use function esc_html;
+use function esc_url_raw;
+use function html_entity_decode;
 use function get_bloginfo;
 use function get_post_field;
 use function get_post_meta;
@@ -64,6 +67,7 @@ use function is_scalar;
 use function post_password_required;
 use function str_contains;
 use function str_replace;
+use function str_starts_with;
 use function strip_tags;
 use function strtolower;
 
@@ -102,6 +106,20 @@ use function strtolower;
 class TemplateTags implements Renderable {
 
 	/**
+	 * Attributes whose value is a URL.
+	 *
+	 * @since 1.1.0
+	 */
+	private const URL_ATTRIBUTES = [ 'href', 'src', 'action', 'formaction', 'poster', 'cite', 'data', 'background', 'xlink:href', 'longdesc', 'usemap', 'ping' ];
+
+	/**
+	 * Attributes that never get template tags (CSS, multi-URL, and script contexts).
+	 *
+	 * @since 1.1.0
+	 */
+	private const SKIPPED_ATTRIBUTES = [ 'style', 'srcset', 'imagesrcset' ];
+
+	/**
 	 * Finds and replaces template tags in block content.
 	 *
 	 * This is the main render method, hooked into `render_block` at priority 8.
@@ -122,7 +140,7 @@ class TemplateTags implements Renderable {
 	 * @return string The block content with template tags replaced.
 	 */
 	public function render( string $block_content, array $block, WP_Block $instance ): string {
-		// --- Pre-checks and Normalization ---
+		// --- Pre-checks ---
 		// Only run on blocks that are likely to contain text content.
 		$block_name        = $block['blockName'] ?? '';
 		$registered_blocks = WP_Block_Type_Registry::get_instance()->get_all_registered();
@@ -135,59 +153,168 @@ class TemplateTags implements Renderable {
 			return $block_content;
 		}
 
-		// Normalize encoded curly braces.
-		$block_content = str_replace( [ '&#123;', '&#125;', '%7B', '%7D' ], [ '{', '}', '{', '}' ], $block_content );
-		if ( ! str_contains( $block_content, '{' ) || ! str_contains( $block_content, '}' ) ) {
+		$normalized = str_replace( [ '&#123;', '&#125;', '%7B', '%7D' ], [ '{', '}', '{', '}' ], $block_content );
+		if ( ! str_contains( $normalized, '{' ) || ! str_contains( $normalized, '}' ) ) {
 			return $block_content;
 		}
 
-		// --- Tag Matching and Replacement ---
-		preg_match_all( '#\{(.*?)}#', $block_content, $matches );
-		$without_brackets = $matches[1] ?? [];
-		if ( empty( $without_brackets ) ) {
-			return $block_content;
-		}
+		// --- Tag Replacement ---
+		// Tags are replaced after save-time kses, so each value is escaped for
+		// the context it lands in: text nodes get the viewer's data, attributes
+		// only get data that is already public, URL attributes are limited to
+		// allowed protocols, and style or event-handler attributes are skipped.
+		$post_id   = $instance->context['postId'] ?? get_the_ID();
+		$processor = new WP_HTML_Tag_Processor( $block_content );
 
-		$post_id      = $instance->context['postId'] ?? get_the_ID();
-		$replacements = [];
+		while ( $processor->next_token() ) {
+			$type = $processor->get_token_type();
 
-		foreach ( $without_brackets as $tag ) {
-			$tag         = strtolower( $tag );
-			$replacement = '';
+			if ( '#text' === $type ) {
+				$text = $processor->get_modifiable_text();
+				$new  = $this->replace_tags( $text, $post_id, false );
 
-			// Do not replace shortcodes.
-			if ( shortcode_exists( $tag ) ) {
+				if ( $new !== $text ) {
+					$processor->set_modifiable_text( $new );
+				}
+
 				continue;
 			}
 
-			// First, try to resolve the tag as a public post field or custom field.
-			if ( ! is_null( $post_id ) && $this->can_read_post_data( (int) $post_id ) ) {
-				$post_field = in_array( $tag, $this->get_post_fields(), true ) ? get_post_field( $tag, $post_id ) : '';
-				if ( $post_field ) {
-					$replacement = $post_field;
-				} elseif ( ! is_protected_meta( $tag, 'post' ) ) {
-					$post_meta = get_post_meta( $post_id, $tag, true );
-					if ( is_scalar( $post_meta ) && $post_meta ) {
-						$replacement = $post_meta;
-					}
-				}
+			if ( '#tag' !== $type || $processor->is_tag_closer() ) {
+				continue;
 			}
 
-			// If not found, try to resolve it from the predefined list of tags.
-			if ( ! $replacement ) {
-				$tags = $this->get_template_tags( $post_id ?: null );
-				if ( isset( $tags[ $tag ] ) ) {
-					// If the tag value is a function, call it to get the dynamic value.
-					$replacement = is_callable( $tags[ $tag ] ) ? call_user_func( $tags[ $tag ] ) : $tags[ $tag ];
+			foreach ( $processor->get_attribute_names_with_prefix( '' ) ?? [] as $name ) {
+				if ( in_array( $name, self::SKIPPED_ATTRIBUTES, true ) || str_starts_with( $name, 'on' ) ) {
+					continue;
 				}
-			}
 
-			if ( $replacement ) {
-				$replacements[ '{' . $tag . '}' ] = esc_html( $replacement );
+				$value = $processor->get_attribute( $name );
+				if ( ! is_string( $value ) ) {
+					continue;
+				}
+
+				$new = $this->replace_tags( $value, $post_id, true );
+				if ( $new === $value ) {
+					continue;
+				}
+
+				if ( in_array( $name, self::URL_ATTRIBUTES, true ) ) {
+					$new = esc_url_raw( $new );
+				}
+
+				$processor->set_attribute( $name, $new );
 			}
 		}
 
-		return str_replace( array_keys( $replacements ), array_values( $replacements ), $block_content );
+		return $processor->get_updated_html();
+	}
+
+	/**
+	 * Replaces template tags inside an inline script, such as an `onclick` handler.
+	 *
+	 * Values are escaped with `esc_js()` so they stay inside the JS string
+	 * literal the handler author wrapped them in.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param string   $script   Inline script.
+	 * @param WP_Block $instance Block instance.
+	 *
+	 * @return string
+	 */
+	public function render_script( string $script, WP_Block $instance ): string {
+		$post_id = $instance->context['postId'] ?? get_the_ID();
+
+		return $this->replace_tags( $script, $post_id, false, 'esc_js' );
+	}
+
+	/**
+	 * Replaces every resolvable `{tag}` in a string with its raw value.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param string        $text        Text that may contain tags.
+	 * @param mixed         $post_id     Context post ID.
+	 * @param bool          $public_only Only resolve post data that is publicly viewable.
+	 * @param callable|null $escape      Optional escaping for each value.
+	 *
+	 * @return string The text with tags replaced, or the original text if none resolved.
+	 */
+	private function replace_tags( string $text, $post_id, bool $public_only, ?callable $escape = null ): string {
+		$normalized = str_replace( [ '%7B', '%7D' ], [ '{', '}' ], $text );
+
+		if ( ! preg_match_all( '#\{(.*?)}#', $normalized, $matches ) ) {
+			return $text;
+		}
+
+		$replacements = [];
+
+		foreach ( $matches[1] as $tag ) {
+			$tag   = strtolower( $tag );
+			$value = $this->resolve_tag( $tag, $post_id, $public_only );
+
+			if ( $value !== '' ) {
+				$replacements[ '{' . $tag . '}' ] = $escape ? $escape( $value ) : $value;
+			}
+		}
+
+		if ( ! $replacements ) {
+			return $text;
+		}
+
+		return str_replace( array_keys( $replacements ), array_values( $replacements ), $normalized );
+	}
+
+	/**
+	 * Resolves one template tag to its raw (unescaped) value.
+	 *
+	 * The resolution order is post field, post meta, then the predefined tags.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param string $tag         Lowercase tag name, without braces.
+	 * @param mixed  $post_id     Context post ID.
+	 * @param bool   $public_only Only resolve post data that is publicly viewable.
+	 *
+	 * @return string Empty string when the tag does not resolve.
+	 */
+	private function resolve_tag( string $tag, $post_id, bool $public_only ): string {
+		// Do not replace shortcodes.
+		if ( shortcode_exists( $tag ) ) {
+			return '';
+		}
+
+		$replacement = '';
+
+		// First, try to resolve the tag as a public post field or custom field.
+		if ( ! is_null( $post_id ) && $this->can_read_post_data( (int) $post_id, $public_only ) ) {
+			$post_field = in_array( $tag, $this->get_post_fields(), true ) ? get_post_field( $tag, $post_id ) : '';
+			if ( $post_field ) {
+				$replacement = $post_field;
+			} elseif ( ! is_protected_meta( $tag, 'post' ) ) {
+				$post_meta = get_post_meta( $post_id, $tag, true );
+				if ( is_scalar( $post_meta ) && $post_meta ) {
+					$replacement = $post_meta;
+				}
+			}
+		}
+
+		// If not found, try to resolve it from the predefined list of tags.
+		if ( ! $replacement ) {
+			$tags = $this->get_template_tags( $post_id ?: null );
+			if ( isset( $tags[ $tag ] ) ) {
+				// If the tag value is a function, call it to get the dynamic value.
+				$replacement = is_callable( $tags[ $tag ] ) ? call_user_func( $tags[ $tag ] ) : $tags[ $tag ];
+			}
+		}
+
+		if ( ! $replacement ) {
+			return '';
+		}
+
+		// Some values are stored or prepared HTML-escaped; callers escape for their own context.
+		return html_entity_decode( (string) $replacement, ENT_QUOTES | ENT_HTML5, 'UTF-8' );
 	}
 
 	/**
@@ -197,13 +324,15 @@ class TemplateTags implements Renderable {
 	 * the tag text is chosen by whoever writes the block, while the post it
 	 * reads can be another author's (for example inside a Query Loop).
 	 *
+	 * @since 1.0.2
+	 *
 	 * @return string[]
 	 */
 	private function get_post_fields(): array {
 		/**
 		 * Filters the post fields available as template tags.
 		 *
-		 * @since 1.0.0
+		 * @since 1.0.2
 		 *
 		 * @param string[] $fields Post field names.
 		 */
@@ -229,16 +358,27 @@ class TemplateTags implements Renderable {
 	/**
 	 * Whether the current viewer may see field and meta values of a post.
 	 *
-	 * @param int $post_id Post ID.
+	 * With `$public_only`, the viewer's own read access does not count. That is
+	 * used for attribute values: the block author chooses where those point, so
+	 * a privileged viewer's private data must not be sent to them.
+	 *
+	 * @since 1.0.2
+	 *
+	 * @param int  $post_id     Post ID.
+	 * @param bool $public_only Require the post to be publicly viewable.
 	 *
 	 * @return bool
 	 */
-	private function can_read_post_data( int $post_id ): bool {
+	private function can_read_post_data( int $post_id, bool $public_only = false ): bool {
 		if ( ! $post_id || post_password_required( $post_id ) ) {
 			return false;
 		}
 
-		return is_post_publicly_viewable( $post_id ) || current_user_can( 'read_post', $post_id );
+		if ( is_post_publicly_viewable( $post_id ) ) {
+			return true;
+		}
+
+		return ! $public_only && current_user_can( 'read_post', $post_id );
 	}
 
 	/**

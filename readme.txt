@@ -1,15 +1,15 @@
 === Aegis ===
 Contributors: atmostfearentertainment
 Requires at least: 7.0
-Tested up to: 7.1.3
+Tested up to: 7.1.4
 Requires PHP: 8.1
-Stable tag: 1.0.2
+Stable tag: 1.1.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Aegis is a WordPress block theme and design-system framework built on systematic design tokens: structured colour scales, fluid typography, and constraint-based spacing for visual consistency across patterns and templates. It ships self-hosted Lexend and JetBrains Mono fonts, compiled custom blocks, 234 patterns for blog, commerce, events, portfolio, and contact, plus WooCommerce templates, dark/light mode, RTL support, and an accessibility-ready foundation aimed at WCAG 2.2 Level AA (full conformance still depends on site content).
+Aegis is a WordPress block theme and design-system framework built on systematic design tokens: structured colour scales, fluid typography, and constraint-based spacing for visual consistency across patterns and templates. It ships self-hosted Lexend and JetBrains Mono fonts, compiled custom blocks, 232 patterns for blog, commerce, events, portfolio, and contact, plus WooCommerce templates, dark/light mode, RTL support, and an accessibility-ready foundation aimed at WCAG 2.2 Level AA (full conformance still depends on site content).
 
 == Installation ==
 
@@ -49,6 +49,23 @@ Yes. Templates with a header get an injected skip link. The Blank template has n
 1. Native Block Framework showcase with light/dark mode, Site Editor styles panel, and block patterns.
 
 == Changelog ==
+
+= 1.1.0 - Unreleased =
+* Changed: The Slider, Toggle, Countdown and Related Posts blocks are provided by the Aegis plugin 1.1.0 or newer when it is active; the theme registers them only if the plugin has not, and hides its duplicate Slider and Related Posts patterns.
+* Changed: The GitHub updater holds back any release whose notes say "Requires Aegis plugin: X.Y.Z" until the plugin is installed, active and new enough, with an admin notice.
+* Security: Template tags are escaped for where they appear (no javascript: links, no private post data in link or image URLs, escaped inside onclick handlers); inline SVG masks are sanitized; the SVG sanitizer outputs nothing if its library is missing.
+* Fixed: Author archives include the site header, main landmark, and footer.
+* Fixed: Blank template shows its skip-to-content link.
+* Fixed: Form fields show a 2px keyboard focus ring.
+* Added: Payment icon set (payment/* mono and payment/*-outline mono-outline) from svg-credit-card-payment-icons; store footers and Payment Icons use *-outline.
+* Fixed: Child themes that ship patterns/header/default.php keep header-default when WooCommerce is active; only the parent header is left to the plugin overlay.
+* Fixed: Multi-slide Slider layouts keep the editor per-page count on the front end when Block Gap uses a spacing preset.
+* Fixed: Slider arrows and dots remain visible on dark hero slides in light mode.
+* Removed: Integrations icon set; no longer needed.
+* Removed: Theme payment and payment-brand folders under assets/icons/; payment packs live in the icons package.
+* Removed: Slater and Payrexx payment logo packs.
+* Removed: Duplicate theme Contact Form Map patterns; keep companion plugin copies when Map is enabled.
+* Removed: Latest Posts Carousel pattern; it ships with Aegis Pro (Query Loop carousel).
 
 = 1.0.2 - 2026-10-26 =
 * Added: Navigation blocks with the is-drilldown class use the same slide-through submenus as the mobile menu, including a Back button.
@@ -147,6 +164,13 @@ License: GPL-2.0-or-later
 Aegis Icons (vendor/aegis/icons)
 Copyright 2022-2026 Atmostfear Entertainment S.A.S.
 License: GPL-2.0-or-later
+
+Payment Icons (vendor/aegis/icons/public/icons/payment)
+Mono and mono-outline SVGs (payment/{name}, payment/{name}-outline) from react-svg-credit-card-payment-icons
+Copyright the package authors
+License: Apache License 2.0 (package.json also lists MIT)
+License URI: https://github.com/marcovoliveira/svg-credit-card-payment-icons/blob/main/LICENSE
+Source: https://github.com/marcovoliveira/svg-credit-card-payment-icons
 
 WordPress & Social Icons
 License: GPL-2.0-or-later

@@ -106,7 +106,7 @@ See [[dark-mode]] for details.
 
 ## Adding Content with Patterns
 
-Aegis provides **234 theme block patterns** in **28 category folders** (plus companion plugin and Pro patterns):
+Aegis provides **232 theme block patterns** in **28 category folders** (plus companion plugin and Pro patterns):
 
 1. Click the **Block Inserter** (+) in the top toolbar.
 2. Switch to the **Patterns** tab.

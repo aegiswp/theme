@@ -111,7 +111,7 @@ After installing the plugin, open **Aegis → Dashboard** to configure blocks an
 
 ## Building a Page with Patterns
 
-Aegis includes **234 theme block patterns** in **28 category folders** (plus companion plugin and Pro patterns). Here is a typical workflow for assembling a page:
+Aegis includes **232 theme block patterns** in **28 category folders** (plus companion plugin and Pro patterns). Here is a typical workflow for assembling a page:
 
 1. **Start with a Hero pattern** — Choose from the Hero category for your page header.
 2. **Add Feature sections** — Showcase your services or capabilities.

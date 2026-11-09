@@ -59,7 +59,7 @@ Loads Composer autoload, helpers, textdomain, and `Aegis::register()`.
 
 ### 2. src/bootstrap.php
 
-Initializes `CompanionNotice`, `GitHubUpdater`, `BlockRegistrar`, `NavigationFallback`, and `PatternDependencies`. Registers the `payment`, `payment-brand`, and `integrations` icon sets and adds `style.css` as an editor style.
+Initializes `CompanionNotice`, `GitHubUpdater`, `BlockRegistrar`, `NavigationFallback`, and `PatternDependencies`. Adds `style.css` as an editor style. Icon packs under `vendor/aegis/icons/public/icons/` (including `payment`) are discovered automatically.
 
 ### 3. Aegis::register()
 

@@ -14,11 +14,11 @@
 	<div class="wp-block-columns alignwide"><!-- wp:column {"width":"66.66%"} -->
 		<div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:query {"queryId":0,"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"style":{"spacing":{"blockGap":"0"}}} -->
 			<div class="wp-block-query"><!-- wp:post-template {"layout":{"type":"default"}} -->
-				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|sm"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 				<div class="wp-block-group"><!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","style":{"aspectRatio":{"all":"16/9"},"objectFit":{"all":"cover"}}} /-->
 
-					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs","margin":{"top":"0","bottom":"var:preset|spacing|xxs"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-					<div class="wp-block-group" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--xxs)"><!-- wp:post-terms {"term":"category","style":{"typography":{"textDecoration":"none"},"spacing":{"margin":{"top":"0","bottom":"0"}}},"fontSize":"14"} /-->
+					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xxs","margin":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+					<div class="wp-block-group" style="margin-top:0;margin-bottom:0"><!-- wp:post-terms {"term":"category","style":{"typography":{"textDecoration":"none"},"spacing":{"margin":{"top":"0","bottom":"0"}}},"fontSize":"14"} /-->
 
 						<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"textColor":"neutral-200"} -->
 						<p class="has-neutral-200-color has-text-color" style="margin-top:0;margin-bottom:0">|</p>
@@ -30,7 +30,7 @@
 
 					<!-- wp:post-title {"isLink":true,"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"fontSize":"32"} /-->
 
-					<!-- wp:post-excerpt {"excerptLength":35,"hideReadMore":true} /-->
+					<!-- wp:post-excerpt {"excerptLength":35,"hideReadMore":true,"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} /-->
 
 					<!-- wp:post-author {"showBio":false,"style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}}} /-->
 				</div>

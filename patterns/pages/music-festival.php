@@ -2,7 +2,7 @@
 /**
  * Title: Music Festival
  * Slug: event-music-festival
- * Categories: pages, events
+ * Categories: pages, event
  * Keywords: music, festival, concert, live, band, event
  * Description: A vibrant full page layout for a music festival or concert event.
  * Viewport Width: 1280
@@ -10,7 +10,7 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"categories":["pages","events"],"patternName":"event-music-festival"},"align":"full","layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"categories":["pages","event"],"patternName":"event-music-festival"},"align":"full","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull">
 
 	<!-- wp:cover {"className":"is-style-dark","dimRatio":70,"overlayColor":"neutral-0","isUserOverlayColor":true,"minHeight":90,"minHeightUnit":"vh","isDark":true,"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xxl","bottom":"var:preset|spacing|xxl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->

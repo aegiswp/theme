@@ -1,4 +1,9 @@
 <?php
+// Dev tool: run from the command line only, never over HTTP.
+if ( PHP_SAPI !== 'cli' ) {
+	exit( 1 );
+}
+
 // phpcs:ignoreFile
 $p = get_post( 2385 );
 $c = $p->post_content;

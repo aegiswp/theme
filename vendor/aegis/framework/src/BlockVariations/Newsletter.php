@@ -33,11 +33,6 @@ use DOMDocument;
 use DOMElement;
 use WP_Block;
 use function __;
-use function array_diff;
-use function array_filter;
-use function array_values;
-use function explode;
-use function implode;
 use function register_block_style;
 use function str_contains;
 use function strtolower;
@@ -79,8 +74,9 @@ class Newsletter implements Renderable, Scriptable {
 	 * Renders the search block as a newsletter signup form.
 	 *
 	 * Runs after CoreBlocks\Search so a leftover search icon can be removed.
-	 * When Newsletter is off, `is-style-newsletter` is stripped so CSS does not
-	 * hide the search icon on an ordinary search form.
+	 * Keeps `is-style-newsletter` on the front end so pattern CSS matches the
+	 * editor. Signup JS / email attributes only run when the Newsletter feature
+	 * is enabled.
 	 *
 	 * @since 1.0.0
 	 *
@@ -99,10 +95,6 @@ class Newsletter implements Renderable, Scriptable {
 			return $block_content;
 		}
 
-		if ( ! ServiceProvider::is_block_enabled( 'newsletter' ) ) {
-			return $this->strip_newsletter_style( $block_content );
-		}
-
 		$dom   = DOM::create( $block_content );
 		$form  = DOM::get_element( 'form', $dom );
 		$div   = DOM::get_element( 'div', $form );
@@ -116,6 +108,11 @@ class Newsletter implements Renderable, Scriptable {
 			if ( $icon->parentNode ) {
 				$icon->parentNode->removeChild( $icon );
 			}
+		}
+
+		// Visual-only when the Newsletter feature is off (patterns still need the style).
+		if ( ! ServiceProvider::is_block_enabled( 'newsletter' ) ) {
+			return $dom->saveHTML();
 		}
 
 		// --- Repurpose the form for JavaScript handling ---
@@ -188,33 +185,6 @@ class Newsletter implements Renderable, Scriptable {
 
 		return str_contains( $class_name, 'is-style-newsletter' )
 			|| str_contains( $block_content, 'is-style-newsletter' );
-	}
-
-	/**
-	 * Remove the Newsletter style class so leftover CSS does not hide search UI.
-	 */
-	private function strip_newsletter_style( string $block_content ): string {
-		$dom  = DOM::create( $block_content );
-		$form = DOM::get_element( 'form', $dom );
-
-		if ( ! $form ) {
-			return $block_content;
-		}
-
-		$classes = array_values(
-			array_diff(
-				array_filter( explode( ' ', $form->getAttribute( 'class' ) ) ),
-				[ 'is-style-newsletter' ]
-			)
-		);
-
-		if ( $classes ) {
-			$form->setAttribute( 'class', implode( ' ', $classes ) );
-		} else {
-			$form->removeAttribute( 'class' );
-		}
-
-		return $dom->saveHTML();
 	}
 
 	/**
